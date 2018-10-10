@@ -1,0 +1,504 @@
+GIT
+  remote: https://github.com/ClosureTree/closure_tree.git
+  revision: cb7363ea40d09ab03bae906c33f73e51b590978e
+  ref: cb7363e
+  specs:
+    closure_tree (6.6.0)
+      activerecord (>= 4.1.0)
+      with_advisory_lock (>= 3.0.0)
+
+GIT
+  remote: https://github.com/qinmingyuan/default_form.git
+  revision: 6d98b6f7b81f905f3d2b8e137d0026c070eb1d48
+  specs:
+    default_form (1.3.1)
+      rails (>= 4.2)
+
+GIT
+  remote: https://github.com/qinmingyuan/rails_com.git
+  revision: 0cc15a980a6499282debc1ccd5f577c1e50a8312
+  specs:
+    rails_com (1.2.1)
+      rails
+
+GIT
+  remote: https://github.com/qinmingyuan/rails_log.git
+  revision: 60590f500da6cf5bfee3b6ca4f8a906e2ffb0cfd
+  specs:
+    rails_log (2.1.1)
+      default_form (~> 1.3.0)
+      default_where (~> 2.2.0)
+      rails
+      rails_com (~> 1.2.0)
+
+GIT
+  remote: https://github.com/yigexiangfa/the_audit.git
+  revision: 2f38aa161e05701614a19c8089bae02e61721f5b
+  specs:
+    the_audit (0.0.1)
+      rails (>= 5.0)
+
+GIT
+  remote: https://github.com/yigexiangfa/the_auth.git
+  revision: 87ed293a013fb1b89264ad94bb903dd622620daf
+  specs:
+    the_auth (1.0.4)
+      bcrypt
+      default_form
+      omniauth-facebook
+      rails (>= 5.0)
+      rails_com
+
+GIT
+  remote: https://github.com/yigexiangfa/the_booking.git
+  revision: f753019666211cb3187766cbd4ee68b0e8489104
+  specs:
+    the_booking (0.1.0)
+      rails
+
+GIT
+  remote: https://github.com/yigexiangfa/the_data.git
+  revision: 86fba687bbd3129c1cfd47bda48c4f4c1c52bfac
+  specs:
+    the_data (1.0.0)
+      rails (>= 5.0)
+      roo
+      roo-xls
+      write_xlsx (~> 0.83.0)
+
+GIT
+  remote: https://github.com/yigexiangfa/the_detail.git
+  revision: cb33b6a146f4014d4eef82bc34ee231173d6962a
+  specs:
+    the_detail (0.0.1)
+      acts_as_list
+      rails (>= 5.0)
+      rails_com
+
+GIT
+  remote: https://github.com/yigexiangfa/the_notify.git
+  revision: 6d46d12ceba51cb961f147feea395c521bb12dfe
+  specs:
+    the_notify (0.1.0)
+      rails (>= 5.0.1)
+
+GIT
+  remote: https://github.com/yigexiangfa/the_role.git
+  revision: ba3b539ef69adfdf21e5f9da6f4c87e3dfed14a3
+  specs:
+    the_role (1.0.0)
+      acts_as_list
+      rails (>= 4.2)
+
+GIT
+  remote: https://github.com/yigexiangfa/the_sync.git
+  revision: 799bb7ca795967939b5f33eefc90258658d053a2
+  specs:
+    the_sync (0.1.0)
+      rails (~> 5.0)
+
+PATH
+  remote: ../../ruby/default_where
+  specs:
+    default_where (2.2.1)
+      activerecord (>= 4.0)
+
+PATH
+  remote: ../../engine/the_trade
+  specs:
+    the_trade (0.0.1)
+      jbuilder (>= 2.7.0)
+      money-rails (~> 1.11)
+      rails (>= 5.0.0)
+      stripe
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actioncable (5.2.0)
+      actionpack (= 5.2.0)
+      nio4r (~> 2.0)
+      websocket-driver (>= 0.6.1)
+    actionmailer (5.2.0)
+      actionpack (= 5.2.0)
+      actionview (= 5.2.0)
+      activejob (= 5.2.0)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 2.0)
+    actionpack (5.2.0)
+      actionview (= 5.2.0)
+      activesupport (= 5.2.0)
+      rack (~> 2.0)
+      rack-test (>= 0.6.3)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (5.2.0)
+      activesupport (= 5.2.0)
+      builder (~> 3.1)
+      erubi (~> 1.4)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    activejob (5.2.0)
+      activesupport (= 5.2.0)
+      globalid (>= 0.3.6)
+    activejob-cancel (0.3.0)
+      activejob (>= 4.2.0)
+      activesupport (>= 4.2.0)
+    activemodel (5.2.0)
+      activesupport (= 5.2.0)
+    activerecord (5.2.0)
+      activemodel (= 5.2.0)
+      activesupport (= 5.2.0)
+      arel (>= 9.0)
+    activestorage (5.2.0)
+      actionpack (= 5.2.0)
+      activerecord (= 5.2.0)
+      marcel (~> 0.3.1)
+    activesupport (5.2.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    acts_as_list (0.9.12)
+      activerecord (>= 3.0)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
+    arel (9.0.0)
+    awesome_print (1.8.0)
+    bcrypt (3.1.11)
+    bindex (0.5.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
+    bootsnap (1.3.0)
+      msgpack (~> 1.0)
+    builder (3.2.3)
+    byebug (10.0.2)
+    capybara (2.18.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (>= 2.0, < 4.0)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
+    chronic (0.10.2)
+    chunky_png (1.3.10)
+    coderay (1.1.2)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
+    concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
+    crass (1.0.4)
+    daemons (1.2.6)
+    debug_inspector (0.0.3)
+    erubi (1.7.1)
+    eventmachine (1.2.6)
+    execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
+    ffi (1.9.23)
+    globalid (0.4.1)
+      activesupport (>= 4.2.0)
+    haml (5.0.4)
+      temple (>= 0.8.0)
+      tilt
+    hashie (3.5.7)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
+    i18n (1.0.1)
+      concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
+    jbuilder (2.7.0)
+      activesupport (>= 4.2.0)
+      multi_json (>= 1.2)
+    json (2.1.0)
+    jwt (1.5.6)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    loofah (2.2.2)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
+    mailcatcher (0.2.4)
+      eventmachine
+      haml
+      i18n
+      json
+      mail
+      sinatra
+      skinny (>= 0.1.2)
+      sqlite3-ruby
+      thin
+    marcel (0.3.2)
+      mimemagic (~> 0.3.2)
+    method_source (0.9.0)
+    mimemagic (0.3.2)
+    mina (1.2.3)
+      open4 (~> 1.3.4)
+      rake
+    mini_magick (4.8.0)
+    mini_mime (1.0.0)
+    mini_portile2 (2.3.0)
+    minitest (5.11.3)
+    monetize (1.7.0)
+      money (~> 6.9)
+    money (6.11.2)
+      i18n (>= 0.6.4, < 1.1)
+    money-rails (1.11.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.7.0)
+      money (~> 6.11.0)
+      railties (>= 3.0)
+    msgpack (1.2.4)
+    multi_json (1.13.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
+    mustermann (1.0.2)
+    mysql2 (0.5.1)
+    nio4r (2.3.1)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.8.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-facebook (5.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-oauth2 (1.5.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.2)
+    open4 (1.3.4)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
+    public_suffix (3.0.2)
+    puma (3.11.4)
+    rack (2.0.5)
+    rack-protection (2.0.1)
+      rack
+    rack-test (1.0.0)
+      rack (>= 1.0, < 3)
+    rails (5.2.0)
+      actioncable (= 5.2.0)
+      actionmailer (= 5.2.0)
+      actionpack (= 5.2.0)
+      actionview (= 5.2.0)
+      activejob (= 5.2.0)
+      activemodel (= 5.2.0)
+      activerecord (= 5.2.0)
+      activestorage (= 5.2.0)
+      activesupport (= 5.2.0)
+      bundler (>= 1.3.0)
+      railties (= 5.2.0)
+      sprockets-rails (>= 2.0.0)
+    rails-dom-testing (2.0.3)
+      activesupport (>= 4.2.0)
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
+    railties (5.2.0)
+      actionpack (= 5.2.0)
+      activesupport (= 5.2.0)
+      method_source
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+    rake (12.3.1)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.9.10)
+      ffi (>= 0.5.0, < 2)
+    redis (4.0.1)
+    roo (2.7.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    roo-xls (1.2.0)
+      nokogiri
+      roo (>= 2.0.0, < 3)
+      spreadsheet (> 0.9.0)
+    rqrcode (0.10.1)
+      chunky_png (~> 1.0)
+    ruby-ole (1.2.12.1)
+    ruby_dep (1.5.0)
+    rubyzip (1.2.1)
+    sass (3.5.6)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sass-rails (5.0.7)
+      railties (>= 4.0.0, < 6)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
+    scout_apm (3.0.0.pre22)
+    selenium-webdriver (3.11.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2)
+    server_timing (1.0.2)
+      scout_apm
+    sidekiq (5.1.3)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
+    sinatra (2.0.1)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.1)
+      tilt (~> 2.0)
+    skinny (0.2.2)
+      eventmachine (~> 1.0)
+      thin
+    spreadsheet (1.1.7)
+      ruby-ole (>= 1.0)
+    spring (2.0.2)
+      activesupport (>= 4.2)
+    spring-watcher-listen (2.0.1)
+      listen (>= 2.7, < 4.0)
+      spring (>= 1.2, < 3.0)
+    sprockets (4.0.0.beta7)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-rails (3.2.1)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
+    sqlite3 (1.3.13)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    stripe (3.13.0)
+      faraday (~> 0.10)
+    temple (0.8.0)
+    thin (1.7.2)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
+    thor (0.20.0)
+    thread_safe (0.3.6)
+    tilt (2.0.8)
+    turbolinks (5.1.1)
+      turbolinks-source (~> 5.1)
+    turbolinks-source (5.1.0)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+    uglifier (4.1.10)
+      execjs (>= 0.3.0, < 3)
+    web-console (3.6.2)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
+    websocket-driver (0.7.0)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.3)
+    whenever (0.10.0)
+      chronic (>= 0.6.3)
+    with_advisory_lock (3.2.0)
+      activerecord (>= 3.2)
+    write_xlsx (0.83.0)
+      rubyzip (>= 1.0.0)
+      zip-zip
+    xpath (3.0.0)
+      nokogiri (~> 1.8)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activejob-cancel
+  awesome_print
+  bcrypt
+  bootsnap (>= 1.1.0)
+  byebug
+  capybara
+  chromedriver-helper
+  closure_tree!
+  coffee-rails (~> 4.2)
+  default_form!
+  default_where!
+  factory_bot_rails
+  httparty
+  i18n (= 1.0.1)
+  jbuilder (~> 2.5)
+  jwt
+  kaminari (~> 1.0.1)
+  listen (>= 3.0.5, < 3.2)
+  mailcatcher
+  mina
+  mini_magick (~> 4.8)
+  mysql2
+  pry-rails
+  pry-stack_explorer
+  puma (~> 3.11)
+  rails (~> 5.2.0)
+  rails_com!
+  rails_log!
+  redis (~> 4.0)
+  rqrcode
+  sass-rails
+  scout_apm (= 3.0.0.pre22)
+  selenium-webdriver
+  server_timing
+  sidekiq (~> 5.1)
+  spring
+  spring-watcher-listen (~> 2.0.0)
+  sprockets (= 4.0.0.beta7)
+  the_audit!
+  the_auth!
+  the_booking!
+  the_data!
+  the_detail!
+  the_notify!
+  the_role!
+  the_sync!
+  the_trade!
+  turbolinks (~> 5)
+  uglifier (>= 1.3.0)
+  web-console (>= 3.3.0)
+  whenever
+
+BUNDLED WITH
+   1.16.1

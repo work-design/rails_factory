@@ -1,0 +1,55 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Product Items</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Product Item', new_admin_product_item_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= ProductItem.human_attribute_name(:id) %></th>
+      <th><%= ProductItem.human_attribute_name(:qr_code) %></th>
+      <th><%= ProductItem.human_attribute_name(:qr_file) %></th>
+      <th><%= ProductItem.human_attribute_name(:state) %></th>
+      <th><%= ProductItem.human_attribute_name(:produced_at) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @product_items.each do |product_item| %>
+    <tr>
+      <td><%= product_item.id %></td>
+      <td><%= product_item.qr_code %></td>
+      <td>
+        <% if product_item.qr_file.attached? %>
+          <%= image_tag product_item.qr_file.variant(resize: '100x100'), class: 'ui image' %>
+        <% end %>
+      </td>
+      <td><%= product_item.state_i18n %></td>
+      <td>
+        <time><%= product_item.produced_at.to_s(:rfc822) %></time>
+      </td>
+      <td class="ui labels">
+        <%= link_to admin_product_item_path(@product, product_item), class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_product_item_path(@product, product_item), class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_product_item_path(@product, product_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @product_items %>

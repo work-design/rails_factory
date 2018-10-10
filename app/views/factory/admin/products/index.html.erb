@@ -1,0 +1,55 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Products</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Product', new_admin_product_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Product.human_attribute_name(:id) %></th>
+      <th><%= Product.human_attribute_name(:name) %></th>
+      <th><%= Product.human_attribute_name(:qr_prefix) %></th>
+      <th><%= Product.human_attribute_name(:parts) %></th>
+      <th></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= product.name %></td>
+      <td><%= product.qr_prefix %></td>
+      <td class="ui labels">
+        <% product.parts.each do |part| %>
+          <span class="ui label"><%= link_to part.name, admin_part_path(part), target: '_blank' %></span>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to 'Plan', admin_product_plans_path(product), class: 'ui blue label' %>
+      </td>
+      <td class="ui labels">
+        <%= link_to admin_product_path(product), class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_product_path(product), class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @products %>

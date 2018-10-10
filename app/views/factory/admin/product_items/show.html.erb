@@ -1,0 +1,22 @@
+<div class="ui segment breadcrumb">
+  <%= link_to 'Back', admin_product_items_path, class: 'section' %>
+  <div class="divider"> / </div>
+  <div class="active section">Show</div>
+</div>
+
+<table class="ui very basic large table">
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= ProductItem.human_attribute_name(:product_id) %></td>
+      <td><%= @product_item.product_id %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= ProductItem.human_attribute_name(:qr_code) %></td>
+      <td><%= @product_item.qr_code %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= ProductItem.human_attribute_name(:qr_file) %></td>
+      <td><%= @product_item.qr_file %></td>
+    </tr>
+  </tbody>
+</table>

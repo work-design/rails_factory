@@ -1,0 +1,1 @@
+$('#product_part_ids').dropdown();

@@ -1,0 +1,9 @@
+<%= search_form_with model: Part.new do |f| %>
+  <div class="fields">
+    <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: true } %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Search' %>
+  </div>
+<% end %>
+
+

@@ -1,0 +1,3 @@
+.ui.form .inline.fields .field > .selection.dropdown {
+  min-width: 0;
+}

@@ -1,0 +1,57 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Part Plans</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Part Plan', new_admin_part_plan_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= PartPlan.human_attribute_name(:id) %></th>
+      <th><%= PartPlan.human_attribute_name(:start_at) %></th>
+      <th><%= PartPlan.human_attribute_name(:finish_at) %></th>
+      <th><%= PartPlan.human_attribute_name(:state) %></th>
+      <th><%= PartPlan.human_attribute_name(:purchased_count) %></th>
+      <th><%= PartPlan.human_attribute_name(:received_count) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @part_plans.each do |part_plan| %>
+    <tr>
+      <td><%= part_plan.id %></td>
+      <td>
+        <time><%= part_plan.start_at.to_s(:rfc822) %></time>
+      </td>
+      <td>
+        <time><%= part_plan.finish_at.to_s(:rfc822) %></time>
+      </td>
+      <td><%= part_plan.state %></td>
+      <td><%= part_plan.purchased_count %></td>
+      <td>
+        <%= link_to part_plan.received_count, admin_part_items_path(part_plan_id: part_plan.id) %>
+      </td>
+      <td class="ui labels">
+        <%= link_to admin_part_plan_path(@part, part_plan), class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_part_plan_path(@part, part_plan), class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_part_plan_path(@part, part_plan), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @part_plans %>

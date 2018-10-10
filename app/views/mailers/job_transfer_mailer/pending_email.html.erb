@@ -1,0 +1,25 @@
+<p>Dear Manager,</p>
+
+<p>Due to personal reason, I would like to apply to transfer to <%= @job_transfer.to_department.full_name %> in <%= @job_transfer.to_office.name %> Office. Details are as follows:</p>
+
+<p>
+Name: <%= @job_transfer.officer.name %> <br>
+Email: <%= @job_transfer.officer.email %> <br>
+Entry Date: <%= @job_transfer.officer.join_on.strftime("%d %B %Y") %><br>
+Current Section: <%= @job_transfer.from_office.name %>-<%= @job_transfer.from_department.full_name %> <br>
+Current Position: <%= @job_transfer.current_job %><br>
+Transfer Date: <%= @job_transfer.transfer_on.strftime("%d %B %Y")%><br>
+Reason for transfer: <%= @job_transfer.reason %>
+</p>
+<p>
+Brief introduction of the applicant:<br>
+<%=raw @job_transfer.note && @job_transfer.note.gsub("\r\n",'<br>') %>
+</p>
+
+<p>Please click current link to approve: <%= link_to pending_job_transfers_url(), pending_job_transfers_url() %> </p>
+
+<p>In case of any questions, please feel free to contact me.</p>
+
+<p>Kind regards,</p>
+
+<p><%= @job_transfer.officer.name %></p>

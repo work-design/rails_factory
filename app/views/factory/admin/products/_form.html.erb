@@ -1,0 +1,7 @@
+<%= form_with model: [:admin, @product], local: true do |f| %>
+  <%= render 'shared/error_messages', target: @product %>
+  <%= f.text_field :name %>
+  <%= f.collection_select :part_ids, Part.all, :id, :name, {  }, { multiple: true } %>
+  <%= f.text_field :qr_prefix %>
+  <%= f.submit %>
+<% end %>

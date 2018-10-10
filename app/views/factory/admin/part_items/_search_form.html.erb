@@ -1,0 +1,10 @@
+<%= search_form_with model: PartItem.new do |f| %>
+  <div class="fields">
+    <%= f.date_field 'received_at-gte' %>
+    <%= f.date_field 'received_at-lte' %>
+    <%= f.submit 'Search' %>
+    <%= link_to 'Clear Filter', admin_part_items_path(@part), class: 'ui button' %>
+  </div>
+<% end %>
+
+

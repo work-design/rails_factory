@@ -1,0 +1,11 @@
+<div class="ui inverted mdpi borderless menu">
+  <div class="ui container">
+
+    <div class="header item">管理后台</div>
+    <%= link_to '用户管理', admin_users_path, class: 'item' %>
+    <%= link_to '队列任务', '/admin/sidekiq', class: 'item', target: '_blank' %>
+    <%= link_to 'Notifications', admin_notifications_path, class: active_helper(controllers: ['notifications']) %>
+
+    <%= render 'layouts/right_menu' %>
+  </div>
+</div>

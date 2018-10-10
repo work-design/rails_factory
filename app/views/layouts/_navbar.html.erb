@@ -1,0 +1,18 @@
+<header class="ui inverted mdpi borderless menu">
+  <div class="ui container">
+
+    <% if current_user %>
+      <%= link_to root_path, class: 'item header' do %>
+        <span>MDPI</span>
+      <% end %>
+      <%= link_to 'Team', officers_path, class: active_helper(controller: '/officers') %>
+    <% else %>
+      <%= link_to 'MDPI', root_path, class: 'item header' %>
+    <% end %>
+
+    <%= render 'layouts/right_menu' %>
+
+  </div>
+</header>
+
+

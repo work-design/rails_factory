@@ -1,0 +1,1 @@
+$('#part_provider_id').dropdown();

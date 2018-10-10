@@ -1,0 +1,51 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Parts</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Part', new_admin_part_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Part.human_attribute_name(:id) %></th>
+      <th><%= Part.human_attribute_name(:provider) %></th>
+      <th><%= Part.human_attribute_name(:name) %></th>
+      <th><%= Part.human_attribute_name(:qr_prefix) %></th>
+      <th><%= Part.human_attribute_name(:part_plans) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @parts.each do |part| %>
+    <tr>
+      <td><%= part.id %></td>
+      <td><%= part.provider&.name %></td>
+      <td><%= part.name %></td>
+      <td><%= part.qr_prefix %></td>
+      <td class="ui labels">
+        <%= link_to 'Plan', admin_part_plans_path(part), class: 'ui label' %>
+      </td>
+      <td class="ui labels">
+        <%= link_to admin_part_path(part), class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_part_path(part), class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_part_path(part), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @parts %>
