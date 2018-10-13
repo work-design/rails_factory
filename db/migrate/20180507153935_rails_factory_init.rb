@@ -1,4 +1,4 @@
-class CreateAdminProducts < ActiveRecord::Migration[5.2]
+class RailsFactoryInit < ActiveRecord::Migration[5.2]
   def change
 
     create_table :products do |t|
