@@ -6,4 +6,4 @@ class Part < ApplicationRecord
   has_many :part_items, dependent: :destroy
 
 
-end
+end unless RailsFactory.config.disabled_models.include?('Part')

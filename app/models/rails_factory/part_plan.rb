@@ -7,4 +7,4 @@ class PartPlan < ApplicationRecord
     received: 'received'
   }
 
-end
+end unless RailsFactory.config.disabled_models.include?('PartPlan')

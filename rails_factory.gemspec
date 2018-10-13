@@ -3,7 +3,7 @@ require 'rails_factory/version'
 
 Gem::Specification.new do |s|
   s.name = 'rails_factory'
-  s.version = RailsData::VERSION
+  s.version = RailsFactory::VERSION
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/yougexiangfa/rails_factory'

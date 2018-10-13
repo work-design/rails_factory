@@ -26,4 +26,4 @@ class PartItem < ApplicationRecord
 
 
 
-end
+end unless RailsFactory.config.disabled_models.include?('PartItem')

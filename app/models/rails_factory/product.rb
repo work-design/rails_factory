@@ -5,4 +5,4 @@ class Product < ApplicationRecord
   has_many :product_items, dependent: :destroy
 
 
-end
+end unless RailsFactory.config.disabled_models.include?('Product')

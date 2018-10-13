@@ -25,4 +25,4 @@ class ProductItem < ApplicationRecord
     self.qr_file.attach io: file, filename: qr_code
   end
 
-end
+end unless RailsFactory.config.disabled_models.include?('ProductItem')

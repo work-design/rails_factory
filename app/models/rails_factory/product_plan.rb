@@ -9,4 +9,4 @@ class ProductPlan < ApplicationRecord
     produced: 'produced'
   }
 
-end
+end unless RailsFactory.config.disabled_models.include?('ProductPlan')
