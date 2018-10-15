@@ -1,4 +1,4 @@
-class PmsAdmin::ProductPlansController < PmsAdmin::BaseController
+class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
   before_action :set_product
   before_action :set_product_plan, only: [:show, :edit, :update, :destroy]
 

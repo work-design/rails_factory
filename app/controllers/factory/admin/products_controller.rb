@@ -1,4 +1,4 @@
-class PmsAdmin::ProductsController < PmsAdmin::BaseController
+class Factory::Admin::ProductsController < Factory::Admin::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope :admin, module: 'pms_admin', as: 'admin' do
+  scope :admin, module: 'factory/admin', as: 'admin' do
     root to: 'home#index'
 
     resources :products do

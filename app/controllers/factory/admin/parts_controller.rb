@@ -1,4 +1,4 @@
-class PmsAdmin::PartsController < PmsAdmin::BaseController
+class Factory::Admin::PartsController < Factory::Admin::BaseController
   before_action :set_part, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -1,8 +1,7 @@
 class RailsFactory::Engine < ::Rails::Engine
 
   config.eager_load_paths += Dir[
-    "#{config.root}/app/models/rails_factory",
-    "#{config.root}/app/models/rails_factory/concerns",
+    "#{config.root}/app/models/rails_factory"
   ]
 
   config.generators do |g|

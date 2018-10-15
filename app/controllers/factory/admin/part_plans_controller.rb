@@ -1,4 +1,4 @@
-class PmsAdmin::PartPlansController < PmsAdmin::BaseController
+class Factory::Admin::PartPlansController < Factory::Admin::BaseController
   before_action :set_part
   before_action :set_part_plan, only: [:show, :edit, :update, :destroy]
 

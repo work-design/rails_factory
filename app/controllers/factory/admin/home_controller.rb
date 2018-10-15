@@ -1,4 +1,4 @@
-class PmsAdmin::HomeController < PmsAdmin::BaseController
+class Factory::Admin::HomeController < Factory::Admin::BaseController
 
   def index
     if current_receiver

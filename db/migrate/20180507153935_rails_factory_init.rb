@@ -30,7 +30,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
 
     create_table :part_items do |t|
       t.references :part
-      t.reference :product_item
+      t.references :product_item
       t.string :qr_code
       t.string :state
       t.datetime :received_at
