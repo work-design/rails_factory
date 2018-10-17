@@ -49,7 +49,8 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
     params.fetch(:part, {}).permit(
       :name,
       :qr_prefix,
-      :provider_id
+      :provider_id,
+      :part_taxon_id
     )
   end
 

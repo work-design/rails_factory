@@ -12,7 +12,7 @@ class RailsFactory::Engine < ::Rails::Engine
     }
     g.test_unit = {
       fixture: true,
-      fixture_replacement: :factory_girl
+      fixture_replacement: :factory_bot
     }
   end
 

@@ -5,4 +5,4 @@ class PartTaxon < ApplicationRecord
 
   has_many :parts, dependent: :nullify
 
-end
+end unless RailsFactory.config.disabled_models.include?('PartTaxon')

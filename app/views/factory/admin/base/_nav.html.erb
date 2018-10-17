@@ -3,13 +3,14 @@
     <i class="content icon"></i>
   </div>
   <div class="item ui dropdown">
-    <a class="<%= active_helper(controllers: ['products', 'parts', 'product_plans', 'part_plans', 'product_items', 'part_items'], active_class: 'title active', item_class: 'title') %>">
+    <a class="<%= active_helper(controllers: ['products', 'parts', 'product_plans', 'part_plans', 'product_items', 'part_items', 'part_taxons'], active_class: 'title active', item_class: 'title') %>">
       <i class="users icon"></i>
       <span>生产管理</span>
     </a>
-    <div class="<%= active_helper(controllers: ['products', 'parts', 'product_plans', 'part_plans', 'product_items', 'part_items'], active_class: 'menu content active', item_class: 'menu content') %>">
+    <div class="<%= active_helper(controllers: ['products', 'parts', 'product_plans', 'part_plans', 'product_items', 'part_items', 'part_taxons'], active_class: 'menu content active', item_class: 'menu content') %>">
       <%= link_to '产品', admin_products_path, class: active_helper(controllers: ['products', 'product_plans', 'product_items']) %>
       <%= link_to '配件', admin_parts_path, class: active_helper(controllers: ['parts', 'part_plans', 'part_items']) %>
+      <%= link_to '配件分类', admin_part_taxons_path, class: active_helper(controllers: ['part_taxons']) %>
     </div>
   </div>
 </div>

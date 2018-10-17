@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   scope :admin, module: 'factory/admin', as: 'admin' do
     root to: 'home#index'
 
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
     end
+    resources :customs
+
     resources :part_taxons
     resources :parts do
       resources :part_plans, as: 'plans'
