@@ -14,6 +14,13 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
+    create_table :part_taxons do |t|
+      t.string :name
+      t.integer :position, default: 1
+      t.references :parent
+      t.timestamps
+    end
+
     create_table :product_parts do |t|
       t.references :product
       t.references :part

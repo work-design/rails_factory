@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
     end
+    resources :part_taxons
     resources :parts do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'
