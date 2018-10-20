@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   scope :admin, module: 'factory/admin', as: 'admin' do
     root to: 'home#index'
 
