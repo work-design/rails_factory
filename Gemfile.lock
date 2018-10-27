@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/yougexiangfa/rails_com.git
+  revision: c90f107b5456550bace4509eb504f1e326bfc6ff
+  branch: master
+  specs:
+    rails_com (1.2.4)
+      rails (>= 5.2, <= 6.0)
+
 PATH
   remote: .
   specs:
@@ -113,8 +121,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails_com (1.2.4)
-      rails (>= 5.2, <= 6.0)
     rails_taxon (0.0.1)
       closure_tree (~> 6.6)
       rails (>= 5.0, <= 6.0)
@@ -159,7 +165,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (>= 5.2.0)
-  rails_com
+  rails_com!
   rails_factory!
   sdoc
   sqlite3

@@ -1,3 +1,4 @@
+require 'rails_com'
 class RailsFactory::Engine < ::Rails::Engine
 
   config.eager_load_paths += Dir[
@@ -14,6 +15,7 @@ class RailsFactory::Engine < ::Rails::Engine
       fixture: true,
       fixture_replacement: :factory_bot
     }
+    g.templates.unshift File.expand_path('lib/templates', RailsCom::Engine.root)
   end
 
   initializer 'rails_factory.assets.precompile' do |app|

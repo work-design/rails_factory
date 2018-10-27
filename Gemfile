@@ -8,7 +8,7 @@ gem 'puma'
 gem 'sqlite3'
 gem 'factory_bot_rails'
 gem 'default_form'
-gem 'rails_com'
+gem 'rails_com', github: 'yougexiangfa/rails_com', branch: 'master'
 
 gem 'turbolinks'
 #
