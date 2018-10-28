@@ -9,6 +9,7 @@ module RailsFactory #:nodoc:
     config.admin_class = 'AdminController'
     config.api_class = 'ApiController'
     config.disabled_models = []
+    config.current_customer = :current_user
   end
 
 end

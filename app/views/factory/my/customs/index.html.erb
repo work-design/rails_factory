@@ -2,7 +2,7 @@
   <div class="header item">Customs</div>
   <div class="right menu">
     <div class="item">
-      <%= link_to 'New Custom', new_custom_path, class: 'ui teal button' %>
+      <%= link_to 'New Custom', new_my_custom_path, class: 'ui teal button' %>
     </div>
   </div>
 </div>
@@ -33,13 +33,13 @@
       <td><%= custom.qr_code %></td>
       <td><%= custom.ordered_at %></td>
       <td class="ui labels">
-        <%= link_to custom_path(custom), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+        <%= link_to my_custom_path(custom), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
         <% end %>
-        <%= link_to edit_custom_path(custom), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+        <%= link_to edit_my_custom_path(custom), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
           <i class="pencil alternate icon"></i>
         <% end %>
-        <%= link_to custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+        <%= link_to my_custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
           <i class="times icon"></i>
         <% end %>
       </td>
