@@ -36,6 +36,21 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
+    create_table :customs do |t|
+      t.string :name
+      t.references :customer, polymorphic: true
+      t.string :state
+      t.string :qr_code
+      t.datetime :ordered_at
+      t.timestamps
+    end
+
+    create_table :custom_parts do |t|
+      t.references :custom
+      t.references :part
+      t.timestamps
+    end
+
     create_table :product_items do |t|
       t.references :product
       t.string :qr_code
