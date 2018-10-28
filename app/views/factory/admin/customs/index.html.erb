@@ -1,0 +1,51 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Customs</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Custom', new_custom_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Custom.human_attribute_name(:id) %></th>
+      <th><%= Custom.human_attribute_name(:name) %></th>
+      <th><%= Custom.human_attribute_name(:customer) %></th>
+      <th><%= Custom.human_attribute_name(:state) %></th>
+      <th><%= Custom.human_attribute_name(:qr_code) %></th>
+      <th><%= Custom.human_attribute_name(:ordered_at) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @customs.each do |custom| %>
+    <tr>
+      <td><%= custom.id %></td>
+      <td><%= custom.name %></td>
+      <td><%= custom.customer %></td>
+      <td><%= custom.state %></td>
+      <td><%= custom.qr_code %></td>
+      <td><%= custom.ordered_at %></td>
+      <td class="ui labels">
+        <%= link_to custom_path(custom), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_custom_path(custom), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @customs %>

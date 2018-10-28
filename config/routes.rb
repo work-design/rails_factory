@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   end
 
+  scope :my, module: 'factory/my', as: :my do
+    resources :customs
+  end
+
 end

@@ -1,0 +1,9 @@
+<%= form_with model: @custom, local: true do |f| %>
+  <%= render 'shared/error_messages', target: @custom %>
+  <%= f.text_field :name %>
+  <%= f.text_field :customer %>
+  <%= f.text_field :state %>
+  <%= f.text_field :qr_code %>
+  <%= f.datetime_select :ordered_at %>
+  <%= f.submit %>
+<% end %>
