@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  scope module: 'factory' do
+    resources :providers, only: [] do
+      get :search, on: :collection
+    end
+  end
+
   scope :admin, module: 'factory/admin', as: 'admin' do
     root to: 'home#index'
 
@@ -7,6 +13,7 @@ Rails.application.routes.draw do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
     end
+    resources :providers
     resources :customs
     resources :part_taxons
     resources :parts do

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/yougexiangfa/rails_com.git
-  revision: c90f107b5456550bace4509eb504f1e326bfc6ff
+  revision: a8ca3c41788c3e1efe1278eb4093184021b9c086
   branch: master
   specs:
     rails_com (1.2.4)
