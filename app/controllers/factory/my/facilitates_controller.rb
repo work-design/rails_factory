@@ -1,4 +1,4 @@
-class Waiting::My::FacilitatesController < Waiting::My::BaseController
+class Factory::My::FacilitatesController < Factory::My::BaseController
   before_action :set_facilitate, only: [:order]
 
   def order

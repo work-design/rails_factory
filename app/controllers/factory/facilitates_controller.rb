@@ -1,4 +1,4 @@
-class Waiting::FacilitatesController < ApplicationController
+class Factory::FacilitatesController < ApplicationController
   before_action :set_facilitate, only: [:show]
 
   def index

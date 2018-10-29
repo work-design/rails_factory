@@ -1,4 +1,4 @@
-class Waiting::Admin::FacilitateTaxonsController < Waiting::Admin::BaseController
+class Factory::Admin::FacilitateTaxonsController < Factory::Admin::BaseController
   before_action :set_facilitate_taxon, only: [:edit, :update, :destroy]
 
   def new

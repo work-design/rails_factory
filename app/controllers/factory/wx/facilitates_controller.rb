@@ -1,4 +1,4 @@
-class Waiting::Wx::FacilitatesController < Waiting::Wx::BaseController
+class Factory::Wx::FacilitatesController < Factory::Wx::BaseController
   before_action :set_facilitate, only: [:show]
 
   def index

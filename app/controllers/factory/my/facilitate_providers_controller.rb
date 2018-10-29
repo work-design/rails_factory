@@ -1,4 +1,4 @@
-class Waiting::My::FacilitateProvidersController < Waiting::My::BaseController
+class Factory::My::FacilitateProvidersController < Factory::My::BaseController
   before_action :set_provider
   before_action :set_facilitate_provider, only: [:show, :edit, :update, :destroy]
 

@@ -1,4 +1,4 @@
-class Waiting::Admin::FacilitateProvidersController < Waiting::Admin::BaseController
+class Factory::Admin::FacilitateProvidersController < Factory::Admin::BaseController
   before_action :set_facilitate, only: [:index]
   before_action :set_facilitate_provider, only: [:show, :edit, :verify, :select, :update, :destroy]
 

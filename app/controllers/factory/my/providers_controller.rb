@@ -1,4 +1,4 @@
-class Trade::My::ProvidersController < Trade::My::BaseController
+class Factory::My::ProvidersController < Factory::My::BaseController
   before_action :set_provider, only: [:show, :edit, :update]
 
   def show
@@ -30,7 +30,7 @@ class Trade::My::ProvidersController < Trade::My::BaseController
 
   private
   def set_provider
-    @provider = current_buyer.provider || current_buyer.build_provider
+    @provider = current_user.provider || current_user.build_provider
   end
 
   def provider_params

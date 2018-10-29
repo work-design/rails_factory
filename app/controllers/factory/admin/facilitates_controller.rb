@@ -1,4 +1,4 @@
-class Waiting::Admin::FacilitatesController < Waiting::Admin::BaseController
+class Factory::Admin::FacilitatesController < Factory::Admin::BaseController
   before_action :set_facilitate, only: [:show, :edit, :update, :destroy]
 
   def index
