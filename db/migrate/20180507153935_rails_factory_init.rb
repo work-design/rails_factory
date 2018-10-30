@@ -3,15 +3,41 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
 
     create_table :products do |t|
       t.string :name
+      t.string :desc #
       t.string :qr_prefix
+      t.decimal :price, precision: 10, scale: 2
+      t.decimal :import_price, precision: 10, scale: 2
+      t.decimal :profit_price, precision: 10, scale: 2
       t.timestamps
     end
 
     create_table :parts do |t|
-      t.references :provider
-      t.references :part_taxon
       t.string :name
+      t.string :desc #
       t.string :qr_prefix
+      t.references :part_taxon
+      t.decimal :price, precision: 10, scale: 2
+      t.decimal :import_price, precision: 10, scale: 2
+      t.decimal :profit_price, precision: 10, scale: 2
+      t.timestamps
+    end
+
+    create_table :customs do |t|
+      t.string :name
+      t.references :customer, polymorphic: true
+      t.string :state
+      t.string :qr_code
+      t.datetime :ordered_at
+      t.timestamps
+    end
+
+    create_table :goods do |t|
+      t.string :name
+      t.string :desc
+      t.references :facilitate_taxon
+      t.decimal :price, precision: 10, scale: 2
+      t.decimal :import_price, precision: 10, scale: 2
+      t.decimal :profit_price, precision: 10, scale: 2
       t.timestamps
     end
 
@@ -33,15 +59,6 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     create_table :product_parts do |t|
       t.references :product
       t.references :part
-      t.timestamps
-    end
-
-    create_table :customs do |t|
-      t.string :name
-      t.references :customer, polymorphic: true
-      t.string :state
-      t.string :qr_code
-      t.datetime :ordered_at
       t.timestamps
     end
 

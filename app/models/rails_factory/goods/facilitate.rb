@@ -1,4 +1,4 @@
-class Facilitate < ApplicationRecord
+class Facilitate < Good
   include OrderAble
 
   attribute :quantity, :integer, default: 1
