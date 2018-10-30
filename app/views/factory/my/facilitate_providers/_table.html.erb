@@ -1,0 +1,38 @@
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>服务名称</th>
+      <th>供货价</th>
+      <th>审核状态</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% facilitate_providers.each do |facilitate_provider| %>
+    <tr>
+      <td><%= link_to facilitate_provider.facilitate.name, facilitate_path(facilitate_provider.facilitate_id), class: 'ui blue label' %></td>
+      <td><%= facilitate_provider.export_price %></td>
+      <td>
+        <% if facilitate_provider.verified %>
+          <i class="green checkmark icon"></i>
+        <% else %>
+          <i class="grey remove icon"></i>
+        <% end %>
+      </td>
+      <td><%= link_to '服务管理', my_facilitate_provider_path(facilitate_provider) %></td>
+      <td>
+        <%= link_to edit_my_facilitate_provider_path(facilitate_provider), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to my_facilitate_provider_path(facilitate_provider), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
