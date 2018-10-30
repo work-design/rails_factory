@@ -6,11 +6,12 @@ class Facilitate < ApplicationRecord
   attribute :unit, :string, default: '个'
 
   belongs_to :facilitate_taxon, autosave: true, counter_cache: true
-  has_one :facilitate_provider, -> { where(selected: true) }
-  has_one :provider, through: :facilitate_provider
+  has_one :good_provider, -> { where(selected: true) }, as: :good
+  has_one :provider, through: :good_provider
+  has_many :good_providers, as: :good
+  has_many :providers, through: :good_providers
+
   has_many :products
-  has_many :facilitate_providers
-  has_many :providers, through: :facilitate_providers
 
   has_one_attached :logo
 

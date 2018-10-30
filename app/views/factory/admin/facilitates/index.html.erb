@@ -6,17 +6,18 @@
 </div>
 
 <div class="ui attached segment">
+  <%= render 'search_form' %>
 </div>
 
 <table class="ui selectable structured celled bottom attached table">
   <thead>
     <tr>
-      <th>分类</th>
-      <th>ID</th>
-      <th>名称</th>
-      <th>Logo</th>
-      <th>描述</th>
-      <th>时间</th>
+      <th><%= Facilitate.human_attribute_name(:taxon) %></th>
+      <th><%= Facilitate.human_attribute_name(:id) %></th>
+      <th><%= Facilitate.human_attribute_name(:name) %></th>
+      <th><%= Facilitate.human_attribute_name(:logo) %></th>
+      <th><%= Facilitate.human_attribute_name(:desc) %></th>
+      <th><%= Facilitate.human_attribute_name(:created_at) %></th>
       <th></th>
     </tr>
   </thead>

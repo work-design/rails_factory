@@ -1,8 +1,8 @@
-class FacilitateProvider < ApplicationRecord
-  belongs_to :facilitate
+class GoodProvider < ApplicationRecord
+  belongs_to :good, polymorphic: true
   belongs_to :provider
 
-  validates :facilitate_id, uniqueness: { scope: :provider_id }
+  validates :good_id, uniqueness: { scope: [:good_type, :provider_id] }
 
   scope :verified, -> { where(verified: true) }
 

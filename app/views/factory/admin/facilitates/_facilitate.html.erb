@@ -3,11 +3,17 @@
   <td><%= facilitate.name %></td>
   <td><%= image_tag facilitate.logo, size: '50x50' if facilitate.logo.attached? %></td>
   <td><%= facilitate.desc %></td>
-  <td><%= facilitate.created_at.to_s(:db2) %></td>
+  <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td>
     <%= link_to '供应商管理', admin_facilitate_facilitate_providers_path(facilitate), class: 'ui orange label' %>
-    <%= link_to '详细', admin_facilitate_path(facilitate), class: 'ui blue label' %>
-    <%= link_to '编辑', edit_admin_facilitate_path(facilitate), class: 'ui pink label' %>
-    <%= link_to '删除', admin_facilitate_path(facilitate), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+    <%= link_to admin_facilitate_path(facilitate), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+      <i class="location arrow icon"></i>
+    <% end %>
+    <%= link_to edit_admin_facilitate_path(facilitate), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+      <i class="pencil alternate icon"></i>
+    <% end %>
+    <%= link_to admin_facilitate_path(facilitate), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+      <i class="times icon"></i>
+    <% end %>
   </td>
 </tr>
