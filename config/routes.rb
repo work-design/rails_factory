@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
     resources :facilitate_taxons, except: [:index, :show]
     resources :facilitates do
-      resources :facilitate_providers, shallow: true do
+      resources :good_providers, shallow: true do
         patch :verify, on: :member
         patch :select, on: :member
       end

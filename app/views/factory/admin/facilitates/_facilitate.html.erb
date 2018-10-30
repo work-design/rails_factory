@@ -5,7 +5,7 @@
   <td><%= facilitate.desc %></td>
   <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td>
-    <%= link_to '供应商管理', admin_facilitate_facilitate_providers_path(facilitate), class: 'ui orange label' %>
+    <%= link_to '供应商管理', admin_facilitate_good_providers_path(facilitate), class: 'ui orange label' %>
     <%= link_to admin_facilitate_path(facilitate), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
       <i class="location arrow icon"></i>
     <% end %>
