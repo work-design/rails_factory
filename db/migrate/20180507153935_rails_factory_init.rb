@@ -5,8 +5,10 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :desc #
       t.string :qr_prefix
-      t.string :sku
+      t.string :sku, index: true
       t.string :type
+      t.integer :order_items_count, default: 0
+      t.boolean :published, default: true
       t.references :good_taxon
       t.decimal :price, precision: 10, scale: 2
       t.decimal :import_price, precision: 10, scale: 2
