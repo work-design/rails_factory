@@ -1,5 +1,5 @@
-class Facilitate < Good
-  include OrderAble
+class Facilitate < ApplicationRecord
+  include RailsTradeOrder
 
   attribute :quantity, :integer, default: 1
   attribute :unified_quantity, :integer, default: 1

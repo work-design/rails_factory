@@ -8,6 +8,15 @@ module RailsFactoryGood
 
     attribute :quantity, :decimal
     attribute :unit, :string
+
+    before_save :sync_price, if: -> { import_price_changed? || profit_price_changed? }
+
+  end
+
+
+  private
+  def sync_price
+    self.price = self.import_price.to_d + self.profit_price.to_d
   end
 
 end
