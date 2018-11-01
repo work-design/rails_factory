@@ -10,8 +10,7 @@ PATH
   remote: .
   specs:
     rails_factory (1.0.0)
-      rails (>= 5.0)
-      rails_com
+      rails_com (~> 1.2)
       rails_taxon
 
 GEM
@@ -172,4 +171,4 @@ DEPENDENCIES
   turbolinks
 
 BUNDLED WITH
-   1.16.6
+   1.17.1

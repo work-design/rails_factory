@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.version = RailsFactory::VERSION
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
-  s.homepage = 'https://github.com/yougexiangfa/rails_factory'
-  s.summary = 'Data Import & Export for Rails'
-  s.description = 'Description of TheData.'
+  s.homepage = 'https://github.com/work-design/rails_factory'
+  s.summary = 'Product produce admin'
+  s.description = 'Product produce admin'
   s.license = 'LGPL-3.0'
 
   s.files = Dir[
@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   ]
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '>= 5.0'
-  s.add_dependency 'rails_com'
-  s.add_dependency 'rails_taxon'
+  s.add_dependency 'rails_com', '~> 1.2'
+  s.add_dependency 'rails_taxon', '~> 1.0'
 end
