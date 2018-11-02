@@ -1,4 +1,4 @@
-class Waiting::Wx::BaseController < WxController
+class Factory::Wx::BaseController < WxController
 
 
 
