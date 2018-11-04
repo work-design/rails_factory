@@ -3,8 +3,7 @@ class Provider < ApplicationRecord
   has_many :users, inverse_of: :provider
   has_many :part_providers
   has_many :parts, through: :part_providers
-  has_many :facilitate_providers
-  has_many :facilitates, through: :facilitate_providers
+  has_many :good_providers, dependent: :delete_all
 
   def name_detail
     "#{name} (#{id})"

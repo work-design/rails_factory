@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :facilitates, only: [] do
       put :order, on: :member
     end
+    resources :good_providers
   end
 
   scope :wx, module: 'factory/wx', as: :wx do

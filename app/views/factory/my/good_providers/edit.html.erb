@@ -1,13 +1,11 @@
 <div class="ui segment breadcrumb">
-  <%= link_to 'Back', my_facilitate_providers_path, class: 'section' %>
+  <%= link_to 'Back', my_good_providers_path, class: 'section' %>
   <div class="divider">/</div>
   <div class="active section">Edit</div>
 </div>
 
 <div class="ui segment">
-  <%= form_with model: @facilitate_provider, url: my_facilitate_providers_path, local: true do |f| %>
+  <%= form_with model: @good_provider, url: my_good_provider_path(@good_provider), local: true do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
   <% end %>
 </div>
-
-

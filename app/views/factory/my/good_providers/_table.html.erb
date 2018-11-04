@@ -1,0 +1,38 @@
+<table class="ui table">
+  <thead>
+    <tr>
+      <th><%= GoodProvider.human_attribute_name(:name) %></th>
+      <th><%= GoodProvider.human_attribute_name(:export_price) %></th>
+      <th><%= GoodProvider.human_attribute_name(:verified) %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% good_providers.each do |good_provider| %>
+    <tr>
+      <td><%= link_to good_provider.good.name, facilitate_path(good_provider.good_id), class: 'ui blue label' %></td>
+      <td><%= good_provider.export_price %></td>
+      <td>
+        <% if good_provider.verified %>
+          <i class="green checkmark icon"></i>
+        <% else %>
+          <i class="grey remove icon"></i>
+        <% end %>
+      </td>
+      <td><%= link_to '服务管理', my_good_provider_path(good_provider) %></td>
+      <td>
+        <%= link_to edit_my_good_provider_path(good_provider), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to my_good_provider_path(good_provider), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
