@@ -1,5 +1,5 @@
-class Trade::Admin::ProvidersController < Trade::Admin::BaseController
-  before_action :set_provider, :only => [:show, :edit, :update, :type, :destroy, :products, :posts, :channel]
+class Factory::Admin::ProvidersController < Factory::Admin::BaseController
+  before_action :set_provider, only: [:show, :edit, :update, :type, :destroy, :products, :posts, :channel]
 
   def index
     @providers = Provider.page(params[:page])

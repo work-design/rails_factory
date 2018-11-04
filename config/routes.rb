@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
   scope module: 'factory' do
-    resources :facilitates, only: [:index, :show]
     resources :providers, only: [] do
       get :search, on: :collection
     end
   end
 
   scope :admin, module: 'factory/admin', as: 'admin' do
-    root to: 'home#index'
-
     resources :products do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
@@ -21,9 +18,9 @@ Rails.application.routes.draw do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'
     end
-    resources :facilitate_taxons, except: [:index, :show]
-    resources :facilitates do
-      resources :good_providers, shallow: true do
+
+    scope ':good_type/:good_id' do
+      resources :good_providers do
         patch :verify, on: :member
         patch :select, on: :member
       end
@@ -36,11 +33,9 @@ Rails.application.routes.draw do
     resources :facilitates, only: [] do
       put :order, on: :member
     end
-    resources :facilitate_providers
   end
 
-  scope :wx, module: 'waiting/wx', as: :wx do
-    resources :facilitates
+  scope :wx, module: 'factory/wx', as: :wx do
   end
 
 end

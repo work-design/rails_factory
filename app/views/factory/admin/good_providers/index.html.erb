@@ -1,7 +1,7 @@
 <div class="ui segment breadcrumb">
   <%= link_to '返回', admin_facilitates_path, class: 'section' %>
   <div class="divider">/</div>
-  <%= link_to @facilitate.name, admin_facilitate_path(@facilitate), class: 'section' %>
+  <%# link_to @good.name, admin_facilitate_path(@good), class: 'section' %>
   <div class="divider">/</div>
   <div class="active section">编辑</div>
 </div>
@@ -12,15 +12,15 @@
 
 <table class="ui bottom attached table">
   <thead>
-  <tr>
-    <th>ID</th>
-    <th>供应商</th>
-    <th>供应价格</th>
-    <th>验证</th>
-    <th>默认供应商</th>
-    <th>Created At</th>
-    <th></th>
-  </tr>
+    <tr>
+      <th><%= GoodProvider.human_attribute_name(:id) %></th>
+      <th><%= GoodProvider.human_attribute_name(:provider) %></th>
+      <th><%= GoodProvider.human_attribute_name(:export_price) %></th>
+      <th>验证</th>
+      <th>默认供应商</th>
+      <th><%= GoodProvider.human_attribute_name(:created_at) %></th>
+      <th></th>
+    </tr>
   </thead>
 
   <tbody>
@@ -30,7 +30,7 @@
       <td><%= good_provider.provider.name %></td>
       <td><%= good_provider.export_price %></td>
       <td>
-        <%= form_tag verify_admin_good_provider_path(good_provider.id), method: :patch do %>
+        <%= form_with url: verify_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id), method: :patch do %>
           <span class="ui toggle checkbox">
             <label></label>
             <%= check_box_tag :verified, 1, good_provider.verified, onChange: 'this.form.submit()' %>
@@ -38,7 +38,7 @@
         <% end %>
       </td>
       <td>
-        <%= form_tag select_admin_good_provider_path(good_provider.id), method: :patch do %>
+        <%= form_with url: select_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id), method: :patch do %>
           <span class="<%= active_assert(good_provider.selected, expected: 'ui toggle disabled checkbox', unexpected: 'ui toggle checkbox') %>">
             <label></label>
             <%= check_box_tag :selected, nil, good_provider.selected, onChange: 'this.form.submit()' %>
@@ -47,7 +47,9 @@
       </td>
       <td><time><%= good_provider.created_at.to_s(:rfc822) %></time></td>
       <td>
-        <%= link_to '删除', admin_good_provider_path(good_provider), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+        <%= link_to admin_good_provider_path(params[:good_type], params[:good_id], good_provider), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
       </td>
     </tr>
   <% end %>

@@ -1,9 +1,10 @@
 class Factory::Admin::GoodProvidersController < Factory::Admin::BaseController
-  before_action :set_facilitate, only: [:index]
+  #before_action :set_facilitate, only: [:index]
   before_action :set_good_provider, only: [:show, :edit, :verify, :select, :update, :destroy]
 
   def index
-    @good_providers = @facilitate.good_providers.order(id: :asc).page(params[:page])
+    q_params = params.permit(:good_type, :good_id)
+    @good_providers = GoodProvider.default_where(q_params).order(id: :asc).page(params[:page])
   end
 
   def show
