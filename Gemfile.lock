@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/yougexiangfa/rails_com.git
-  revision: 6d1e68aa505bd2d163d1f82abedd98842baea0e4
+  revision: 55cbd68a420f0f92a50b27b96e08cb040c020ae3
   branch: master
   specs:
     rails_com (1.2.5)
+      httparty (>= 0.16, <= 1.0)
       rails (>= 5.2, <= 6.0)
 
 PATH
@@ -11,7 +12,7 @@ PATH
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
-      rails_taxon
+      rails_taxon (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -60,9 +61,9 @@ GEM
     arel (9.0.0)
     awesome_print (1.8.0)
     builder (3.2.3)
-    closure_tree (6.6.0)
-      activerecord (>= 4.1.0)
-      with_advisory_lock (>= 3.0.0)
+    closure_tree (7.0.0)
+      activerecord (>= 4.2.10)
+      with_advisory_lock (>= 4.0.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
@@ -76,20 +77,23 @@ GEM
       railties (>= 3.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
-    method_source (0.9.0)
+    method_source (0.9.1)
     mimemagic (0.3.2)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    multi_xml (0.6.0)
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
@@ -120,8 +124,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails_taxon (0.0.1)
-      closure_tree (~> 6.6)
+    rails_taxon (1.0.0)
+      closure_tree (>= 6.6, <= 7.1)
       rails (>= 5.0, <= 6.0)
     railties (5.2.1)
       actionpack (= 5.2.1)
