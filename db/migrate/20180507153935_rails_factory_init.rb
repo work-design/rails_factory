@@ -1,15 +1,60 @@
 class RailsFactoryInit < ActiveRecord::Migration[5.2]
   def change
 
-    create_table :goods do |t|
+    create_table :product_taxons do |t|
       t.string :name
-      t.string :desc #
+      t.integer :position, default: 1
+      t.references :parent
+      t.timestamps
+    end
+
+    create_table :product_taxon_hierarchies, id: false do |t|
+      t.integer :ancestor_id, null: false
+      t.integer :descendant_id, null: false
+      t.integer :generations, null: false
+      t.index ['ancestor_id', 'descendant_id', 'generations'], name: 'product_taxon_anc_desc_idx', unique: true
+      t.index ['descendant_id'], name: 'product_taxon_desc_idx'
+    end
+
+    create_table :products do |t|
+      t.references :product_taxon
+      t.string :name
+      t.string :desc
       t.string :qr_prefix
       t.string :sku, index: true
       t.string :type
       t.integer :order_items_count, default: 0
       t.boolean :published, default: true
-      t.references :good_taxon
+      t.decimal :price, precision: 10, scale: 2
+      t.decimal :import_price, precision: 10, scale: 2
+      t.decimal :profit_price, precision: 10, scale: 2
+      t.timestamps
+    end
+
+    create_table :part_taxons do |t|
+      t.string :name
+      t.integer :position, default: 1
+      t.references :parent
+      t.timestamps
+    end
+
+    create_table :part_taxon_hierarchies, id: false do |t|
+      t.integer :ancestor_id, null: false
+      t.integer :descendant_id, null: false
+      t.integer :generations, null: false
+      t.index ['ancestor_id', 'descendant_id', 'generations'], name: 'part_taxon_anc_desc_idx', unique: true
+      t.index ['descendant_id'], name: 'part_taxon_desc_idx'
+    end
+
+    create_table :parts do |t|
+      t.references :part_taxon
+      t.string :name
+      t.string :desc
+      t.string :qr_prefix
+      t.string :sku, index: true
+      t.string :type
+      t.integer :order_items_count, default: 0
+      t.boolean :published, default: true
       t.decimal :price, precision: 10, scale: 2
       t.decimal :import_price, precision: 10, scale: 2
       t.decimal :profit_price, precision: 10, scale: 2
@@ -24,22 +69,6 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.datetime :ordered_at
       t.timestamps
     end
-
-    create_table :good_taxons do |t|
-      t.string :name
-      t.string :type
-      t.integer :position, default: 1
-      t.references :parent
-      t.timestamps
-    end
-
-    create_table :good_taxon_hierarchies, id: false do |t|
-      t.integer :ancestor_id, null: false
-      t.integer :descendant_id, null: false
-      t.integer :generations, null: false
-    end
-    add_index :good_taxon_hierarchies, [:ancestor_id, :descendant_id, :generations], unique: true, name: 'good_taxon_anc_desc_idx'
-    add_index :good_taxon_hierarchies, [:descendant_id], name: 'good_taxon_desc_idx'
 
     create_table :product_parts do |t|
       t.references :product
