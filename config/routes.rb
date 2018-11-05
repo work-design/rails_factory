@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :providers, only: [] do
       get :search, on: :collection
     end
+    resources :parts
   end
 
   scope :admin, module: 'factory/admin', as: 'admin' do

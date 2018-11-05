@@ -32,6 +32,7 @@
         <%= link_to 'Plan', admin_part_plans_path(part), class: 'ui label' %>
       </td>
       <td class="ui labels">
+        <%= link_to '供应商管理', admin_good_providers_path('Part', part), class: 'ui orange label' %>
         <%= link_to admin_part_path(part), class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
         <% end %>

@@ -7,6 +7,8 @@ class Part < ApplicationRecord
   has_many :part_plans, dependent: :destroy
   has_many :part_items, dependent: :destroy
 
+  has_many :good_providers, as: :good, dependent: :destroy
+
   before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
 
 
