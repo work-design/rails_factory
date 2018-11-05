@@ -11,7 +11,11 @@
     <% end %>
   </td>
   <td>
-    <%= link_to t('.edit'), edit_admin_part_taxon_path(node), class: 'ui pink label' %>
-    <%= link_to t('.destroy'), admin_part_taxon_path(node), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+    <%= link_to edit_admin_part_taxon_path(node), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+      <i class="pencil alternate icon"></i>
+    <% end %>
+    <%= link_to admin_part_taxon_path(node), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+      <i class="times icon"></i>
+    <% end %>
   </td>
 </tr>

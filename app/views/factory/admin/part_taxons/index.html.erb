@@ -1,5 +1,6 @@
 <div class="ui top attached borderless menu">
-  <div class="header item">Part Taxons</div>
+  <%= link_to '配件', admin_parts_path, class: active_helper(controllers: ['parts']) %>
+  <%= link_to '配件分类', admin_part_taxons_path, class: active_helper(controllers: ['part_taxons']) %>
   <div class="right menu">
     <div class="item"><%= link_to 'New Part Taxon', new_admin_part_taxon_path, class: 'ui teal button' %></div>
   </div>
@@ -14,6 +15,7 @@
     <tr>
       <th><%= PartTaxon.human_attribute_name(:name) %></th>
       <th><%= PartTaxon.human_attribute_name(:position) %></th>
+      <th></th>
       <th></th>
     </tr>
   </thead>

@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, @part], local: true do |f| %>
   <%= render 'shared/error_messages', target: @part %>
   <%= f.collection_select :provider_id, Provider.all, :id, :name %>
-  <%= f.collection_select :part_taxon_id, PartTaxon.all, :id, :name, { prompt: 'Select Taxon', on: { wrapper_id: true } } %>
+  <%= render partial: 'nodes/outer_select', locals: { f: f, outer: 'part_taxon' } %>
   <%= f.text_field :name %>
   <%= f.text_field :qr_prefix %>
   <%= f.submit %>

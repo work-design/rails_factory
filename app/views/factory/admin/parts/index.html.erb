@@ -1,5 +1,6 @@
 <div class="ui top attached borderless menu">
-  <div class="header item">Admin Parts</div>
+  <%= link_to '配件', admin_parts_path, class: active_helper(controllers: ['parts']) %>
+  <%= link_to '配件分类', admin_part_taxons_path, class: active_helper(controllers: ['part_taxons']) %>
   <div class="right menu">
     <div class="item">
       <%= link_to 'New Admin Part', new_admin_part_path, class: 'ui teal button' %>
