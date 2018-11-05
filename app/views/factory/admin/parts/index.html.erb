@@ -16,7 +16,6 @@
   <thead>
     <tr>
       <th><%= Part.human_attribute_name(:id) %></th>
-      <th><%= Part.human_attribute_name(:provider) %></th>
       <th><%= Part.human_attribute_name(:name) %></th>
       <th><%= Part.human_attribute_name(:qr_prefix) %></th>
       <th><%= Part.human_attribute_name(:part_plans) %></th>
@@ -27,7 +26,6 @@
   <% @parts.each do |part| %>
     <tr>
       <td><%= part.id %></td>
-      <td><%= part.provider&.name %></td>
       <td><%= part.name %></td>
       <td><%= part.qr_prefix %></td>
       <td class="ui labels">
