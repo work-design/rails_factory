@@ -1,4 +1,5 @@
 class Factory::Admin::CustomsController < Factory::Admin::BaseController
+  before_action :set_product, only: [:index, :new, :create]
   before_action :set_custom, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,14 +7,14 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
   end
 
   def new
-    @custom = Custom.new
+    @custom = @product.customs.build
   end
 
   def create
-    @custom = Custom.new(custom_params)
+    @custom = @product.customs.build(custom_params)
 
     if @custom.save
-      redirect_to admin_customs_url, notice: 'Custom was successfully created.'
+      redirect_to admin_product_customs_url(@product), notice: 'Custom was successfully created.'
     else
       render :new
     end
@@ -27,7 +28,7 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
 
   def update
     if @custom.update(custom_params)
-      redirect_to admin_customs_url, notice: 'Custom was successfully updated.'
+      redirect_to admin_product_customs_url(@custom.product_id), notice: 'Custom was successfully updated.'
     else
       render :edit
     end
@@ -35,10 +36,14 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
 
   def destroy
     @custom.destroy
-    redirect_to admin_customs_url, notice: 'Custom was successfully destroyed.'
+    redirect_to admin_product_customs_url(@custom.product_id), notice: 'Custom was successfully destroyed.'
   end
 
   private
+  def set_product
+    @product = Product.find params[:product_id]
+  end
+
   def set_custom
     @custom = Custom.find(params[:id])
   end
