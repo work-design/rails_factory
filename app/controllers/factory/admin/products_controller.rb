@@ -47,6 +47,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
     params.fetch(:product, {}).permit(
       :name,
       :qr_prefix,
+      :reference_price,
       part_ids: []
     )
   end

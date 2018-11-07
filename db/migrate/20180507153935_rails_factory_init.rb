@@ -25,6 +25,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.string :type
       t.integer :order_items_count, default: 0
       t.boolean :published, default: true
+      t.decimal :reference_price, precision: 10, scale: 2
       t.decimal :price, precision: 10, scale: 2
       t.decimal :import_price, precision: 10, scale: 2
       t.decimal :profit_price, precision: 10, scale: 2
@@ -62,7 +63,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     end
 
     create_table :customs do |t|
-      t.string :name
+      t.references :product
       t.references :customer, polymorphic: true
       t.string :state
       t.string :qr_code

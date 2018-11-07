@@ -15,7 +15,7 @@
   <thead>
     <tr>
       <th><%= Custom.human_attribute_name(:id) %></th>
-      <th><%= Custom.human_attribute_name(:name) %></th>
+      <th><%= Custom.human_attribute_name(:product_name) %></th>
       <th><%= Custom.human_attribute_name(:customer) %></th>
       <th><%= Custom.human_attribute_name(:state) %></th>
       <th><%= Custom.human_attribute_name(:qr_code) %></th>
@@ -27,7 +27,7 @@
   <% @customs.each do |custom| %>
     <tr>
       <td><%= custom.id %></td>
-      <td><%= custom.name %></td>
+      <td><%= custom.product.name %></td>
       <td><%= custom.customer %></td>
       <td><%= custom.state %></td>
       <td><%= custom.qr_code %></td>

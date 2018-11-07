@@ -17,6 +17,7 @@
       <th><%= Product.human_attribute_name(:id) %></th>
       <th><%= Product.human_attribute_name(:name) %></th>
       <th><%= Product.human_attribute_name(:qr_prefix) %></th>
+      <th><%= Product.human_attribute_name(:reference_price) %></th>
       <th><%= Product.human_attribute_name(:parts) %></th>
       <th></th>
       <th>Actions</th>
@@ -28,6 +29,7 @@
       <td><%= product.id %></td>
       <td><%= product.name %></td>
       <td><%= product.qr_prefix %></td>
+      <td><%= product.reference_price %></td>
       <td class="ui labels">
         <% product.parts.each do |part| %>
           <span class="ui label"><%= link_to part.name, admin_part_path(part), target: '_blank' %></span>
