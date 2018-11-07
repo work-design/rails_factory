@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
     scope ':good_type/:good_id' do
       resources :good_providers do
-        patch :verify, on: :member
         patch :select, on: :member
       end
     end

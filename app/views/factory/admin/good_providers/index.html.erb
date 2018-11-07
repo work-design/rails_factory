@@ -16,8 +16,8 @@
       <th><%= GoodProvider.human_attribute_name(:id) %></th>
       <th><%= GoodProvider.human_attribute_name(:provider) %></th>
       <th><%= GoodProvider.human_attribute_name(:export_price) %></th>
-      <th>验证</th>
-      <th>默认供应商</th>
+      <th><%= GoodProvider.human_attribute_name(:verified) %></th>
+      <th><%= GoodProvider.human_attribute_name(:selected) %></th>
       <th><%= GoodProvider.human_attribute_name(:created_at) %></th>
       <th></th>
     </tr>
@@ -30,20 +30,28 @@
       <td><%= good_provider.provider.name %></td>
       <td><%= good_provider.export_price %></td>
       <td>
-        <%= form_with url: verify_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id), method: :patch do %>
-          <span class="ui toggle checkbox">
-            <label></label>
-            <%= check_box_tag :verified, 1, good_provider.verified, onChange: 'this.form.submit()' %>
-          </span>
-        <% end %>
+        <span class="ui toggle checkbox">
+          <%= check_box_tag :verified, nil, good_provider.verified,
+                            data: {
+                              url: admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id),
+                              method: :patch,
+                              remote: true,
+                              params: "[good_provider]verified=#{!good_provider.verified}"
+                            }
+          %>
+        </span>
       </td>
       <td>
-        <%= form_with url: select_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id), method: :patch do %>
-          <span class="<%= active_assert(good_provider.selected, expected: 'ui toggle disabled checkbox', unexpected: 'ui toggle checkbox') %>">
-            <label></label>
-            <%= check_box_tag :selected, nil, good_provider.selected, onChange: 'this.form.submit()' %>
-          </span>
-        <% end %>
+        <span class="ui toggle checkbox">
+          <%= check_box_tag :selected, nil, good_provider.selected,
+                            data: {
+                              url: select_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id),
+                              method: :patch,
+                              remote: true,
+                              params: "[good_provider]selected=#{!good_provider.selected}"
+                            }
+          %>
+        </span>
       </td>
       <td><time><%= good_provider.created_at.to_s(:rfc822) %></time></td>
       <td>
