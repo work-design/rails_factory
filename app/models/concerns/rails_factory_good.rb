@@ -2,7 +2,6 @@ module RailsFactoryGood
   extend ActiveSupport::Concern
 
   included do
-
     attribute :import_price, :decimal, default: 0
     attribute :profit_price, :decimal, default: 0
 
@@ -10,9 +9,7 @@ module RailsFactoryGood
     attribute :unit, :string
 
     before_save :sync_price, if: -> { import_price_changed? || profit_price_changed? }
-
   end
-
 
   private
   def sync_price
