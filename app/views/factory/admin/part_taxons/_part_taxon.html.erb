@@ -1,14 +1,22 @@
 <tr data-depth="<%= node.depth_str %>">
   <td>
     <span><%= ('&emsp;' * node.depth * 2).html_safe %></span>
-    <a onclick="collapse(this)" href="javascript:void(0)"><i class="grey caret down icon"></i></a>
+    <i class="grey caret down icon link"></i>
     <span><%= node.name %></span>
   </td>
   <td><%= node.position %></td>
   <td>
-    <%= form_with model: node, scope: :part_taxon, url: admin_part_taxon_path(node), method: :patch, remote: true do |f| %>
-      <%= f.check_box :take_stock, onChange: "Rails.fire(this.form, 'submit')", label: false, on: {wrapper_all: false, offset: false} %>
-    <% end %>
+    <span class="ui toggle checkbox">
+      <%= check_box_tag :take_stock, nil, node.take_stock,
+                        data: {
+                          url: admin_part_taxon_path(node),
+                          method: :patch,
+                          remote: true,
+                          params: "[part_taxon]take_stock=#{!node.take_stock}"
+                        },
+                        id: nil
+      %>
+    </span>
   </td>
   <td>
     <%= link_to edit_admin_part_taxon_path(node), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
