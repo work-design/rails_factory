@@ -12,6 +12,10 @@ class Part < ApplicationRecord
   before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
 
 
+  def taxon_str(join = ' > ')
+    self.part_taxon.self_and_ancestors.pluck(:name).join(join)
+  end
+
   private
   def sync_part_taxon_id
     self.part_taxon_id = self.part_taxon_ancestors&.values.compact.last

@@ -18,6 +18,7 @@
       <th><%= Part.human_attribute_name(:id) %></th>
       <th><%= Part.human_attribute_name(:name) %></th>
       <th><%= Part.human_attribute_name(:qr_prefix) %></th>
+      <th><%= Part.human_attribute_name(:taxon_str) %></th>
       <th><%= Part.human_attribute_name(:part_plans) %></th>
       <th></th>
     </tr>
@@ -28,6 +29,7 @@
       <td><%= part.id %></td>
       <td><%= part.name %></td>
       <td><%= part.qr_prefix %></td>
+      <td><%= part.taxon_str %></td>
       <td class="ui labels">
         <%= link_to 'Plan', admin_part_plans_path(part), class: 'ui label' %>
       </td>
