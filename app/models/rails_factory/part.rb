@@ -13,7 +13,7 @@ class Part < ApplicationRecord
 
 
   def taxon_str(join = ' > ')
-    self.part_taxon.self_and_ancestors.pluck(:name).join(join)
+    self.part_taxon.self_and_ancestors.pluck(:name).join(join) if self.part_taxon
   end
 
   private
