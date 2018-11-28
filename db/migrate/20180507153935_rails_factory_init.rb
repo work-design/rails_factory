@@ -4,6 +4,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     create_table :product_taxons do |t|
       t.string :name
       t.integer :position, default: 1
+      t.decimal :profit_margin, precision: 4, scale: 2
       t.references :parent
       t.timestamps
     end

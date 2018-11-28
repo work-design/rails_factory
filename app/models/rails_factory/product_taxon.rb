@@ -5,4 +5,7 @@ class ProductTaxon < ApplicationRecord
 
   has_many :products, dependent: :nullify
 
+
+
+
 end unless RailsFactory.config.disabled_models.include?('ProductTaxon')
