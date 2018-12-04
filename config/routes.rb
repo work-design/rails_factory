@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   end
 
   scope :wx, module: 'factory/wx', as: :wx do
+    resources :products
   end
 
 end
