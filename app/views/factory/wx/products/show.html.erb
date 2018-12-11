@@ -7,15 +7,16 @@
 <div>
   <div class="weui-cells__title"><%= part_taxon.name %></div>
   <div class="weui-cells weui-cells_radio">
-    <% @product.parts.select { |part| part.part_taxon_id == part_taxon.id }.each do |part| %>
+    <% @custom.parts.select { |part| part.part_taxon_id == part_taxon.id }.each do |part| %>
     <label class="weui-cell weui-check__label" for="part_<%= part.id %>">
-      <div class="weui-cell__bd">
-        <p><%= part.name %></p>
-      </div>
-      <div class="weui-cell__ft">
+      <span class="weui-cell__bd">
+        <span><%= part.name %></span>
+      </span>
+      <span class="weui-cell__ft">
+        <span><%= part.price %></span>
         <input type="radio" class="weui-check" name="radio1" id="part_<%= part.id %>">
         <span class="weui-icon-checked"></span>
-      </div>
+      </span>
     </label>
     <% end %>
     <a href="javascript:void(0);" class="weui-cell weui-cell_link">

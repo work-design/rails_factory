@@ -10,7 +10,7 @@ class Part < ApplicationRecord
   has_many :good_providers, as: :good, dependent: :destroy
 
   before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
-
+  before_save :sync_price
 
   def taxon_str(join = ' > ')
     self.part_taxon.self_and_ancestors.pluck(:name).join(join) if self.part_taxon
@@ -19,6 +19,10 @@ class Part < ApplicationRecord
   private
   def sync_part_taxon_id
     self.part_taxon_id = self.part_taxon_ancestors&.values.compact.last
+  end
+
+  def sync_price
+    self.price = self.import_price.to_d + self.profit_price.to_d
   end
 
 end unless RailsFactory.config.disabled_models.include?('Part')

@@ -3,5 +3,7 @@
   <%= render partial: 'nodes/outer_select', locals: { f: f, outer: 'part_taxon' } %>
   <%= f.text_field :name %>
   <%= f.text_field :qr_prefix %>
+  <%= f.number_field :import_price %>
+  <%= f.number_field :profit_price %>
   <%= f.submit %>
 <% end %>

@@ -20,6 +20,11 @@
       <th><%= Part.human_attribute_name(:qr_prefix) %></th>
       <th><%= Part.human_attribute_name(:taxon_str) %></th>
       <th><%= Part.human_attribute_name(:part_plans) %></th>
+      <th><%= Part.human_attribute_name(:price) %></th>
+      <th>
+        <p><%= Part.human_attribute_name(:import_price) %></p>
+        <p><%= Part.human_attribute_name(:profit_price) %></p>
+      </th>
       <th></th>
     </tr>
   </thead>
@@ -32,6 +37,11 @@
       <td><%= part.taxon_str %></td>
       <td class="ui labels">
         <%= link_to 'Plan', admin_part_plans_path(part), class: 'ui label' %>
+      </td>
+      <td><%= part.price %></td>
+      <td>
+        <p><%= part.import_price %></p>
+        <p><%= part.profit_price %></p>
       </td>
       <td class="ui labels">
         <%= link_to '供应商管理', admin_good_providers_path('Part', part), class: 'ui orange label' %>

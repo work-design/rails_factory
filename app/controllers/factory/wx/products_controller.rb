@@ -20,6 +20,7 @@ class Factory::Wx::ProductsController < Factory::Wx::BaseController
   end
 
   def show
+    @custom = @product.customs.build
   end
 
   def edit
