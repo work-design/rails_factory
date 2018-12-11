@@ -2,10 +2,13 @@ class Product < ApplicationRecord
   belongs_to :product_taxon, optional: true
   has_many :product_parts, dependent: :destroy
   has_many :parts, through: :product_parts
+  has_many :part_taxons, -> { distinct }, through: :product_parts
   has_many :product_plans, dependent: :destroy
   has_many :product_items, dependent: :destroy
   has_many :customs, dependent: :nullify
 
+  has_one_attached :logo
+  has_one_attached :main_image
 
   def init_profit_price
     if product_taxon.profit_margin

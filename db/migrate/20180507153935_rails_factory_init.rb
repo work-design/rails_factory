@@ -75,6 +75,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     create_table :product_parts do |t|
       t.references :product
       t.references :part
+      t.references :part_taxon
       t.timestamps
     end
 

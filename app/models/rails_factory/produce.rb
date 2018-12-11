@@ -1,5 +1,6 @@
 class Produce < ApplicationRecord
   has_many :good_produces
+  has_one_attached :logo
 
 end unless RailsTrade.config.disabled_models.include?('Produce')
 

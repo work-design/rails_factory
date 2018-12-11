@@ -1,10 +1,26 @@
-<div class="ui segment breadcrumb">
-  <%= link_to 'Back', wx_products_path, class: 'section' %>
-  <div class="divider">/</div>
-  <div class="active section">Show</div>
-</div>
+<article class="weui-article">
+  <%= image_tag @product.main_image %>
+  <h1><%= @product.name %></h1>
+</article>
 
-<table class="ui very basic large table">
-  <tbody>
-  </tbody>
-</table>
+<% @product.part_taxons.each do |part_taxon| %>
+<div>
+  <div class="weui-cells__title"><%= part_taxon.name %></div>
+  <div class="weui-cells weui-cells_radio">
+    <% @product.parts.select { |part| part.part_taxon_id == part_taxon.id }.each do |part| %>
+    <label class="weui-cell weui-check__label" for="part_<%= part.id %>">
+      <div class="weui-cell__bd">
+        <p><%= part.name %></p>
+      </div>
+      <div class="weui-cell__ft">
+        <input type="radio" class="weui-check" name="radio1" id="part_<%= part.id %>">
+        <span class="weui-icon-checked"></span>
+      </div>
+    </label>
+    <% end %>
+    <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+      <div class="weui-cell__bd">添加更多</div>
+    </a>
+  </div>
+</div>
+<% end %>

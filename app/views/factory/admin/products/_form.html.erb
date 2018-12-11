@@ -4,5 +4,7 @@
   <%= f.collection_select :part_ids, Part.all, :id, :name, {  }, { multiple: true } %>
   <%= f.text_field :qr_prefix %>
   <%= f.number_field :reference_price %>
+  <%= f.file_field :logo %>
+  <%= f.file_field :main_image %>
   <%= f.submit %>
 <% end %>

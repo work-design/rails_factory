@@ -1,41 +1,27 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">Wx Products</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New Wx Product', new_wx_product_path, class: 'ui teal button' %>
-    </div>
+<div class="weui-panel weui-panel_access">
+  <div class="weui-panel__hd">列表</div>
+  <div class="weui-panel__bd">
+  <% @products.each do |product| %>
+    <%= link_to wx_product_path(product), class: 'weui-media-box weui-media-box_appmsg' do %>
+      <div class="weui-media-box__hd">
+        <%= image_tag product.logo, class: 'weui-media-box__thumb' %>
+      </div>
+      <div class="weui-media-box__bd">
+        <h4 class="weui-media-box__title"><%= product.name %></h4>
+        <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+        <ul class="weui-media-box__info">
+          <li class="weui-media-box__info__meta">文字来源</li>
+          <li class="weui-media-box__info__meta">时间</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="weui-panel__ft">
+    <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+      <div class="weui-cell__bd">查看更多</div>
+      <span class="weui-cell__ft"></span>
+    </a>
   </div>
 </div>
-
-<div class="ui attached segment">
-  <%= render 'search_form' %>
-</div>
-
-<table class="ui bottom attached table">
-  <thead>
-    <tr>
-      <th><%= Product.human_attribute_name(:id) %></th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @products.each do |product| %>
-    <tr>
-      <td><%= product.id %></td>
-      <td class="ui labels">
-        <%= link_to wx_product_path(product), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
-          <i class="location arrow icon"></i>
-        <% end %>
-        <%= link_to edit_wx_product_path(product), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
-          <i class="pencil alternate icon"></i>
-        <% end %>
-        <%= link_to wx_product_path(product), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
-          <i class="times icon"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= paginate @products %>

@@ -48,6 +48,8 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
       :name,
       :qr_prefix,
       :reference_price,
+      :logo,
+      :main_image,
       part_ids: []
     )
   end
