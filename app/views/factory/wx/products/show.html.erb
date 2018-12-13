@@ -3,6 +3,10 @@
   <h1><%= @product.name %></h1>
 </article>
 
+<div id="sti">
+  <span class="weui-btn weui-btn_primary">hah</span>
+</div>
+
 <% @product.part_taxons.each do |part_taxon| %>
 <div>
   <div class="weui-cells__title"><%= part_taxon.name %></div>

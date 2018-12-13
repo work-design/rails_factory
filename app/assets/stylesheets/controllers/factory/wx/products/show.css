@@ -1,0 +1,9 @@
+.weui-btn {
+  border-radius: 0;
+}
+.weui-tab__panel {
+  overflow: visible;
+}
+#sti {
+  z-index: 3;
+}
