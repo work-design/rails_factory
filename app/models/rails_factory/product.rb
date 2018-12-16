@@ -10,10 +10,20 @@ class Product < ApplicationRecord
   has_one_attached :logo
   has_one_attached :main_image
 
+  before_save :sync_price
+
   def init_profit_price
-    if product_taxon.profit_margin
+    if product_taxon&.profit_margin
       self.profit_price = self.import_price * (100 + profit_margin) / 100
+    else
+      self.profit_price = 0
     end
+  end
+
+  def sync_price
+    self.import_price = self.parts.sum(&:price)
+    init_profit_price
+    self.price = self.import_price + self.profit_price
   end
 
 end unless RailsFactory.config.disabled_models.include?('Product')

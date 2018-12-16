@@ -23,6 +23,10 @@ class Factory::Wx::ProductsController < Factory::Wx::BaseController
     @custom = @product.customs.build
   end
 
+  def update_price
+
+  end
+
   def edit
   end
 

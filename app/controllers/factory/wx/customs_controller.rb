@@ -1,5 +1,4 @@
-class Factory::CustomsController < Factory::BaseController
-  before_action :set_product
+class Factory::Wx::CustomsController < Factory::Wx::BaseController
   before_action :set_custom, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,12 +13,15 @@ class Factory::CustomsController < Factory::BaseController
     @custom = Custom.new(custom_params)
 
     if @custom.save
-      redirect_to customs_url, notice: 'Custom was successfully created.'
+      redirect_to wx_customs_url, notice: 'Custom was successfully created.'
     else
       render :new
     end
   end
 
+  def update_price
+    @total_price = '222'
+  end
 
   def show
   end
@@ -29,7 +31,7 @@ class Factory::CustomsController < Factory::BaseController
 
   def update
     if @custom.update(custom_params)
-      redirect_to customs_url, notice: 'Custom was successfully updated.'
+      redirect_to wx_customs_url, notice: 'Custom was successfully updated.'
     else
       render :edit
     end
@@ -37,14 +39,10 @@ class Factory::CustomsController < Factory::BaseController
 
   def destroy
     @custom.destroy
-    redirect_to customs_url, notice: 'Custom was successfully destroyed.'
+    redirect_to wx_customs_url, notice: 'Custom was successfully destroyed.'
   end
 
   private
-  def set_product
-    @product = Product.find(params[:product_id])
-  end
-
   def set_custom
     @custom = Custom.find(params[:id])
   end

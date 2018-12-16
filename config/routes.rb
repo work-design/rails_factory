@@ -41,6 +41,9 @@ Rails.application.routes.draw do
 
   scope :wx, module: 'factory/wx', as: :wx do
     resources :products
+    resources :customs do
+      post :update_price, on: :collection
+    end
   end
 
 end

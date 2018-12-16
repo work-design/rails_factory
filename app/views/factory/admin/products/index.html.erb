@@ -1,4 +1,4 @@
-<%= render 'nav' %>
+<%= render 'menu' %>
 
 <div class="ui attached segment">
   <%= render 'search_form' %>
@@ -26,11 +26,16 @@
       <td><%= image_tag product.logo, class: 'ui small image' if product.logo.attached? %></td>
       <td><%= image_tag product.main_image, class: 'ui small image' if product.main_image.attached? %></td>
       <td><%= product.qr_prefix %></td>
-      <td><%= product.reference_price %></td>
+      <td><%= product.price %></td>
       <td class="ui labels">
-        <% product.parts.each do |part| %>
-          <span class="ui label"><%= link_to part.name, admin_part_path(part), target: '_blank' %></span>
-        <% end %>
+        <table class="ui very basic compact table">
+          <% product.parts.each do |part| %>
+            <tr>
+              <td><span class="ui label"><%= link_to part.name, admin_part_path(part), target: '_blank' %></span></td>
+              <td><%= part.price %></td>
+            </tr>
+          <% end %>
+        </table>
       </td>
       <td>
         <%= link_to 'Plan', admin_product_plans_path(product), class: 'ui blue label' %>
