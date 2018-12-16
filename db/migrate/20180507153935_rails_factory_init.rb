@@ -28,7 +28,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.boolean :published, default: true
       t.decimal :reference_price, precision: 10, scale: 2
       t.decimal :price, precision: 10, scale: 2
-      t.decimal :import_price, precision: 10, scale: 2
+      t.decimal :cost_price, precision: 10, scale: 2
       t.decimal :profit_price, precision: 10, scale: 2
       t.timestamps
     end
