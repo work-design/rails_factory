@@ -18,8 +18,8 @@
       </span>
       <span class="weui-cell__ft">
         <span><%= part.price %></span>
-        <%= radio_button_tag :price, nil, false, data: { remote: true, method: :post, url: update_price_wx_customs_url, params: part.id }, class: 'weui-check', id: "part_#{part.id}" %>
-        <span class="weui-icon-checked"></span>
+        <%= check_box_tag :price, nil, false, data: { remote: true, method: :post, url: update_price_wx_customs_url, params: part.id }, class: 'weui-check', id: "part_#{part.id}" %>
+        <i class="weui-icon-checked"></i>
       </span>
     </label>
     <% end %>
