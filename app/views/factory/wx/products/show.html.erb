@@ -12,7 +12,7 @@
   <div class="weui-cells__title"><%= part_taxon.name %></div>
   <div class="weui-cells weui-cells_radio">
     <% @custom.parts.select { |part| part.part_taxon_id == part_taxon.id }.each do |part| %>
-    <label class="weui-cell weui-check__label" for="part_<%= part.id %>">
+    <label class="weui-cell weui-cell_disabled weui-check__label" for="part_<%= part.id %>">
       <span class="weui-cell__bd">
         <span><%= part.name %></span>
       </span>
