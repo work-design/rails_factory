@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/thoughtbot/factory_bot_rails.git
+  revision: d320202f56b61e99fe6e70bd06a57ed35fca9ab2
+  specs:
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
+
 PATH
   remote: .
   specs:
@@ -63,9 +71,6 @@ GEM
     erubi (1.7.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
-    factory_bot_rails (4.11.1)
-      factory_bot (~> 4.11.1)
-      railties (>= 3.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.1.1)
@@ -154,7 +159,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   default_form
-  factory_bot_rails
+  factory_bot_rails!
   pry-rails
   puma
   rails (>= 5.2.0)

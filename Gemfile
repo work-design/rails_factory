@@ -6,7 +6,7 @@ gem 'rails', '>= 5.2.0'
 gem 'puma'
 
 gem 'sqlite3'
-gem 'factory_bot_rails'
+gem 'factory_bot_rails', github: 'thoughtbot/factory_bot_rails'
 gem 'default_form'
 
 gem 'turbolinks'
