@@ -1,4 +1,4 @@
-class RailsFactoryInit < ActiveRecord::Migration[5.2]
+class RailsFactoryProvider < ActiveRecord::Migration[5.2]
   def change
 
     create_table :providers do |t|

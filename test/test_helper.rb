@@ -7,12 +7,10 @@ ActiveRecord::Migrator.migrations_paths = [File.expand_path('../test/dummy/db/mi
 Minitest.backtrace_filter = Minitest::BacktraceFilter.new
 
 if defined?(FactoryBot)
-  FactoryBot.definition_file_paths << RailsCom::Engine.root.join('test/factories')
-  FactoryBot.find_definitions
+  FactoryBot.definition_file_paths << File.expand_path('factories', __dir__)
 end
 
 class ActiveSupport::TestCase
   self.file_fixture_path = File.expand_path('fixtures/files', __dir__)
-
-  include FactoryBot::Syntax::Methods
+  include FactoryBot::Syntax::Methods if defined?(FactoryBot)
 end
