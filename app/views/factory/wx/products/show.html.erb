@@ -12,13 +12,13 @@
   <div class="weui-cells__title"><%= part_taxon.name %></div>
   <div class="weui-cells weui-cells_radio">
     <% @custom.parts.select { |part| part.part_taxon_id == part_taxon.id }.each do |part| %>
-    <label class="weui-cell weui-cell_disabled weui-check__label" for="part_<%= part.id %>">
+    <label class="weui-cell weui-cell_disabled weui-check__label" for="part_<%= part.id %>" data-controller="input">
       <span class="weui-cell__bd">
         <span><%= part.name %></span>
       </span>
       <span class="weui-cell__ft">
         <span><%= part.price %></span>
-        <%= check_box_tag :price, nil, false, data: { remote: true, method: :post, url: update_price_wx_customs_url, params: part.id }, class: 'weui-check', id: "part_#{part.id}" %>
+        <%= check_box_tag :price, nil, false, data: { remote: true, method: :post, url: update_price_wx_customs_url, params: part.id, target: 'input.output' }, class: 'weui-check', id: "part_#{part.id}" %>
         <i class="weui-icon-checked"></i>
       </span>
     </label>
