@@ -7,7 +7,8 @@
   <span class="weui-btn weui-btn_primary" id="total_price"><%= @product.price %></span>
 </div>
 
-<%= form_with url: wx_custom_path, method: :patch, id: 'edit_custom' do %>
+<%= form_with scope: :custom, url: wx_customs_path, id: 'edit_custom' do |f| %>
+  <%= f.hidden_field :product_id, value: @product.id %>
 <% end %>
 
 <% @product.part_taxons.each do |part_taxon| %>
@@ -21,7 +22,7 @@
       </span>
       <span class="weui-cell__ft">
         <span><%= part.price %></span>
-        <%= check_box_tag :price, nil, false, data: { form: true, target: 'input.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
+        <%= check_box_tag 'custom[part_ids][]', part.id, false, data: { form: true, target: 'input.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
         <i class="weui-icon-checked"></i>
       </span>
     </label>

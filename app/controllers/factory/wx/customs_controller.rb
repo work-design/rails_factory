@@ -12,10 +12,14 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
   def create
     @custom = Custom.new(custom_params)
 
-    if @custom.save
-      redirect_to wx_customs_url, notice: 'Custom was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @custom.save
+        format.html { redirect_to wx_customs_url, notice: 'Custom was successfully created.' }
+        format.js
+      else
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
@@ -49,7 +53,9 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
 
   def custom_params
     params.fetch(:custom, {}).permit(
-    )
+      :product_id,
+      part_ids: []
+    ).merge(customer: current_user)
   end
 
 end
