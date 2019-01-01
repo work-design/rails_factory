@@ -52,10 +52,12 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
   end
 
   def custom_params
-    params.fetch(:custom, {}).permit(
+    q = params.fetch(:custom, {}).permit(
       :product_id,
       part_ids: []
-    ).merge(customer: current_user)
+    )
+    q.fetch(:part_ids, []).map!(&:to_i)
+    q.merge!(customer: current_user)
   end
 
 end
