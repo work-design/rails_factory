@@ -11,6 +11,7 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
 
   def create
     @custom = Custom.new(custom_params)
+    @total_price = '22'
 
     respond_to do |format|
       if @custom.save
