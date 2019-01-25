@@ -11,7 +11,7 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
 
   def create
     @custom = Custom.new(custom_params)
-    @total_price = '22'
+    @custom.compute_sum
 
     respond_to do |format|
       if @custom.save
@@ -24,8 +24,9 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
     end
   end
 
-  def update_price
-    @total_price = '222'
+  def price
+    @custom = Custom.new(custom_params)
+    @custom.compute_sum
   end
 
   def show

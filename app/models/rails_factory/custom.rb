@@ -14,9 +14,8 @@ class Custom < ApplicationRecord
 
   def compute_sum
     self.custom_parts.each(&:sync_amount)
-    binding.pry
 
-    self.price = custom_parts.sum(&:amount).to_d
+    self.price = custom_parts.sum(&:price).to_d
   end
 
 end unless RailsFactory.config.disabled_models.include?('Custom')
