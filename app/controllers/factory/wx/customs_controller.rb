@@ -11,15 +11,18 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
 
   def create
     @custom = Custom.new(custom_params)
-    @custom.compute_sum
+    @custom.compute_sum(current_user)
 
     respond_to do |format|
-      if @custom.save
-        format.html { redirect_to wx_customs_url, notice: 'Custom was successfully created.' }
-        format.js
-      else
-        format.html { render :new }
-        format.js
+      format.js do
+        @custom.save if params[:commit].present?
+      end
+      format.html do
+        if @custom.save
+          redirect_to wx_customs_url, notice: 'Custom was successfully created.'
+        else
+          render :new
+        end
       end
     end
   end
@@ -59,7 +62,7 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
       part_ids: []
     )
     q.fetch(:part_ids, []).map!(&:to_i)
-    q.merge!(customer: current_user)
+    q
   end
 
 end

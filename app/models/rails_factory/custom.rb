@@ -12,7 +12,11 @@ class Custom < ApplicationRecord
     end
   end
 
-  def compute_sum
+  def compute_sum(user = nil)
+    if user
+      self.customer = user
+    end
+
     self.custom_parts.each(&:sync_amount)
 
     self.price = custom_parts.sum(&:price).to_d
