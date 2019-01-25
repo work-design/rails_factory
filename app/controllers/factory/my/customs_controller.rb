@@ -11,6 +11,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
 
   def create
     @custom = Custom.new(custom_params)
+    @custom.compute_sum
 
     if @custom.save
       redirect_to my_customs_url, notice: 'Custom was successfully created.'

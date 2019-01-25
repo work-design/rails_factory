@@ -82,6 +82,8 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     create_table :custom_parts do |t|
       t.references :custom
       t.references :part
+      t.decimal :original_price, precision: 10, scale: 2
+      t.decimal :price, precision: 10, scale: 2
       t.timestamps
     end
 

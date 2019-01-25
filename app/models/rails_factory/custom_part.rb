@@ -5,11 +5,9 @@ class CustomPart < ApplicationRecord
   belongs_to :custom
   belongs_to :part
 
-
-  before_save :sync_amount
-
   def sync_amount
     self.original_price = part.price
+    self.price = self.original_price
   end
 
 end unless RailsFactory.config.disabled_models.include?('CustomPart')
