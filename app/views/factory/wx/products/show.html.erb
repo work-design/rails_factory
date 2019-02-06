@@ -16,7 +16,7 @@
   <div class="weui-cells__title"><%= part_taxon.name %></div>
   <div class="weui-cells weui-cells_radio">
     <% part_taxon.parts.each do |part| %>
-    <label class="weui-cell weui-cell_disabled weui-check__label" for="part_<%= part.id %>" data-controller="input">
+    <label class="weui-cell weui-check__label" for="part_<%= part.id %>" data-controller="input">
       <span class="weui-cell__bd">
         <span><%= part.name %></span>
       </span>
