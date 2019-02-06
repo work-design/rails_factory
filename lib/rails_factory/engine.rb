@@ -1,3 +1,4 @@
+require 'default_where'
 require 'rails_com'
 class RailsFactory::Engine < ::Rails::Engine
 

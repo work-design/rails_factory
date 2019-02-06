@@ -11,14 +11,19 @@ class Part < ApplicationRecord
 
   before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
   before_save :sync_price
+  after_update :sync_part_taxon_id_to_pp, if: -> { saved_change_to_part_taxon_id? }
 
   def taxon_str(join = ' > ')
-    self.part_taxon.self_and_ancestors.pluck(:name).join(join) if self.part_taxon
+    self.part_taxon.self_and_ancestors.pluck(:name).reverse.join(join) if self.part_taxon
   end
 
   private
   def sync_part_taxon_id
     self.part_taxon_id = self.part_taxon_ancestors&.values.compact.last
+  end
+
+  def sync_part_taxon_id_to_pp
+    self.product_parts.update_all(part_taxon_id: self.part_taxon_id)
   end
 
   def sync_price

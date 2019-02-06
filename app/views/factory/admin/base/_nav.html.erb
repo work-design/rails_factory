@@ -12,15 +12,6 @@
       <%= link_to '配件', admin_parts_path, class: active_helper(controllers: ['parts', 'part_taxons', 'part_plans', 'part_items']) %>
     </div>
   </div>
-  <div class="item ui dropdown">
-    <a class="<%= active_helper(controllers: ['facilitate_taxons', 'facilitates', 'facilitate_providers'], active_class: 'title active', item_class: 'title') %>">
-      <i class="recycle icon"></i>
-      <span>服务管理</span>
-    </a>
-    <div class="<%= active_helper(controllers: ['facilitate_taxons', 'facilitates', 'facilitate_providers'], active_class: 'menu content active', item_class: 'menu content') %>">
-      <%= link_to '服务管理', admin_facilitates_path, class: active_helper(controllers: ['facilitates', 'facilitate_providers']) %>
-    </div>
-  </div>
   <div class="ui dropdown item">
     <span>商品管理</span>
     <div class="menu">
