@@ -22,7 +22,7 @@
       </span>
       <span class="weui-cell__ft">
         <span><%= part.price %></span>
-        <%= check_box_tag 'custom[part_ids][]', part.id, @custom.part_ids.include?(part.id), data: { form: true, target: 'input.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
+        <%= check_box_tag 'custom[part_ids][]', part.id, @custom.part_ids.include?(part.id), data: { form: true, target: 'input.output disable.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
         <i class="weui-icon-checked"></i>
       </span>
     </label>
