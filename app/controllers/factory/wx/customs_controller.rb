@@ -27,11 +27,6 @@ class Factory::Wx::CustomsController < Factory::Wx::BaseController
     end
   end
 
-  def price
-    @custom = Custom.new(custom_params)
-    @custom.compute_sum
-  end
-
   def show
   end
 
