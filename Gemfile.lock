@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 0af19234082e8ddcd08341d5f87c2562599e11de
+  revision: eec7820a634c6e8328f845dc633e96e549b50c3d
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: ffae1713cac75ba4fd13ebc081f6804f246aa87b
+  revision: 6c0e9a4ef0591b9db7f59666d4ed5258a1ea3a81
   specs:
     rails_com (1.2.9)
       default_form (~> 1.3)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: b33a44c600eccae31ad6adaf8beaac38fa291cf1
+  revision: d00eec7bb8ed79c8fc91b3a3e9d0e4a53ef28d2b
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -114,7 +114,7 @@ GEM
       activesupport (>= 3.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    httparty (0.16.3)
+    httparty (0.16.4)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     i18n (1.1.1)
