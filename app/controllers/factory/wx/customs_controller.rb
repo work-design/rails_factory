@@ -1,4 +1,4 @@
-class Factory::Wx::CustomsController < Factory::Wx::BaseController
+class Factory::Wx::CustomsController < Factory::My::BaseController
   before_action :set_custom, only: [:show, :edit, :update, :destroy]
 
   def index

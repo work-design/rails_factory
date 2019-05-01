@@ -1,4 +1,4 @@
-class Factory::Wx::ProductsController < Factory::Wx::BaseController
+class Factory::My::ProductsController < Factory::My::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
