@@ -1,10 +1,14 @@
-class PartPlan < ApplicationRecord
-  belongs_to :part
-  has_many :part_items, ->(o){ default_where('created_at-gte': o.start_at, 'created_at-lt': o.finish_at) }, primary_key: 'part_id', foreign_key: 'part_id'
+module RailsFactory::PartPlan
+  extend ActiveSupport::Concern
+  included do
+    belongs_to :part
+    has_many :part_items, ->(o){ default_where('created_at-gte': o.start_at, 'created_at-lt': o.finish_at) }, primary_key: 'part_id', foreign_key: 'part_id'
+  
+    enum state: {
+      purchased: 'purchased',
+      received: 'received'
+    }
+  end
+  
 
-  enum state: {
-    purchased: 'purchased',
-    received: 'received'
-  }
-
-end unless RailsFactory.config.disabled_models.include?('PartPlan')
+end

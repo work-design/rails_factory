@@ -1,8 +1,11 @@
-class Produce < ApplicationRecord
-  has_many :good_produces
-  has_one_attached :logo
-
-end unless RailsTrade.config.disabled_models.include?('Produce')
+module RailsFactory::Produce
+  extend ActiveSupport::Concern
+  included do
+    has_many :good_produces
+    has_one_attached :logo
+  end
+  
+end
 
 =begin
 

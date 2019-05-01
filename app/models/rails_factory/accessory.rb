@@ -1,4 +1,4 @@
-class Accessory < ApplicationRecord
+module RailsFactory::Accessory
 
 
-end unless RailsFactory.config.disabled_models.include?('Accessory')
+end

@@ -1,8 +1,7 @@
-class GoodPartner < ApplicationRecord
+module RailsFactory::GoodPartner
 
 
-end unless RailsFactory.config.disabled_models.include?('GoodPartner')
-
+end
 
 # :good_id, :integer
 # :partner_id, :integer

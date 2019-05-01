@@ -1,4 +1,4 @@
-module RailsFactoryGood
+module RailsFactory::Good
   extend ActiveSupport::Concern
 
   included do

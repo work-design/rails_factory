@@ -1,11 +1,11 @@
-require 'acts_as_list'
-class ProductTaxon < ApplicationRecord
-  prepend RailsTaxonNode
-  acts_as_list
+module RailsFactory::ProductTaxon
+  extend ActiveSupport::Concern
+  included do
+    prepend RailsTaxonNode
+    acts_as_list
+    has_many :products, dependent: :nullify
+  end
 
-  has_many :products, dependent: :nullify
 
 
-
-
-end unless RailsFactory.config.disabled_models.include?('ProductTaxon')
+end

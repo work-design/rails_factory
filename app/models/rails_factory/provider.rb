@@ -1,17 +1,21 @@
-class Provider < ApplicationRecord
-  belongs_to :area, optional: true
-  has_many :users, inverse_of: :provider
-  has_many :part_providers
-  has_many :parts, through: :part_providers
-  has_many :good_providers, dependent: :delete_all
+module RailsFactory::Provider
+  extend ActiveSupport::Concern
+  included do
+    belongs_to :area, optional: true
+    has_many :users, inverse_of: :provider
+    has_many :part_providers
+    has_many :parts, through: :part_providers
+    has_many :good_providers, dependent: :delete_all
+  
+    has_one_attached :logo
+  end
 
   def name_detail
     "#{name} (#{id})"
   end
 
-  has_one_attached :logo
 
-end unless RailsFactory.config.disabled_models.include?('Provider')
+end
 
 
 

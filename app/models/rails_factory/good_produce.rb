@@ -1,8 +1,11 @@
-class GoodProduce < ApplicationRecord
-  belongs_to :good
-  belongs_to :produce
-
-end unless RailsFactory.config.disabled_models.include?('GoodProduce')
+module RailsFactory::GoodProduce
+  extend ActiveSupport::Concern
+  included do
+    belongs_to :good
+    belongs_to :produce
+  end
+  
+end
 
 
 # t.integer  "good_id",    limit: 4

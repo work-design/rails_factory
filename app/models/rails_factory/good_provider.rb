@@ -1,11 +1,14 @@
-class GoodProvider < ApplicationRecord
-  belongs_to :good, polymorphic: true
-  belongs_to :provider
+module RailsFactory::GoodProvider
+  extend ActiveSupport::Concern
+  included do
+    belongs_to :good, polymorphic: true
+    belongs_to :provider
 
-  validates :good_id, uniqueness: { scope: [:good_type, :provider_id] }
+    validates :good_id, uniqueness: { scope: [:good_type, :provider_id] }
 
-  scope :verified, -> { where(verified: true) }
-
+    scope :verified, -> { where(verified: true) }
+  end
+  
   def set_selected
     self.class.transaction do
       self.update!(selected: true)
