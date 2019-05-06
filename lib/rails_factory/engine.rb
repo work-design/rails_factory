@@ -2,12 +2,6 @@ require 'default_where'
 require 'rails_com'
 class RailsFactory::Engine < ::Rails::Engine
 
-  config.eager_load_paths += Dir[
-    "#{config.root}/app/models/rails_factory",
-    "#{config.root}/app/models/rails_factory/goods",
-    "#{config.root}/app/models/rails_factory/providers"
-  ]
-
   config.generators do |g|
     g.rails = {
       assets: false,
