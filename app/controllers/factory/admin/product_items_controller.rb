@@ -20,7 +20,7 @@ class Factory::Admin::ProductItemsController < Factory::Admin::BaseController
     @product_item = @product.product_items.build(product_item_params)
 
     if @product_item.save
-      redirect_to admin_product_items_url(@product), notice: 'Product item was successfully created.'
+      redirect_to admin_product_items_url(@product)
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Factory::Admin::ProductItemsController < Factory::Admin::BaseController
 
   def update
     if @product_item.update(product_item_params)
-      redirect_to admin_product_items_url(@product), notice: 'Product item was successfully updated.'
+      redirect_to admin_product_items_url(@product)
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Factory::Admin::ProductItemsController < Factory::Admin::BaseController
 
   def destroy
     @product_item.destroy
-    redirect_to admin_product_items_url(@product), notice: 'Product item was successfully destroyed.'
+    redirect_to admin_product_items_url(@product)
   end
 
   private

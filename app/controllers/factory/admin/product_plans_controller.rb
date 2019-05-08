@@ -14,7 +14,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
     @product_plan = @product.product_plans.build(product_plan_params)
 
     if @product_plan.save
-      redirect_to admin_product_plans_url(@product), notice: 'Product plan was successfully created.'
+      redirect_to admin_product_plans_url(@product)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
 
   def update
     if @product_plan.update(product_plan_params)
-      redirect_to admin_product_plans_url(@product), notice: 'Product plan was successfully updated.'
+      redirect_to admin_product_plans_url(@product)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
 
   def destroy
     @product_plan.destroy
-    redirect_to admin_product_plans_url(@product), notice: 'Product plan was successfully destroyed.'
+    redirect_to admin_product_plans_url(@product)
   end
 
   private

@@ -15,7 +15,7 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
     @part = Part.new(part_params)
 
     if @part.save
-      redirect_to admin_parts_url, notice: 'Part was successfully created.'
+      redirect_to admin_parts_url
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
 
   def update
     if @part.update(part_params)
-      redirect_to admin_parts_url, notice: 'Part was successfully updated.'
+      redirect_to admin_parts_url
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
 
   def destroy
     @part.destroy
-    redirect_to admin_parts_url, notice: 'Part was successfully destroyed.'
+    redirect_to admin_parts_url
   end
 
   private

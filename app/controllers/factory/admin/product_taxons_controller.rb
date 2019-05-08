@@ -13,7 +13,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
     @product_taxon = ProductTaxon.new(product_taxon_params)
 
     if @product_taxon.save
-      redirect_to admin_product_taxons_url, notice: 'Product taxon was successfully created.'
+      redirect_to admin_product_taxons_url
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
 
   def update
     if @product_taxon.update(product_taxon_params)
-      redirect_to admin_product_taxons_url, notice: 'Product taxon was successfully updated.'
+      redirect_to admin_product_taxons_url
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
 
   def destroy
     @product_taxon.destroy
-    redirect_to admin_product_taxons_url, notice: 'Product taxon was successfully destroyed.'
+    redirect_to admin_product_taxons_url
   end
 
   private

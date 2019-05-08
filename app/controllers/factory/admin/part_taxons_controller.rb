@@ -15,7 +15,7 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
     @part_taxon = PartTaxon.new(part_taxon_params)
 
     if @part_taxon.save
-      redirect_to admin_part_taxons_url, notice: 'Purchase taxon was successfully created.'
+      redirect_to admin_part_taxons_url
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
 
   def update
     if @part_taxon.update(part_taxon_params)
-      redirect_to admin_part_taxons_url, notice: 'Purchase taxon was successfully updated.'
+      redirect_to admin_part_taxons_url
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
 
   def destroy
     @part_taxon.destroy
-    redirect_to admin_part_taxons_url, notice: 'Purchase taxon was successfully destroyed.'
+    redirect_to admin_part_taxons_url
   end
 
   private

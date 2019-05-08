@@ -14,7 +14,7 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
     @custom = @product.customs.build(custom_params)
 
     if @custom.save
-      redirect_to admin_product_customs_url(@product), notice: 'Custom was successfully created.'
+      redirect_to admin_product_customs_url(@product)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
 
   def update
     if @custom.update(custom_params)
-      redirect_to admin_product_customs_url(@custom.product_id), notice: 'Custom was successfully updated.'
+      redirect_to admin_product_customs_url(@custom.product_id)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
 
   def destroy
     @custom.destroy
-    redirect_to admin_product_customs_url(@custom.product_id), notice: 'Custom was successfully destroyed.'
+    redirect_to admin_product_customs_url(@custom.product_id)
   end
 
   private

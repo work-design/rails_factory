@@ -14,7 +14,7 @@ class Factory::CustomsController < Factory::BaseController
     @custom = Custom.new(custom_params)
 
     if @custom.save
-      redirect_to customs_url, notice: 'Custom was successfully created.'
+      redirect_to customs_url
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Factory::CustomsController < Factory::BaseController
 
   def update
     if @custom.update(custom_params)
-      redirect_to customs_url, notice: 'Custom was successfully updated.'
+      redirect_to customs_url
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Factory::CustomsController < Factory::BaseController
 
   def destroy
     @custom.destroy
-    redirect_to customs_url, notice: 'Custom was successfully destroyed.'
+    redirect_to customs_url
   end
 
   private

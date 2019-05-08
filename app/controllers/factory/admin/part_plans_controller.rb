@@ -14,7 +14,7 @@ class Factory::Admin::PartPlansController < Factory::Admin::BaseController
     @part_plan = @part.part_plans.build(part_plan_params)
 
     if @part_plan.save
-      redirect_to admin_part_plans_url, notice: 'Part plan was successfully created.'
+      redirect_to admin_part_plans_url
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Factory::Admin::PartPlansController < Factory::Admin::BaseController
 
   def update
     if @part_plan.update(part_plan_params)
-      redirect_to admin_part_plans_url, notice: 'Part plan was successfully updated.'
+      redirect_to admin_part_plans_url
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Factory::Admin::PartPlansController < Factory::Admin::BaseController
 
   def destroy
     @part_plan.destroy
-    redirect_to admin_part_plans_url, notice: 'Part plan was successfully destroyed.'
+    redirect_to admin_part_plans_url
   end
 
   private

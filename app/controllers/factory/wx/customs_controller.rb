@@ -19,7 +19,7 @@ class Factory::Wx::CustomsController < Factory::My::BaseController
       end
       format.html do
         if @custom.save
-          redirect_to wx_customs_url, notice: 'Custom was successfully created.'
+          redirect_to wx_customs_url
         else
           render :new
         end
@@ -35,7 +35,7 @@ class Factory::Wx::CustomsController < Factory::My::BaseController
 
   def update
     if @custom.update(custom_params)
-      redirect_to wx_customs_url, notice: 'Custom was successfully updated.'
+      redirect_to wx_customs_url
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Factory::Wx::CustomsController < Factory::My::BaseController
 
   def destroy
     @custom.destroy
-    redirect_to wx_customs_url, notice: 'Custom was successfully destroyed.'
+    redirect_to wx_customs_url
   end
 
   private
