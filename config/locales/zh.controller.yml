@@ -1,0 +1,13 @@
+zh:
+  factory:
+    admin:
+      title: 生产管理
+      products:
+        index:
+          title: 产品管理
+      parts:
+        index:
+          title: 配件
+      providers:
+        index:
+          title: 供应商

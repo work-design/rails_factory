@@ -7,7 +7,6 @@
 <table class="ui bottom attached table">
   <thead>
     <tr>
-      <th><%= Product.human_attribute_name(:id) %></th>
       <th><%= Product.human_attribute_name(:name) %></th>
       <th><%= Product.human_attribute_name(:logo) %></th>
       <th><%= Product.human_attribute_name(:main_image) %></th>
@@ -15,13 +14,14 @@
       <th><%= Product.human_attribute_name(:reference_price) %></th>
       <th><%= Product.human_attribute_name(:parts) %></th>
       <th></th>
-      <th>Actions</th>
+      <th>
+        <%= link_to 'New Admin Product', new_admin_product_path, class: 'ui teal button' %>
+      </th>
     </tr>
   </thead>
   <tbody>
   <% @products.each do |product| %>
     <tr>
-      <td><%= product.id %></td>
       <td><%= product.name %></td>
       <td><%= image_tag product.logo, class: 'ui small image' if product.logo.attached? %></td>
       <td><%= image_tag product.main_image, class: 'ui small image' if product.main_image.attached? %></td>

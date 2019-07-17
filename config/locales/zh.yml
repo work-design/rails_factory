@@ -1,0 +1,5 @@
+zh:
+  activerecord:
+    attributes:
+      product:
+    enum:
