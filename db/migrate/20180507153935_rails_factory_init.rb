@@ -18,6 +18,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     end
 
     create_table :products do |t|
+      t.references :organ  # For SaaS
       t.references :product_taxon
       t.string :name
       t.string :desc
