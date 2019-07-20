@@ -5,21 +5,8 @@ class Factory::ProductsController < Factory::BaseController
     @products = Product.page(params[:page])
   end
 
-  def new
-    @product = Product.new
-  end
-
-  def create
-    @product = Product.new(product_params)
-
-    if @product.save
-      redirect_to products_url
-    else
-      render :new
-    end
-  end
-
   def show
+    @custom = @product.customs.build
   end
 
   def edit

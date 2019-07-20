@@ -2,7 +2,9 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.includes(:parts).page(params[:page])
+    q_params = {}
+    q_params.merge! default_params
+    @products = Product.includes(:parts).default_where(q_params).page(params[:page])
   end
 
   def new
@@ -44,7 +46,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   end
 
   def product_params
-    params.fetch(:product, {}).permit(
+    p = params.fetch(:product, {}).permit(
       :name,
       :qr_prefix,
       :reference_price,
@@ -52,6 +54,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
       :main_image,
       part_ids: []
     )
+    p.merge! default_params
   end
 
 end

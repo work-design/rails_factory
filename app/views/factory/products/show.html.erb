@@ -1,10 +1,39 @@
-<div class="ui segment breadcrumb">
-  <%= link_to 'Back', products_path, class: 'section' %>
-  <div class="divider">/</div>
-  <div class="active section">Show</div>
+<article class="weui-article">
+  <%= image_tag @product.main_image %>
+  <h1><%= @product.name %></h1>
+</article>
+
+<div id="sti">
+  <span class="weui-btn weui-btn_primary" id="total_price"><%= @product.price %></span>
 </div>
 
-<table class="ui very basic large table">
-  <tbody>
-  </tbody>
-</table>
+<%= form_with scope: :custom, url: my_customs_path, id: 'edit_custom' do |f| %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+<% end %>
+
+<% @product.part_taxons.each do |part_taxon| %>
+<div>
+  <div class="weui-cells__title"><%= part_taxon.name %></div>
+  <div class="weui-cells weui-cells_radio">
+    <% part_taxon.parts.each do |part| %>
+    <label class="weui-cell weui-check__label" for="part_<%= part.id %>" id="part_<%= part.id %>_label" data-controller="input">
+      <span class="weui-cell__bd">
+        <span><%= part.name %></span>
+      </span>
+      <span class="weui-cell__ft">
+        <span><%= part.price %></span>
+        <%= check_box_tag 'custom[part_ids][]', part.id, @custom.part_ids.include?(part.id), data: { form: true, target: 'input.output disable.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
+        <i class="weui-icon-checked"></i>
+      </span>
+    </label>
+    <% end %>
+    <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+      <div class="weui-cell__bd">添加更多</div>
+    </a>
+  </div>
+</div>
+<% end %>
+
+<div class="weui-btn-area">
+  <%= submit_tag 'save', form: 'edit_custom', class: 'weui-btn weui-btn_primary' %>
+</div>
