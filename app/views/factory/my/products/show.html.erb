@@ -7,7 +7,7 @@
   <span class="weui-btn weui-btn_primary" id="total_price"><%= @product.price %></span>
 </div>
 
-<%= form_with scope: :custom, url: wx_customs_path, id: 'edit_custom' do |f| %>
+<%= form_with scope: :custom, url: my_customs_path, id: 'edit_custom' do |f| %>
   <%= f.hidden_field :product_id, value: @product.id %>
 <% end %>
 

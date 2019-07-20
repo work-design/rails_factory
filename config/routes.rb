@@ -32,18 +32,14 @@ Rails.application.routes.draw do
 
   scope :my, module: 'factory/my', as: :my do
     resource :provider
-    resources :customs
-    resources :facilitates, only: [] do
-      put :order, on: :member
-    end
-    resources :good_providers
-  end
-
-  scope :wx, module: 'factory/wx', as: :wx do
     resources :products
     resources :customs do
       post :price, on: :collection
     end
+    resources :facilitates, only: [] do
+      put :order, on: :member
+    end
+    resources :good_providers
   end
 
 end

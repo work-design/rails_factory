@@ -11,12 +11,19 @@ class Factory::My::CustomsController < Factory::My::BaseController
 
   def create
     @custom = Custom.new(custom_params)
-    @custom.compute_sum
+    @custom.compute_sum(current_user)
 
-    if @custom.save
-      redirect_to my_customs_url
-    else
-      render :new
+    respond_to do |format|
+      format.js do
+        @custom.save if params[:commit].present?
+      end
+      format.html do
+        if @custom.save
+          redirect_to wx_customs_url
+        else
+          render :new
+        end
+      end
     end
   end
 
@@ -28,7 +35,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
 
   def update
     if @custom.update(custom_params)
-      redirect_to my_customs_url
+      redirect_to wx_customs_url
     else
       render :edit
     end
@@ -36,7 +43,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
 
   def destroy
     @custom.destroy
-    redirect_to my_customs_url
+    redirect_to wx_customs_url
   end
 
   private
@@ -45,13 +52,12 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def custom_params
-    params.fetch(:custom, {}).permit(
-      :name,
-      :customer,
-      :state,
-      :qr_code,
-      :ordered_at
+    q = params.fetch(:custom, {}).permit(
+      :product_id,
+      part_ids: []
     )
+    q.fetch(:part_ids, []).map!(&:to_i)
+    q
   end
 
 end
