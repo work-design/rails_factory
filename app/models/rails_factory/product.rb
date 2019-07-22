@@ -11,7 +11,8 @@ module RailsFactory::Product
   
     has_one_attached :logo
     has_one_attached :main_image
-  
+    has_taxons :product_taxon
+    
     before_save :sync_price
   end
   

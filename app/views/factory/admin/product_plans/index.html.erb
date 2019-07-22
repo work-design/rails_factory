@@ -1,38 +1,35 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">Admin Product Plans</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New Admin Product Plan', new_admin_product_plan_path, class: 'ui teal button' %>
-    </div>
+<% content_for :breadcrumb do %>
+  <div class="ui basic segment breadcrumb">
+    <%= link_to t('factory.admin.products.index.title'), admin_products_path, class: 'section' %>
+    <i class="fas fa-angle-right divider"></i>
+    <div class="active section"><%= t('.title') %></div>
   </div>
-</div>
+<% end %>
 
-<div class="ui attached segment">
+<div class="ui top attached segment">
   <%= render 'search_form' %>
 </div>
 
 <table class="ui bottom attached table">
   <thead>
     <tr>
-      <th><%= ProductPlan.human_attribute_name(:id) %></th>
       <th><%= ProductPlan.human_attribute_name(:start_at) %></th>
       <th><%= ProductPlan.human_attribute_name(:finish_at) %></th>
       <th><%= ProductPlan.human_attribute_name(:state) %></th>
       <th><%= ProductPlan.human_attribute_name(:planned_count) %></th>
       <th><%= ProductPlan.human_attribute_name(:produced_count) %></th>
-      <th>Actions</th>
+      <th>
+        <%= link_to new_admin_product_plan_path, remote: true, class: 'ui teal button' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
     </tr>
   </thead>
   <tbody>
   <% @product_plans.each do |product_plan| %>
     <tr>
-      <td><%= product_plan.id %></td>
-      <td>
-        <time><%= product_plan.start_at.to_s(:rfc822) %></time>
-      </td>
-      <td>
-        <time><%= product_plan.finish_at.to_s(:rfc822) %></time>
-      </td>
+      <td><time><%= product_plan.start_at.to_s(:rfc822) %></time></td>
+      <td><time><%= product_plan.finish_at.to_s(:rfc822) %></time></td>
       <td><%= product_plan.state %></td>
       <td><%= product_plan.planned_count %></td>
       <td>

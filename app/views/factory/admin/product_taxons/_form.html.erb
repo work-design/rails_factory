@@ -1,8 +1,7 @@
-<%= form_with model: [:admin, @product_taxon], local: true do |f| %>
+<%= form_with model: [:admin, @product_taxon] do |f| %>
   <%= render 'shared/error_messages', target: @product_taxon %>
+  <%= render partial: 'nodes/children_select', locals: { f: f, node: ProductTaxon.new } %>
   <%= f.text_field :name %>
-  <%= f.text_field :position %>
   <%= f.text_field :profit_margin %>
-  <%= render partial: 'nodes/children_select', locals: { f: f } %>
   <%= f.submit %>
 <% end %>

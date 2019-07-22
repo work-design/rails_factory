@@ -9,6 +9,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
 
   def new
     @product = Product.new
+    @product.product_taxon = ProductTaxon.default_where(default_params).first
   end
 
   def create
@@ -25,6 +26,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   end
 
   def edit
+    @product.product_taxon ||= ProductTaxon.default_where(default_params).first
   end
 
   def update
@@ -52,6 +54,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
       :reference_price,
       :logo,
       :main_image,
+      :product_taxon_ancestors,
       part_ids: []
     )
     p.merge! default_params

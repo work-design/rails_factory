@@ -2,8 +2,9 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
   def change
 
     create_table :product_taxons do |t|
+      t.references :organ  # For SaaS
       t.string :name
-      t.integer :position, default: 1
+      t.integer :position
       t.decimal :profit_margin, precision: 4, scale: 2
       t.references :parent
       t.timestamps
@@ -35,8 +36,9 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     end
 
     create_table :part_taxons do |t|
+      t.references :organ
       t.string :name
-      t.integer :position, default: 1
+      t.integer :position
       t.references :parent
       t.timestamps
     end
@@ -50,6 +52,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     end
 
     create_table :parts do |t|
+      t.references :organ
       t.references :part_taxon
       t.string :name
       t.string :desc
