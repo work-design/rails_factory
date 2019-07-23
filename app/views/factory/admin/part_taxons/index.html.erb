@@ -1,13 +1,13 @@
-<div class="ui top attached borderless menu">
-  <%= link_to '配件', admin_parts_path, class: active_helper(controllers: ['parts']) %>
-  <%= link_to '配件分类', admin_part_taxons_path, class: active_helper(controllers: ['part_taxons']) %>
-  <div class="right menu">
-    <div class="item"><%= link_to 'New Part Taxon', new_admin_part_taxon_path, class: 'ui teal button' %></div>
+<% content_for :breadcrumb do %>
+  <div class="ui basic segment breadcrumb">
+    <%= link_to t('factory.admin.part_taxons.index.title'), admin_parts_path, class: 'section' %>
+    <i class="fas fa-angle-right divider"></i>
+    <div class="active section"><%= t('.title') %></div>
   </div>
-</div>
+<% end %>
 
-<div class="ui attached segment">
-  <%= render 'search_form' %>
+<div class="ui top attached segment">
+  <%= render 'filter' %>
 </div>
 
 <table class="ui bottom attached table">
@@ -16,14 +16,18 @@
       <th><%= PartTaxon.human_attribute_name(:name) %></th>
       <th><%= PartTaxon.human_attribute_name(:position) %></th>
       <th></th>
-      <th></th>
+      <th>
+        <%= link_to new_admin_part_taxon_path, class: 'ui teal button' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
     </tr>
   </thead>
 
   <tbody>
   <% @part_taxons.each do |part_taxon| %>
-    <%= render partial: 'part_taxon', locals: { node: part_taxon } %>
-    <%= draw_tree(part_taxon, partial: 'factory/admin/part_taxons/part_taxon') %>
+    <%= render partial: 'part_taxon', locals: { part_taxon: part_taxon } %>
+    <%= draw_tree(partial: 'factory/admin/part_taxons/part_taxon', object: part_taxon) %>
   <% end %>
   </tbody>
 </table>

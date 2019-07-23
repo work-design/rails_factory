@@ -1,28 +1,28 @@
-<tr data-depth="<%= node.depth_str %>">
+<tr data-depth="<%= part_taxon.depth_str %>">
   <td>
-    <span><%= ('&emsp;' * node.depth * 2).html_safe %></span>
+    <span><%= ('&emsp;' * part_taxon.depth * 2).html_safe %></span>
     <i class="grey caret down icon link"></i>
-    <span><%= node.name %></span>
+    <span><%= part_taxon.name %></span>
   </td>
-  <td><%= node.position %></td>
+  <td><%= part_taxon.position %></td>
   <td>
     <span class="ui toggle checkbox">
-      <%= check_box_tag :take_stock, nil, node.take_stock,
+      <%= check_box_tag :take_stock, nil, part_taxon.take_stock,
                         data: {
-                          url: admin_part_taxon_path(node),
+                          url: admin_part_taxon_path(part_taxon),
                           method: :patch,
                           remote: true,
-                          params: "[part_taxon]take_stock=#{!node.take_stock}"
+                          params: "[part_taxon]take_stock=#{!part_taxon.take_stock}"
                         },
                         id: nil
       %>
     </span>
   </td>
   <td>
-    <%= link_to edit_admin_part_taxon_path(node), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+    <%= link_to edit_admin_part_taxon_path(part_taxon), data: { tooltip: t('.edit') }, class: 'ui mini circular icon button' do %>
       <i class="pencil alternate icon"></i>
     <% end %>
-    <%= link_to admin_part_taxon_path(node), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+    <%= link_to admin_part_taxon_path(part_taxon), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
       <i class="times icon"></i>
     <% end %>
   </td>

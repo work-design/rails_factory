@@ -1,19 +1,16 @@
-<div class="ui segment breadcrumb">
+<% content_for :breadcrumb do %>
+<div class="ui basic segment breadcrumb">
   <%= link_to '返回', admin_facilitates_path, class: 'section' %>
   <div class="divider">/</div>
   <%# link_to @good.name, admin_facilitate_path(@good), class: 'section' %>
   <div class="divider">/</div>
   <div class="active section">编辑</div>
 </div>
+<% end %>
 
-<div class="ui top attached menu borderless">
-  <div class="item"><strong>供应商管理</strong></div>
-</div>
-
-<table class="ui bottom attached table">
+<table class="ui table">
   <thead>
     <tr>
-      <th><%= GoodProvider.human_attribute_name(:id) %></th>
       <th><%= GoodProvider.human_attribute_name(:provider) %></th>
       <th><%= GoodProvider.human_attribute_name(:export_price) %></th>
       <th><%= GoodProvider.human_attribute_name(:verified) %></th>
@@ -26,7 +23,6 @@
   <tbody>
   <% @good_providers.each do |good_provider| %>
     <tr>
-      <td><%= good_provider.id %></td>
       <td><%= good_provider.provider.name %></td>
       <td><%= good_provider.export_price %></td>
       <td>
