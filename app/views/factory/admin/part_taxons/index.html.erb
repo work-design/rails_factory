@@ -15,9 +15,8 @@
     <tr>
       <th><%= PartTaxon.human_attribute_name(:name) %></th>
       <th><%= PartTaxon.human_attribute_name(:position) %></th>
-      <th></th>
       <th>
-        <%= link_to new_admin_part_taxon_path, class: 'ui teal button' do %>
+        <%= link_to new_admin_part_taxon_path, remote: true, class: 'ui teal button' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
