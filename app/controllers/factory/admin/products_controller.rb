@@ -30,7 +30,9 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   end
 
   def update
-    if @product.update(product_params)
+    @product.assign_attributes(product_params)
+
+    if @product.save
       redirect_to admin_products_url
     else
       render :edit
@@ -50,6 +52,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   def product_params
     p = params.fetch(:product, {}).permit(
       :name,
+      :description,
       :qr_prefix,
       :reference_price,
       :logo,

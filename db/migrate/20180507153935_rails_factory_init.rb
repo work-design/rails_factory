@@ -22,7 +22,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.references :organ  # For SaaS
       t.references :product_taxon
       t.string :name
-      t.string :desc
+      t.string :description
       t.string :qr_prefix
       t.string :sku, index: true
       t.string :type
@@ -55,7 +55,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.references :organ
       t.references :part_taxon
       t.string :name
-      t.string :desc
+      t.string :description
       t.string :qr_prefix
       t.string :sku, index: true
       t.string :type

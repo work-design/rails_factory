@@ -3,6 +3,6 @@ zh:
     attributes:
       product:
         product_taxon_id: 商品分类
-        qr_prefix: 二维码规则
+        qr_prefix: 二维码前缀
         reference_price: 建议售价
     enum:
