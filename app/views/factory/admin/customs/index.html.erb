@@ -1,46 +1,35 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">Customs</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New Custom', new_admin_custom_path, class: 'ui teal button' %>
-    </div>
-  </div>
-</div>
-
-<div class="ui attached segment">
-  <%= render 'search_form' %>
+<div class="ui top attached segment">
+  <%= render 'filter' %>
 </div>
 
 <table class="ui bottom attached table">
   <thead>
     <tr>
-      <th><%= Custom.human_attribute_name(:id) %></th>
       <th><%= Custom.human_attribute_name(:product_name) %></th>
       <th><%= Custom.human_attribute_name(:customer) %></th>
       <th><%= Custom.human_attribute_name(:state) %></th>
       <th><%= Custom.human_attribute_name(:qr_code) %></th>
       <th><%= Custom.human_attribute_name(:ordered_at) %></th>
-      <th>Actions</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
   <% @customs.each do |custom| %>
     <tr>
-      <td><%= custom.id %></td>
       <td><%= custom.product.name %></td>
-      <td><%= custom.customer %></td>
+      <td><%= custom.customer.name %></td>
       <td><%= custom.state %></td>
       <td><%= custom.qr_code %></td>
       <td><%= custom.ordered_at %></td>
-      <td class="ui labels">
-        <%= link_to admin_custom_path(custom), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
-          <i class="location arrow icon"></i>
+      <td>
+        <%= link_to admin_custom_path(custom), data: { tooltip: t('.show') }, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-eye"></i>
         <% end %>
-        <%= link_to edit_admin_custom_path(custom), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
-          <i class="pencil alternate icon"></i>
+        <%= link_to edit_admin_custom_path(custom), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
-          <i class="times icon"></i>
+        <%= link_to admin_custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>
     </tr>

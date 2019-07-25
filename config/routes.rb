@@ -22,7 +22,6 @@ Rails.application.routes.draw do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'
     end
-
     scope ':good_type/:good_id' do
       resources :good_providers do
         patch :select, on: :member
