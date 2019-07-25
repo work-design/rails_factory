@@ -11,7 +11,8 @@ class Factory::My::CustomsController < Factory::My::BaseController
 
   def create
     @custom = Custom.new(custom_params)
-    @custom.compute_sum(current_user)
+    @custom.buyer = current_user
+    @custom.compute_sum
 
     respond_to do |format|
       format.js do
@@ -19,7 +20,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
       end
       format.html do
         if @custom.save
-          redirect_to wx_customs_url
+          redirect_to my_customs_url
         else
           render :new
         end

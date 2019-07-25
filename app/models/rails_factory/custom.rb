@@ -4,7 +4,7 @@ module RailsFactory::Custom
     attribute :price, :decimal, default: 0
   
     belongs_to :product, optional: true
-    belongs_to :customer, polymorphic: true
+    belongs_to :buyer, polymorphic: true
     has_many :custom_parts, dependent: :destroy
     has_many :parts, through: :custom_parts
   
@@ -13,15 +13,11 @@ module RailsFactory::Custom
         self.part_ids = product.part_ids
       end
     end
+    before_validation :compute_sum
   end
 
-  def compute_sum(user = nil)
-    if user
-      self.customer = user
-    end
-
+  def compute_sum
     self.custom_parts.each(&:sync_amount)
-
     self.price = custom_parts.sum(&:price).to_d
   end
 

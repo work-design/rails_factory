@@ -66,20 +66,21 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
       t.decimal :profit_price, precision: 10, scale: 2
       t.timestamps
     end
-
-    create_table :customs do |t|
-      t.references :product
-      t.references :customer, polymorphic: true
-      t.string :state
-      t.string :qr_code
-      t.datetime :ordered_at
-      t.timestamps
-    end
-
+    
     create_table :product_parts do |t|
       t.references :product
       t.references :part
       t.references :part_taxon
+      t.timestamps
+    end
+
+    create_table :customs do |t|
+      t.references :product
+      t.references :buyer, polymorphic: true
+      t.string :state
+      t.string :qr_code
+      t.datetime :ordered_at
+      t.decimal :price, precision: 10, scale: 2
       t.timestamps
     end
 
