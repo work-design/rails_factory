@@ -1,23 +1,12 @@
 class Factory::Admin::CustomsController < Factory::Admin::BaseController
-  before_action :set_product, only: [:index, :new, :create]
   before_action :set_custom, only: [:show, :edit, :update, :destroy]
-
+  
   def index
-    @customs = Custom.page(params[:page])
-  end
-
-  def new
-    @custom = @product.customs.build
-  end
-
-  def create
-    @custom = @product.customs.build(custom_params)
-
-    if @custom.save
-      redirect_to admin_product_customs_url(@product)
-    else
-      render :new
-    end
+    q_params = {}
+    q_params.merge! default_params
+    q_params.merge! params.permit(:product_id)
+    #@product = Product.find params[:product_id]
+    @customs = Custom.default_where(q_params).page(params[:page])
   end
 
   def show
@@ -40,10 +29,6 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
   end
 
   private
-  def set_product
-    @product = Product.find params[:product_id]
-  end
-
   def set_custom
     @custom = Custom.find(params[:id])
   end

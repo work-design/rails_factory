@@ -12,6 +12,7 @@ module RailsFactory::Custom
       if product_id && part_ids.blank?
         self.part_ids = product.part_ids
       end
+      self.organ_id = product.organ_id if defined? :organ_id
     end
     before_validation :compute_sum
   end

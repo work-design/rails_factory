@@ -75,6 +75,7 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
     end
 
     create_table :customs do |t|
+      t.references :organ  # For SaaS
       t.references :product
       t.references :buyer, polymorphic: true
       t.string :state

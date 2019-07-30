@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     resources :products do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
-      resources :customs, shallow: true
     end
+    resources :customs
     resources :providers
     resources :part_taxons
     resources :parts do

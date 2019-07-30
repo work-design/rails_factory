@@ -17,3 +17,6 @@ zh:
       providers:
         index:
           title: 供应商
+      customs:
+        index:
+          title: 定制产品
