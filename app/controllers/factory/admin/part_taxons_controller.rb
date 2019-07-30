@@ -2,8 +2,9 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
   before_action :set_part_taxon, only: [:show, :edit, :update, :destroy]
 
   def index
-    q_params = {}.with_indifferent_access
-    q_params.merge! params.fetch(:q, {}).permit!
+    q_params = {}
+    q_params.merge! default_params
+    q_params.merge! params.permit(:name)
     @part_taxons = PartTaxon.roots.default_where(q_params).page(params[:page])
   end
 
@@ -46,12 +47,13 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
   end
 
   def part_taxon_params
-    params.fetch(:part_taxon, {}).permit(
+    p = params.fetch(:part_taxon, {}).permit(
       :name,
       :position,
       :parent_id,
       :parent_ancestors
     )
+    p.merge! default_params
   end
 
 end

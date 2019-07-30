@@ -12,7 +12,8 @@ module RailsFactory::Part
     has_many :part_items, dependent: :destroy
   
     has_many :good_providers, as: :good, dependent: :destroy
-  
+    has_taxons :part_taxon
+
     before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
     before_save :sync_price
     after_update :sync_part_taxon_id_to_pp, if: -> { saved_change_to_part_taxon_id? }
