@@ -18,7 +18,7 @@ module RailsFactory::Custom
 
   def compute_sum
     self.custom_parts.each(&:sync_amount)
-    self.price = custom_parts.sum(&:price).to_d
+    self.price = custom_parts.sum(&:price)
   end
 
 end

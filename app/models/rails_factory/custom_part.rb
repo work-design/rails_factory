@@ -2,7 +2,8 @@ module RailsFactory::CustomPart
   extend ActiveSupport::Concern
   included do
     attribute :original_price, :decimal, default: 0
-
+    attribute :price, :decimal, default: 0
+    
     belongs_to :custom
     belongs_to :part
   end
