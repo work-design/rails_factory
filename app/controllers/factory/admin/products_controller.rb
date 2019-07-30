@@ -1,6 +1,7 @@
 class Factory::Admin::ProductsController < Factory::Admin::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :prepare_form, only: [:new, :edit]
+  
   def index
     q_params = {}
     q_params.merge! default_params
@@ -47,6 +48,10 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   private
   def set_product
     @product = Product.find(params[:id])
+  end
+  
+  def prepare_form
+    @parts = Part.default_where(default_params)
   end
 
   def product_params

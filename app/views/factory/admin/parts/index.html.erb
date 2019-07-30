@@ -45,7 +45,7 @@
         <%= link_to admin_part_path(part), class: 'ui mini circular icon button' do %>
           <i class="fas fa-eye"></i>
         <% end %>
-        <%= link_to edit_admin_part_path(part), class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_part_path(part), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
         <%= link_to admin_part_path(part), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>

@@ -2,9 +2,10 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
   before_action :set_part, only: [:show, :edit, :update, :destroy]
 
   def index
-    q_params = {}.with_indifferent_access
-    q_params.merge! params.fetch(:q, {}).permit(:name, :provider_id)
-    @parts = Part.page(params[:page])
+    q_params = {}
+    q_params.merge! default_params
+    q_params.merge! params.permit(:name, :provider_id)
+    @parts = Part.default_where(q_params).page(params[:page])
   end
 
   def new
@@ -46,13 +47,14 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
   end
 
   def part_params
-    params.fetch(:part, {}).permit(
+    p = params.fetch(:part, {}).permit(
       :name,
       :qr_prefix,
       :import_price,
       :profit_price,
       :part_taxon_ancestors
     )
+    p.merge! default_params
   end
 
 end

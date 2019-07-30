@@ -5,9 +5,15 @@ zh:
       products:
         index:
           title: 产品管理
+      product_taxons:
+        index:
+          title: 产品分类
       parts:
         index:
           title: 配件
+      part_taxons:
+        index:
+          title: 配件分类
       providers:
         index:
           title: 供应商

@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', target: @part_taxon %>
   <%= f.text_field :name %>
   <%= f.number_field :position %>
-  <%= render partial: 'nodes/children_select', locals: { f: f } %>
+  <%= render partial: 'nodes/children_select', locals: { f: f, node: PartTaxon.new } %>
   <%= f.check_box :individual %>
   <%= f.submit %>
 <% end %>

@@ -1,8 +1,10 @@
 module RailsFactory::Part
   extend ActiveSupport::Concern
   included do
-    attribute :part_taxon_ancestors
-  
+    attribute :price, :decimal, default: 0
+    attribute :import_price, :decimal, default: 0
+    attribute :profit_price, :decimal, default: 0
+    
     belongs_to :part_taxon, optional: true
     has_many :product_parts, dependent: :destroy
     has_many :products, through: :product_parts
