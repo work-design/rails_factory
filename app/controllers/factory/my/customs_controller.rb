@@ -10,8 +10,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def create
-    @custom = Custom.new(custom_params)
-    @custom.buyer = current_user
+    @custom = current_cart.customs.build(custom_params)
     @custom.compute_sum
 
     respond_to do |format|

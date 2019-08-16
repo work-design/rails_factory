@@ -4,6 +4,7 @@ module RailsFactory::Custom
     attribute :price, :decimal, default: 0
   
     belongs_to :product, optional: true
+    belongs_to :cart, optional: true
     belongs_to :buyer, polymorphic: true
     has_many :custom_parts, dependent: :destroy
     has_many :parts, through: :custom_parts
