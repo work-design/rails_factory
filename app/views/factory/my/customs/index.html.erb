@@ -1,41 +1,35 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">Wx Customs</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New Wx Custom', new_wx_custom_path, class: 'ui teal button' %>
-    </div>
+<div class="weui-panel weui-panel_access">
+  <div class="weui-panel__hd">列表</div>
+  <div class="weui-panel__bd">
+    <% @customs.each do |custom| %>
+      <div class="weui-media-box weui-media-box_appmsg">
+        <div class="weui-media-box__hd">
+          <%= image_tag custom.product.logo, class: 'weui-media-box__thumb' %>
+        </div>
+        <div class="weui-media-box__bd">
+          <h4 class="weui-media-box__title"><%= custom.product.name %></h4>
+          <p class="weui-media-box__desc">
+            <%= custom.product.description %>
+          </p>
+          <ul class="weui-media-box__info">
+            <li class="weui-media-box__info__meta">
+              <%= link_to order_my_custom_path(custom), method: :patch do %>
+                <i class="fas fa-eye weui-icon"></i>
+              <% end %>
+            </li>
+            <li class="weui-media-box__info__meta">
+              <%= link_to edit_my_custom_path(custom), data: { tooltip: t('.edit') } do %>
+                <i class="fas fa-pencil-alt weui-icon"></i>
+              <% end %>
+            </li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+              <%= link_to my_custom_path(custom), method: :delete, data: { confirm: t('.confirm') } do %>
+                <i class="fas fa-trash-alt weui-icon"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-<div class="ui attached segment">
-  <%= render 'search_form' %>
-</div>
-
-<table class="ui bottom attached table">
-  <thead>
-    <tr>
-      <th><%= Custom.human_attribute_name(:id) %></th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @customs.each do |custom| %>
-    <tr>
-      <td><%= custom.id %></td>
-      <td class="ui labels">
-        <%= link_to wx_custom_path(custom), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
-          <i class="location arrow icon"></i>
-        <% end %>
-        <%= link_to edit_wx_custom_path(custom), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
-          <i class="pencil alternate icon"></i>
-        <% end %>
-        <%= link_to wx_custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
-          <i class="times icon"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= paginate @customs %>

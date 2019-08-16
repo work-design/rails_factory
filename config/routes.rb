@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :products, shallow: true do
       resources :customs
     end
+    resources :product_taxons
   end
 
   scope :admin, module: 'factory/admin', as: 'admin' do
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
     resources :products
     resources :customs do
       post :price, on: :collection
+      patch :order, on: :member
     end
     resources :facilitates, only: [] do
       put :order, on: :member

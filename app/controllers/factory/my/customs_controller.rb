@@ -1,5 +1,5 @@
 class Factory::My::CustomsController < Factory::My::BaseController
-  before_action :set_custom, only: [:show, :edit, :update, :destroy]
+  before_action :set_custom, only: [:show, :edit, :update, :order, :destroy]
 
   def index
     @customs = Custom.page(params[:page])
@@ -42,6 +42,11 @@ class Factory::My::CustomsController < Factory::My::BaseController
     end
   end
 
+  def order
+    order = @custom.generate_order! buyer: @custom.buyer
+    redirect_to my_orders_url(order_id: order.id)
+  end
+  
   def destroy
     @custom.destroy
     redirect_to wx_customs_url
