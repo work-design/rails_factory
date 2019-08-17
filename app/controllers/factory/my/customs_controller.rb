@@ -2,11 +2,11 @@ class Factory::My::CustomsController < Factory::My::BaseController
   before_action :set_custom, only: [:show, :edit, :update, :order, :destroy]
 
   def index
-    @customs = Custom.page(params[:page])
+    @customs = current_cart.customs.page(params[:page])
   end
 
   def new
-    @custom = Custom.new
+    @custom = current_cart.customs.build
   end
 
   def create
@@ -42,7 +42,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def order
-    order = @custom.generate_order! buyer: @custom.buyer
+    order = @custom.generate_order! cart: current_cart
     redirect_to my_orders_url(order_id: order.id)
   end
   
