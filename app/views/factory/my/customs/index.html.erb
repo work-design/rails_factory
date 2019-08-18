@@ -13,6 +13,9 @@
           </p>
           <ul class="weui-media-box__info">
             <li class="weui-media-box__info__meta">
+              <span><%= custom.price %></span>
+            </li>
+            <li class="weui-media-box__info__meta">
               <%= link_to order_my_custom_path(custom), method: :patch do %>
                 <i class="fas fa-eye weui-icon"></i>
               <% end %>
@@ -32,4 +35,8 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="weui-btn-area">
+  <%= submit_tag t('helpers.submit.submit'), form: 'edit_custom', class: 'weui-btn weui-btn_primary' %>
 </div>

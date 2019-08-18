@@ -31,6 +31,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def edit
+    @product = @custom.product
   end
 
   def update
