@@ -7,7 +7,6 @@ module RailsFactory #:nodoc:
     config.app_controller = 'ApplicationController'
     config.my_controller = 'MyController'
     config.admin_controller = 'AdminController'
-    config.current_customer = :current_user
   end
 
 end
