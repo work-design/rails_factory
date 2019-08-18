@@ -34,8 +34,10 @@ Rails.application.routes.draw do
     resource :provider
     resources :products
     resources :customs do
-      post :price, on: :collection
-      patch :order, on: :member
+      collection do
+        post :price
+        post :cart
+      end
     end
     resources :facilitates, only: [] do
       put :order, on: :member

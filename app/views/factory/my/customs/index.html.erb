@@ -1,3 +1,6 @@
+<%= form_with url: cart_my_customs_path, id: 'add_cart' do |f| %>
+<% end %>
+
 <div class="weui-panel weui-panel_access">
   <div class="weui-panel__hd">列表</div>
   <div class="weui-panel__bd">
@@ -14,11 +17,6 @@
           <ul class="weui-media-box__info">
             <li class="weui-media-box__info__meta">
               <span><%= custom.price %></span>
-            </li>
-            <li class="weui-media-box__info__meta">
-              <%= link_to order_my_custom_path(custom), method: :patch do %>
-                <i class="fas fa-eye weui-icon"></i>
-              <% end %>
             </li>
             <li class="weui-media-box__info__meta">
               <%= link_to edit_my_custom_path(custom), data: { tooltip: t('.edit') } do %>
@@ -38,5 +36,5 @@
 </div>
 
 <div class="weui-btn-area">
-  <%= submit_tag t('helpers.submit.submit'), form: 'edit_custom', class: 'weui-btn weui-btn_primary' %>
+  <%= submit_tag t('helpers.submit.next'), form: 'add_cart', class: 'weui-btn weui-btn_primary' %>
 </div>

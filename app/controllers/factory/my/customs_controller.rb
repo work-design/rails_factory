@@ -1,5 +1,5 @@
 class Factory::My::CustomsController < Factory::My::BaseController
-  before_action :set_custom, only: [:show, :edit, :update, :order, :destroy]
+  before_action :set_custom, only: [:show, :edit, :update, :destroy]
 
   def index
     @customs = current_cart.customs.page(params[:page])
@@ -26,6 +26,10 @@ class Factory::My::CustomsController < Factory::My::BaseController
       end
     end
   end
+  
+  def cart
+    redirect_to my_cart_url
+  end
 
   def show
   end
@@ -40,11 +44,6 @@ class Factory::My::CustomsController < Factory::My::BaseController
     else
       render :edit
     end
-  end
-
-  def order
-    order = @custom.generate_order! cart: current_cart
-    redirect_to my_orders_url(order_id: order.id)
   end
   
   def destroy
