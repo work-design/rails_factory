@@ -1,2 +1,2 @@
-//= require rails_taxon/outer
+import 'rails_taxon/outer'
 $('#product_part_ids').dropdown();
