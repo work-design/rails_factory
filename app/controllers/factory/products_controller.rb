@@ -2,7 +2,9 @@ class Factory::ProductsController < Factory::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.page(params[:page])
+    q_params = {}
+    q_params.merge! default_params
+    @products = Product.default_where(q_params).page(params[:page])
   end
 
   def show

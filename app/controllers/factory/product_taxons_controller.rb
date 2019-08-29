@@ -2,7 +2,9 @@ class Factory::ProductTaxonsController < Factory::BaseController
   before_action :set_product_taxon, only: [:show, :edit, :update, :destroy]
 
   def index
-    @product_taxons = ProductTaxon.page(params[:page])
+    q_params = {}
+    q_params.merge! default_params
+    @product_taxons = ProductTaxon.default_where(q_params).page(params[:page])
   end
 
   def new
