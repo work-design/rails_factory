@@ -4,7 +4,8 @@
     <i class="grey caret down icon link"></i>
     <span><%= part_taxon.name %></span>
   </td>
-  <td><%= part_taxon.position %></td>
+  <td><%= part_taxon.min_select %></td>
+  <td><%= part_taxon.max_select %></td>
   <td>
     <%= link_to edit_admin_part_taxon_path(part_taxon), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
       <i class="fas fa-pencil-alt"></i>

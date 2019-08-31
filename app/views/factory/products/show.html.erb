@@ -1,1 +1,33 @@
-<%= render 'show' %>
+<article class="weui-article">
+  <%= image_tag @product.main_image %>
+  <h1><%= @product.name %></h1>
+</article>
+
+<div id="sti">
+  <span class="weui-btn weui-btn_primary" id="total_price"><%= @custom.price %></span>
+</div>
+
+<%= form_with scope: :custom, url: my_customs_path, id: 'edit_custom' do |f| %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+<% end %>
+
+<% @product.part_taxons.each do |part_taxon| %>
+  <div class="weui-panel">
+    <div class="weui-panel__hd">
+      <%= part_taxon.name %>
+    </div>
+    <div class="weui-panel__bd">
+      <% part_taxon.parts.each do |part| %>
+        <div class="weui-btn weui-btn_mini weui-btn_default">
+          <span><%= part.name %></span>
+          <span><%= part.price %></span>
+          <%= check_box_tag 'custom[part_ids][]', part.id, @custom.part_ids.include?(part.id), data: { form: true, target: 'input.output disable.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="weui-btn-area">
+  <%= submit_tag t('helpers.submit.submit'), form: 'edit_custom', class: 'weui-btn weui-btn_primary' %>
+</div>

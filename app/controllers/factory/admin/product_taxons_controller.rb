@@ -53,7 +53,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
       :parent_id,
       :parent_ancestors
     )
-    p.merge! default_params
+    p.merge! default_form_params
   end
 
 end

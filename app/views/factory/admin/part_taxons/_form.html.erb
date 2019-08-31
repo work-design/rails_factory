@@ -3,6 +3,7 @@
   <%= f.text_field :name %>
   <%= f.number_field :position %>
   <%= render partial: 'nodes/children_select', locals: { f: f, node: PartTaxon.new } %>
-  <%= f.check_box :individual %>
+  <%= f.number_field :min_select %>
+  <%= f.number_field :max_select %>
   <%= f.submit %>
 <% end %>

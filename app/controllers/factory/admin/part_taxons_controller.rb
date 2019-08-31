@@ -50,10 +50,12 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
     p = params.fetch(:part_taxon, {}).permit(
       :name,
       :position,
+      :min_select,
+      :max_select,
       :parent_id,
       :parent_ancestors
     )
-    p.merge! default_params
+    p.merge! default_form_params
   end
 
 end

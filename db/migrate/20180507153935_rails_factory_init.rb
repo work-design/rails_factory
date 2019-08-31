@@ -37,9 +37,11 @@ class RailsFactoryInit < ActiveRecord::Migration[5.2]
 
     create_table :part_taxons do |t|
       t.references :organ
+      t.references :parent
       t.string :name
       t.integer :position
-      t.references :parent
+      t.integer :min_select
+      t.integer :max_select
       t.timestamps
     end
 
