@@ -4,6 +4,11 @@
 .weui-tab__panel {
   overflow: visible;
 }
+.weui-panel__bd {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 #sti {
   z-index: 3;
 }

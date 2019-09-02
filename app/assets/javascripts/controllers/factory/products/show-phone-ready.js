@@ -7,17 +7,17 @@ class InputController extends Controller {
   static targets = [ 'output' ]
 
   connect() {
-    this.disable()
+    console.log('InputController connected!')
+  }
+
+  toggle() {
+
   }
 
   disable() {
     if (this.outputTarget.disabled === true) {
-      disableClass(this)
+      input.parentElement.parentElement.classList.add('weui-btn_disabled')
     }
-  }
-
-  disableClass(input) {
-    input.parentElement.parentElement.classList.add('weui-cell_disabled')
   }
 }
 
