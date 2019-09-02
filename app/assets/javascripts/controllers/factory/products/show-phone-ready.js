@@ -30,7 +30,12 @@ class InputController extends Controller {
       this.toggleOff(this.lastItem)
     }
 
-    let order = this.data.get('order').split(',')
+    let order = this.data.get('order')
+    if (order.length > 0) {
+      order = order.split(',')
+    } else {
+      order = []
+    }
     order.push(checkbox.value)
     this.data.set('order', order)
   }
@@ -45,7 +50,12 @@ class InputController extends Controller {
     cl.remove('weui-btn_primary')
     cl.add('weui-btn_default')
 
-    let order = this.data.get('order').split(',')
+    let order = this.data.get('order')
+    if (order.length > 0) {
+      order = order.split(',')
+    } else {
+      order = []
+    }
     let index = order.indexOf(checkbox.value)
     if (index > -1) {
       order.splice(index, 1)
