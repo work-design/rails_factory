@@ -18,11 +18,11 @@
     </div>
     <div class="weui-panel__bd">
       <% part_taxon.parts.each do |part| %>
-        <div class="weui-btn weui-btn_mini weui-btn_default">
+        <label class="weui-btn weui-btn_mini weui-btn_default" for="part_<%= part.id %>" id="part_<%= part.id %>_label" data-controller="input">
           <span><%= part.name %></span>
           <span><%= part.price %></span>
           <%= check_box_tag 'custom[part_ids][]', part.id, @custom.part_ids.include?(part.id), data: { form: true, target: 'input.output disable.output' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
-        </div>
+        </label>
       <% end %>
     </div>
   </div>
