@@ -7,6 +7,8 @@
 .weui-panel__bd {
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 
 #sti {

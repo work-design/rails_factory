@@ -10,13 +10,22 @@ class InputController extends Controller {
     console.log('InputController connected!')
   }
 
-  toggle() {
-
+  toggle(event) {
+    let checkbox = event.currentTarget
+    if (checkbox.checked) {
+      let cl = checkbox.parentElement.classList
+      cl.remove('weui-btn_default')
+      cl.add('weui-btn_primary')
+    } else if (!checkbox.checked) {
+      let cl = checkbox.parentElement.classList
+      cl.remove('weui-btn_primary')
+      cl.add('weui-btn_default')
+    }
   }
 
   disable() {
     if (this.outputTarget.disabled === true) {
-      input.parentElement.parentElement.classList.add('weui-btn_disabled')
+      input.parentElement.classList.add('weui-btn_disabled')
     }
   }
 }
