@@ -38,14 +38,14 @@
         <table class="ui very basic compact table">
           <% product.parts.each do |part| %>
             <tr>
-              <td><span class="ui label"><%= link_to part.name, admin_part_path(part), target: '_blank' %></span></td>
+              <td><span class="ui label"><%= link_to part.name, admin_part_path(part), remote: true %></span></td>
               <td><%= part.price %></td>
             </tr>
           <% end %>
         </table>
       </td>
       <td>
-        <%= link_to 'Plan', admin_product_plans_path(product), class: 'ui blue label' %>
+        <%= link_to t('factory.admin.product_plans.index.title'), admin_product_plans_path(product), class: 'ui blue label' %>
       </td>
       <td>
         <%= link_to admin_product_path(product), remote: true, class: 'ui mini circular icon button' do %>

@@ -8,6 +8,9 @@ zh:
       product_taxons:
         index:
           title: 产品分类
+      product_plans:
+        index:
+          title: 生产计划
       parts:
         index:
           title: 配件

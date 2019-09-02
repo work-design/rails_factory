@@ -4,15 +4,4 @@
   <div class="active section">Show</div>
 </div>
 
-<table class="ui very basic large table">
-  <tbody>
-    <tr>
-      <td class="right aligned"><%= Part.human_attribute_name(:name) %></td>
-      <td><%= @part.name %></td>
-    </tr>
-    <tr>
-      <td class="right aligned"><%= Part.human_attribute_name(:qr_prefix) %></td>
-      <td><%= @part.qr_prefix %></td>
-    </tr>
-  </tbody>
-</table>
+<%= render 'show_table' %>
