@@ -39,10 +39,20 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def update
-    if @custom.update(custom_params)
-      redirect_to wx_customs_url
-    else
-      render :edit
+    @custom.assign_attributes(custom_params)
+    @custom.compute_sum
+    
+    respond_to do |format|
+      format.js do
+        @custom.save if params[:commit].present?
+      end
+      format.html do
+        if @custom.save
+          redirect_to my_customs_url
+        else
+          render :edit
+        end
+      end
     end
   end
   

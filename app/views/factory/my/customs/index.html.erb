@@ -12,7 +12,9 @@
         <div class="weui-media-box__bd">
           <h4 class="weui-media-box__title"><%= custom.product.name %></h4>
           <p class="weui-media-box__desc">
-            <%= custom.product.description %>
+            <% custom.parts.each do |part| %>
+              <span><%= part.name %></span>
+            <% end %>
           </p>
           <ul class="weui-media-box__info">
             <li class="weui-media-box__info__meta">
