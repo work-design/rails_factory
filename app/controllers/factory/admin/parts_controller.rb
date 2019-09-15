@@ -15,10 +15,8 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
   def create
     @part = Part.new(part_params)
 
-    if @part.save
-      redirect_to admin_parts_url
-    else
-      render :new
+    unless @part.save
+      render :new, locals: { model: @part }, status: :unprocessable_entity
     end
   end
 
@@ -29,16 +27,15 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
   end
 
   def update
-    if @part.update(part_params)
-      redirect_to admin_parts_url
-    else
-      render :edit
+    @part.assign_attributes(part_params)
+
+    unless @part.save
+      render :edit, locals: { model: @part }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @part.destroy
-    redirect_to admin_parts_url
   end
 
   private

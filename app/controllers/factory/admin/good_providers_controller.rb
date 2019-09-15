@@ -13,14 +13,8 @@ class Factory::Admin::GoodProvidersController < Factory::Admin::BaseController
   def create
     @good_provider = @facilitate.good_providers.build(good_provider_params)
 
-    respond_to do |format|
-      if @good_provider.save
-        format.html { redirect_to @good_provider, notice: 'Facilitate provider was successfully created.' }
-        format.json { render :show, status: :created, location: @good_provider }
-      else
-        format.html { render :new }
-        format.json { render json: @good_provider.errors, status: :unprocessable_entity }
-      end
+    unless @crowd.save
+      render :new, locals: { model: @good_provider }, status: :unprocessable_entity
     end
   end
 
@@ -41,25 +35,15 @@ class Factory::Admin::GoodProvidersController < Factory::Admin::BaseController
   end
 
   def update
-    respond_to do |format|
-      if @good_provider.update(good_provider_params)
-        format.js { head :no_content }
-        format.html { redirect_to @good_provider, notice: 'Facilitate provider was successfully updated.' }
-        format.json { render :show, status: :ok, location: @good_provider }
-      else
-        format.js { head :no_content }
-        format.html { render :edit }
-        format.json { render json: @good_provider.errors, status: :unprocessable_entity }
-      end
+    @good_provider.assign_attributes(good_provider_params)
+
+    unless @good_provider.save
+      render :edit, locals: { model: @good_provider }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @good_provider.destroy
-    respond_to do |format|
-      format.html { redirect_to good_providers_url, notice: 'Facilitate provider was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

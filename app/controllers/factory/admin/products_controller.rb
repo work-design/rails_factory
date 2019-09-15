@@ -16,10 +16,8 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   def create
     @product = Product.new(product_params)
 
-    if @product.save
-      redirect_to admin_products_url
-    else
-      render :new
+    unless @product.save
+      render :new, locals: { model: @product }, status: :unprocessable_entity
     end
   end
 
@@ -33,16 +31,13 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   def update
     @product.assign_attributes(product_params)
 
-    if @product.save
-      redirect_to admin_products_url
-    else
-      render :edit
+    unless @product.save
+      render :edit, locals: { model: @product }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @product.destroy
-    redirect_to admin_products_url
   end
 
   private

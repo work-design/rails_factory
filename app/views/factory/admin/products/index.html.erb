@@ -54,7 +54,7 @@
         <%= link_to edit_admin_product_path(product), remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_product_path(product), method: :delete, data: { confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_product_path(product), method: :delete, data: { confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

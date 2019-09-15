@@ -14,10 +14,8 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
   def create
     @product_taxon = ProductTaxon.new(product_taxon_params)
 
-    if @product_taxon.save
-      redirect_to admin_product_taxons_url
-    else
-      render :new
+    unless @product_taxon.save
+      render :new, locals: { model: @product_taxon }, status: :unprocessable_entity
     end
   end
 
@@ -28,16 +26,15 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
   end
 
   def update
-    if @product_taxon.update(product_taxon_params)
-      redirect_to admin_product_taxons_url
-    else
-      render :edit
+    @product_taxon.assign_attributes(product_taxon_params)
+
+    unless @product_taxon.save
+      render :edit, locals: { model: @product_taxon }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @product_taxon.destroy
-    redirect_to admin_product_taxons_url
   end
 
   private

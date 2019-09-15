@@ -16,16 +16,15 @@ class Factory::Admin::CustomsController < Factory::Admin::BaseController
   end
 
   def update
-    if @custom.update(custom_params)
-      redirect_to admin_product_customs_url(@custom.product_id)
-    else
-      render :edit
+    @custom.assign_attributes(custom_params)
+
+    unless @custom.save
+      render :edit, locals: { model: @custom }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @custom.destroy
-    redirect_to admin_product_customs_url(@custom.product_id)
   end
 
   private

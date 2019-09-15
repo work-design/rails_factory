@@ -13,10 +13,8 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
   def create
     @product_plan = @product.product_plans.build(product_plan_params)
 
-    if @product_plan.save
-      redirect_to admin_product_plans_url(@product)
-    else
-      render :new
+    unless @product_plan.save
+      render :new, locals: { model: @product_plan }, status: :unprocessable_entity
     end
   end
 
@@ -27,16 +25,15 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
   end
 
   def update
-    if @product_plan.update(product_plan_params)
-      redirect_to admin_product_plans_url(@product)
-    else
-      render :edit
+    @product_plan.assign_attributes(product_plan_params)
+    
+    unless @product_plan.save
+      render :edit, locals: { model: @product_plan }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @product_plan.destroy
-    redirect_to admin_product_plans_url(@product)
   end
 
   private
