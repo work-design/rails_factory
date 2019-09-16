@@ -29,6 +29,7 @@ class SwipeController extends Controller {
     if (isScrolling === 0) {
       event.preventDefault()
       this.openTarget.style.display = 'block'
+      this.openTarget.style.width = '30px'
     }
   }
 
