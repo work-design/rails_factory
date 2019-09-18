@@ -13,17 +13,10 @@ class Factory::My::CustomsController < Factory::My::BaseController
     @custom = current_cart.customs.build(custom_params)
     @custom.compute_sum
 
-    respond_to do |format|
-      format.js do
-        @custom.save if params[:commit].present?
-      end
-      format.html do
-        if @custom.save
-          redirect_to my_customs_url
-        else
-          render :new
-        end
-      end
+    if params[:commit].present? && @custom.save
+      render 'create'
+    else
+      render 'create_price'
     end
   end
   
@@ -42,23 +35,15 @@ class Factory::My::CustomsController < Factory::My::BaseController
     @custom.assign_attributes(custom_params)
     @custom.compute_sum
     
-    respond_to do |format|
-      format.js do
-        @custom.save if params[:commit].present?
-      end
-      format.html do
-        if @custom.save
-          redirect_to my_customs_url
-        else
-          render :edit
-        end
-      end
+    if params[:commit].present? && @custom.save
+      render 'update'
+    else
+      render 'update_price'
     end
   end
   
   def destroy
     @custom.destroy
-    redirect_to wx_customs_url
   end
 
   private

@@ -25,15 +25,10 @@
                 <i class="fas fa-pencil-alt weui-icon"></i>
               <% end %>
             </li>
-            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">
-              <%= link_to my_custom_path(custom), method: :delete, data: { confirm: t('.confirm') } do %>
-                <i class="fas fa-trash-alt weui-icon"></i>
-              <% end %>
-            </li>
           </ul>
         </div>
         <div class="weui-media-box__ft" data-target="swipe.open">
-          <div class="weui-btn weui-btn_mini weui-btn_primary">dd</div>
+          <%= link_to '删除', my_custom_path(custom), method: :delete, data: { confirm: t('.confirm') }, remote: true, class: 'weui-btn weui-btn_mini weui-btn_warn' %>
         </div>
       </div>
     <% end %>

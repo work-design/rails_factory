@@ -1,2 +1,2 @@
-document.getElementById('total_price').innerText = '<%= @custom.price %>';
-//document.getElementById('part_<%= %>_label').dataset.add_controller('disable');
+Turbolinks.clearCache()
+Turbolinks.visit('<%= my_customs_path %>', { action: 'replace' })

@@ -34,6 +34,12 @@ class SwipeController extends Controller {
         width: `${Math.abs(offset.x)}px`
       }
       Object.assign(this.openTarget.style, styles)
+    } else if (isScrolling === 0 && offset.x > 0) {
+      event.preventDefault()
+      let styles = {
+        width: 0
+      }
+      Object.assign(this.openTarget.style, styles)
     }
   }
 
