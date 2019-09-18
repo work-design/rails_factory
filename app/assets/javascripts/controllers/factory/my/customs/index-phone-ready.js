@@ -21,16 +21,28 @@ class SwipeController extends Controller {
       return
     }
     let touch = event.targetTouches[0]
-    let endPos = {
+    let offset = {
       x: touch.pageX - this.startPos.x,
       y: touch.pageY - this.startPos.y
     }
-    let isScrolling = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1 : 0
-    if (isScrolling === 0) {
+    console.log(offset)
+    let isScrolling = Math.abs(offset.x) < Math.abs(offset.y) ? 1 : 0
+    if (isScrolling === 0 && offset.x < 0) {
       event.preventDefault()
-      this.openTarget.style.display = 'block'
-      this.openTarget.style.width = '30px'
+      let styles = {
+        display: 'block',
+        width: `${Math.abs(offset.x)}px`
+      }
+      Object.assign(this.openTarget.style, styles)
     }
+  }
+
+  end(event) {
+    let styles = {
+      width: '150px',
+      'transition-property': 'width'
+    }
+    Object.assign(this.openTarget.style, styles)
   }
 
   get startPos() {

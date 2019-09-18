@@ -1,7 +1,6 @@
 .weui-media-box__ft {
   width: 0;
   display: none;
-  transition:width 2s;
   align-self: stretch;
 }
 
