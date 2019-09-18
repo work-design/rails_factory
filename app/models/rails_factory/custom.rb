@@ -3,7 +3,8 @@ module RailsFactory::Custom
   included do
     attribute :price, :decimal, default: 0
     attribute :state, :string, default: 'init'
-  
+    attribute :name, :string
+    
     belongs_to :product, optional: true
     belongs_to :cart
     belongs_to :buyer, polymorphic: true, optional: true
