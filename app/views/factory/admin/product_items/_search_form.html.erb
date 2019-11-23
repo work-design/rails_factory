@@ -1,4 +1,4 @@
-<%= search_form_with model: ProductItem.new do |f| %>
+<%= form_with theme: 'search', model: ProductItem.new do |f| %>
   <div class="fields">
     <%= f.date_field 'produced_at-gte' %>
     <%= f.date_field 'produced_at-lte' %>

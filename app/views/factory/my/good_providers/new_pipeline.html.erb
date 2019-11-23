@@ -9,7 +9,7 @@
   </div>
 
   <div>
-    <%= default_form_with model: @pipeline, url: pipeline_my_facilitate_provider_path(@facilitate_provider) do |f| %>
+    <%= form_with model: @pipeline, url: pipeline_my_facilitate_provider_path(@facilitate_provider) do |f| %>
       <%= f.text_field :name %>
       <%= f.text_area :description %>
       <%= f.submit %>
