@@ -1,8 +1,11 @@
 module RailsFactory::ProductItem
   extend ActiveSupport::Concern
+
   included do
     attribute :state, :string, default: 'producing'
-  
+    attribute :qr_code, :string
+    attribute :produced_at, :datetime
+    
     belongs_to :product
     has_many :part_items
   

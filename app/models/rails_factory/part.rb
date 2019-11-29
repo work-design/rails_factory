@@ -1,22 +1,32 @@
 module RailsFactory::Part
   extend ActiveSupport::Concern
+  
   included do
-    attribute :price, :decimal, default: 0
-    attribute :import_price, :decimal, default: 0
-    attribute :profit_price, :decimal, default: 0
-    
+    attribute :type, :string
+    attribute :name, :string
+    attribute :description, :string
+    attribute :qr_prefix, :string
+    attribute :sku, :string, index: true
+    attribute :order_items_count, :integer, default: 0
+    attribute :published, :boolean, default: true
+    attribute :price, :decimal, precision: 10, scale: 2, default: 0
+    attribute :import_price, :decimal, precision: 10, scale: 2, default: 0
+    attribute :profit_price, :decimal, precision: 10, scale: 2, default: 0
+
+    belongs_to :organ, optional: true
     belongs_to :part_taxon, optional: true
+    
     has_many :product_parts, dependent: :destroy
     has_many :products, through: :product_parts
     has_many :part_plans, dependent: :destroy
     has_many :part_items, dependent: :destroy
-  
     has_many :good_providers, as: :good, dependent: :destroy
-    has_taxons :part_taxon
 
     before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
     before_save :sync_price
     after_update :sync_part_taxon_id_to_pp, if: -> { saved_change_to_part_taxon_id? }
+
+    has_taxons :part_taxon
   end
   
   def taxon_str(join = ' > ')

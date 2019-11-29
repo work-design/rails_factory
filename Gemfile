@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 gemspec
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '>= 5.2.0'
+gem 'rails'
 gem 'puma'
 
 gem 'sqlite3'
-gem 'factory_bot_rails', github: 'thoughtbot/factory_bot_rails'
+gem 'factory_bot_rails', require: false
 gem 'rails_com', github: 'work-design/rails_com'
 gem 'rails_taxon', github: 'work-design/rails_taxon'
 gem 'rails_auth', github: 'work-design/rails_auth'

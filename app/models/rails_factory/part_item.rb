@@ -1,8 +1,11 @@
 module RailsFactory::PartItem
   extend ActiveSupport::Concern
+
   included do
     attribute :state, :string, default: 'purchasing'
-  
+    attribute :qr_code, :string
+    attribute :received_at, :datetime
+    
     belongs_to :part
     belongs_to :product_item, optional: true
     has_one_attached :qr_file

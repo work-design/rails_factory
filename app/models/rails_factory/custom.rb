@@ -1,10 +1,14 @@
 module RailsFactory::Custom
   extend ActiveSupport::Concern
+  
   included do
-    attribute :price, :decimal, default: 0
+    attribute :qr_code, :string
+    attribute :ordered_at, :datetime
+    attribute :price, :decimal, precision: 10, scale: 2, default: 0
     attribute :state, :string, default: 'init'
     attribute :name, :string
     
+    belongs_to :organ, optional: true
     belongs_to :product, optional: true
     belongs_to :cart
     belongs_to :buyer, polymorphic: true, optional: true
