@@ -15,8 +15,4 @@ class RailsFactory::Engine < ::Rails::Engine
     g.templates.unshift File.expand_path('lib/templates', RailsCom::Engine.root)
   end
 
-  initializer 'rails_factory.assets.precompile' do |app|
-    app.config.assets.precompile += ['rails_factory_manifest.js']
-  end
-
 end # :nodoc:
