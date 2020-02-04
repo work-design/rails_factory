@@ -1,6 +1,6 @@
 module RailsFactory::Product
   extend ActiveSupport::Concern
-  
+
   included do
     attribute :name, :string
     attribute :description, :string
@@ -13,10 +13,10 @@ module RailsFactory::Product
     attribute :price, :decimal, precision: 10, scale: 2
     attribute :cost_price, :decimal, precision: 10, scale: 2
     attribute :profit_price, :decimal, precision: 10, scale: 2
-    
+
     belongs_to :organ, optional: true
     belongs_to :product_taxon, optional: true
-    
+
     has_many :product_parts, dependent: :destroy
     has_many :parts, through: :product_parts
     has_many :part_taxons, -> { distinct }, through: :product_parts
@@ -31,7 +31,7 @@ module RailsFactory::Product
 
     has_taxons :product_taxon
   end
-  
+
   def init_profit_price
     if product_taxon&.profit_margin
       self.profit_price = self.import_price * (100 + profit_margin) / 100

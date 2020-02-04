@@ -1,6 +1,6 @@
 module RailsFactory::Part
   extend ActiveSupport::Concern
-  
+
   included do
     attribute :type, :string
     attribute :name, :string
@@ -14,8 +14,8 @@ module RailsFactory::Part
     attribute :profit_price, :decimal, precision: 10, scale: 2, default: 0
 
     belongs_to :organ, optional: true
-    belongs_to :part_taxon, optional: true
-    
+    belongs_to :part_taxon
+
     has_many :product_parts, dependent: :destroy
     has_many :products, through: :product_parts
     has_many :part_plans, dependent: :destroy
@@ -28,7 +28,7 @@ module RailsFactory::Part
 
     has_taxons :part_taxon
   end
-  
+
   def taxon_str(join = ' > ')
     self.part_taxon.self_and_ancestors.pluck(:name).reverse.join(join) if self.part_taxon
   end
