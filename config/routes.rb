@@ -36,6 +36,8 @@ Rails.application.routes.draw do
     resources :customs do
       collection do
         post :price
+      end
+      member do
         post :cart
       end
     end

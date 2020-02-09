@@ -1,5 +1,5 @@
 class Factory::My::CustomsController < Factory::My::BaseController
-  before_action :set_custom, only: [:show, :edit, :update, :destroy]
+  before_action :set_custom, only: [:show, :edit, :update, :cart, :destroy]
 
   def index
     @customs = current_cart.customs.page(params[:page])
@@ -19,19 +19,18 @@ class Factory::My::CustomsController < Factory::My::BaseController
       render 'create_price'
     end
   end
-  
+
   def cart
-    params[:custom_ids].each do |custom_id|
-      trade_item = current_cart.trade_items.find_or_initialize_by(good_id: custom_id, good_type: 'Custom')
+    trade_item = current_cart.trade_items.find_or_initialize_by(good_id: @custom.id, good_type: 'Custom')
+    if trade_item.persisted?
       params[:number] ||= 1
       trade_item.number += params[:number].to_i
-    
-      trade_item.init_amount
-      trade_item.compute_promote
-      trade_item.sum_amount
-      trade_item.save
     end
-    
+    trade_item.init_amount
+    trade_item.compute_promote
+    trade_item.sum_amount
+    trade_item.save
+
     redirect_to my_cart_url
   end
 
@@ -45,14 +44,14 @@ class Factory::My::CustomsController < Factory::My::BaseController
   def update
     @custom.assign_attributes(custom_params)
     @custom.compute_sum
-    
+
     if params[:commit].present? && @custom.save
       render 'update'
     else
       render 'update_price'
     end
   end
-  
+
   def destroy
     @custom.destroy
   end
