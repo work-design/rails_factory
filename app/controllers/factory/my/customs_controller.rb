@@ -10,7 +10,8 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def create
-    @custom = current_cart.customs.build(custom_params)
+    @custom = current_cart.customs.find_or_initialize_by(product_id: custom_params[:product_id], str_part_ids: custom_params[:str_part_ids])
+    @custom.assign_attributes custom_params
     @custom.compute_sum
 
     if params[:commit].present? && @custom.save
@@ -67,7 +68,8 @@ class Factory::My::CustomsController < Factory::My::BaseController
       :product_id,
       part_ids: []
     )
-    q.fetch(:part_ids, []).map!(&:to_i)
+    q.fetch(:part_ids, []).map!(&:to_i).sort!
+    q.merge! str_part_ids: q[:part_ids].join(',')
     q
   end
 
