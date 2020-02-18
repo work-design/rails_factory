@@ -6,10 +6,8 @@
   <thead>
     <tr>
       <th><%= Custom.human_attribute_name(:product_name) %></th>
-      <th><%= Custom.human_attribute_name(:customer) %></th>
       <th><%= Custom.human_attribute_name(:state) %></th>
       <th><%= Custom.human_attribute_name(:qr_code) %></th>
-      <th><%= Custom.human_attribute_name(:ordered_at) %></th>
       <th><%= Custom.human_attribute_name(:parts) %></th>
       <th></th>
     </tr>
@@ -18,10 +16,8 @@
   <% @customs.each do |custom| %>
     <tr>
       <td><%= custom.product.name %></td>
-      <td><%= custom.buyer.name %></td>
       <td><%= custom.state %></td>
       <td><%= custom.qr_code %></td>
-      <td><%= custom.ordered_at %></td>
       <td class="ui labels">
         <table class="ui very basic compact table">
           <% custom.parts.each do |part| %>

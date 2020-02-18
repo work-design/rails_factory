@@ -3,15 +3,16 @@ module RailsFactory::Custom
 
   included do
     attribute :qr_code, :string
-    attribute :ordered_at, :datetime
     attribute :price, :decimal, precision: 10, scale: 2, default: 0
     attribute :state, :string, default: 'init'
+    attribute :str_part_ids, :string
 
     belongs_to :organ, optional: true
     belongs_to :product
-    belongs_to :cart
     has_many :custom_parts, dependent: :destroy
     has_many :parts, through: :custom_parts
+    has_many :custom_carts, dependent: :destroy
+    has_many :carts, through: :custom_carts
 
     has_one_attached :logo
 

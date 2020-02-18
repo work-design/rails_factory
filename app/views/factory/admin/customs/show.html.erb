@@ -1,6 +1,6 @@
 <div class="ui segment breadcrumb">
-  <%= link_to 'Back', customs_path, class: 'section' %>
-  <div class="divider"> / </div>
+  <%= link_to 'Back', admin_customs_path, class: 'section' %>
+  <div class="divider">/</div>
   <div class="active section">Show</div>
 </div>
 
@@ -9,10 +9,6 @@
     <tr>
       <td class="right aligned"><%= Custom.human_attribute_name(:name) %></td>
       <td><%= @custom.name %></td>
-    </tr>
-    <tr>
-      <td class="right aligned"><%= Custom.human_attribute_name(:customer) %></td>
-      <td><%= @custom.customer %></td>
     </tr>
     <tr>
       <td class="right aligned"><%= Custom.human_attribute_name(:state) %></td>

@@ -26,6 +26,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
       params[:number] ||= 1
       trade_item.number += params[:number].to_i
     end
+    trade_item.status = 'checked'
     trade_item.init_amount
     trade_item.compute_promote
     trade_item.sum_amount

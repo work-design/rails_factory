@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 57f62d5b7adde14545b6feece383924e2eef8218
+  revision: 0b4f8c33e4b6185a39f18b0fc5a5889b27ca3daa
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 0bdfbb817a99189d3b061587ce392e6b47a74d94
+  revision: 8bdf3ed3ed11c722268a72e8447030adb6322e4a
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: b3e9ea89912deab1d958916e3cec10c969a8c9aa
+  revision: 9ef5face27918feb80f2973d84a3bdb4333b07c9
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 9d3c12106f9f568efeca0162c0beaa13b4cd6a45
+  revision: b3e873f243bd20b925be22d8e94e7c4736f2a728
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -124,7 +124,7 @@ GEM
       activesupport (>= 4.2.0)
     http-2-next (0.2.1)
     http-form_data (2.2.0)
-    httpx (0.6.4)
+    httpx (0.6.5)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.2)
