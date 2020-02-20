@@ -32,10 +32,13 @@
         <%= link_to admin_custom_path(custom), data: { tooltip: t('.show') }, class: 'ui mini circular icon button' do %>
           <i class="fas fa-eye"></i>
         <% end %>
+        <%= link_to admin_custom_trade_items_path(custom), data: { tooltip: t('factory.admin.trade_items.index.title') }, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-shopping-cart"></i>
+        <% end %>
         <%= link_to edit_admin_custom_path(custom), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_custom_path(custom), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

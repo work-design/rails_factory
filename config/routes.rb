@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
     end
-    resources :customs
+    resources :customs do
+      resources :trade_items
+    end
     resources :providers
     resources :part_taxons
     resources :parts do

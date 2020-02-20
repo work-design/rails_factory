@@ -23,3 +23,6 @@ zh:
       customs:
         index:
           title: 定制产品
+      trade_items:
+        index:
+          title: 订单明细
