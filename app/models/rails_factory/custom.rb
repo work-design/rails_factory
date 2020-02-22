@@ -36,6 +36,10 @@ module RailsFactory::Custom
     before_validation :compute_sum
   end
 
+  def title
+    parts.pluck(:name).join(',')
+  end
+
   def compute_sum
     self.custom_parts.each(&:sync_amount)
     self.price = custom_parts.sum(&:price)

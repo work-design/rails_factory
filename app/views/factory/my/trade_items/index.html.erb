@@ -1,34 +1,21 @@
-<div class="ui top attached segment">
-  <%= render 'filter' %>
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <%= @custom.title %>
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-cells">
+      <% @trade_items.each do |trade_item| %>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><%= image_tag trade_item.trade.user.avatar_url, style: 'width: 20px;' %></div>
+          <div class="weui-cell__bd">
+            <%= trade_item.trade.user.account_identities.join(',') %>
+          </div>
+          <div class="weui-cell__ft">
+            <div class="weui-btn weui-btn_mini weui-btn_primary">xx</div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<table class="ui bottom attached selectable table">
-  <thead>
-    <tr>
-      <th>
-        <%= link_to new_my_trade_item_path, remote: true, class: 'ui mini green button' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @trade_items.each do |trade_item| %>
-    <tr>
-      <td>
-        <%= link_to my_trade_item_path(trade_item), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-eye"></i>
-        <% end %>
-        <%= link_to edit_my_trade_item_path(trade_item), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to my_trade_item_path(trade_item), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= paginate @trade_items %>

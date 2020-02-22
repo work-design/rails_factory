@@ -7,6 +7,7 @@ class Factory::My::TradeItemsController < Factory::My::BaseController
       good_type: 'Custom'
     }
     q_params.merge! params.permit(:good_id)
+    @custom = Custom.find params[:good_id]
     @trade_items = @address.trade_items.default_where(q_params).page(params[:page])
   end
 
