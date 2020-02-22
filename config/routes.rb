@@ -44,6 +44,9 @@ Rails.application.routes.draw do
         post :cart
       end
     end
+    resources :principal_addresses, only: [:index, :show] do
+      resources :trade_items
+    end
     resources :facilitates, only: [] do
       put :order, on: :member
     end
