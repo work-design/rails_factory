@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :product_items, as: 'items'
     end
     resources :customs do
+      resources :addresses
       resources :trade_items
     end
     resources :providers

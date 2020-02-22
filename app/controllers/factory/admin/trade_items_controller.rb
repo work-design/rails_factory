@@ -4,6 +4,7 @@ class Factory::Admin::TradeItemsController < Factory::Admin::BaseController
 
   def index
     q_params = {}
+    q_params.merge! params.permit(:address_id)
     @trade_items = @custom.trade_items.default_where(q_params).page(params[:page])
   end
 

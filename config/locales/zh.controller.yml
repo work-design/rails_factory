@@ -26,3 +26,6 @@ zh:
       trade_items:
         index:
           title: 订单明细
+      addresses:
+        index:
+          title: 订货点
