@@ -29,3 +29,9 @@ zh:
       addresses:
         index:
           title: 订货点
+    my:
+      principal_addresses:
+        index:
+          title: 我的站点
+        show:
+          title: 商品列表
