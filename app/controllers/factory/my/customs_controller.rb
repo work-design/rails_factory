@@ -2,7 +2,9 @@ class Factory::My::CustomsController < Factory::My::BaseController
   before_action :set_custom, only: [:show, :edit, :update, :cart, :destroy]
 
   def index
-    @customs = current_cart.customs.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:product_plan_id)
+    @customs = current_cart.customs.default_where(q_params).page(params[:page])
   end
 
   def new
@@ -10,18 +12,12 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def create
-    if custom_params[:product_plan_id]
-      product_plan = ProductPlan.find custom_params[:product_plan_id]
-      product_id = product_plan.product_id
-    else
-      product_id = custom_params[:product_id]
-    end
-    @custom = current_cart.customs.find_or_initialize_by(product_id: product_id, str_part_ids: custom_params[:str_part_ids])
+    @custom = current_cart.customs.find_or_initialize_by(product_plan_id: custom_params[:product_plan_id], str_part_ids: custom_params[:str_part_ids])
     @custom.assign_attributes custom_params
     @custom.compute_sum
 
     if params[:commit].present? && @custom.save
-      render 'create'
+      render 'create', locals: { return_to: my_customs_url(product_plan_id: custom_params[:product_plan_id]) }
     else
       render 'create_price'
     end
