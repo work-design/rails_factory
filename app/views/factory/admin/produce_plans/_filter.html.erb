@@ -1,0 +1,7 @@
+<%= form_with theme: 'search', model: ProducePlan.new do |f| %>
+  <div class="fields">
+    <%= f.text_field :title %>
+    <%= f.submit %>
+    <%= link_to t('.clear'), filter_params(except: [:title]), class: 'ui button' %>
+  </div>
+<% end %>

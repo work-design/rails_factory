@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   scope :admin, module: 'factory/admin', as: 'admin' do
     resources :product_taxons
+    resources :produce_plans
     resources :products do
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'

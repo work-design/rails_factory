@@ -1,0 +1,28 @@
+<table class="ui very basic large table">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_admin_produce_plan_path(@produce_plan), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= ProducePlan.human_attribute_name(:title) %></td>
+      <td><%= @produce_plan.title %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= ProducePlan.human_attribute_name(:start_at) %></td>
+      <td><%= @produce_plan.start_at %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= ProducePlan.human_attribute_name(:finish_at) %></td>
+      <td><%= @produce_plan.finish_at %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= ProducePlan.human_attribute_name(:state) %></td>
+      <td><%= @produce_plan.state %></td>
+    </tr>
+  </tbody>
+</table>

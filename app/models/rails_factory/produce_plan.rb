@@ -6,6 +6,7 @@ module RailsFactory::ProducePlan
     attribute :finish_at, :datetime
     attribute :state, :string
 
+    belongs_to :organ, optional: true
     has_many :product_plans, dependent: :nullify
 
     enum state: {

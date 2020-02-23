@@ -8,6 +8,9 @@ zh:
         title: 产品批次
     admin:
       title: 生产管理
+      produce_plans:
+        index:
+          title: 生产批次
       products:
         index:
           title: 产品管理

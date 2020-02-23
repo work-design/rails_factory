@@ -1,21 +1,13 @@
 <%= render 'shared/error_messages', target: @product_plan %>
 <div class="inline fields">
   <%= f.label :start_at %>
-  <div class="four wide field">
-    <%= f.date_field 'start_at(date)', on: { wrap_input: false, wrap_all: false, label: false }, required: true %>
-  </div>
-  <div class="three wide field">
-    <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: {hour: 8, min: 30} %>
-  </div>
+  <%= f.date_field 'start_at(date)', on: { wrap_all: false, label: false }, css: { wrap_input: 'three wide field' }, required: true %>
+  <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, on: { wrap_all: false, label: false }, css: { wrap_input: 'two wide field' } %>
 </div>
 <div class="inline fields">
   <%= f.label :finish_at %>
-  <div class="four wide field">
-    <%= f.date_field 'finish_at(date)', on: { wrap_input: false, wrap_all: false, label: false }, required: true %>
-  </div>
-  <div class="three wide field">
-    <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 } %>
-  </div>
+  <%= f.date_field 'finish_at(date)', on: { wrap_all: false, label: false }, css: { wrap_input: 'three wide field' }, required: true %>
+  <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, on: { wrap_all: false, label: false }, css: { wrap_input: 'two wide field' } %>
 </div>
 <%= f.select :state, options_for_select(ProductPlan.options_i18n(:state), @product_plan.state) %>
 <%= f.text_field :planned_count, required: true %>
