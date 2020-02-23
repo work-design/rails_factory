@@ -17,6 +17,6 @@
     <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 } %>
   </div>
 </div>
-<%= f.text_field :state %>
+<%= f.select :state, options_for_select(ProductPlan.options_i18n(:state), @product_plan.state) %>
 <%= f.text_field :planned_count, required: true %>
 <%= f.submit %>

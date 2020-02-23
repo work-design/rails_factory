@@ -10,7 +10,13 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def create
-    @custom = current_cart.customs.find_or_initialize_by(product_id: custom_params[:product_id], str_part_ids: custom_params[:str_part_ids])
+    if custom_params[:product_plan_id]
+      product_plan = ProductPlan.find custom_params[:product_plan_id]
+      product_id = product_plan.product_id
+    else
+      product_id = custom_params[:product_id]
+    end
+    @custom = current_cart.customs.find_or_initialize_by(product_id: product_id, str_part_ids: custom_params[:str_part_ids])
     @custom.assign_attributes custom_params
     @custom.compute_sum
 
@@ -66,6 +72,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
   def custom_params
     q = params.fetch(:custom, {}).permit(
       :product_id,
+      :product_plan_id,
       part_ids: []
     )
     q.fetch(:part_ids, []).map!(&:to_i).sort!

@@ -30,7 +30,7 @@
     <tr>
       <td><time><%= product_plan.start_at.to_s(:rfc822) %></time></td>
       <td><time><%= product_plan.finish_at.to_s(:rfc822) %></time></td>
-      <td><%= product_plan.state %></td>
+      <td><%= product_plan.state_i18n %></td>
       <td><%= product_plan.planned_count %></td>
       <td>
         <%= link_to product_plan.produced_count, admin_product_items_path(@product, product_plan_id: product_plan.id) %>

@@ -9,6 +9,7 @@ module RailsFactory::Custom
 
     belongs_to :organ, optional: true
     belongs_to :product
+    belongs_to :product_plan
     has_many :custom_parts, dependent: :destroy
     has_many :parts, through: :custom_parts
     has_many :custom_carts, dependent: :destroy
@@ -23,6 +24,9 @@ module RailsFactory::Custom
     }
 
     after_initialize if: :new_record? do
+      if product_plan
+        self.product ||= product_plan.product
+      end
       if product_id && part_ids.blank?
         self.part_ids = product.part_ids
       end

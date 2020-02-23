@@ -1,0 +1,26 @@
+<div class="weui-panel weui-panel_access">
+  <div class="weui-panel__hd">
+    <%= t('.title') %>
+  </div>
+  <div class="weui-panel__bd">
+    <% @product_plans.each do |product| %>
+      <%= link_to product_product_plans_path(product), class: 'weui-media-box weui-media-box_appmsg' do %>
+        <div class="weui-media-box__hd">
+          <%= image_tag product.logo, class: 'weui-media-box__thumb' %>
+        </div>
+        <div class="weui-media-box__bd">
+          <h4 class="weui-media-box__title"><%= product.name %></h4>
+          <p class="weui-media-box__desc">
+            <%= product.description %>
+          </p>
+          <ul class="weui-media-box__info">
+            <li class="weui-media-box__info__meta"><%= product.reference_price %></li>
+            <li class="weui-media-box__info__meta">时间</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+              其它信息</li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

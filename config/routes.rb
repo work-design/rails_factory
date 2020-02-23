@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     resources :providers, only: [] do
       get :search, on: :collection
     end
-    resources :products, shallow: true do
-      resources :customs
+    resources :products do
+      resources :customs, shallow: true
+      resources :product_plans, only: [:index, :show]
     end
     resources :product_taxons
   end
@@ -45,6 +46,9 @@ Rails.application.routes.draw do
       end
     end
     resources :principal_addresses, only: [:index, :show] do
+      member do
+        get :dates
+      end
       resources :trade_items
     end
     resources :facilitates, only: [] do

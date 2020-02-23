@@ -9,6 +9,10 @@ class Factory::My::PrincipalAddressesController < Factory::My::BaseController
     @customs = @address.customs
   end
 
+  def dates
+    @dates = x
+  end
+
   private
   def set_principal_address
     @address = current_user.principal_addresses.find(params[:id])
