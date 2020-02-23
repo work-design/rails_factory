@@ -1,0 +1,21 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <%= @produce_plan.title %>
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-cells">
+      <% @orders.each do |order| %>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><%= image_tag order.user.avatar_url, style: 'width: 20px;' %></div>
+          <div class="weui-cell__bd">
+            <%= order.user.account_identities.join(',') %>
+          </div>
+          <div class="weui-cell__ft">
+            <div class="weui-btn weui-btn_mini weui-btn_primary">xx</div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

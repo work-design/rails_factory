@@ -51,7 +51,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
       :start_at,
       :finish_at,
       :state,
-      :planned_count,
+      :planned_count
     )
   end
 

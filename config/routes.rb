@@ -51,6 +51,7 @@ Rails.application.routes.draw do
         get :plans
       end
       resources :trade_items
+      resources :orders
     end
     resources :facilitates, only: [] do
       put :order, on: :member
