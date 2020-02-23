@@ -3,7 +3,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
   before_action :set_product_plan, only: [:show, :edit, :update, :destroy]
 
   def index
-    @product_plans = ProductPlan.page(params[:page])
+    @product_plans = @product.product_plans.order(id: :desc).page(params[:page])
   end
 
   def new
@@ -26,7 +26,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
 
   def update
     @product_plan.assign_attributes(product_plan_params)
-    
+
     unless @product_plan.save
       render :edit, locals: { model: @product_plan }, status: :unprocessable_entity
     end
@@ -47,6 +47,7 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
 
   def product_plan_params
     params.fetch(:product_plan, {}).permit(
+      :produce_plan_id,
       :start_at,
       :finish_at,
       :state,

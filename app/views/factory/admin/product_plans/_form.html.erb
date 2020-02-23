@@ -1,4 +1,5 @@
 <%= render 'shared/error_messages', target: @product_plan %>
+<%= f.collection_select :produce_plan_id, ProducePlan.all, :id, :title %>
 <div class="inline fields">
   <%= f.label :start_at %>
   <%= f.date_field 'start_at(date)', on: { wrap_all: false, label: false }, css: { wrap_input: 'three wide field' }, required: true %>

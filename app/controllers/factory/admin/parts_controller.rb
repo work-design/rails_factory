@@ -51,7 +51,7 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
       :profit_price,
       :part_taxon_ancestors
     )
-    p.merge! default_params
+    p.merge! default_form_params
   end
 
 end
