@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     end
     resources :principal_addresses, only: [:index, :show] do
       member do
-        get :dates
+        get :plans
       end
       resources :trade_items
     end
