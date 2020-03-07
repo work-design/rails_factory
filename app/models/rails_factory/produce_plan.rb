@@ -14,6 +14,8 @@ module RailsFactory::ProducePlan
       producing: 'producing',
       produced: 'produced'
     }
+
+
   end
 
 end
