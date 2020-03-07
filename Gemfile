@@ -12,7 +12,7 @@ gem 'rails_taxon', github: 'work-design/rails_taxon'
 gem 'rails_auth', github: 'work-design/rails_auth'
 gem 'rails_role', github: 'work-design/rails_role'
 gem 'kaminari'
-gem 'default_form'
+gem 'default_form', github: 'qinmingyuan/default_form'
 
 gem 'turbolinks'
 

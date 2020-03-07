@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/qinmingyuan/default_form.git
+  revision: c55e73c74f188513b852393e12dfef7b31764303
+  specs:
+    default_form (1.5.0)
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/work-design/rails_auth.git
   revision: bd11de895f9620807ffef23638b21434ed49fc12
   specs:
@@ -110,8 +117,6 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
-    default_form (1.5.0)
-      rails (>= 5.2, <= 6.1)
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.9.0)
@@ -122,7 +127,7 @@ GEM
       railties (>= 4.2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-2-next (0.2.3)
+    http-2-next (0.2.4)
     http-form_data (2.2.0)
     httpx (0.6.7)
       http-2-next (>= 0.1.2)
@@ -155,14 +160,14 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     nio4r (2.5.2)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    puma (4.3.1)
+    puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -218,14 +223,14 @@ GEM
     websocket-extensions (0.1.4)
     with_advisory_lock (4.6.0)
       activerecord (>= 4.2)
-    zeitwerk (2.2.2)
+    zeitwerk (2.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   awesome_print
-  default_form
+  default_form!
   factory_bot_rails
   kaminari
   pry-rails
@@ -241,4 +246,4 @@ DEPENDENCIES
   turbolinks
 
 BUNDLED WITH
-   1.17.2
+   2.1.2
