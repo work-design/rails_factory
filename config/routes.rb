@@ -45,13 +45,7 @@ Rails.application.routes.draw do
       member do
         post :cart
       end
-    end
-    resources :principal_addresses, only: [:index, :show] do
-      member do
-        get :plans
-      end
       resources :trade_items
-      resources :orders
     end
     resources :facilitates, only: [] do
       put :order, on: :member
