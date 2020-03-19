@@ -1,5 +1,4 @@
-<% if rails_role_user.any_role?('factory/admin') %>
-<div class="item">
+<div class="item" data-controller="menu">
   <a class="<%= active_helper(modules: 'factory/admin', active_class: 'title active', item_class: 'title') %>">
     <i class="fas fa-users fa-fw"></i>
     <span><%= t('factory.admin.title') %></span>
@@ -12,4 +11,3 @@
     <%= link_to t('factory.admin.providers.index.title'), admin_providers_path, class: active_helper(controllers: 'providers') %>
   </div>
 </div>
-<% end %>
