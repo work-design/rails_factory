@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: c55e73c74f188513b852393e12dfef7b31764303
+  revision: f4e1e04100e7fe41d5384f24eaf99ce6fef338fa
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 79e49496db4d60917e10945cfe40dbf1f6755f38
+  revision: 1583acc85be5109f6240da1180a66bfd68177499
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: ed375a1ccea24eb62219a743cc970801c7f732ca
+  revision: b7a658759540c2215f3a599d8a73d94a3041ccb9
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 25bff9c305c174f18c242bb5caa1bd33d8b41ec2
+  revision: 0d719919fb2c2cf0b432333041ef88ed2c6bb8d5
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 36514c6c70629e03f55d34067dd0ad2aabd04942
+  revision: 712c29da0fddd2cdf495b703d182af1cae65d7b7
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -120,7 +120,7 @@ GEM
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.9.0)
-    factory_bot (5.1.1)
+    factory_bot (5.1.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
