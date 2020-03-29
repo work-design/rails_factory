@@ -2,7 +2,7 @@
 <div class="inline fields">
   <%= f.label :start_at %>
   <div class="four wide field">
-    <%= f.date_field 'start_at(date)', on: { wrap_input: false, wrap_all: false }, label: false, required: true %>
+    <%= f.date_field 'start_at(date)', can: { wrap_input: false, wrap_all: false }, label: false, required: true %>
   </div>
   <div class="three wide field">
     <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: {hour: 8, min: 30} %>
@@ -11,7 +11,7 @@
 <div class="inline fields">
   <%= f.label :finish_at %>
   <div class="four wide field">
-    <%= f.date_field 'finish_at(date)', on: { wrap_input: false, wrap_all: false }, label: false, required: true %>
+    <%= f.date_field 'finish_at(date)', can: { wrap_input: false, wrap_all: false }, label: false, required: true %>
   </div>
   <div class="three wide field">
     <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 } %>

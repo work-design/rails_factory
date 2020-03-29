@@ -7,7 +7,7 @@
     <tr>
       <th>
         <%= Product.human_attribute_name(:product_taxon_id) %>
-        <%= link_to admin_product_taxons_path, data: { tooltip: '分类设置' }, target: '_blank' do %>
+        <%= link_to admin_product_taxons_path, aria: { label: '分类设置' }, target: '_blank' do %>
           <i class="fas fa-cog"></i>
         <% end %>
       </th>
