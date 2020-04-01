@@ -28,13 +28,13 @@
       <td><%= product_taxon.name %></td>
       <td><%= product_taxon.profit_margin %></td>
       <td>
-        <%= link_to admin_product_taxon_path(product_taxon), aria: { label: t('.show') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_product_taxon_path(product_taxon), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-eye"></i>
         <% end %>
-        <%= link_to edit_admin_product_taxon_path(product_taxon), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_product_taxon_path(product_taxon), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_product_taxon_path(product_taxon), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_product_taxon_path(product_taxon), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>
