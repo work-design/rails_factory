@@ -1,6 +1,4 @@
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -20,7 +18,7 @@
         <p><%= Part.human_attribute_name(:profit_price) %></p>
       </th>
       <th>
-        <%= link_to new_admin_part_path, remote: true, class: 'ui teal button' do %>
+        <%= link_to new_admin_part_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>

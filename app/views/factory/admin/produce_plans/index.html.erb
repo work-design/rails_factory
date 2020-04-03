@@ -1,6 +1,4 @@
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -10,7 +8,7 @@
       <th><%= ProducePlan.human_attribute_name(:finish_at) %></th>
       <th><%= ProducePlan.human_attribute_name(:state) %></th>
       <th>
-        <%= link_to new_admin_produce_plan_path, remote: true, class: 'ui mini green button' do %>
+        <%= link_to new_admin_produce_plan_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
