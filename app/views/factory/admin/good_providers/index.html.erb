@@ -25,37 +25,18 @@
       <td><%= good_provider.export_price %></td>
       <td>
         <span class="ui toggle checkbox">
-          <%=
-            check_box_tag(
-              :verified,
-              nil,
-              good_provider.verified,
-              data: {
-                url: admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id),
-                method: :patch,
-                remote: true,
-                params: "[good_provider]verified=#{!good_provider.verified}"
-              }
-            )
-          %>
+          <%= check_box_tag('[good_provider]verified', nil, good_provider.verified, data: { method: :patch, remote: true, url: admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id), submit: true }) %>
         </span>
       </td>
       <td>
         <span class="ui toggle checkbox">
-          <%= check_box_tag :selected, nil, good_provider.selected,
-                            data: {
-                              url: select_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id),
-                              method: :patch,
-                              remote: true,
-                              params: "[good_provider]selected=#{!good_provider.selected}"
-                            }
-          %>
+          <%= check_box_tag '[good_provider]selected', nil, good_provider.selected, data: { method: :patch, remote: true, url: select_admin_good_provider_path(params[:good_type], params[:good_id], good_provider.id), submit: true } %>
         </span>
       </td>
       <td><time><%= good_provider.created_at.to_s(:rfc822) %></time></td>
       <td>
-        <%= link_to admin_good_provider_path(params[:good_type], params[:good_id], good_provider), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
-          <i class="times icon"></i>
+        <%= link_to admin_good_provider_path(params[:good_type], params[:good_id], good_provider), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-trash"></i>
         <% end %>
       </td>
     </tr>
