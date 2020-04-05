@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProductsControllerTest < ActionDispatch::IntegrationTest
+class Factory::ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = create :product
   end

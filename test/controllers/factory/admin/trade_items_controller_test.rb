@@ -2,7 +2,7 @@ require 'test_helper'
 class Factory::Admin::TradeItemsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @factory_admin_trade_item = create factory_admin_trade_items
+    @trade_item = create :trade_item
   end
 
   test 'index ok' do
@@ -17,30 +17,30 @@ class Factory::Admin::TradeItemsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create ok' do
     assert_difference('TradeItem.count') do
-      post admin_trade_items_url, params: { #{singular_table_name}: { #{attributes_string} } }
+      post admin_trade_items_url, params: { }
     end
 
     assert_response :success
   end
 
   test 'show ok' do
-    get admin_trade_item_url(@factory_admin_trade_item)
+    get admin_trade_item_url(@trade_item)
     assert_response :success
   end
 
   test 'edit ok' do
-    get edit_admin_trade_item_url(@factory_admin_trade_item)
+    get edit_admin_trade_item_url(@trade_item)
     assert_response :success
   end
 
   test 'update ok' do
-    patch admin_trade_item_url(@factory_admin_trade_item), params: { #{singular_table_name}: { #{attributes_string} } }
+    patch admin_trade_item_url(@trade_item), params: { }
     assert_response :success
   end
 
   test 'destroy ok' do
     assert_difference('TradeItem.count', -1) do
-      delete admin_trade_item_url(@factory_admin_trade_item)
+      delete admin_trade_item_url(@trade_item)
     end
 
     assert_response :success

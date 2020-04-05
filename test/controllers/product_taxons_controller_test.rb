@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ProductTaxonsControllerTest < ActionDispatch::IntegrationTest
+class Factory::ProductTaxonsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product_taxon = create product_taxons
+    @product_taxon = create :product_taxon
   end
 
   test 'index ok' do
@@ -17,7 +17,7 @@ class ProductTaxonsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create ok' do
     assert_difference('ProductTaxon.count') do
-      post _product_taxons_url, params: { #{singular_table_name}: { #{attributes_string} } }
+      post _product_taxons_url, params: { }
     end
 
     assert_redirected_to product_taxon_url(ProductTaxon.last)
@@ -34,8 +34,8 @@ class ProductTaxonsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'update ok' do
-    patch _product_taxon_url(@product_taxon), params: { #{singular_table_name}: { #{attributes_string} } }
-    assert_redirected_to product_taxon_url(@#{singular_table_name})
+    patch _product_taxon_url(@product_taxon), params: { }
+    assert_response :success
   end
 
   test 'destroy ok' do
@@ -43,6 +43,6 @@ class ProductTaxonsControllerTest < ActionDispatch::IntegrationTest
       delete _product_taxon_url(@product_taxon)
     end
 
-    assert_redirected_to _product_taxons_url
+    assert_response :success
   end
 end
