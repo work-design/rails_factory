@@ -12,7 +12,7 @@
       <th><%= Address.human_attribute_name(:post_code) %></th>
       <th><%= Address.human_attribute_name(:source) %></th>
       <th>
-        <%= link_to new_admin_address_path, remote: true, class: 'ui mini green button' do %>
+        <%= link_to new_admin_address_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>

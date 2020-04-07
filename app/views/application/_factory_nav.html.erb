@@ -1,13 +1,13 @@
 <div class="<%= active_helper(modules: 'factory/admin', active_class: 'menu ex-accordion is-active', item_class: 'menu ex-accordion') %>" data-controller="menu">
+  <%= content_tag :div, class: 'menu-list' do -%>
+    <%= link_to t('factory.admin.products.index.title'), admin_products_path, class: active_helper(controllers: ['products', 'product_taxons', 'product_plans', 'product_items']) %>
+    <%= link_to t('factory.admin.produce_plans.index.title'), admin_produce_plans_path, class: active_helper(controllers: ['produce_plans']) %>
+    <%= link_to t('factory.admin.parts.index.title'), admin_parts_path, class: active_helper(controllers: ['parts', 'part_taxons', 'part_plans', 'part_items']) %>
+    <%= link_to t('factory.admin.providers.index.title'), admin_providers_path, class: active_helper(controllers: 'providers') %>
+  <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fas fa-users fa-fw"></i>
     <span><%= t('factory.admin.title') %></span>
     <i class="fas dropdown"></i>
   </a>
-  <div class="menu-list">
-    <%= link_to t('factory.admin.products.index.title'), admin_products_path, class: active_helper(controllers: ['products', 'product_taxons', 'product_plans', 'product_items']) %>
-    <%= link_to t('factory.admin.produce_plans.index.title'), admin_produce_plans_path, class: active_helper(controllers: ['produce_plans']) %>
-    <%= link_to t('factory.admin.parts.index.title'), admin_parts_path, class: active_helper(controllers: ['parts', 'part_taxons', 'part_plans', 'part_items']) %>
-    <%= link_to t('factory.admin.providers.index.title'), admin_providers_path, class: active_helper(controllers: 'providers') %>
-  </div>
 </div>

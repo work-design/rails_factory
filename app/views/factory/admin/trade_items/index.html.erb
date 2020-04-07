@@ -19,7 +19,7 @@
       <th><%= TradeItem.human_attribute_name(:extra) %></th>
       <th><%= TradeItem.human_attribute_name(:status) %></th>
       <th>
-        <%= link_to new_admin_trade_item_path, remote: true, class: 'ui mini green button' do %>
+        <%= link_to new_admin_trade_item_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
