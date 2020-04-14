@@ -32,17 +32,17 @@ module RailsFactory::Product
     has_taxons :product_taxon
   end
 
-  def init_profit_price
+  def default_profit_price
     if product_taxon&.profit_margin
-      self.profit_price = self.cost_price * (100 + product_taxon.profit_margin) / 100
+      self.cost_price * (100 + product_taxon.profit_margin) / 100
     else
-      self.profit_price = 0
+      0
     end
   end
 
   def sync_price
     self.cost_price = self.parts.sum(&:price)
-    init_profit_price
+    self.profit_price ||= default_profit_price
     self.price = self.cost_price + self.profit_price
   end
 
