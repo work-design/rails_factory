@@ -34,16 +34,16 @@ module RailsFactory::Product
 
   def init_profit_price
     if product_taxon&.profit_margin
-      self.profit_price = self.import_price * (100 + profit_margin) / 100
+      self.profit_price = self.cost_price * (100 + product_taxon.profit_margin) / 100
     else
       self.profit_price = 0
     end
   end
 
   def sync_price
-    self.import_price = self.parts.sum(&:price)
+    self.cost_price = self.parts.sum(&:price)
     init_profit_price
-    self.price = self.import_price + self.profit_price
+    self.price = self.cost_price + self.profit_price
   end
 
 end
