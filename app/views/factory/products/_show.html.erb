@@ -1,5 +1,5 @@
 <article class="weui-article">
-  <%= image_tag @product.main_image %>
+  <%= image_tag @product.main_image if @product.main_image.attached? %>
   <h1><%= @product.name %></h1>
 </article>
 

@@ -6,10 +6,14 @@
     <% @product_plans.each do |product_plan| %>
       <%= link_to product_path(@product, product_plan_id: product_plan.id), class: 'weui-media-box weui-media-box_appmsg' do %>
         <div class="weui-media-box__hd">
-          <%= image_tag @product.logo, class: 'weui-media-box__thumb' %>
+          <%= image_tag @product.logo, class: 'weui-media-box__thumb' if @product.logo.attached? %>
         </div>
         <div class="weui-media-box__bd">
-          <h4 class="weui-media-box__title"><%= product_plan.start_at %><%= product_plan.finish_at %></h4>
+          <h4 class="weui-media-box__title">
+            <time><%= product_plan.start_at.to_s(:rfc822) %></time>
+            <span>-</span>
+            <time><%= product_plan.finish_at.to_s(:rfc822) %></time>
+          </h4>
           <p class="weui-media-box__desc">
             <%= product_plan.state_i18n %>
           </p>

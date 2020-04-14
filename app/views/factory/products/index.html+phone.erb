@@ -4,7 +4,7 @@
   <% @products.each do |product| %>
     <%= link_to product_product_plans_path(product), class: 'weui-media-box weui-media-box_appmsg' do %>
       <div class="weui-media-box__hd">
-        <%= image_tag product.logo, class: 'weui-media-box__thumb' %>
+        <%= image_tag product.logo, class: 'weui-media-box__thumb' if product.logo.attached? %>
       </div>
       <div class="weui-media-box__bd">
         <h4 class="weui-media-box__title"><%= product.name %></h4>
