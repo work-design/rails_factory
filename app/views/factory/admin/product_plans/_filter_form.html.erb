@@ -1,0 +1,10 @@
+<%= form_with theme: 'search', model: ProductPlan.new do |f| %>
+  <div class="field-body">
+    <%= f.date_field 'start_at-gte' %>
+    <div class="field is-narrow">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
+
+

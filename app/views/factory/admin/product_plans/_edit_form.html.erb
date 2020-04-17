@@ -1,0 +1,3 @@
+<%= form_with model: @product_plan, url: admin_product_plan_path(@product, @product_plan) do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

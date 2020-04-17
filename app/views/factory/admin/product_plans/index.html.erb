@@ -1,14 +1,11 @@
 <% content_for :breadcrumb do %>
-  <div class="ui basic segment breadcrumb">
-    <%= link_to t('factory.admin.products.index.title'), admin_products_path, class: 'section' %>
-    <i class="fas fa-angle-right divider"></i>
-    <div class="active section"><%= t('.title') %></div>
-  </div>
+  <ul>
+    <li><%= link_to t('factory.admin.products.index.title'), admin_products_path %></li>
+    <li class="is-active"><%= t('.title') %></li>
+  </ul>
 <% end %>
 
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -20,7 +17,7 @@
       <th><%= ProductPlan.human_attribute_name(:planned_count) %></th>
       <th><%= ProductPlan.human_attribute_name(:produced_count) %></th>
       <th>
-        <%= link_to new_admin_product_plan_path, remote: true, class: 'ui teal button' do %>
+        <%= link_to new_admin_product_plan_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>

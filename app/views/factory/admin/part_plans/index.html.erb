@@ -1,15 +1,4 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">Admin Part Plans</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New Admin Part Plan', new_admin_part_plan_path, class: 'ui teal button' %>
-    </div>
-  </div>
-</div>
-
-<div class="ui attached segment">
-  <%= render 'search_form' %>
-</div>
+<%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -20,7 +9,11 @@
       <th><%= PartPlan.human_attribute_name(:state) %></th>
       <th><%= PartPlan.human_attribute_name(:purchased_count) %></th>
       <th><%= PartPlan.human_attribute_name(:received_count) %></th>
-      <th>Actions</th>
+      <th>
+        <%= link_to new_admin_part_plan_path, remote: true, class: 'button is-link is-small' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -38,7 +31,7 @@
       <td>
         <%= link_to part_plan.received_count, admin_part_items_path(part_plan_id: part_plan.id) %>
       </td>
-      <td class="ui labels">
+      <td>
         <%= link_to admin_part_plan_path(@part, part_plan), class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
         <% end %>
