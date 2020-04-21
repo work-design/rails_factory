@@ -8,7 +8,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
   end
 
   def new
-    @product_taxon = ProductTaxon.new
+    @product_taxon = ProductTaxon.new(default_form_params)
   end
 
   def create

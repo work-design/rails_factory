@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 73fcec02ace864fa99d315f4425793c1bc700e8e
+  revision: d67c11d5f4488ce2181d4828513ec3bc1ba7d147
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: df105d0e899840d0b808ac467a1422db4551828c
+  revision: d7846cf9fa2caf1c6f1eed0f44bb516f74e73741
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 08e9dee8e3e9ab2d87daca07e82357a9a20f67da
+  revision: 24ed19382a4c0ab3e49e3cee632988a54a0477cd
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: c20d8e9a2aaeeda5eb42306c5abb61c941a2f10e
+  revision: b110f9f4c138a953095f82e66d810c28d71d72c2
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: d9aff947eec2ce43fde53d6b591ea630447a64e9
+  revision: 9c7694674a4cb1b9c6edd4141ec3041b00eef044
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -246,4 +246,4 @@ DEPENDENCIES
   turbolinks
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
