@@ -1,4 +1,4 @@
-module RailsFactory::Cart
+module RailsFactory::TotalCart
   extend ActiveSupport::Concern
 
   included do
