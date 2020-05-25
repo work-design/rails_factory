@@ -3,7 +3,6 @@ gemspec
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails'
-gem 'puma'
 
 gem 'sqlite3'
 gem 'factory_bot_rails', require: false
