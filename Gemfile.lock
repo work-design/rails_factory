@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 2c9a69ca1789bf4a5928481a0e883d3a6a6ccf3b
+  revision: 9cfe8dbc837a9463f62ba119bba6fadeede68618
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 270f45e4fad4f1e17c123e4c49850e7f7d83f8a4
+  revision: e684847634b71a9f3f6f7d48f2818a45e07449a4
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 103a6c94e3fefe7462ef6acebd9e5008ea4b6d89
+  revision: c22989ee627f3cdb0a79c7c7477ede45bb2ca683
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -26,18 +26,17 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 4deda9696aa0bc6135113af6bb360584f56bdfe2
+  revision: 1dc3bc1d1fc0bf08526dd5d06e35230f25af04d9
   specs:
     rails_role (1.0.3)
-      acts_as_list (~> 0.9)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 5934f0b5fab674a06f284b2b2312c2651da04046
+  revision: 52ea4b98099d0dffac1b5447a89c12e2537ce0b1
   specs:
     rails_taxon (1.0.0)
-      acts_as_list (>= 0.9, <= 1.0)
+      acts_as_list (>= 1.0)
       closure_tree (>= 6.6, <= 7.1)
       rails_com (~> 1.2)
 
@@ -106,8 +105,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    acts_as_list (0.9.19)
-      activerecord (>= 3.0)
+    acts_as_list (1.0.1)
+      activerecord (>= 4.2)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     builder (3.2.4)
