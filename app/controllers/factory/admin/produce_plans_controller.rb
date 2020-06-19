@@ -45,13 +45,12 @@ class Factory::Admin::ProducePlansController < Factory::Admin::BaseController
   end
 
   def produce_plan_params
-    p = params.fetch(:produce_plan, {}).permit(
+    params.fetch(:produce_plan, {}).permit(
       :title,
       :start_at,
       :finish_at,
       :state
     )
-    p.merge! default_form_params
   end
 
 end
