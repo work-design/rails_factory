@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', target: @product %>
   <%= render partial: 'nodes/outer_select', locals: { f: f, outer: 'product_taxon', node: @product.product_taxon } %>
   <%= f.text_field :name %>
-  <%= f.collection_select :part_ids, @parts, :id, :name, {  }, { multiple: true } %>
+  <%= f.collection_select :part_ids, @parts, :id, :name, { wrap: { select: 'field-body control' } }, { multiple: true, data: { controller: 'choice' } } %>
   <%= f.text_field :qr_prefix %>
   <%= f.number_field :reference_price %>
   <%= f.file_field :logo %>
