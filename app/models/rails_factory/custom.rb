@@ -9,7 +9,7 @@ module RailsFactory::Custom
 
     belongs_to :organ, optional: true
     belongs_to :product
-    belongs_to :product_plan
+    belongs_to :product_plan, optional: true
     has_many :custom_parts, dependent: :destroy
     has_many :parts, through: :custom_parts
     has_many :custom_carts, dependent: :destroy

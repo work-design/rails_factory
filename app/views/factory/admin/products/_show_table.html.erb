@@ -1,15 +1,15 @@
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <tbody>
     <tr>
-      <td class="right aligned"><%= Product.human_attribute_name(:name) %></td>
+      <td class="has-text-right"><%= Product.human_attribute_name(:name) %></td>
       <td><%= @product.name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Product.human_attribute_name(:qr_prefix) %></td>
+      <td class="has-text-right"><%= Product.human_attribute_name(:qr_prefix) %></td>
       <td><%= @product.qr_prefix %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Product.human_attribute_name(:description) %></td>
+      <td class="has-text-right"><%= Product.human_attribute_name(:description) %></td>
       <td><%= @product.description %></td>
     </tr>
   </tbody>
