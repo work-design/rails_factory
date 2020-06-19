@@ -3,6 +3,7 @@ module RailsFactory::CustomCart
 
   included do
     attribute :state, :string, default: 'init'
+    attribute :customized_at, :datetime, default: -> { Time.current }
 
     belongs_to :cart
     belongs_to :total_cart

@@ -17,10 +17,14 @@ class Factory::My::CustomsController < Factory::My::BaseController
     else
       @custom = Custom.find_or_initialize_by(product_id: custom_params[:product_id], str_part_ids: custom_params[:str_part_ids])
     end
-    @custom.custom_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
+    custom_cart = @custom.custom_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
+    custom_cart.customized_at = Time.current
     @custom.assign_attributes custom_params
     @custom.compute_sum
-    @custom.save
+    custom_cart.class.transaction do
+      @custom.save
+      custom_cart.save
+    end
 
     if params[:commit].present?
       render 'create', locals: { return_to: my_customs_url(product_plan_id: custom_params[:product_plan_id]) }

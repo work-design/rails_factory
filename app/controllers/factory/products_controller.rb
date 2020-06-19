@@ -1,5 +1,5 @@
 class Factory::ProductsController < Factory::BaseController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update]
 
   def index
     q_params = {}
@@ -9,7 +9,7 @@ class Factory::ProductsController < Factory::BaseController
   end
 
   def show
-    @custom = @product.customs.build
+    @custom = current_cart.customs.find_or_initialize_by(product_id: @product.id)
   end
 
   def edit
@@ -21,11 +21,6 @@ class Factory::ProductsController < Factory::BaseController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @product.destroy
-    redirect_to products_url
   end
 
   private
