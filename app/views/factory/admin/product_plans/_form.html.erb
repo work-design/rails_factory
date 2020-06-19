@@ -1,14 +1,18 @@
 <%= render 'shared/error_messages', target: @product_plan %>
 <%= f.collection_select :produce_plan_id, ProducePlan.all, :id, :title %>
-<div class="inline fields">
+<div class="field is-horizontal">
   <%= f.label :start_at %>
-  <%= f.date_field 'start_at(date)', can: { wrap_all: false, label: false }, css: { wrap_input: 'three wide field' }, required: true %>
-  <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, can: { wrap_all: false, label: false }, css: { wrap_input: 'two wide field' } %>
+  <div class="field-body">
+    <%= f.date_field 'start_at(date)', wrap: { all_required: nil, input: 'field is-narrow' }, on: { label: false }, required: true %>
+    <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, wrap: { all: nil, input: '' }, on: { label: false } %>
+  </div>
 </div>
-<div class="inline fields">
+<div class="field is-horizontal">
   <%= f.label :finish_at %>
-  <%= f.date_field 'finish_at(date)', can: { wrap_all: false, label: false }, css: { wrap_input: 'three wide field' }, required: true %>
-  <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, can: { wrap_all: false, label: false }, css: { wrap_input: 'two wide field' } %>
+  <div class="field-body">
+    <%= f.date_field 'finish_at(date)', wrap: { all_required: nil, input: 'field is-narrow' }, on: { label: false }, required: true %>
+    <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, wrap: { all: nil }, on: { label: false } %>
+  </div>
 </div>
 <%= f.select :state, options_for_select(ProductPlan.options_i18n(:state), @product_plan.state) %>
 <%= f.text_field :planned_count, required: true %>
