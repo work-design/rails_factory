@@ -20,7 +20,7 @@ module RailsFactory::Custom
     enum state: {
       init: 'init',
       checked: 'checked',
-      carted: 'carted'
+      producing: 'producing'
     }
 
     after_initialize if: :new_record? do

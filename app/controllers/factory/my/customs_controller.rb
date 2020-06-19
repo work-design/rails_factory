@@ -12,11 +12,17 @@ class Factory::My::CustomsController < Factory::My::BaseController
   end
 
   def create
-    @custom = current_cart.customs.find_or_initialize_by(product_plan_id: custom_params[:product_plan_id], str_part_ids: custom_params[:str_part_ids])
+    if params[:product_plan_id].present?
+      @custom = Custom.find_or_initialize_by(product_plan_id: custom_params[:product_plan_id], str_part_ids: custom_params[:str_part_ids])
+    else
+      @custom = Custom.find_or_initialize_by(product_id: custom_params[:product_id], str_part_ids: custom_params[:str_part_ids])
+    end
+    @custom.custom_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
     @custom.assign_attributes custom_params
     @custom.compute_sum
+    @custom.save
 
-    if params[:commit].present? && @custom.save
+    if params[:commit].present?
       render 'create', locals: { return_to: my_customs_url(product_plan_id: custom_params[:product_plan_id]) }
     else
       render 'create_price'

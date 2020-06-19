@@ -5,22 +5,8 @@ class Factory::My::ProductsController < Factory::My::BaseController
     @products = Product.page(params[:page])
   end
 
-  def new
-    @product = Product.new
-  end
-
-  def create
-    @product = Product.new(product_params)
-
-    if @product.save
-      redirect_to wx_products_url
-    else
-      render :new
-    end
-  end
-
   def show
-    @custom = @product.customs.build
+    @custom = current_cart.customs.find_or_initialize_by(product_id: @product.id)
   end
 
   def update_price
