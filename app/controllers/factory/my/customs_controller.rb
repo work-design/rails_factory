@@ -81,7 +81,7 @@ class Factory::My::CustomsController < Factory::My::BaseController
       part_ids: []
     )
     q.fetch(:part_ids, []).map!(&:to_i).sort!
-    q.merge! str_part_ids: q[:part_ids].join(',')
+    q.merge! str_part_ids: Array(q[:part_ids]).join(',')
     q
   end
 

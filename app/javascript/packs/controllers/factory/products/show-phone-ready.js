@@ -26,7 +26,7 @@ class InputController extends Controller {
     cl.remove('weui-btn_default')
     cl.add('weui-btn_primary')
 
-    if (this.size >= this.range[1]) {
+    if (this.size >= this.range[1] && this.lastItem) {
       this.toggleOff(this.lastItem)
     }
 
