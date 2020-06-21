@@ -4,26 +4,26 @@
   <div class="active section">Show</div>
 </div>
 
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <tbody>
     <tr>
-      <td class="right aligned"><%= ProductPlan.human_attribute_name(:product_id) %></td>
+      <td class="has-text-right"><%= ProductPlan.human_attribute_name(:product_id) %></td>
       <td><%= @product_plan.product_id %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProductPlan.human_attribute_name(:start_at) %></td>
+      <td class="has-text-right"><%= ProductPlan.human_attribute_name(:start_at) %></td>
       <td><%= @product_plan.start_at %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProductPlan.human_attribute_name(:finish_at) %></td>
+      <td class="has-text-right"><%= ProductPlan.human_attribute_name(:finish_at) %></td>
       <td><%= @product_plan.finish_at %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProductPlan.human_attribute_name(:state) %></td>
+      <td class="has-text-right"><%= ProductPlan.human_attribute_name(:state) %></td>
       <td><%= @product_plan.state %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProductPlan.human_attribute_name(:planned_count) %></td>
+      <td class="has-text-right"><%= ProductPlan.human_attribute_name(:planned_count) %></td>
       <td><%= @product_plan.planned_count %></td>
     </tr>
   </tbody>

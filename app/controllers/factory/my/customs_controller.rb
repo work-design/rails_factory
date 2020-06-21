@@ -1,5 +1,5 @@
 class Factory::My::CustomsController < Factory::My::BaseController
-  before_action :set_custom, only: [:show, :edit, :update, :cart, :destroy]
+  before_action :set_custom, only: [:show, :edit, :update, :destroy]
 
   def index
     q_params = {}
@@ -27,27 +27,17 @@ class Factory::My::CustomsController < Factory::My::BaseController
     end
 
     if params[:commit].present?
-      render 'create', locals: { return_to: my_customs_url(product_plan_id: custom_params[:product_plan_id]) }
+      render 'create', locals: { return_to: my_cart_url(product_plan_id: custom_params[:product_plan_id]) }
     else
       render 'create_price'
     end
   end
 
-  def cart
-    trade_item = current_cart.trade_items.find_or_initialize_by(good_id: @custom.id, good_type: 'Custom')
-    if trade_item.persisted?
-      params[:number] ||= 1
-      trade_item.number += params[:number].to_i
-    end
-    trade_item.status = 'checked'
-    trade_item.compute_promote
-    trade_item.sum_amount
-    trade_item.save
-
-    redirect_to my_cart_url
+  def show
   end
 
-  def show
+  def cart
+
   end
 
   def edit

@@ -26,5 +26,9 @@
 <% end %>
 
 <div class="weui-btn-area">
+  <%= form_with scope: :custom, url: cart_my_customs_path, id: 'edit_custom' do |f| %>
+    <%= f.hidden_field :id, value: @product.id %>
+    <%= f.submit :product_plan_id, value: params[:product_plan_id] %>
+  <% end %>
   <%= submit_tag t('helpers.submit.submit'), form: 'edit_custom', class: 'weui-btn weui-btn_primary' %>
 </div>

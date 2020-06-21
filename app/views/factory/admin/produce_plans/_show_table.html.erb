@@ -1,4 +1,4 @@
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th class="six wide">
@@ -9,19 +9,19 @@
   </thead>
   <tbody>
     <tr>
-      <td class="right aligned"><%= ProducePlan.human_attribute_name(:title) %></td>
+      <td class="has-text-right"><%= ProducePlan.human_attribute_name(:title) %></td>
       <td><%= @produce_plan.title %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProducePlan.human_attribute_name(:start_at) %></td>
+      <td class="has-text-right"><%= ProducePlan.human_attribute_name(:start_at) %></td>
       <td><%= @produce_plan.start_at %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProducePlan.human_attribute_name(:finish_at) %></td>
+      <td class="has-text-right"><%= ProducePlan.human_attribute_name(:finish_at) %></td>
       <td><%= @produce_plan.finish_at %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= ProducePlan.human_attribute_name(:state) %></td>
+      <td class="has-text-right"><%= ProducePlan.human_attribute_name(:state) %></td>
       <td><%= @produce_plan.state %></td>
     </tr>
   </tbody>
