@@ -4,7 +4,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
-    @product_taxons = ProductTaxon.default_where(q_params).page(params[:page])
+    @product_taxons = ProductTaxon.default_where(q_params).order(id: :asc).page(params[:page])
   end
 
   def new
@@ -47,6 +47,7 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
       :name,
       :position,
       :profit_margin,
+      :logo,
       :parent_id,
       :parent_ancestors
     )

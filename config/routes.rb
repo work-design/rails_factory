@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   scope module: 'factory' do
     resources :providers, only: [] do
-      get :search, on: :collection
+      collection do
+        get :search
+      end
     end
     resources :products do
       resources :customs, shallow: true
@@ -30,7 +32,9 @@ Rails.application.routes.draw do
     end
     scope ':good_type/:good_id' do
       resources :good_providers do
-        patch :select, on: :member
+        member do
+          patch :select
+        end
       end
     end
   end
@@ -48,7 +52,9 @@ Rails.application.routes.draw do
       resources :trade_items
     end
     resources :facilitates, only: [] do
-      put :order, on: :member
+      member do
+        put :order
+      end
     end
     resources :good_providers
   end

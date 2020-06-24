@@ -11,6 +11,7 @@
   <thead>
     <tr>
       <th><%= ProductTaxon.human_attribute_name(:name) %></th>
+      <th><%= ProductTaxon.human_attribute_name(:logo) %></th>
       <th><%= ProductTaxon.human_attribute_name(:profit_margin) %></th>
       <th>
         <%= link_to new_admin_product_taxon_path, remote: true, class: 'button is-link is-small' do %>
@@ -23,6 +24,7 @@
   <% @product_taxons.each do |product_taxon| %>
     <tr>
       <td><%= product_taxon.name %></td>
+      <td><%= image_tag product_taxon.logo, class: 'image is-32x32' if product_taxon.logo.attached? %></td>
       <td><%= product_taxon.profit_margin %></td>
       <td>
         <%= link_to admin_product_taxon_path(product_taxon), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
