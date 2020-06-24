@@ -1,4 +1,5 @@
 <div class="weui-panel__hd">分类</div>
+<%= render 'filter_form' %>
 <div class="weui-grids">
   <% @product_taxons.each do |product_taxon| %>
     <%= link_to products_path(product_taxon_id: product_taxon.id), class: 'weui-grid' do %>
