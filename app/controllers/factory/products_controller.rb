@@ -10,7 +10,7 @@ class Factory::ProductsController < Factory::BaseController
   end
 
   def show
-    @custom = current_cart.customs.find_or_initialize_by(product_id: @product.id)
+    @custom = Custom.find_or_create_by(product_id: @product.id)
   end
 
   def edit
