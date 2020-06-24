@@ -1,14 +1,14 @@
-<div class="weui-search-bar" id="searchBar">
-  <form class="weui-search-bar__form">
+<div class="weui-search-bar" data-controller="search">
+  <%= form_with theme: nil, class: 'weui-search-bar__form', method: :get do |f| %>
     <div class="weui-search-bar__box">
       <i class="weui-icon-search"></i>
-      <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索">
-      <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+      <%= f.search_field :name, class: 'weui-search-bar__input', placeholder: '搜索', data: { target: 'search.input', action: 'search#doSearch' } %>
+      <a class="weui-icon-clear" data-action="search#hide"></a>
     </div>
-    <label class="weui-search-bar__label" id="searchText">
+    <label class="weui-search-bar__label" data-target="search.label" data-action="click->search#focus">
       <i class="weui-icon-search"></i>
       <span>搜索</span>
     </label>
-  </form>
-  <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+  <% end %>
+  <button class="weui-search-bar__cancel-btn" data-action="search#cancel">取消</button>
 </div>
