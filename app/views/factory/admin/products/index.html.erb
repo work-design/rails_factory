@@ -33,10 +33,10 @@
       <td><%= product.qr_prefix %></td>
       <td><%= product.price %></td>
       <td>
-        <table class="table">
+        <table class="table is-borderless">
           <% product.parts.each do |part| %>
             <tr>
-              <td><span class="ui label"><%= link_to part.name, admin_part_path(part), remote: true %></span></td>
+              <td><span><%= link_to part.name, admin_part_path(part), remote: true %></span></td>
               <td><%= part.price %></td>
             </tr>
           <% end %>
