@@ -26,7 +26,7 @@
 <% end %>
 
 <div class="weui-btn-area">
-  <%= form_with theme: 'weui', url: add_my_cart_path, local: true do |f| %>
+  <%= form_with theme: nil, url: add_my_cart_path, local: true do |f| %>
     <%= f.hidden_field :good_type, value: 'Custom' %>
     <%= f.hidden_field :good_id, value: @custom.id %>
     <%= f.submit t('helpers.submit.submit'), class: 'weui-btn weui-btn_primary' %>

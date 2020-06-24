@@ -64,8 +64,8 @@ class InputController extends Controller {
   }
 
   disable() {
-    let input = this.outputTarget;
-    input.disabled = true;
+    let input = this.outputTarget
+    input.disabled = true
     input.parentElement.parentElement.classList.add('weui-cell_disabled')
   }
 
