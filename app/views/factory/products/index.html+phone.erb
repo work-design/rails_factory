@@ -1,5 +1,11 @@
 <div class="weui-panel weui-panel_access">
-  <div class="weui-panel__hd"><%= t('.title') %></div>
+  <div class="weui-panel__hd">
+    <span><%= t('.title') %></span>
+    <% if params[:product_taxon_id] %>
+      <i class="fas fa-angle-right"></i>
+      <span><%= @product_taxon.name %></span>
+    <% end %>
+  </div>
   <div class="weui-panel__bd">
   <% @products.each do |product| %>
     <%= link_to product_path(product), class: 'weui-media-box weui-media-box_appmsg' do %>
@@ -12,10 +18,12 @@
           <%= product.description %>
         </p>
         <ul class="weui-media-box__info">
-          <li class="weui-media-box__info__meta"><%= product.reference_price %></li>
-          <li class="weui-media-box__info__meta">时间</li>
-          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">
-            其它信息</li>
+          <% product.parts.group_by(&->(i){ i.part_taxon_id }).each do |_, parts| %>
+            <% parts.each_with_index do |part, index| %>
+              <li class="weui-media-box__info__meta<%= index == 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
+            <% end %>
+          <% end %>
+          <li style="float: right;"><%= product.price.to_money.format %></li>
         </ul>
       </div>
     <% end %>

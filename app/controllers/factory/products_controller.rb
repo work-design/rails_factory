@@ -1,4 +1,5 @@
 class Factory::ProductsController < Factory::BaseController
+  before_action :set_product_taxon
   before_action :set_product, only: [:show, :edit, :update]
 
   def index
@@ -26,6 +27,10 @@ class Factory::ProductsController < Factory::BaseController
   private
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_product_taxon
+    @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
   end
 
   def product_params
