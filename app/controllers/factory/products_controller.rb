@@ -5,7 +5,7 @@ class Factory::ProductsController < Factory::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
-    q_params.merge! params.permit(:product_taxon_id)
+    q_params.merge! params.permit(:product_taxon_id, 'name-like')
     @products = Product.default_where(q_params).page(params[:page])
   end
 

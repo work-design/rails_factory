@@ -7,6 +7,7 @@
     <% end %>
   </div>
   <div class="weui-panel__bd">
+    <%= render 'filter_form' %>
   <% @products.each do |product| %>
     <%= link_to product_path(product), class: 'weui-media-box weui-media-box_appmsg' do %>
       <div class="weui-media-box__hd">
