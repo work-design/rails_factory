@@ -11,7 +11,7 @@
       </th>
       <th><%= Product.human_attribute_name(:name) %></th>
       <th><%= Product.human_attribute_name(:logo) %></th>
-      <th><%= Product.human_attribute_name(:main_image) %></th>
+      <th><%= Product.human_attribute_name(:covers) %></th>
       <th><%= Product.human_attribute_name(:qr_prefix) %></th>
       <th><%= Product.human_attribute_name(:reference_price) %></th>
       <th><%= Product.human_attribute_name(:parts) %></th>
@@ -29,7 +29,11 @@
       <td><%= product.product_taxon&.name %></td>
       <td><%= product.name %></td>
       <td><%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' if product.logo.attached? %></td>
-      <td><%= image_tag product.main_image.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' if product.main_image.attached? %></td>
+      <td>
+        <% product.covers.each do |cover| %>
+          <%= image_tag cover.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' %>
+        <% end %>
+      </td>
       <td><%= product.qr_prefix %></td>
       <td><%= product.price %></td>
       <td>

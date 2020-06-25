@@ -1,5 +1,11 @@
 <article class="weui-article">
-  <%= image_tag @product.main_image if @product.main_image.attached? %>
+  <% @product.covers.each_with_index do |cover, index| %>
+    <% if index == 0 %>
+      <%= image_tag cover %>
+    <% else %>
+      <%= image_tag cover, style: 'display: none' %>
+    <% end %>
+  <% end %>
   <h1><%= @product.name %></h1>
 </article>
 
