@@ -4,6 +4,7 @@ class Factory::ProductTaxonsController < Factory::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
+    q_params.merge! params.permit('name-like', :name)
     @product_taxons = ProductTaxon.default_where(q_params).order(id: :asc).page(params[:page])
   end
 
