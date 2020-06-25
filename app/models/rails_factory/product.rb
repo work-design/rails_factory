@@ -25,7 +25,8 @@ module RailsFactory::Product
     has_many :customs, dependent: :nullify
 
     has_one_attached :logo
-    has_one_attached :main_image
+    has_many_attached :covers
+    has_many_attached :images
 
     before_save :sync_price
 

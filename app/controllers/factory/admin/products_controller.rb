@@ -56,9 +56,10 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
       :qr_prefix,
       :reference_price,
       :logo,
-      :main_image,
       :product_taxon_ancestors,
-      part_ids: []
+      part_ids: [],
+      covers: [],
+      images: []
     )
     p.merge! default_form_params
   end
