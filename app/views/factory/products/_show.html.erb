@@ -1,13 +1,22 @@
-<article class="weui-article">
+<div class="slide" data-controller="slide">
   <% @product.covers.each_with_index do |cover, index| %>
     <% if index == 0 %>
-      <%= image_tag cover %>
+      <figure class="image" style="z-index: 1" data-slide-index="<%= index %>" data-action="touchmove->slide#move touchstart->slide#start touchend->slide#end">
+        <%= image_tag cover %>
+        <figcaption><%= index + 1 %>/<%= @product.covers.count %></figcaption>
+      </figure>
     <% else %>
-      <%= image_tag cover, style: 'display: none' %>
+      <figure class="image" data-action="touchmove->slide#move touchstart->slide#start touchend->slide#end">
+        <%= image_tag cover %>
+        <figcaption><%= index + 1 %>/<%= @product.covers.count %></figcaption>
+      </figure>
     <% end %>
   <% end %>
+</div>
+
+<div>
   <h1><%= @product.name %></h1>
-</article>
+</div>
 
 <div id="sti">
   <span class="weui-btn weui-btn_primary" id="total_price"><%= @custom.price %></span>
