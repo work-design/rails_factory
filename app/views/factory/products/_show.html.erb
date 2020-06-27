@@ -4,12 +4,15 @@
   <% end %>
 </div>
 
-<div>
-  <h1><%= @product.name %></h1>
+<div id="sti" class="box">
+  <div class="has-text-danger has-text-bold">
+    <span><%= @custom.price.to_money.symbol %></span>
+    <span id="total_price"><%= @custom.price.to_money.to_s %></span>
+  </div>
 </div>
 
-<div id="sti">
-  <span class="weui-btn weui-btn_primary" id="total_price"><%= @custom.price %></span>
+<div class="box">
+  <h1><%= @product.name %></h1>
 </div>
 
 <% @product.part_taxons.each do |part_taxon| %>

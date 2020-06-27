@@ -7,7 +7,7 @@
   <%= f.number_field :reference_price %>
   <%= f.file_field :logo %>
   <%= render 'com/attachments/list_field', target: @product.covers, f: f %>
-  <%= f.file_field :images, multiple: true %>
+  <%= render 'com/attachments/list_field', target: @product.images, f: f %>
   <%= f.text_area :description %>
   <%= f.submit %>
 <% end %>
