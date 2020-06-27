@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 46d1b882e745ff6c8413430bf8271a671a84a33d
+  revision: 3d4f28b1c303cc99bc7c18c2d7bc493e7e862f3a
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 6688bb185f3d91be83d0a01e31d9f23cfda0c434
+  revision: 3ab48a264d1d9f6d3f55d682b312af105386fd0c
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)

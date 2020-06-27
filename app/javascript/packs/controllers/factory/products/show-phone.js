@@ -1,13 +1,10 @@
-import stickybits from 'stickybits'
 import { Controller } from 'stimulus'
 
-stickybits('#sti')
-
-class InputController extends Controller {
+class CustomController extends Controller {
   static targets = [ 'output' ]
 
   connect() {
-    console.log('InputController connected!')
+    console.debug('Custom Controller connected!')
   }
 
   toggle(event) {
@@ -88,4 +85,4 @@ class InputController extends Controller {
   }
 }
 
-application.register('input', InputController)
+application.register('custom', CustomController)
