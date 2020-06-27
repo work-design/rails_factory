@@ -12,5 +12,13 @@
       <td class="has-text-right"><%= Product.human_attribute_name(:description) %></td>
       <td><%= @product.description %></td>
     </tr>
+    <tr>
+      <td class="has-text-right"><%= Product.human_attribute_name(:images) %></td>
+      <td>
+        <% @product.images.each do |image| %>
+          <%= image_tag image, class: 'image' %>
+        <% end %>
+      </td>
+    </tr>
   </tbody>
 </table>

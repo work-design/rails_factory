@@ -5,7 +5,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
-    @products = Product.includes(:parts).default_where(q_params).page(params[:page])
+    @products = Product.includes(:parts).default_where(q_params).order(id: :desc).page(params[:page])
   end
 
   def new
