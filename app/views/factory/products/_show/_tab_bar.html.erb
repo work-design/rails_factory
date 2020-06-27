@@ -1,0 +1,15 @@
+<div class="weui-tabbar">
+  <%= link_to my_cart_path, class: 'weui-tabbar__item' do %>
+    <i class="fas fa-shopping-cart weui-tabbar__icon">
+      <span class="weui-badge"><%= current_cart_count %></span>
+    </i>
+    <div class="weui-tabbar__label">购物车</div>
+  <% end %>
+  <div class="weui-tabbar__item">
+    <%= form_with theme: nil, url: add_my_cart_path do |f| %>
+      <%= f.hidden_field :good_type, value: 'Custom' %>
+      <%= f.hidden_field :good_id, value: @custom.id %>
+      <%= f.submit t('.add'), class: 'weui-btn weui-btn_warn' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+zh:
+  activerecord:
+    enum:
+      product_plan:
+        state:
+          planned: 计划中
+          producing: 生产中
+          produced: 已完成

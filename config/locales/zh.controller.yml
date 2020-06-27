@@ -3,6 +3,8 @@ zh:
     products:
       index:
         title: 产品列表
+      show:
+        add: 加入购物车
     product_plans:
       index:
         title: 产品批次
