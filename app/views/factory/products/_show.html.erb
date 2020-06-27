@@ -1,16 +1,6 @@
 <div class="slide" data-controller="slide">
   <% @product.covers.each_with_index do |cover, index| %>
-    <% if index == 0 %>
-      <figure class="image" style="z-index: 1" data-slide-index="<%= index %>" data-action="touchmove->slide#move touchstart->slide#start touchend->slide#end">
-        <%= image_tag cover %>
-        <figcaption><%= index + 1 %>/<%= @product.covers.count %></figcaption>
-      </figure>
-    <% else %>
-      <figure class="image" data-action="touchmove->slide#move touchstart->slide#start touchend->slide#end">
-        <%= image_tag cover %>
-        <figcaption><%= index + 1 %>/<%= @product.covers.count %></figcaption>
-      </figure>
-    <% end %>
+    <%= render partial: 'figure', locals: { cover: cover, index: index } %>
   <% end %>
 </div>
 

@@ -1,0 +1,8 @@
+<figure class="image" data-action="touchmove->slide#move touchstart->slide#start touchend->slide#end">
+  <% if cover.content_type.to_s.start_with?('video') %>
+    <%= video_tag cover.service_url, controls: true %>
+  <% else %>
+    <%= image_tag cover %>
+  <% end %>
+  <figcaption><%= index + 1 %>/<%= @product.covers.count %></figcaption>
+</figure>
