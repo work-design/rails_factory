@@ -1,3 +1,3 @@
-class Factory::BaseController < RailsFactory.config.app_controller.constantize
+class Factory::BaseController < ApplicationController
 
-end
+end unless defined? Factory::BaseController

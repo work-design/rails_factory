@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 10744237a6fc7f1a94ab07b2bfd2c38dc3a74f1c
+  revision: 99aded6b6ccf3a323eb361b9e23bb8c848e39bed
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 96cd3c20603e8107cde7063433ca45342934db72
+  revision: 0ee8e458accd8d59641d4ac342a84f072bd6a26e
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -16,24 +16,25 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 33d4d309652f3b54733e4c3dd921e7381585f14a
+  revision: cfec597782b003d11e83c0d5c3c7a296e26a715f
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
       http-form_data (~> 2.2)
       httpx (~> 0.8)
+      kaminari
       rails (~> 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 8f265705ab1a08faec42586612bc0009c779b9f5
+  revision: 8eee0eed8acef76a776eaf29b63d90270edf77b8
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 3ab48a264d1d9f6d3f55d682b312af105386fd0c
+  revision: 28217655786b35e7893fd8ae19b058d4adce02bd
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)

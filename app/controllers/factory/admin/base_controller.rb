@@ -1,4 +1,3 @@
-class Factory::Admin::BaseController < RailsFactory.config.admin_controller.constantize
+class Factory::Admin::BaseController < AdminController
 
-
-end
+end unless defined? Factory::Admin::BaseController
