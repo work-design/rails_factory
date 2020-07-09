@@ -69,7 +69,7 @@ class CustomController extends Controller {
   get range() {
     let arr = []
     let r = this.data.get('range').split(',')
-    r.forEach((i) => {
+    r.forEach(i => {
       arr.push(parseInt(i))
     })
     return arr
