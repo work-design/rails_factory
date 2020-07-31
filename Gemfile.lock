@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 3733a654dfded5c69450f98cb66a4a692001e23b
+  revision: 7eef34c548ba1a1b04d9be10d46d037a7d10be6e
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8df95a056745a350e5ebfba2fff69a5b5a5b112b
+  revision: afab59c6a7448054350547eb19943c33cc396699
   specs:
     rails_com (1.2.9)
       acme-client
@@ -35,7 +35,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: d1ae3491595bbdce085e996c81715389bb51a430
+  revision: 62e18e58cc3eeb7c4a2d39656bf0e1a332e758b2
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
@@ -112,7 +112,7 @@ GEM
     acts_as_list (1.0.1)
       activerecord (>= 4.2)
     awesome_print (1.8.0)
-    bcrypt (3.1.13)
+    bcrypt (3.1.15)
     builder (3.2.4)
     closure_tree (7.1.0)
       activerecord (>= 4.2.10)
