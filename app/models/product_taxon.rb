@@ -1,4 +1,4 @@
 class ProductTaxon < ApplicationRecord
-  prepend RailsTaxon::Node
+  include RailsTaxon::Node
   include RailsFactory::ProductTaxon
 end unless defined? ProductTaxon

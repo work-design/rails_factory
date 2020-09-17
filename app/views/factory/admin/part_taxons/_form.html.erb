@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, @part_taxon] do |f| %>
   <%= render 'shared/error_messages', target: @part_taxon %>
   <%= f.text_field :name %>
-  <%= render partial: 'nodes/children_select', locals: { f: f, node: PartTaxon.new } %>
+  <%= render partial: 'taxon/nodes/children_select', locals: { f: f, node: PartTaxon.new } %>
   <%= f.number_field :min_select %>
   <%= f.number_field :max_select %>
   <%= f.submit %>

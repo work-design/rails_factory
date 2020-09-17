@@ -1,6 +1,6 @@
 <%= form_with model: [:admin, @part] do |f| %>
   <%= render 'shared/error_messages', target: @part %>
-  <%= render partial: 'nodes/outer_select', locals: { f: f, outer: 'part_taxon', node: PartTaxon.new(organ_id: current_session_organ&.id) } %>
+  <%= render partial: 'taxon/nodes/outer_select', locals: { f: f, outer: 'part_taxon', node: PartTaxon.new(organ_id: current_organ&.id) } %>
   <%= f.text_field :name %>
   <%= f.text_field :qr_prefix %>
   <%= f.number_field :import_price %>
