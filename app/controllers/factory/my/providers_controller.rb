@@ -2,11 +2,6 @@ class Factory::My::ProvidersController < Factory::My::BaseController
   before_action :set_provider, only: [:show, :edit, :update]
 
   def show
-    respond_to do |format|
-      format.js
-      format.html
-      format.json { render json: @user }
-    end
   end
 
   def edit

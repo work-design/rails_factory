@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: dcd50bf3e14c0104ff1c9dd4b5d10b3ca3d34499
+  revision: 56536edc9bbc76fdc435489c451b0e550b6ae230
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 61830e962ab2ed2f98f91cd61a4ba58ad1930109
+  revision: baf6fc9f5f06780c1b08e6dc6cff20c1543de99f
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 072dafbc01289c5c4a245976a8f3079649847e0d
+  revision: 068c9e8b516162084b4fe0c72b5abedd93c5d128
   specs:
     rails_com (1.2.9)
       acme-client
@@ -53,7 +53,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (2.0.6)
+    acme-client (2.0.7)
       faraday (>= 0.17, < 2.0.0)
     actioncable (6.0.3.3)
       actionpack (= 6.0.3.3)
