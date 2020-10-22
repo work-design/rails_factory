@@ -1,4 +1,4 @@
 class ProductTaxon < ApplicationRecord
-  include RailsTaxon::Node
+  include RailsCom::Taxon
   include RailsFactory::ProductTaxon
 end unless defined? ProductTaxon

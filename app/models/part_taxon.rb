@@ -1,4 +1,4 @@
 class PartTaxon < ApplicationRecord
-  include RailsTaxon::Node
+  include RailsCom::Taxon
   include RailsFactory::PartTaxon
 end unless defined? PartTaxon
