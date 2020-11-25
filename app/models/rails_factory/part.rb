@@ -9,9 +9,9 @@ module RailsFactory::Part
     attribute :sku, :string, index: true
     attribute :order_items_count, :integer, default: 0
     attribute :published, :boolean, default: true
-    attribute :price, :decimal, precision: 10, scale: 2, default: 0
-    attribute :import_price, :decimal, precision: 10, scale: 2, default: 0
-    attribute :profit_price, :decimal, precision: 10, scale: 2, default: 0
+    attribute :price, :decimal, default: 0
+    attribute :import_price, :decimal, default: 0
+    attribute :profit_price, :decimal, default: 0
 
     belongs_to :organ, optional: true
     belongs_to :part_taxon

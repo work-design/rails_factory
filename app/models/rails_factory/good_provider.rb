@@ -2,7 +2,7 @@ module RailsFactory::GoodProvider
   extend ActiveSupport::Concern
 
   included do
-    attribute :export_price, :decimal, precision: 10, scale: 2
+    attribute :export_price, :decimal
     attribute :verified, :boolean, default: false
     attribute :selected, :boolean
 

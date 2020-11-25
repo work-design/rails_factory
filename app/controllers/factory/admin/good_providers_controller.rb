@@ -57,4 +57,5 @@ class Factory::Admin::GoodProvidersController < Factory::Admin::BaseController
       :selected
     )
   end
+
 end

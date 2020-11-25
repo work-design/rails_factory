@@ -9,10 +9,10 @@ module RailsFactory::Product
     attribute :type, :string
     attribute :order_items_count, :integer, default: 0
     attribute :published, :boolean, default: true
-    attribute :reference_price, :decimal, precision: 10, scale: 2
-    attribute :price, :decimal, precision: 10, scale: 2
-    attribute :cost_price, :decimal, precision: 10, scale: 2
-    attribute :profit_price, :decimal, precision: 10, scale: 2
+    attribute :reference_price, :decimal
+    attribute :price, :decimal
+    attribute :cost_price, :decimal
+    attribute :profit_price, :decimal
 
     belongs_to :organ, optional: true
     belongs_to :product_taxon, optional: true
@@ -28,7 +28,7 @@ module RailsFactory::Product
     has_many_attached :covers
     has_many_attached :images
 
-    before_save :sync_price
+    before_save :sync_price, if: -> { (changes.keys & ['reference_price', 'cost_price', 'profit_price']).present? }
 
     has_taxons :product_taxon
   end

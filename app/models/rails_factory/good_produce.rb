@@ -1,17 +1,15 @@
 module RailsFactory::GoodProduce
   extend ActiveSupport::Concern
+
   included do
+    attribute :position, :integer
+    attribute :start_at, :datetime
+    attribute :finish_at, :datetime
+
     belongs_to :good
     belongs_to :produce
+
+    has_one_attached :picture
   end
-  
+
 end
-
-
-# t.integer  "good_id",    limit: 4
-# t.integer  "produce_id", limit: 4
-# t.string   "picture",    limit: 255
-# t.integer  "position",   limit: 4,   default: 0
-# t.datetime "start_at"
-# t.datetime "finish_at"
-

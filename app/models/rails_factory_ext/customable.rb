@@ -1,4 +1,4 @@
-module RailsFactory::Customable
+module RailsFactoryExt::Customable
   extend ActiveSupport::Concern
 
   included do
