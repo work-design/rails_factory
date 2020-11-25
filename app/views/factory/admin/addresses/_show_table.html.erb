@@ -1,36 +1,24 @@
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th class="six wide">
-        <%= link_to t('.edit'), edit_admin_address_path(@address), class: 'ui mini blue right floated button', remote: true %>
-      </th>
-      <th class="ten wide"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="has-text-right"><%= Address.human_attribute_name(:area) %></td>
-      <td><%= @address.area %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Address.human_attribute_name(:detail) %></td>
-      <td><%= @address.detail %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Address.human_attribute_name(:contact) %></td>
-      <td><%= @address.contact %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Address.human_attribute_name(:tel) %></td>
-      <td><%= @address.tel %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Address.human_attribute_name(:post_code) %></td>
-      <td><%= @address.post_code %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Address.human_attribute_name(:source) %></td>
-      <td><%= @address.source %></td>
-    </tr>
-  </tbody>
-</table>
+<tr>
+  <td class="has-text-right"><%= Address.human_attribute_name(:area) %></td>
+  <td><%= @address.area %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Address.human_attribute_name(:detail) %></td>
+  <td><%= @address.detail %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Address.human_attribute_name(:contact) %></td>
+  <td><%= @address.contact %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Address.human_attribute_name(:tel) %></td>
+  <td><%= @address.tel %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Address.human_attribute_name(:post_code) %></td>
+  <td><%= @address.post_code %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Address.human_attribute_name(:source) %></td>
+  <td><%= @address.source %></td>
+</tr>

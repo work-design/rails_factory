@@ -1,5 +1,5 @@
 <%= form_with model: @address do |f| %>
-  <%= render 'shared/error_messages', target: @address %>
+  <%= render 'shared/error_messages', target: f.object %>
   <%= f.text_field :area %>
   <%= f.text_field :detail %>
   <%= f.text_field :contact %>

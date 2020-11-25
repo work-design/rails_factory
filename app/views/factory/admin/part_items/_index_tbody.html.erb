@@ -15,8 +15,8 @@
     <%= link_to edit_admin_part_item_path(@part, part_item), class: 'ui pink mini icon button' do %>
       <i class="pencil alternate icon"></i>
     <% end %>
-    <%= link_to admin_part_item_path(@part, part_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
-      <i class="times icon"></i>
+    <%= link_to({ action: 'destroy', id: part_item.id }, method: :delete, data: { confirm: t('.confirm') }, class: 'button') do %>
+      <i class="fas fa-trash"></i>
     <% end %>
   </td>
 </tr>
