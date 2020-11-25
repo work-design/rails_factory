@@ -17,10 +17,12 @@ class Factory::ProductsController < Factory::BaseController
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to products_url
+    @product.assign_attributes(product_params)
+
+    if @product.save
+      render 'update'
     else
-      render :edit
+      render :edit, locals: { model: @product }, status: :unprocessable_entity
     end
   end
 
