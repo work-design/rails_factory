@@ -1,5 +1,5 @@
-<%= render layout: 'index_table', locals: { cache_key: Custom.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @customs, as: :custom %>
+<%= render layout: 'index_table', locals: { cache_key: Part.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @parts, as: :part %>
 <% end %>
 
-<%= paginate @customs %>
+<%= paginate @parts %>

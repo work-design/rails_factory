@@ -8,5 +8,4 @@ class Factory::Admin::HomeController < Factory::Admin::BaseController
     end
   end
 
-
 end

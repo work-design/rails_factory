@@ -2,8 +2,8 @@
   <td><%= part.name %></td>
   <td><%= part.taxon_str %></td>
   <td><%= part.qr_prefix %></td>
-  <td class="ui labels">
-    <%= link_to 'Plan', admin_part_plans_path(part), class: 'ui label' %>
+  <td>
+    <%= link_to 'Plan', { controller: 'part_plans', part_id: part.id }, class: 'button' %>
   </td>
   <td><%= part.price %></td>
   <td>
@@ -12,13 +12,13 @@
   </td>
   <td>
     <%= link_to '供应商管理', admin_good_providers_path('Part', part), class: 'button is-small is-rounded is-light' %>
-    <%= link_to admin_part_path(part), class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-eye"></i>
+    <%= link_to({ action: 'show', id: part.id }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to edit_admin_part_path(part), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'edit', id: part.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to admin_part_path(part), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'destroy', id: part.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

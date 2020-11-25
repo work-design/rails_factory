@@ -1,7 +1,7 @@
 <th><%= Part.human_attribute_name(:name) %></th>
 <th>
   <%= Part.human_attribute_name(:part_taxon_id) %>
-  <%= link_to admin_part_taxons_path, aria: { label: '分类设置' } do %>
+  <%= link_to({ controller: 'part_taxons' }, aria: { label: '分类设置' }) do %>
     <i class="fas fa-cog"></i>
   <% end %>
 </th>
