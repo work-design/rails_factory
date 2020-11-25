@@ -1,0 +1,37 @@
+<tr>
+  <td><%= product.product_taxon&.name %></td>
+  <td><%= product.name %></td>
+  <td><%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' if product.logo.attached? %></td>
+  <td>
+    <%= render 'com/attachments/list', target: product.covers %>
+  </td>
+  <td><%= product.qr_prefix %></td>
+  <td><%= product.price %></td>
+  <td>
+    <table class="table is-borderless">
+      <% product.parts.each do |part| %>
+        <tr>
+          <td><span><%= link_to part.name, admin_part_path(part), remote: true %></span></td>
+          <td><%= part.price %></td>
+        </tr>
+      <% end %>
+    </table>
+  </td>
+  <td>
+    <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: product.id }, class: 'button is-small is-success' %>
+  </td>
+  <td>
+    <%= link_to({ action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-eye"></i>
+    <% end %>
+    <%= link_to({ controller: 'customs', product_id: product.id }, aria: { label: t('factory.admin.customs.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-cube"></i>
+    <% end %>
+    <%= link_to({ action: 'edit', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: product.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>

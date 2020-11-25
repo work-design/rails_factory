@@ -1,0 +1,25 @@
+<tr>
+  <td><%= part.name %></td>
+  <td><%= part.taxon_str %></td>
+  <td><%= part.qr_prefix %></td>
+  <td class="ui labels">
+    <%= link_to 'Plan', admin_part_plans_path(part), class: 'ui label' %>
+  </td>
+  <td><%= part.price %></td>
+  <td>
+    <p><%= part.import_price %></p>
+    <p><%= part.profit_price %></p>
+  </td>
+  <td>
+    <%= link_to '供应商管理', admin_good_providers_path('Part', part), class: 'button is-small is-rounded is-light' %>
+    <%= link_to admin_part_path(part), class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-eye"></i>
+    <% end %>
+    <%= link_to edit_admin_part_path(part), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to admin_part_path(part), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>

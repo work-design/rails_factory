@@ -1,0 +1,12 @@
+<tr>
+  <td class="has-text-right"><%= ProductItem.human_attribute_name(:product_id) %></td>
+  <td><%= @product_item.product_id %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= ProductItem.human_attribute_name(:qr_code) %></td>
+  <td><%= @product_item.qr_code %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= ProductItem.human_attribute_name(:qr_file) %></td>
+  <td><%= image_tag @product_item.qr_file %></td>
+</tr>

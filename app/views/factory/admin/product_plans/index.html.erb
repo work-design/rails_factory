@@ -1,56 +1,5 @@
-<% content_for :breadcrumb do %>
-  <ul>
-    <li><%= link_to t('factory.admin.products.index.title'), admin_products_path %></li>
-    <li class="is-active"><%= t('.title') %></li>
-  </ul>
+<%= render layout: 'index_table', locals: { cache_key: ProductPlan.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @product_plans, as: :product_plan %>
 <% end %>
-
-<%= render 'filter_form' %>
-
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th><%= ProductPlan.human_attribute_name(:produce_plan_id) %></th>
-      <th><%= ProductPlan.human_attribute_name(:start_at) %></th>
-      <th><%= ProductPlan.human_attribute_name(:finish_at) %></th>
-      <th><%= ProductPlan.human_attribute_name(:state) %></th>
-      <th><%= ProductPlan.human_attribute_name(:planned_count) %></th>
-      <th><%= ProductPlan.human_attribute_name(:produced_count) %></th>
-      <th>
-        <%= link_to new_admin_product_plan_path, remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @product_plans.each do |product_plan| %>
-    <tr>
-      <td><%= product_plan.produce_plan&.title %></td>
-      <td><time><%= product_plan.start_at.to_s(:rfc822) %></time></td>
-      <td><time><%= product_plan.finish_at.to_s(:rfc822) %></time></td>
-      <td><%= product_plan.state_i18n %></td>
-      <td><%= product_plan.planned_count %></td>
-      <td>
-        <%= link_to product_plan.produced_count, admin_product_items_path(@product, product_plan_id: product_plan.id) %>
-      </td>
-      <td>
-        <%= link_to admin_product_plan_path(@product, product_plan), remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-eye"></i>
-        <% end %>
-        <%= link_to admin_customs_path(product_plan_id: product_plan.id), class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-cube"></i>
-        <% end %>
-        <%= link_to edit_admin_product_plan_path(@product, product_plan), remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to admin_product_plan_path(@product, product_plan), method: :delete, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <%= paginate @product_plans %>

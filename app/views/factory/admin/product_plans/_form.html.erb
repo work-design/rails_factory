@@ -16,4 +16,3 @@
 </div>
 <%= f.select :state, options_for_select(ProductPlan.options_i18n(:state), @product_plan.state) %>
 <%= f.text_field :planned_count, required: true %>
-<%= f.submit %>

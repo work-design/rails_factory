@@ -1,0 +1,22 @@
+<tr>
+  <td><%= part_item.part_id %></td>
+  <td><%= part_item.qr_code %></td>
+  <td>
+    <% if part_item.qr_file.attached? %>
+      <%= image_tag part_item.qr_file.variant(resize: '100x100'), class: 'ui image' %>
+    <% end %>
+  </td>
+  <td><%= part_item.received_at %></td>
+  <td><%= part_item.state_i18n %></td>
+  <td class="ui labels">
+    <%= link_to admin_part_item_path(@part, part_item), class: 'ui blue mini icon button' do %>
+      <i class="location arrow icon"></i>
+    <% end %>
+    <%= link_to edit_admin_part_item_path(@part, part_item), class: 'ui pink mini icon button' do %>
+      <i class="pencil alternate icon"></i>
+    <% end %>
+    <%= link_to admin_part_item_path(@part, part_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+      <i class="times icon"></i>
+    <% end %>
+  </td>
+</tr>

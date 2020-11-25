@@ -1,3 +1,4 @@
-<%= form_with model: @product_plan, url: admin_product_plan_path(@product, @product_plan) do |f| %>
+<%= form_with model: @product_plan, url: { action: 'update' } do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit %>
 <% end %>

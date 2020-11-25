@@ -1,19 +1,16 @@
-<%= form_with model: [:admin, @produce_plan] do |f| %>
-  <%= render 'shared/error_messages', target: @produce_plan %>
-  <%= f.text_field :title %>
-  <div class="field is-horizontal">
-    <%= f.label :start_at %>
-    <div class="field-body">
-      <%= f.date_field 'start_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, on: { label: false }, required: true %>
-      <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, on: { label: false } %>
-    </div>
+<%= render 'shared/error_messages', target: @produce_plan %>
+<%= f.text_field :title %>
+<div class="field is-horizontal">
+  <%= f.label :start_at %>
+  <div class="field-body">
+    <%= f.date_field 'start_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, on: { label: false }, required: true %>
+    <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, on: { label: false } %>
   </div>
-  <div class="field is-horizontal">
-    <%= f.label :finish_at %>
-    <div class="field-body">
-      <%= f.date_field 'finish_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, on: { label: false }, required: true %>
-      <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, on: { label: false } %>
-    </div>
+</div>
+<div class="field is-horizontal">
+  <%= f.label :finish_at %>
+  <div class="field-body">
+    <%= f.date_field 'finish_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, on: { label: false }, required: true %>
+    <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, on: { label: false } %>
   </div>
-  <%= f.submit %>
-<% end %>
+</div>
