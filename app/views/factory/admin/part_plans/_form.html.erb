@@ -1,4 +1,4 @@
-<%= render 'shared/error_messages', target: @part_plan %>
+<%= render 'shared/error_messages', target: f.object %>
 <div class="inline fields">
   <%= f.label :start_at %>
   <div class="four wide field">
@@ -19,4 +19,3 @@
 </div>
 <%= f.text_field :state %>
 <%= f.text_field :purchased_count %>
-<%= f.submit %>

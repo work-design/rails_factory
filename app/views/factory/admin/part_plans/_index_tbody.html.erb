@@ -1,0 +1,20 @@
+<tr>
+  <td><time><%= part_plan.start_at.to_s(:rfc822) %></time></td>
+  <td><time><%= part_plan.finish_at.to_s(:rfc822) %></time></td>
+  <td><%= part_plan.state %></td>
+  <td><%= part_plan.purchased_count %></td>
+  <td>
+    <%= link_to part_plan.received_count, admin_part_items_path(part_plan_id: part_plan.id) %>
+  </td>
+  <td>
+    <%= link_to admin_part_plan_path(@part, part_plan), class: 'button' do %>
+      <i class="fas fa-info"></i>
+    <% end %>
+    <%= link_to edit_admin_part_plan_path(@part, part_plan), class: 'button' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: part_plan }, method: :delete, data: { confirm: t('.confirm') }, class: 'button') do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
