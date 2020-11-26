@@ -1,4 +1,4 @@
-module RailsFactory::Good
+module RailsFactoryExt::Good
   extend ActiveSupport::Concern
 
   included do
@@ -8,7 +8,7 @@ module RailsFactory::Good
     attribute :quantity, :decimal
     attribute :unit, :string
 
-    before_save :sync_price, if: -> { import_price_changed? || profit_price_changed? }
+    before_save :sync_price, if: -> { (changes.keys & ['import_price', 'profit_price']).present? }
   end
 
   private

@@ -15,6 +15,4 @@ module RailsFactory::ProductTaxon
     acts_as_list
   end
 
-
-
 end
