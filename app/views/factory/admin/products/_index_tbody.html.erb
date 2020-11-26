@@ -6,10 +6,7 @@
     <%= render 'com/attachments/list', target: product.covers %>
   </td>
   <td><%= product.qr_prefix %></td>
-  <td>
-    <p><del><%= product.reference_price %></del></p>
-    <p><%= product.price %></p>
-  </td>
+  <td><%= product.price %></td>
   <td>
     <table class="table is-borderless">
       <% product.parts.each do |part| %>
