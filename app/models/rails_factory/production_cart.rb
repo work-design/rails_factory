@@ -1,4 +1,4 @@
-module RailsFactory::CustomCart
+module RailsFactory::ProductionCart
   extend ActiveSupport::Concern
 
   included do
@@ -7,7 +7,7 @@ module RailsFactory::CustomCart
 
     belongs_to :cart
     belongs_to :total_cart
-    belongs_to :custom, inverse_of: :custom_carts
+    belongs_to :production, inverse_of: :production_carts
 
     enum state: {
       init: 'init',

@@ -1,11 +1,12 @@
-module RailsFactory::Custom
+module RailsFactory::Production
   extend ActiveSupport::Concern
 
   included do
+    attribute :name, :string
     attribute :qr_code, :string
-    attribute :price, :decimal, default: 0
-    attribute :cost_price, :decimal, default: 0
-    attribute :profit_price, :decimal, default: 0
+    attribute :price, :decimal
+    attribute :cost_price, :decimal
+    attribute :profit_price, :decimal
     attribute :str_part_ids, :string
 
     enum state: {
@@ -17,10 +18,10 @@ module RailsFactory::Custom
     belongs_to :organ, optional: true
     belongs_to :product
     belongs_to :product_plan, optional: true
-    has_many :custom_parts, dependent: :destroy
-    has_many :parts, through: :custom_parts
-    has_many :custom_carts, dependent: :destroy
-    has_many :carts, through: :custom_carts
+    has_many :production_parts, dependent: :destroy
+    has_many :parts, through: :production_parts
+    has_many :production_carts, dependent: :destroy
+    has_many :carts, through: :production_carts
 
     has_one_attached :logo
 
@@ -46,8 +47,8 @@ module RailsFactory::Custom
   end
 
   def compute_sum
-    self.custom_parts.each(&:sync_amount)
-    self.price = custom_parts.sum(&:price)
+    self.production_parts.each(&:sync_amount)
+    self.price = production_parts.sum(&:price)
   end
 
 end

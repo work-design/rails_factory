@@ -6,22 +6,27 @@ module RailsFactory::Product
     attribute :description, :string
     attribute :qr_prefix, :string
     attribute :sku, :string, index: true
-    attribute :type, :string
     attribute :order_items_count, :integer, default: 0
     attribute :published, :boolean, default: true
-    attribute :price, :decimal
-    attribute :cost_price, :decimal
-    attribute :profit_price, :decimal
+    attribute :str_part_ids, :string
+
+    enum state: {
+      init: 'init',
+      checked: 'checked',
+      producing: 'producing'
+    }, _default: 'init'
 
     belongs_to :organ, optional: true
     belongs_to :product_taxon, optional: true
 
+    has_many :productions, dependent: :destroy
     has_many :product_parts, dependent: :destroy
     has_many :parts, through: :product_parts
     has_many :part_taxons, -> { distinct }, through: :product_parts
     has_many :product_plans, dependent: :destroy
     has_many :product_items, dependent: :destroy
-    has_many :customs, dependent: :nullify
+    has_many :product_carts, dependent: :destroy
+    has_many :carts, through: :product_carts
 
     has_one_attached :logo
     has_many_attached :covers

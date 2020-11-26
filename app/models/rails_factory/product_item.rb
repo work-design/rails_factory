@@ -5,12 +5,13 @@ module RailsFactory::ProductItem
     attribute :state, :string, default: 'producing'
     attribute :qr_code, :string
     attribute :produced_at, :datetime
-    
+
     belongs_to :product
+    belongs_to :product_plan
     has_many :part_items
-  
+
     has_one_attached :qr_file
-  
+
     enum state: {
       producing: 'producing',
       receiving: 'receiving',
@@ -18,13 +19,13 @@ module RailsFactory::ProductItem
       warehouse_out: 'warehouse_out',
       used: 'used'
     }
-  
+
     after_initialize if: :new_record? do
       self.qr_code ||= UidHelper.nsec_uuid self.product&.qr_prefix
     end
     before_save :sync_qrcode, if: -> { qr_code_changed? }
   end
-  
+
   def sync_qrcode
     file = QrcodeHelper.code_file(qr_code)
     file.rewind
