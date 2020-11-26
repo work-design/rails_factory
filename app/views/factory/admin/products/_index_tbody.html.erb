@@ -6,16 +6,6 @@
     <%= render 'com/attachments/list', target: product.covers %>
   </td>
   <td><%= product.qr_prefix %></td>
-  <td class="has-text-right">
-    <p><%= product.cost_price.to_s(:currency, unit: '￥') %></p>
-    <p><%= product.profit_price.to_s(:currency, unit: '￥') %></p>
-    <p><%= product.price.to_s(:currency, unit: '￥') %></p>
-  </td>
-  <td>
-    <%= link_to({ action: 'price', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-dollar-sign"></i>
-    <% end %>
-  </td>
   <td>
     <table class="table is-borderless">
       <% product.parts.each do |part| %>

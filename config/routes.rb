@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       end
     end
     resources :products do
-      resources :customs, shallow: true
+      resources :productions, shallow: true
       resources :product_plans, only: [:index, :show]
     end
     resources :product_taxons
@@ -23,8 +23,9 @@ Rails.application.routes.draw do
       end
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
+      resources :productions
     end
-    resources :customs do
+    resources :productions, only: [] do
       resources :addresses
       resources :trade_items
     end
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
   scope :my, module: 'factory/my', as: :my do
     resource :provider
     resources :products
-    resources :customs do
+    resources :productions do
       collection do
         post :price
       end

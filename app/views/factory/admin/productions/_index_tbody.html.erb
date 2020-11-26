@@ -1,0 +1,42 @@
+<tr>
+  <td><%= production.product.name %></td>
+  <td><%= production.state %></td>
+  <td><%= production.qr_code %></td>
+  <td class="has-text-right">
+    <p><%= production.cost_price.to_s(:currency, unit: '￥') %></p>
+    <p><%= production.profit_price.to_s(:currency, unit: '￥') %></p>
+    <p><%= production.price.to_s(:currency, unit: '￥') %></p>
+  </td>
+  <td>
+    <%= link_to({ action: 'price', id: production.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-dollar-sign"></i>
+    <% end %>
+  </td>
+  <td>
+    <table class="table is-fullwidth">
+      <% production.parts.each do |part| %>
+        <tr>
+          <td><span class="tag"><%= link_to part.name, admin_part_path(part) %></span></td>
+          <td><%= part.price %></td>
+        </tr>
+      <% end %>
+    </table>
+  </td>
+  <td>
+    <%= link_to({ action: 'show', id: production.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-info"></i>
+    <% end %>
+    <%= link_to({ controller: 'trade_items', production_id: production.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-shopping-cart"></i>
+    <% end %>
+    <%= link_to({ controller: 'addresses', production_id: production.id }, aria: { label: t('factory.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-map-marker-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'edit', id: production.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: production.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>

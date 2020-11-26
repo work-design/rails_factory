@@ -10,12 +10,6 @@ module RailsFactory::Product
     attribute :published, :boolean, default: true
     attribute :str_part_ids, :string
 
-    enum state: {
-      init: 'init',
-      checked: 'checked',
-      producing: 'producing'
-    }, _default: 'init'
-
     belongs_to :organ, optional: true
     belongs_to :product_taxon, optional: true
 

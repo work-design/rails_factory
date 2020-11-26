@@ -2,7 +2,7 @@ module RailsFactory::User
   extend ActiveSupport::Concern
 
   included do
-    has_many :customs, dependent: :destroy
+    has_many :productions, dependent: :destroy
   end
 
 end

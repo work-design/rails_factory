@@ -17,7 +17,6 @@ module RailsFactory::Production
 
     belongs_to :organ, optional: true
     belongs_to :product
-    belongs_to :product_plan, optional: true
     has_many :production_parts, dependent: :destroy
     has_many :parts, through: :production_parts
     has_many :production_carts, dependent: :destroy
