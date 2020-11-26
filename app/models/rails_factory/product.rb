@@ -42,9 +42,11 @@ module RailsFactory::Product
   end
 
   def sync_price
-    self.cost_price = self.parts.sum(&:price)
-    self.profit_price ||= default_profit_price
-    self.price = self.cost_price + self.profit_price
+    if self.parts.present?
+      self.cost_price = self.parts.sum(&:price)
+      self.profit_price ||= default_profit_price
+      self.price = self.cost_price + self.profit_price
+    end
   end
 
 end
