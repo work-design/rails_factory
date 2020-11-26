@@ -3,9 +3,16 @@ module RailsFactory::Custom
 
   included do
     attribute :qr_code, :string
-    attribute :price, :decimal, precision: 10, scale: 2, default: 0
-    attribute :state, :string, default: 'init'
+    attribute :price, :decimal, default: 0
+    attribute :cost_price, :decimal, default: 0
+    attribute :profit_price, :decimal, default: 0
     attribute :str_part_ids, :string
+
+    enum state: {
+      init: 'init',
+      checked: 'checked',
+      producing: 'producing'
+    }, _default: 'init'
 
     belongs_to :organ, optional: true
     belongs_to :product
@@ -16,12 +23,6 @@ module RailsFactory::Custom
     has_many :carts, through: :custom_carts
 
     has_one_attached :logo
-
-    enum state: {
-      init: 'init',
-      checked: 'checked',
-      producing: 'producing'
-    }
 
     after_initialize if: :new_record? do
       if product_plan

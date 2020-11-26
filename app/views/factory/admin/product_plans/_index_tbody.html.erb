@@ -1,7 +1,9 @@
 <tr>
   <td><%= product_plan.produce_plan&.title %></td>
-  <td><time><%= product_plan.start_at.to_s(:rfc822) %></time></td>
-  <td><time><%= product_plan.finish_at.to_s(:rfc822) %></time></td>
+  <td>
+    <p><time><%= product_plan.start_at.to_s(:rfc822) %></time></p>
+    <p><time><%= product_plan.finish_at.to_s(:rfc822) %></time></p>
+  </td>
   <td><%= product_plan.state_i18n %></td>
   <td><%= product_plan.planned_count %></td>
   <td>

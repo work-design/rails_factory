@@ -4,7 +4,11 @@ zh:
       product:
         product_taxon_id: 商品分类
         qr_prefix: 二维码前缀
-        reference_price: 建议售价
+        cost_price: 成本价
+        profit_price: 利润
+        price: 售价
       part_taxon:
         min_select: 最低选择数
         max_select: 最多选择数
+      produce_taxon:
+

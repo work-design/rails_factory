@@ -4,15 +4,15 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= ProductPlan.human_attribute_name(:start_at) %></td>
-  <td><%= @product_plan.start_at %></td>
+  <td><time><%= @product_plan.start_at.to_s(:rfc822) %></time></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= ProductPlan.human_attribute_name(:finish_at) %></td>
-  <td><%= @product_plan.finish_at %></td>
+  <td><time><%= @product_plan.finish_at.to_s(:rfc822) %></time></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= ProductPlan.human_attribute_name(:state) %></td>
-  <td><%= @product_plan.state %></td>
+  <td><%= @product_plan.state_i18n %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= ProductPlan.human_attribute_name(:planned_count) %></td>

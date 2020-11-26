@@ -1,6 +1,7 @@
 class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
   before_action :set_product
   before_action :set_product_plan, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
     @product_plans = @product.product_plans.order(id: :desc).page(params[:page])
@@ -43,6 +44,10 @@ class Factory::Admin::ProductPlansController < Factory::Admin::BaseController
 
   def set_product_plan
     @product_plan = ProductPlan.find(params[:id])
+  end
+
+  def prepare_form
+    @produce_plans = ProducePlan.default_where(default_params)
   end
 
   def product_plan_params

@@ -1,0 +1,6 @@
+<%= form_with model: @product, url: { action: 'update' } do |f| %>
+  <%= render 'shared/error_messages', target: @product %>
+  <%= f.number_field :cost_price %>
+  <%= f.number_field :profit_price %>
+  <%= f.submit %>
+<% end %>

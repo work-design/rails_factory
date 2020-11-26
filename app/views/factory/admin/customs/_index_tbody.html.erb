@@ -13,8 +13,8 @@
     </table>
   </td>
   <td>
-    <%= link_to admin_custom_path(custom), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-eye"></i>
+    <%= link_to admin_custom_path(custom), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-info"></i>
     <% end %>
     <%= link_to admin_custom_trade_items_path(custom), aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-shopping-cart"></i>

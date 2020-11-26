@@ -15,7 +15,7 @@ class Factory::Admin::ProducePlansController < Factory::Admin::BaseController
     @produce_plan = ProducePlan.new(produce_plan_params)
 
     if @produce_plan.save
-      render 'create', locals: { return_to: admin_produce_plans_url }
+      render 'create'
     else
       render :new, locals: { model: @produce_plan }, status: :unprocessable_entity
     end
@@ -45,12 +45,13 @@ class Factory::Admin::ProducePlansController < Factory::Admin::BaseController
   end
 
   def produce_plan_params
-    params.fetch(:produce_plan, {}).permit(
+    p = params.fetch(:produce_plan, {}).permit(
       :title,
       :start_at,
       :finish_at,
       :state
     )
+    p.merge! default_form_params
   end
 
 end

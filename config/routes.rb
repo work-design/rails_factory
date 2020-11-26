@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :product_taxons
     resources :produce_plans
     resources :products do
+      member do
+        get :part
+        get :price
+      end
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
     end
