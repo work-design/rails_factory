@@ -9,7 +9,6 @@ module RailsFactory::Product
     attribute :type, :string
     attribute :order_items_count, :integer, default: 0
     attribute :published, :boolean, default: true
-    attribute :reference_price, :decimal
     attribute :price, :decimal
     attribute :cost_price, :decimal
     attribute :profit_price, :decimal
@@ -28,7 +27,7 @@ module RailsFactory::Product
     has_many_attached :covers
     has_many_attached :images
 
-    before_save :sync_price, if: -> { (changes.keys & ['reference_price', 'cost_price', 'profit_price']).present? }
+    before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
 
     has_taxons :product_taxon
   end

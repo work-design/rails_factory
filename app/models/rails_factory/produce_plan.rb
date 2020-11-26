@@ -1,5 +1,6 @@
 module RailsFactory::ProducePlan
   extend ActiveSupport::Concern
+
   included do
     attribute :title, :string
     attribute :start_at, :datetime
@@ -13,9 +14,7 @@ module RailsFactory::ProducePlan
       planned: 'planned',
       producing: 'producing',
       produced: 'produced'
-    }
-
-
+    }, _default: 'planned'
   end
 
 end
