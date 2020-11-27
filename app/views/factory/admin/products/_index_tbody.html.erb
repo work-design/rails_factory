@@ -21,11 +21,11 @@
     <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: product.id }, class: 'button is-small is-success' %>
   </td>
   <td>
+    <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-cube"></i>
+    <% end %>
     <%= link_to({ action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.customs.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-cube"></i>
     <% end %>
     <%= link_to({ action: 'edit', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>

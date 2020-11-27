@@ -1,11 +1,11 @@
 class Factory::Admin::TradeItemsController < Factory::Admin::BaseController
-  before_action :set_custom
+  before_action :set_production
   before_action :set_trade_item, only: [:show, :edit, :update, :destroy]
 
   def index
     q_params = {}
     q_params.merge! params.permit(:address_id)
-    @trade_items = @custom.trade_items.default_where(q_params).page(params[:page])
+    @trade_items = @production.trade_items.default_where(q_params).page(params[:page])
   end
 
   def new
@@ -39,8 +39,8 @@ class Factory::Admin::TradeItemsController < Factory::Admin::BaseController
   end
 
   private
-  def set_custom
-    @custom = Custom.find params[:custom_id]
+  def set_production
+    @production = Production.find params[:production_id]
   end
 
   def set_trade_item

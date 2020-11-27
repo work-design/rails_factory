@@ -40,7 +40,7 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
 
   private
   def set_part
-    @part = Part.find(params[:id])
+    @part = Part.find params[:id]
   end
 
   def part_params

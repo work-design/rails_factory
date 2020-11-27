@@ -1,9 +1,6 @@
-<%= form_with model: @trade_item do |f| %>
-  <%= render 'shared/error_messages', target: @trade_item %>
-  <%= f.text_field :number %>
-  <%= f.text_field :amount %>
-  <%= f.text_field :note %>
-  <%= f.text_field :extra %>
-  <%= f.text_field :status %>
-  <%= f.submit %>
-<% end %>
+<%= render 'shared/error_messages', target: f.object %>
+<%= f.text_field :number %>
+<%= f.text_field :amount %>
+<%= f.text_field :note %>
+<%= f.text_field :extra %>
+<%= f.text_field :status %>
