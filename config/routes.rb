@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resources :product_items, as: 'items'
       resources :productions do
         member do
+          get :part
           get :price
         end
       end

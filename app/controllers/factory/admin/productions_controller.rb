@@ -1,6 +1,6 @@
 class Factory::Admin::ProductionsController < Factory::Admin::BaseController
   before_action :set_product
-  before_action :set_production, only: [:show, :edit, :price, :update, :destroy]
+  before_action :set_production, only: [:show, :edit, :part, :price, :update, :destroy]
 
   def index
     q_params = {}
@@ -25,6 +25,9 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
   end
 
   def edit
+  end
+
+  def part
   end
 
   def price
@@ -59,7 +62,8 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
       :cost_price,
       :profit_price,
       :default,
-      :ordered_at
+      :ordered_at,
+      part_ids: []
     )
   end
 
