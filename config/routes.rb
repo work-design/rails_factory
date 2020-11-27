@@ -6,8 +6,8 @@ Rails.application.routes.draw do
         get :search
       end
     end
+    resources :productions
     resources :products do
-      resources :productions, shallow: true
       resources :product_plans, only: [:index, :show]
     end
     resources :product_taxons
