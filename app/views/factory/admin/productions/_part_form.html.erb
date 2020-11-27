@@ -1,0 +1,5 @@
+<%= form_with model: @product, url: { action: 'update' } do |f| %>
+  <%= render 'shared/error_messages', target: @product %>
+  <%= f.collection_select :part_ids, @parts, :id, :name, { wrap: { select: 'field-body control' } }, { multiple: true, data: { controller: 'choice' } } %>
+  <%= f.submit %>
+<% end %>

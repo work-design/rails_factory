@@ -23,6 +23,11 @@
     </table>
   </td>
   <td>
+    <%= link_to({ action: 'part', id: product.id }, aria: { label: t('factory.admin.products.part.title') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-cube"></i>
+    <% end %>
+  </td>
+  <td>
     <div data-controller="input">
       <%= check_box_tag '[production]default', nil, production.default, data: { method: :patch, remote: true, url: admin_product_production_path(@product, production), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
       <label></label>
