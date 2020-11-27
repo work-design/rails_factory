@@ -4,6 +4,8 @@ zh:
       product:
         product_taxon_id: 商品分类
         qr_prefix: 二维码前缀
+        profit_margin: 利润率
+      production:
         cost_price: 成本价
         profit_price: 利润
         price: 售价

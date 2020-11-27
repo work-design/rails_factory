@@ -6,3 +6,4 @@
 <%= render 'com/attachments/list_field', target: @product.covers, f: f %>
 <%= render 'com/attachments/list_field', target: @product.images, f: f %>
 <%= f.text_area :description %>
+<%= f.number_field :profit_margin, step: 0.01 %>

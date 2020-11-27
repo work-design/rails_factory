@@ -46,6 +46,8 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
       :name,
       :state,
       :qr_code,
+      :cost_price,
+      :profit_price,
       :ordered_at
     )
   end

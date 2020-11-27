@@ -4,7 +4,6 @@ module RailsFactory::ProductTaxon
   included do
     attribute :name, :string
     attribute :position, :integer
-    attribute :profit_margin, :decimal, precision: 4, scale: 2
 
     belongs_to :organ, optional: true
 

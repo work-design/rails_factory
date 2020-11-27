@@ -6,6 +6,7 @@
     <%= render 'com/attachments/list', target: product.covers %>
   </td>
   <td><%= product.qr_prefix %></td>
+  <td><%= product.profit_margin.to_s(:percentage) %></td>
   <td>
     <table class="table is-borderless">
       <% product.parts.each do |part| %>
@@ -23,7 +24,7 @@
     <%= link_to({ action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to({ controller: 'customs', product_id: product.id }, aria: { label: t('factory.admin.customs.index.title') }, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.customs.index.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-cube"></i>
     <% end %>
     <%= link_to({ action: 'edit', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>

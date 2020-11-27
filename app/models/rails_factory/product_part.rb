@@ -2,9 +2,6 @@ module RailsFactory::ProductPart
   extend ActiveSupport::Concern
 
   included do
-    attribute :original_price, :decimal, default: 0
-    attribute :price, :decimal, default: 0
-
     belongs_to :product
     belongs_to :part
     belongs_to :part_taxon
@@ -12,11 +9,6 @@ module RailsFactory::ProductPart
     validates :part_id, uniqueness: { scope: :product_id }
 
     before_validation :sync_part_taxon, on: :create
-  end
-
-  def sync_amount
-    self.original_price = part.price
-    self.price = self.original_price
   end
 
   def sync_part_taxon

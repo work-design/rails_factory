@@ -9,6 +9,7 @@ module RailsFactory::Product
     attribute :order_items_count, :integer, default: 0
     attribute :published, :boolean, default: true
     attribute :str_part_ids, :string
+    attribute :profit_margin, :decimal, precision: 4, scale: 2
 
     belongs_to :organ, optional: true
     belongs_to :product_taxon, optional: true
