@@ -49,7 +49,7 @@ module RailsFactory::Production
   end
 
   def set_default
-    self.class.where.not(id: self.id).where(organ_id: self.organ_id).update_all(default: false)
+    self.class.where.not(id: self.id).where(product_id: self.product_id).update_all(default: false)
   end
 
   def default_profit_price

@@ -1,5 +1,5 @@
 class Factory::Admin::ProductsController < Factory::Admin::BaseController
-  before_action :set_product, only: [:show, :edit, :part, :price, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :part, :update, :destroy]
 
   def index
     q_params = {}
@@ -29,9 +29,6 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
 
   def part
     @parts = Part.default_where(default_params)
-  end
-
-  def price
   end
 
   def update
