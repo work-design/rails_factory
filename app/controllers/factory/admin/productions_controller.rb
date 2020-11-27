@@ -1,12 +1,12 @@
 class Factory::Admin::ProductionsController < Factory::Admin::BaseController
-  before_action :set_product, only: [:index]
+  before_action :set_product
   before_action :set_production, only: [:show, :edit, :update, :destroy]
 
   def index
     q_params = {}
     q_params.merge! default_params
     q_params.merge! params.permit(:product_id, :product_plan_id)
-    @productions = production.default_where(q_params).page(params[:page])
+    @productions = @product.productions.default_where(q_params).page(params[:page])
   end
 
   def show
@@ -29,16 +29,11 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
 
   private
   def set_product
-    if params[:product_id]
-      @product = Product.find params[:product_id]
-    elsif params[:product_plan_id]
-      @product_plan = ProductPlan.find params[:product_plan_id]
-      @product = @product_plan.product
-    end
+    @product = Product.find params[:product_id]
   end
 
   def set_production
-    @production = production.find(params[:id])
+    @production = @product.productions.find(params[:id])
   end
 
   def production_params
