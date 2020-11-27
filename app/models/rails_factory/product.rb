@@ -27,26 +27,7 @@ module RailsFactory::Product
     has_many_attached :covers
     has_many_attached :images
 
-    before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
-
     has_taxons :product_taxon
-  end
-
-  def default_profit_price
-    if product_taxon&.profit_margin
-      self.cost_price * (100 + product_taxon.profit_margin) / 100
-    else
-      0
-    end
-  end
-
-  def sync_price
-    if self.parts.present?
-      self.cost_price = self.parts.sum(&:price)
-    end
-
-    self.profit_price ||= default_profit_price
-    self.price = self.cost_price + self.profit_price
   end
 
 end

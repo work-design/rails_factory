@@ -9,6 +9,18 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
     @productions = @product.productions.default_where(q_params).page(params[:page])
   end
 
+  def new
+    @production = @product.productions.build
+  end
+
+  def create
+    @production = @product.productions.build(production_params)
+
+    unless @production.save
+      render :new, locals: { model: @production }, status: :unprocessable_entity
+    end
+  end
+
   def show
   end
 
@@ -43,6 +55,7 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
       :qr_code,
       :cost_price,
       :profit_price,
+      :default,
       :ordered_at
     )
   end

@@ -19,11 +19,14 @@ Rails.application.routes.draw do
     resources :products do
       member do
         get :part
-        get :price
       end
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
-      resources :productions
+      resources :productions do
+        member do
+          get :price
+        end
+      end
     end
     resources :productions, only: [] do
       resources :addresses

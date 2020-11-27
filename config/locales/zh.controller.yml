@@ -31,7 +31,7 @@ zh:
       providers:
         index:
           title: 供应商
-      customs:
+      productions:
         index:
           title: 定制产品
       trade_items:
