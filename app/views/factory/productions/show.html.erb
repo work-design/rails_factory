@@ -1,12 +1,12 @@
-<%= form_with scope: :custom, url: my_customs_path, id: 'edit_custom' do |f| %>
-  <%= f.hidden_field :product_id, value: @product.id %>
+<%= form_with scope: :custom, url: { controller: 'factory/my/productions', action: 'create' }, id: 'edit_custom' do |f| %>
+  <%= f.hidden_field :product_id, value: @production.product_id %>
   <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
 <% end %>
 
 <%= render 'show' %>
 
 <div class="box">
-<% @product.images.each do |image| %>
+<% @production.product.images.each do |image| %>
   <%= image_tag image -%>
 <% end %>
 </div>

@@ -7,8 +7,8 @@
   <% end %>
   <div class="weui-tabbar__item">
     <%= form_with theme: nil, url: add_my_cart_path do |f| %>
-      <%= f.hidden_field :good_type, value: 'Custom' %>
-      <%= f.hidden_field :good_id, value: @custom.id %>
+      <%= f.hidden_field :good_type, value: 'Production' %>
+      <%= f.hidden_field :good_id, value: @production.id %>
       <%= f.submit t('.add'), class: 'weui-btn weui-btn_warn' %>
     <% end %>
   </div>

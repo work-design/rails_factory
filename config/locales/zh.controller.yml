@@ -1,6 +1,6 @@
 zh:
   factory:
-    products:
+    productions:
       index:
         title: 产品列表
       show:
