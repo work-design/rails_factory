@@ -16,6 +16,8 @@ zh:
       products:
         index:
           title: 产品管理
+        part:
+          title: 产品组成
       product_taxons:
         index:
           title: 产品分类
