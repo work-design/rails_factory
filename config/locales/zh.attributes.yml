@@ -9,6 +9,10 @@ zh:
         cost_price: 成本价
         profit_price: 利润
         price: 售价
+      part:
+        import_price: 进货价
+        profit_price: 利润
+        price: 价格
       part_taxon:
         min_select: 最低选择数
         max_select: 最多选择数

@@ -1,15 +1,15 @@
-<th><%= Part.human_attribute_name(:name) %></th>
 <th>
   <%= Part.human_attribute_name(:part_taxon_id) %>
   <%= link_to({ controller: 'part_taxons' }, aria: { label: '分类设置' }) do %>
     <i class="fas fa-cog"></i>
   <% end %>
 </th>
+<th><%= Part.human_attribute_name(:name) %></th>
 <th><%= Part.human_attribute_name(:qr_prefix) %></th>
 <th><%= Part.human_attribute_name(:part_plans) %></th>
-<th><%= Part.human_attribute_name(:price) %></th>
-<th>
+<th class="has-text-right">
   <p><%= Part.human_attribute_name(:import_price) %></p>
   <p><%= Part.human_attribute_name(:profit_price) %></p>
+  <p><%= Part.human_attribute_name(:price) %></p>
 </th>
 <th></th>

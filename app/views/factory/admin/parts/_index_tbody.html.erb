@@ -1,14 +1,14 @@
 <tr>
-  <td><%= part.name %></td>
   <td><%= part.taxon_str %></td>
+  <td><%= part.name %></td>
   <td><%= part.qr_prefix %></td>
   <td>
     <%= link_to 'Plan', { controller: 'part_plans', part_id: part.id }, class: 'button' %>
   </td>
-  <td><%= part.price %></td>
-  <td>
-    <p><%= part.import_price %></p>
-    <p><%= part.profit_price %></p>
+  <td class="has-text-right">
+    <p><%= part.import_price.to_s(:currency, unit: '￥') %></p>
+    <p><%= part.profit_price.to_s(:currency, unit: '￥') %></p>
+    <p><%= part.price.to_s(:currency, unit: '￥') %></p>
   </td>
   <td>
     <%= link_to '供应商管理', admin_good_providers_path('Part', part), class: 'button is-small is-rounded is-light' %>
