@@ -34,6 +34,10 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   end
 
   def edit
+    if @product.product_part_taxons.count == 0
+      @product.product_part_taxons.build
+    end
+
     @product.product_taxon ||= ProductTaxon.default_where(default_params).first
   end
 

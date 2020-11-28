@@ -1,16 +1,16 @@
 <div class="field is-horizontal" id="product_product_part_taxons_<%= ef.index %>">
   <% if ef.index == 0 %>
-    <%= ef.options[:parent_builder].label :member_departments %>
+    <%= ef.options[:parent_builder].label :product_part_taxons %>
   <% else %>
     <div class="field-label"></div>
   <% end %>
   <div class="field-body control">
     <% if ef.object.part_taxon %>
       <% ef.object.part_taxon.self_and_ancestors.reverse_each do |node| %>
-        <%= render partial: 'outer_options', locals: { f: ef, node: node, outer: 'part_taxon', depth: node.depth } %>
+        <%= render partial: 'com/nodes/outer_options', locals: { f: ef, node: node, outer: 'part_taxon', depth: node.depth } %>
       <% end %>
     <% else %>
-      <%= render partial: 'outer_options', locals: { f: ef, node: PartTaxon.new(organ_id: current_organ&.id), outer: 'part_taxon', depth: 0 } %>
+      <%= render partial: 'com/nodes/outer_options', locals: { f: ef, node: PartTaxon.new(organ_id: current_organ&.id), outer: 'part_taxon', depth: 0 } %>
     <% end %>
     <div class="field has-addons has-addons-middle">
       <%= link_to({ action: 'add_item', index: ef.index }, data: { title: 'add_item' }, remote: true) do %>
