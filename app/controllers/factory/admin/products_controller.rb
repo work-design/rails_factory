@@ -1,5 +1,6 @@
 class Factory::Admin::ProductsController < Factory::Admin::BaseController
   before_action :set_product, only: [:show, :edit, :part, :update, :destroy]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
     q_params = {}
@@ -48,6 +49,10 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
     @product = Product.find(params[:id])
   end
 
+  def prepare_form
+    @part_taxons = PartTaxon.roots.default_where(default_params)
+  end
+
   def product_params
     p = params.fetch(:product, {}).permit(
       :name,
@@ -56,6 +61,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
       :profit_margin,
       :logo,
       :product_taxon_ancestors,
+      part_taxon_ids: [],
       part_ids: [],
       covers: [],
       images: []
