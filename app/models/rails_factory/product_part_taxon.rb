@@ -8,7 +8,8 @@ module RailsFactory::ProductPartTaxon
 
     belongs_to :product
     belongs_to :part_taxon
-    has_many :product_parts
+    has_many :product_parts, foreign_key: :part_taxon_id, primary_key: :part_taxon_id
+    has_many :parts, through: :product_parts
 
     has_taxons :part_taxon
   end
