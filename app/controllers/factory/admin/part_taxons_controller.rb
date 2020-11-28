@@ -9,7 +9,7 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
   end
 
   def new
-    @part_taxon = PartTaxon.new
+    @part_taxon = PartTaxon.new default_form_params
   end
 
   def create

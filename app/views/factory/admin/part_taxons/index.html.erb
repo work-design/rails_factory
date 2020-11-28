@@ -1,4 +1,4 @@
-<%= render layout: 'index_table', locals: { cache_key: PartTaxon.column_names.hash } do %>
+<%= render layout: 'index_tree_table', locals: { cache_key: PartTaxon.column_names.hash } do %>
   <%= render partial: 'index_tbody', collection: @part_taxons, as: :part_taxon %>
 <% end %>
 
