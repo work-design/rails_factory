@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :product_taxons
     resources :produce_plans
     resources :products do
+      collection do
+        get :add_item
+        get :remove_item
+      end
       member do
         get :part
       end

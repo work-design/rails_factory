@@ -1,0 +1,5 @@
+<% form_object = form_object(@product) %>
+
+var template = '<%= j(render partial: 'item_field', locals: { f: form_object, index: UidHelper.sec_uuid }) %>'
+
+document.getElementById('product_product_part_taxons_<%= params[:index] %>').insertAdjacentHTML('afterend', template)

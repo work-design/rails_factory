@@ -24,6 +24,8 @@ module RailsFactory::Product
     has_many :product_carts, dependent: :destroy
     has_many :carts, through: :product_carts
 
+    accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
+
     has_one_attached :logo
     has_many_attached :covers
     has_many_attached :images

@@ -1,0 +1,3 @@
+<%= f.fields :product_part_taxons, child_index: index, wrap: { all: nil, input: 'field' }, label: false, placeholder: true do |ef| %>
+  <%= render partial: 'item_form', locals: { ef: ef } %>
+<% end %>

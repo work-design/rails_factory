@@ -11,6 +11,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
   def new
     @product = Product.new
     @product.product_taxon = ProductTaxon.default_where(default_params).first
+    @product.product_part_taxons.build
   end
 
   def create
@@ -19,6 +20,14 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
     unless @product.save
       render :new, locals: { model: @product }, status: :unprocessable_entity
     end
+  end
+
+  def add_item
+    @product = Product.new
+    @product.product_part_taxons.build
+  end
+
+  def remove_item
   end
 
   def show
@@ -61,6 +70,7 @@ class Factory::Admin::ProductsController < Factory::Admin::BaseController
       :profit_margin,
       :logo,
       :product_taxon_ancestors,
+      product_part_taxons_attributes: {},
       part_taxon_ids: [],
       part_ids: [],
       covers: [],
