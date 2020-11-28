@@ -12,14 +12,11 @@ class Factory::My::ProductionsController < Factory::My::BaseController
   end
 
   def create
-    if params[:product_plan_id].present?
-      @production = Custom.find_or_initialize_by(product_plan_id: custom_params[:product_plan_id], str_part_ids: custom_params[:str_part_ids])
-    else
-      @production = Custom.find_or_initialize_by(product_id: custom_params[:product_id], str_part_ids: custom_params[:str_part_ids])
-    end
-    custom_cart = @production.custom_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
+    @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: production_params[:str_part_ids])
+
+    custom_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
     custom_cart.customized_at = Time.current
-    @production.assign_attributes custom_params
+    @production.assign_attributes production_params
     @production.compute_sum
     custom_cart.class.transaction do
       @production.save
@@ -27,7 +24,7 @@ class Factory::My::ProductionsController < Factory::My::BaseController
     end
 
     if params[:commit].present?
-      render 'create', locals: { return_to: my_cart_url(product_plan_id: custom_params[:product_plan_id]) }
+      render 'create', locals: { return_to: my_cart_url(product_plan_id: production_params[:product_plan_id]) }
     else
       render 'create_price'
     end
@@ -45,7 +42,7 @@ class Factory::My::ProductionsController < Factory::My::BaseController
   end
 
   def update
-    @production.assign_attributes(custom_params)
+    @production.assign_attributes(production_params)
     @production.compute_sum
 
     if params[:commit].present? && @production.save
@@ -64,10 +61,9 @@ class Factory::My::ProductionsController < Factory::My::BaseController
     @production = Production.find(params[:id])
   end
 
-  def custom_params
-    q = params.fetch(:custom, {}).permit(
+  def production_params
+    q = params.fetch(:production, {}).permit(
       :product_id,
-      :product_plan_id,
       part_ids: []
     )
     q.fetch(:part_ids, []).map!(&:to_i).sort!

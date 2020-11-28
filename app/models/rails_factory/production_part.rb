@@ -9,8 +9,7 @@ module RailsFactory::ProductionPart
   end
 
   def sync_amount
-    self.original_price = part.price
-    self.price = self.original_price
+    self.price = part.price
   end
 
 end

@@ -15,11 +15,6 @@ module RailsFactory::ProductionCart
       checked: 'checked',
       carted: 'carted'
     }
-
-    after_initialize if: :new_record? do
-      self.total_cart = cart.total_cart if cart
-    end
-
   end
 
 end
