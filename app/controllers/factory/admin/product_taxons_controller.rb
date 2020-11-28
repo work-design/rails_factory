@@ -46,7 +46,6 @@ class Factory::Admin::ProductTaxonsController < Factory::Admin::BaseController
     p = params.fetch(:product_taxon, {}).permit(
       :name,
       :position,
-      :profit_margin,
       :logo,
       :parent_id,
       :parent_ancestors
