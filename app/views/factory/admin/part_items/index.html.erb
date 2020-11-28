@@ -1,0 +1,5 @@
+<%= render layout: 'index_table', locals: { cache_key: PartItem.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @part_items, as: :part_item %>
+<% end %>
+
+<%= paginate @part_items %>
