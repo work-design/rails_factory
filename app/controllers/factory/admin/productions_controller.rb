@@ -63,6 +63,7 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
       :profit_price,
       :default,
       :ordered_at,
+      :logo,
       part_ids: []
     )
   end

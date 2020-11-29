@@ -1,7 +1,7 @@
 <%= form_with model: @product, url: { action: 'update' } do |f| %>
   <%= render 'shared/error_messages', target: @product %>
   <% @product.part_taxons.each do |part_taxon| %>
-    <%= f.collection_check_boxes :part_ids, part_taxon.parts, :id, :name %>
+    <%= f.collection_check_boxes :part_ids, part_taxon.parts, :id, :name, label: part_taxon.name %>
   <% end %>
   <%= f.submit %>
 <% end %>

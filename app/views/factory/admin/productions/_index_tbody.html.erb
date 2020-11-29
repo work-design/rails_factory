@@ -1,5 +1,8 @@
 <tr>
-  <td><%= production.product.name %></td>
+  <td>
+    <%= image_tag production.logo, class: 'image is-24x24' if production.logo.attached? %>
+    <%= production.product.name %>
+  </td>
   <td><%= production.state %></td>
   <td><%= production.qr_code %></td>
   <td class="has-text-right">
