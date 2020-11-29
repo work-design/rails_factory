@@ -27,7 +27,7 @@
         <label class="weui-btn weui-btn_mini <%= @production.part_ids.include?(part.id) ? 'weui-btn_primary' : 'weui-btn_default' %>" for="part_<%= part.id %>" id="part_<%= part.id %>_label">
           <span><%= part.name %></span>
           <span class="weui-btn__extra"><%= part.price %></span>
-          <%= check_box_tag 'custom[part_ids][]', part.id, @production.part_ids.include?(part.id), data: { action: 'custom#toggle' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
+          <%= check_box_tag 'production[part_ids][]', part.id, @production.part_ids.include?(part.id), data: { action: 'custom#toggle' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
         </label>
       <% end %>
     </div>
