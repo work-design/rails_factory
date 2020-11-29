@@ -14,13 +14,12 @@ class Factory::My::ProductionsController < Factory::My::BaseController
   def create
     @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: production_params[:str_part_ids])
 
-    custom_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
-    custom_cart.customized_at = Time.current
+    production_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
     @production.assign_attributes production_params
     @production.compute_sum
-    custom_cart.class.transaction do
-      @production.save
-      custom_cart.save
+    production_cart.class.transaction do
+      @production.save!
+      production_cart.save!
     end
 
     if params[:commit].present?

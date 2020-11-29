@@ -7,7 +7,8 @@ module RailsFactory::ProductionCart
     attribute :original_price, :decimal, default: 0
 
     belongs_to :cart
-    belongs_to :user
+    belongs_to :user, optional: true
+    belongs_to :product
     belongs_to :production, inverse_of: :production_carts
 
     enum state: {
@@ -15,6 +16,12 @@ module RailsFactory::ProductionCart
       checked: 'checked',
       carted: 'carted'
     }
+
+    before_validation :sync_product, on: :create
+  end
+
+  def sync_product
+    self.product_id = production.product_id
   end
 
 end

@@ -11,7 +11,13 @@ class Factory::ProductsController < Factory::BaseController
   end
 
   def show
-    @production = @product.production
+    production_cart = @product.production_carts.order(customized_at: :desc).first
+
+    if production_cart
+      @production = production_cart.production
+    else
+      @production = @product.production
+    end
   end
 
   private

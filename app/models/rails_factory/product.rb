@@ -24,8 +24,8 @@ module RailsFactory::Product
     has_many :part_taxons, through: :product_part_taxons
     has_many :product_plans, dependent: :destroy
     has_many :product_items, dependent: :destroy
-    has_many :product_carts, dependent: :destroy
-    has_many :carts, through: :product_carts
+    has_many :production_carts, dependent: :destroy
+    has_many :carts, through: :production_carts
 
     accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
 
