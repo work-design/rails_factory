@@ -12,6 +12,8 @@
     <% else %>
       <%= render partial: 'com/nodes/outer_options', locals: { f: ef, node: PartTaxon.new(organ_id: current_organ&.id), outer: 'part_taxon', depth: 0 } %>
     <% end %>
+    <%= ef.number_field :min_select, step: 1, label: nil, wrap: { input: 'field is-narrow' }, style: 'width: 4em' %>
+    <%= ef.number_field :max_select, step: 1, label: nil, wrap: { input: 'field is-narrow' }, style: 'width: 4em' %>
     <div class="field has-addons has-addons-middle">
       <%= link_to({ action: 'add_item', index: ef.index }, data: { title: 'add_item' }, remote: true) do %>
         <i class="fas fa-plus"></i>
