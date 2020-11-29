@@ -10,10 +10,13 @@ module RailsFactory::Product
     attribute :published, :boolean, default: true
     attribute :str_part_ids, :string
     attribute :profit_margin, :decimal, precision: 4, scale: 2
+    attribute :min_price, :decimal
+    attribute :max_price, :decimal
 
     belongs_to :organ, optional: true
     belongs_to :product_taxon, optional: true
 
+    has_one :production, -> { where(default: true) }
     has_many :productions, dependent: :destroy
     has_many :product_parts, dependent: :destroy
     has_many :parts, through: :product_parts

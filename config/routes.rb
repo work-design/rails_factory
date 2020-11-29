@@ -6,7 +6,6 @@ Rails.application.routes.draw do
         get :search
       end
     end
-    resources :productions
     resources :products do
       resources :product_plans, only: [:index, :show]
     end
