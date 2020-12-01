@@ -24,6 +24,8 @@ module RailsFactory::Production
 
     has_one_attached :logo
 
+    validates :str_part_ids, presence: true
+
     after_initialize if: :new_record? do
       if product_id && part_ids.blank?
         self.part_ids = product.part_ids
