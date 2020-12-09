@@ -6,17 +6,17 @@ class Factory::Admin::PartProvidersController < Factory::Admin::BaseController
     q_params = {}
     q_params.merge! params.permit(:good_type, :good_id)
 
-    @part_providers = GoodProvider.default_where(q_params).order(id: :asc).page(params[:page])
+    @part_providers = @part.part_providers.default_where(q_params).order(id: :asc).page(params[:page])
   end
 
   def new
-    @part_provider = @facilitate.part_providers.build
+    @part_provider = @part.part_providers.build
   end
 
   def create
-    @part_provider = @facilitate.part_providers.build(part_provider_params)
+    @part_provider = @part.part_providers.build(part_provider_params)
 
-    unless @crowd.save
+    unless @part_provider.save
       render :new, locals: { model: @part_provider }, status: :unprocessable_entity
     end
   end
@@ -33,8 +33,6 @@ class Factory::Admin::PartProvidersController < Factory::Admin::BaseController
     else
       @part_provider.update(part_provider_params)
     end
-
-    head :no_content
   end
 
   def update

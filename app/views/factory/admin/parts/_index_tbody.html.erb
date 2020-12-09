@@ -11,7 +11,7 @@
     <p><%= part.price.to_s(:currency, unit: '￥') %></p>
   </td>
   <td>
-    <%= link_to '供应商管理', admin_good_providers_path('Part', part), class: 'button is-small is-rounded is-light' %>
+    <%= link_to '供应商管理', { controller: 'part_providers', part_id: part.id }, class: 'button is-small is-rounded is-light' %>
     <%= link_to({ action: 'show', id: part.id }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>

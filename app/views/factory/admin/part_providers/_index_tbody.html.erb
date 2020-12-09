@@ -1,0 +1,21 @@
+<tr>
+  <td><%= part_provider.provider.name %></td>
+  <td><%= part_provider.export_price %></td>
+  <td>
+    <div data-controller="input">
+      <%= check_box_tag('[part_provider]verified', nil, part_provider.verified, data: { method: :patch, remote: true, url: admin_part_provider_path(params[:good_type], params[:good_id], part_provider.id), submit: true }) %>
+      <label></label>
+    </div>
+  </td>
+  <td>
+    <div data-controller="input">
+      <%= check_box_tag '[part_provider]selected', nil, part_provider.selected, data: { method: :patch, remote: true, url: select_admin_part_provider_path(params[:good_type], params[:good_id], part_provider.id), submit: true } %>
+    </div>
+  </td>
+  <td><time><%= part_provider.created_at.to_s(:rfc822) %></time></td>
+  <td>
+    <%= link_to({ action: 'destroy', id: part_provider.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
