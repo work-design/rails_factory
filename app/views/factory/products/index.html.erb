@@ -1,0 +1,33 @@
+<div class="weui-panel weui-panel_access">
+  <div class="weui-panel__hd">
+    <span><%= t('.title') %></span>
+    <% if params[:product_taxon_id] %>
+      <i class="fas fa-angle-right"></i>
+      <span><%= @product_taxon.name %></span>
+    <% end %>
+  </div>
+  <div class="weui-panel__bd">
+    <%= render 'filter_form' %>
+  <% @products.each do |product| %>
+    <%= link_to({ action: 'show', id: product.id }, class: 'weui-media-box weui-media-box_appmsg') do %>
+      <div class="weui-media-box__hd">
+        <%= image_tag product.logo, class: 'weui-media-box__thumb' if product.logo.attached? %>
+      </div>
+      <div class="weui-media-box__bd">
+        <h4 class="weui-media-box__title"><%= product.name %></h4>
+        <p class="weui-media-box__desc">
+          <%= product.description %>
+        </p>
+        <ul class="weui-media-box__info">
+          <% product.parts.group_by(&->(i){ i.part_taxon_id }).each do |_, parts| %>
+            <% parts.each_with_index do |part, index| %>
+              <li class="weui-media-box__info__meta<%= index == 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
+            <% end %>
+          <% end %>
+          <li style="float: right"><%= product.min_price.to_money.format %></li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
