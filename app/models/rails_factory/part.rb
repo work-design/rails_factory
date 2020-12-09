@@ -20,7 +20,7 @@ module RailsFactory::Part
     has_many :products, through: :product_parts
     has_many :part_plans, dependent: :destroy
     has_many :part_items, dependent: :destroy
-    has_many :good_providers, as: :good, dependent: :destroy
+    has_many :part_providers, dependent: :destroy
 
     before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
     before_save :sync_price

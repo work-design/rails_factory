@@ -41,9 +41,7 @@ Rails.application.routes.draw do
     resources :parts do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'
-    end
-    scope ':good_type/:good_id' do
-      resources :good_providers do
+      resources :part_providers, as: 'providers' do
         member do
           patch :select
         end

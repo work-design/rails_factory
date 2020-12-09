@@ -16,10 +16,12 @@ module RailsFactory::PartProvider
 
   def set_selected
     self.class.transaction do
-      self.update!(selected: true)
-      self.class.where.not(id: self.id).where(good_type: self.good_type, good_id: self.good_id).update_all(selected: false)
-      good.update!(import_price: self.export_price)
+      self.class.where.not(id: self.id).where(part_id: self.part_id).update_all(selected: false)
     end
+  end
+
+  def xx
+    part.import_price = self.export_price
   end
 
 end
