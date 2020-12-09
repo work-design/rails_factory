@@ -26,10 +26,10 @@ zh:
           title: 产品批次
       parts:
         index:
-          title: 配件
+          title: 产品组成/进货
       part_taxons:
         index:
-          title: 配件分类
+          title: 分类
       providers:
         index:
           title: 供应商
