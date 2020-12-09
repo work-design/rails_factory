@@ -1,4 +1,4 @@
-module RailsFactory::GoodProvider
+module RailsFactory::PartProvider
   extend ActiveSupport::Concern
 
   included do
@@ -6,10 +6,10 @@ module RailsFactory::GoodProvider
     attribute :verified, :boolean, default: false
     attribute :selected, :boolean
 
-    belongs_to :good, polymorphic: true
+    belongs_to :part
     belongs_to :provider, class_name: 'Organ'
 
-    validates :good_id, uniqueness: { scope: [:good_type, :provider_id] }
+    validates :part_id, uniqueness: { scope: [:provider_id] }
 
     scope :verified, -> { where(verified: true) }
   end
