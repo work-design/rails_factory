@@ -61,11 +61,6 @@ Rails.application.routes.draw do
       end
       resources :trade_items
     end
-    resources :facilitates, only: [] do
-      member do
-        put :order
-      end
-    end
   end
 
 end
