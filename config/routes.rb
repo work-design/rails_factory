@@ -66,7 +66,6 @@ Rails.application.routes.draw do
         put :order
       end
     end
-    resources :good_providers
   end
 
 end
