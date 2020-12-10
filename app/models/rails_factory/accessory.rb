@@ -1,4 +1,0 @@
-module RailsFactory::Accessory
-
-
-end

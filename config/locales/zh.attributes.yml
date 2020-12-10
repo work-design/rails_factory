@@ -18,5 +18,6 @@ zh:
       part_taxon:
         min_select: 最低选择数
         max_select: 最多选择数
+        product_taxon_id: 产品分类
       produce_taxon:
 
