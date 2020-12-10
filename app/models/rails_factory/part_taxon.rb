@@ -11,6 +11,7 @@ module RailsFactory::PartTaxon
     has_many :parts, dependent: :nullify
 
     acts_as_list
+    has_taxons :product_taxon
   end
 
 end

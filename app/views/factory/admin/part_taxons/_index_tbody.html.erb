@@ -8,6 +8,7 @@
     <% end %>
     <span><%= part_taxon.name %></span>
   </td>
+  <td><%= part_taxon.product_taxon&.name %></td>
   <td>
     <%= link_to({ action: 'edit', id: part_taxon.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>

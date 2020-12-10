@@ -5,6 +5,7 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
     q_params = {}
     q_params.merge! default_params
     q_params.merge! params.permit(:name, :provider_id)
+
     @parts = Part.default_where(q_params).page(params[:page])
   end
 

@@ -5,6 +5,7 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
     q_params = {}
     q_params.merge! default_params
     q_params.merge! params.permit(:name)
+
     @part_taxons = PartTaxon.roots.default_where(q_params).page(params[:page])
   end
 
@@ -49,7 +50,8 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
       :position,
       :parent_id,
       :parent_ancestors,
-      :product_taxon_id
+      :product_taxon_id,
+      :product_taxon_ancestors
     )
     p.merge! default_form_params
   end

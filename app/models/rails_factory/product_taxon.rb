@@ -6,6 +6,7 @@ module RailsFactory::ProductTaxon
     attribute :position, :integer
 
     belongs_to :organ, optional: true
+    belongs_to :product_taxon_template, optional: true
 
     has_many :products, dependent: :nullify
 
