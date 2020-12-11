@@ -63,4 +63,9 @@ Rails.application.routes.draw do
     end
   end
 
+  scope :panel, module: 'factory/panel', as: :my do
+    resources :product_taxon_templates
+    resources :part_taxon_templates
+  end
+
 end
