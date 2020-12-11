@@ -48,3 +48,11 @@ zh:
           title: 我的站点
         show:
           title: 商品列表
+    panel:
+      title: 产品管理
+      product_taxon_templates:
+        index:
+          title: 产品分类
+      part_taxon_templates:
+        index:
+          title: 配件分类
