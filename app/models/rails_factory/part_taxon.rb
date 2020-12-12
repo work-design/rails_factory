@@ -7,7 +7,7 @@ module RailsFactory::PartTaxon
     attribute :take_stock, :boolean, comment: '可盘点'
 
     belongs_to :organ, optional: true
-    belongs_to :part_taxon_template, optional: true
+    belongs_to :factory_taxon, optional: true
     has_many :parts, dependent: :nullify
 
     acts_as_list

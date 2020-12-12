@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
     resources :providers
     resources :part_taxons
+    resources :factory_taxons
     resources :parts do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'
@@ -64,8 +65,7 @@ Rails.application.routes.draw do
   end
 
   scope :panel, module: 'factory/panel', as: :panel do
-    resources :product_taxon_templates
-    resources :part_taxon_templates do
+    resources :factory_taxons do
       resources :providers do
         collection do
           get :search
