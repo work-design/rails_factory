@@ -6,7 +6,7 @@
     <%= render 'com/attachments/list', target: product.covers %>
   </td>
   <td><%= product.qr_prefix %></td>
-  <td><%= product.profit_margin.to_s(:percentage) %></td>
+  <td><%= product.profit_margin_str %></td>
   <td>
     <%= link_to({ controller: 'product_part_taxons', product_id: product.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-cube"></i>

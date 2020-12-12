@@ -36,4 +36,8 @@ module RailsFactory::Product
     has_taxons :product_taxon
   end
 
+  def profit_margin_str
+    (profit_margin * 100).to_s(:percentage)
+  end
+
 end
