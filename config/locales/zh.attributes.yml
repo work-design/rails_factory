@@ -20,4 +20,5 @@ zh:
         max_select: 最多选择数
         product_taxon_id: 产品分类
       produce_taxon:
-
+      part_taxon_provider:
+        provider_id: 供应商

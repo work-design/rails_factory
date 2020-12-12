@@ -1,5 +1,5 @@
 <% @providers.each do |organ| %>
-<div class="panel-block" data-action="click->member#choose" data-id="<%= organ.id %>" data-name="<%= organ.name %>">
+<div class="panel-block" data-action="click->typer#choose" data-id="<%= organ.id %>" data-name="<%= organ.name %>">
   <%= organ.name %>
 </div>
 <% end %>

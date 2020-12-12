@@ -4,18 +4,18 @@ class Factory::Panel::ProvidersController < Factory::Panel::BaseController
   before_action :prepare_form
 
   def index
-    @providers = @part_taxon_template.providers.page(params[:page])
+    @part_taxon_providers = @part_taxon_template.part_taxon_providers.includes(:provider).page(params[:page])
   end
 
   def new
-    @provider = @part_taxon_template.providers.build
   end
 
   def create
-    @provider = Provider.new(provider_params)
+    @part_taxon_provider = @part_taxon_template.part_taxon_providers.build
+    @part_taxon_provider.provider_id = params[:provider_id]
 
-    unless @provider.save
-      render :new, locals: { model: @provider }, status: :unprocessable_entity
+    unless @part_taxon_provider.save
+      render :new, locals: { model: @part_taxon_provider }, status: :unprocessable_entity
     end
   end
 
@@ -31,15 +31,15 @@ class Factory::Panel::ProvidersController < Factory::Panel::BaseController
   end
 
   def update
-    @provider.assign_attributes(provider_params)
+    @part_taxon_provider.assign_attributes(provider_params)
 
-    unless @provider.save
-      render :edit, locals: { model: @provider }, status: :unprocessable_entity
+    unless @part_taxon_provider.save
+      render :edit, locals: { model: @part_taxon_provider }, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @provider.destroy
+    @part_taxon_provider.destroy
   end
 
   private
@@ -48,7 +48,7 @@ class Factory::Panel::ProvidersController < Factory::Panel::BaseController
   end
 
   def set_provider
-    @provider = Provider.find(params[:id])
+    @part_taxon_provider = @part_taxon_template.part_taxon_providers.find(params[:id])
   end
 
   def prepare_form

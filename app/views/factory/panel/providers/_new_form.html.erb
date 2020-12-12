@@ -1,15 +1,14 @@
-<div class="panel">
-  <div class="panel-heading">选择用户</div>
-  <div class="panel-block" id="search-content">
-    <%= form_with theme: nil, scope: nil, url: { action: 'create' }, html: { style: 'width: 100%;' } do |f| %>
-      <div class="control has-icons-left">
-        <%= f.search_field 'name-like', class: 'input', placeholder: '搜索', data: { controller: 'typer', member_target: 'input', url: search_panel_part_taxon_template_providers_path(@part_taxon_template) } %>
-        <span class="icon is-left"><i class="fas fa-search"></i></span>
-      </div>
-    <% end %>
-  </div>
-  <div class="panel-block" id="user_content">
-  </div>
-  <%= f.hidden_field :provider_id, data: { member_target: 'value' } %>
-  <%= f.submit %>
+<div class="panel" data-controller="typer">
+  <%= form_with theme: nil, scope: nil, url: { action: 'create' }, html: { style: 'width: 100%;' } do |f| %>
+    <div class="control has-icons-left">
+      <%= f.search_field 'name-like', class: 'input', placeholder: '搜索', data: { typer_target: 'input', url: search_panel_part_taxon_template_providers_path(@part_taxon_template) } %>
+      <span class="icon is-left"><i class="fas fa-search"></i></span>
+    </div>
+    <div class="panel-block" id="user_content">
+    </div>
+    <%= f.hidden_field :provider_id, data: { typer_target: 'value' } %>
+    <div class="panel-block">
+      <%= f.submit '确认', class: 'button' %>
+    </div>
+  <% end %>
 </div>
