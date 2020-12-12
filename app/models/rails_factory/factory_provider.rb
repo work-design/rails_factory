@@ -1,4 +1,4 @@
-module RailsFactory::PartTaxonProvider
+module RailsFactory::FactoryProvider
   extend ActiveSupport::Concern
 
   included do

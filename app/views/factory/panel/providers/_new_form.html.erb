@@ -1,7 +1,7 @@
 <div class="panel" data-controller="typer">
   <%= form_with theme: nil, scope: nil, url: { action: 'create' }, html: { style: 'width: 100%;' } do |f| %>
     <div class="control has-icons-left">
-      <%= f.search_field 'name-like', class: 'input', placeholder: '搜索', data: { typer_target: 'input', url: search_panel_part_taxon_template_providers_path(@part_taxon_template) } %>
+      <%= f.search_field 'name-like', class: 'input', placeholder: '搜索', data: { typer_target: 'input', url: search_panel_factory_taxon_providers_path(@factory_taxon) } %>
       <span class="icon is-left"><i class="fas fa-search"></i></span>
     </div>
     <div class="panel-block" id="user_content">

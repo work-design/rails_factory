@@ -1,5 +1,5 @@
-<%= render layout: 'index_table', locals: { cache_key: PartTaxonProvider.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @part_taxon_providers, as: :part_taxon_provider %>
+<%= render layout: 'index_table', locals: { cache_key: FactoryProvider.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @factory_providers, as: :factory_provider %>
 <% end %>
 
-<%= paginate @part_taxon_providers %>
+<%= paginate @factory_providers %>
