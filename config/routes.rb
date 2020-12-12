@@ -63,9 +63,15 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :panel, module: 'factory/panel', as: :my do
+  scope :panel, module: 'factory/panel', as: :panel do
     resources :product_taxon_templates
-    resources :part_taxon_templates
+    resources :part_taxon_templates do
+      resources :providers do
+        collection do
+          get :search
+        end
+      end
+    end
   end
 
 end

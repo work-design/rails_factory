@@ -1,8 +1,11 @@
 <tr>
   <td><%= part_taxon_template.name %></td>
   <td>
+    <%= link_to({ controller: 'providers', part_taxon_template_id: part_taxon_template.id }, { aria: { label: t('factory.panel.providers.index.title') }, class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-industry"></i>
+    <% end %>
     <%= link_to({ action: 'show', id: part_taxon_template.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-eye"></i>
+      <i class="fas fa-info"></i>
     <% end %>
     <%= link_to({ action: 'edit', id: part_taxon_template.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-pencil-alt"></i>

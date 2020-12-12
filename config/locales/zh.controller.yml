@@ -56,3 +56,6 @@ zh:
       part_taxon_templates:
         index:
           title: 配件分类
+      providers:
+        index:
+          title: 指定供应商
