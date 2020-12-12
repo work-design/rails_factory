@@ -8,25 +8,15 @@
   <td><%= product.qr_prefix %></td>
   <td><%= product.profit_margin.to_s(:percentage) %></td>
   <td>
-    <table class="table is-borderless">
-      <% product.parts.each do |part| %>
-        <tr>
-          <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id }, remote: true %></span></td>
-          <td><%= part.price %></td>
-        </tr>
-      <% end %>
-    </table>
-  </td>
-  <td>
-    <%= link_to({ action: 'part', id: product.id }, aria: { label: t('factory.admin.products.part.title') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'product_parts', product_id: product.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-cube"></i>
+    <% end %>
+    <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-clone"></i>
     <% end %>
   </td>
   <td>
     <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: product.id }, class: 'button is-small is-success' %>
-    <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-clone"></i>
-    <% end %>
     <%= link_to({ action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>

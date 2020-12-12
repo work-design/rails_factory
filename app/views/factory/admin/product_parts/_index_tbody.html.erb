@@ -1,0 +1,17 @@
+<tr>
+  <td><%= product_part.part_taxon_id %></td>
+  <td><%= link_to product_part.part.name, { controller: 'parts', action: 'show', id: product_part.part_id }, remote: true, text: true %></td>
+  <td><%= product_part.part.price %></td>
+  <td><%= product_part.default %></td>
+  <td>
+    <%= link_to({ action: 'show', id: product_part.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-info"></i>
+    <% end %>
+    <%= link_to({ action: 'edit', id: product_part.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: product_part.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>

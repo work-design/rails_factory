@@ -2,6 +2,8 @@ module RailsFactory::ProductPart
   extend ActiveSupport::Concern
 
   included do
+    attribute :default, :boolean, default: false
+
     belongs_to :product
     belongs_to :part
     belongs_to :part_taxon
