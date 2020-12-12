@@ -18,6 +18,7 @@ class Factory::Admin::FactoryTaxonsController < Factory::Admin::BaseController
   end
 
   def show
+    @products = @factory_taxon.products.page(params[:page])
   end
 
   def edit

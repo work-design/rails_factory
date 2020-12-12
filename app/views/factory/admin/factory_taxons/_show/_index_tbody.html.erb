@@ -1,0 +1,37 @@
+<tr>
+  <td><%= product.product_taxon&.name %></td>
+  <td><%= link_to product.name, { action: 'show', id: product.id }, text: true %></td>
+  <td><%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' if product.logo.attached? %></td>
+  <td>
+    <%= render 'com/attachments/list', target: product.covers %>
+  </td>
+  <td><%= product.qr_prefix %></td>
+  <td><%= product.profit_margin.to_s(:percentage) %></td>
+  <td>
+    <table class="table is-borderless">
+      <% product.parts.each do |part| %>
+        <tr>
+          <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id }, remote: true %></span></td>
+          <td><%= part.price %></td>
+        </tr>
+      <% end %>
+    </table>
+  </td>
+  <td>
+    <%= link_to({ controller: 'products', action: 'part', id: product.id }, aria: { label: t('factory.admin.products.part.title') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-cube"></i>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: product.id }, class: 'button is-small is-success' %>
+    <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-clone"></i>
+    <% end %>
+    <%= link_to({ controller: 'products', action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-info"></i>
+    <% end %>
+    <%= link_to({ controller: 'products',action: 'edit', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+  </td>
+</tr>
