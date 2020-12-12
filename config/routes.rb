@@ -25,8 +25,8 @@ Rails.application.routes.draw do
       end
       resources :product_plans, as: 'plans'
       resources :product_items, as: 'items'
-      resources :product_part_taxons, as: 'part_taxons'
-      resources :product_parts, as: 'parts'
+      resources :product_part_taxons, as: 'part_taxons', path: 'part_taxons'
+      resources :product_parts, as: 'parts', path: 'parts'
       resources :productions do
         member do
           get :part
