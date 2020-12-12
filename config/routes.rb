@@ -40,7 +40,11 @@ Rails.application.routes.draw do
     end
     resources :providers
     resources :part_taxons
-    resources :factory_taxons
+    resources :factory_taxons do
+      member do
+        get :productions
+      end
+    end
     resources :parts do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'

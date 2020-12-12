@@ -1,5 +1,5 @@
 class Factory::Admin::FactoryTaxonsController < Factory::Admin::BaseController
-  before_action :set_factory_taxon, only: [:show, :edit, :update, :destroy]
+  before_action :set_factory_taxon, only: [:show, :productions, :edit, :update, :destroy]
 
   def index
     @factory_taxons = FactoryTaxon.page(params[:page])
@@ -19,6 +19,10 @@ class Factory::Admin::FactoryTaxonsController < Factory::Admin::BaseController
 
   def show
     @products = @factory_taxon.products.page(params[:page])
+  end
+
+  def productions
+    @productions = Production.default_where(product_id: params[:product_id])
   end
 
   def edit
