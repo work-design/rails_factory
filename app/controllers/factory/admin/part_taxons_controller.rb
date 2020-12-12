@@ -50,7 +50,7 @@ class Factory::Admin::PartTaxonsController < Factory::Admin::BaseController
       :position,
       :parent_id,
       :parent_ancestors,
-      :product_taxon_id,
+      :part_taxon_template_id,
       :product_taxon_ancestors
     )
     p.merge! default_form_params
