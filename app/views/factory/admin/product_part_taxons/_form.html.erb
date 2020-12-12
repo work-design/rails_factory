@@ -1,4 +1,10 @@
 <%= render 'shared/error_messages', target: f.object %>
-<%= f.text_field :name %>
+<% if f.object.part_taxon %>
+  <% f.object.part_taxon.self_and_ancestors.reverse_each do |node| %>
+    <%= render partial: 'com/nodes/outer_options', locals: { f: f, node: node, outer: 'part_taxon', depth: node.depth } %>
+  <% end %>
+<% else %>
+  <%= render partial: 'com/nodes/outer_options', locals: { f: f, node: PartTaxon.new(organ_id: current_organ&.id), outer: 'part_taxon', depth: 0 } %>
+<% end %>
 <%= f.number_field :min_select, step: 1 %>
 <%= f.number_field :max_select, step: 1 %>

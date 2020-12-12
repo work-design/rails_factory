@@ -2,9 +2,6 @@
 <%= render partial: 'com/nodes/outer_select', locals: { f: f, outer: 'product_taxon', node: @product.product_taxon } %>
 <%= f.text_field :name %>
 <%= f.number_field :profit_margin, step: 0.01 %>
-<%= f.fields :product_part_taxons, label: false, wrap: { all: nil, input: 'field' } do |ef| %>
-  <%= render partial: 'item_form', locals: { ef: ef } %>
-<% end %>
 <%= f.text_field :qr_prefix %>
 <%= f.file_field :logo %>
 <%= render 'com/attachments/list_field', target: @product.covers, f: f %>

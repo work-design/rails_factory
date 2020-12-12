@@ -1,9 +1,10 @@
 class Factory::Admin::ProductPartTaxonsController < Factory::Admin::BaseController
   before_action :set_product
   before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @product_part_taxons = @product.product_part_taxons.page(params[:page])
+    @product_part_taxons = @product.product_part_taxons.includes(:part_taxon).page(params[:page])
   end
 
   def new
@@ -43,6 +44,10 @@ class Factory::Admin::ProductPartTaxonsController < Factory::Admin::BaseControll
 
   def set_product_part_taxon
     @product_part_taxon = ProductPartTaxon.find(params[:id])
+  end
+
+  def prepare_form
+    @part_taxons = PartTaxon.roots.default_where(default_params)
   end
 
   def product_part_taxon_params
