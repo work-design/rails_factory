@@ -47,7 +47,6 @@ class Factory::Admin::ProductPartsController < Factory::Admin::BaseController
 
   def product_part_params
     params.fetch(:product_part, {}).permit(
-      :part_taxon_id,
       :part_id,
       :default
     )

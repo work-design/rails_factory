@@ -2,7 +2,12 @@
   <td><%= product_part.part_taxon_id %></td>
   <td><%= link_to product_part.part.name, { controller: 'parts', action: 'show', id: product_part.part_id }, remote: true, text: true %></td>
   <td><%= product_part.part.price %></td>
-  <td><%= product_part.default %></td>
+  <td>
+    <div data-controller="input">
+      <%= check_box_tag '[product_part]default', nil, product_part.default, data: { method: :patch, remote: true, url: admin_product_part_path(@product, product_part), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
+      <label></label>
+    </div>
+  </td>
   <td>
     <%= link_to({ action: 'show', id: product_part.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-info"></i>
