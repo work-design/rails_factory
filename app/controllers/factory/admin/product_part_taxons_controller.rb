@@ -54,7 +54,8 @@ class Factory::Admin::ProductPartTaxonsController < Factory::Admin::BaseControll
     params.fetch(:product_part_taxon, {}).permit(
       :name,
       :min_select,
-      :max_select
+      :max_select,
+      :part_taxon_ancestors
     )
   end
 

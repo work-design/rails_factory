@@ -6,6 +6,9 @@ zh:
         qr_prefix: 二维码前缀
         profit_margin: 利润率
         product_part_taxons: 分类
+      product_part_taxon:
+        min_select: 最低选择数
+        max_select: 最多选择数
       production:
         cost_price: 成本价
         profit_price: 利润
@@ -16,8 +19,6 @@ zh:
         price: 价格
         part_taxon_id: 分类
       part_taxon:
-        min_select: 最低选择数
-        max_select: 最多选择数
         product_taxon_id: 产品分类
       produce_taxon:
       part_taxon_provider:
