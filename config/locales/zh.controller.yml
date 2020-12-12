@@ -10,6 +10,9 @@ zh:
         title: 产品批次
     admin:
       title: 生产管理
+      factory_taxons:
+        show:
+          title: 供应链
       produce_plans:
         index:
           title: 生产批次
