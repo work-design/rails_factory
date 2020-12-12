@@ -1,6 +1,7 @@
 <tr>
   <td><%= product_taxon.name %></td>
   <td><%= image_tag product_taxon.logo, class: 'image is-32x32' if product_taxon.logo.attached? %></td>
+  <td><%= link_to product_taxon.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: product_taxon.factory_taxon_id }, text: true if product_taxon.factory_taxon %></td>
   <td>
     <%= link_to({ action: 'show', id: product_taxon.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-eye"></i>

@@ -1,4 +1,4 @@
 <%= render 'shared/error_messages', target: f.object %>
 <%= f.text_field :name %>
 <%= render partial: 'com/nodes/siblings_select', locals: { f: f, node: PartTaxon.root } %>
-<%= f.collection_select :part_taxon_template_id, PartTaxonTemplate.all, :id, :name %>
+<%= f.collection_select :factory_taxon_id, FactoryTaxon.all, :id, :name %>

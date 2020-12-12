@@ -2,3 +2,4 @@
 <%= render partial: 'com/nodes/siblings_select', locals: { f: f } %>
 <%= f.text_field :name %>
 <%= f.file_field :logo %>
+<%= f.collection_select :factory_taxon_id, FactoryTaxon.all, :id, :name %>
