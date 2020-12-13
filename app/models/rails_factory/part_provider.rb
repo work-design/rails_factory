@@ -7,11 +7,20 @@ module RailsFactory::PartProvider
     attribute :selected, :boolean
 
     belongs_to :part
+    belongs_to :product  # 对应供应链产品
+    belongs_to :production  # 对应供应链产品型号
     belongs_to :provider, class_name: 'Organ'
 
     validates :part_id, uniqueness: { scope: [:provider_id] }
 
     scope :verified, -> { where(verified: true) }
+
+    before_validation :sync_from_production, if: -> { production && production_id_changed? }
+  end
+
+  def sync_from_production
+    self.product_id = production.product_id
+    self.provider_id = product.organ_id
   end
 
   def set_selected

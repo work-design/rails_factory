@@ -15,7 +15,6 @@ module RailsFactory::Part
 
     belongs_to :organ, optional: true
     belongs_to :part_taxon
-    belongs_to :product
 
     has_many :product_parts, dependent: :destroy
     has_many :products, through: :product_parts

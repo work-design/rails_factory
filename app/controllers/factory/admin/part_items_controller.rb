@@ -3,12 +3,12 @@ class Factory::Admin::PartItemsController < Factory::Admin::BaseController
   before_action :set_part_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    q_params = {}.with_indifferent_access
+    q_params = {}
     if params[:product_plan_id]
       @part_plan = PartPlan.find params[:part_plan_id]
       q_params.merge!('received_at-gte': @part_plan.start_at, 'received_at-lte': @part_plan.finish_at)
     end
-    q_params.merge! params.fetch(:q, {}).permit('received_at-gte', 'received_at-lte')
+    q_params.merge! params.permit('received_at-gte', 'received_at-lte')
 
     @part_items = @part.part_items.with_attached_qr_file.default_where(q_params).page(params[:page])
   end

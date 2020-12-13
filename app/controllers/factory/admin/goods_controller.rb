@@ -12,12 +12,6 @@ class Factory::Admin::GoodsController < Factory::Admin::BaseController
     end
   end
 
-  def search
-    @goods = params[:good_type].constantize.default_where('')
-    @buyers = RailsTrade.buyer_class.default_where('name-like': params[:q])
-    render json: { results: @buyers.as_json(only: [:id], methods: [:name_detail]) }
-  end
-
   def item
     @item = Item.includes(:goods).find params[:id]
     @menus = List.joins(:items).where(items: {node_type: Item.node_types[:node_top]})

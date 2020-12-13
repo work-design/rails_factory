@@ -39,6 +39,9 @@ zh:
       part_taxons:
         index:
           title: 分类
+      part_providers:
+        index:
+          title: 供应商管理
       providers:
         index:
           title: 供应商
