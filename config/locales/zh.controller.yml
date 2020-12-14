@@ -48,6 +48,9 @@ zh:
       productions:
         index:
           title: 定制产品
+      provideds:
+        index:
+          title: 供应列表
       trade_items:
         index:
           title: 订单明细

@@ -38,8 +38,8 @@ Rails.application.routes.draw do
     resources :productions, only: [] do
       resources :addresses
       resources :trade_items
+      resources :provideds
     end
-    resources :providers
     resources :part_taxons do
       member do
         get :import
