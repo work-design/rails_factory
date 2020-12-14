@@ -16,11 +16,16 @@ module RailsFactory::PartProvider
     scope :verified, -> { where(verified: true) }
 
     before_validation :sync_from_production, if: -> { production && production_id_changed? }
+    before_save :sync_to_part, if: -> { production && production_id_changed? }
   end
 
   def sync_from_production
     self.product_id = production.product_id
     self.provider_id = product.organ_id
+  end
+
+  def sync_to_part
+    part.name = production.name
   end
 
   def set_selected

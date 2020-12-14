@@ -50,6 +50,8 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
   def provide
     part = @production.provided_parts.build
     part.organ = current_organ
+    part.name = @production.name
+
     part.save
   end
 
