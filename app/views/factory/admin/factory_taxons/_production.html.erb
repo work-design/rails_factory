@@ -3,10 +3,9 @@
   <td>
     <span style="width: 1em; display: inline-block"></span>
     <%= image_tag production.product.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if production.product.logo.attached? %>
-    <%= link_to production.product.name, { action: 'show', id: production.product_id }, text: true %>
+    <%= production.product.name %>
   </td>
   <td><%= production.product.qr_prefix %></td>
-  <td></td>
   <td>
     <table class="table is-borderless">
       <% production.parts.each do |part| %>
@@ -17,8 +16,7 @@
       <% end %>
     </table>
   </td>
-  <td>
-  </td>
+  <td colspan="2"></td>
   <td>
     <%= link_to({ controller: 'productions', action: 'show', product_id: production.product_id, id: production.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>

@@ -4,10 +4,9 @@
       <i class="fas fa-fw fa-caret-right" style="cursor: pointer" data-action="click->tree_remote#expand"></i>
     <% end %>
     <%= image_tag product.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if product.logo.attached? %>
-    <%= link_to product.name, { action: 'show', id: product.id }, text: true %>
+    <%= product.name %>
   </td>
   <td><%= product.qr_prefix %></td>
-  <td><%= product.profit_margin.to_s(:percentage) %></td>
   <td>
     <table class="table is-borderless">
       <% product.parts.each do |part| %>
@@ -17,6 +16,13 @@
         </tr>
       <% end %>
     </table>
+  </td>
+  <td>
+    <% if @select_ids.include?(product.id) %>
+      <i class="fas fa-check has-text-success"></i>
+    <% else %>
+      <i class="fas fa-times has-text-gery"></i>
+    <% end %>
   </td>
   <td>
     <%= link_to({ controller: 'products', action: 'part', id: product.id }, aria: { label: t('factory.admin.products.part.title') }, remote: true, class: 'button is-small is-rounded is-light') do %>
