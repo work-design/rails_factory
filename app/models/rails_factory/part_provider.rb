@@ -17,6 +17,7 @@ module RailsFactory::PartProvider
 
     before_validation :sync_from_production, if: -> { production && production_id_changed? }
     before_save :sync_to_part, if: -> { production && production_id_changed? }
+    after_save :sync_price_to_part, if: -> { selected? && saved_change_to_selected? }
   end
 
   def sync_from_production
@@ -35,8 +36,9 @@ module RailsFactory::PartProvider
     end
   end
 
-  def xx
+  def sync_price_to_part
     part.import_price = self.export_price
+    part.save
   end
 
 end

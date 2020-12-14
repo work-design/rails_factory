@@ -1,7 +1,6 @@
 <div class="breadcrumb has-succeeds-separator">
   <ul>
     <li><%= link_to t('factory.admin.parts.index.title'), { controller: 'parts' } %></li>
-    <li><%= link_to @part.name, { controller: 'parts', action: 'show', id: @part.id } %></li>
-    <li class="is-active"><%= t('.title') %></li>
+    <li class="is-active"><%= @part.name %></li>
   </ul>
 </div>

@@ -27,14 +27,6 @@ class Factory::Admin::PartProvidersController < Factory::Admin::BaseController
   def edit
   end
 
-  def select
-    if part_provider_params[:selected] == 'true'
-      @part_provider.set_selected
-    else
-      @part_provider.update(part_provider_params)
-    end
-  end
-
   def update
     @part_provider.assign_attributes(part_provider_params)
 

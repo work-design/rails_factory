@@ -50,11 +50,7 @@ Rails.application.routes.draw do
     resources :parts do
       resources :part_plans, as: 'plans'
       resources :part_items, as: 'items'
-      resources :part_providers, as: 'providers' do
-        member do
-          patch :select
-        end
-      end
+      resources :part_providers, as: 'providers'
     end
   end
 
