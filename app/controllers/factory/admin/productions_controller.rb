@@ -51,6 +51,7 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
     part = @production.provided_parts.build
     part.organ = current_organ
     part.name = @production.name
+    part.part_taxon_id = params[:part_taxon_id]
 
     part.save
   end

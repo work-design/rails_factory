@@ -3,13 +3,13 @@
   <td><%= part_provider.export_price %></td>
   <td>
     <div data-controller="input">
-      <%= check_box_tag('[part_provider]verified', nil, part_provider.verified, data: { method: :patch, remote: true, url: admin_part_provider_path(params[:part_id], part_provider.id), submit: true }) %>
+      <%= check_box_tag '[part_provider]verified', nil, part_provider.verified, data: { method: :patch, remote: true, url: admin_part_provider_path(params[:part_id], part_provider.id), action: 'input#submit' }, class: 'switch is-rounded' %>
       <label></label>
     </div>
   </td>
   <td>
     <div data-controller="input">
-      <%= check_box_tag '[part_provider]selected', nil, part_provider.selected, data: { method: :patch, remote: true, url: select_admin_part_provider_path(params[:part_id], part_provider.id), submit: true } %>
+      <%= check_box_tag '[part_provider]selected', nil, part_provider.selected, data: { method: :patch, remote: true, url: select_admin_part_provider_path(params[:part_id], part_provider.id), action: 'input#submit' }, class: 'switch is-rounded' %>
       <label></label>
     </div>
   </td>

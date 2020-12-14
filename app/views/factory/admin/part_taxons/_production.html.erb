@@ -27,7 +27,7 @@
     <%= link_to({ controller: 'productions', action: 'show', product_id: production.product_id, id: production.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to({ controller: 'productions', action: 'provide', product_id: production.product_id, id: production.id }, method: :patch, remote: true, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'productions', action: 'provide', product_id: production.product_id, id: production.id, part_taxon_id: @part_taxon.id }, method: :patch, remote: true, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-tractor"></i>
     <% end %>
   </td>
