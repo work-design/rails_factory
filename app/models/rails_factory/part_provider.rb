@@ -6,7 +6,7 @@ module RailsFactory::PartProvider
     attribute :verified, :boolean, default: false
     attribute :selected, :boolean
 
-    belongs_to :part
+    belongs_to :part, inverse_of: :part_providers
     belongs_to :product  # 对应供应链产品
     belongs_to :production  # 对应供应链产品型号
     belongs_to :provider, class_name: 'Organ'

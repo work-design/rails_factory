@@ -21,6 +21,8 @@ module RailsFactory::Production
     has_many :parts, through: :production_parts
     has_many :production_carts, dependent: :destroy
     has_many :carts, through: :production_carts
+    has_many :part_providers, dependent: :destroy
+    has_many :provided_parts, through: :part_providers, source: :part
 
     has_one_attached :logo
 
