@@ -1,2 +1,2 @@
 var doc = document.getElementById('tr_<%= params[:product_id] %>')
-doc.insertAdjacentHTML('afterend', '<%= j(render 'production') %>')
+doc.insertAdjacentHTML('afterend', '<%= j(render partial: 'production', collection: @productions, as: :production) %>')

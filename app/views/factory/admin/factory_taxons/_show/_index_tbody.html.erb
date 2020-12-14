@@ -42,3 +42,6 @@
     <% end %>
   </td>
 </tr>
+<% if params[:product_id] == product.id.to_s %>
+  <%= render partial: 'production', collection: product.productions, as: :production %>
+<% end %>
