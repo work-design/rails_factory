@@ -9,7 +9,7 @@ zh:
       index:
         title: 产品批次
     admin:
-      title: 生产管理
+      title: 产品/生产
       factory_taxons:
         show:
           title: 供应链
