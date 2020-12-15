@@ -1,5 +1,10 @@
 <%= render layout: 'index_table', locals: { cache_key: Product.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @products, as: :product %>
+  <% @products.group_by(&:product_taxon).each do |taxon, products| %>
+    <tr>
+      <td rowspan="<%= taxon.products_count + 1 %>"><%= taxon.name %></td>
+    </tr>
+    <%= render partial: 'index_tbody', collection: products, as: :product %>
+  <% end %>
 <% end %>
 
 <%= paginate @products %>

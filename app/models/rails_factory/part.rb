@@ -14,7 +14,7 @@ module RailsFactory::Part
     attribute :profit_price, :decimal, default: 0
 
     belongs_to :organ, optional: true
-    belongs_to :part_taxon
+    belongs_to :part_taxon, counter_cache: true
 
     has_many :product_parts, dependent: :destroy
     has_many :products, through: :product_parts
