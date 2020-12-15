@@ -4,12 +4,6 @@ class Factory::Admin::GoodsController < Factory::Admin::BaseController
   def index
     @goods = Good.page(params[:page]).per(params[:per])
     @menus = List.kind_menus.joins(:items).where(items: {node_type: Item.node_types[:node_top]})
-
-    respond_to do |format|
-      format.html
-      format.html.phone
-      format.json { render json: @goods }
-    end
   end
 
   def item
