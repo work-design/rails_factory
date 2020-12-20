@@ -1,4 +1,4 @@
-module RailsFactory::ProductItem
+module RailsFactory::ProductionItem
   extend ActiveSupport::Concern
 
   included do
@@ -6,7 +6,7 @@ module RailsFactory::ProductItem
     attribute :qr_code, :string
     attribute :produced_at, :datetime
 
-    belongs_to :product
+    belongs_to :production
     belongs_to :product_plan
     has_many :part_items
 

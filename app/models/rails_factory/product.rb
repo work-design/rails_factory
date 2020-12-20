@@ -23,7 +23,6 @@ module RailsFactory::Product
     has_many :product_part_taxons, dependent: :destroy
     has_many :part_taxons, through: :product_part_taxons
     has_many :product_plans, dependent: :destroy
-    has_many :product_items, dependent: :destroy
     has_many :production_carts, dependent: :destroy
     has_many :carts, through: :production_carts
 
