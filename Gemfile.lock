@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 95ada1da60d36e964f13f90a740386dbf15e577d
+  revision: 8d569b196a3edd31c3a434af624187e012369b82
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -199,8 +199,8 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
-    rake (13.0.1)
-    rdoc (6.2.1)
+    rake (13.0.3)
+    rdoc (6.3.0)
     ruby2_keywords (0.0.2)
     sdoc (2.0.3)
       rdoc (>= 5.0)
@@ -217,7 +217,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (2.0.3)
+    tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope module: 'factory', defaults: { business: 'factory' } do
+  scope module: 'factory', defaults: { namespace: 'application', business: 'factory' } do
     resources :providers, only: [] do
       collection do
         get :search
