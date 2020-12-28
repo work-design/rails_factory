@@ -10,16 +10,16 @@
     <%= link_to product_plan.produced_count, admin_product_items_path(@product, product_plan_id: product_plan.id) %>
   </td>
   <td>
-    <%= link_to({ action: 'show', id: product_plan.id }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'show', id: product_plan.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-eye"></i>
     <% end %>
     <%= link_to({ controller: 'customs', product_plan_id: product_plan.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-cube"></i>
     <% end %>
-    <%= link_to({ action: 'edit', id: product_plan.id }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: product_plan.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: product_plan.id }, method: :delete, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'destroy', id: product_plan.id }, method: :delete, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

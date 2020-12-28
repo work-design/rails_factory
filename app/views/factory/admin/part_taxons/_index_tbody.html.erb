@@ -10,15 +10,15 @@
   </td>
   <td>
     <% if part_taxon.factory_taxon %>
-      <%= link_to part_taxon.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: part_taxon.factory_taxon_id }, remote: true %>
+      <%= link_to part_taxon.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: part_taxon.factory_taxon_id } %>
       <%= link_to '进货', { action: 'import', id: part_taxon.id } %>
   <% end %>
   </td>
   <td>
-    <%= link_to({ action: 'edit', id: part_taxon.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: part_taxon.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: part_taxon.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'destroy', id: part_taxon.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

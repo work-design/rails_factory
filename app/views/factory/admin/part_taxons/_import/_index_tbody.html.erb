@@ -1,6 +1,6 @@
 <tr data-controller="tree_remote show" data-action="mouseenter->show#show mouseleave->show#hide" id="tr_<%= product.id %>">
   <td>
-    <%= link_to({ action: 'productions', product_id: product.id }, remote: true) do %>
+    <%= link_to({ action: 'productions', product_id: product.id }) do %>
       <i class="fas fa-fw fa-caret-right" style="cursor: pointer" data-action="click->tree_remote#expand"></i>
     <% end %>
     <%= image_tag product.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if product.logo.attached? %>
@@ -11,7 +11,7 @@
     <table class="table is-borderless">
       <% product.parts.each do |part| %>
         <tr>
-          <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id }, remote: true %></span></td>
+          <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id } %></span></td>
           <td><%= part.price %></td>
         </tr>
       <% end %>
@@ -25,7 +25,7 @@
     <% end %>
   </td>
   <td>
-    <%= link_to({ controller: 'products', action: 'part', id: product.id }, aria: { label: t('factory.admin.products.part.title') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'products', action: 'part', id: product.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-cube"></i>
     <% end %>
   </td>
@@ -34,10 +34,10 @@
     <%= link_to({ controller: 'productions', product_id: product.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-clone"></i>
     <% end %>
-    <%= link_to({ controller: 'products', action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'products', action: 'show', id: product.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to({ controller: 'products',action: 'edit', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'products',action: 'edit', id: product.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
   </td>

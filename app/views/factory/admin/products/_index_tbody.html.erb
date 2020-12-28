@@ -19,13 +19,13 @@
   </td>
   <td>
     <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: product.id }, class: 'button is-small is-success' %>
-    <%= link_to({ action: 'show', id: product.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'show', id: product.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to({ action: 'edit', id: product.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: product.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: product.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'destroy', id: product.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

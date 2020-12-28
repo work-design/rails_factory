@@ -21,23 +21,23 @@
     <p><%= production.price.to_s(:currency, unit: '￥') %></p>
   </td>
   <td>
-    <%= link_to({ action: 'price', id: production.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'price', id: production.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-dollar-sign"></i>
     <% end %>
   </td>
   <td>
-    <%= link_to({ action: 'part', id: production.id }, aria: { label: t('factory.admin.products.part.title') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'part', id: production.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-cube"></i>
     <% end %>
   </td>
   <td>
     <div data-controller="input">
-      <%= check_box_tag '[production]default', nil, production.default, data: { method: :patch, remote: true, url: admin_product_production_path(@product, production), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
+      <%= check_box_tag '[production]default', nil, production.default, data: { method: :patch, url: admin_product_production_path(@product, production), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
       <label></label>
     </div>
   </td>
   <td>
-    <%= link_to({ action: 'show', id: production.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'show', id: production.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
     <%= link_to({ controller: 'trade_items', production_id: production.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
@@ -49,10 +49,10 @@
     <%= link_to({ controller: 'addresses', production_id: production.id }, aria: { label: t('factory.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-map-marker-alt"></i>
     <% end %>
-    <%= link_to({ action: 'edit', id: production.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: production.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: production.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'destroy', id: production.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

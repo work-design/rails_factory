@@ -5,13 +5,13 @@
   <td><%= trade_item.extra %></td>
   <td><%= trade_item.status %></td>
   <td>
-    <%= link_to admin_trade_item_path(trade_item), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to admin_trade_item_path(trade_item), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to edit_admin_trade_item_path(trade_item), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to edit_admin_trade_item_path(trade_item), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to admin_trade_item_path(trade_item), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to admin_trade_item_path(trade_item), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

@@ -11,10 +11,10 @@
   </td>
   <td>
     <%= link_to '供应商管理', { controller: 'part_providers', part_id: part.id }, class: 'button is-small is-rounded is-light' %>
-    <%= link_to({ action: 'show', id: part.id }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'show', id: part.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to({ action: 'edit', id: part.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: part.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
     <%= link_to({ action: 'destroy', id: part.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
