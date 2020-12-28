@@ -3,7 +3,7 @@
     <tr>
       <td rowspan="<%= taxon.products_count + 1 %>"><%= taxon.name %></td>
     </tr>
-    <%= render partial: 'index_tbody', collection: products, as: :product %>
+    <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
   <% end %>
 <% end %>
 

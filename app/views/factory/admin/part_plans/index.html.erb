@@ -1,5 +1,5 @@
 <%= render layout: 'index_table', locals: { cache_key: PartPlan.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @part_plans, as: :part_plan %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @part_plans, as: :part_plan %>
 <% end %>
 
 <%= paginate @part_plans %>

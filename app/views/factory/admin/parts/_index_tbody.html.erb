@@ -1,24 +1,13 @@
-<tr>
-  <td><%= part.name %></td>
-  <td><%= part.qr_prefix %></td>
-  <td>
-    <%= link_to 'Plan', { controller: 'part_plans', part_id: part.id }, class: 'button' %>
-  </td>
-  <td class="has-text-right">
-    <p><%= part.import_price.to_s(:currency, unit: '￥') %></p>
-    <p><%= part.profit_price.to_s(:currency, unit: '￥') %></p>
-    <p><%= part.price.to_s(:currency, unit: '￥') %></p>
-  </td>
-  <td>
-    <%= link_to '供应商管理', { controller: 'part_providers', part_id: part.id }, class: 'button is-small is-rounded is-light' %>
-    <%= link_to({ action: 'show', id: part.id }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to({ action: 'edit', id: part.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to({ action: 'destroy', id: part.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= model.name %></td>
+<td><%= model.qr_prefix %></td>
+<td>
+  <%= link_to 'Plan', { controller: 'part_plans', part_id: model.id }, class: 'button' %>
+</td>
+<td class="has-text-right">
+  <p><%= model.import_price.to_s(:currency, unit: '￥') %></p>
+  <p><%= model.profit_price.to_s(:currency, unit: '￥') %></p>
+  <p><%= model.price.to_s(:currency, unit: '￥') %></p>
+</td>
+<td>
+  <%= link_to '供应商管理', { controller: 'part_providers', part_id: model.id }, class: 'button is-small is-rounded is-light' %>
+</td>

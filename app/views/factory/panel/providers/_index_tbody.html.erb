@@ -1,8 +1,1 @@
-<tr>
-  <td><%= factory_provider.provider.name %></td>
-  <td>
-    <%= link_to({ action: 'destroy', id: factory_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= factory_provider.provider.name %></td>
