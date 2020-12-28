@@ -1,5 +1,5 @@
-<%= render 'shared/error_messages', target: @produce_plan %>
-<%= f.text_field :title %>
+<%= render 'shared/error_messages', target: f.object %>
+<%= f.text_field :title, required: true %>
 <div class="field is-horizontal">
   <%= f.label :start_at %>
   <div class="field-body">

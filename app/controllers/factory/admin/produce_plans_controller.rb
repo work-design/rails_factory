@@ -4,6 +4,8 @@ class Factory::Admin::ProducePlansController < Factory::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
+    q_params.merge! params.permit(:title)
+
     @produce_plans = ProducePlan.default_where(q_params).page(params[:page])
   end
 
