@@ -1,17 +1,1 @@
-<tr id="tr_<%= factory_taxon.id %>">
-  <td><%= factory_taxon.name %></td>
-  <td>
-    <%= link_to({ controller: 'providers', factory_taxon_id: factory_taxon.id }, aria: { label: t('factory.panel.providers.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-industry"></i>
-    <% end %>
-    <%= link_to({ action: 'show', id: factory_taxon.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to({ action: 'edit', id: factory_taxon.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= button_to({ action: 'destroy', id: factory_taxon.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= model.name %></td>
