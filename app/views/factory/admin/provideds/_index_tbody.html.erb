@@ -2,7 +2,7 @@
   <td><%= part_provider.part.organ&.name %></td>
   <td><%= part_provider.part.name %></td>
   <td><%= part_provider.export_price %></td>
-  <td><time><%= part_provider.created_at.to_s(:rfc822) %></time></td>
+  <td><time data-controller="time"><%= part_provider.created_at.to_s(:rfc822) %></time></td>
   <td>
     <%= link_to({ action: 'edit', id: part_provider.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>

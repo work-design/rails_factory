@@ -7,9 +7,7 @@
     <% end %>
   </td>
   <td><%= product_item.state_i18n %></td>
-  <td>
-    <time><%= product_item.produced_at.to_s(:rfc822) %></time>
-  </td>
+  <td><time data-controller="time"><%= product_item.produced_at.to_s(:rfc822) %></time></td>
   <td class="ui labels">
     <%= link_to admin_product_item_path(@product, product_item), class: 'ui blue mini icon button' do %>
       <i class="location arrow icon"></i>

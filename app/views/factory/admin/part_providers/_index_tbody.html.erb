@@ -13,7 +13,7 @@
       <label></label>
     </div>
   </td>
-  <td><time><%= part_provider.created_at.to_s(:rfc822) %></time></td>
+  <td><time data-controller="time"><%= part_provider.created_at.to_s(:rfc822) %></time></td>
   <td>
     <%= link_to({ action: 'destroy', id: part_provider.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash"></i>
