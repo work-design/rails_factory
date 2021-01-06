@@ -1,4 +1,4 @@
-<div class="<%= active_helper(modules: 'factory/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu">
+<div class="<%= active_helper(modules: 'factory/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion is-active') %>" data-controller="menu">
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('factory.admin.parts.index.title'), { controller: 'factory/admin/parts' }, class: active_helper(controllers: ['parts', 'part_taxons', 'part_plans', 'part_items'], active: 'is-active') %>
     <%= link_to t('factory.admin.products.index.title'), { controller: 'factory/admin/products' }, class: active_helper(controllers: ['products', 'product_taxons', 'product_plans', 'product_items'], active: 'is-active') %>
