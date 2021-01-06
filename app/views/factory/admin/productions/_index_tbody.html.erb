@@ -1,59 +1,38 @@
-<tr>
-  <td>
-    <%= image_tag production.logo, class: 'image is-24x24' if production.logo.attached? %>
-    <%= production.product.name %>
-  </td>
-  <td>
-    <table class="table is-fullwidth is-borderless">
-      <% production.parts.each do |part| %>
-        <tr>
-          <td><span class="tag"><%= link_to part.name, admin_part_path(part) %></span></td>
-          <td><%= part.price %></td>
-        </tr>
-      <% end %>
-    </table>
-  </td>
-  <td><%= production.state %></td>
-  <td><%= production.qr_code %></td>
-  <td class="has-text-right">
-    <p><%= production.cost_price.to_s(:currency, unit: '￥') %></p>
-    <p><%= production.profit_price.to_s(:currency, unit: '￥') %></p>
-    <p><%= production.price.to_s(:currency, unit: '￥') %></p>
-  </td>
-  <td>
-    <%= link_to({ action: 'price', id: production.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-dollar-sign"></i>
+<td>
+  <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
+  <%= model.product.name %>
+</td>
+<td>
+  <table class="table is-fullwidth is-borderless">
+    <% model.parts.each do |part| %>
+      <tr>
+        <td><span class="tag"><%= link_to part.name, admin_part_path(part) %></span></td>
+        <td><%= part.price %></td>
+      </tr>
     <% end %>
-  </td>
-  <td>
-    <%= link_to({ action: 'part', id: production.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-cube"></i>
-    <% end %>
-  </td>
-  <td>
-    <div data-controller="input">
-      <%= check_box_tag '[production]default', nil, production.default, data: { method: :patch, url: admin_product_production_path(@product, production), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
-      <label></label>
-    </div>
-  </td>
-  <td>
-    <%= link_to({ action: 'show', id: production.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to({ controller: 'trade_items', production_id: production.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-shopping-cart"></i>
-    <% end %>
-    <%= link_to({ controller: 'provideds', production_id: production.id }, aria: { label: t('factory.admin.provideds.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-hand-holding"></i>
-    <% end %>
-    <%= link_to({ controller: 'addresses', production_id: production.id }, aria: { label: t('factory.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-map-marker-alt"></i>
-    <% end %>
-    <%= link_to({ action: 'edit', id: production.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to({ action: 'destroy', id: production.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+  </table>
+</td>
+<td><%= model.state %></td>
+<td><%= model.qr_code %></td>
+<td class="has-text-right">
+  <p><%= model.cost_price.to_s(:currency, unit: '￥') %></p>
+  <p><%= model.profit_price.to_s(:currency, unit: '￥') %></p>
+  <p><%= model.price.to_s(:currency, unit: '￥') %></p>
+</td>
+<td>
+  <%= link_to({ action: 'price', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fas fa-dollar-sign"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to({ action: 'part', id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fas fa-cube"></i>
+  <% end %>
+</td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :default, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+    <%= f.submit nil, data: { input_target: 'submit' }, style: 'display: none' %>
+  <% end %>
+</td>
