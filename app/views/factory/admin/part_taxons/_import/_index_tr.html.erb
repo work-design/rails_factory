@@ -14,3 +14,7 @@
     </turbo-frame>
   </td>
 </tr>
+
+<% if params[:product_id] == model.id.to_s %>
+  <%= render partial: 'production', collection: model.productions, as: :model %>
+<% end %>
