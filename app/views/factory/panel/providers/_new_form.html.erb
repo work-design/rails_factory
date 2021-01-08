@@ -1,11 +1,13 @@
 <div class="panel" data-controller="typer">
-  <%= form_with theme: nil, scope: nil, url: { action: 'create' }, html: { style: 'width: 100%;' } do |f| %>
+  <%= form_with theme: nil, scope: nil, method: :get, url: { action: 'search' } do |f| %>
     <div class="control has-icons-left">
-      <%= f.search_field 'name-like', class: 'input', placeholder: '搜索', data: { typer_target: 'input', url: search_panel_factory_taxon_providers_path(@factory_taxon) } %>
+      <%= f.search_field 'name-like', class: 'input', placeholder: '搜索', data: { typer_target: 'input' } %>
       <span class="icon is-left"><i class="fas fa-search"></i></span>
     </div>
     <div class="panel-block" id="user_content">
     </div>
+  <% end %>
+  <%= form_with theme: nil, scope: nil, url: { action: 'create' }, html: { style: 'width: 100%' } do |f| %>
     <%= f.hidden_field :provider_id, data: { typer_target: 'value' } %>
     <div class="panel-block">
       <%= f.submit '确认', class: 'button' %>

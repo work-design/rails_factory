@@ -6,7 +6,8 @@ class Factory::Admin::PartsController < Factory::Admin::BaseController
     q_params.merge! default_params
     q_params.merge! params.permit(:name, :provider_id)
 
-    @parts = Part.default_where(q_params).page(params[:page])
+    # todo should order by part taxon position
+    @parts = Part.default_where(q_params).order(part_taxon_id: :asc).page(params[:page])
   end
 
   def new

@@ -1,7 +1,12 @@
 <%= render layout: 'index_table', locals: { cache_key: Part.column_names.hash } do %>
   <% @parts.group_by(&:part_taxon).each do |taxon, parts| %>
     <tr>
-      <td rowspan="<%= taxon.parts_count + 1 %>"><%= taxon.name %></td>
+      <td rowspan="<%= taxon.parts_count + 1 %>">
+        <%= taxon.name %>
+        <%= link_to({ controller: 'part_taxons', action: 'import', id: taxon.id }, aria: { label: t('factory.admin.part_taxons.import.title') }) do %>
+          <i class="fas fa-sign-in-alt"></i>
+        <% end %>
+      </td>
     </tr>
     <%= render partial: 'index_tbody', layout: 'index_tr', collection: parts, as: :model %>
   <% end %>

@@ -21,5 +21,7 @@ zh:
       part_taxon:
         product_taxon_id: 产品分类
       produce_taxon:
+      product_taxon:
+        factory_taxon_id: 平台分类
       part_taxon_provider:
         provider_id: 供应商
