@@ -11,6 +11,8 @@ zh:
     admin:
       title: 产品/生产
       factory_taxons:
+        index:
+          title: 平台商品分类
         show:
           title: 供应链
       produce_plans:

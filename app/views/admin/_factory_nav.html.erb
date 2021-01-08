@@ -2,8 +2,9 @@
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('factory.admin.products.index.title'), { controller: 'factory/admin/products' }, class: active_helper(controllers: ['products', 'product_taxons', 'product_plans', 'product_items'], active: 'is-active') %>
     <%= link_to t('factory.admin.parts.index.title'), { controller: 'factory/admin/parts' }, class: active_helper(controllers: ['parts', 'part_taxons', 'part_plans', 'part_items'], active: 'is-active') %>
-    <%= link_to t('factory.admin.produce_plans.index.title'), { controller: 'factory/admin/produce_plans' }, class: active_helper(controllers: ['produce_plans'], active: 'is-active') -%>
-  <% end %>
+    <%= link_to t('factory.admin.produce_plans.index.title'), { controller: 'factory/admin/produce_plans' }, class: active_helper(controllers: ['produce_plans'], active: 'is-active') %>
+    <%= link_to t('factory.admin.factory_taxons.index.title'), { controller: 'factory/admin/factory_taxons' }, class: active_helper(controllers: ['factory_taxons'], active: 'is-active') -%>
+<% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fas fa-store fa-fw"></i>
     <span><%= t('factory.admin.title') %></span>

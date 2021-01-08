@@ -1,7 +1,7 @@
 <td>
   <span style="width: <%= model.depth * 1.43 %>em; display: inline-block"></span>
   <% if !model.leaf? %>
-    <i class="fas fa-caret-down fa-fw" data-action="click->tree#collapse" style="cursor: pointer"></i>
+    <i class="fas fa-caret-right fa-fw" data-action="click->tree#collapse" style="cursor: pointer"></i>
   <% else %>
     <i class="fas fa-minus fa-fw"></i>
   <% end %>
@@ -11,5 +11,5 @@
   <% if model.factory_taxon %>
     <%= link_to model.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: model.factory_taxon_id } %>
     <%= link_to '进货', { action: 'import', id: model.id } %>
-<% end %>
+  <% end %>
 </td>

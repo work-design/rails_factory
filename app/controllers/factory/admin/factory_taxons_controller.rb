@@ -2,7 +2,7 @@ class Factory::Admin::FactoryTaxonsController < Factory::Admin::BaseController
   before_action :set_factory_taxon, only: [:show, :productions, :edit, :update, :destroy]
 
   def index
-    @factory_taxons = FactoryTaxon.page(params[:page])
+    @factory_taxons = FactoryTaxon.order(position: :asc).page(params[:page])
   end
 
   def new
