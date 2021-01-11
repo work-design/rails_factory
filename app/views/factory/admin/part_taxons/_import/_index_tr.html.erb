@@ -1,4 +1,4 @@
-<tr data-controller="tree_remote show" data-action="mouseenter->show#show mouseleave->show#hide" id="tr_<%= model.id %>">
+<tr id="tr_<%= model.id %>" data-controller="tree_remote show" data-tree_remote-target="item" data-action="mouseenter->show#show mouseleave->show#hide">
   <%= yield %>
   <td>
     <turbo-frame>
