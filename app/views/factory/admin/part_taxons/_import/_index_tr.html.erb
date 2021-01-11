@@ -1,4 +1,5 @@
 <tr data-controller="tree_remote show" data-action="mouseenter->show#show mouseleave->show#hide" id="tr_<%= model.id %>">
+  <%= yield %>
   <td>
     <turbo-frame>
       <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: model.id }, data: { turbo_frame: '_top' }, class: 'button is-small is-success' %>

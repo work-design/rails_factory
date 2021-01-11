@@ -1,2 +1,1 @@
-var doc = document.getElementById('tr_<%= params[:product_id] %>')
-doc.insertAdjacentHTML('afterend', '<%= j(render partial: 'production', collection: @productions, as: :production) %>')
+<%= turbo_stream.after "tr_#{params[:product_id]}", partial: 'production', collection: @productions, as: :production %>
