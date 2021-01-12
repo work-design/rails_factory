@@ -71,14 +71,12 @@ class Factory::Admin::ProductionsController < Factory::Admin::BaseController
 
   def production_params
     params.fetch(:production, {}).permit(
-      :name,
       :state,
       :qr_code,
       :cost_price,
       :profit_price,
       :default,
       :ordered_at,
-      :logo,
       part_ids: []
     )
   end

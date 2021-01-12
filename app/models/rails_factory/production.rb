@@ -2,7 +2,6 @@ module RailsFactory::Production
   extend ActiveSupport::Concern
 
   included do
-    attribute :name, :string
     attribute :qr_code, :string
     attribute :price, :decimal
     attribute :cost_price, :decimal, default: 0
