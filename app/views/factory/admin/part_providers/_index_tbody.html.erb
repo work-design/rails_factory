@@ -1,22 +1,15 @@
-<tr>
-  <td><%= part_provider.provider.name %></td>
-  <td><%= part_provider.export_price %></td>
-  <td>
-    <div data-controller="input">
-      <%= check_box_tag '[part_provider]verified', nil, part_provider.verified, data: { method: :patch, url: admin_part_provider_path(params[:part_id], part_provider.id), action: 'input#submit' }, class: 'switch is-rounded' %>
-      <label></label>
-    </div>
-  </td>
-  <td>
-    <div data-controller="input">
-      <%= check_box_tag '[part_provider]selected', nil, part_provider.selected, data: { method: :patch, url: admin_part_provider_path(params[:part_id], part_provider.id), action: 'input#submit' }, class: 'switch is-rounded' %>
-      <label></label>
-    </div>
-  </td>
-  <td><time data-controller="time"><%= part_provider.created_at.to_s(:rfc822) %></time></td>
-  <td>
-    <%= link_to({ action: 'destroy', id: part_provider.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-trash"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= model.provider.name %></td>
+<td><%= model.export_price %></td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :verified, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :selected, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>
+<td><time data-controller="time"><%= model.created_at.to_s(:rfc822) %></time></td>
