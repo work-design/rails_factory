@@ -10,6 +10,7 @@ module RailsFactory::PartProvider
     belongs_to :product  # 对应供应链产品
     belongs_to :production  # 对应供应链产品型号
     belongs_to :provider, class_name: 'Organ'
+    belongs_to :organ
 
     validates :part_id, uniqueness: { scope: [:provider_id] }
 

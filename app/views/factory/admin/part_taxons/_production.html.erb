@@ -16,10 +16,19 @@
     </table>
   </td>
   <td>
-    <% if production.provided_parts.exists?(default_params) %>
+    <% if production.provided_parts.default_where(default_params).present? %>
       <i class="fas fa-check has-text-success"></i>
+      <turbo-frame>
+        <%= button_to({ controller: 'parts', action: 'destroy', id: provided_part.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+          <i class="fas fa-tractor"></i>
+        <% end %>
+      </turbo-frame>
     <% else %>
-      <i class="fas fa-times has-text-gery"></i>
+      <turbo-frame>
+        <%= button_to({ controller: 'productions', action: 'provide', product_id: production.product_id, id: production.id, part_taxon_id: @part_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+          <i class="fas fa-tractor"></i>
+        <% end %>
+      </turbo-frame>
     <% end %>
   </td>
   <td></td>
@@ -27,9 +36,6 @@
     <turbo-frame>
       <%= link_to({ controller: 'productions', action: 'show', product_id: production.product_id, id: production.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fas fa-info"></i>
-      <% end %>
-      <%= button_to({ controller: 'productions', action: 'provide', product_id: production.product_id, id: production.id, part_taxon_id: @part_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fas fa-tractor"></i>
       <% end %>
     </turbo-frame>
   </td>
