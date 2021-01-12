@@ -33,10 +33,15 @@ module RailsFactory::Product
     has_many_attached :images
 
     has_taxons :product_taxon
+    after_save :sync_name, if: -> { saved_change_to_name? }
   end
 
   def profit_margin_str
     (profit_margin * 100).to_s(:percentage)
+  end
+
+  def sync_name
+    productions.update_all name: name
   end
 
 end

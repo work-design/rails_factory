@@ -2,6 +2,7 @@ module RailsFactory::Production
   extend ActiveSupport::Concern
 
   included do
+    attribute :name, :string
     attribute :qr_code, :string
     attribute :price, :decimal
     attribute :cost_price, :decimal, default: 0
@@ -33,7 +34,7 @@ module RailsFactory::Production
       compute_sum
       if product
         self.organ_id = product.organ_id if defined? :organ_id
-        self.name ||= product.name
+        self.name = product.name
         self.logo.attach product.logo_blob
       end
     end
