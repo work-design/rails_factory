@@ -7,7 +7,7 @@
 <td><%= model.profit_margin_str %></td>
 <td>
   <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fas fa-cube"></i>
+    <i class="fas fa-tree"></i>
   <% end %>
   <%= link_to({ controller: 'product_parts', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fas fa-cube"></i>

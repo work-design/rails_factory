@@ -9,9 +9,6 @@
       <%= link_to({ controller: 'products', action: 'show', id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fas fa-info"></i>
       <% end %>
-      <%= link_to({ controller: 'products',action: 'edit', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end %>
     </turbo-frame>
   </td>
 </tr>
