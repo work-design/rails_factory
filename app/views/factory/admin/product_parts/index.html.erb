@@ -1,4 +1,4 @@
-<%= render layout: 'index_table', locals: { cache_key: ProductPart.column_names.hash } do %>
+<%= render layout: 'index_table', locals: { cache_key: Factory::ProductPart.column_names.hash } do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @product_parts, as: :product_part %>
 <% end %>
 

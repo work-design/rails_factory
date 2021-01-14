@@ -1,4 +1,4 @@
-<%= render layout: 'index_table', locals: { cache_key: Part.column_names.hash } do %>
+<%= render layout: 'index_table', locals: { cache_key: Factory::Part.column_names.hash } do %>
   <% @parts.group_by(&:part_taxon).each do |taxon, parts| %>
     <tr>
       <td rowspan="<%= taxon.parts_count + 1 %>">
