@@ -1,3 +1,4 @@
-class Factory::BaseController < BaseController
-
-end unless defined? Factory::BaseController
+module Factory
+  class BaseController < BaseController
+  end
+end
