@@ -1,3 +1,4 @@
-class Factory::My::BaseController < MyController
-
-end unless defined? Factory::My::BaseController
+module Factory
+  class My::BaseController < MyController
+  end
+end
