@@ -1,3 +1,4 @@
-class Factory::Admin::BaseController < AdminController
-
-end unless defined? Factory::Admin::BaseController
+module Factory
+  class Admin::BaseController < AdminController
+  end
+end

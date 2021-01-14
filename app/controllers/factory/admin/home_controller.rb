@@ -1,6 +1,8 @@
-class Factory::Admin::HomeController < Factory::Admin::BaseController
+module Factory
+  class Admin::HomeController < Admin::BaseController
 
-  def index
+    def index
+    end
+
   end
-
 end
