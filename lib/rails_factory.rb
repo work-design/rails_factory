@@ -1,3 +1,11 @@
-require_relative 'rails_factory/version'
-require_relative 'rails_factory/engine'
-require_relative 'rails_factory/config'
+require 'rails_factory/version'
+require 'rails_factory/engine'
+require 'rails_factory/config'
+
+module Factory
+
+  def self.use_relative_model_naming?
+    true
+  end
+
+end

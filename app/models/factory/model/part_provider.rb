@@ -25,6 +25,7 @@ module RailsFactory::PartProvider
     self.product_id = production.product_id
     self.export_price = production.price
     self.provider_id = product.organ_id
+    self.organ = part.organ || product.organ
   end
 
   def sync_to_part

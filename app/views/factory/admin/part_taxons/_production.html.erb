@@ -16,10 +16,10 @@
     </table>
   </td>
   <td>
-    <% if production.provided_parts.default_where(default_params).present? %>
+    <% if production.part_providers.default_where(default_params).exists? %>
       <i class="fas fa-check has-text-success"></i>
       <turbo-frame>
-        <%= button_to({ controller: 'parts', action: 'destroy', id: provided_part.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+        <%= button_to({ controller: 'parts', action: 'destroy', id: part_provider.part_id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
           <i class="fas fa-tractor"></i>
         <% end %>
       </turbo-frame>
