@@ -1,11 +1,13 @@
-module RailsFactory::Produce
-  extend ActiveSupport::Concern
-  
-  included do
-    has_many :good_produces
-    has_one_attached :logo
+module Factory
+  module Model::Produce
+    extend ActiveSupport::Concern
+
+    included do
+      has_many :good_produces
+      has_one_attached :logo
+    end
+
   end
-  
 end
 
 =begin

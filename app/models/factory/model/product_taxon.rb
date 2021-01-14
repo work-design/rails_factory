@@ -1,19 +1,21 @@
-module RailsFactory::ProductTaxon
-  extend ActiveSupport::Concern
+module Factory
+  module Model::ProductTaxon
+    extend ActiveSupport::Concern
 
-  included do
-    attribute :name, :string
-    attribute :position, :integer
-    attribute :products_count, :integer, default: 0
+    included do
+      attribute :name, :string
+      attribute :position, :integer
+      attribute :products_count, :integer, default: 0
 
-    belongs_to :organ, optional: true
-    belongs_to :factory_taxon, optional: true
+      belongs_to :organ, optional: true
+      belongs_to :factory_taxon, optional: true
 
-    has_many :products, dependent: :nullify
+      has_many :products, dependent: :nullify
 
-    has_one_attached :logo
+      has_one_attached :logo
 
-    acts_as_list
+      acts_as_list
+    end
+
   end
-
 end

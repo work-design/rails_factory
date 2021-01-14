@@ -1,35 +1,37 @@
-module RailsFactory::ProductionItem
-  extend ActiveSupport::Concern
+module Factory
+  module Model::ProductionItem
+    extend ActiveSupport::Concern
 
-  included do
-    attribute :state, :string, default: 'producing'
-    attribute :qr_code, :string
-    attribute :produced_at, :datetime
+    included do
+      attribute :state, :string, default: 'producing'
+      attribute :qr_code, :string
+      attribute :produced_at, :datetime
 
-    belongs_to :production
-    belongs_to :product_plan
-    has_many :part_items
+      belongs_to :production
+      belongs_to :product_plan
+      has_many :part_items
 
-    has_one_attached :qr_file
+      has_one_attached :qr_file
 
-    enum state: {
-      producing: 'producing',
-      receiving: 'receiving',
-      warehouse_in: 'warehouse_in',
-      warehouse_out: 'warehouse_out',
-      used: 'used'
-    }
+      enum state: {
+        producing: 'producing',
+        receiving: 'receiving',
+        warehouse_in: 'warehouse_in',
+        warehouse_out: 'warehouse_out',
+        used: 'used'
+      }
 
-    after_initialize if: :new_record? do
-      self.qr_code ||= UidHelper.nsec_uuid self.product&.qr_prefix
+      after_initialize if: :new_record? do
+        self.qr_code ||= UidHelper.nsec_uuid self.product&.qr_prefix
+      end
+      before_save :sync_qrcode, if: -> { qr_code_changed? }
     end
-    before_save :sync_qrcode, if: -> { qr_code_changed? }
-  end
 
-  def sync_qrcode
-    file = QrcodeHelper.code_file(qr_code)
-    file.rewind
-    self.qr_file.attach io: file, filename: qr_code
-  end
+    def sync_qrcode
+      file = QrcodeHelper.code_file(qr_code)
+      file.rewind
+      self.qr_file.attach io: file, filename: qr_code
+    end
 
+  end
 end

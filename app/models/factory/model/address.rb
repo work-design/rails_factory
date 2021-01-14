@@ -1,9 +1,11 @@
-module RailsFactory::Address
-  extend ActiveSupport::Concern
+module Factory
+  module Model::Address
+    extend ActiveSupport::Concern
 
-  included do
-    has_many :trade_items, dependent: :nullify
-    has_many :productions, through: :trade_items, source: :good, source_type: 'Production'
+    included do
+      has_many :trade_items, dependent: :nullify
+      has_many :productions, through: :trade_items, source: :good, source_type: 'Production'
+    end
+
   end
-
 end

@@ -1,11 +1,13 @@
-module RailsFactory::FactoryProvider
-  extend ActiveSupport::Concern
+module Factory
+  module Model::FactoryProvider
+    extend ActiveSupport::Concern
 
-  included do
-    belongs_to :factory_taxon
-    belongs_to :provider, class_name: 'Organ'
+    included do
+      belongs_to :factory_taxon
+      belongs_to :provider, class_name: 'Organ'
 
-    validates :provider_id, uniqueness: { scope: :factory_taxon_id }
+      validates :provider_id, uniqueness: { scope: :factory_taxon_id }
+    end
+
   end
-
 end
