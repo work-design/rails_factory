@@ -4,7 +4,7 @@
     <i class="fas fa-cog"></i>
   <% end %>
 </th>
-<th><%= Product.human_attribute_name(:name) %></th>
+<th><%= Factory::Product.human_attribute_name(:name) %></th>
 <th>
   <%= Product.human_attribute_name(:logo) %>
   <turbo-frame>
@@ -13,7 +13,7 @@
     <% end %>
   </turbo-frame>
 </th>
-<th><%= Product.human_attribute_name(:covers) %></th>
-<th><%= Product.human_attribute_name(:qr_prefix) %></th>
-<th><%= Product.human_attribute_name(:profit_margin) %></th>
+<th><%= Factory::Product.human_attribute_name(:covers) %></th>
+<th><%= Factory::Product.human_attribute_name(:qr_prefix) %></th>
+<th><%= Factory::Product.human_attribute_name(:profit_margin) %></th>
 <th colspan="2"></th>
