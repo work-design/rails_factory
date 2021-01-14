@@ -1,17 +1,15 @@
 <th>
-  <%= Product.human_attribute_name(:product_taxon_id) %>
+  <%= Factory::Product.human_attribute_name(:product_taxon_id) %>
   <%= link_to({ controller: 'product_taxons' }, aria: { label: '分类设置' }) do %>
     <i class="fas fa-cog"></i>
   <% end %>
 </th>
 <th><%= Factory::Product.human_attribute_name(:name) %></th>
 <th>
-  <%= Product.human_attribute_name(:logo) %>
-  <turbo-frame>
-    <%= link_to({ controller: 'com/panel/blob_defaults', action: 'add', record_class: 'Product', name: 'logo' }, aria: { label: '默认图片' }) do %>
-      <i class="fas fa-cog"></i>
-    <% end %>
-  </turbo-frame>
+  <%= Factory::Product.human_attribute_name(:logo) %>
+  <%= link_to({ controller: 'com/panel/blob_defaults', action: 'add', record_class: 'Product', name: 'logo' }, data: { turbo_frame: 'modal' }, aria: { label: '默认图片' }) do %>
+    <i class="fas fa-cog"></i>
+  <% end %>
 </th>
 <th><%= Factory::Product.human_attribute_name(:covers) %></th>
 <th><%= Factory::Product.human_attribute_name(:qr_prefix) %></th>
