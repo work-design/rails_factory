@@ -1,6 +1,5 @@
 <%= form_with theme: 'search', model: Factory::Part.new do |f| %>
   <div class="field-body">
-    <%= f.collection_select :organ_id, Organ.all, :id, :name, { include_blank: true } %>
     <%= f.text_field :name %>
     <div class="field is-narrow">
       <%= f.submit %>

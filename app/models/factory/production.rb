@@ -1,6 +1,6 @@
 module Factory
   class Production < ApplicationRecord
     include Model::Production
-    include RailsTrade::Good
+    include Trade::Model::Good
   end
 end
