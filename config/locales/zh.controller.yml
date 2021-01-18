@@ -43,6 +43,8 @@ zh:
           title: 分类
         import:
           title: 进货
+        productions:
+          provide: 进货
       part_providers:
         index:
           title: 供应商管理

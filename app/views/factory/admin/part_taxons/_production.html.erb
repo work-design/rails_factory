@@ -16,27 +16,22 @@
     </table>
   </td>
   <td>
-    <% if production.part_providers.default_where(default_params).exists? %>
+    <% part_provider = production.part_providers.default_where(default_params).take %>
+    <% if part_provider %>
       <i class="fas fa-check has-text-success"></i>
-      <turbo-frame>
-        <%= button_to({ controller: 'parts', action: 'destroy', id: part_provider.part_id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fas fa-tractor"></i>
-        <% end %>
-      </turbo-frame>
+      <%= button_to({ controller: 'parts', action: 'destroy', id: part_provider.part_id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fas fa-tractor"></i>
+      <% end %>
     <% else %>
-      <turbo-frame>
-        <%= button_to({ controller: 'productions', action: 'provide', product_id: production.product_id, id: production.id, part_taxon_id: @part_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fas fa-tractor"></i>
-        <% end %>
-      </turbo-frame>
+      <%= button_to({ controller: 'productions', action: 'provide', product_id: production.product_id, id: production.id, part_taxon_id: @part_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fas fa-tractor"></i>
+      <% end %>
     <% end %>
   </td>
   <td></td>
   <td>
-    <turbo-frame>
-      <%= link_to({ controller: 'productions', action: 'show', product_id: production.product_id, id: production.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fas fa-info"></i>
-      <% end %>
-    </turbo-frame>
+    <%= link_to({ controller: 'productions', action: 'show', product_id: production.product_id, id: production.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-info"></i>
+    <% end %>
   </td>
 </tr>

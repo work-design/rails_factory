@@ -36,6 +36,7 @@ module Factory
     end
 
     def productions
+      import
       @productions = Production.default_where(product_id: params[:product_id])
     end
 
