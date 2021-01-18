@@ -1,5 +1,5 @@
 <td>
-  <%= link_to({ action: 'productions', product_id: model.id }, data: { turbo_frame: 'visit' }) do %>
+  <%= link_to({ action: 'productions', product_id: model.id }) do %>
     <i class="fas fa-fw fa-caret-right" style="cursor: pointer" data-action="click->tree_remote#expand"></i>
   <% end %>
   <%= image_tag model.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if model.logo.attached? %>

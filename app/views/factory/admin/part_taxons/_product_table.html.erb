@@ -1,0 +1,16 @@
+<div class="buttons are-small mb-0 pt-2">
+  <%= render 'button' %>
+</div>
+
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+    <% cache cache_key do %>
+      <%= render 'product_thead' %>
+    <% end %>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+    <%= yield %>
+  </tbody>
+</table>
