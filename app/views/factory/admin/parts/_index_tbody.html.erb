@@ -9,5 +9,8 @@
   <p><%= model.price.to_s(:currency, unit: '￥') %></p>
 </td>
 <td>
-  <%= link_to '供应商管理', { controller: 'part_providers', part_id: model.id }, class: 'button is-small is-rounded is-light' %>
+  <%= link_to({ controller: 'part_providers', part_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+    <span>供应商管理</span>
+    <span class="has-text-green"><%= model.part_providers_count %></span>
+  <% end %>
 </td>

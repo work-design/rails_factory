@@ -13,6 +13,7 @@ module Factory
       attribute :price, :decimal, default: 0
       attribute :import_price, :decimal, default: 0
       attribute :profit_price, :decimal, default: 0
+      attribute :part_providers_count, :integer, default: 0
 
       belongs_to :organ, optional: true
       belongs_to :part_taxon, counter_cache: true
