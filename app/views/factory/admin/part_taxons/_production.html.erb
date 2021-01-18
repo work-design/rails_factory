@@ -19,7 +19,7 @@
     <% part_provider = model.part_providers.default_where(default_params).take %>
     <% if part_provider %>
       <i class="fas fa-check has-text-success"></i>
-      <%= button_to({ controller: 'parts', action: 'destroy', id: part_provider.part_id }, method: :destroy, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ controller: 'parts', action: 'destroy', id: part_provider.part_id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fas fa-times"></i>
       <% end %>
     <% else %>

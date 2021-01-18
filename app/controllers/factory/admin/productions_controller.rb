@@ -50,7 +50,7 @@ module Factory
 
     def provide
       part = @production.provided_parts.build
-      part.organ = current_organ
+      part.organ_id = current_organ.id
       part.name = @production.name
       part.part_taxon_id = params[:part_taxon_id]
 
