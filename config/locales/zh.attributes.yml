@@ -1,7 +1,7 @@
 zh:
   activerecord:
     attributes:
-      product:
+      factory/product:
         product_taxon_id: 商品分类
         qr_prefix: 二维码前缀
         profit_margin: 利润率

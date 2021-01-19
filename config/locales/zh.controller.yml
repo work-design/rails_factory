@@ -20,7 +20,7 @@ zh:
           title: 生产批次
       products:
         index:
-          title: 产品管理
+          title: 产品
         part:
           title: 产品组成
       product_parts:
@@ -37,7 +37,7 @@ zh:
           title: 产品批次
       parts:
         index:
-          title: 产品组成/进货
+          title: 配件/零件/原料
       part_taxons:
         index:
           title: 分类
@@ -53,7 +53,7 @@ zh:
           title: 供应商
       productions:
         index:
-          title: 定制产品
+          title: 产品型号
       provideds:
         index:
           title: 供应列表

@@ -1,12 +1,12 @@
 <tr>
-  <td class="has-text-right"><%= Production.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:name) %></td>
   <td><%= @production.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Production.human_attribute_name(:state) %></td>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:state) %></td>
   <td><%= @production.state_i18n %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Production.human_attribute_name(:qr_code) %></td>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:qr_code) %></td>
   <td><%= @production.qr_code %></td>
 </tr>
