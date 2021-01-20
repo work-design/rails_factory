@@ -15,7 +15,9 @@ class CustomController extends Controller {
       this.toggleOffCss(checkbox)
     }
 
-    Rails.fire(checkbox.form, 'submit')
+    let evt = document.createEvent('Event')
+    evt.initEvent('submit', true, true)
+    checkbox.form.dispatchEvent(evt)
   }
 
   toggleOn(checkbox) {
