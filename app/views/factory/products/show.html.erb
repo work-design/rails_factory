@@ -7,6 +7,6 @@
 
 <div class="box">
 <% @production.product.images.each do |image| %>
-  <%= image_tag image -%>
+  <%= image_tag image, class: 'image' -%>
 <% end %>
 </div>
