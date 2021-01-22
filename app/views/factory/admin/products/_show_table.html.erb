@@ -1,17 +1,17 @@
 <tr>
-  <td class="has-text-right"><%= Product.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:name) %></td>
   <td><%= @product.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Product.human_attribute_name(:qr_prefix) %></td>
+  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:qr_prefix) %></td>
   <td><%= @product.qr_prefix %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Product.human_attribute_name(:description) %></td>
+  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:description) %></td>
   <td><%= @product.description %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Product.human_attribute_name(:images) %></td>
+  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:images) %></td>
   <td>
     <% @product.images.each do |image| %>
       <%= image_tag image, class: 'image' %>

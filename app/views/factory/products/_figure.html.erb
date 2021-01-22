@@ -1,4 +1,4 @@
-<figure class="image" data-action="touchmove->slide#move touchstart->slide#start touchend->slide#end" style="z-index: <%= index == 0 ? 1 : 0 %>">
+<figure class="image" data-action="touchmove->slide#move:passive touchstart->slide#start:passive touchend->slide#end:passive" data-index="<%= index %>" style="z-index: <%= index == 0 ? 0 : -2 %>">
   <% if cover.content_type.to_s.start_with?('video') %>
     <%= video_tag cover, controls: true, autoplay: true %>
   <% else %>
