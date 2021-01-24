@@ -1,0 +1,6 @@
+<%= turbo_stream.update 'total_price' do %>
+  <%= @production.price %>
+<% end %>
+<%= turbo_stream.update 'good_id' do %>
+  <%= @production.id %>
+<% end %>

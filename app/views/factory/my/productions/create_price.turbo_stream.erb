@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'visit' do %>
+  <div data-controller="visit" data-visit-url-value="<%= url_for({ controller: '/factory/products', action: 'show', id: @production.product_id, production_id: @production.id }) %>"></div>
+<% end %>

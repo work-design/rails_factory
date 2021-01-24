@@ -49,7 +49,7 @@ module Factory
 
     def compute_sum
       self.production_parts.each(&:sync_amount)
-      self.price = production_parts.sum(&:price)
+      self.price ||= production_parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
     end
 
     def set_default

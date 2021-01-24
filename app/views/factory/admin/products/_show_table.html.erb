@@ -11,6 +11,12 @@
   <td><%= @product.description %></td>
 </tr>
 <tr>
+  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:covers) %></td>
+  <td>
+    <%= render 'com/attachments/list', target: @product.covers %>
+  </td>
+</tr>
+<tr>
   <td class="has-text-right"><%= Factory::Product.human_attribute_name(:images) %></td>
   <td>
     <% @product.images.each do |image| %>

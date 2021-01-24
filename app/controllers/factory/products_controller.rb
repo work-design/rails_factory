@@ -12,10 +12,10 @@ module Factory
     end
 
     def show
-      production_cart = @product.production_carts.order(customized_at: :desc).first
-
-      if production_cart
-        @production = production_cart.production
+      if params[:production_id]
+        @production = @product.productions.find params[:production_id]
+      elsif current_cart
+        @production = current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first.production
       else
         @production = @product.production
       end

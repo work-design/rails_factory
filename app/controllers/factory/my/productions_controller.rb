@@ -17,17 +17,16 @@ module Factory
       @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: production_params[:str_part_ids])
       @production.assign_attributes production_params
       @production.compute_sum
+      @production.save!
 
-      production_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
-      production_cart.customized_at = Time.current
-
-      production_cart.class.transaction do
-        @production.save!
+      if current_cart
+        production_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
+        production_cart.customized_at = Time.current
         production_cart.save!
       end
 
       if params[:commit].present?
-        render 'create', locals: { return_to: my_cart_url(product_plan_id: production_params[:product_plan_id]) }
+        render 'create'
       else
         render 'create_price'
       end
