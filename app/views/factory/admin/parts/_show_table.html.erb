@@ -1,8 +1,12 @@
 <tr>
-  <td class="has-text-right"><%= Part.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Factory::Part.human_attribute_name(:name) %></td>
   <td><%= @part.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Part.human_attribute_name(:qr_prefix) %></td>
+  <td class="has-text-right"><%= Factory::Part.human_attribute_name(:price) %></td>
+  <td><%= @part.price %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Factory::Part.human_attribute_name(:qr_prefix) %></td>
   <td><%= @part.qr_prefix %></td>
 </tr>

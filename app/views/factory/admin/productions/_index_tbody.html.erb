@@ -6,7 +6,7 @@
   <table class="table is-fullwidth is-borderless">
     <% model.parts.each do |part| %>
       <tr>
-        <td><span class="tag"><%= link_to part.name, admin_part_path(part) %></span></td>
+        <td><span class="tag"><%= link_to part.name, admin_part_path(part), data: { turbo_frame: 'modal' } %></span></td>
         <td><%= part.price %></td>
       </tr>
     <% end %>
@@ -18,14 +18,14 @@
   <p><%= model.cost_price.to_s(:currency, unit: '￥') %></p>
   <p><%= model.profit_price.to_s(:currency, unit: '￥') %></p>
 </td>
-<td><%= model.price.to_s(:currency, unit: '￥') %></td>
 <td>
-  <%= link_to({ action: 'price', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
+  <%= model.price.to_s(:currency, unit: '￥') %>
+  <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fas fa-dollar-sign"></i>
   <% end %>
 </td>
 <td>
-  <%= link_to({ action: 'part', id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+  <%= link_to({ action: 'part', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fas fa-cube"></i>
   <% end %>
 </td>
