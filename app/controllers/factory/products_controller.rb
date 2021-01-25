@@ -14,8 +14,8 @@ module Factory
     def show
       if params[:production_id]
         @production = @product.productions.find params[:production_id]
-      elsif current_cart
-        @production = current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first.production
+      elsif pc = current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first
+        @production = pc.production
       else
         @production = @product.production
       end

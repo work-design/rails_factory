@@ -37,6 +37,12 @@ module Factory
       after_save :sync_name, if: -> { saved_change_to_name? }
     end
 
+    def compute_min_max
+      self.min_price = productions.minimum(:price)
+      self.max_price = productions.maximum(:price)
+      self.save
+    end
+
     def profit_margin_str
       (profit_margin * 100).to_s(:percentage)
     end

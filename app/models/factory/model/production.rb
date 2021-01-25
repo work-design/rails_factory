@@ -41,10 +41,15 @@ module Factory
       end
       before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
+      after_save :compute_min_max_price, if: -> { saved_change_to_price? }
     end
 
     def title
       parts.pluck(:name).join(',')
+    end
+
+    def compute_min_max_price
+      product.compute_min_max
     end
 
     def compute_sum

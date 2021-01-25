@@ -6,22 +6,24 @@ zh:
         qr_prefix: 二维码前缀
         profit_margin: 利润率
         product_part_taxons: 分类
-      product_part_taxon:
+        min_price: 最低价
+        max_price: 最高价
+      factory/product_part_taxon:
         min_select: 最低选择数
         max_select: 最多选择数
-      production:
+      factory/production:
         cost_price: 成本价
         profit_price: 利润
         price: 售价
-      part:
+      factory/part:
         import_price: 进货价
         profit_price: 利润
         price: 价格
         part_taxon_id: 分类
-      part_taxon:
+      factory/part_taxon:
         product_taxon_id: 产品分类
       produce_taxon:
-      product_taxon:
+      factory/product_taxon:
         factory_taxon_id: 平台分类
-      part_taxon_provider:
+      factory/part_taxon_provider:
         provider_id: 供应商
