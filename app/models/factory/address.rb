@@ -1,6 +1,6 @@
 module Factory
   class Address < ApplicationRecord
-    include RailsProfile::Address
+    include Profile::Model::Address if defined? RailsProfile
     include Model::Address
   end
 end
