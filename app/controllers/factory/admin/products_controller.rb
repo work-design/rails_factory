@@ -11,7 +11,7 @@ module Factory
 
     def new
       @product = Product.new
-      @product.product_taxon = ProductTaxon.default_where(default_params).first
+      @product.product_taxon = ProductTaxon.default_where(default_params).new
     end
 
     def create

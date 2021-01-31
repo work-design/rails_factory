@@ -1,5 +1,5 @@
 module Factory
-  module Ext::Good
+  module Model::Good
     extend ActiveSupport::Concern
 
     included do

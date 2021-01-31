@@ -5,9 +5,9 @@ module Factory
     included do
       attribute :name, :string
       attribute :qr_code, :string
-      attribute :price, :decimal
+      attribute :price, :decimal, default: 0
       attribute :cost_price, :decimal, default: 0
-      attribute :profit_price, :decimal
+      attribute :profit_price, :decimal, default: 0
       attribute :str_part_ids, :string
       attribute :default, :boolean, default: false
 
@@ -34,7 +34,6 @@ module Factory
         end
         compute_sum
         if product
-          self.organ_id = product.organ_id if defined? :organ_id
           self.name = product.name
           self.logo.attach product.logo_blob
         end
