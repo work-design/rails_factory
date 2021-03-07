@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope module: 'factory', defaults: { namespace: 'application', business: 'factory' } do
+  scope module: 'factory', defaults: { business: 'factory' } do
     resources :providers, only: [] do
       collection do
         get :search
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :product_taxons
   end
 
-  scope :admin, module: 'factory/admin', as: :admin, defaults: { namespace: 'admin', business: 'factory' } do
+  scope :admin, module: 'factory/admin', as: :admin, defaults: { business: 'factory', namespace: 'admin' } do
     resources :product_taxons
     resources :produce_plans
     resources :products do
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :my, module: 'factory/my', as: :my, defaults: { namespace: 'my', business: 'factory' } do
+  scope :my, module: 'factory/my', as: :my, defaults: { business: 'factory', namespace: 'my' } do
     resource :provider
     resources :products
     resources :productions do
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :panel, module: 'factory/panel', as: :panel, defaults: { namespace: 'panel', business: 'factory' } do
+  scope :panel, module: 'factory/panel', as: :panel, defaults: { business: 'factory', namespace: 'panel' } do
     resources :factory_taxons do
       resources :providers do
         collection do
