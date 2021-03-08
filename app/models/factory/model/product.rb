@@ -10,7 +10,7 @@ module Factory
       attribute :order_items_count, :integer, default: 0
       attribute :published, :boolean, default: true
       attribute :str_part_ids, :string
-      attribute :profit_margin, :decimal, precision: 4, scale: 2
+      attribute :profit_margin, :decimal, precision: 4, scale: 2, default: 0
       attribute :min_price, :decimal
       attribute :max_price, :decimal
 
