@@ -4,7 +4,7 @@ class CustomController extends Controller {
   static targets = [ 'output' ]
 
   connect() {
-    console.debug('Custom Controller connected!')
+    console.debug(this.identifier, 'connected!')
   }
 
   toggle(event) {
