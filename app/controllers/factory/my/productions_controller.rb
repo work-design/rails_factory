@@ -36,7 +36,6 @@ module Factory
     end
 
     def cart
-
     end
 
     def edit
