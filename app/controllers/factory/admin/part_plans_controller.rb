@@ -52,7 +52,7 @@ module Factory
         :start_at,
         :finish_at,
         :state,
-        :purchased_count,
+        :purchased_count
       )
     end
 

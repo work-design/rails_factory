@@ -10,11 +10,6 @@ module Factory
     def item
       @item = Item.includes(:goods).find params[:id]
       @menus = List.joins(:items).where(items: {node_type: Item.node_types[:node_top]})
-
-      respond_to do |format|
-        format.html
-        format.json { render json: @item }
-      end
     end
 
     def taxon
@@ -34,11 +29,6 @@ module Factory
 
       @goods = @goods.page(params[:page])
       @goods = @goods.order("price #{params[:price_order]}") unless params[:price_order].nil?
-
-      respond_to do |format|
-        format.html
-        format.json { render json: @goods }
-      end
     end
 
     def market
@@ -56,7 +46,6 @@ module Factory
 
       @groups = Good.find a3.slice(0..9)
       @items = Item.find items
-
     end
 
     def show
