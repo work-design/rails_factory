@@ -1,6 +1,6 @@
 module Factory
   class Address < ApplicationRecord
-    include Profiled::Model::Address if defined? RailsProfile
+    self.table_name = 'profiled_addresses'
     include Model::Address
   end
 end
