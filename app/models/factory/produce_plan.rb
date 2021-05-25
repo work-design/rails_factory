@@ -1,6 +1,6 @@
 module Factory
   class ProducePlan < ApplicationRecord
     include Model::ProducePlan
-    include Wait::Model::WaitFor if defined? RailsWait
+    include Wait::Ext::WaitFor if defined? RailsWait
   end
 end
