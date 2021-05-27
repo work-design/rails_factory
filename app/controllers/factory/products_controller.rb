@@ -12,7 +12,7 @@ module Factory
     end
 
     def show
-      pc = current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first
+      pc = current_cart && current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first
       if params[:production_id]
         @production = @product.productions.find params[:production_id]
       elsif pc
