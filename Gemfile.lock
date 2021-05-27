@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f685f60a3b1d01d5971d324f16556185b91d9040
+  revision: f088577a3d8d69228474af420cb042a467cc2127
   specs:
     rails_com (1.2.9)
       acme-client
@@ -142,7 +142,7 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (5.2.2)
       activesupport (>= 5)
-    http-2-next (0.4.2)
+    http-2-next (0.4.3)
     http-form_data (2.3.0)
     httpx (0.14.0)
       http-2-next (>= 0.4.1)
