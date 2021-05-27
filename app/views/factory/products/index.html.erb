@@ -8,7 +8,8 @@
       </figure>
     </div>
     <div class="card-content">
-    
+      <h2 class="title has-text-danger"><%= product.min_price %>~<%= product.max_price %></h2>
+      <%= link_to product.name, { action: 'show', id: product.id } %>
     </div>
   </div>
 <% end %>
