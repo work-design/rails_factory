@@ -1,12 +1,17 @@
-<%= form_with model: @production, url: { controller: 'factory/my/productions', action: 'create' }, method: :post, id: 'edit_custom' do |f| %>
-  <%= f.hidden_field :product_id %>
-  <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
-<% end %>
+<div class="columns">
+  <div class="column">
+    <%= render 'figure' %>
+  </div>
+  <div class="column"></div>
+</div>
 
-<%= render 'show' %>
+<div class="box is-radiusless" data-controller="sticky" style="z-index: 3">
+  <div class="has-text-danger has-text-bold">
+    <span><%= @production.price.to_money.symbol %></span>
+    <span id="total_price"><%= @production.price.to_money.to_s %></span>
+  </div>
+</div>
 
 <div class="box">
-<% @production.product.images.each do |image| %>
-  <%= image_tag image, class: 'image' -%>
-<% end %>
+  <h1><%= @product.name %></h1>
 </div>
