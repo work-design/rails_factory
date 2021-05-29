@@ -1,8 +1,16 @@
-<figure class="image" data-action="touchmove->slide#move:passive touchend->slide#end:passive" data-index="<%= index %>" style="z-index: <%= index == 0 ? 0 : -2 %>">
-  <% if cover.content_type.to_s.start_with?('video') %>
-    <%= video_tag cover.url, controls: true %>
-  <% else %>
-    <%= image_tag cover %>
+<div class="box" data-controller="showcase" data-showcase-hover-class="is-border">
+  <div class="slide" data-showcase-target="window">
+  <% @product.covers.each_with_index do |cover, index| %>
+    <figure class="image" data-index="<%= index %>" style="z-index: <%= index == 0 ? 0 : -1 %>">
+      <%= image_tag cover %>
+    </figure>
   <% end %>
-  <figcaption><%= index + 1 %>/<%= @production.product.covers.count %></figcaption>
-</figure>
+  </div>
+  <div class="images is-flex">
+  <% @product.covers.each_with_index do |cover, index| %>
+    <figure class="image is-32x32" data-index="<%= index %>" data-action="mouseover->showcase#show">
+      <%= image_tag cover %>
+    </figure>
+  <% end %>
+  </div>
+</div>
