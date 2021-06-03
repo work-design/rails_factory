@@ -3,3 +3,5 @@ en:
     products:
       index:
         title: Products
+      show:
+        add: Add Cart
