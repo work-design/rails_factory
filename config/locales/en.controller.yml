@@ -5,3 +5,17 @@ en:
         title: Products
       show:
         add: Add Cart
+    admin:
+      title: Factory
+      products:
+        index:
+          title: Product List
+      parts:
+        index:
+          title: Product parts
+      produce_plans:
+        index:
+          title: Produce Plans
+      factory_taxons:
+        index:
+          title: Factory Taxon
