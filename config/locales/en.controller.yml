@@ -19,3 +19,6 @@ en:
       factory_taxons:
         index:
           title: Factory Taxon
+    panel:
+      title: Factory Panel
+      
