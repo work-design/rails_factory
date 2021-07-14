@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: e8208662f2b700778e16e73931f024370aa54e08
+  revision: d0fbf0383bf8f9ec7941f79ad2dabd95a478e53b
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 9c61b778fc1459b9815794350d8ae246336bc0a8
+  revision: c7cf3436642c9ad8e9a8d5a9fe4e2e85c42aad4a
   specs:
     rails_auth (1.1.0)
       bcrypt (~> 3.1)
@@ -17,11 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-<<<<<<< HEAD
-  revision: 823f2c5fead57ab49b123d475629a21c80ad18d2
-=======
-  revision: bbf65f194760c0109c60d7b816c02a1d7fffefda
->>>>>>> 4079364 (rename)
+  revision: ff2fa793ea78f7c6b1d824a86c4910dab26223cd
   specs:
     rails_com (1.2.9)
       acme-client
@@ -32,10 +28,11 @@ GIT
       httpx (~> 0.8)
       kaminari
       rails (~> 6.0)
+      turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 6d65e28b9aa6c872f8d3fdce8a8c39b33ac17458
+  revision: 15165da2f9328810b8ae61a564bdd7834e5135ad
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -115,7 +112,7 @@ GEM
     awesome_print (1.9.2)
     bcrypt (3.1.16)
     builder (3.2.4)
-    closure_tree (7.2.0)
+    closure_tree (7.3.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     coderay (1.1.3)
@@ -129,26 +126,30 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faraday (1.4.2)
+    faraday (1.5.1)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
     faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.1.0)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     groupdate (5.2.2)
       activesupport (>= 5)
     http-2-next (0.4.3)
     http-form_data (2.3.0)
-    httpx (0.14.3)
+    httpx (0.15.4)
       http-2-next (>= 0.4.1)
       timers
     i18n (1.8.10)
@@ -231,9 +232,8 @@ GEM
     sqlite3 (1.4.2)
     thor (1.1.0)
     timers (4.3.3)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
+    turbo-rails (0.5.12)
+      rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.3)
@@ -259,7 +259,6 @@ DEPENDENCIES
   rails_role!
   sdoc
   sqlite3
-  turbolinks
 
 BUNDLED WITH
-   2.2.15
+   2.2.22

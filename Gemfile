@@ -12,8 +12,6 @@ gem 'rails_role', github: 'work-design/rails_role'
 gem 'kaminari'
 gem 'default_form', github: 'qinmingyuan/default_form'
 
-gem 'turbolinks'
-
 gem 'pry-rails'
 gem 'awesome_print'
 gem 'sdoc'
