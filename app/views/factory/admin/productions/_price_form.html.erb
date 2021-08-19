@@ -1,5 +1,5 @@
 <%= form_with model: @production, url: { action: 'update' } do |f| %>
-  <%= render 'shared/error_messages', target: @production %>
+  <%= render 'error_messages', target: @production %>
   <%= f.number_field :cost_price, step: 0.01 %>
   <%= f.number_field :profit_price, step: 0.01 %>
   <%= f.submit %>
