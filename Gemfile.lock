@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 0d4f6adb73969f3104b75197629fb51e8fe245f1
+  revision: 6232cd410cbdae4dfd7a5a48093758150d49e00d
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4829a61208ab5a358d43f43795c3e998b636a5b1
+  revision: b2200abe4a149cef8532f22619a6c1bbf934e94e
   specs:
     rails_com (1.2.9)
       acme-client
@@ -26,12 +26,12 @@ GIT
       http-form_data (~> 2.3)
       httpx (~> 0.16)
       kaminari
-      rails (~> 6.1)
+      rails (>= 6.1)
       turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 6e67263eb1ee87c9de283a2df9338e8ed8529772
+  revision: af7b809ed87a38632860aca02a1ae843b4c85924
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -39,7 +39,7 @@ GIT
 PATH
   remote: .
   specs:
-    rails_factory (1.0.0)
+    rails_factory (0.0.1)
       rails_com (~> 1.2)
 
 GEM
@@ -120,11 +120,6 @@ GEM
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
     erubi (1.10.0)
-    factory_bot (6.2.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
-      railties (>= 5.0.0)
     faraday (1.7.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -181,6 +176,7 @@ GEM
     nokogiri (1.11.4)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    pg (1.2.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -228,10 +224,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.7.3)
+    turbo-rails (0.7.7)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -248,8 +243,8 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   default_form!
-  factory_bot_rails
   kaminari
+  pg
   pry-rails
   rails
   rails_auth!
@@ -257,7 +252,6 @@ DEPENDENCIES
   rails_factory!
   rails_role!
   sdoc
-  sqlite3
 
 BUNDLED WITH
    2.2.22
