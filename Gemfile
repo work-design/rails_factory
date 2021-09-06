@@ -7,6 +7,7 @@ gem 'pg'
 gem 'puma'
 
 gem 'rails_com', github: 'work-design/rails_com'
+gem 'rails_ui', github: 'work-design/rails_ui'
 gem 'rails_auth', github: 'work-design/rails_auth'
 gem 'rails_role', github: 'work-design/rails_role'
 gem 'viter', github: 'qinmingyuan/viter'
