@@ -4,13 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails'
 gem 'pg'
+gem 'puma'
 
 gem 'rails_com', github: 'work-design/rails_com'
 gem 'rails_auth', github: 'work-design/rails_auth'
 gem 'rails_role', github: 'work-design/rails_role'
-gem 'kaminari'
-gem 'default_form', github: 'qinmingyuan/default_form'
+gem 'viter', github: 'qinmingyuan/viter'
 
-gem 'pry-rails'
-gem 'awesome_print'
-gem 'sdoc'
+gem 'amazing_print'
+
+group :development, :test do
+  gem 'debug', '>= 1.0.0.rc'
+  gem 'sdoc'
+end
