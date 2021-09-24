@@ -45,7 +45,7 @@ module Factory
     end
 
     def set_trade_item
-      @trade_item = TradeItem.find(params[:id])
+      @trade_item = @production.trade_items.find(params[:id])
     end
 
     def trade_item_params

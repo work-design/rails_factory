@@ -1,18 +1,5 @@
-<tr>
-  <td><%= trade_item.number %></td>
-  <td><%= trade_item.amount %></td>
-  <td><%= trade_item.note %></td>
-  <td><%= trade_item.extra %></td>
-  <td><%= trade_item.status %></td>
-  <td>
-    <%= link_to admin_trade_item_path(trade_item), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to edit_admin_trade_item_path(trade_item), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to admin_trade_item_path(trade_item), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= model.number %></td>
+<td><%= model.amount %></td>
+<td><%= model.note %></td>
+<td><%= model.extra %></td>
+<td><%= model.status %></td>
