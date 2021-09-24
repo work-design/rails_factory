@@ -18,6 +18,7 @@ module Factory
       }, _default: 'init'
 
       belongs_to :product
+
       has_many :production_parts, dependent: :destroy
       has_many :parts, through: :production_parts
       has_many :production_carts, dependent: :destroy
