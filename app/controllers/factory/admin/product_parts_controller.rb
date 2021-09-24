@@ -4,7 +4,7 @@ module Factory
     before_action :set_product_part, only: [:show, :edit, :update, :destroy]
 
     def index
-      @product_parts = @product.product_parts.page(params[:page])
+      @product_parts = @product.product_parts.order(part_id: :asc).page(params[:page])
     end
 
     def new
