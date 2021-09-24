@@ -1,11 +1,7 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 
 class CustomController extends Controller {
   static targets = [ 'output' ]
-
-  connect() {
-    console.debug(this.identifier, 'connected!')
-  }
 
   toggle(event) {
     let checkbox = event.currentTarget
