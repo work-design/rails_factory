@@ -1,10 +1,10 @@
 module Factory
   class Admin::AddressesController < Admin::BaseController
-    before_action :set_custom
+    before_action :set_production
     before_action :set_address, only: [:show, :edit, :update, :destroy]
 
     def index
-      @addresses = @custom.addresses.page(params[:page])
+      @addresses = @production.addresses.page(params[:page])
     end
 
     def new
@@ -38,8 +38,8 @@ module Factory
     end
 
     private
-    def set_custom
-      @custom = Custom.find params[:custom_id]
+    def set_production
+      @production = Production.find params[:production_id]
     end
 
     def set_address
