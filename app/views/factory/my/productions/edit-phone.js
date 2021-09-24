@@ -1,1 +1,1 @@
-import '../../products/show-phone'
+import '../../products/show'
