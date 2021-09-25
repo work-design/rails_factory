@@ -27,7 +27,8 @@ module Factory
       has_many :provided_parts, through: :part_providers, source: :part
       has_many :production_items, dependent: :destroy
 
-      has_one_attached :logo
+      #has_one_attached :logo
+      delegate :logo, to: :product
 
       after_initialize if: :new_record? do
         if product_id && part_ids.blank?
