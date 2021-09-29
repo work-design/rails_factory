@@ -17,7 +17,7 @@ module Factory
         producing: 'producing'
       }, _default: 'init'
 
-      belongs_to :product
+      belongs_to :product, counter_cache: true
 
       has_many :production_parts, dependent: :destroy
       has_many :parts, through: :production_parts
