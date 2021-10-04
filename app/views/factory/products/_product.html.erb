@@ -13,14 +13,21 @@
           <li class="weui-media-box__info__meta<%= index == 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
         <% end %>
       <% end %>
-      <li class="has-text-danger" style="float: right">
-        <span>¥</span>
-        <span><%= model.min_price.to_money.to_s %></span>
-        <% if model.min_price != model.max_price %>
-          <span>-</span>
-          <span><%= model.max_price.to_money.to_s %></span>
-        <% end %>
-      </li>
     </ul>
+    <div class="has-text-danger">
+      <span>¥</span>
+      <span><%= model.min_price.to_money.to_s %></span>
+      <% if model.min_price != model.max_price %>
+        <span>-</span>
+        <span><%= model.max_price.to_money.to_s %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="weui-media-box__ft">
+    <%= form_with theme: nil, url: { controller: 'trade/my/carts', action: 'add' } do |f| %>
+      <%= f.hidden_field :good_type, value: 'Production' %>
+      <%= f.hidden_field :good_id, value: model.production.id %>
+      <%= f.submit '购买', class: 'weui-btn weui-btn_danger' %>
+    <% end %>
   </div>
 <% end %>
