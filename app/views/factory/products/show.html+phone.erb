@@ -16,11 +16,11 @@
   </div>
 </div>
 
-<div class="box">
+<div class="box is-radiusless">
   <h1><%= @product.name %></h1>
 </div>
 
-<div>
+<div class="box is-radiusless">
 <% @product.product_part_taxons.each do |product_part_taxon| %>
   <div class="weui-media-box weui-media-box_text">
     <div class="weui-media-box__title">
@@ -41,7 +41,7 @@
 </div>
 
 <% if @production.product.images.present? %>
-<div class="box">
+<div class="box is-radiusless">
   <% @production.product.images.each do |image| %>
     <%= image_tag image, class: 'image' -%>
   <% end %>
