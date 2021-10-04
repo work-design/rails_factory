@@ -1,6 +1,6 @@
 <div class="weui-panel weui-panel_access">
   <div class="weui-panel__hd">
-    <%= render 'breadcrumb' %>
+    <span class="weui-btn weui-btn_mini weui-btn_default" data-controller="weui-dialog" data-weui-dialog-id-value="dialog" data-action="click->weui-dialog#toggle">商品列表</span>
   </div>
   <div class="weui-panel__bd">
     <%= render 'filter_form' %>
@@ -9,3 +9,5 @@
 
   <%= paginate @products %>
 </div>
+
+<%= render 'taxon' %>
