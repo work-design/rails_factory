@@ -1,8 +1,8 @@
-<%= link_to({ action: 'show', id: model.id }, class: 'weui-media-box weui-media-box_appmsg') do %>
-  <div class="weui-media-box__hd">
+<div class="weui-media-box weui-media-box_appmsg">
+  <%= link_to({ action: 'show', id: model.id }, class: 'weui-media-box__hd') do %>
     <%= image_tag model.logo, class: 'weui-media-box__thumb' if model.logo.attached? %>
-  </div>
-  <div class="weui-media-box__bd">
+  <% end %>
+  <%= link_to({ action: 'show', id: model.id }, class: 'weui-media-box__bd') do %>
     <h4 class="weui-media-box__title"><%= model.name %></h4>
     <p class="weui-media-box__desc">
       <%= model.description %>
@@ -22,12 +22,12 @@
         <span><%= model.max_price.to_money.to_s %></span>
       <% end %>
     </div>
-  </div>
+  <% end %>
   <div class="weui-media-box__ft">
     <%= form_with theme: nil, url: { controller: 'trade/my/carts', action: 'add' } do |f| %>
-      <%= f.hidden_field :good_type, value: 'Production' %>
+      <%= f.hidden_field :good_type, value: 'Factory::Production' %>
       <%= f.hidden_field :good_id, value: model.production.id %>
-      <%= f.submit '购买', class: 'weui-btn weui-btn_danger' %>
+      <%= f.submit '购买' %>
     <% end %>
   </div>
-<% end %>
+</div>
