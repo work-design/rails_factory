@@ -40,8 +40,10 @@
 <% end %>
 </div>
 
+<% if @production.product.images.present? %>
 <div class="box">
   <% @production.product.images.each do |image| %>
     <%= image_tag image, class: 'image' -%>
   <% end %>
 </div>
+<% end %>
