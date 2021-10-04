@@ -19,13 +19,13 @@ module Factory
       belongs_to :product_taxon, optional: true, counter_cache: true
 
       has_one :production, -> { where(default: true) }
-      has_many :productions, dependent: :destroy
-      has_many :product_parts, dependent: :destroy
+      has_many :productions, dependent: :destroy_async
+      has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
-      has_many :product_part_taxons, dependent: :destroy
+      has_many :product_part_taxons, dependent: :destroy_async
       has_many :part_taxons, through: :product_part_taxons
-      has_many :product_plans, dependent: :destroy
-      has_many :production_carts, dependent: :destroy
+      has_many :product_plans, dependent: :destroy_async
+      has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
 
       accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true

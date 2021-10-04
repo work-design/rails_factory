@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      has_many :productions, dependent: :destroy
+      has_many :productions, dependent: :destroy_async
     end
 
   end

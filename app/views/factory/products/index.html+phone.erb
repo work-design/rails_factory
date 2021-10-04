@@ -6,4 +6,6 @@
     <%= render 'filter_form' %>
     <%= render partial: 'product', collection: @products, as: :model %>
   </div>
+
+  <%= paginate @products %>
 </div>

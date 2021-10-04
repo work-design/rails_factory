@@ -18,11 +18,11 @@ module Factory
       belongs_to :organ, optional: true
       belongs_to :part_taxon, counter_cache: true
 
-      has_many :product_parts, dependent: :destroy
+      has_many :product_parts, dependent: :destroy_async
       has_many :products, through: :product_parts
-      has_many :part_plans, dependent: :destroy
-      has_many :part_items, dependent: :destroy
-      has_many :part_providers, dependent: :destroy
+      has_many :part_plans, dependent: :destroy_async
+      has_many :part_items, dependent: :destroy_async
+      has_many :part_providers, dependent: :destroy_async
 
       before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
       before_save :sync_price

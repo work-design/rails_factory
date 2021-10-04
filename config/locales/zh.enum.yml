@@ -6,3 +6,6 @@ zh:
           planned: 计划中
           producing: 生产中
           produced: 已完成
+      trade/promote_good:
+        good_type:
+          Factory::Production: 产品
