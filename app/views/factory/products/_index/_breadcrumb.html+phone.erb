@@ -1,4 +1,4 @@
-<%= link_to t('.title'), { controller: 'product_taxons' } %>
+<span class="weui-btn weui-btn_mini weui-btn_default" data-controller="weui-dialog" data-weui-dialog-id-value="dialog" data-action="click->weui-dialog#toggle">商品列表</span>
 <% if params[:product_taxon_id] %>
   <i class="fas fa-angle-right"></i>
   <span><%= @product_taxon.name %></span>
