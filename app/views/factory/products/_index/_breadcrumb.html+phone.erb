@@ -1,5 +1,5 @@
-<div class="box is-radiusless" data-controller="sticky" style="z-index: 3">
-  <span class="weui-btn weui-btn_mini weui-btn_default" data-controller="weui-dialog" data-weui-dialog-id-value="dialog" data-action="click->weui-dialog#toggle">商品列表</span>
+<div class="box is-radiusless p-2" data-controller="sticky" style="z-index: 3">
+  <span class="has-text-link" data-controller="weui-dialog" data-weui-dialog-id-value="dialog" data-action="click->weui-dialog#toggle">商品列表</span>
   <% if params[:product_taxon_id] %>
     <i class="fas fa-angle-right"></i>
     <span><%= @product_taxon.name %></span>
