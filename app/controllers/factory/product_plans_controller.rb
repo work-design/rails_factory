@@ -7,9 +7,6 @@ module Factory
       @product_plans = @product.product_plans.page(params[:page])
     end
 
-    def show
-    end
-
     private
     def set_product
       @product = Product.find params[:product_id]
