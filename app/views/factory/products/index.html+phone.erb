@@ -1,8 +1,6 @@
 <%= render 'breadcrumb' %>
 
-<div class="weui-panel weui-panel_access">
-  <div class="weui-panel__hd">
-  </div>
+<div class="weui-panel weui-panel_access mt-0">
   <div class="weui-panel__bd">
     <%= render 'filter_form' %>
     <%= render partial: 'product', collection: @products, as: :model %>
