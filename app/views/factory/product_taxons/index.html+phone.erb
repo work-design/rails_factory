@@ -1,5 +1,4 @@
 <div class="weui-panel__hd"><%= t('.title') %></div>
-<%= render 'filter_form' %>
 <div class="weui-grids">
   <% @product_taxons.each do |product_taxon| %>
     <%= link_to({ controller: 'products', product_taxon_id: product_taxon.id }, class: 'weui-grid') do %>
