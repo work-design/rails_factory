@@ -19,24 +19,6 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @address.assign_attributes(address_params)
-
-      unless @address.save
-        render :edit, locals: { model: @address }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @address.destroy
-    end
-
     private
     def set_production
       @production = Production.find params[:production_id]
