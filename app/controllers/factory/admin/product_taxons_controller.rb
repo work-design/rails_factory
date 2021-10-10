@@ -5,6 +5,7 @@ module Factory
     def index
       q_params = {}
       q_params.merge! default_params
+
       @product_taxons = ProductTaxon.default_where(q_params).order(id: :asc).page(params[:page])
     end
 

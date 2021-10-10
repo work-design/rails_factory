@@ -6,7 +6,7 @@ module Factory
       q_params = {}
       q_params.merge! default_params
 
-      @products = Product.includes(:parts, :product_taxon).default_where(q_params).order(id: :desc).page(params[:page])
+      @products = Product.includes(:parts, :product_taxon, logo_attachment: :blob, covers_attachment: :blob).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def new
