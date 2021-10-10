@@ -1,7 +1,7 @@
 <div class="box is-radiusless p-2 mb-0 has-background-grey-lighter" data-controller="sticky" style="z-index: 3">
   <span class="has-text-link has-text-weight-semibold" data-controller="weui-dialog" data-weui-dialog-id-value="dialog" data-action="click->weui-dialog#toggle"><%= t('factory.product_taxons.index.title') %></span>
   <% if params[:product_taxon_id] %>
-    <i class="fas fa-angle-right"></i>
+    <i class="fa-light fa-angle-right"></i>
     <span><%= @product_taxon.name %></span>
   <% end %>
 </div>

@@ -18,20 +18,20 @@
   <td>
     <% part_provider = model.part_providers.default_where(default_params).take %>
     <% if part_provider %>
-      <i class="fas fa-check has-text-success"></i>
+      <i class="fa-light fa-check has-text-success"></i>
       <%= button_to({ controller: 'parts', action: 'destroy', id: part_provider.part_id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fas fa-times"></i>
+        <i class="fa-light fa-times"></i>
       <% end %>
     <% else %>
       <%= button_to({ controller: 'productions', action: 'provide', product_id: model.product_id, id: model.id, part_taxon_id: @part_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fas fa-tractor"></i>
+        <i class="fa-light fa-tractor"></i>
       <% end %>
     <% end %>
   </td>
   <td></td>
   <td>
     <%= link_to({ controller: 'productions', action: 'show', product_id: model.product_id, id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-info"></i>
+      <i class="fa-light fa-info"></i>
     <% end %>
   </td>
 </tr>

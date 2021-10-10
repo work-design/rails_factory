@@ -4,7 +4,7 @@
       <td rowspan="<%= taxon.parts_count + 1 %>">
         <%= taxon.name %>
         <%= link_to({ controller: 'part_taxons', action: 'import', id: taxon.id }, aria: { label: t('factory.admin.part_taxons.import.title') }) do %>
-          <i class="fas fa-sign-in-alt"></i>
+          <i class="fa-light fa-sign-in-alt"></i>
         <% end if taxon.factory_taxon %>
       </td>
     </tr>
