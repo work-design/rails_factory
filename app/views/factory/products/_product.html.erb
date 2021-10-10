@@ -23,12 +23,12 @@
       <% end %>
     </div>
   <% end %>
-  <div class="weui-media-box__ft">
+  <div class="weui-media-box__ft pr-1">
     <%= form_with theme: nil, url: { controller: 'trade/my/carts', action: 'add' } do |f| %>
       <%= f.hidden_field :good_type, value: 'Factory::Production' %>
       <%= f.hidden_field :good_id, value: model.production.id %>
-      <button class="button">
-        <span class="icon is-small"><i class="fas fa-cart-plus fa-lg"></i></span>
+      <button class="button is-success">
+        <span class="icon is-small"><i class="fa-light fa-cart-plus fa-lg"></i></span>
       </button>
     <% end %>
   </div>
