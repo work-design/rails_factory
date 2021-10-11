@@ -23,7 +23,7 @@
       <% end %>
     </div>
   <% end %>
-  <div class="weui-media-box__ft pr-1">
+  <div class="weui-media-box__ft is-align-items-flex-end pr-2 pb-4">
     <%= form_with theme: nil, url: { controller: 'trade/my/carts', action: 'add' } do |f| %>
       <%= f.hidden_field :good_type, value: 'Factory::Production' %>
       <%= f.hidden_field :good_id, value: model.production.id %>
