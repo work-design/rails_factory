@@ -4,7 +4,7 @@ module Factory
 
     included do
       belongs_to :factory_taxon
-      belongs_to :provider, class_name: 'Organ'
+      belongs_to :provider, class_name: 'Org::Organ'
 
       validates :provider_id, uniqueness: { scope: :factory_taxon_id }
     end
