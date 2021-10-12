@@ -27,7 +27,7 @@
     <%= form_with theme: nil, url: { controller: 'trade/my/carts', action: 'add' } do |f| %>
       <%= f.hidden_field :good_type, value: 'Factory::Production' %>
       <%= f.hidden_field :good_id, value: model.production.id %>
-      <button class="button is-success">
+      <button class="button is-danger">
         <span class="icon is-small"><i class="fa-light fa-cart-plus fa-lg"></i></span>
       </button>
     <% end %>
