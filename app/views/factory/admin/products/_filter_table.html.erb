@@ -4,7 +4,7 @@
     <td>
       <%= link_to t('.all'), filter_params(except: [:product_taxon_id]), class: active_params(product_taxon_id: '', active: 'button is-info', item: 'button is-light') %>
       <% Factory::ProductTaxon.default_where(default_params).each do |product_taxon| %>
-        <%= link_to product_taxon.name, filter_params(product_taxon_id: product_taxon.id, except: [:product_taxon_id]), class: active_params(product_taxon_id: product_taxon.id, active: 'button is-info', item: 'button is-light') %>
+        <%= link_to product_taxon.name, filter_params(product_taxon_id: product_taxon.id, except: [:id]), class: active_params(product_taxon_id: product_taxon.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>
