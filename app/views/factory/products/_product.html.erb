@@ -15,11 +15,10 @@
       <% end %>
     </ul>
     <div class="has-text-danger">
-      <span>¥</span>
-      <span><%= model.min_price.to_money.to_s %></span>
+      <%= model.min_price.to_money.format(html_wrap: true).html_safe %>
       <% if model.min_price != model.max_price %>
-        <span>-</span>
-        <span><%= model.max_price.to_money.to_s %></span>
+        <span class="has-text-grey">-</span>
+        <%= model.max_price.to_money.format(html_wrap: true).html_safe %>
       <% end %>
     </div>
   <% end %>

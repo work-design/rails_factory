@@ -6,8 +6,8 @@
 <td><%= model.qr_prefix %></td>
 <td><%= model.profit_margin_str %></td>
 <td>
-  <p><%= model.min_price %></p>
-  <p><%= model.max_price %></p>
+  <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
 </td>
 <td>
   <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
