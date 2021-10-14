@@ -25,24 +25,6 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @product_item.assign_attributes(product_item_params)
-
-      unless @product_item.save
-        render :edit, locals: { model: @product_item }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @product_item.destroy
-    end
-
     private
     def set_product
       @product = Product.find params[:product_id]
