@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 7b8f2ebaa6dca686628884d3d4a0f02bae58da0a
+  revision: 41671cf0862ee155a9f8aa2f141ee9b8982902c4
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 061b45039cc66ffff0fb798c19717761897e451f
+  revision: 8283011e06185d79495d0ffb9901c755da87ca92
   specs:
     rails_com (1.2.9)
       acme-client
@@ -26,21 +26,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 9dd45dbb2fe715bbe68c3502e3d198d3fdefa73a
+  revision: 7498ce9e8436d982113e60db21f996cfa2f3669a
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: a01f5bcfbe28b070f92ef4edefe781497cc69a23
+  revision: f339c960ec81768c1cc80190f0713f9766150082
   specs:
     rails_extend (1.0.0)
       rails (>= 5.0)
 
 GIT
   remote: https://github.com/work-design/rails_markdown.git
-  revision: 05e7fb4d947134b0196838e54bb3403ddecc1b2b
+  revision: 422bd71a5f2dc83e6c93b94ad5bb021b380cc7d5
   specs:
     rails_markdown (0.0.1)
       kramdown
@@ -50,14 +50,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: ec213e27394398d94b5cec0d25e94724b073bd11
+  revision: 1883149abcf6eec1001c2144da666a26683ad5e7
   specs:
     rails_role (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 007090bdd05c8dc3c5c4e1063838f58c8b8db131
+  revision: d52eb02e9aa1a5151287b902aba0364cb690423d
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -178,9 +178,8 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.17.0)
+    httpx (0.18.0)
       http-2-next (>= 0.4.1)
-      timers
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     io-console (0.5.9)
@@ -188,7 +187,7 @@ GEM
       reline (>= 0.2.7)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    jwt (2.2.3)
+    jwt (2.3.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -278,8 +277,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.1.0)
-    timers (4.3.3)
-    turbo-rails (0.8.1)
+    turbo-rails (7.1.0)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)

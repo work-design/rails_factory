@@ -1,13 +1,13 @@
-<div class="weui-media-box weui-media-box_appmsg">
+<div class="weui-media-box weui-media-box_appmsg is-flex is-flex-direction-column">
   <%= link_to({ action: 'show', id: model.id }, class: 'weui-media-box__hd') do %>
     <%= image_tag model.logo, class: 'weui-media-box__thumb' if model.logo.attached? %>
   <% end %>
   <%= link_to({ action: 'show', id: model.id }, class: 'weui-media-box__bd') do %>
     <h4 class="weui-media-box__title"><%= model.name %></h4>
-    <p class="weui-media-box__desc">
+    <p class="weui-media-box__desc pt-0">
       <%= model.description %>
     </p>
-    <ul class="weui-media-box__info">
+    <ul class="weui-media-box__info mt-0">
       <% model.parts.group_by(&->(i){ i.part_taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, index| %>
           <li class="weui-media-box__info__meta<%= index == 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
