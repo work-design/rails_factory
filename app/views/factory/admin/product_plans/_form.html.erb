@@ -1,4 +1,4 @@
 <%= render 'error_messages', target: @product_plan %>
 <%= f.collection_select :produce_plan_id, @produce_plans, :id, :title %>
-<%= f.select :state, options_for_select(ProductPlan.options_i18n(:state), @product_plan.state) %>
-<%= f.text_field :planned_count, required: true %>
+<%= f.select :state, options_for_select(Factory::ProductPlan.options_i18n(:state), @product_plan.state) %>
+<%= f.number_field :planned_count, required: true %>

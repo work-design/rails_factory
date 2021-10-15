@@ -13,7 +13,8 @@ module Factory
         produced: 'produced'
       }, _default: 'planned'
 
-      belongs_to :organ, optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       has_many :product_plans, dependent: :nullify
     end
 

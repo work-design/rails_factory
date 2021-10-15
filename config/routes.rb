@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :product_plans, only: [:index, :show]
     end
     resources :product_taxons
+    resources :produce_plans
 
     namespace :admin, defaults: { namespace: 'admin' } do
       resources :product_taxons

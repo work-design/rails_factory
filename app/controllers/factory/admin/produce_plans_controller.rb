@@ -1,6 +1,5 @@
 module Factory
   class Admin::ProducePlansController < Admin::BaseController
-    before_action :set_produce_plan, only: [:show, :edit, :update, :destroy]
 
     def index
       q_params = {}
