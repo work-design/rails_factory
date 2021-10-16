@@ -1,16 +1,16 @@
 <% trade_item = current_cart.trade_items.find(&->(i){ i.good_type == model.class_name && i.good_id == model.id }) %>
 <%= button_to({ controller: 'trade/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number - 1 }, class: 'mr-1') do %>
-  <i class="fa-regular fa-circle-minus fa-lg has-text-info-dark"></i>
+  <i class="fa-regular fa-circle-minus fa-xl has-text-info-dark"></i>
 <% end if trade_item && trade_item.number > 1 %>
 <%= button_to({ controller: 'trade/my/trade_items', action: 'destroy', id: trade_item.id }, method: :delete, class: 'mr-1') do %>
-  <i class="fa-regular fa-circle-minus fa-lg has-text-info-dark"></i>
+  <i class="fa-regular fa-circle-minus fa-xl has-text-info-dark"></i>
 <% end if trade_item && trade_item.number <= 1 %>
 <%= form_with(theme: nil, scope: 'trade_item', url: { controller: 'trade/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
   <%= f.number_field :number, value: trade_item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
 <% end if trade_item %>
 <%= button_to({ controller: 'trade/my/carts', action: 'add' }, params: { good_type: model.class_name, good_id: model.id }, class: 'ml-1') do %>
-  <i class="fa-regular fa-circle-plus fa-lg has-text-info-dark"></i>
+  <i class="fa-regular fa-circle-plus fa-xl has-text-info-dark"></i>
 <% end unless trade_item %>
 <%= button_to({ controller: 'trade/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number + 1 }, class: 'ml-1') do %>
-  <i class="fa-regular fa-plus fa-xl"></i>
+  <i class="fa-regular fa-circle-plus fa-xl has-text-info-dark"></i>
 <% end if trade_item %>
