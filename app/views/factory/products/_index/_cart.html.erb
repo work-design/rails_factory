@@ -10,4 +10,7 @@
 <% end if trade_item %>
 <%= button_to({ controller: 'trade/my/carts', action: 'add' }, params: { good_type: model.class_name, good_id: model.id }, class: 'ml-1') do %>
   <i class="fa-regular fa-circle-plus fa-lg has-text-info-dark"></i>
-<% end %>
+<% end unless trade_item %>
+<%= button_to({ controller: 'trade/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number + 1 }, class: 'ml-1') do %>
+  <i class="fa-regular fa-plus fa-xl"></i>
+<% end if trade_item %>
