@@ -10,14 +10,8 @@
   <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
 </td>
 <td>
-  <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-light fa-tree"></i>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
   <% end %>
-  <%= link_to({ controller: 'product_parts', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-light fa-cube"></i>
-  <% end %>
-  <%= link_to({ controller: 'productions', product_id: model.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-light fa-clone"></i><span><%= model.productions_count %></span>
-  <% end %>
-  <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: model.id }, class: 'button is-small is-success' %>
 </td>

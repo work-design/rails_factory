@@ -1,0 +1,28 @@
+<tr id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+  <%= yield %>
+  <td>
+    <p>
+      <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-tree"></i>
+      <% end %>
+      <%= link_to({ controller: 'product_parts', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-cube"></i>
+      <% end %>
+      <%= link_to({ controller: 'productions', product_id: model.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-clone"></i><span><%= model.productions_count %></span>
+      <% end %>
+      <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: model.id }, class: 'button is-small is-success' %>
+    </p>
+    <p data-show-target="item" style="visibility: hidden">
+      <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-circle-info"></i>
+      <% end %>
+      <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-pencil"></i>
+      <% end %>
+      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { confirm: t('.confirm') }, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-trash"></i>
+      <% end %>
+    </p>
+  </td>
+</tr>

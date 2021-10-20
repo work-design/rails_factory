@@ -14,6 +14,7 @@ module Factory
       attribute :max_price, :decimal
       attribute :order_items_count, :integer, default: 0
       attribute :productions_count, :integer, default: 0
+      attribute :enabled, :boolean, default: true
 
       belongs_to :organ, optional: true
       belongs_to :product_taxon, optional: true, counter_cache: true
@@ -33,6 +34,8 @@ module Factory
       has_one_attached :logo
       has_many_attached :covers
       has_many_attached :images
+
+      scope :enabled, -> { where(enabled: true)}
 
       has_taxons :product_taxon
       after_save :sync_name, if: -> { saved_change_to_name? }
