@@ -1,9 +1,10 @@
 <div class="level-left is-flex pl-4">
-  <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'fa-layers fa-fw fa-2x level-item') do %>
-    <i class="fa-solid fa-bag-shopping"></i>
-    <span class="fa-layers-counter"><%= current_cart_count %></span>
+  <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'level-item') do %>
+    <i class="fa-solid fa-bag-shopping fa-3x">
+      <span class="weui-badge"><%= current_cart_count %></span>
+    </i>
   <% end %>
-  <div class="level-item">
+  <div class="level-item pl-4">
     <%= current_cart.amount.to_money.format(html_wrap: true).html_safe %>
   </div>
 </div>
