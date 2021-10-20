@@ -13,7 +13,7 @@
       <% end %>
       <%= link_to t('factory.admin.product_plans.index.title'), { controller: 'product_plans', product_id: model.id }, class: 'button is-small is-success' %>
     </p>
-    <p data-show-target="item" style="visibility: hidden">
+    <div data-show-target="item" style="visibility: hidden">
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-circle-info"></i>
       <% end %>
@@ -23,6 +23,6 @@
       <%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { confirm: t('.confirm') }, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-trash"></i>
       <% end %>
-    </p>
+    </div>
   </td>
 </tr>
