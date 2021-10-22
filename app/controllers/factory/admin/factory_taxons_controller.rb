@@ -10,14 +10,6 @@ module Factory
       @factory_taxon = FactoryTaxon.new
     end
 
-    def create
-      @factory_taxon = FactoryTaxon.new(factory_taxon_params)
-
-      unless @factory_taxon.save
-        render :new, locals: { model: @factory_taxon }, status: :unprocessable_entity
-      end
-    end
-
     def show
       @products = @factory_taxon.products.page(params[:page])
 
@@ -30,21 +22,6 @@ module Factory
 
     def productions
       @productions = Production.default_where(product_id: params[:product_id])
-    end
-
-    def edit
-    end
-
-    def update
-      @factory_taxon.assign_attributes(factory_taxon_params)
-
-      unless @factory_taxon.save
-        render :edit, locals: { model: @factory_taxon }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @factory_taxon.destroy
     end
 
     private
