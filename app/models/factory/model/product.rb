@@ -14,7 +14,7 @@ module Factory
       attribute :max_price, :decimal
       attribute :order_items_count, :integer, default: 0
       attribute :productions_count, :integer, default: 0
-      attribute :enabled, :boolean, default: true
+      attribute :enabled, :boolean, default: false
 
       belongs_to :organ, optional: true
       belongs_to :product_taxon, optional: true, counter_cache: true
