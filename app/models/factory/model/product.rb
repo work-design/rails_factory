@@ -48,7 +48,7 @@ module Factory
     end
 
     def profit_margin_str
-      (profit_margin * 100).to_s(:percentage)
+      (profit_margin.to_d * 100).to_s(:percentage)
     end
 
     def sync_name
