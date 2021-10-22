@@ -1,7 +1,5 @@
 <div data-controller="sticky" style="z-index: 3">
-  <div class="level is-flex mb-0 py-2 has-background-white is-border-top">
-    <%= render 'tab_bar_cart' %>
-  </div>
+  <%= render 'tab_bar_cart' if current_cart %>
   <div class="weui-tabbar">
     <%= render 'tab_bar_item' %>
   </div>

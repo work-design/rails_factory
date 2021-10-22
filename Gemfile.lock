@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 1e2f7f62cb8223f0e9ceb679f1c9093d73c0501f
+  revision: 1842ff4b5fb0f016eaa5f0e29d5c4c1a538edd20
   specs:
     rails_com (1.2.9)
       acme-client
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: c04bacb431d0a4aba69f7163c6cc0bed43f63d1e
+  revision: 3f61602b39b5a28bac9c12e910836669a77bf0b4
   specs:
     rails_design (0.0.1)
       rails
@@ -50,14 +50,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: bc1ce090f30d526f59360dcac9d14e1a28e8c3ca
+  revision: 15016d4798482b73b97b99327e5bd9fb7e98c01f
   specs:
     rails_role (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 36d06fb5e2dd7ef2b15880d9bf6e1db61db9537c
+  revision: 5d8e8653e121c631691d789256c91f2731cfb868
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -144,7 +144,7 @@ GEM
     amazing_print (1.4.0)
     bcrypt (3.1.16)
     builder (3.2.4)
-    closure_tree (7.3.0)
+    closure_tree (7.4.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
@@ -277,7 +277,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.1.0)
-    turbo-rails (7.1.0)
+    turbo-rails (7.1.1)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)

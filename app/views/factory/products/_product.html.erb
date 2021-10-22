@@ -23,6 +23,6 @@
     </div>
   <% end %>
   <div class="weui-media-box__ft is-align-items-flex-end pr-2 pb-4">
-    <%= render partial: 'cart', locals: { model: model.production } %>
+    <%= render partial: 'cart', locals: { model: model.production } if current_cart %>
   </div>
 </div>
