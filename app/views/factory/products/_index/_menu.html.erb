@@ -1,4 +1,4 @@
-<div class="columns m-0 is-flex is-flex-direction-column">
+<div data-controller="stick" class="columns m-0 is-flex is-flex-direction-column" style="top: 0">
 <% @product_taxons.each do |product_taxon| %>
   <%= link_to({ controller: 'products', product_taxon_id: product_taxon.id }, class: 'column is-primary p-2') do %>
     <div class="weui-grid__icon"><%= image_tag product_taxon.logo if product_taxon.logo.attached? %></div>
