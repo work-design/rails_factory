@@ -14,7 +14,7 @@ module Factory
 
       has_one_attached :logo
 
-      acts_as_list
+      acts_as_list scope: :organ_id
     end
 
   end

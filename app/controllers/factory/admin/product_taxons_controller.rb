@@ -1,12 +1,12 @@
 module Factory
   class Admin::ProductTaxonsController < Admin::BaseController
-    before_action :set_product_taxon, only: [:show, :edit, :update, :destroy]
+    before_action :set_product_taxon, only: [:show, :edit, :update, :reorder, :destroy]
 
     def index
       q_params = {}
       q_params.merge! default_params
 
-      @product_taxons = ProductTaxon.default_where(q_params).order(id: :asc).page(params[:page])
+      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc).page(params[:page])
     end
 
     def new
@@ -21,22 +21,18 @@ module Factory
       end
     end
 
-    def show
-    end
+    def reorder
+      sort_array = params[:sort_array].select { |i| i.integer? }
 
-    def edit
-    end
-
-    def update
-      @product_taxon.assign_attributes(product_taxon_params)
-
-      unless @product_taxon.save
-        render :edit, locals: { model: @product_taxon }, status: :unprocessable_entity
+      if params[:new_index] > params[:old_index]
+        prev_one = @product_taxon.class.find(sort_array[params[:new_index].to_i - 1])
+        @product_taxon.insert_at prev_one.position
+      else
+        next_ones = @product_taxon.class.find(sort_array[(params[:new_index].to_i + 1)..params[:old_index].to_i])
+        next_ones.each do |next_one|
+          next_one.insert_at @product_taxon.position
+        end
       end
-    end
-
-    def destroy
-      @product_taxon.destroy
     end
 
     private
