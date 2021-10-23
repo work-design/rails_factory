@@ -5,6 +5,7 @@
   <div class="weui-panel weui-panel_access mt-0 weui-flex__item" data-controller="page" data-page-debug-value="true" data-action="touchend->page#end:passive">
     <div class="weui-panel__bd" id="container">
       <%= render partial: 'product', collection: @products, as: :model %>
+      <%= render 'loading' %>
     </div>
 
     <%= render 'paginator' %>
