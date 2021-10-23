@@ -8,7 +8,9 @@
   <table class="table is-fullwidth is-borderless">
     <% model.parts.each do |part| %>
       <tr>
-        <td><span class="tag"><%= link_to part.name, admin_part_path(part), data: { turbo_frame: 'modal' } %></span></td>
+        <td>
+          <span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id }, data: { turbo_frame: 'modal' } %></span>
+        </td>
         <td><%= part.price %></td>
       </tr>
     <% end %>
