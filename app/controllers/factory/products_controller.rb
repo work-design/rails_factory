@@ -8,7 +8,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
-      @products = Product.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(1)
+      @products = Product.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(8)
       @product_taxons = ProductTaxon.with_attached_logo.default_where(default_params).order(id: :asc)
     end
 
