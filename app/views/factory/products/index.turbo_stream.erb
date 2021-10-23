@@ -1,1 +1,1 @@
-<%= turbo_stream.append 'container', partial: 'product', collection: @products, as: :model %>
+<%= turbo_stream.replace 'container', partial: 'product', collection: @products, as: :model %>
