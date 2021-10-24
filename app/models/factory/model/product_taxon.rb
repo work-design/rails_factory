@@ -6,6 +6,7 @@ module Factory
       attribute :name, :string
       attribute :position, :integer
       attribute :products_count, :integer, default: 0
+      attribute :enabled, :boolean, default: false
 
       belongs_to :organ, optional: true
       belongs_to :factory_taxon, optional: true
@@ -13,6 +14,8 @@ module Factory
       has_many :products, dependent: :nullify
 
       has_one_attached :logo
+
+      scope :enabled, -> { where(enabled: true)}
 
       acts_as_list scope: :organ_id
     end

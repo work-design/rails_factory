@@ -46,6 +46,7 @@ module Factory
         :position,
         :logo,
         :parent_id,
+        :enabled,
         :factory_taxon_id,
         :parent_ancestors
       )
