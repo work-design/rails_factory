@@ -6,7 +6,11 @@
     <div class="weui-panel__bd">
       <%= render partial: 'product', collection: @products, as: :model %>
       <%= render 'loading' %>
-      <%= render 'tip' %>
+      <% if @products.total_pages == @products.current_page %>
+        <%= render 'no_more' %>
+      <% else %>
+        <%= render 'tip' %>
+      <% end %>
     </div>
 
     <%= render 'paginator' %>

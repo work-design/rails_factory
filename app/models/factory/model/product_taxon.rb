@@ -6,7 +6,7 @@ module Factory
       attribute :name, :string
       attribute :position, :integer
       attribute :products_count, :integer, default: 0
-      attribute :enabled, :boolean, default: false
+      attribute :enabled, :boolean, default: true
 
       belongs_to :organ, optional: true
       belongs_to :factory_taxon, optional: true
