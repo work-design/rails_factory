@@ -1,1 +1,4 @@
-<%= turbo_stream.replace 'container', partial: 'product', collection: @products, as: :model %>
+<%= turbo_stream.replace 'container' do %>
+  <%= render partial: 'product', collection: @products, as: :model %>
+  <%= render 'loading' %>
+<% end %>
