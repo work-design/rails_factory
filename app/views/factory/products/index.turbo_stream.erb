@@ -2,3 +2,4 @@
   <%= render partial: 'product', collection: @products, as: :model %>
   <%= render 'loading' %>
 <% end %>
+<% turbo_stream.replace 'tip', partial: 'no_more' if @products.total_pages == @products.current_page %>
