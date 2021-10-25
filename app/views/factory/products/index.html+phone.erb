@@ -8,6 +8,8 @@
       <%= render 'loading' %>
       <% if @products.total_pages == @products.current_page %>
         <%= render 'no_more' %>
+      <% elsif @products.blank? %>
+        <%= render 'blank' %>
       <% else %>
         <%= render 'tip' %>
       <% end %>
