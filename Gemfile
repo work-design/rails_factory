@@ -13,7 +13,6 @@ gem 'rails_design', github: 'work-design/rails_design'
 gem 'rails_auth', github: 'work-design/rails_auth'
 gem 'rails_role', github: 'work-design/rails_role'
 gem 'rails_trade', github: 'work-design/rails_trade'
-gem 'rails_markdown', github: 'work-design/rails_markdown'
 
 gem 'amazing_print'
 group :development, :test do

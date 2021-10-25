@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 6f33f10d542456316375961852c5e8725164d528
+  revision: 4e2e29cfd17ca2879ff6986b3ef6210437b03018
   specs:
     rails_com (1.2.9)
       acme-client
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: dd007cd7860044346227ed053f2fd4af36c6bb55
+  revision: a3265e9a648694f538fb6175e78898e6f0622561
   specs:
     rails_design (0.0.1)
       rails
@@ -39,16 +39,6 @@ GIT
       rails (>= 5.0)
 
 GIT
-  remote: https://github.com/work-design/rails_markdown.git
-  revision: 6358382ee2d0a0ba7009b5309ccc46be00c8e9f8
-  specs:
-    rails_markdown (0.0.1)
-      kramdown
-      nokogiri
-      rails_com
-      rugged
-
-GIT
   remote: https://github.com/work-design/rails_role.git
   revision: 15016d4798482b73b97b99327e5bd9fb7e98c01f
   specs:
@@ -57,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 5d22925afac380e86707e68650f3880a3a8d4837
+  revision: 4859ce8dc8ba1ca10325f0248ed90a6a6be3e5cd
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -200,8 +190,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    kramdown (2.3.1)
-      rexml
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -264,9 +252,7 @@ GEM
     rdoc (6.3.2)
     reline (0.2.7)
       io-console (~> 0.5)
-    rexml (3.2.5)
     ruby2_keywords (0.0.5)
-    rugged (1.2.0)
     sdoc (2.2.0)
       rdoc (>= 5.0)
     sprockets (4.0.2)
@@ -302,7 +288,6 @@ DEPENDENCIES
   rails_design!
   rails_extend!
   rails_factory!
-  rails_markdown!
   rails_role!
   rails_trade!
   rails_vite!
