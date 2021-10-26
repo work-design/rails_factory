@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           patch :reorder
         end
       end
+      resources :plans
       resources :produce_plans
       resources :products do
         collection do
@@ -27,8 +28,7 @@ Rails.application.routes.draw do
         member do
           get :part
         end
-        resources :product_plans, as: 'plans'
-        resources :product_items, as: 'items'
+        resources :product_items
         resources :product_part_taxons, as: 'part_taxons', path: 'part_taxons'
         resources :product_parts, as: 'parts', path: 'parts'
         resources :productions do
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
             get :price
             patch :provide
           end
+          resources :production_plans
         end
       end
       resources :productions, only: [] do

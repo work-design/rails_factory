@@ -10,8 +10,8 @@ module Factory
       attribute :produced_count, :integer, default: 0
 
       belongs_to :product
-      belongs_to :produce_plan, optional: true
-      has_many :product_items
+      belongs_to :scene, optional: true
+      has_many :production_items
 
       enum state: {
         planned: 'planned',

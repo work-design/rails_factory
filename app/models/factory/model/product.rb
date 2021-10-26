@@ -25,7 +25,6 @@ module Factory
       has_many :parts, through: :product_parts
       has_many :product_part_taxons, dependent: :destroy_async
       has_many :part_taxons, through: :product_part_taxons
-      has_many :product_plans, dependent: :destroy_async
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
 

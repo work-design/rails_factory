@@ -26,6 +26,7 @@ module Factory
       has_many :part_providers, dependent: :destroy_async
       has_many :provided_parts, through: :part_providers, source: :part
       has_many :production_items, dependent: :destroy_async
+      has_many :production_plans, dependent: :destroy_async
 
       #has_one_attached :logo
       delegate :logo, to: :product
