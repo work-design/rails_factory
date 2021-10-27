@@ -1,4 +1,4 @@
-<%= link_to({ controller: 'products', produce_plan_id: model.id }, class: 'column is-bordered is-half-mobile has-text-grey') do %>
+<%= link_to({ controller: 'products', produce_plan_id: model.id }, class: 'column is-half-mobile has-text-grey') do %>
   <div class="weui-grid__icon"><%= image_tag model.scene.logo if model.scene.logo.attached? %></div>
   <p class="weui-grid__label"><%= model.scene.title %></p>
   <p class="is-size-7">
