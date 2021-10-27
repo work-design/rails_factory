@@ -1,6 +1,8 @@
 module Factory
   class ProductsController < BaseController
     before_action :set_product_taxon
+    before_action :set_produce_plans, only: [:index]
+    before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
 
     def index
@@ -15,7 +17,6 @@ module Factory
         @products = Product.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
       end
 
-      @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(default_params).order(id: :asc)
     end
 
     def show
@@ -32,6 +33,15 @@ module Factory
     private
     def set_product
       @product = Product.find params[:id]
+    end
+
+    def set_product_taxons
+      @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(default_params).order(id: :asc)
+    end
+
+    def set_produce_plans
+      q_params = { 'produce_on-gte': Date.today }.merge! default_params
+      @produce_plans = ProducePlan.default_where(q_params).order(id: :asc).group_by(&:produce_on)
     end
 
     def set_product_taxon
