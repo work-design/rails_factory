@@ -1,4 +1,4 @@
-<td><%= model.produce_plan&.title %></td>
+<td><%= model.scene&.title %></td>
 <td>
   <p><time data-controller="time"><%= model.start_at.to_s(:rfc822) %></time></p>
   <p><time data-controller="time"><%= model.finish_at.to_s(:rfc822) %></time></p>
@@ -6,5 +6,5 @@
 <td><%= model.state_i18n %></td>
 <td><%= model.planned_count %></td>
 <td>
-  <%= link_to model.produced_count, { controller: 'product_items', product_plan_id: model.id } %>
+  <%= link_to model.produced_count, { controller: 'production_items', production_plan_id: model.id } %>
 </td>

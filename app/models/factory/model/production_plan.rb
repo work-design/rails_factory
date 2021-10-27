@@ -1,5 +1,5 @@
 module Factory
-  module Model::ProductPlan
+  module Model::ProductionPlan
     extend ActiveSupport::Concern
 
     included do
@@ -9,7 +9,7 @@ module Factory
       attribute :planned_count, :integer, default: 0
       attribute :produced_count, :integer, default: 0
 
-      belongs_to :product
+      belongs_to :production
       belongs_to :scene, optional: true
       has_many :production_items
 
@@ -20,9 +20,7 @@ module Factory
       }
 
       after_initialize if: :new_record? do
-        if produce_plan
-          self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
-        end
+        #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
       end
     end
 

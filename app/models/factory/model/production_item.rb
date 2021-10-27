@@ -8,7 +8,7 @@ module Factory
       attribute :produced_at, :datetime
 
       belongs_to :production
-      belongs_to :product_plan
+      belongs_to :production_plan
       has_many :part_items
 
       has_one_attached :qr_file

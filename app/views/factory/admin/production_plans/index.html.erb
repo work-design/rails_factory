@@ -1,0 +1,5 @@
+<%= render layout: 'index_table', locals: { cache_key: Factory::ProductionPlan.column_names.hash } do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @production_plans, as: :model %>
+<% end %>
+
+<%= paginate @production_plans %>
