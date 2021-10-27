@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         end
       end
       resources :plans
+      resources :scenes
       resources :produce_plans
       resources :products do
         collection do

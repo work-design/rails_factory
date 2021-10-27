@@ -23,7 +23,13 @@ zh:
         part_taxon_id: 分类
       factory/part_taxon:
         product_taxon_id: 产品分类
-      produce_taxon:
+      factory/scene:
+        book_start_days: 提前天
+        book_start_at: 预定开始时间
+        book_finish_days: 提前天
+        book_finish_at: 预定结束时间
+        deliver_start_at: 配送开始时间
+        deliver_finish_at: 配送结束时间
       factory/product_taxon:
         factory_taxon_id: 平台分类
       factory/part_taxon_provider:

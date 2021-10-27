@@ -19,9 +19,9 @@ zh:
           title: 平台商品分类
         show:
           title: 供应链
-      produce_plans:
+      scenes:
         index:
-          title: 生产批次
+          title: 场景
       products:
         index:
           title: 产品

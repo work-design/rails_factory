@@ -3,6 +3,7 @@ module RailsFactory
   class Engine < ::Rails::Engine
 
     config.generators do |g|
+      g.resource_route false
       g.rails = {
         assets: false,
         stylesheets: false,

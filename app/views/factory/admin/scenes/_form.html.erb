@@ -1,0 +1,28 @@
+<%= render 'error_messages', target: f.object %>
+<%= f.text_field :title %>
+<%= f.text_field :book_start_days %>
+<div class="field is-horizontal">
+  <%= f.label :book_start_at %>
+  <div class="field-body">
+    <%= f.time_select :book_start_at, start_hour: 0, end_hour: 23, minute_step: 30, default: { hour: 0, min: 0 }, wrap: { all: 'field is-narrow', select: 'select' }, label: nil %>
+  </div>
+</div>
+<%= f.text_field :book_finish_days %>
+<div class="field is-horizontal">
+  <%= f.label :book_finish_at %>
+  <div class="field-body">
+    <%= f.time_select :book_finish_at, start_hour: 0, end_hour: 23, minute_step: 30, default: { hour: 0, min: 0 }, wrap: { all: 'field is-narrow', select: 'select' }, label: nil %>
+  </div>
+</div>
+<div class="field is-horizontal">
+  <%= f.label :deliver_start_at %>
+  <div class="field-body">
+    <%= f.time_select :deliver_start_at, start_hour: 0, end_hour: 23, minute_step: 30, default: { hour: 0, min: 0 }, wrap: { all: 'field is-narrow', select: 'select' }, label: nil %>
+  </div>
+</div>
+<div class="field is-horizontal">
+  <%= f.label :deliver_finish_at %>
+  <div class="field-body">
+    <%= f.time_select :deliver_finish_at, start_hour: 0, end_hour: 23, minute_step: 30, default: { hour: 23, min: 59 }, wrap: { all: 'field is-narrow', select: 'select' }, label: nil %>
+  </div>
+</div>
