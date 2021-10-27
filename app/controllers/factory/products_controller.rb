@@ -39,12 +39,16 @@ module Factory
     end
 
     def set_produce_plans
-      @produce_plan = ProducePlan.find params[:produce_plan_id]
+      if params[:produce_plan_id]
+        @produce_plan = ProducePlan.find params[:produce_plan_id]
 
-      q_params = { produce_on: @produce_plan.produce_on }.merge! default_params
-      q_params.merge! params.permit(:produce_on)
+        q_params = { produce_on: @produce_plan.produce_on }.merge! default_params
+        q_params.merge! params.permit(:produce_on)
 
-      @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
+        @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
+      else
+        @produce_plans = ProducePlan.none
+      end
     end
 
     def set_product_taxon
