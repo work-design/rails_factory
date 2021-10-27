@@ -19,8 +19,9 @@ Rails.application.routes.draw do
         end
       end
       resources :plans
-      resources :scenes
-      resources :produce_plans
+      resources :scenes do
+        resources :produce_plans
+      end
       resources :products do
         collection do
           get :add_item

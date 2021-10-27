@@ -4,8 +4,8 @@ module Factory
 
     included do
       attribute :title, :string
-      attribute :start_at, :datetime
-      attribute :finish_at, :datetime
+      attribute :produce_on, :date
+      attribute :serial_number, :integer
 
       enum state: {
         planned: 'planned',
@@ -13,9 +13,9 @@ module Factory
         produced: 'produced'
       }, _default: 'planned'
 
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
+      belongs_to :scene
 
-      has_many :product_plans, dependent: :nullify
+      has_many :production_plans, dependent: :nullify
     end
 
   end

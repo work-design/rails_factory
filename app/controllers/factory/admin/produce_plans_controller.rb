@@ -1,23 +1,36 @@
 module Factory
   class Admin::ProducePlansController < Admin::BaseController
+    before_action :set_scene
+    before_action :set_produce_plan, only: [:show, :edit, :update, :destroy]
+    before_action :set_new_produce_plan, only: [:new, :create]
 
     def index
       q_params = {}
       q_params.merge! default_params
       q_params.merge! params.permit(:title)
 
-      @produce_plans = ProducePlan.default_where(q_params).order(id: :desc).page(params[:page])
+      @produce_plans = @scene.produce_plans.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     private
+    def set_scene
+      @scene = Scene.find params[:scene_id]
+    end
+
+    def set_new_produce_plan
+      @produce_plan = @scene.produce_plans.build(produce_plan_params)
+    end
+
+    def set_produce_plan
+      @produce_plan = @scene.produce_plans.find params[:id]
+    end
+
     def produce_plan_params
-      p = params.fetch(:produce_plan, {}).permit(
-        :title,
-        :start_at,
-        :finish_at,
+      params.fetch(:produce_plan, {}).permit(
+        :scene_id,
+        :produce_on,
         :state
       )
-      p.merge! default_form_params
     end
 
   end

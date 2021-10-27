@@ -9,14 +9,14 @@ module Factory
     end
 
     def new
-      @product_plan = @product.product_plans.build
+      @production_plan = @production.production_plans.build
     end
 
     def create
-      @product_plan = @product.product_plans.build(product_plan_params)
+      @production_plan = @production.production_plans.build(production_plan_params)
 
-      unless @product_plan.save
-        render :new, locals: { model: @product_plan }, status: :unprocessable_entity
+      unless @production_plan.save
+        render :new, locals: { model: @production_plan }, status: :unprocessable_entity
       end
     end
 
@@ -30,11 +30,11 @@ module Factory
     end
 
     def prepare_form
-      @produce_plans = ProducePlan.default_where(default_params)
+      @scenes = Scene.default_where(default_params)
     end
 
-    def product_plan_params
-      params.fetch(:product_plan, {}).permit(
+    def production_plan_params
+      params.fetch(:production_plan, {}).permit(
         :scene_id,
         :start_at,
         :finish_at,

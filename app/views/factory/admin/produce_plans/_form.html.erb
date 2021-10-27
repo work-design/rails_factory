@@ -1,16 +1,2 @@
 <%= render 'error_messages', target: f.object %>
-<%= f.text_field :title, required: true %>
-<div class="field is-horizontal">
-  <%= f.label :start_at %>
-  <div class="field-body">
-    <%= f.date_field 'start_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, label: nil, required: true %>
-    <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, label: nil %>
-  </div>
-</div>
-<div class="field is-horizontal">
-  <%= f.label :finish_at %>
-  <div class="field-body">
-    <%= f.date_field 'finish_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, label: nil, required: true %>
-    <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, label: nil %>
-  </div>
-</div>
+<%= f.date_field :produce_on %>
