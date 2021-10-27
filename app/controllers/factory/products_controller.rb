@@ -11,7 +11,6 @@ module Factory
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
       if params[:produce_plan_id]
-        @produce_plan = ProducePlan.find params[:produce_plan_id]
         @products = @produce_plan.products.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
       else
         @products = Product.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
@@ -40,8 +39,12 @@ module Factory
     end
 
     def set_produce_plans
-      q_params = { 'produce_on-gte': Date.today }.merge! default_params
-      @produce_plans = ProducePlan.default_where(q_params).order(id: :asc).group_by(&:produce_on)
+      @produce_plan = ProducePlan.find params[:produce_plan_id]
+
+      q_params = { produce_on: @produce_plan.produce_on }.merge! default_params
+      q_params.merge! params.permit(:produce_on)
+
+      @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
     end
 
     def set_product_taxon
