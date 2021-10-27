@@ -1,4 +1,9 @@
-<td><%= model.title %></td>
+<td>
+  <div class="is-several">
+    <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
+    <span><%= model.title %></span>
+  </div>
+</td>
 <td>
   <p>
     <span><%= model.book_start_days %></span>
