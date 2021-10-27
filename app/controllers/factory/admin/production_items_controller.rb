@@ -11,15 +11,15 @@ module Factory
       end
       q_params.merge! params.fetch(:q, {}).permit('produced_at-gte', 'produced_at-lte')
 
-      @production_items = @production.production_items.with_attached_qr_file.default_where(q_params).page(params[:page])
+      @production_items = @production.production_items.default_where(q_params).page(params[:page])
     end
 
     def new
-      @production_item = @production.production_items.build
+      @production_item = @production_plan.production_items.build
     end
 
     def create
-      @production_item = @production.production_items.build(production_item_params)
+      @production_item = @production_plan.production_items.build(production_item_params)
 
       unless @production_item.save
         render :new, locals: { model: @production_item }, status: :unprocessable_entity
@@ -29,9 +29,7 @@ module Factory
     private
     def set_production
       @production = Production.find params[:production_id]
-      if params[:product_plan_id]
-        @product_plan = ProductPlan.find params[:product_plan_id]
-      end
+      @production_plan = ProductionPlan.find params[:production_plan_id]
     end
 
     def set_production_item

@@ -11,8 +11,6 @@ module Factory
       belongs_to :production_plan
       has_many :part_items
 
-      has_one_attached :qr_file
-
       enum state: {
         producing: 'producing',
         receiving: 'receiving',
@@ -22,15 +20,13 @@ module Factory
       }
 
       after_initialize if: :new_record? do
+        self.production = self.production_plan.production if production_plan
         self.qr_code ||= UidHelper.nsec_uuid self.production&.qr_code
       end
-      before_save :sync_qrcode, if: -> { qr_code_changed? }
     end
 
-    def sync_qrcode
-      file = QrcodeHelper.code_file(qr_code)
-      file.rewind
-      self.qr_file.attach io: file, filename: qr_code
+    def qrcode_url
+      QrcodeHelper.data_url(qr_code)
     end
 
   end

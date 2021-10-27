@@ -1,9 +1,7 @@
 <td><%= model.id %></td>
 <td><%= model.qr_code %></td>
 <td>
-  <% if model.qr_file.attached? %>
-    <%= image_tag model.qr_file.variant(resize: '100x100'), class: 'ui image' %>
-  <% end %>
+  <%= image_tag model.qrcode_url, class: 'image is-32x32' %>
 </td>
 <td><%= model.state_i18n %></td>
 <td><time data-controller="time"><%= model.produced_at.to_s(:rfc822) %></time></td>
