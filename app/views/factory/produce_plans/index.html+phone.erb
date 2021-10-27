@@ -5,13 +5,10 @@
     <span><%= produce_on %></span>
     <span><%= produce_on.to_s(:week) %></span>
   </div>
-  <div class="weui-grids">
-    <% produce_plans.each do |produce_plan| %>
-      <%= link_to({ controller: 'products', produce_plan_id: produce_plan.id }, class: 'weui-grid') do %>
-        <div class="weui-grid__icon"><%= image_tag produce_plan.scene.logo if produce_plan.scene.logo.attached? %></div>
-        <p class="weui-grid__label"><%= produce_plan.scene.title %></p>
-      <% end %>
-    <% end %>
+  <div class="weui-panel__bd">
+    <div class="columns is-flex m-0">
+      <%= render partial: 'produce_plan', collection: produce_plans, as: :model %>
+    </div>
   </div>
 </div>
 <% end %>
