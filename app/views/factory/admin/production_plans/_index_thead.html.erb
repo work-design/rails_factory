@@ -1,9 +1,12 @@
 <th><%= Factory::ProductionPlan.human_attribute_name(:produce_plan_id) %></th>
+<th><%= Factory::ProductionPlan.human_attribute_name(:produce_on) %></th>
 <th>
   <p><%= Factory::ProductionPlan.human_attribute_name(:start_at) %></p>
   <p><%= Factory::ProductionPlan.human_attribute_name(:finish_at) %></p>
 </th>
 <th><%= Factory::ProductionPlan.human_attribute_name(:state) %></th>
-<th><%= Factory::ProductionPlan.human_attribute_name(:planned_count) %></th>
-<th><%= Factory::ProductionPlan.human_attribute_name(:produced_count) %></th>
+<th>
+  <p><%= Factory::ProductionPlan.human_attribute_name(:planned_count) %></p>
+  <p><%= Factory::ProductionPlan.human_attribute_name(:produced_count) %></p>
+</th>
 <th></th>
