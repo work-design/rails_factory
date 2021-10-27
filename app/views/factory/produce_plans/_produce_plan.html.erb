@@ -9,5 +9,8 @@
   </p>
   <p class="is-size-7">
     <span>配送时间：</span>
+    <time><%= model.scene.deliver_start_at.to_s(:time) %></time>
+    <span>~</span>
+    <time><%= model.scene.deliver_finish_at.to_s(:time) %></time>
   </p>
 <% end %>
