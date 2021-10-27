@@ -12,6 +12,9 @@ zh:
     product_taxons:
       index:
         title: 类别
+    produce_plans:
+      index:
+        title: 选择场景
     admin:
       title: 产品/生产
       factory_taxons:

@@ -13,6 +13,8 @@ module Factory
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
+      has_one_attached :logo
+
       has_many :produce_plans, dependent: :nullify
     end
 

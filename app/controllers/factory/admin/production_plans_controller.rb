@@ -38,6 +38,7 @@ module Factory
         :scene_id,
         :start_at,
         :finish_at,
+        :produce_on,
         :state,
         :planned_count
       )
