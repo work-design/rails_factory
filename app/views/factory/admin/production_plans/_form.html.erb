@@ -2,5 +2,4 @@
 <%= f.collection_select :scene_id, @scenes, :id, :title %>
 <%= f.select :state, options_for_select(Factory::ProductionPlan.options_i18n(:state), f.object.state) %>
 <%= f.number_field :planned_count, required: true %>
-<%= f.datetime_field :start_at, required: true %>
-<%= f.datetime_field :finish_at, required: true %>
+<%= f.date_field :produce_on, required: true %>

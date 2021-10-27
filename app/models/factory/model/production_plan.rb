@@ -8,6 +8,7 @@ module Factory
       attribute :state, :string
       attribute :planned_count, :integer, default: 0
       attribute :produced_count, :integer, default: 0
+      attribute :produce_on, :date
 
       belongs_to :production
       belongs_to :scene, optional: true

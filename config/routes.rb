@@ -30,7 +30,6 @@ Rails.application.routes.draw do
         member do
           get :part
         end
-        resources :product_items
         resources :product_part_taxons, as: 'part_taxons', path: 'part_taxons'
         resources :product_parts, as: 'parts', path: 'parts'
         resources :productions do
@@ -39,13 +38,15 @@ Rails.application.routes.draw do
             get :price
             patch :provide
           end
-          resources :production_plans
         end
       end
       resources :productions, only: [] do
         resources :addresses
         resources :trade_items
         resources :provideds
+        resources :production_plans do
+          resources :production_items
+        end
       end
       resources :part_taxons do
         member do

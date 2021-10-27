@@ -1,0 +1,12 @@
+<%= form_with theme: 'search', model: Factory::ProductionItem.new do |f| %>
+  <div class="field-body">
+    <%= f.date_field 'produced_at-gte' %>
+    <%= f.date_field 'produced_at-lte' %>
+    <div class="field is-narrow">
+      <%= f.submit %>
+      <%= link_to t('.clear'), filter_params(except: [:name]), class: 'button is-light' %>
+    </div>
+  </div>
+<% end %>
+
+

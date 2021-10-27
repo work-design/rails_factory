@@ -15,7 +15,7 @@ module Factory
 
       belongs_to :scene
 
-      has_many :production_plans, dependent: :nullify
+      has_many :production_plans, ->(o){ where(produce_on: o.produce_on) }, foreign_key: :scene_id, primary_key: :scene_id, dependent: :nullify
     end
 
   end
