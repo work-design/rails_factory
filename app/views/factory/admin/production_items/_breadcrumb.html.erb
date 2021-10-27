@@ -2,6 +2,9 @@
   <ul>
     <li><%= link_to t('factory.admin.products.index.title'), { controller: 'products' } %></li>
     <li><%= link_to t('factory.admin.productions.index.title'), { controller: 'productions', product_id: @production.product_id } %></li>
+    <li>
+      <%= link_to @production_plan.produce_on, { controller: 'production_plans', production_id: @production.id } %>
+    </li>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>
