@@ -42,6 +42,9 @@ zh:
       production_plans:
         index:
           title: 产品批次
+      production_items:
+        index:
+          title: 产品清单
       parts:
         index:
           title: 配件/零件/原料

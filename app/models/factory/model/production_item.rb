@@ -22,7 +22,7 @@ module Factory
       }
 
       after_initialize if: :new_record? do
-        self.qr_code ||= UidHelper.nsec_uuid self.production&.qr_prefix
+        self.qr_code ||= UidHelper.nsec_uuid self.production&.qr_code
       end
       before_save :sync_qrcode, if: -> { qr_code_changed? }
     end
