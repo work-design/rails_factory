@@ -1,3 +1,3 @@
 <%= render 'error_messages', target: f.object %>
 <%= f.text_field :qr_code %>
-<%= f.datetime_field :produced_at %>
+<%= f.datetime_field :produced_at, value: Time.current.to_s(:local) %>
