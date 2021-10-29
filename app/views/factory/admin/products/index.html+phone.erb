@@ -1,6 +1,6 @@
 <%= render layout: 'index_table', locals: { cache_key: Factory::Product.column_names.hash } do %>
   <% @products.group_by(&:product_taxon).each do |taxon, products| %>
-    <%= render partial: 'index_tbody', collection: products, as: :model %>
+    <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
   <% end %>
 <% end %>
 
