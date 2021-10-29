@@ -38,6 +38,7 @@ Rails.application.routes.draw do
             get :part
             get :price
             patch :provide
+            patch :actions
           end
         end
       end
