@@ -1,0 +1,8 @@
+<%= link_to({ controller: 'factory/admin/home' }, class: active_helper(controllers: 'factory/admin/home', item: 'weui-tabbar__item', active: 'weui-tabbar__item weui-bar__item_on')) do %>
+  <i class="fa-light fa-house-blank weui-tabbar__icon"></i>
+  <div class="weui-tabbar__label">首页</div>
+<% end %>
+<%= link_to({ controller: '/me/home', action: 'index' }, class: active_helper(controllers: 'me/home', item: 'weui-tabbar__item', active: 'weui-tabbar__item weui-bar__item_on')) do %>
+  <i class="fa-light fa-user weui-tabbar__icon"></i>
+  <div class="weui-tabbar__label"><%= t('me.home.index.title') %></div>
+<% end %>

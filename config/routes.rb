@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :produce_plans
 
     namespace :admin, defaults: { namespace: 'admin' } do
+      root 'home#index'
       resources :product_taxons do
         member do
           patch :reorder
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
       end
       resources :plans
       resources :scenes do
+        member do
+          patch :actions
+        end
         resources :produce_plans
       end
       resources :products do
