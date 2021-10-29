@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         end
         member do
           get :part
+          patch :actions
         end
         resources :product_part_taxons, as: 'part_taxons', path: 'part_taxons'
         resources :product_parts, as: 'parts', path: 'parts'

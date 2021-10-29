@@ -1,6 +1,6 @@
 module Factory
   class Admin::ProductsController < Admin::BaseController
-    before_action :set_product, only: [:show, :edit, :part, :update, :destroy]
+    before_action :set_product, only: [:show, :edit, :actions, :part, :update, :destroy]
 
     def index
       q_params = {}
