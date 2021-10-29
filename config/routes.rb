@@ -47,7 +47,14 @@ Rails.application.routes.draw do
         resources :trade_items
         resources :provideds
         resources :production_plans do
-          resources :production_items
+          member do
+            patch :actions
+          end
+          resources :production_items do
+            member do
+              patch :actions
+            end
+          end
         end
       end
       resources :part_taxons do
