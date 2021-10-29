@@ -30,6 +30,8 @@ zh:
         book_finish_at: 预定结束时间
         deliver_start_at: 配送开始时间
         deliver_finish_at: 配送结束时间
+      factory/produce_plan:
+        produce_on: 生产日期
       factory/product_taxon:
         factory_taxon_id: 平台分类
       factory/part_taxon_provider:

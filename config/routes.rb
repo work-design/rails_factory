@@ -24,7 +24,11 @@ Rails.application.routes.draw do
         member do
           patch :actions
         end
-        resources :produce_plans
+        resources :produce_plans do
+          member do
+            patch :actions
+          end
+        end
       end
       resources :products do
         collection do
