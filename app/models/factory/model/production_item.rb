@@ -22,6 +22,7 @@ module Factory
       after_initialize if: :new_record? do
         self.production = self.production_plan.production if production_plan
         self.qr_code ||= UidHelper.nsec_uuid self.production&.qr_code
+        self.produced_at ||= Time.current
       end
     end
 
