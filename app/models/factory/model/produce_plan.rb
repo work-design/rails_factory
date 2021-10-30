@@ -13,18 +13,19 @@ module Factory
         produced: 'produced'
       }, _default: 'planned'
 
-      belongs_to :scene
-
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
       has_many :trade_items, class_name: 'Trade::TradeItem'
 
+      belongs_to :scene
       has_many :production_plans, ->(o){ where(produce_on: o.produce_on) }, foreign_key: :scene_id, primary_key: :scene_id, dependent: :nullify
       has_many :productions, through: :production_plans
       has_many :products, through: :production_plans
 
-      validates :produce_on, uniqueness: true
+      validates :produce_on, uniqueness: { scope: [:organ_id, :scene_id] }
 
       after_initialize if: :new_record? do
         self.produce_on ||= Date.tomorrow
+        self.organ_id = scene.organ_id if scene
       end
     end
 

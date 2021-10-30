@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
     namespace :admin, defaults: { namespace: 'admin' } do
       root 'home#index'
+      scope :produce_on, controller: :produce_on do
+        get :index
+      end
       resources :product_taxons do
         member do
           patch :reorder

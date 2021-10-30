@@ -24,28 +24,10 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
     def part
     end
 
     def price
-    end
-
-    def update
-      @production.assign_attributes(production_params)
-
-      unless @production.save
-        render :edit, locals: { model: @production }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @production.destroy
     end
 
     def provide

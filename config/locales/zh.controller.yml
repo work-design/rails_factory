@@ -25,6 +25,9 @@ zh:
       scenes:
         index:
           title: 场景
+      produce_on:
+        index:
+          title: 计划
       produce_plans:
         index:
           title: 生产计划
