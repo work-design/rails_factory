@@ -8,7 +8,7 @@ module Factory
         'produce_on-gte': @produce_ons.first,
         'produce_on-lte': @produce_ons.last
       }
-      q_params.merge! @default_params
+      q_params.merge! default_params
 
       @produce_plans = ProducePlan.default_where(q_params)
     end
