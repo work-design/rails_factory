@@ -36,3 +36,6 @@ zh:
         factory_taxon_id: 平台分类
       factory/part_taxon_provider:
         provider_id: 供应商
+      factory/production_plan:
+        planned_count: 计划生产数
+        production_items_count: 已生产数

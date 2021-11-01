@@ -1,4 +1,4 @@
-<%= render 'error_messages', target: @product_taxon %>
+<%= render 'error_messages', target: f.object %>
 <%= render partial: 'com/nodes/siblings_select', locals: { f: f } %>
 <%= f.text_field :name %>
 <%= f.file_field :logo %>

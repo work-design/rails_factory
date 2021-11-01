@@ -30,5 +30,9 @@ module Factory
       QrcodeHelper.data_url(qr_code)
     end
 
+    def print
+
+    end
+
   end
 end
