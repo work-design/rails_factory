@@ -8,6 +8,8 @@ module Factory
       attribute :products_count, :integer, default: 0
       attribute :enabled, :boolean, default: true
 
+      belongs_to :template, class_name: 'JiaBo::Template', optional: true
+
       belongs_to :organ, optional: true
       belongs_to :factory_taxon, optional: true
       belongs_to :scene, optional: true

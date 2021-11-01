@@ -31,7 +31,16 @@ module Factory
     end
 
     def print
+      device = JiaBo::Device.first
+      template = JiaBo::Template.first
+      data = {
+        name: production.name,
+        price: production.price,
+        qrcode: qr_code,
+        customer: 'test'
+      }
 
+      device.templet_print(msg_no: qr_code, template_id: template.code, data: data)
     end
 
   end
