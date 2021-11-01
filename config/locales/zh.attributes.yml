@@ -34,6 +34,7 @@ zh:
         produce_on: 生产日期
       factory/product_taxon:
         factory_taxon_id: 平台分类
+        scene_id: 场景
       factory/part_taxon_provider:
         provider_id: 供应商
       factory/production_plan:

@@ -1,6 +1,8 @@
 module Factory
   class Admin::ProductTaxonsController < Admin::BaseController
     before_action :set_product_taxon, only: [:show, :edit, :update, :reorder, :destroy]
+    before_action :set_factory_taxons, only: [:new, :edit]
+    before_action :set_scenes, only: [:new, :edit]
 
     def index
       q_params = {}
@@ -40,6 +42,14 @@ module Factory
       @product_taxon = ProductTaxon.find(params[:id])
     end
 
+    def set_factory_taxons
+      @factory_taxons = FactoryTaxon.all
+    end
+
+    def set_scenes
+      @scenes = Scene.default_where(default_params)
+    end
+
     def product_taxon_params
       p = params.fetch(:product_taxon, {}).permit(
         :name,
@@ -48,6 +58,7 @@ module Factory
         :parent_id,
         :enabled,
         :factory_taxon_id,
+        :scene_id,
         :parent_ancestors
       )
       p.merge! default_form_params

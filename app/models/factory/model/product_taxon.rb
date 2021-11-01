@@ -10,6 +10,7 @@ module Factory
 
       belongs_to :organ, optional: true
       belongs_to :factory_taxon, optional: true
+      belongs_to :scene, optional: true
 
       has_many :products, dependent: :nullify
 

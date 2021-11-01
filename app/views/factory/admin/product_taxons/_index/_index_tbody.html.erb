@@ -3,6 +3,7 @@
   <span><%= model.name %></span>
 </td>
 <td><%= link_to model.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: model.factory_taxon_id }, text: true if model.factory_taxon %></td>
+<td><%= model.scene&.title %></td>
 <td><%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %></td>
 <td><%= model.products.where(enabled: true).count %></td>
 <th>
