@@ -23,13 +23,9 @@ module Factory
       }
 
       after_initialize if: :new_record? do
+        self.product = production.product
         #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
       end
-      before_validation :sync_product, if: -> { production.present? && (production_id_changed? || new_record?) }
-    end
-
-    def sync_product
-      self.product = production.product
     end
 
   end
