@@ -67,6 +67,7 @@ Rails.application.routes.draw do
             end
             member do
               patch :actions
+              patch :print
             end
           end
         end

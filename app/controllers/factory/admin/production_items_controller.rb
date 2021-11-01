@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionItemsController < Admin::BaseController
     before_action :set_production
-    before_action :set_production_item, only: [:show, :edit, :update, :destroy]
+    before_action :set_production_item, only: [:show, :print, :edit, :update, :destroy]
     before_action :set_new_production_item, only: [:index, :new, :create]
 
     def index
@@ -20,6 +20,10 @@ module Factory
         @production_plan.production_items.build
       end
       @production_plan.save
+    end
+
+    def print
+      @production_item.print
     end
 
     private
