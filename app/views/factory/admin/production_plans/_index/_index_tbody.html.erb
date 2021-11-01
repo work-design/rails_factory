@@ -7,5 +7,5 @@
 <td><%= model.state_i18n %></td>
 <td>
   <p><%= model.planned_count %></p>
-  <p><%= link_to model.produced_count, { controller: 'production_items', production_plan_id: model.id } %></p>
+  <p><%= link_to model.production_items_count, { controller: 'production_items', production_plan_id: model.id } %></p>
 </td>

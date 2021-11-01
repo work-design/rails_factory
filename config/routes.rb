@@ -62,6 +62,9 @@ Rails.application.routes.draw do
             patch :actions
           end
           resources :production_items do
+            collection do
+              post :batch
+            end
             member do
               patch :actions
             end

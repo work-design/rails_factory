@@ -7,7 +7,7 @@ module Factory
       attribute :finish_at, :datetime
       attribute :state, :string
       attribute :planned_count, :integer, default: 0
-      attribute :produced_count, :integer, default: 0
+      attribute :production_items_count, :integer, default: 0
       attribute :produce_on, :date
 
       belongs_to :production

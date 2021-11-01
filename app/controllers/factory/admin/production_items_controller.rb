@@ -10,9 +10,16 @@ module Factory
       if @product_plan
         q_params.merge!('produced_at-gte': @product_plan.start_at, 'produced_at-lte': @product_plan.finish_at)
       end
-      q_params.merge! params.fetch(:q, {}).permit('produced_at-gte', 'produced_at-lte')
+      q_params.merge! params.permit('produced_at-gte', 'produced_at-lte')
 
       @production_items = @production.production_items.default_where(q_params).page(params[:page])
+    end
+
+    def batch
+      (@production_plan.planned_count - @production_plan.production_items_count).times do
+        @production_plan.production_items.build
+      end
+      @production_plan.save
     end
 
     private

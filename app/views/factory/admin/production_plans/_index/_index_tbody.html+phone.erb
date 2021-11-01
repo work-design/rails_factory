@@ -4,4 +4,4 @@
 <p class="weui-media-box__desc"><time data-controller="time"><%= model.finish_at.to_s(:rfc822) if model.finish_at %></time></p>
 <p class="weui-media-box__desc"><%= model.state_i18n %></p>
 <p class="weui-media-box__desc"><%= model.planned_count %></p>
-<p class="weui-media-box__desc"><%= link_to model.produced_count, { controller: 'production_items', production_plan_id: model.id } %></p>
+<p class="weui-media-box__desc"><%= link_to model.producion_items_count, { controller: 'production_items', production_plan_id: model.id } %></p>

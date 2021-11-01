@@ -8,7 +8,7 @@ module Factory
       attribute :produced_at, :datetime
 
       belongs_to :production
-      belongs_to :production_plan
+      belongs_to :production_plan, counter_cache: true
       has_many :part_items
 
       enum state: {
