@@ -1,15 +1,5 @@
-<td>
-  <div class="is-several">
-    <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.logo.attached? %>
-    <%= link_to model.name, { action: 'show', id: model.id }, text: true %>
-  </div>
-</td>
-<td><%= model.qr_prefix %></td>
-<td><%= model.profit_margin_str %></td>
-<td>
-  <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>
-  <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
-</td>
+<td><%= link_to model.name, { action: 'show', id: model.id }, text: true %></td>
+<td><%= model.price.to_money.format(html_wrap: true).html_safe %></td>
 <td>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>

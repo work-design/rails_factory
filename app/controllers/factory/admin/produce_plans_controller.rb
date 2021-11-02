@@ -13,10 +13,12 @@ module Factory
     end
 
     def products
+      @product_taxons = @produce_plan.scene.product_taxons
       q_params = {
-        product_taxon_id: @produce_plan.scene.product_taxon_ids
+        product_taxon_id: @product_taxons.map(&:id)
       }
       q_params.merge! default_params
+      q_params.merge! params.permit(:product_taxon_id)
 
       @products = Product.includes(:productions, :product_taxon, logo_attachment: :blob).default_where(q_params).order(product_taxon_id: :desc).page(params[:page])
     end
