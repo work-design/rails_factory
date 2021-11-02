@@ -1,10 +1,17 @@
 <div class="weui-half-screen-dialog" data-weui-dialog-target="dialog">
   <div class="weui-half-screen-dialog__hd">
     <div class="weui-half-screen-dialog__hd__side">
+    <% if @produce_plan.prev_exist? %>
       <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on - 1 }) do %>
         <i class="fa-solid fa-chevron-left has-text-info"></i>
-        <span>前一天</span>
+        <span class="has-text-info">前一天</span>
       <% end %>
+    <% else %>
+      <div>
+        <i class="fa-solid fa-chevron-left has-text-grey"></i>
+        <span>前一天</span>
+      </div>
+    <% end %>
     </div>
     <div class="weui-half-screen-dialog__hd__main">
       <div class="weui-half-screen-dialog__title">
@@ -13,10 +20,17 @@
       </div>
     </div>
     <div class="weui-half-screen-dialog__hd__side">
+    <% if @produce_plan.next_exist? %>
       <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on + 1 }) do %>
-        <span>后一天</span>
+        <span class="has-text-info">后一天</span>
         <i class="fa-solid fa-chevron-right has-text-info"></i>
       <% end %>
+    <% else %>
+      <div>
+        <span>后一天</span>
+        <i class="fa-solid fa-chevron-right has-text-grey"></i>
+      </div>
+    <% end %>
     </div>
   </div>
   <div class="weui-half-screen-dialog__bd">

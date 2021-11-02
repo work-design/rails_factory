@@ -29,5 +29,13 @@ module Factory
       end
     end
 
+    def next_exist?
+      self.class.where(organ_id: self.organ_id, produce_on: produce_on + 1).exists?
+    end
+
+    def prev_exist?
+      produce_on - 1 >= Date.today && self.class.where(organ_id: self.organ_id, produce_on: produce_on - 1).exists?
+    end
+
   end
 end
