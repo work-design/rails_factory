@@ -14,6 +14,7 @@ module Factory
 
     def products
       @product_taxons = @produce_plan.scene.product_taxons
+      @production_plans = @produce_plan.production_plans
       q_params = {
         product_taxon_id: @product_taxons.map(&:id)
       }
