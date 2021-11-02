@@ -20,3 +20,10 @@
     <% end if production_plan %>
   </div>
 </td>
+<td>
+  <%= link_to({ controller: 'production_items', production_id: production_plan.production_id, production_plan_id: production_plan.id }, target: '_blank', class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-light fa-barcode-scan"></i>
+    <span>生产明细</span>
+    <span class="has-text-grey">（<%= production_plan.production_items_count %>）</span>
+  <% end if production_plan %>
+</td>
