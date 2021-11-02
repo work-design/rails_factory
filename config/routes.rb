@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       end
     end
     resources :products do
+      collection do
+        post :plan
+      end
       resources :product_plans, only: [:index, :show]
     end
     resources :product_taxons

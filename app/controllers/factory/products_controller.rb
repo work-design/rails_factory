@@ -15,6 +15,9 @@ module Factory
       else
         @products = Product.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
       end
+    end
+
+    def plan
 
     end
 
