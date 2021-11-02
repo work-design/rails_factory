@@ -3,3 +3,6 @@
   <%= f.hidden_field :produced_at, value: Time.current.to_s(:local) %>
   <%= f.submit '新增' %>
 <% end %>
+<%= form_with theme: nil, model: @production_item, url: { action: 'batch' }, class: 'weui-btn_cell weui-btn_cell-primary' do |f| %>
+  <%= f.submit '批量新增', class: 'button is-info' %>
+<% end %>

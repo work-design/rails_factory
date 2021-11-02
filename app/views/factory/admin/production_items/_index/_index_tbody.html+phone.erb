@@ -1,0 +1,7 @@
+<p class="weui-media-box__desc"><%= model.id %></p>
+<p class="weui-media-box__desc"><%= model.qr_code %></p>
+<p class="weui-media-box__desc">
+  <%= image_tag model.qrcode_url, class: 'image is-32x32' %>
+</p>
+<p class="weui-media-box__desc"><%= model.state_i18n %></p>
+<p class="weui-media-box__desc"><time data-controller="time"><%= model.produced_at.to_s(:rfc822) %></time></p>
