@@ -12,6 +12,14 @@ module Factory
       @produce_plans = @scene.produce_plans.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
+    def products
+      q_params = {}
+      q_params.merge! default_params
+      q_params.merge! params.permit(:product_taxon_id)
+
+      @products = Product.includes(:productions, :product_taxon, logo_attachment: :blob).default_where(q_params).order(product_taxon_id: :desc).page(params[:page])
+    end
+
     private
     def set_scene
       @scene = Scene.find params[:scene_id]

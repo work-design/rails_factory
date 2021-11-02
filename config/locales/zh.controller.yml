@@ -31,6 +31,8 @@ zh:
       produce_plans:
         index:
           title: 生产计划
+        products:
+          title: 产品管理
       products:
         index:
           title: 产品

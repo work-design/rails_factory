@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         end
         resources :produce_plans do
           member do
+            get :products
             patch :actions
           end
         end
