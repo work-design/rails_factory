@@ -1,7 +1,7 @@
 module Factory
   class ProductsController < BaseController
     before_action :set_product_taxon
-    before_action :set_produce_plans, only: [:index]
+    before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
 
@@ -18,7 +18,12 @@ module Factory
     end
 
     def plan
+      produce_plan = ProducePlan.find params[:produce_plan_id]
+      q_params = { produce_on: params[:produce_on] }
+      q_params.merge! default_params
 
+      @produce_plan = ProducePlan.default_where(q_params).find_by(scene_id: produce_plan.scene_id)
+      @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
     end
 
     def show
@@ -45,7 +50,8 @@ module Factory
       if params[:produce_plan_id]
         @produce_plan = ProducePlan.find params[:produce_plan_id]
 
-        q_params = { produce_on: @produce_plan.produce_on }.merge! default_params
+        q_params = { produce_on: @produce_plan.produce_on }
+        q_params.merge! default_params
         q_params.merge! params.permit(:produce_on)
 
         @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
