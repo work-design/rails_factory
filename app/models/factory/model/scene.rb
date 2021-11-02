@@ -16,6 +16,7 @@ module Factory
       has_one_attached :logo
 
       has_many :produce_plans, dependent: :nullify
+      has_many :product_taxons, dependent: :nullify
     end
 
   end

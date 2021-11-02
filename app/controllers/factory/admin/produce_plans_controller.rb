@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProducePlansController < Admin::BaseController
     before_action :set_scene
-    before_action :set_produce_plan, only: [:show, :edit, :update, :destroy]
+    before_action :set_produce_plan, only: [:show, :products, :edit, :update, :destroy]
     before_action :set_new_produce_plan, only: [:new, :create]
 
     def index
@@ -13,9 +13,10 @@ module Factory
     end
 
     def products
-      q_params = {}
+      q_params = {
+        product_taxon_id: @produce_plan.scene.product_taxon_ids
+      }
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id)
 
       @products = Product.includes(:productions, :product_taxon, logo_attachment: :blob).default_where(q_params).order(product_taxon_id: :desc).page(params[:page])
     end
