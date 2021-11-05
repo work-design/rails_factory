@@ -2,9 +2,8 @@
   <div class="weui-grid__icon"><%= image_tag model.scene.logo if model.scene.logo.attached? %></div>
   <p class="weui-grid__label <%= @produce_plan.scene_id == model.scene_id ? 'has-text-success' : 'has-text-grey' %>"><%= model.scene.title %></p>
   <p class="is-size-7">
-    <span>预定时间：</span>
-    <time><%= model.scene.book_start_at.to_s(:time) %></time>
-    <span>~</span>
+    <span>预定截止：</span>
+    <time><%= model.produce_on.to_s(:month_and_day) %></time>
     <time><%= model.scene.book_finish_at.to_s(:time) %></time>
   </p>
   <p class="is-size-7">
