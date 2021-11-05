@@ -1,4 +1,4 @@
-<% trade_item = current_cart.trade_items.checked.find(&->(i){ i.good_type == model.class_name && i.good_id == model.id }) %>
+<% trade_item = current_cart.trade_items.find(&->(i){ i.good_type == model.class_name && i.good_id == model.id }) %>
 <%= button_to({ controller: 'trade/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number - 1 }, class: 'mr-1') do %>
   <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
 <% end if trade_item && trade_item.number > 1 %>
