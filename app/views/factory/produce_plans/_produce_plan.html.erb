@@ -10,6 +10,8 @@
     <span>~</span>
     <time><%= model.scene.deliver_finish_at.to_s(:time) %></time>
   </p>
-  <div class="weui-grid__icon"><%= image_tag model.scene.logo if model.scene.logo.attached? %></div>
-  <p class="weui-grid__label"><%= model.scene.title %></p>
+  <div class="weui-btn weui-btn_mini weui-btn_default is-several is-justify-content-center mt-4">
+    <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
+    <span><%= model.scene.title %></span>
+  </div>
 <% end %>
