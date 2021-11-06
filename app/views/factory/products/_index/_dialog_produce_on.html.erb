@@ -1,41 +1,50 @@
 <div class="weui-half-screen-dialog" data-weui-dialog-target="dialog">
   <div class="weui-half-screen-dialog__hd">
     <div class="weui-half-screen-dialog__hd__side">
-    <% if @produce_plan.prev_exist? %>
-      <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on - 1 }) do %>
-        <i class="fa-solid fa-chevron-left has-text-info"></i>
-        <span class="has-text-info">前一天</span>
-      <% end %>
-    <% else %>
-      <div>
-        <i class="fa-solid fa-chevron-left has-text-grey"></i>
-        <span>前一天</span>
-      </div>
-    <% end %>
+      <button class="weui-icon-btn weui-wa-hotarea" data-action="weui-dialog#close">
+        <i class="weui-icon-close-thin"></i>
+      </button>
     </div>
     <div class="weui-half-screen-dialog__hd__main">
       <div class="weui-half-screen-dialog__title">
-        <span><%= extra_distance_date(Date.today, @produce_plan.produce_on) %></span>
-        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_plan.produce_on %></span>
+        <span><%= @produce_plan.scene.title %></span>
+        <span class="has-text-weight-normal has-text-grey is-size-7">（<%= @produce_plan.produce_on %>）</span>
       </div>
     </div>
-    <div class="weui-half-screen-dialog__hd__side">
-    <% if @produce_plan.next_exist? %>
-      <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on + 1 }) do %>
-        <span class="has-text-info">后一天</span>
-        <i class="fa-solid fa-chevron-right has-text-info"></i>
-      <% end %>
-    <% else %>
-      <div>
-        <span>后一天</span>
-        <i class="fa-solid fa-chevron-right has-text-grey"></i>
-      </div>
-    <% end %>
-    </div>
+    <div class="weui-half-screen-dialog__hd__side"></div>
   </div>
   <div class="weui-half-screen-dialog__bd">
     <div class="columns as-border is-flex m-0 p-4">
-      <%= render partial: 'produce_plan', collection: @produce_plans, as: :model %>
+      <div class="column is-half">
+      <% if @produce_plan.prev_exist? %>
+        <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on - 1 }) do %>
+          <i class="fa-solid fa-chevron-left has-text-info"></i>
+          <span class="has-text-info">前一天</span>
+          <span class="has-text-grey is-size-7"><%= @produce_plan.produce_on - 1 %></span>
+        <% end %>
+      <% else %>
+        <div>
+          <i class="fa-solid fa-chevron-left has-text-grey"></i>
+          <span>前一天</span>
+          <span class="has-text-grey is-size-7"><%= @produce_plan.produce_on - 1 %></span>
+        </div>
+      <% end %>
+      </div>
+      <div class="column is-half">
+      <% if @produce_plan.next_exist? %>
+        <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on + 1 }) do %>
+          <span class="has-text-info">后一天</span>
+          <span class="has-text-grey is-size-7"><%= @produce_plan.produce_on + 1 %></span>
+          <i class="fa-solid fa-chevron-right has-text-info"></i>
+        <% end %>
+      <% else %>
+        <div class="has-text-right">
+          <span>后一天</span>
+          <span class="has-text-grey is-size-7"><%= @produce_plan.produce_on + 1 %></span>
+          <i class="fa-solid fa-chevron-right has-text-grey"></i>
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
   <div class="weui-half-screen-dialog__ft"></div>
