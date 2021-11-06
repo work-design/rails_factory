@@ -17,12 +17,15 @@ module Factory
       end
     end
 
-    def plan
-      produce_plan = ProducePlan.find params[:produce_plan_id]
-      q_params = { produce_on: params[:produce_on] }
+    def produce_on
+      @produce_plan = ProducePlan.find params[:produce_plan_id]
+    end
+
+    def scene
+      @produce_plan = ProducePlan.find params[:produce_plan_id]
+      q_params = { produce_on: @produce_plan.produce_on }
       q_params.merge! default_params
 
-      @produce_plan = ProducePlan.default_where(q_params).find_by(scene_id: produce_plan.scene_id) || ProducePlan.default_where(q_params).first
       @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
     end
 

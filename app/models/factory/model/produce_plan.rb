@@ -29,12 +29,12 @@ module Factory
       end
     end
 
-    def next_exist?
-      self.class.where(organ_id: self.organ_id, produce_on: produce_on + 1).exists?
+    def next_plan
+      self.class.find_by(organ_id: self.organ_id, scene_id: self.scene_id, produce_on: produce_on + 1)
     end
 
-    def prev_exist?
-      produce_on - 1 >= Date.today && self.class.where(organ_id: self.organ_id, produce_on: produce_on - 1).exists?
+    def prev_plan
+      produce_on - 1 >= Date.today && self.class.find_by(organ_id: self.organ_id, scene_id: self.scene_id, produce_on: produce_on - 1)
     end
 
   end

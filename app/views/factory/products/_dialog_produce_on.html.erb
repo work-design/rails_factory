@@ -16,8 +16,8 @@
   <div class="weui-half-screen-dialog__bd">
     <div class="columns as-border is-flex m-0 p-4">
       <div class="column is-half">
-      <% if @produce_plan.prev_exist? %>
-        <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on - 1 }) do %>
+      <% if @produce_plan.prev_plan %>
+        <%= link_to({ action: 'index', produce_plan_id: @produce_plan.prev_plan.id }) do %>
           <i class="fa-solid fa-chevron-left has-text-info"></i>
           <span class="has-text-info">前一天</span>
           <span class="has-text-grey is-size-7"><%= @produce_plan.produce_on - 1 %></span>
@@ -31,8 +31,8 @@
       <% end %>
       </div>
       <div class="column is-half">
-      <% if @produce_plan.next_exist? %>
-        <%= button_to({ action: 'plan', produce_plan_id: @produce_plan.id, produce_on: @produce_plan.produce_on + 1 }) do %>
+      <% if @produce_plan.next_plan %>
+        <%= link_to({ action: 'index', produce_plan_id: @produce_plan.next_plan.id }) do %>
           <span class="has-text-info">后一天</span>
           <span class="has-text-grey is-size-7"><%= @produce_plan.produce_on + 1 %></span>
           <i class="fa-solid fa-chevron-right has-text-info"></i>

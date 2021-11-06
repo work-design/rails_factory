@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     end
     resources :products do
       collection do
-        post :plan
+        post :scene
+        post :produce_on
       end
       resources :product_plans, only: [:index, :show]
     end
