@@ -32,6 +32,7 @@ zh:
         deliver_finish_at: 配送结束时间
       factory/produce_plan:
         produce_on: 生产日期
+        specialty: 主推
       factory/product_taxon:
         factory_taxon_id: 平台分类
         scene_id: 场景

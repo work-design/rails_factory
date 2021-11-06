@@ -40,7 +40,8 @@ module Factory
         :finish_at,
         :produce_on,
         :state,
-        :planned_count
+        :planned_count,
+        :specialty
       )
     end
 
