@@ -28,6 +28,11 @@ module Factory
         self.produce_on ||= Date.tomorrow
         #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
       end
+      after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
+    end
+
+    def set_specialty
+      self.class.where.not(id: self.id).where(scene_id: self.scene_id, produce_on: self.produce_on).update_all(specialty: false)
     end
 
   end
