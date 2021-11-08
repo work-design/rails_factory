@@ -18,3 +18,9 @@
   <p><time><%= model.deliver_start_at.to_s(:time) %></time></p>
   <p><time><%= model.deliver_finish_at.to_s(:time) %></time></p>
 </td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :specialty, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>
