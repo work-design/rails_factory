@@ -17,6 +17,8 @@ module Factory
       has_many :trade_items, class_name: 'Trade::TradeItem'
 
       belongs_to :scene
+      has_one :specialty_production_plan, ->(o){ where(produce_on: o.produce_on, specialty: true) }, foreign_key: :scene_id, primary_key: :scene_id, dependent: :nullify
+      has_one :specialty_production, through: :specialty_production_plan
       has_many :production_plans, ->(o){ where(produce_on: o.produce_on) }, foreign_key: :scene_id, primary_key: :scene_id, dependent: :nullify
       has_many :productions, through: :production_plans
       has_many :products, through: :production_plans
