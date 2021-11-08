@@ -1,16 +1,16 @@
 <%= link_to({ controller: '/factory/products', produce_plan_id: model.id }, class: 'column is-half-mobile has-text-grey') do %>
-  <p class="is-size-7">
+  <p class="is-size-7 has-text-centered">
     <span>预定截止：</span>
     <span><%= extra_distance_date(Date.today, model.produce_on) %></span>
     <time><%= model.scene.book_finish_at.to_s(:time) %></time>
   </p>
-  <p class="is-size-7">
+  <p class="is-size-7 has-text-centered">
     <span>配送时间：</span>
     <time><%= model.scene.deliver_start_at.to_s(:time) %></time>
     <span>~</span>
     <time><%= model.scene.deliver_finish_at.to_s(:time) %></time>
   </p>
-  <div class="weui-btn weui-btn_mini weui-btn_default is-several is-justify-content-center mt-4">
+  <div class="weui-btn weui-btn_mini weui-btn_default is-several is-justify-content-center mt-4 px-0">
     <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
     <span><%= model.scene.title %></span>
   </div>
