@@ -1,7 +1,13 @@
 <div class="breadcrumb has-succeeds-separator">
   <ul>
     <li><%= link_to t('factory.admin.products.index.title'), { controller: 'products' } %></li>
-    <li><%= link_to t('factory.admin.productions.index.title'), { controller: 'productions', product_id: @production.product_id } %></li>
+    <li><%= link_to @production.product.name, { controller: 'products', id: @production.product_id } %></li>
+    <li>
+      <%= link_to({ controller: 'productions', product_id: @production.product_id }) do %>
+        <span><%= t('factory.admin.productions.index.title') %></span>
+        <span>（<%= @production.name %>）</span>
+      <% end %>
+    </li>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>
