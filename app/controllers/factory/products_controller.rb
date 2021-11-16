@@ -11,7 +11,7 @@ module Factory
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
       if params[:produce_plan_id]
-        @products = @produce_plan.products.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
+        @products = @produce_plan.products.distinct.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
       else
         @products = Product.includes(:parts, :production).with_attached_logo.enabled.default_where(q_params).page(params[:page]).per(10)
       end

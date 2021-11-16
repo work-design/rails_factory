@@ -47,8 +47,14 @@ module Factory
       scene.deliver_finish_at.change(produce_on.parts)
     end
 
+    def book_start_at
+      date = produce_on - scene.book_start_days
+      scene.book_start_at.change(date.parts)
+    end
+
     def book_finish_at
-      scene.book_finish_at.change(produce_on.parts)
+      date = produce_on - scene.book_finish_days
+      scene.book_finish_at.change(date.parts)
     end
 
   end
