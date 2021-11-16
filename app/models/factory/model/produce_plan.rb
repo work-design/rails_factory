@@ -39,5 +39,17 @@ module Factory
       produce_on - 1 >= Date.today && self.class.find_by(organ_id: self.organ_id, scene_id: self.scene_id, produce_on: produce_on - 1)
     end
 
+    def deliver_start_at
+      scene.deliver_start_at.change(produce_on.parts)
+    end
+
+    def deliver_finish_at
+      scene.deliver_finish_at.change(produce_on.parts)
+    end
+
+    def book_finish_at
+      scene.book_finish_at.change(produce_on.parts)
+    end
+
   end
 end
