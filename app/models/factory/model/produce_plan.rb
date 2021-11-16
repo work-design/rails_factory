@@ -57,5 +57,9 @@ module Factory
       scene.book_finish_at.change(date.parts)
     end
 
+    def expired?
+      Time.current > book_finish_at
+    end
+
   end
 end
