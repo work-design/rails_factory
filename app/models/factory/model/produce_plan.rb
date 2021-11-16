@@ -6,6 +6,8 @@ module Factory
       attribute :title, :string
       attribute :produce_on, :date
       attribute :serial_number, :integer
+      attribute :book_finish_at, :datetime
+      attribute :book_start_at, :datetime
 
       enum state: {
         planned: 'planned',
@@ -27,8 +29,11 @@ module Factory
 
       after_initialize if: :new_record? do
         self.produce_on ||= Date.tomorrow
-        self.organ_id = scene.organ_id if scene
+        if scene
+          self.organ_id = scene.organ_id
+        end
       end
+      before_save :compute_book_time, if: -> { (produce_on_changed? || scene_id_changed?) && (produce_on.present? && scene.present?) }
     end
 
     def next_plan
@@ -52,13 +57,13 @@ module Factory
       scene.book_start_at.change(date.parts)
     end
 
-    def book_finish_at
-      date = produce_on - scene.book_finish_days
-      scene.book_finish_at.change(date.parts)
-    end
-
     def expired?
       Time.current > book_finish_at
+    end
+
+    def compute_book_time
+      date = produce_on - scene.book_finish_days
+      self.book_finish_at = scene.book_finish_at.change(date.parts)
     end
 
   end
