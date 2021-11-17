@@ -3,11 +3,11 @@ module Factory
 
     def index
       q_params = {
-        'produce_on-gte': Date.today
+        'book_finish_at-gt': Time.current
       }
       q_params.merge! default_params
 
-      @produce_plans = ProducePlan.default_where(q_params).order(id: :asc).group_by(&:produce_on)
+      @produce_plans = ProducePlan.includes(:scene).default_where(q_params).order(id: :asc).group_by(&:produce_on)
     end
 
     def show
