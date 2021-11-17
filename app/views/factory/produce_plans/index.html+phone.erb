@@ -1,7 +1,7 @@
 <% @produce_plans.each do |produce_on, produce_plans| %>
 <div class="weui-panel">
   <div class="weui-panel__hd">
-    <span><%= extra_distance_date(Date.today, produce_on) %></span>
+    <span><%= extra_distance_date(produce_on) %></span>
     <span class="has-text-weight-normal has-text-grey is-size-7"><%= produce_on %></span>
     <span class="has-text-weight-normal has-text-grey is-size-7"><%= produce_on.to_s(:week) %></span>
   </div>
