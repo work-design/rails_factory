@@ -1,4 +1,3 @@
-<%= render 'error_messages', target: f.object %>
 <%= f.collection_select :scene_id, @scenes, :id, :title, selected: f.object.product.product_taxon.scene_id %>
 <%= f.select :state, options_for_select(Factory::ProductionPlan.options_i18n(:state), f.object.state) %>
 <%= f.number_field :planned_count, required: true %>
