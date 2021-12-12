@@ -79,6 +79,7 @@ zh:
       trade_items:
         index:
           title: 订单明细
+          print: 打印订单
       addresses:
         index:
           title: 订货点

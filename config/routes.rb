@@ -60,7 +60,11 @@ Rails.application.routes.draw do
       end
       resources :productions, only: [] do
         resources :addresses
-        resources :trade_items
+        resources :trade_items do
+          member do
+            patch :print
+          end
+        end
         resources :provideds
         resources :production_plans do
           member do
