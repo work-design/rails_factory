@@ -10,6 +10,7 @@ module Factory
       attribute :production_items_count, :integer, default: 0
       attribute :produce_on, :date
       attribute :specialty, :boolean, default: false, comment: '主推'
+      attribute :trade_items_count, :integer, default: 0
 
       belongs_to :production
       belongs_to :product
