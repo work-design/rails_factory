@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionsController < Admin::BaseController
     before_action :set_product
-    before_action :set_production, only: [:show, :edit, :part, :price, :update, :destroy]
+    before_action :set_production, only: [:show, :edit, :part, :price, :vip, :update, :destroy]
     before_action :set_provide_production, only: [:provide]
 
     def index
@@ -28,6 +28,9 @@ module Factory
     end
 
     def price
+    end
+
+    def vip
     end
 
     def provide
@@ -61,6 +64,7 @@ module Factory
         :default,
         :ordered_at,
         :enabled,
+        vip_price: {},
         part_ids: []
       )
     end

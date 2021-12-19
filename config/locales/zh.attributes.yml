@@ -15,6 +15,7 @@ zh:
         cost_price: 成本价
         profit_price: 利润
         price: 售价
+        vip_price: 会员价
         enabled: 上架
       factory/part:
         import_price: 进货价
