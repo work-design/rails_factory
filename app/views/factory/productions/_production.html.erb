@@ -15,10 +15,12 @@
       <% end %>
     </ul>
     <div class="has-text-danger"><%= model.price.to_money.format(html_wrap: true).html_safe %></div>
+    <% if current_cart.card %>
     <div class="tags has-addons control m-0">
       <div class="tag is-success"><%= current_cart.card.card_template.code %></div>
       <div class="tag is-light"><%= model.vip_price.fetch(current_cart.card.card_template.code, model.price).to_money.format(html_wrap: true).html_safe %></div>
     </div>
+    <% end %>
   <% end %>
   <div class="weui-media-box__ft is-align-items-flex-end pr-2 pb-4">
     <%= render partial: 'cart', locals: { model: model } if current_cart %>
