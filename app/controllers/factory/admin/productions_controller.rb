@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionsController < Admin::BaseController
     before_action :set_product
-    before_action :set_production, only: [:show, :edit, :part, :price, :vip, :update, :destroy]
+    before_action :set_production, only: [:show, :edit, :part, :price, :vip, :update_vip, :update, :destroy]
     before_action :set_provide_production, only: [:provide]
 
     def index
@@ -32,6 +32,11 @@ module Factory
 
     def vip
       @card_templates = Trade::CardTemplate.default_where(default_params)
+    end
+
+    def update_vip
+      @production.vip_price = vip_price_params
+      @production.save
     end
 
     def provide
@@ -65,9 +70,18 @@ module Factory
         :default,
         :ordered_at,
         :enabled,
-        vip_price: {},
         part_ids: []
       )
+    end
+
+    def vip_price_params
+      r = {}
+
+      params.dig(:production, :vip_price).each do |_, v|
+        r.merge! v[:code] => v[:price]
+      end
+
+      r
     end
 
   end

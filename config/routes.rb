@@ -55,6 +55,7 @@ Rails.application.routes.draw do
             get :part
             get :price
             get :vip
+            patch :update_vip
             patch :provide
             patch :actions
           end
