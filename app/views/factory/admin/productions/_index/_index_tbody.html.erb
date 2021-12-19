@@ -29,6 +29,14 @@
   <% end %>
 </td>
 <td>
+  <div class="field is-grouped is-grouped-multiline">
+  <% model.vip_price.each do |key, value| %>
+    <div class="tags has-addons control">
+      <div class="tag is-success"><%= key %></div>
+      <div class="tag is-light"><%= value %></div>
+    </div>
+  <% end %>
+  </div>
   <%= link_to({ action: 'vip', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('factory.admin.productions.vip.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-star"></i>
   <% end %>
