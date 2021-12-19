@@ -60,6 +60,7 @@ module Factory
         :profit_price,
         :default,
         :ordered_at,
+        :enabled,
         part_ids: []
       )
     end

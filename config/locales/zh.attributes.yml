@@ -8,7 +8,6 @@ zh:
         product_part_taxons: 分类
         min_price: 最低价
         max_price: 最高价
-        enabled: 上架
       factory/product_part_taxon:
         min_select: 最低选择数
         max_select: 最多选择数
@@ -16,6 +15,7 @@ zh:
         cost_price: 成本价
         profit_price: 利润
         price: 售价
+        enabled: 上架
       factory/part:
         import_price: 进货价
         profit_price: 利润

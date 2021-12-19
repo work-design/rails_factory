@@ -11,6 +11,7 @@ module Factory
       attribute :str_part_ids, :string
       attribute :default, :boolean, default: false
       attribute :vip_price, :json, default: {}
+      attribute :enabled, :boolean, default: false
 
       enum state: {
         init: 'init',
@@ -31,6 +32,9 @@ module Factory
 
       #has_one_attached :logo
       delegate :logo, to: :product
+
+      scope :enabled, -> { where(enabled: true) }
+      scope :default, -> { where(default: true, enabled: true) }
 
       after_initialize if: :new_record? do
         if product_id && part_ids.blank?
