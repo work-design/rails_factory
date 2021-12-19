@@ -6,10 +6,11 @@ module Factory
       attribute :name, :string
       attribute :qr_code, :string
       attribute :price, :decimal, default: 0
-      attribute :cost_price, :decimal, default: 0
-      attribute :profit_price, :decimal, default: 0
+      attribute :cost_price, :decimal, default: 0, comment: '成本价'
+      attribute :profit_price, :decimal, default: 0, comment: '利润'
       attribute :str_part_ids, :string
       attribute :default, :boolean, default: false
+      attribute :vip_price, :json, default: {}
 
       enum state: {
         init: 'init',
