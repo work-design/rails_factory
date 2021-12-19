@@ -31,6 +31,7 @@ module Factory
     end
 
     def vip
+      @card_templates = Trade::CardTemplate.default_where(default_params)
     end
 
     def provide

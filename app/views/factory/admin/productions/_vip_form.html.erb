@@ -1,5 +1,10 @@
 <%= form_with model: @production, url: { action: 'update' } do |f| %>
   <%= render 'error_messages', target: @production %>
-  <%= f.number_field :cost_price, step: 0.01 %>
+  <% @card_templates.each do |card_template| %>
+    <%= f.fields :vip_price do |ef| %>
+      <%= ef.text_field :code, value: card_template.code, readonly: true, index: card_template.id %>
+      <%= ef.number_field :price, step: 0.01, index: card_template.id %>
+    <% end %>
+  <% end %>
   <%= f.submit %>
 <% end %>
