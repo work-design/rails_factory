@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         get :search
       end
     end
-    resources :products do
+    resources :productions do
       collection do
         post :scene
         post :produce_on

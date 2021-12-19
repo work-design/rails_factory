@@ -1,5 +1,5 @@
 module Factory
-  class ProductsController < BaseController
+  class ProductionsController < BaseController
     before_action :set_product_taxon
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
