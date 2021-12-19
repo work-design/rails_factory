@@ -2,8 +2,11 @@
   <%= render 'error_messages', target: @production %>
   <% @card_templates.each do |card_template| %>
     <%= f.fields :vip_price do |ef| %>
-      <%= ef.text_field :code, value: card_template.code, readonly: true, index: card_template.id %>
-      <%= ef.number_field :price, step: 0.01, value: @production.vip_price.fetch(card_template.code, @production.price), index: card_template.id %>
+      <label><%= card_template.name %></label>
+      <div class="field-body">
+        <%= ef.hidden_field :code, value: card_template.code, index: card_template.id %>
+        <%= ef.number_field :price, step: 0.01, value: @production.vip_price.fetch(card_template.code, @production.price), index: card_template.id %>
+      </div>
     <% end %>
   <% end %>
   <%= f.submit %>
