@@ -10,7 +10,6 @@ module Factory
       attribute :profit_price, :decimal, default: 0, comment: '利润'
       attribute :str_part_ids, :string
       attribute :default, :boolean, default: false
-      attribute :vip_price, :json, default: {}
       attribute :enabled, :boolean, default: false
 
       enum state: {
