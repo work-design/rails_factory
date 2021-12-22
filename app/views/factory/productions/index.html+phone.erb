@@ -1,5 +1,10 @@
 <%= render 'breadcrumb' %>
 
+<div class="box is-radiusless">
+  <i class="fa-light fa-location-dot"></i>
+  <span><%= current_organ.address_detail %></span>
+</div>
+
 <div class="weui-flex is-align-items-flex-start">
   <%= render 'menu' unless params[:produce_plan_id] %>
   <div class="weui-panel weui-panel_access mt-0 weui-flex__item" data-controller="page" data-page-debug-value="true" data-action="touchmove->page#move:passive">
