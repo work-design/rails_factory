@@ -19,6 +19,7 @@ module Factory
       }, _default: 'init'
 
       belongs_to :product, counter_cache: true
+      belongs_to :product_taxon, optional: true
 
       has_many :production_parts, dependent: :destroy_async
       has_many :parts, through: :production_parts
@@ -46,6 +47,7 @@ module Factory
         end
       end
       before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
+      before_validation :sync_product_taxon, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_save :compute_min_max_price, if: -> { saved_change_to_price? }
     end
@@ -82,6 +84,10 @@ module Factory
 
       self.profit_price ||= default_profit_price
       self.price = self.cost_price + self.profit_price
+    end
+
+    def sync_product_taxon
+      self.product_taxon_id = product.product_taxon_id
     end
 
   end

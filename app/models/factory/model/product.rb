@@ -35,6 +35,7 @@ module Factory
 
       has_taxons :product_taxon
       after_save :sync_name, if: -> { saved_change_to_name? }
+      after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
     end
 
     def compute_min_max
@@ -49,6 +50,10 @@ module Factory
 
     def sync_name
       productions.update_all name: name
+    end
+
+    def sync_product_taxon
+      productions.update_all(product_taxon_id: product_taxon_id)
     end
 
   end
