@@ -18,6 +18,7 @@ module Factory
 
       has_one_attached :logo
 
+      default_scope -> { order(position: :asc) }
       scope :enabled, -> { where(enabled: true)}
 
       acts_as_list scope: :organ_id
