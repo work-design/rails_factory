@@ -22,12 +22,6 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
     def select
       if part_provider_params[:selected] == 'true'
         @part_provider.set_selected

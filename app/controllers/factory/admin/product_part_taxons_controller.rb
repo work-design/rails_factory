@@ -20,24 +20,6 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @product_part_taxon.assign_attributes(product_part_taxon_params)
-
-      unless @product_part_taxon.save
-        render :edit, locals: { model: @product_part_taxon }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @product_part_taxon.destroy
-    end
-
     private
     def set_product
       @product = Product.find params[:product_id]
