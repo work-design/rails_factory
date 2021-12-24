@@ -13,6 +13,7 @@ module Factory
 
     def new
       @part = Part.new
+      @part.part_taxon = PartTaxon.new(organ_id: current_organ&.id)
     end
 
     def create
