@@ -6,6 +6,9 @@ zh:
         title: 产品列表
       show:
         add: 加入购物车
+    productions:
+      show:
+        add: 加入购物车
     product_plans:
       index:
         title: 产品批次
@@ -73,8 +76,6 @@ zh:
       productions:
         index:
           title: 产品型号
-        show:
-          add: 加入购物车
         vip:
           title: 会员价
       provideds:
