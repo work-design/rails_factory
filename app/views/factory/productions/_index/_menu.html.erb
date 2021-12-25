@@ -1,4 +1,4 @@
-<div class="columns is-variable is-8 m-0 is-flex is-flex-direction-column is-justify-content-space-around is-sticky" style="top: 38px">
+<div class="columns is-variable m-0 is-flex is-flex-direction-column is-sticky" style="top: 38px">
 <% @product_taxons.each do |product_taxon| %>
   <%= link_to({ controller: 'productions', product_taxon_id: product_taxon.id }, class: 'column is-primary px-2') do %>
     <div class="weui-grid__icon"><%= image_tag product_taxon.logo if product_taxon.logo.attached? %></div>
