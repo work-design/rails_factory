@@ -34,7 +34,7 @@ module Factory
       delegate :logo, to: :product
 
       scope :enabled, -> { where(enabled: true) }
-      scope :default, -> { where(default: true, enabled: true) }
+      scope :default, -> { where(default: true) }
 
       after_initialize if: :new_record? do
         if product_id && part_ids.blank?

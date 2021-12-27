@@ -10,8 +10,14 @@
     <span>~</span>
     <time><%= model.scene.deliver_finish_at.to_s(:time) %></time>
   </p>
-  <div class="weui-btn weui-btn_mini weui-btn_default is-several is-justify-content-center mt-4 px-0">
-    <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
-    <span><%= model.scene.title %></span>
+  <div class="is-flex is-justify-content-center">
+    <div class="button is-light mt-2">
+      <span class="icon">
+        <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
+      </span>
+      <div class="">
+        <span><%= model.scene.title %></span>
+      </div>
+    </div>
   </div>
 <% end %>

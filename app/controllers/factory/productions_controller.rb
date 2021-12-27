@@ -17,7 +17,7 @@ module Factory
           @productions = @produce_plan.productions.includes(:parts, :product).default.default_where(q_params).page(params[:page]).per(10)
         end
       else
-        @productions = Production.includes(:parts, :product).default.default_where(q_params).page(params[:page]).per(10)
+        @productions = Production.includes(:parts, :product).enabled.default.default_where(q_params).page(params[:page]).per(10)
       end
     end
 
