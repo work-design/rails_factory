@@ -1,15 +1,12 @@
 module Factory
-  class My::TradeItemsController < My::BaseController
-    before_action :set_address
+  class Me::TradeItemsController < Me::BaseController
     before_action :set_trade_item, only: [:show, :edit, :update, :destroy]
 
     def index
-      q_params = {
-        good_type: 'Custom'
-      }
+      q_params = {}
       q_params.merge! params.permit(:good_id)
-      @custom = Custom.find params[:good_id]
-      @trade_items = @address.trade_items.default_where(q_params).page(params[:page])
+
+      @trade_items = current_organ.trade_items.default_where(q_params).page(params[:page])
     end
 
     def new

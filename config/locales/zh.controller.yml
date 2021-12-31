@@ -94,6 +94,11 @@ zh:
           title: 我的站点
         show:
           title: 商品列表
+    me:
+      title: 下单管理
+      trade_items:
+        index:
+          title: 订单
     panel:
       title: 产品管理
       factory_taxons:

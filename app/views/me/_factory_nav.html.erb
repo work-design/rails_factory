@@ -1,0 +1,6 @@
+<div class="menu-label">
+  <span><%= t('factory.me.title') %></span>
+</div>
+<div class="menu-list">
+  <%= link_to t('factory.me.trade_items.index.title'), { controller: 'factory/me/trade_items' }, class: active_helper(controllers: ['trade_items'], active: 'is-active') %>
+</div>
