@@ -18,7 +18,6 @@ module Factory
 
       if @provider.saved_changes?
         @provider.logo.attach(logo_params) if logo_params.present?
-        redirect_to(my_provider_url, notice: 'Provider 更新成功。')
       else
         render action: 'edit'
       end

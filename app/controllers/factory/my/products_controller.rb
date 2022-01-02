@@ -11,23 +11,6 @@ module Factory
     end
 
     def update_price
-
-    end
-
-    def edit
-    end
-
-    def update
-      if @product.update(product_params)
-        redirect_to wx_products_url
-      else
-        render :edit
-      end
-    end
-
-    def destroy
-      @product.destroy
-      redirect_to wx_products_url
     end
 
     private

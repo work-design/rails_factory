@@ -13,6 +13,5 @@ module Factory
     def show
     end
 
-
   end
 end
