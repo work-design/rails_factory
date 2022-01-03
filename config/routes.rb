@@ -21,7 +21,11 @@ Rails.application.routes.draw do
       controller :home do
         get :index
       end
-      resources :carts
+      resources :carts do
+        collection do
+          get :list
+        end
+      end
       resources :trade_items
     end
 

@@ -7,8 +7,8 @@
       <span class="has-grey-text"><%= organ.name %></span>
     </div>
     <p><%= organ.address %></p>
-  </div>
-  <div class="content">
-    <%= link_to organ.name, my_root_url(host: organ.host), class: 'button is-link' %>
+    <p>
+      <%= link_to organ.name, { action: 'list' }, class: 'button is-link' %>
+    </p>
   </div>
 </div>

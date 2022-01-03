@@ -7,5 +7,10 @@ module Factory
       @organs = Org::Organ.find @organ_ids.pluck(:organ_id)
     end
 
+    def list
+      current_organ.member_carts.where(organ_id: params[:organ_id])
+    end
+
+
   end
 end
