@@ -16,9 +16,12 @@ Rails.application.routes.draw do
     end
     resources :product_taxons
     resources :produce_plans
-    namespace :me, defaults: { namespace: 'me' } do
+
+    namespace :buy, defaults: { namespace: 'buy' } do
+      resources :carts
       resources :trade_items
     end
+
     namespace :admin, defaults: { namespace: 'admin' } do
       root 'home#index'
       scope :produce_on, controller: :produce_on do

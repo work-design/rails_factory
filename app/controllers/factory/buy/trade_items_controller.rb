@@ -1,5 +1,5 @@
 module Factory
-  class Me::TradeItemsController < Me::BaseController
+  class Buy::TradeItemsController < Buy::BaseController
     before_action :set_trade_item, only: [:show, :edit, :update, :destroy]
 
     def index
