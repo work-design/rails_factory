@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-image">
+    <%= image_tag organ.logo.variant(resize_to_limit: [150, 150]), class: 'image' if organ.logo.attached? %>
+  </div>
+  <div class="card-content">
+    <div>
+      <span class="has-grey-text"><%= organ.name %></span>
+    </div>
+    <p><%= organ.address %></p>
+  </div>
+  <div class="content">
+    <%= link_to organ.name, my_root_url(host: organ.host), class: 'button is-link' %>
+  </div>
+</div>
