@@ -94,11 +94,14 @@ zh:
           title: 我的站点
         show:
           title: 商品列表
-    me:
+    buy:
       title: 下单管理
       trade_items:
         index:
           title: 订单
+      carts:
+        index:
+          title: 交易商户
     panel:
       title: 产品管理
       factory_taxons:

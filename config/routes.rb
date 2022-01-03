@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     resources :produce_plans
 
     namespace :buy, defaults: { namespace: 'buy' } do
+      controller :home do
+        get :index
+      end
       resources :carts
       resources :trade_items
     end
