@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@hotwired/stimulus@^3.0.0-rc.1":
-  version "3.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.0-rc.1.tgz#0642e95d3b6a289132fafa2bc5f2106d65b7bb2b"
-  integrity sha512-PIoNcZaGYn6ECTIPOf0nnvH7iSyD9QHY99pWvrYhqOymx+z3vmSPsZAeh3DXqxGe0FOgdtDrRfN339F4E7DL9g==
+"@hotwired/stimulus@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
+  integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
