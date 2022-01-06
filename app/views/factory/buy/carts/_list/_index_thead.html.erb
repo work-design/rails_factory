@@ -1,0 +1,8 @@
+<th>
+  <p><%= Org::Member.human_attribute_name(:name) %></p>
+  <p class="has-text-grey"><%= Org::Member.human_attribute_name(:identity) %></p>
+</th>
+<th><%= Org::MemberDepartment.human_attribute_name(:department_id) %></th>
+<th>
+  <p><%= Org::Member.human_attribute_name(:enabled) %></p>
+</th>

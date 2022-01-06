@@ -8,7 +8,7 @@
     </div>
     <p><%= organ.address %></p>
     <p>
-      <%= link_to organ.name, { action: 'list' }, class: 'button is-link' %>
+      <%= link_to organ.name, { action: 'list', organ_id: organ.id }, class: 'button is-link' %>
     </p>
   </div>
 </div>

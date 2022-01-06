@@ -8,9 +8,9 @@ module Factory
     end
 
     def list
-      current_organ.member_carts.where(organ_id: params[:organ_id])
+      @carts = current_organ.member_carts.where(organ_id: params[:organ_id])
+      @members = current_organ.members.page(params[:page])
     end
-
 
   end
 end
