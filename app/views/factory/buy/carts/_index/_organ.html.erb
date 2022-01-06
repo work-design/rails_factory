@@ -4,11 +4,15 @@
   </div>
   <div class="card-content">
     <div>
-      <span class="has-grey-text"><%= organ.name %></span>
+      <span class="has-grey-text">
+        <%= link_to organ.name, { action: 'list', organ_id: organ.id } %>
+      </span>
     </div>
     <p><%= organ.address %></p>
     <p>
-      <%= link_to organ.name, { action: 'list', organ_id: organ.id }, class: 'button is-link' %>
+    <% organ.today_produce_plans.each do |produce_plan| %>
+      <%= link_to produce_plan.scene.title, { action: 'list', organ_id: organ.id, produce_plan_id: produce_plan.id }, class: 'button is-link' %>
+    <% end %>
     </p>
   </div>
 </div>

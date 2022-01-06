@@ -1,10 +1,8 @@
 module Factory
-  module Model::Organ
+  module Ext::Organ
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :area, optional: true
-
       has_many :part_providers
       has_many :parts, through: :part_providers
       has_many :good_providers, foreign_key: :provider_id, dependent: :delete_all
@@ -12,6 +10,10 @@ module Factory
 
     def name_detail
       "#{name} (#{id})"
+    end
+
+    def today_produce_plans
+      Factory::ProducePlan.includes(:scene).default_where(organ_id: self.id, produce_on: Date.today)
     end
 
   end
