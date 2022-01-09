@@ -12,7 +12,7 @@ module Factory
       @members = current_organ.members.page(params[:page])
 
       (@members.pluck(:id) - @cart_member_ids).each do |member_id|
-        init_cart(member_id, current_organ.id)
+        init_cart(member_id, params[:organ_id])
       end
     end
 
