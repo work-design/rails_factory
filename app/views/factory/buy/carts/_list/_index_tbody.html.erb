@@ -1,17 +1,17 @@
 <td>
   <div class="is-several">
-    <%= image_tag model.avatar.variant(resize_to_limit: [35, 35]), class: 'image is-24x24' if model.avatar.attached? %>
-    <%= link_to model.name, { action: 'show', id: model } %>
+    <%= image_tag model.member.avatar.variant(resize_to_limit: [35, 35]), class: 'image is-24x24' if model.member.avatar.attached? %>
+    <%= link_to model.member.name, { action: 'show', id: model } %>
   </div>
-  <p class="has-text-grey"><%= model.identity %></p>
+  <p class="has-text-grey"><%= model.member.identity %></p>
 </td>
 <td>
-  <% model.member_departments.each do |md| %>
-    <p>
-      <%= link_to md.department.full_name, { controller: 'departments', action: 'show', id: md.department_id } %>
-      <span><%= md.job_title.name %></span>
-    </p>
-  <% end %>
+<% model.trade_items.each do |trade_item| %>
+  <p>
+    <span><%= trade_item.good_name %></span>
+    <span><%= trade_item.single_price.to_money.format(html_wrap: true).html_safe %></span>
+  </p>
+<% end %>
 </td>
 <td>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>

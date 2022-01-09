@@ -9,11 +9,12 @@ module Factory
 
     def list
       @cart_member_ids = current_organ.member_carts.where(organ_id: params[:organ_id]).pluck(:member_id)
-      @members = current_organ.members.page(params[:page])
-
+      @members = current_organ.members.order(id: :asc).page(params[:page])
       (@members.pluck(:id) - @cart_member_ids).each do |member_id|
         init_cart(member_id, params[:organ_id])
       end
+
+      @carts = current_organ.member_carts.includes(:member, :trade_items).order(member_id: :asc).page(params[:page])
     end
 
     private
