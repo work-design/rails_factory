@@ -32,6 +32,7 @@ module Factory
 
     def trade_item_params
       params.fetch(:trade_item, {}).permit(
+        :number
       )
     end
 
