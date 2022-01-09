@@ -29,7 +29,11 @@ Rails.application.routes.draw do
           post :add
         end
       end
-      resources :trade_items
+      resources :trade_items do
+        member do
+          patch :toggle
+        end
+      end
     end
 
     namespace :admin, defaults: { namespace: 'admin' } do
