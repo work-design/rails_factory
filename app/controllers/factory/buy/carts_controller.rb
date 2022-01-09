@@ -1,5 +1,6 @@
 module Factory
   class Buy::CartsController < Buy::BaseController
+    before_action :set_cart, only: [:add]
 
     def index
       @organ_ids = current_organ.member_carts.order(organ_id: :asc).select(:organ_id).distinct.page(params[:page])
@@ -24,9 +25,31 @@ module Factory
       end
     end
 
+    def add
+      trade_item = @cart.trade_items.find(&->(i){ i.good_id.to_s == params[:good_id] && i.good_type == params[:good_type] && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) ||
+        @cart.trade_items.build(good_id: params[:good_id], good_type: params[:good_type], produce_plan_id: params[:produce_plan_id])
+      if trade_item.persisted? && trade_item.checked?
+        params[:number] ||= 1
+        trade_item.number += params[:number].to_i
+      elsif trade_item.persisted? && trade_item.init?
+        trade_item.status = 'checked'
+        trade_item.number = 1
+      else
+        trade_item.status = 'checked'
+      end
+      trade_item.save
+
+      @trade_items = @cart.trade_items.page(params[:page])
+      @checked_ids = @cart.trade_items.checked.pluck(:id)
+    end
+
     private
     def init_cart(member_id, organ_id)
       current_organ.member_carts.create(member_id: member_id, organ_id: organ_id)
+    end
+
+    def set_cart
+      @cart = Trade::Cart.find params[:id]
     end
 
   end

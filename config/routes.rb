@@ -25,6 +25,9 @@ Rails.application.routes.draw do
         collection do
           get :list
         end
+        member do
+          post :add
+        end
       end
       resources :trade_items
     end

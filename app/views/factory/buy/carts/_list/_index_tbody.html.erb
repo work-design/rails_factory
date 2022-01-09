@@ -14,5 +14,5 @@
 <% end %>
 </td>
 <td>
-  <%= render partial: 'cart', locals: { model: @production, trade_item: model.trade_items.find(&->(i){ i.good_type == model.class_name && i.good_id == model.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } %>
+  <%= render partial: 'cart', locals: { model: @production, cart: model, trade_item: model.trade_items.find(&->(i){ i.good_type == @production.class_name && i.good_id == @production.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } %>
 </td>
