@@ -14,7 +14,7 @@ module Factory
         init_cart(member_id, params[:organ_id])
       end
 
-      @carts = current_organ.member_carts.includes(:member, :trade_items).where.not(member_id: nil).order(member_id: :asc).page(params[:page])
+      @carts = current_organ.member_carts.includes(:member, :trade_items).where(organ_id: params[:organ_id]).order(member_id: :asc).page(params[:page])
     end
 
     private
