@@ -1,0 +1,32 @@
+<%= render 'filter_form' %>
+<%= render 'filter_table' %>
+<div class="buttons are-small mb-0 pt-2">
+  <%= render 'button' %>
+</div>
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <% if defined? cache_key %>
+        <% cache cache_key do %>
+          <%= render 'index_thead' %>
+        <% end %>
+      <% else %>
+        <%= render 'index_thead' %>
+      <% end %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+    <%= yield %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="4"></th>
+      <th>
+        <%= button_to({}, class: 'button is-success') do %>
+        <% end %>
+      </th>
+    </tr>
+  </tfoot>
+</table>

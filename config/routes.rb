@@ -29,6 +29,7 @@ Rails.application.routes.draw do
           post :add
         end
       end
+      resources :orders
       resources :trade_items do
         member do
           patch :toggle
