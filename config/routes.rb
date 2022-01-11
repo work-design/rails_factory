@@ -30,7 +30,11 @@ Rails.application.routes.draw do
         end
       end
       resources :orders
-      resources :payments
+      resources :payments do
+        member do
+          get :wxpay_pc_pay
+        end
+      end
       resources :trade_items do
         member do
           patch :toggle

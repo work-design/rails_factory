@@ -1,0 +1,5 @@
+<%= turbo_stream.update 'payment_button' do %>
+  <%= link_to({ controller: 'payments', action: 'wxpay_pc_pay', id: @payment.id, organ_id: params[:organ_id] }, class: 'button is-success') do %>
+    <i class="fa-brands fa-weixin"></i><%= t('.pay') %>
+  <% end %>
+<% end %>
