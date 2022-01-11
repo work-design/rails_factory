@@ -1,6 +1,6 @@
 <th colspan="4"></th>
 <th>
-  <%= button_to({ controller: 'orders', action: 'create' }, class: 'button is-success') do %>
+  <%= button_to({ controller: 'orders', action: 'create', organ_id: params[:organ_id] }, class: 'button is-success') do %>
     <i class="fa-light fa-credit-card"></i><%= t('.pay') %>
   <% end %>
 </th>
