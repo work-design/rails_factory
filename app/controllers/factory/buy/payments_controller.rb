@@ -1,5 +1,6 @@
 module Factory
   class Buy::PaymentsController < Buy::BaseController
+    before_action :set_payment, only: [:wxpay_pc_pay]
 
     def index
     end
@@ -41,6 +42,10 @@ module Factory
     def current_wechat_app
       organ_domain = Org::OrganDomain.find_by(organ_id: params[:organ_id], default: true)
       organ_domain&.wechat_app
+    end
+
+    def set_payment
+      @payment = Trade::Payment.find params[:id]
     end
 
   end
