@@ -6,7 +6,7 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:good_id)
 
-      @trade_items = current_organ.member_trade_items.includes(:organ).default_where(q_params).page(params[:page])
+      @trade_items = current_organ.member_ordered_trade_items.includes(:organ).default_where(q_params).page(params[:page])
     end
 
     def new
