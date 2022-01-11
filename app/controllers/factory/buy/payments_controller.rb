@@ -12,7 +12,7 @@ module Factory
       @payment = Trade::Payment.new(organ_id: params[:organ_id], type: params[:type])
       @payment.total_amount = current_organ.member_orders.sum(:amount)
 
-      current_organ.member_orders.each do |order|
+      current_organ.member_orders.where(organ_id: params[:organ_id]).unpaid.each do |order|
         @payment.payment_orders.build(order_id: order.id)
       end
 

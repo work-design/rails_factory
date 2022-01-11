@@ -20,7 +20,7 @@ module Factory
     end
 
     def create
-      current_organ.member_carts.each do |cart|
+      current_organ.member_carts.where(organ_id: params[:organ_id]).each do |cart|
         current_organ.member_orders.build(cart_id: cart.id)
       end
 
