@@ -1,4 +1,4 @@
-module Trade
+module Factory
   class Buy::OrdersController < Buy::BaseController
     before_action :set_order, only: [
       :show, :edit, :update, :refund, :payment_types, :edit_payment_type, :wait, :destroy, :cancel,
@@ -19,18 +19,15 @@ module Trade
       end
     end
 
-    def refresh
-      @order = current_cart.orders.build(myself: true)
-      @order.assign_attributes order_params
-    end
-
     def create
-      @order = current_cart.orders.build(order_params)
+      current_organ.member_carts.each do |cart|
+        current_organ.member_orders.build(cart_id: cart.id)
+      end
 
-      if @order.save
+      if current_organ.save
         render 'create'
       else
-        render :new, locals: { model: @order }, status: :unprocessable_entity
+        render :new, locals: { model: current_organ }, status: :unprocessable_entity
       end
     end
 
