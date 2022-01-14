@@ -16,7 +16,7 @@
     </ul>
     <div>
       <span class="has-text-danger"><%= model.price.to_money.format(html_wrap: true).html_safe %></span>
-      <% if current_cart.card %>
+      <% if current_cart&.card %>
       <div class="tags has-addons control m-0" style="display: inline-flex">
         <div class="tag is-success"><%= current_cart.card.card_template.code %></div>
         <div class="tag is-light"><%= model.vip_price.fetch(current_cart.card.card_template.code, model.price).to_money.format(html_wrap: true).html_safe %></div>
