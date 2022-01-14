@@ -12,6 +12,10 @@
           <i class="fa-solid fa-chevron-left has-text-info pl-1"></i>
         <% end %>
       <% end %>
+      <div class="button is-primary">
+        <span><%= @produce_plan.produce_on %></span>
+        <span><%= @produce_plan.produce_on.to_s(:week) %></span>
+      </div>
       <% if @produce_plan.next_plan %>
         <%= link_to({ produce_plan_id: @produce_plan.next_plan.id, organ_id: params[:organ_id] }, class: 'button is-primary') do %>
           <span class="has-text-info">后一天</span>

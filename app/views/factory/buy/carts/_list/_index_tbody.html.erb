@@ -12,6 +12,7 @@
       <%= f.check_box :status, value: trade_item.checked? ? 'checked' : 'init', checked: trade_item.checked?, data: { action: 'click->input#form' }, id: nil %>
     <% end %>
     <span><%= trade_item.good_name %></span>
+    <span><%= trade_item.produce_on %></span>
     <span><%= trade_item.single_price.to_money.format(html_wrap: true).html_safe %></span>
     <span><%= trade_item.amount.to_money.format(html_wrap: true).html_safe %></span>
   </div>
