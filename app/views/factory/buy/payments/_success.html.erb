@@ -3,7 +3,8 @@
     <div>
       <p class="title"><%= t('.title') %></p>
       <p><%= t('.tip') %></p>
-      <%= link_to t('factory.buy.trade_items.index.title'), { controller: 'factory/buy/trade_items', action: 'index' } %>
+      <p>支付流水：<%= payment.payment_uuid %></p>
+      <%= link_to t('factory.buy.trade_items.index.title'), { controller: 'factory/buy/trade_items', action: 'index', organ_id: organ_id } %>
     </div>
   </div>
 </div>
