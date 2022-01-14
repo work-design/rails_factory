@@ -102,6 +102,10 @@ zh:
       carts:
         index:
           title: 交易商户
+      payments:
+        success:
+          title: 你的订单已支付成功！
+          tip: 我们会尽快处理您的订单。
     panel:
       title: 产品管理
       factory_taxons:
