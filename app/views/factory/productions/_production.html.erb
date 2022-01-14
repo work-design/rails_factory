@@ -21,6 +21,13 @@
         <div class="tag is-success"><%= current_cart.card.card_template.code %></div>
         <div class="tag is-light"><%= model.vip_price.fetch(current_cart.card.card_template.code, model.price).to_money.format(html_wrap: true).html_safe %></div>
       </div>
+      <% else %>
+      <div class="tags has-addons control m-0" style="display: inline-flex">
+      <% @card_templates.each do |card_template| %>
+        <div class="tag is-success"><%= card_template.code %></div>
+        <div class="tag is-light"><%= model.vip_price.fetch(card_template.code, model.price).to_money.format(html_wrap: true).html_safe %></div>
+      <% end %>
+      </div>
       <% end %>
     </div>
   <% end %>

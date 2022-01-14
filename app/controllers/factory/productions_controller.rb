@@ -3,6 +3,7 @@ module Factory
     before_action :set_product_taxon
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
+    before_action :set_card_templates, only: [:index]
     before_action :set_product, only: [:show]
 
     def index
@@ -51,6 +52,10 @@ module Factory
 
     def set_product_taxons
       @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(default_params).order(id: :asc)
+    end
+
+    def set_card_templates
+      @card_templates = Trade::CardTemplate.default_where(default_params)
     end
 
     def set_produce_plans
