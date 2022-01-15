@@ -20,8 +20,8 @@
       <div class="tags has-addons is-price control m-0" style="display: inline-flex">
         <% if current_cart&.card && current_cart.card.card_template.code == card_template.code %>
           <div class="tag is-danger">
-            <span><%= card_template.code %></span>
             <i class="fa-solid fa-badge-check"></i>
+            <span><%= card_template.code %></span>
           </div>
         <% else %>
           <div class="tag is-success"><%= card_template.code %></div>
