@@ -21,7 +21,7 @@
         <% if current_cart&.card && current_cart.card.card_template.code == card_template.code %>
           <div class="tag is-danger">
             <i class="fa-solid fa-badge-check"></i>
-            <span><%= card_template.code %></span>
+            <span style="padding-left: 1px"><%= card_template.code %></span>
           </div>
         <% else %>
           <div class="tag is-success"><%= card_template.code %></div>
