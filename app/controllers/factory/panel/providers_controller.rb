@@ -22,25 +22,7 @@ module Factory
 
     def search
       @select_ids = @factory_taxon.provider_ids
-      @providers = Organ.default_where('name-like': params['name-like'])
-    end
-
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @factory_provider.assign_attributes(provider_params)
-
-      unless @factory_provider.save
-        render :edit, locals: { model: @factory_provider }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @factory_provider.destroy
+      @providers = Org::Organ.default_where('name-like': params['name-like'])
     end
 
     private
