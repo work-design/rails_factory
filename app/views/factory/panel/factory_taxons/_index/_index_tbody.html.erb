@@ -1,4 +1,9 @@
-<td><%= model.name %></td>
+<td>
+  <div class="is-several">
+    <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
+    <span><%= model.name %></span>
+  </div>
+</td>
 <td>
   <%= link_to({ controller: 'providers', factory_taxon_id: model.id }, aria: { label: t('factory.panel.providers.index.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-industry"></i>
