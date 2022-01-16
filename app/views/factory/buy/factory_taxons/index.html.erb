@@ -1,0 +1,5 @@
+<div class="cards is-4">
+  <%= render partial: 'organ', collection: @factory_taxons, as: :factory_taxon %>
+</div>
+
+<%= paginate @factory_taxons %>

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       controller :home do
         get :index
       end
+      resources :factory_taxons
       resources :carts do
         collection do
           get :list
