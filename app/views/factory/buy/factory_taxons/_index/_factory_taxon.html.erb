@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-1by1">
+      <%= image_tag model.logo.variant(resize_to_limit: [150, 150]), class: 'image' if model.logo.attached? %>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div>
+      <span class="has-grey-text">
+        <%= link_to model.name, { action: 'show', id: model.id } %>
+      </span>
+    </div>
+    <p>
+    <% model.providers.each do |organ| %>
+      <% organ.today_produce_plans.each do |produce_plan| %>
+        <%= link_to produce_plan.scene.title, { action: 'list', organ_id: organ.id, produce_plan_id: produce_plan.id }, class: 'button is-link' %>
+      <% end %>
+    <% end %>
+    </p>
+  </div>
+</div>
