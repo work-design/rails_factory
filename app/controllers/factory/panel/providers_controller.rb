@@ -53,7 +53,7 @@ module Factory
     end
 
     def prepare_form
-      @providers = Organ.none
+      @providers = Org::Organ.none
     end
 
     def provider_params
