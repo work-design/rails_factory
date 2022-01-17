@@ -142,7 +142,7 @@ Rails.application.routes.draw do
       resources :factory_taxons do
         resources :providers do
           collection do
-            get :search
+            post :search
           end
         end
       end
