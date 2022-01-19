@@ -4,11 +4,11 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:start_at) %></td>
-  <td><time data-controller="time"><%= @product_plan.start_at.to_s(:iso8601) %></time></td>
+  <td><time data-controller="time"><%= @product_plan.start_at.to_formatted_s(:iso8601) %></time></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:finish_at) %></td>
-  <td><time data-controller="time"><%= @product_plan.finish_at.to_s(:iso8601) %></time></td>
+  <td><time data-controller="time"><%= @product_plan.finish_at.to_formatted_s(:iso8601) %></time></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:state) %></td>

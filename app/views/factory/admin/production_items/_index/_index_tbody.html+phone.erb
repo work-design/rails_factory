@@ -4,4 +4,4 @@
   <%= image_tag model.qrcode_url, class: 'image is-32x32' %>
 </p>
 <p class="weui-media-box__desc"><%= model.state_i18n %></p>
-<p class="weui-media-box__desc"><time data-controller="time"><%= model.produced_at.to_s(:iso8601) %></time></p>
+<p class="weui-media-box__desc"><time data-controller="time"><%= model.produced_at.to_formatted_s(:iso8601) %></time></p>
