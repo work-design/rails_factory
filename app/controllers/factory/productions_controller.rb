@@ -4,7 +4,7 @@ module Factory
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_card_templates, only: [:index]
-    before_action :set_product, only: [:show]
+    before_action :set_production, only: [:show]
 
     def index
       q_params = {}
@@ -35,19 +35,12 @@ module Factory
     end
 
     def show
-      pc = current_cart && current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first
-      if params[:production_id]
-        @production = @product.productions.find params[:production_id]
-      elsif pc
-        @production = pc.production
-      else
-        @production = @product.production
-      end
+      @product = @production.product
     end
 
     private
-    def set_product
-      @product = Product.find params[:id]
+    def set_production
+      @production = Production.find params[:id]
     end
 
     def set_product_taxons
