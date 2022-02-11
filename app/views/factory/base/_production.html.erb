@@ -1,0 +1,37 @@
+<div class="weui-media-box weui-media-box_appmsg">
+  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.product_id }, text: true, class: 'weui-media-box__hd') do %>
+    <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
+  <% end %>
+  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.product_id }, text: true, class: 'weui-media-box__bd is-flex is-flex-direction-column') do %>
+    <h4 class="weui-media-box__title"><%= model.name %></h4>
+    <p class="weui-media-box__desc pt-0">
+      <%= model.product.description %>
+    </p>
+    <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
+      <% model.parts.group_by(&->(i){ i.part_taxon_id }).each do |_, parts| %>
+        <% parts.each_with_index do |part, index| %>
+          <li class="weui-media-box__info__meta<%= index > 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+    <div>
+      <span class="has-text-danger"><%= model.price.to_money.format(html_wrap: true).html_safe %></span>
+      <% @card_templates.each do |card_template| %>
+      <div class="tags has-addons is-price control m-0" style="display: inline-flex">
+        <% if current_cart&.card && current_cart.card.card_template.code == card_template.code %>
+          <div class="tag is-danger">
+            <i class="fa-solid fa-badge-check"></i>
+            <span style="padding-left: 1px"><%= card_template.code %></span>
+          </div>
+        <% else %>
+          <div class="tag is-success"><%= card_template.code %></div>
+        <% end %>
+        <div class="tag is-light"><%= model.vip_price.fetch(card_template.code, model.price).to_money.format(html_wrap: true).html_safe %></div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="weui-media-box__ft is-align-items-flex-end pr-2 pb-4">
+    <%= render partial: 'factory/productions/_index/cart', locals: { model: model } if current_cart %>
+  </div>
+</div>

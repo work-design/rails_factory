@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace 'factory', defaults: { business: 'factory' } do
-    resources :providers, only: [] do
-      collection do
-        get :search
-      end
-    end
-    resources :products, only: [:index, :show]
+  concern :productive do
     resources :productions, only: [:index, :show] do
       collection do
         post :scene
@@ -14,6 +8,16 @@ Rails.application.routes.draw do
       end
       resources :product_plans, only: [:index, :show]
     end
+  end
+
+  namespace 'factory', defaults: { business: 'factory' } do
+    concerns :productive
+    resources :providers, only: [] do
+      collection do
+        get :search
+      end
+    end
+    resources :products, only: [:index, :show]
     resources :product_taxons
     resources :produce_plans
 
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
       controller :home do
         get :index
       end
+      concerns :productive
       resources :factory_taxons
       resources :carts do
         collection do

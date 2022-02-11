@@ -1,0 +1,21 @@
+<% if params[:produce_plan_id] %>
+<div class="box is-radiusless p-2 mb-0 is-border-bottom is-flex is-justify-content-space-between is-sticky" style="z-index: 3">
+  <span data-controller="weui-dialog" data-weui-dialog-id-value="dialog_scene" data-action="click->weui-dialog#toggle">
+    <span class="has-text-weight-semibold"><%= @produce_plan.scene.title %></span>
+    <span class="has-text-link ">
+      <span>切换</span>
+      <i class="fa-light fa-angle-right pl-0"></i>
+    </span>
+  </span>
+  <span class="ml-4" data-controller="weui-dialog" data-weui-dialog-id-value="dialog_produce_on" data-action="click->weui-dialog#toggle">
+    <span>
+      <span class="has-text-weight-semibold"><%= @produce_plan.produce_on %></span>
+      <span><%= @produce_plan.produce_on.to_s(:week) %></span>
+    </span>
+    <span class="has-text-link">
+      <span>切换</span>
+      <i class="fa-light fa-angle-right pl-0"></i>
+    </span>
+  </span>
+</div>
+<% end %>
