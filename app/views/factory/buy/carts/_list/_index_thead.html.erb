@@ -5,5 +5,5 @@
 <th><%= Trade::TradeItem.human_attribute_name(:single_price) %></th>
 <th><%= Trade::TradeItem.human_attribute_name(:amount) %></th>
 <th>
-  <%= render partial: 'production', locals: { model: @production } %>
+  <%= render partial: 'production', locals: { model: @production } if @production %>
 </th>
