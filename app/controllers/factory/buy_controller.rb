@@ -1,5 +1,5 @@
 module Factory
-  class BuyController < BaseController
+  class BuyController < BuyController
 
   end
 end
