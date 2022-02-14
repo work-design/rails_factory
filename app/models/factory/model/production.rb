@@ -18,6 +18,8 @@ module Factory
         producing: 'producing'
       }, _default: 'init'
 
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :product, counter_cache: true
       belongs_to :product_taxon, optional: true
 
@@ -47,7 +49,7 @@ module Factory
         end
       end
       before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
-      before_validation :sync_product_taxon, if: -> { product_id_changed? }
+      before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_save :compute_min_max_price, if: -> { saved_change_to_price? }
     end
@@ -86,8 +88,9 @@ module Factory
       self.price = self.cost_price + self.profit_price
     end
 
-    def sync_product_taxon
+    def sync_from_product
       self.product_taxon_id = product.product_taxon_id
+      self.organ_id = product.organ_id
     end
 
   end
