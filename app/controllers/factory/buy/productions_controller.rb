@@ -8,7 +8,6 @@ module Factory
 
     def index
       q_params = {}
-      q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
       if params[:produce_plan_id]
