@@ -9,7 +9,7 @@
   <%= f.number_field :number, value: trade_item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
 <% end if trade_item %>
 <%= form_with theme: nil, url: { controller: 'trade/my/trade_items', action: 'create' }, class: 'ml-1 button_to' do |f| %>
-  <%= f.hidden_field :member_id, value: current_member.id %>
+  <%= f.hidden_field :member_id, value: current_member&.id %>
   <%= f.hidden_field :good_type, value: model.class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
   <%= f.hidden_field :produce_plan_id, value: params[:produce_plan_id] %>
