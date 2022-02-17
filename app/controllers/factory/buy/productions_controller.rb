@@ -1,5 +1,6 @@
 module Factory
   class Buy::ProductionsController < ProductionsController
+    include Trade::Controller::Me
     before_action :set_product_taxon
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
@@ -73,6 +74,10 @@ module Factory
 
     def set_product_taxon
       @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
+    end
+
+    def self.local_prefixes
+      [controller_path, 'factory/buy/base', 'buy', 'me']
     end
 
   end
