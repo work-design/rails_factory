@@ -11,6 +11,7 @@ module Factory
       attribute :str_part_ids, :string
       attribute :default, :boolean, default: false
       attribute :enabled, :boolean, default: false
+      attribute :automatic, :boolean, default: false
 
       enum state: {
         init: 'init',

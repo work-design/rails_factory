@@ -17,6 +17,7 @@ zh:
         price: 售价
         vip_price: 会员价
         enabled: 上架
+        automatic: 自动上架
       factory/part:
         import_price: 进货价
         profit_price: 利润
@@ -31,6 +32,7 @@ zh:
         book_finish_at: 预定结束时间
         deliver_start_at: 配送开始时间
         deliver_finish_at: 配送结束时间
+        automatic: 自动生成
       factory/produce_plan:
         produce_on: 生产日期
         specialty: 主推

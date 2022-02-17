@@ -11,6 +11,7 @@ module Factory
       attribute :deliver_start_at, :time
       attribute :deliver_finish_at, :time
       attribute :specialty, :boolean, default: false
+      attribute :automatic, :boolean, default: false
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
