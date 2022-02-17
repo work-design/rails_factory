@@ -1,8 +1,8 @@
 <div class="weui-media-box weui-media-box_appmsg">
-  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.product_id }, text: true, class: 'weui-media-box__hd') do %>
+  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, class: 'weui-media-box__hd') do %>
     <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
   <% end %>
-  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.product_id }, text: true, class: 'weui-media-box__bd is-flex is-flex-direction-column') do %>
+  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, class: 'weui-media-box__bd is-flex is-flex-direction-column') do %>
     <h4 class="weui-media-box__title"><%= model.name %></h4>
     <p class="weui-media-box__desc pt-0">
       <%= model.product.description %>
