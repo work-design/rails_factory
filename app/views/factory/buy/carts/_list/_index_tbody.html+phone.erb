@@ -1,0 +1,30 @@
+<td>
+  <div class="is-several">
+    <%= image_tag model.avatar.variant(resize_to_limit: [35, 35]), class: 'image is-24x24' if model.avatar.attached? %>
+    <%= link_to model.name, { action: 'show', id: model } %>
+  </div>
+  <div class="has-text-grey">
+  <% if request.variant.any?(:work_wechat) %>
+    <ww-open-data type="userName" openid="<%= model.name %>"></ww-open-data>
+  <% else %>
+    <p><%= model.identity %></p>
+  <% end %>
+  </div>
+</td>
+<td>
+<% model.cart_trade_items.each do |trade_item| %>
+  <div>
+    <%= form_with theme: nil, model: trade_item, url: { controller: 'trade_items', action: 'toggle', id: trade_item.id }, data: { controller: 'input' }, class: 'is-inline' do |f| %>
+      <%= f.check_box :status, value: trade_item.checked? ? 'checked' : 'init', checked: trade_item.checked?, data: { action: 'click->input#form' }, id: nil %>
+    <% end %>
+    <span><%= trade_item.good_name %></span>
+    <span><%= trade_item.produce_on %></span>
+    <span><%= trade_item.single_price.to_money.format(html_wrap: true).html_safe %></span>
+    <span><%= trade_item.amount.to_money.format(html_wrap: true).html_safe %></span>
+  </div>
+<% end %>
+</td>
+<td><%# model.amount.to_money.format(html_wrap: true).html_safe %></td>
+<td>
+  <%= render partial: 'cart', locals: { model: @production, member: model, trade_item: model.trade_items.find(&->(i){ i.good_type == @production.class_name && i.good_id == @production.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } if @production %>
+</td>
