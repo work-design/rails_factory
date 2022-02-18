@@ -102,6 +102,8 @@ zh:
       carts:
         index:
           title: 交易商户
+        list:
+          title: 代下单
       payments:
         success:
           title: 你的订单已支付成功！

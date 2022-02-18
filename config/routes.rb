@@ -31,6 +31,9 @@ Rails.application.routes.draw do
         collection do
           get :list
         end
+        member do
+          patch :actions
+        end
       end
       resources :orders
       resources :payments do
