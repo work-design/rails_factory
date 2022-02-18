@@ -1,0 +1,16 @@
+<div class="weui-media-box weui-media-box_appmsg">
+  <div class="weui-media-box__hd">
+    <%= image_tag organ.logo.variant(resize_to_limit: [150, 150]), class: 'weui-media-box__thumb' if organ.logo.attached? %>
+  </div>
+  <div class="weui-media-box__bd">
+    <strong class="weui-media-box__title">
+      <%= link_to organ.name, { controller: 'factory/buy/carts', action: 'list', organ_id: organ.id } %>
+    </strong>
+    <p><%= organ.address %></p>
+    <p>
+    <% organ.today_produce_plans.each do |produce_plan| %>
+      <%= link_to produce_plan.scene.title, { controller: 'factory/buy/carts', action: 'list', organ_id: organ.id, produce_plan_id: produce_plan.id }, class: 'button is-link' %>
+    <% end %>
+    </p>
+  </div>
+</div>
