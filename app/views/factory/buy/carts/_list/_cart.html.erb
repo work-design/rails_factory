@@ -2,33 +2,21 @@
   <div class="control">
     <%= button_to({ controller: 'trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number - 1 }, class: 'mr-1') do %>
       <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
-    <% end if trade_item && trade_item.number > 1 %>
+    <% end if trade_item.number > 1 %>
   </div>
   <div class="control">
     <%= button_to({ controller: 'trade_items', action: 'destroy', id: trade_item.id }, method: :delete, class: 'mr-1') do %>
       <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
-    <% end if trade_item && trade_item.number <= 1 %>
+    <% end if trade_item.number <= 1 %>
   </div>
   <div class="control">
     <%= form_with(theme: nil, scope: 'trade_item', url: { controller: 'trade/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
       <%= f.number_field :number, value: trade_item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
-    <% end if trade_item %>
-  </div>
-  <div class="control">
-    <%= form_with theme: nil, url: { controller: 'trade/my/trade_items', action: 'create' }, class: 'ml-1 button_to' do |f| %>
-      <%= f.hidden_field :member_id, value: member.id %>
-      <%= f.hidden_field :good_type, value: model.class_name %>
-      <%= f.hidden_field :good_id, value: model.id %>
-      <%= f.hidden_field :produce_plan_id, value: params[:produce_plan_id] %>
-      <%= f.hidden_field :agent_id, value: current_member.id %>
-      <%= button_tag do %>
-        <i class="fa-solid fa-circle-plus fa-xl has-text-grey"></i>
-      <% end %>
-    <% end unless trade_item %>
+    <% end %>
   </div>
   <div class="control">
     <%= button_to({ controller: 'trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number + 1 }, class: 'ml-1') do %>
       <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
-    <% end if trade_item %>
+    <% end %>
   </div>
 </div>

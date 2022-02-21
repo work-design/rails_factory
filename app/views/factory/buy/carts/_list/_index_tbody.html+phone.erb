@@ -16,15 +16,5 @@
   </div>
 </div>
 <div>
-<% @trade_items.select(&->(i){ i.member_id == model.id }).each do |trade_item| %>
-  <div>
-    <%= form_with theme: nil, model: trade_item, url: { controller: 'trade_items', action: 'toggle', id: trade_item.id }, data: { controller: 'input' }, class: 'is-inline' do |f| %>
-      <%= f.check_box :status, value: trade_item.checked? ? 'checked' : 'init', checked: trade_item.checked?, data: { action: 'click->input#form' }, id: nil %>
-    <% end %>
-    <span><%= trade_item.good_name %></span>
-    <span><%= trade_item.produce_on %></span>
-    <span><%= trade_item.single_price.to_money.format(html_wrap: true).html_safe %></span>
-    <span><%= trade_item.amount.to_money.format(html_wrap: true).html_safe %></span>
-  </div>
-<% end %>
+  <%= render partial: 'trade_item', collection: @trade_items.select(&->(i){ i.member_id == model.id }), as: :trade_item %>
 </div>
