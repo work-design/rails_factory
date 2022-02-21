@@ -14,6 +14,8 @@
 
 <%= paginate @members %>
 
+<%= render 'index_tfoot' %>
+
 <% if request.variant.any?(:work_wechat) %>
 <div
   data-controller="open-data"

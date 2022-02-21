@@ -1,0 +1,7 @@
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <%= button_to({ controller: 'orders', action: 'create', organ_id: params[:organ_id] }, class: 'button is-success') do %>
+      <i class="fa-light fa-credit-card"></i><%= t('.pay') %>
+    <% end %>
+  </div>
+</div>
