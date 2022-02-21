@@ -1,4 +1,6 @@
-<%= render 'breadcrumb' %>
+<% if params[:produce_plan_id] %>
+  <%= render 'produce_on_bar' %>
+<% end %>
 
 <div class="weui-panel">
   <div class="weui-panel__bd">
