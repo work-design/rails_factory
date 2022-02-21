@@ -13,6 +13,10 @@ module Factory
       @carts = current_organ.member_carts.includes(:member, :trade_items).where(organ_id: params[:organ_id]).order(member_id: :asc).page(params[:page])
       if params[:produce_plan_id]
         @produce_plan = ProducePlan.find params[:produce_plan_id]
+      end
+      if params[:production_id]
+        @production = Production.find params[:production_id]
+      else
         @production = @produce_plan.specialty_production
       end
     end
