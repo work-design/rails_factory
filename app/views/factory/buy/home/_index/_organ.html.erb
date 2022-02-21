@@ -8,7 +8,7 @@
     </strong>
     <p><%= organ.address %></p>
     <p>
-    <% organ.today_produce_plans.each do |produce_plan| %>
+    <% organ.nearest_produce_plans.limit(1).each do |produce_plan| %>
       <%= link_to produce_plan.scene.title, { controller: 'factory/buy/carts', action: 'list', organ_id: organ.id, produce_plan_id: produce_plan.id }, class: 'button is-link' %>
     <% end %>
     </p>

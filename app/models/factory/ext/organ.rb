@@ -12,8 +12,8 @@ module Factory
       "#{name} (#{id})"
     end
 
-    def today_produce_plans
-      Factory::ProducePlan.includes(:scene).default_where(organ_id: self.id, produce_on: Date.today)
+    def nearest_produce_plans
+      Factory::ProducePlan.includes(:scene).default_where(organ_id: self.id, 'produce_on-gte': Date.today).order(produce_on: :asc)
     end
 
   end
