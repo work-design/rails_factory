@@ -1,5 +1,10 @@
+<%= render 'breadcrumb' %>
+
 <%= render layout: 'index_table', locals: { cache_key: Org::Member.column_names.hash } do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @members, as: :model %>
 <% end %>
 
 <%= paginate @members %>
+
+
+<%= render 'taxon' if @produce_plan %>
