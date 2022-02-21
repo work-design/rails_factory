@@ -20,11 +20,13 @@ module Factory
     end
 
     def create
-      current_organ.member_carts.where(organ_id: params[:organ_id]).each do |cart|
-        current_organ.member_orders.build(cart_id: cart.id)
+      @order = current_member.orders.build
+      @trade_items = Trade::TradeItem.where(id: params[:ids])
+      @trade_items.each do |trade_item|
+        trade_item.order = order
       end
 
-      if current_organ.save
+      if @order.save
         render 'create'
       else
         render :new, locals: { model: current_organ }, status: :unprocessable_entity
