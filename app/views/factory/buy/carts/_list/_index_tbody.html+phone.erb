@@ -1,13 +1,18 @@
-<div>
-  <div class="is-several">
-    <%= image_tag model.avatar.variant(resize_to_limit: [35, 35]), class: 'image is-24x24' if model.avatar.attached? %>
-    <div class="has-text-grey">
-    <% if request.variant.any?(:work_wechat) %>
-      <ww-open-data type="userName" openid="<%= model.name %>"></ww-open-data>
-    <% else %>
-      <%= link_to model.name, { action: 'show', id: model } %>
-    <% end %>
+<div class="level is-flex">
+  <div class="level-left">
+    <div class="level-item is-several">
+      <%= image_tag model.avatar.variant(resize_to_limit: [35, 35]), class: 'image is-24x24' if model.avatar.attached? %>
+      <div class="has-text-grey">
+      <% if request.variant.any?(:work_wechat) %>
+        <ww-open-data type="userName" openid="<%= model.name %>"></ww-open-data>
+      <% else %>
+        <%= link_to model.name, { action: 'show', id: model } %>
+      <% end %>
+      </div>
     </div>
+  </div>
+  <div class="level-right mt-0">
+    <%= render partial: 'cart', locals: { model: @production, member: model, trade_item: model.trade_items.find(&->(i){ i.good_type == @production.class_name && i.good_id == @production.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } if @production %>
   </div>
 </div>
 <div>
@@ -23,7 +28,3 @@
   </div>
 <% end %>
 </div>
-<td><%# model.amount.to_money.format(html_wrap: true).html_safe %></td>
-<td>
-  <%= render partial: 'cart', locals: { model: @production, member: model, trade_item: model.trade_items.find(&->(i){ i.good_type == @production.class_name && i.good_id == @production.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } if @production %>
-</td>
