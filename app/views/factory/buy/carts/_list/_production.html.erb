@@ -29,6 +29,8 @@
     <% end %>
   </div>
   <div class="weui-media-box__ft">
-    <i class="fa-light fa-plus"></i>
+    <%= button_to({ controller: 'productions', action: 'list', **params.permit(:produce_plan_id) }, class: 'button is-borderless') do %>
+      <i class="fa-light fa-repeat fa-lg"></i>
+    <% end %>
   </div>
 </div>

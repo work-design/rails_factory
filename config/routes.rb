@@ -26,6 +26,11 @@ Rails.application.routes.draw do
         get :index
       end
       concerns :productive
+      resources :productions do
+        collection do
+          post :list
+        end
+      end
       resources :factory_taxons
       resources :carts do
         collection do

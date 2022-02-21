@@ -22,6 +22,11 @@ module Factory
       end
     end
 
+    def list
+      @produce_plan = ProducePlan.find params[:produce_plan_id]
+      @productions = @produce_plan.productions.includes(:parts, :product).default.page(params[:page]).per(10)
+    end
+
     def produce_on
       @produce_plan = ProducePlan.find params[:produce_plan_id]
     end
