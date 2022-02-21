@@ -9,7 +9,7 @@
   <span class="ml-4" data-controller="weui-dialog" data-weui-dialog-id-value="dialog_produce_on" data-action="click->weui-dialog#toggle">
     <span>
       <span class="has-text-weight-semibold"><%= @produce_plan.produce_on %></span>
-      <span><%= @produce_plan.produce_on.to_s(:week) %></span>
+      <span><%= @produce_plan.produce_on.to_fs(:week) %></span>
     </span>
     <span class="has-text-link">
       <span>切换</span>
