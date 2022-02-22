@@ -116,3 +116,6 @@ zh:
       providers:
         index:
           title: 指定供应商
+      scenes:
+        index:
+          title: 场景

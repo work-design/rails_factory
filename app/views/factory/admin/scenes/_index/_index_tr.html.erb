@@ -2,18 +2,9 @@
   <%= yield %>
   <td>
     <span data-show-target="item" style="visibility: hidden">
-      <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-info') do %>
-        <i class="fa-light fa-circle-info"></i>
-      <% end %>
-      <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-info') do %>
-        <i class="fa-light fa-pencil"></i>
-      <% end %>
       <%= link_to({ controller: 'produce_plans', scene_id: model.id }, class: 'button is-small is-rounded is-info') do %>
         <i class="fa-light fa-hammer"></i>
         <span><%= t('factory.admin.produce_plans.index.title') %></span>
-      <% end %>
-      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { confirm: t('.confirm') }, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-danger') do %>
-        <i class="fa-light fa-trash"></i>
       <% end %>
     </span>
   </td>

@@ -1,0 +1,30 @@
+<td>
+  <div class="is-several">
+    <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
+    <span><%= model.title %></span>
+  </div>
+</td>
+<td>
+  <p>
+    <span><%= model.book_start_days %></span>
+    <time><%= model.book_start_at.to_s(:time) %></time>
+  </p>
+  <p>
+    <span><%= model.book_finish_days %></span>
+    <time><%= model.book_finish_at.to_s(:time) %></time>
+  </p>
+</td>
+<td>
+  <p><time><%= model.deliver_start_at.to_s(:time) %></time></p>
+  <p><time><%= model.deliver_finish_at.to_s(:time) %></time></p>
+</td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :specialty, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :automatic, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>

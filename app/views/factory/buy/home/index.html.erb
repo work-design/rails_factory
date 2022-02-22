@@ -1,14 +1,15 @@
 <div class="weui-panel">
-  <div class="weui-panel__hd">
-    供应商
-  </div>
+  <div class="weui-panel__hd">供应商</div>
   <div class="weui-panel__bd">
     <%= render partial: 'organ', collection: current_organ.providers, as: :organ %>
   </div>
 </div>
 
 <div class="weui-panel">
+  <div class="weui-panel__hd">预定</div>
   <div class="weui-panel__bd">
     <%= render 'menu' %>
   </div>
 </div>
+
+<%= render 'produce_plan' %>

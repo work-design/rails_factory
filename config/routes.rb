@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace 'factory', defaults: { business: 'factory' } do
+  namespace :factory, defaults: { business: 'factory' } do
     concerns :productive
     resources :providers, only: [] do
       collection do
@@ -156,6 +156,7 @@ Rails.application.routes.draw do
           end
         end
       end
+      resources :scenes
     end
   end
 
