@@ -27,7 +27,7 @@ module Factory
     end
 
     def set_trade_items
-      @trade_items = current_member.agent_trade_items.includes(:member).where(member_organ_id: current_organ.id, produce_plan_id: params[:produce_plan_id])
+      @trade_items = current_member.agent_trade_items.carting.includes(:member).where(member_organ_id: current_organ.id, produce_plan_id: params[:produce_plan_id])
     end
 
     def set_cart

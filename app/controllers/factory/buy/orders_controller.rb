@@ -24,6 +24,8 @@ module Factory
       @trade_items = Trade::TradeItem.where(id: params[:ids].split(','))
       @trade_items.each do |trade_item|
         trade_item.order = @order
+        trade_item.status = 'ordered'
+        trade_item.address_id = params[:address_id]
       end
 
       if @order.save
