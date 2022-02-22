@@ -1,22 +1,22 @@
-<%= link_to({ controller: '/factory/productions', produce_plan_id: model.id }, class: 'column is-half-mobile has-text-grey') do %>
+<%= link_to({ controller: '/factory/productions', scene_id: scene.id, produce_on: produce_on }, class: 'column is-half-mobile has-text-grey') do %>
   <p class="is-size-7 has-text-centered">
     <span>预定截止：</span>
-    <span><%= extra_distance_date(model.produce_on) %></span>
-    <time><%= model.scene.book_finish_at.to_s(:time) %></time>
+    <span><%= extra_distance_date(produce_on) %></span>
+    <time><%= scene.book_finish_at.to_s(:time) %></time>
   </p>
   <p class="is-size-7 has-text-centered">
     <span>配送时间：</span>
-    <time><%= model.scene.deliver_start_at.to_s(:time) %></time>
+    <time><%= scene.deliver_start_at.to_s(:time) %></time>
     <span>~</span>
-    <time><%= model.scene.deliver_finish_at.to_s(:time) %></time>
+    <time><%= scene.deliver_finish_at.to_s(:time) %></time>
   </p>
   <div class="is-flex is-justify-content-center">
     <div class="button is-light mt-2 pl-0">
       <span class="icon">
-        <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
+        <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
       </span>
       <div class="">
-        <span><%= model.scene.title %></span>
+        <span><%= scene.title %></span>
       </div>
     </div>
   </div>
