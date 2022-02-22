@@ -11,7 +11,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
-      if params[:produce_plan_id]
+      if @produce_plan
         if @produce_plan.expired?
           render 'expired'
         else
@@ -52,9 +52,10 @@ module Factory
     end
 
     def set_produce_plans
-      if params[:produce_plan_id]
-        @produce_plan = ProducePlan.find params[:produce_plan_id]
-
+      if params[:produce_on] && params[:scene_id]
+        @produce_plan = ProducePlan.find_by(produce_on: params[:produce_on], scene_id: params[:scene_id])
+      end
+      if @produce_plan
         q_params = { produce_on: @produce_plan.produce_on }
         q_params.merge! default_params
         q_params.merge! params.permit(:produce_on)
