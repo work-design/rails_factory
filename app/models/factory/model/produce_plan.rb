@@ -25,6 +25,8 @@ module Factory
       has_many :productions, through: :production_plans
       has_many :products, through: :production_plans
 
+      scope :effective, -> { t = Time.current.to_fs(:db); default_where('book_start_at-lt': t, 'book_finish_at-gt': t) }
+
       validates :produce_on, uniqueness: { scope: [:organ_id, :scene_id] }
 
       after_initialize if: :new_record? do
@@ -52,18 +54,17 @@ module Factory
       scene.deliver_finish_at.change(produce_on.parts)
     end
 
-    def book_start_at
-      date = produce_on - scene.book_start_days
-      scene.book_start_at.change(date.parts)
-    end
-
     def expired?
       Time.current > book_finish_at
     end
 
     def compute_book_time
+      date = produce_on - scene.book_start_days
+      self.book_start_at = scene.book_start_at.change(date.parts)
+
       date = produce_on - scene.book_finish_days
       self.book_finish_at = scene.book_finish_at.change(date.parts)
+      self
     end
 
   end
