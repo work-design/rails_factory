@@ -148,5 +148,9 @@ module Factory
       )
     end
 
+    def self.local_prefixes
+      [controller_path, 'factory/buy/base', 'buy', 'me']
+    end
+
   end
 end
