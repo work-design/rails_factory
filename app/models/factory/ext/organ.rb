@@ -13,7 +13,7 @@ module Factory
     end
 
     def nearest_produce_plans
-      Factory::ProducePlan.includes(:scene).default_where(organ_id: self.id, 'book_finish_at-gte': Date.today).order(produce_on: :asc)
+      Factory::ProducePlan.includes(:scene).default_where(organ_id: self.id).effective.order(produce_on: :asc)
     end
 
   end
