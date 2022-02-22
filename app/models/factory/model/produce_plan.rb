@@ -33,6 +33,7 @@ module Factory
         self.produce_on ||= Date.tomorrow
         if scene
           self.organ_id = scene.organ_id
+          compute_book_time
         end
       end
       before_save :compute_book_time, if: -> { (produce_on_changed? || scene_id_changed?) && (produce_on.present? && scene.present?) }

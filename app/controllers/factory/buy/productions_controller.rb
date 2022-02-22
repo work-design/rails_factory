@@ -11,7 +11,7 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
-      if params[:produce_plan_id]
+      if @produce_plan
         if @produce_plan.expired?
           render 'expired'
         else
@@ -61,20 +61,6 @@ module Factory
 
     def set_card_templates
       @card_templates = Trade::CardTemplate.default_where(default_params)
-    end
-
-    def set_produce_plans
-      if params[:produce_plan_id]
-        @produce_plan = ProducePlan.find params[:produce_plan_id]
-
-        q_params = { produce_on: @produce_plan.produce_on }
-        q_params.merge! default_params
-        q_params.merge! params.permit(:produce_on)
-
-        @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
-      else
-        @produce_plans = ProducePlan.none
-      end
     end
 
     def set_product_taxon
