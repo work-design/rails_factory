@@ -21,9 +21,9 @@ module Factory
 
     def create
       @order = current_member.orders.build
-      @trade_items = Trade::TradeItem.where(id: params[:ids])
+      @trade_items = Trade::TradeItem.where(id: params[:ids].split(','))
       @trade_items.each do |trade_item|
-        trade_item.order = order
+        trade_item.order = @order
       end
 
       if @order.save
