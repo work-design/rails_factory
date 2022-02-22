@@ -3,7 +3,6 @@ module Factory
 
     def index
       q_params = {}
-      q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
       @scenes = Scene.default_where(q_params).order(id: :asc).page(params[:page])

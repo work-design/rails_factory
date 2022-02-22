@@ -41,6 +41,8 @@ module Factory
       params.fetch(:produce_plan, {}).permit(
         :scene_id,
         :produce_on,
+        :book_start_at,
+        :book_finish_at,
         :state
       )
     end
