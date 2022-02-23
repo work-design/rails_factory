@@ -7,7 +7,7 @@ module Factory
       }
       q_params.merge! default_params
 
-      @produce_plans = ProducePlan.includes(:scene).default_where(q_params).order(id: :asc).group_by(&:produce_on)
+      @produce_plans = ProducePlan.includes(:scene).default_where(q_params).order(produce_on: :asc).group_by(&:produce_on)
     end
 
     def show

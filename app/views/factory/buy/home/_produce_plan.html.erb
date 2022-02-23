@@ -5,7 +5,7 @@
         <strong>预定</strong>
         <span class="has-text-weight-normal"><%= extra_distance_date(@produce_on) %></span>
         <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on %></span>
-        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on.to_s(:week) %></span>
+        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on.to_fs(:week) %></span>
       </div>
       <div class="level-right mt-0">
         <%= link_to({ controller: 'produce_plans' }) do %>
