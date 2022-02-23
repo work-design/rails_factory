@@ -5,9 +5,9 @@ module Factory
       q_params = {
         'book_finish_at-gt': Time.current
       }
-      q_params.merge! default_params
+      q_params.merge! organ_id: current_organ.provider_ids
 
-      @produce_plans = ProducePlan.includes(:scene).default_where(q_params).order(id: :asc).group_by(&:produce_on)
+      @produce_plans = ProducePlan.includes(:scene).default_where(q_params).order(produce_on: :asc).group_by(&:produce_on)
     end
 
     def show

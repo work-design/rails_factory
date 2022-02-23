@@ -1,4 +1,4 @@
-<%= link_to({ controller: '/factory/productions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'column is-half-mobile has-text-grey') do %>
+<%= link_to({ controller: 'productions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'column is-half-mobile has-text-grey') do %>
   <p class="is-size-7 has-text-centered">
     <span>预定截止：</span>
     <span><%= extra_distance_date(model.produce_on) %></span>
