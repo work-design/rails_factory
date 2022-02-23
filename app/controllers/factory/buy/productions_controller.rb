@@ -6,6 +6,7 @@ module Factory
     before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
     before_action :set_card_templates, only: [:index]
+    before_action :set_scene, only: [:index]
 
     def index
       q_params = {}
@@ -53,6 +54,10 @@ module Factory
     private
     def set_product
       @product = Product.find params[:id]
+    end
+
+    def set_scene
+      @scene = Scene.find params[:scene_id]
     end
 
     def set_product_taxons

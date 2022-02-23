@@ -1,0 +1,21 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <div class="level is-flex is-justify-content-space-between">
+      <div class="level-left">
+        <strong>预定</strong>
+        <span class="has-text-weight-normal"><%= extra_distance_date(@produce_on) %></span>
+        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on %></span>
+        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on.to_s(:week) %></span>
+      </div>
+      <div class="level-right mt-0">
+        <%= link_to({ controller: '/factory/produce_plans' }) do %>
+          <span>更多</span>
+          <i class="fa-solid fa-angle-right"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="weui-panel__bd">
+    <%= render partial: 'scene', collection: @scenes, as: :scene, locals: { produce_on: @produce_on } %>
+  </div>
+</div>

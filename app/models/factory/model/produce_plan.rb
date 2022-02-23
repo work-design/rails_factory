@@ -39,14 +39,6 @@ module Factory
       before_save :compute_book_time, if: -> { (produce_on_changed? || scene_id_changed?) && (produce_on.present? && scene.present?) }
     end
 
-    def next_plan
-      self.class.find_by(organ_id: self.organ_id, scene_id: self.scene_id, produce_on: produce_on + 1)
-    end
-
-    def prev_plan
-      produce_on - 1 >= Date.today && self.class.find_by(organ_id: self.organ_id, scene_id: self.scene_id, produce_on: produce_on - 1)
-    end
-
     def deliver_start_at
       scene.deliver_start_at.change(produce_on.parts)
     end
@@ -66,6 +58,16 @@ module Factory
       date = produce_on - scene.book_finish_days
       self.book_finish_at = scene.book_finish_at.change(date.parts)
       self
+    end
+
+    class_methods do
+      def next_plan(organ_ids:, scene_id:, produce_on:)
+        find_by(organ_id: organ_ids, scene_id: scene_id, produce_on: produce_on + 1)
+      end
+
+      def prev_plan(organ_ids:, scene_id:, produce_on:)
+        produce_on - 1 >= Date.today && find_by(organ_id: organ_ids, scene_id: scene_id, produce_on: produce_on - 1)
+      end
     end
 
   end

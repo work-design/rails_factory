@@ -1,23 +1,33 @@
-<%= link_to({ controller: 'productions', scene_id: scene.id, produce_on: produce_on }, class: 'column is-half-mobile has-text-grey') do %>
-  <p class="is-size-7 has-text-centered">
-    <span>预定截止：</span>
-    <span><%= extra_distance_date(produce_on) %></span>
-    <time><%= scene.book_finish_at.to_s(:time) %></time>
-  </p>
-  <p class="is-size-7 has-text-centered">
-    <span>配送时间：</span>
-    <time><%= scene.deliver_start_at.to_s(:time) %></time>
-    <span>~</span>
-    <time><%= scene.deliver_finish_at.to_s(:time) %></time>
-  </p>
-  <div class="is-flex is-justify-content-center">
-    <div class="button is-light mt-2 pl-0">
-      <span class="icon">
-        <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
-      </span>
-      <div class="">
-        <span><%= scene.title %></span>
+<div class="weui-media-box weui-media-box_appmsg">
+  <div class="weui-media-box__bd">
+    <p class="is-size-7 has-text-centered">
+      <span>预定截止：</span>
+      <span><%= extra_distance_date(produce_on) %></span>
+      <time><%= scene.book_finish_at.to_s(:time) %></time>
+    </p>
+    <p class="is-size-7 has-text-centered">
+      <span>配送时间：</span>
+      <time><%= scene.deliver_start_at.to_s(:time) %></time>
+      <span>~</span>
+      <time><%= scene.deliver_finish_at.to_s(:time) %></time>
+    </p>
+    <div class="is-flex is-justify-content-center">
+      <div class="button is-light mt-2 pl-0">
+        <span class="icon">
+          <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
+        </span>
+        <div class="">
+          <span><%= scene.title %></span>
+        </div>
       </div>
     </div>
   </div>
-<% end %>
+  <div class="weui-media-box__ft">
+    <%= link_to({ controller: 'productions', scene_id: scene.id, produce_on: produce_on }, class: 'button') do %>
+      <span>点餐</span>
+    <% end %>
+    <%= link_to({ controller: 'carts', action: 'list', scene_id: scene.id, produce_on: produce_on }, class: 'button') do %>
+      <span>代点餐</span>
+    <% end %>
+  </div>
+</div>
