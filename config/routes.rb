@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         end
       end
       resources :factory_taxons
+      resources :produce_plans, only: [:index]
       resources :carts do
         collection do
           get :list
