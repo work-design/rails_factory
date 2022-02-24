@@ -1,4 +1,4 @@
-<%= link_to({ controller: 'carts', action: 'list', production_id: model.id, **params.permit(:produce_plan_id) }, class: 'weui-actionsheet__cell is-flex is-align-items-center') do %>
+<%= link_to({ controller: 'carts', action: 'list', production_id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'weui-actionsheet__cell is-flex is-align-items-center') do %>
   <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
   <span><%= model.name %></span>
   <span class="has-text-danger"><%= model.price.to_money.format(html_wrap: true).html_safe %></span>

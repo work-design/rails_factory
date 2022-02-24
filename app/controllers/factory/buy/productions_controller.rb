@@ -1,12 +1,14 @@
 module Factory
   class Buy::ProductionsController < ProductionsController
     include Trade::Controller::Me
+    include Controller::Buy
     before_action :set_product_taxon
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index]
+    before_action :set_scenes, only: [:index]
 
     def index
       q_params = {}
@@ -24,8 +26,10 @@ module Factory
     end
 
     def list
-      @produce_plan = ProducePlan.find params[:produce_plan_id]
-      @productions = @produce_plan.productions.includes(:parts, :product).default.page(params[:page]).per(10)
+      q_params = {
+        production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] }
+      }
+      @productions = Factory::Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
     end
 
     def produce_on
@@ -70,10 +74,6 @@ module Factory
 
     def set_product_taxon
       @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
-    end
-
-    def self.local_prefixes
-      [controller_path, 'factory/buy/base', 'buy', 'me']
     end
 
   end

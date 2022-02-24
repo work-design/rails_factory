@@ -1,7 +1,8 @@
 <%= form_with theme: nil, url: { controller: 'trade/me/trade_items', action: 'create' }, class: 'ml-1 button_to' do |f| %>
   <%= f.hidden_field :good_type, value: model.class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
-  <%= f.hidden_field :produce_plan_id, value: params[:produce_plan_id] %>
+  <%= f.hidden_field :produce_on, value: params[:produce_on] %>
+  <%= f.hidden_field :scene_id, value: params[:scene_id] %>
   <%= f.hidden_field :organ_id, value: params[:organ_id] %>
   <%= f.hidden_field :member_id, value: member.id %>
   <%= f.hidden_field :agent_id, value: current_member.id %>
