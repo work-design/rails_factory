@@ -1,6 +1,6 @@
 <tr>
-  <td><time data-controller="time"><%= part_plan.start_at.to_formatted_s(:iso8601) %></time></td>
-  <td><time data-controller="time"><%= part_plan.finish_at.to_formatted_s(:iso8601) %></time></td>
+  <td><time data-controller="time"><%= part_plan.start_at.to_fs(:iso8601) %></time></td>
+  <td><time data-controller="time"><%= part_plan.finish_at.to_fs(:iso8601) %></time></td>
   <td><%= part_plan.state %></td>
   <td><%= part_plan.purchased_count %></td>
   <td>

@@ -1,4 +1,4 @@
 <td><%= model.part.organ&.name %></td>
 <td><%= model.part.name %></td>
 <td><%= model.export_price %></td>
-<td><time data-controller="time"><%= model.created_at.to_formatted_s(:iso8601) %></time></td>
+<td><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></td>
