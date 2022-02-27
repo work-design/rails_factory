@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       end
     end
     resources :products, only: [:index, :show]
-    resources :product_taxons
-    resources :produce_plans
+    resources :product_taxons, only: [:index, :show]
+    resources :produce_plans, only: [:index, :show]
 
     namespace :buy, defaults: { namespace: 'buy' } do
       controller :home do
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
           post :list
         end
       end
-      resources :factory_taxons
+      resources :factory_taxons, only: [:index, :show]
       resources :produce_plans, only: [:index]
       resources :carts do
         collection do
