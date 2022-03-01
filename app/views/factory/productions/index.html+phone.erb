@@ -1,4 +1,6 @@
-<%= render 'breadcrumb' %>
+<% if params[:produce_on] && params[:scene_id] %>
+  <%= render 'produce_on_bar' %>
+<% end %>
 
 <div class="box is-radiusless">
   <i class="fa-light fa-location-dot"></i>
@@ -19,8 +21,8 @@
         <%= render 'tip' %>
       <% end %>
     </div>
-
     <%= render 'paginator' %>
   </div>
 </div>
+
 <%= render 'taxon' if @produce_plan %>
