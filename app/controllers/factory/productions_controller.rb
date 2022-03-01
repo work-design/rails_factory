@@ -45,7 +45,7 @@ module Factory
     end
 
     def set_scene
-      @scene = Scene.find params[:scene_id]
+      @scene = Scene.find_by id: params[:scene_id]
     end
 
     def set_product_taxons
