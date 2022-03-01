@@ -43,11 +43,11 @@ module Factory
     end
 
     def set_factory_taxons
-      @factory_taxons = FactoryTaxon.all
+      @factory_taxons = FactoryTaxon.all.limit(10)
     end
 
     def set_scenes
-      @scenes = Scene.default_where(default_params)
+      @scenes = Scene.all.limit(10)
     end
 
     def product_taxon_params
