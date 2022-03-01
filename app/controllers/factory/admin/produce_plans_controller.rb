@@ -38,13 +38,14 @@ module Factory
     end
 
     def produce_plan_params
-      params.fetch(:produce_plan, {}).permit(
+      p = params.fetch(:produce_plan, {}).permit(
         :scene_id,
         :produce_on,
         :book_start_at,
         :book_finish_at,
         :state
       )
+      p.merge! default_form_params
     end
 
   end
