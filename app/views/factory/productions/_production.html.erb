@@ -16,10 +16,10 @@
         <% end %>
       <% end %>
     </ul>
-    <div>
+    <div class="is-flex is-align-items-center">
       <span class="has-text-danger"><%= model.price.to_money.format(html_wrap: true).html_safe %></span>
       <% @card_templates.each do |card_template| %>
-      <div class="tags has-addons is-price control m-0" style="display: inline-flex">
+      <div class="tags has-addons is-price control m-0 ml-2" style="display: inline-flex">
         <% if current_cart && current_cart.cards.map(&->(i){ i.card_template.code }).include?(card_template.code) %>
           <div class="tag is-danger">
             <i class="fa-solid fa-badge-check"></i>
