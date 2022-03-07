@@ -22,7 +22,7 @@
     <div class="columns as-border is-flex m-0 p-4">
       <div class="column is-half is-align-self-center">
       <% if @prev_plan %>
-        <%= link_to({ action: 'list', produce_on: @prev_plan.produce_on, scene_id: params[:scene_id] }, class: 'is-flex is-align-items-center') do %>
+        <%= link_to({ produce_on: @prev_plan.produce_on, scene_id: params[:scene_id] }, class: 'is-flex is-align-items-center') do %>
           <i class="fa-solid fa-chevron-left has-text-info"></i>
           <span class="has-text-info">前一天</span>
           <span class="has-text-grey is-size-7 pl-1 is-flex is-flex-direction-column is-align-items-center">
@@ -40,7 +40,7 @@
       </div>
       <div class="column is-half is-align-self-center">
       <% if @next_plan %>
-        <%= link_to({ action: 'list', produce_on: @next_plan.produce_on, scene_id: params[:scene_id] }, class: 'is-flex is-align-items-center') do %>
+        <%= link_to({ produce_on: @next_plan.produce_on, scene_id: params[:scene_id] }, class: 'is-flex is-align-items-center') do %>
           <span class="has-text-info">后一天</span>
           <span class="has-text-grey is-size-7 pl-1 is-flex is-flex-direction-column is-align-items-center">
             <span><%= @next_plan.produce_on %></span>
