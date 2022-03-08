@@ -5,9 +5,12 @@
   <div class="weui-tabbar__label">购物车</div>
 <% end %>
 <div class="weui-tabbar__item">
-  <%= form_with theme: nil, url: { controller: 'trade/my/carts', action: 'add' } do |f| %>
+  <%= form_with theme: nil, url: { controller: 'trade_items', action: 'create' } do |f| %>
+    <%= f.hidden_field :member_id, value: current_member&.id %>
     <%= f.hidden_field :good_type, value: @production.class_name %>
     <%= f.hidden_field :good_id, value: @production.id %>
+    <%= f.hidden_field :produce_on, value: params[:produce_on] %>
+    <%= f.hidden_field :scene_id, value: params[:scene_id] %>
     <%= f.submit t('.add'), class: 'weui-btn weui-btn_danger' %>
   <% end %>
 </div>
