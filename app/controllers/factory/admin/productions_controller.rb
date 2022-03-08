@@ -70,6 +70,7 @@ module Factory
         :default,
         :ordered_at,
         :enabled,
+        :automatic,
         part_ids: []
       )
     end

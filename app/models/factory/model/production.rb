@@ -38,6 +38,7 @@ module Factory
 
       scope :enabled, -> { where(enabled: true) }
       scope :default, -> { where(default: true) }
+      scope :automatic, -> { where(automatic: true) }
 
       after_initialize if: :new_record? do
         if product_id && part_ids.blank?
