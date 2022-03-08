@@ -3,8 +3,9 @@ module Factory
 
     def perform
       SceneAutomatic.all.each do |scene_automatic|
-        produce_plan = ProducePlan.new(scene_id: scene_automatic.scene_id, organ_id: scene_automatic.organ_id)
-        produce_plan.save
+        (Date.today .. Date.today + scene_automatic.advance_days).each do |produce_on|
+          ProducePlan.find_or_create_by(scene_id: scene_automatic.scene_id, organ_id: scene_automatic.organ_id, produce_on: produce_on)
+        end
       end
     end
 
