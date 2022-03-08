@@ -15,7 +15,7 @@ module Factory
       belongs_to :production
       belongs_to :product
       belongs_to :scene, optional: true
-      belongs_to :produce_plan, ->(o){ where(produce_on: o.produce_on) }, foreign_key: :scene_id, primary_key: :scene_id, optional: true
+      belongs_to :produce_plan, ->(o){ where(produce_on: o.produce_on) }, foreign_key: :scene_id, primary_key: :scene_id, counter_cache: true, optional: true
 
       has_many :production_items
       has_many :trade_items, ->(o){ where(good_type: 'Factory::Production', produce_on: o.produce_on) }, class_name: 'Trade::TradeItem', foreign_key: :good_id, primary_key: :production_id

@@ -11,14 +11,12 @@ module Factory
       attribute :deliver_start_at, :time
       attribute :deliver_finish_at, :time
       attribute :specialty, :boolean, default: false
-      attribute :automatic, :boolean, default: false
-
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       has_one_attached :logo
 
       has_many :produce_plans, dependent: :nullify
       has_many :product_taxons, dependent: :nullify
+      has_many :scene_automatics, dependent: :nullify
 
       scope :specialty, -> { where(specialty: true) }
 

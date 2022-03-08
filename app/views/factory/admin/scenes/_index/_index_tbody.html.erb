@@ -19,18 +19,14 @@
   <p><time><%= model.deliver_finish_at.to_s(:time) %></time></p>
 </td>
 <td>
-  <p>
-  <% if model.specialty %>
-    <i class="fa-light fa-check has-text-success"></i>
-  <% else %>
-    <i class="fa-light fa-times has-text-danger"></i>
-  <% end %>
-  </p>
-  <p>
-  <% if model.automatic %>
-    <i class="fa-light fa-check has-text-success"></i>
-  <% else %>
-    <i class="fa-light fa-times has-text-danger"></i>
-  <% end %>
-  </p>
+<% if model.specialty %>
+  <i class="fa-light fa-check has-text-success"></i>
+<% else %>
+  <i class="fa-light fa-times has-text-danger"></i>
+<% end %>
+</td>
+<td>
+  <div class="is-flex is-align-items-center">
+    <%= render partial: 'cart', locals: { model: model } %>
+  </div>
 </td>

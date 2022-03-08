@@ -8,6 +8,7 @@ module Factory
       attribute :serial_number, :integer
       attribute :book_finish_at, :datetime
       attribute :book_start_at, :datetime
+      attribute :production_plans_count, :integer, default: 0
 
       enum state: {
         planned: 'planned',
@@ -29,9 +30,7 @@ module Factory
 
       validates :produce_on, uniqueness: { scope: [:organ_id, :scene_id] }
 
-      after_initialize if: :new_record? do
-        self.produce_on ||= Date.tomorrow
-      end
+      after_initialize :set_produce_on, if: :new_record?
       before_validation :compute_book_time, if: -> { (produce_on_changed? || scene_id_changed?) && (produce_on.present? && scene.present?) }
     end
 
@@ -54,6 +53,13 @@ module Factory
       date = produce_on - scene.book_finish_days
       self.book_finish_at = scene.book_finish_at.change(date.parts)
       self
+    end
+
+    def set_produce_on
+      self.produce_on ||= (self.class.where(organ_id: organ_id).maximum(:produce_on) || Date.today) + 1
+      if scene
+        compute_book_time
+      end
     end
 
     class_methods do

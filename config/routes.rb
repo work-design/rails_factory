@@ -75,6 +75,7 @@ Rails.application.routes.draw do
             patch :actions
           end
         end
+        resources :scene_automatics
       end
       resources :products do
         collection do
