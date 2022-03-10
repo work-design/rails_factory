@@ -3,9 +3,9 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      has_many :part_providers
-      has_many :parts, through: :part_providers
-      has_many :good_providers, foreign_key: :provider_id, dependent: :delete_all
+      has_many :part_providers, class_name: 'Factory::PartProvider', foreign_key: :provider_id, dependent: :destroy_async
+      has_many :parts, class_name: 'Factory::Part', through: :part_providers
+      has_many :factory_providers, class_name: 'Factory::FactoryProvider', foreign_key: :provider_id, dependent: :destroy_async
     end
 
     def name_detail
