@@ -33,7 +33,7 @@ module Factory
     def set_new_trade_item
       options = params.permit(:good_type, :good_id, :member_id, :number, :produce_on, :scene_id)
 
-      @trade_item = @agent.get_trade_item(**options.to_h.symbolize_keys)
+      @trade_item = @agent.get_agent_trade_item(**options.to_h.symbolize_keys)
     end
 
     def set_trade_item

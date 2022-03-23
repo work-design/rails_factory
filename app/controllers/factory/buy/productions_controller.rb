@@ -11,25 +11,23 @@ module Factory
     before_action :set_scenes, only: [:index]
 
     def index
-      q_params = {}
-      q_params.merge! params.permit(:product_taxon_id, 'name-like')
+      q_params = {
+        production_plans: {
+          produce_on: params[:produce_on],
+          scene_id: params[:scene_id],
+          organ_id: current_organ.provider_ids
+        }
+      }
+      #q_params.merge! params.permit('name-like')
 
-      if @produce_plan
-        if @produce_plan.expired?
-          render 'expired'
-        else
-          @productions = @produce_plan.productions.includes(:parts, :product).default.default_where(q_params).page(params[:page]).per(10)
-        end
-      else
-        @productions = Production.includes(:parts, :product).enabled.default.default_where(q_params).page(params[:page]).per(10)
-      end
+      @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
     end
 
     def list
       q_params = {
         production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] }
       }
-      @productions = Factory::Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
+      @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
     end
 
     def produce_on

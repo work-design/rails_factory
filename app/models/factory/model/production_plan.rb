@@ -12,6 +12,8 @@ module Factory
       attribute :specialty, :boolean, default: false, comment: '主推'
       attribute :trade_items_count, :integer, default: 0
 
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :production
       belongs_to :product
       belongs_to :scene, optional: true
@@ -28,6 +30,7 @@ module Factory
 
       after_initialize if: :new_record? do
         self.product = production.product
+        self.organ_id = production.organ_id
         self.produce_on ||= Date.tomorrow
         #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
       end
