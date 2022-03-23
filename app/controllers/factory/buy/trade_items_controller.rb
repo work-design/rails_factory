@@ -2,6 +2,7 @@ module Factory
   class Buy::TradeItemsController < Buy::BaseController
     before_action :set_agent
     before_action :set_trade_item, only: [:show, :toggle, :edit, :update, :destroy]
+    before_action :set_new_trade_item, only: [:new, :create]
 
     def index
       q_params = {}
