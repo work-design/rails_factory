@@ -7,16 +7,16 @@
 <td>
   <p>
     <span><%= model.book_start_days %></span>
-    <time><%= model.book_start_at.to_s(:time) %></time>
+    <time><%= model.book_start_at.to_fs(:time) %></time>
   </p>
   <p>
     <span><%= model.book_finish_days %></span>
-    <time><%= model.book_finish_at.to_s(:time) %></time>
+    <time><%= model.book_finish_at.to_fs(:time) %></time>
   </p>
 </td>
 <td>
-  <p><time><%= model.deliver_start_at.to_s(:time) %></time></p>
-  <p><time><%= model.deliver_finish_at.to_s(:time) %></time></p>
+  <p><time><%= model.deliver_start_at.to_fs(:time) %></time></p>
+  <p><time><%= model.deliver_finish_at.to_fs(:time) %></time></p>
 </td>
 <td>
 <% if model.specialty %>

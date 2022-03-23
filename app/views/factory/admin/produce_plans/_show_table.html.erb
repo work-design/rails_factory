@@ -4,7 +4,7 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::ProducePlan.human_attribute_name(:produce_on) %></td>
-  <td><%= @produce_plan.produce_on.to_s(:date) %></td>
+  <td><%= @produce_plan.produce_on.to_fs(:date) %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::ProducePlan.human_attribute_name(:state) %></td>

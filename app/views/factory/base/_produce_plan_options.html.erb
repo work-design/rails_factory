@@ -4,12 +4,12 @@
   <p class="is-size-7">
     <span>预定截止：</span>
     <time><%= extra_distance_date(params[:produce_on]) %></time>
-    <time><%= scene.book_finish_at.to_s(:time) %></time>
+    <time><%= scene.book_finish_at.to_fs(:time) %></time>
   </p>
   <p class="is-size-7">
     <span>配送时间：</span>
-    <time><%= scene.deliver_start_at.to_s(:time) %></time>
+    <time><%= scene.deliver_start_at.to_fs(:time) %></time>
     <span>~</span>
-    <time><%= scene.deliver_finish_at.to_s(:time) %></time>
+    <time><%= scene.deliver_finish_at.to_fs(:time) %></time>
   </p>
 <% end %>
