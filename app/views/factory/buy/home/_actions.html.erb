@@ -1,0 +1,8 @@
+<%= link_to({ controller: 'productions', scene_id: params[:scene_id], produce_on: params[:produce_on] }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-light fa-hand"></i>
+  <span>自己点餐</span>
+<% end %>
+<%= link_to({ controller: 'carts', action: 'list', scene_id: params[:scene_id], produce_on: params[:produce_on] }, class: 'weui-actionsheet__cell weui-actionsheet__cell_warn') do %>
+  <i class="fa-light fa-hand-holding"></i>
+  <span>帮同事点餐</span>
+<% end %>

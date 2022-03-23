@@ -8,5 +8,8 @@ module Factory
       @scenes = Scene.where(id: ids)
     end
 
+    def actions
+    end
+
   end
 end
