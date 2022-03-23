@@ -1,4 +1,4 @@
-<% trade_item = current_member.get_trade_item(good_type: model.class_name, good_id: i.good_id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+<% trade_item = current_member.get_trade_item(good_type: model.class_name, good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
 <%= form_with theme: nil, url: { controller: 'trade/me/trade_items', action: 'update', id: trade_item.id }, method: :patch, class: 'ml-1 button_to' do |f| %>
   <%= f.hidden_field :organ_id, value: model.organ_id %>
   <%= f.hidden_field '[trade_item]number', value: trade_item.number - 1 %>
