@@ -18,14 +18,18 @@ module Factory
           organ_id: current_organ.provider_ids
         }
       }
-      #q_params.merge! params.permit('name-like')
+      q_params.merge! params.permit('name-like')
 
       @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
     end
 
     def list
       q_params = {
-        production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] }
+        production_plans: {
+          produce_on: params[:produce_on],
+          scene_id: params[:scene_id],
+          organ_id: current_organ.provider_ids
+        }
       }
       @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
     end

@@ -5,6 +5,7 @@ module Factory
     before_action :set_trade_items
     before_action :set_scene, only: [:list]
     before_action :set_scenes, only: [:list]
+    before_action :set_production, only: [:list]
 
     def index
       @organs = current_organ.providers
@@ -12,13 +13,6 @@ module Factory
 
     def list
       @members = current_organ.members.order(id: :asc).page(params[:page])
-
-      @carts = current_organ.member_carts.includes(:member, :trade_items).where(organ_id: params[:organ_id]).order(member_id: :asc).page(params[:page])
-      if params[:production_id]
-        @production = Production.find params[:production_id]
-      else
-        @production = Production.first || @produce_plan.specialty_production
-      end
     end
 
     private
@@ -32,6 +26,23 @@ module Factory
 
     def set_scene
       @scene = Scene.find params[:scene_id]
+    end
+
+    def set_production
+      q_params = {
+        production_plans: {
+          produce_on: params[:produce_on],
+          scene_id: params[:scene_id],
+          organ_id: current_organ.provider_ids,
+          specialty: true
+        }
+      }
+
+      if params[:production_id]
+        @production = Production.find params[:production_id]
+      else
+        @production = Production.includes(:parts, :product).joins(:production_plans).where(q_params).take
+      end
     end
 
     def set_cart
