@@ -62,6 +62,13 @@ module Factory
       end
     end
 
+    def automatic
+      product_taxon_ids = scene.product_taxons.where(organ_id: organ_id)
+      Factory::Production.where(product_taxon_id: product_taxon_ids, automatic: true).each do |production|
+        production.production_plans.find_or_create_by(scene_id: scene_id, produce_on: produce_on)
+      end
+    end
+
     class_methods do
       def next_plan(organ_ids:, scene_id:, produce_on:)
         find_by(organ_id: organ_ids, scene_id: scene_id, produce_on: produce_on + 1)

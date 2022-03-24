@@ -13,7 +13,7 @@ module Factory
     end
 
     def products
-      @product_taxons = @produce_plan.scene.product_taxons
+      @product_taxons = @produce_plan.scene.product_taxons.default_where(default_params)
       @production_plans = @produce_plan.production_plans
       q_params = {
         product_taxon_id: @product_taxons.map(&:id)
