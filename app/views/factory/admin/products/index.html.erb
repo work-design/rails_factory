@@ -1,7 +1,12 @@
 <%= render layout: 'index_table', locals: { cache_key: Factory::Product.column_names.hash } do %>
   <% @products.group_by(&:product_taxon).each do |taxon, products| %>
     <tr>
-      <td rowspan="<%= products.size + 1 %>"><%= taxon&.name %></td>
+      <td rowspan="<%= products.size + 1 %>">
+      <% if taxon %>
+        <p><%= taxon.name %></p>
+        <p class="has-text-grey"><%= taxon.scene&.name %></p>
+      <% end %>
+      </td>
     </tr>
     <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
   <% end %>
