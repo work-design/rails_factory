@@ -96,6 +96,9 @@ zh:
           title: 商品列表
     buy:
       title: 下单管理
+      home:
+        index:
+          title: 我的
       trade_items:
         index:
           title: 订单
@@ -104,6 +107,9 @@ zh:
           title: 交易商户
         list:
           title: 代下单
+      orders:
+        index:
+          title: 企业订单
       payments:
         success:
           title: 你的订单已支付成功！

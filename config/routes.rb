@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     namespace :buy, defaults: { namespace: 'buy' } do
       controller :home do
         get :index
-        post :actions
       end
       concerns :productive
       resources :productions do
@@ -37,9 +36,7 @@ Rails.application.routes.draw do
       resources :carts do
         collection do
           get :list
-        end
-        member do
-          patch :actions
+          post :actions
         end
       end
       resources :payments do

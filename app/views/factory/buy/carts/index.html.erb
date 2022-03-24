@@ -1,5 +1,8 @@
-<div class="cards is-4">
-  <%= render partial: 'organ', collection: @organs, as: :organ %>
+<div class="weui-panel">
+  <div class="weui-panel__hd">供应商</div>
+  <div class="weui-panel__bd">
+    <%= render partial: 'organ', collection: current_organ.providers, as: :organ %>
+  </div>
 </div>
 
-<%= paginate @organ_ids %>
+<%= render 'produce_plan' %>
