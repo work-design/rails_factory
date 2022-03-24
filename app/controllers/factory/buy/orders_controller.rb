@@ -134,7 +134,7 @@ module Factory
     end
 
     def set_order
-      @order = Order.find(params[:id])
+      @order = Trade::Order.find(params[:id])
     end
 
     def order_params
