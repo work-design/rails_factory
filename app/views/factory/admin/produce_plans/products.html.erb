@@ -1,15 +1,15 @@
-<%= render layout: 'index_table', locals: { cache_key: Factory::Product.column_names.hash } do %>
-  <% @products.each do |product| %>
-    <tr>
-      <td rowspan="<%= product.productions_count + 1 %>">
-        <div class="is-several">
-          <%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if product.logo.attached? %>
-          <%= link_to product.name, { action: 'show', id: product.id }, text: true %>
-        </div>
-      </td>
-    </tr>
-    <%= render partial: 'index_tbody', layout: 'index_tr', collection: product.productions, as: :model %>
-  <% end %>
+<%= render layout: 'index_table' do %>
+<% @products.each do |product| %>
+  <tr>
+    <td rowspan="<%= product.productions_count + 1 %>">
+      <div class="is-several">
+        <%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if product.logo.attached? %>
+        <%= link_to product.name, { action: 'show', id: product.id }, text: true %>
+      </div>
+    </td>
+  </tr>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: product.productions, as: :model %>
+<% end %>
 <% end %>
 
 <%= paginate @products %>

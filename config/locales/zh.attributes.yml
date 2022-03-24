@@ -38,6 +38,8 @@ zh:
         specialty: 主推
         book_start_at: 预定开始时间
         book_finish_at: 预定结束时间
+        production_plans_count: 上架产品数
+        state: 状态
       factory/product_taxon:
         factory_taxon_id: 平台分类
         scene_id: 场景
