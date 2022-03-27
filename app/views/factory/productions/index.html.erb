@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-image">
       <figure class="image is-1by1">
-        <%= image_tag production.product.logo %>
+        <%= image_tag production.product.logo if production.product.logo.attached? %>
       </figure>
     </div>
     <div class="card-content">
