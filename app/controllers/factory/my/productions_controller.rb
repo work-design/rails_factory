@@ -21,7 +21,7 @@ module Factory
 
       if current_cart
         production_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
-        production_cart.customized_at = Time.current
+        production_cart.customized_at ||= Time.current
         production_cart.save!
       end
 

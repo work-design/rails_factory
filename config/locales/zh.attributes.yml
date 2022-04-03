@@ -25,6 +25,7 @@ zh:
         part_taxon_id: 分类
       factory/part_taxon:
         product_taxon_id: 产品分类
+        factory_taxon_id: 平台分类
       factory/scene:
         book_start_days: 提前天
         book_start_at: 预定开始时间
