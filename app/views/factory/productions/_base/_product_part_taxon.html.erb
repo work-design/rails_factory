@@ -11,6 +11,7 @@
     <label class="weui-btn <%= product_part_taxon.disabled?(@production.part_ids, part) ? 'weui-btn_mini weui-cell_disabled' : 'weui-btn_mini' %> <%= @production.part_ids.include?(part.id) ? 'weui-btn_primary' : 'weui-btn_default' %>" for="part_<%= part.id %>" id="part_<%= part.id %>_label">
       <span><%= part.name %></span>
       <span class="weui-btn__extra"><%= part.price %></span>
+      <%= hidden_field_tag 'production[part_ids][]', part.id, form: 'edit_custom', id: nil if @production.part_ids.include?(part.id) && product_part_taxon.disabled?(@production.part_ids, part) %>
       <%= check_box_tag 'production[part_ids][]', part.id, @production.part_ids.include?(part.id), disabled: product_part_taxon.disabled?(@production.part_ids, part), data: { action: 'custom#toggle' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
     </label>
   <% end %>
