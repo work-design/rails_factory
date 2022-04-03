@@ -12,7 +12,6 @@ module Factory
       attribute :default, :boolean, default: false
       attribute :enabled, :boolean, default: false
       attribute :automatic, :boolean, default: false
-      attribute :part_ids, :integer, array: true, default: []
 
       enum state: {
         init: 'init',
@@ -31,6 +30,8 @@ module Factory
       has_many :provided_parts, through: :part_providers, source: :part
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
+      has_many :production_parts, dependent: :destroy_async
+      has_many :parts, through: :production_parts
 
       #has_one_attached :logo
       delegate :logo, to: :product
@@ -49,7 +50,6 @@ module Factory
           self.logo.attach product.logo_blob
         end
       end
-      before_validation :order_part_ids, if: -> { part_ids_changed? }
       before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
@@ -61,8 +61,10 @@ module Factory
     end
 
     def order_part_ids
-      self.part_ids.compact!
-      self.part_ids.sort!
+      p_ids = self.production_part.pluck(:part_id)
+      p_ids.sort!
+      self.str_part_ids = p_ids.join(',')
+      self.save
     end
 
     def compute_min_max_price
