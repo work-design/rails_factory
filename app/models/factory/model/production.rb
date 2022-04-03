@@ -61,7 +61,7 @@ module Factory
     end
 
     def order_part_ids
-      p_ids = self.production_part.pluck(:part_id)
+      p_ids = self.production_parts.pluck(:part_id)
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
       self.save
