@@ -4,11 +4,11 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:start_at) %></td>
-  <td><%= @part_plan.start_at %></td>
+  <td><time data-controller="time"><%= @part_plan.start_at.to_fs(:iso8601) %></time></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:finish_at) %></td>
-  <td><%= @part_plan.finish_at %></td>
+  <td><time data-controller="time"><%= @part_plan.finish_at.to_fs(:iso8601) %></time></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:state) %></td>

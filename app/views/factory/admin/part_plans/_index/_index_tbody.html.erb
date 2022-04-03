@@ -1,6 +1,6 @@
 <td><time data-controller="time"><%= model.start_at.to_fs(:iso8601) %></time></td>
 <td><time data-controller="time"><%= model.finish_at.to_fs(:iso8601) %></time></td>
-<td><%= model.state %></td>
+<td><%= model.state_i18n %></td>
 <td><%= model.purchased_count %></td>
 <td>
   <%= link_to model.received_count, { controller: 'part_items', part_plan_id: model.id } %>

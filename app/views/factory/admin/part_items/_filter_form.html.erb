@@ -1,10 +1,10 @@
 <%= form_with theme: 'search', model: Factory::PartItem.new do |f| %>
-  <div class="fields">
+  <div class="field-body">
     <%= f.date_field 'received_at-gte' %>
     <%= f.date_field 'received_at-lte' %>
-    <%= f.submit 'Search' %>
-    <%= link_to 'Clear Filter', admin_part_items_path(@part), class: 'ui button' %>
+    <div class="field is-narrow">
+      <%= f.submit %>
+      <%= link_to t('.clear'), filter_params(except: ['received_at-gte', 'received_at-lte']), class: 'button is-light' %>
+    </div>
   </div>
 <% end %>
-
-
