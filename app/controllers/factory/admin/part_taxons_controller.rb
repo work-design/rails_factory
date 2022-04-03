@@ -7,7 +7,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @part_taxons = PartTaxon.roots.default_where(q_params).page(params[:page])
+      @part_taxons = PartTaxon.default_where(q_params).page(params[:page])
     end
 
     def new
