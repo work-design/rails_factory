@@ -1,0 +1,5 @@
+<%= form_with model: @product, url: { action: 'update' } do |f| %>
+  <%= render 'error_messages', target: @product %>
+  <%= f.text_field :qr_prefix %>
+  <%= f.submit %>
+<% end %>
