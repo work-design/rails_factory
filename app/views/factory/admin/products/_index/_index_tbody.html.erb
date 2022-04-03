@@ -13,3 +13,16 @@
   <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>
   <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
 </td>
+<td>
+  <% model.product_part_taxons.each do |product_part_taxon| %>
+    <p>
+      <span><%= product_part_taxon.name %></span>
+      <span class="has-text-grey"><%= product_part_taxon.select_range %></span>
+    </p>
+  <% end %>
+  <p>
+    <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fa-light fa-tree"></i>
+    <% end %>
+  </p>
+</td>
