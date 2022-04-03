@@ -1,11 +1,12 @@
 module Factory
   class Admin::PartsController < Admin::BaseController
     before_action :set_part, only: [:show, :edit, :update, :destroy]
+    before_action :set_part_taxons, only: [:index]
 
     def index
       q_params = {}
       q_params.merge! default_params
-      q_params.merge! params.permit(:name, :provider_id)
+      q_params.merge! params.permit(:name, :provider_id, :part_taxon_id)
 
       # todo should order by part taxon position
       @parts = Part.default_where(q_params).order(part_taxon_id: :asc).page(params[:page])
@@ -24,12 +25,6 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
     def update
       @part.assign_attributes(part_params)
 
@@ -38,13 +33,13 @@ module Factory
       end
     end
 
-    def destroy
-      @part.destroy
-    end
-
     private
     def set_part
       @part = Part.find params[:id]
+    end
+
+    def set_part_taxons
+      @part_taxons = Factory::PartTaxon.default_where(default_params).order(id: :asc)
     end
 
     def part_params

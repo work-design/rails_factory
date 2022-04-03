@@ -1,3 +1,2 @@
 <%= f.text_field :name %>
-<%= render partial: 'com/nodes/siblings_select', locals: { f: f, node: Factory::PartTaxon.root } %>
 <%= f.collection_select :factory_taxon_id, Factory::FactoryTaxon.all, :id, :name %>
