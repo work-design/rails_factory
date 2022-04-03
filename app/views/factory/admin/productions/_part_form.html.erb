@@ -1,5 +1,5 @@
 <%= form_with model: @production, url: { action: 'update' } do |f| %>
   <%= render 'error_messages', target: @production %>
-  <%= f.collection_select :part_ids, @production.product.parts, :id, :name, { wrap: { select: 'field-body control' } }, { multiple: true, data: { controller: 'choice' } } %>
+  <%= f.collection_check_boxes :part_ids, @production.product.parts, :id, :name, { wrap: { select: 'field-body control' } }, { multiple: true } %>
   <%= f.submit %>
 <% end %>
