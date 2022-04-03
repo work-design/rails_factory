@@ -21,23 +21,7 @@
 </div>
 
 <div class="box is-radiusless">
-<% @product.product_part_taxons.each do |product_part_taxon| %>
-  <div class="weui-media-box weui-media-box_text">
-    <div class="weui-media-box__title">
-      <span><%= product_part_taxon.part_taxon.name %></span>
-      <span class="weui-panel__extra">选择范围：<%= product_part_taxon.min_select %> - <%= product_part_taxon.max_select %></span>
-    </div>
-    <div class="weui-media-box__desc" data-controller="custom" data-custom-order="<%= (@production.part_ids & product_part_taxon.part_ids).join(',') %>" data-custom-range="<%= "#{product_part_taxon.min_select},#{product_part_taxon.max_select}" %>">
-      <% product_part_taxon.parts.each do |part| %>
-        <label class="weui-btn weui-btn_mini <%= @production.part_ids.include?(part.id) ? 'weui-btn_primary' : 'weui-btn_default' %>" for="part_<%= part.id %>" id="part_<%= part.id %>_label">
-          <span><%= part.name %></span>
-          <span class="weui-btn__extra"><%= part.price %></span>
-          <%= check_box_tag 'production[part_ids][]', part.id, @production.part_ids.include?(part.id), data: { action: 'custom#toggle' }, class: 'weui-check', id: "part_#{part.id}", form: 'edit_custom' %>
-        </label>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+  <%= render partial: 'product_part_taxon', collection: @product.product_part_taxons, as: :product_part_taxon %>
 </div>
 
 <% if @production.product.images.present? %>
