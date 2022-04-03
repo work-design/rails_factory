@@ -1,5 +1,7 @@
-<td><%= model.name %></td>
-<td><%= model.qr_prefix %></td>
+<td>
+  <p><%= model.name %></p>
+  <p class="has-text-grey"><%= model.qr_prefix %></p>
+</td>
 <td>
   <%= link_to 'Plan', { controller: 'part_plans', part_id: model.id }, class: 'button' %>
 </td>
