@@ -13,6 +13,12 @@ module Factory
       has_many :parts, through: :product_parts
 
       has_taxons :part_taxon
+
+      before_validation :sync_name, if: -> { product_id_changed? }
+    end
+
+    def sync_name
+      self.name = part_taxon.name
     end
 
     def select_str
