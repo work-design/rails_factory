@@ -4,11 +4,10 @@
     <i class="fa-light fa-clone"></i><span><%= model.productions_count %></span>
   <% end %>
 </td>
-<td><%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' if model.logo.attached? %></td>
 <td>
-  <%= render 'com/attachments/list_many', target: model.covers %>
+  <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-64x64' if model.logo.attached? %>
+  <span class="tag"><%= model.covers_attachments.size %></span>
 </td>
-<td><%= model.qr_prefix %></td>
 <td><%= model.profit_margin_str %></td>
 <td>
   <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>
