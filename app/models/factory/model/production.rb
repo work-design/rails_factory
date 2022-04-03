@@ -12,6 +12,7 @@ module Factory
       attribute :default, :boolean, default: false
       attribute :enabled, :boolean, default: false
       attribute :automatic, :boolean, default: false
+      attribute :part_ids, :integer, array: true, default: []
 
       enum state: {
         init: 'init',
@@ -24,8 +25,6 @@ module Factory
       belongs_to :product, counter_cache: true
       belongs_to :product_taxon, optional: true
 
-      has_many :production_parts, dependent: :destroy_async
-      has_many :parts, through: :production_parts
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :part_providers, dependent: :destroy_async
@@ -65,8 +64,7 @@ module Factory
     end
 
     def compute_sum
-      self.production_parts.each(&:sync_amount)
-      self.price ||= production_parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
+      self.price ||= parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
     end
 
     def set_default
@@ -79,6 +77,14 @@ module Factory
       else
         0
       end
+    end
+
+    # def str_part_ids
+    #   part_ids.join(',')
+    # end
+
+    def parts
+      Part.find part_ids
     end
 
     def sync_price

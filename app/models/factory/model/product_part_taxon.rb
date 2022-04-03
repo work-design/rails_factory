@@ -31,8 +31,10 @@ module Factory
       end
     end
 
-    def disabled?(part)
-      if parts.size <= min_select
+    def disabled?(production_part_ids)
+      if parts.size == min_select
+        true
+      elsif (part_ids & production_part_ids).size == min_select
         true
       else
         false
