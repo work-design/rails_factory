@@ -1,7 +1,7 @@
 module Factory
   class Admin::PartsController < Admin::BaseController
     before_action :set_part, only: [:show, :edit, :update, :destroy]
-    before_action :set_part_taxons, only: [:index]
+    before_action :set_part_taxons, only: [:index, :new, :edit]
 
     def index
       q_params = {}

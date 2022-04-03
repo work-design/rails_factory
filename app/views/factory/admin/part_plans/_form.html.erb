@@ -1,15 +1,15 @@
 <div class="field is-horizontal">
   <%= f.label :start_at %>
   <div class="field-body">
-    <%= f.date_field 'start_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, on: { label: false }, required: true %>
-    <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, on: { label: false } %>
+    <%= f.date_field 'start_at(date)', wrap: { input: 'field is-narrow' }, all: { required: nil }, label: nil, required: true %>
+    <%= f.time_select :start_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 8, min: 30 }, wrap: { select: 'select' }, all: { select: 'field is-narrow' }, label: nil %>
   </div>
 </div>
 <div class="field is-horizontal">
   <%= f.label :finish_at %>
   <div class="field-body">
-    <%= f.date_field 'finish_at(date)', wrap: { all_required: false, input: 'field is-narrow' }, on: { label: false }, required: true %>
-    <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, wrap: { all: 'field is-narrow', select: 'select' }, on: { label: false } %>
+    <%= f.date_field 'finish_at(date)', wrap: { input: 'field is-narrow' }, all: { required: nil }, label: nil, required: true %>
+    <%= f.time_select :finish_at, start_hour: 8, end_hour: 18, minute_step: 30, default: { hour: 17, min: 30 }, wrap: { select: 'select' }, all: { select: 'field is-narrow' }, label: nil %>
   </div>
 </div>
 <%= f.text_field :state %>
