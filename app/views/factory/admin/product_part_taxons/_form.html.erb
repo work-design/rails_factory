@@ -1,3 +1,3 @@
-<%= render partial: 'com/nodes/outer_select', locals: { f: f, node: Factory::PartTaxon.new(organ_id: current_organ&.id), outer: 'part_taxon' } %>
+<%= f.collection_select :part_taxon_id, @part_taxons, :id, :name %>
 <%= f.number_field :min_select, step: 1 %>
 <%= f.number_field :max_select, step: 1 %>

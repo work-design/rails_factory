@@ -30,15 +30,14 @@ module Factory
     end
 
     def prepare_form
-      @part_taxons = PartTaxon.roots.default_where(default_params)
+      @part_taxons = PartTaxon.default_where(default_params).order(id: :asc)
     end
 
     def product_part_taxon_params
       params.fetch(:product_part_taxon, {}).permit(
-        :name,
         :min_select,
         :max_select,
-        :part_taxon_ancestors
+        :part_taxon_id
       )
     end
 
