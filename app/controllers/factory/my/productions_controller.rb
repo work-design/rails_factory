@@ -14,7 +14,8 @@ module Factory
     end
 
     def create
-      @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: production_params[:str_part_ids])
+      r = production_params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
+      @production = Production.find_or_initialize_by(product_id: production_params[:product_id], part_ids: r)
       @production.assign_attributes production_params
       @production.compute_sum
       @production.save!
@@ -63,13 +64,10 @@ module Factory
     end
 
     def production_params
-      q = params.fetch(:production, {}).permit(
+      params.fetch(:production, {}).permit(
         :product_id,
         part_ids: []
       )
-      q.fetch(:part_ids, []).map!(&:to_i).sort!
-      q.merge! str_part_ids: Array(q[:part_ids]).join(',')
-      q
     end
 
   end

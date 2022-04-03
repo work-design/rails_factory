@@ -49,6 +49,7 @@ module Factory
           self.logo.attach product.logo_blob
         end
       end
+      before_validation :order_part_ids, if: -> { part_ids_changed? }
       before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
@@ -57,6 +58,11 @@ module Factory
 
     def title
       parts.pluck(:name).join(',')
+    end
+
+    def order_part_ids
+      self.part_ids.compact!
+      self.part_ids.sort!
     end
 
     def compute_min_max_price
