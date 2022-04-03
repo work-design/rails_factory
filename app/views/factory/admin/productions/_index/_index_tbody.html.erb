@@ -15,6 +15,9 @@
       </tr>
     <% end %>
   </table>
+  <%= link_to({ action: 'part', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-light fa-cube"></i>
+  <% end %>
 </td>
 <td><%= model.state_i18n %></td>
 <td><%= model.qr_code %></td>
@@ -39,11 +42,6 @@
   </div>
   <%= link_to({ action: 'vip', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('factory.admin.productions.vip.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-star"></i>
-  <% end %>
-</td>
-<td>
-  <%= link_to({ action: 'part', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-light fa-cube"></i>
   <% end %>
 </td>
 <td>

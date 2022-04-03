@@ -9,7 +9,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:product_plan_id)
 
-      @productions = @product.productions.default_where(q_params).page(params[:page])
+      @productions = @product.productions.default_where(q_params).order(id: :asc).page(params[:page])
     end
 
     def new
