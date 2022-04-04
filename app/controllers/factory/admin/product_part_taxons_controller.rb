@@ -1,8 +1,8 @@
 module Factory
   class Admin::ProductPartTaxonsController < Admin::BaseController
     before_action :set_product
-    before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
-    before_action :prepare_form, only: [:new, :edit]
+    before_action :set_product_part_taxon, only: [:show, :edit, :part, :update, :destroy]
+    before_action :set_part_taxons, only: [:new, :edit]
 
     def index
       @product_part_taxons = @product.product_part_taxons.includes(:part_taxon).page(params[:page])
@@ -33,15 +33,16 @@ module Factory
       @product_part_taxon = ProductPartTaxon.find(params[:id])
     end
 
-    def prepare_form
-      @part_taxons = PartTaxon.default_where(default_params).order(id: :asc)
+    def set_part_taxons
+      @part_taxons = PartTaxon.where.not(id: @product.part_taxon_ids).default_where(default_params).order(id: :asc)
     end
 
     def product_part_taxon_params
       params.fetch(:product_part_taxon, {}).permit(
         :min_select,
         :max_select,
-        :part_taxon_id
+        :part_taxon_id,
+        part_ids: []
       )
     end
 

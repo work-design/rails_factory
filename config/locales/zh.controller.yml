@@ -39,14 +39,14 @@ zh:
       products:
         index:
           title: 产品
-        part:
-          title: 产品组成
       product_parts:
         index:
           title: 产品组成
       product_part_taxons:
         index:
           title: 产品组成设置
+        part:
+          title: 产品组成
       product_taxons:
         index:
           title: 产品分类

@@ -9,10 +9,8 @@ module Factory
 
       belongs_to :product
       belongs_to :part_taxon
-      has_many :product_parts, foreign_key: :part_taxon_id, primary_key: :part_taxon_id
+      has_many :product_parts, ->(o){ where(part_taxon_id: o.part_taxon_id) }, primary_key: :product_id, foreign_key: :product_id
       has_many :parts, through: :product_parts
-
-      has_taxons :part_taxon
 
       before_validation :sync_name, if: -> { product_id_changed? }
     end
