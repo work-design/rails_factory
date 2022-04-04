@@ -1,3 +1,8 @@
 <td><%= model.part_taxon.name %></td>
-<td><%= model.min_select %></td>
-<td><%= model.max_select %></td>
+<td>
+  <p><%= model.min_select %></p>
+  <p><%= model.max_select %></p>
+</td>
+<td>
+  <%= render partial: 'part_form', locals: { product_part_taxon: model } %>
+</td>

@@ -5,7 +5,7 @@ module Factory
     before_action :set_part_taxons, only: [:new, :edit]
 
     def index
-      @product_part_taxons = @product.product_part_taxons.includes(:part_taxon).page(params[:page])
+      @product_part_taxons = @product.product_part_taxons.includes(:part_taxon, product_parts: :part).page(params[:page])
     end
 
     def new

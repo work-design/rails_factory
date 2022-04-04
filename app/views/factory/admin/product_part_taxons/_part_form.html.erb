@@ -1,5 +1,0 @@
-<%= form_with model: @product_part_taxon, url: { action: 'update' } do |f| %>
-  <%= render 'error_messages', target: @product_part_taxon %>
-  <%= f.collection_check_boxes :part_ids, @product_part_taxon.part_taxon.parts, :id, :name, label: @product_part_taxon.part_taxon.name %>
-  <%= f.submit %>
-<% end %>
