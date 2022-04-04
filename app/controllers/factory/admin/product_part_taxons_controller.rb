@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductPartTaxonsController < Admin::BaseController
     before_action :set_product
-    before_action :set_product_part_taxon, only: [:show, :edit, :part, :update, :destroy]
+    before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
     before_action :set_part_taxons, only: [:new, :edit]
 
     def index
@@ -18,10 +18,6 @@ module Factory
       unless @product_part_taxon.save
         render :new, locals: { model: @product_part_taxon }, status: :unprocessable_entity
       end
-    end
-
-    def part
-      @parts = Part.default_where(default_params)
     end
 
     private

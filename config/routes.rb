@@ -78,9 +78,6 @@ Rails.application.routes.draw do
           patch :actions
         end
         resources :product_part_taxons do
-          member do
-            get :part
-          end
           resources :product_parts
         end
         resources :productions do
