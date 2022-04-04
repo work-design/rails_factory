@@ -78,6 +78,8 @@ zh:
           title: 产品型号
         vip:
           title: 会员价
+        part:
+          title: 产品组成
       provideds:
         index:
           title: 供应列表
