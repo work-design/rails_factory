@@ -17,7 +17,6 @@ module Factory
       r = production_params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
       @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: r.join(','))
       @production.assign_attributes production_params
-      @production.compute_sum
       @production.save!
 
       if current_cart
