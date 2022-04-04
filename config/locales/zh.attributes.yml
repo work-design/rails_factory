@@ -14,7 +14,7 @@ zh:
       factory/production:
         base_price: 基础价格
         cost_price: 成本价
-        profit_price: 利润
+        profit_price: 调价
         price: 售价
         vip_price: 会员价
         enabled: 上架
