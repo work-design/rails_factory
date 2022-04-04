@@ -9,23 +9,23 @@
   <% end %>
 </div>
 
-<div class="box is-radiusless is-sticky" style="z-index: 3">
+<div class="box mx-3 mt-4 is-sticky" style="z-index: 3">
   <div class="has-text-danger has-text-bold">
     <span><%= @production.price.to_money.symbol %></span>
     <span id="total_price"><%= @production.price.to_money.to_s %></span>
   </div>
 </div>
 
-<div class="box is-radiusless">
+<div class="box mx-3">
   <h1><%= @product.name %></h1>
 </div>
 
-<div class="box is-radiusless">
+<div class="box mx-3 p-0">
   <%= render partial: 'product_part_taxon', collection: @product.product_part_taxons, as: :product_part_taxon %>
 </div>
 
 <% if @production.product.images.present? %>
-<div class="box is-radiusless">
+<div class="box mx-3 p-0">
   <% @production.product.images.each do |image| %>
     <%= image_tag image, class: 'image' -%>
   <% end %>
