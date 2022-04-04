@@ -6,6 +6,7 @@ module Factory
       attribute :name, :string
       attribute :qr_code, :string
       attribute :price, :decimal, default: 0
+      attribute :base_price, :decimal, default: 0
       attribute :cost_price, :decimal, default: 0, comment: '成本价'
       attribute :profit_price, :decimal, default: 0, comment: '利润'
       attribute :str_part_ids, :string
@@ -50,7 +51,7 @@ module Factory
           self.logo.attach product.logo_blob
         end
       end
-      before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
+      before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_save :compute_min_max_price, if: -> { saved_change_to_price? }
@@ -72,7 +73,7 @@ module Factory
     end
 
     def compute_sum
-      self.price ||= parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
+      self.cost_price = parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
     end
 
     def set_default
@@ -96,12 +97,8 @@ module Factory
     end
 
     def sync_price
-      if self.parts.present?
-        self.cost_price = self.parts.sum(&:price)
-      end
-
       self.profit_price ||= default_profit_price
-      self.price = self.cost_price + self.profit_price
+      self.price = self.base_price + self.cost_price + self.profit_price
     end
 
     def sync_from_product

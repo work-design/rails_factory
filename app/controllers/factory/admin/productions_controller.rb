@@ -65,7 +65,7 @@ module Factory
       params.fetch(:production, {}).permit(
         :state,
         :qr_code,
-        :cost_price,
+        :base_price,
         :profit_price,
         :default,
         :ordered_at,
