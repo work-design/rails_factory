@@ -3,15 +3,10 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :price, :decimal, default: 0
-
       belongs_to :production
       belongs_to :part
 
       after_commit :sync_to_production, on: [:create, :destroy]
-    end
-
-    def sync_amount
     end
 
     def sync_to_production
