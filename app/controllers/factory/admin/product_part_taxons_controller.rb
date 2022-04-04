@@ -20,6 +20,10 @@ module Factory
       end
     end
 
+    def part
+      @parts = Part.default_where(default_params)
+    end
+
     private
     def set_product
       @product = Product.find params[:product_id]

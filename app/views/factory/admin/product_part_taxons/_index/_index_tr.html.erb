@@ -2,6 +2,12 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
+      <%= link_to({ controller: 'product_parts', product_id: model.product_id }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-cube"></i>
+      <% end %>
+      <%= link_to({ controller: 'products', action: 'part', id: model.product_id }, data: { turbo_frame: 'modal' }, aria: { label: t('factory.admin.products.part.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-cube"></i>
+      <% end %>
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-circle-info"></i>
       <% end %>

@@ -19,10 +19,6 @@ module Factory
       @product.product_taxon ||= ProductTaxon.default_where(default_params).first
     end
 
-    def part
-      @parts = Part.default_where(default_params)
-    end
-
     private
     def set_product
       @product = Product.find(params[:id])

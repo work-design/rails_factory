@@ -75,11 +75,14 @@ Rails.application.routes.draw do
           get :remove_item
         end
         member do
-          get :part
           patch :actions
         end
-        resources :product_part_taxons, as: 'part_taxons', path: 'part_taxons'
-        resources :product_parts, as: 'parts', path: 'parts'
+        resources :product_part_taxons do
+          member do
+            get :part
+          end
+          resources :product_parts
+        end
         resources :productions do
           member do
             get :part
