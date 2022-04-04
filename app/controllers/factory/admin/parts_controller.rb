@@ -48,7 +48,8 @@ module Factory
         :qr_prefix,
         :import_price,
         :profit_price,
-        :part_taxon_ancestors
+        :logo,
+        :part_taxon_id
       )
       p.merge! default_form_params
     end

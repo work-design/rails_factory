@@ -2,6 +2,7 @@
   <p><%= model.name %></p>
   <p class="has-text-grey"><%= model.qr_prefix %></p>
 </td>
+<td><%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %></td>
 <td>
   <%= link_to 'Plan', { controller: 'part_plans', part_id: model.id }, class: 'button' %>
 </td>

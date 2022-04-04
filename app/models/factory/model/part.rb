@@ -24,22 +24,13 @@ module Factory
       has_many :part_items, dependent: :destroy_async
       has_many :part_providers, dependent: :destroy_async
 
-      before_save :sync_part_taxon_id, if: -> { part_taxon_ancestors_changed? }
+      has_one_attached :logo
+
       before_save :sync_price
       after_update :sync_part_taxon_id_to_pp, if: -> { saved_change_to_part_taxon_id? }
-
-      has_taxons :part_taxon
-    end
-
-    def taxon_str(join = ' > ')
-      self.part_taxon.self_and_ancestors.pluck(:name).reverse.join(join) if self.part_taxon
     end
 
     private
-    def sync_part_taxon_id
-      self.part_taxon_id = self.part_taxon_ancestors&.values.compact.last
-    end
-
     def sync_part_taxon_id_to_pp
       self.product_parts.update_all(part_taxon_id: self.part_taxon_id)
     end
