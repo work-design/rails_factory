@@ -21,6 +21,7 @@
 </td>
 <td class="has-text-right">
   <p><%= model.base_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.cost_price.to_money.format(html_wrap: true).html_safe %></p>
   <p><%= model.profit_price.to_money.format(html_wrap: true).html_safe %></p>
 </td>
 <td>

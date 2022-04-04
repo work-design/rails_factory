@@ -8,15 +8,16 @@ module Factory
       belongs_to :production
       belongs_to :part
 
-      after_create_commit :sync_to_production
+      after_commit :sync_to_production, on: [:create, :destroy]
     end
 
     def sync_amount
-      self.price = part.price
     end
 
     def sync_to_production
+      production.compute_cost_price
       production.order_part_ids
+      production.save
     end
 
   end

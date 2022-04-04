@@ -45,7 +45,6 @@ module Factory
         if product_id && part_ids.blank?
           self.part_ids = product.part_ids
         end
-        compute_sum
         if product
           self.name = product.name
           self.logo.attach product.logo_blob
@@ -65,6 +64,10 @@ module Factory
       p_ids = self.production_parts.pluck(:part_id)
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
+    end
+
+    def order_part_ids!
+      order_part_ids
       self.save
     end
 
@@ -72,7 +75,7 @@ module Factory
       product.compute_min_max
     end
 
-    def compute_sum
+    def compute_cost_price
       self.cost_price = parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
     end
 
