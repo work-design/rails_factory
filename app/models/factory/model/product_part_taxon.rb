@@ -20,18 +20,14 @@ module Factory
     end
 
     def select_str
-      if max_select > min_select
-        '可选'
-      else
-        '必选'
-      end
-    end
-
-    def select_range
       if max_select == min_select
-        "#{max_select}"
+        "必选 #{max_select}"
+      elsif max_select > min_select && min_select > 1
+        "可选 #{min_select} - #{max_select}"
+      elsif max_select > min_select && min_select == 1
+        "#{max_select} 选 #{min_select}"
       else
-        "#{min_select} - #{max_select}"
+        ""
       end
     end
 
