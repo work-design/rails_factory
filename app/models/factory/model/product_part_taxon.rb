@@ -5,6 +5,7 @@ module Factory
     included do
       attribute :name, :string
       attribute :min_select, :integer, default: 1
+      attribute :max_select, :integer
       attribute :product_parts_count, :integer, default: 0
 
       belongs_to :product
@@ -36,6 +37,10 @@ module Factory
       else
         ""
       end
+    end
+
+    def only_one?
+      min_select == 1
     end
 
     def disabled?(production_part_ids, part)
