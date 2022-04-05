@@ -2,7 +2,7 @@ module Factory
   class Admin::ProductPartTaxonsController < Admin::BaseController
     before_action :set_product
     before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
-    before_action :set_part_taxons, only: [:new, :edit]
+    before_action :set_part_taxons, only: [:new, :create, :edit, :update]
 
     def index
       @product_part_taxons = @product.product_part_taxons.includes(:part_taxon, product_parts: :part).order(part_taxon_id: :asc).page(params[:page])
@@ -36,7 +36,6 @@ module Factory
     def product_part_taxon_params
       params.fetch(:product_part_taxon, {}).permit(
         :min_select,
-        :max_select,
         :part_taxon_id,
         part_ids: []
       )

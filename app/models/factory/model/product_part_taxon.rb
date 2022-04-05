@@ -6,11 +6,14 @@ module Factory
       attribute :name, :string
       attribute :min_select, :integer, default: 1
       attribute :max_select, :integer, default: 1, comment: '最大同时选择，1则为单选'
+      attribute :product_parts_count, :integer, default: 0
 
       belongs_to :product
       belongs_to :part_taxon
       has_many :product_parts, ->(o){ where(part_taxon_id: o.part_taxon_id) }, primary_key: :product_id, foreign_key: :product_id
       has_many :parts, through: :product_parts
+
+      validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
 
       before_validation :sync_name, if: -> { product_id_changed? }
     end
