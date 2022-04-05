@@ -12,9 +12,14 @@ module Factory
       has_many :product_parts, ->(o){ where(part_taxon_id: o.part_taxon_id) }, primary_key: :product_id, foreign_key: :product_id
       has_many :parts, through: :product_parts
 
-      validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
+      validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }, unless: -> (o) { o.min_select == 1 }
 
       before_validation :sync_name, if: -> { product_id_changed? }
+      after_create_commit :reset_product_parts_counter
+    end
+
+    def reset_product_parts_counter
+      self.class.reset_counters(self.id, :product_parts)
     end
 
     def sync_name

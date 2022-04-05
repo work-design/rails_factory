@@ -2,7 +2,7 @@ module Factory
   class Admin::ProductPartTaxonsController < Admin::BaseController
     before_action :set_product
     before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
-    before_action :set_part_taxons, only: [:new, :create, :edit, :update]
+    before_action :set_remaining_part_taxons, only: [:new, :create]
 
     def index
       @product_part_taxons = @product.product_part_taxons.includes(:part_taxon, product_parts: :part).order(part_taxon_id: :asc).page(params[:page])
@@ -29,7 +29,7 @@ module Factory
       @product_part_taxon = ProductPartTaxon.find(params[:id])
     end
 
-    def set_part_taxons
+    def set_remaining_part_taxons
       @part_taxons = PartTaxon.where.not(id: @product.part_taxon_ids).default_where(default_params).order(id: :asc)
     end
 

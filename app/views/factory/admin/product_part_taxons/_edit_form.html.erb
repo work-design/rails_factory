@@ -1,0 +1,5 @@
+<%= form_with model: @product_part_taxon, url: { action: 'update' } do |f| %>
+  <%= render 'error_messages', target: f.object %>
+  <%= f.number_field :min_select, step: 1 %>
+  <%= f.submit %>
+<% end %>
