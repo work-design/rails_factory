@@ -42,9 +42,6 @@ module Factory
       scope :automatic, -> { where(automatic: true) }
 
       after_initialize if: :new_record? do
-        if product_id && part_ids.blank?
-          self.part_ids = product.part_ids
-        end
         if product
           self.name = product.name
           self.logo.attach product.logo_blob

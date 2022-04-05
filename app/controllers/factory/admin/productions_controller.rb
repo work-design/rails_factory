@@ -12,6 +12,9 @@ module Factory
       @productions = @product.productions.default_where(q_params).order(id: :asc).page(params[:page])
     end
 
+    def detect
+    end
+
     def new
       @production = @product.productions.build
     end
