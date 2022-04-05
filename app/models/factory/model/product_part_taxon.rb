@@ -5,7 +5,6 @@ module Factory
     included do
       attribute :name, :string
       attribute :min_select, :integer, default: 1
-      attribute :max_select, :integer, default: 1, comment: '最大同时选择，1则为单选'
       attribute :product_parts_count, :integer, default: 0
 
       belongs_to :product
@@ -23,12 +22,12 @@ module Factory
     end
 
     def select_str
-      if max_select == min_select
-        "必选 #{max_select}"
-      elsif max_select > min_select && min_select > 1
-        "可选 #{min_select} - #{max_select}"
-      elsif max_select > min_select && min_select == 1
-        "#{max_select} 选 #{min_select}"
+      if product_parts_count == min_select
+        "必选 #{product_parts_count}"
+      elsif product_parts_count > min_select && min_select > 1
+        "可选 #{min_select} - #{product_parts_count}"
+      elsif product_parts_count > min_select && min_select == 1
+        "#{product_parts_count} 选 #{min_select}"
       else
         ""
       end
