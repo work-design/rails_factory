@@ -2,3 +2,4 @@
 <% @product.product_part_taxons.each do |product_part_taxon| %>
   <%= f.collection_check_boxes :part_ids, product_part_taxon.parts, :id, :name, { label: product_part_taxon.name, wrap: { select: 'field-body control' } }, { multiple: true } %>
 <% end %>
+<%= f.number_field :base_price %>
