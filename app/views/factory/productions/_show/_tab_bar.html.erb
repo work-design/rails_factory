@@ -1,0 +1,11 @@
+<div class="columns is-mobile has-background-grey-lighter pb-1 mx-0" style="z-index: 500">
+  <div class="column is-half is-flex is-justify-content-center is-align-items-center">
+    <%= render partial: 'cart', locals: { model: @production } if current_cart %>
+  </div>
+  <div class="column is-half">
+    <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'button is-danger') do %>
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span><%= t('trade.my.carts.show.title') %></span>
+    <% end %>
+  </div>
+</div>
