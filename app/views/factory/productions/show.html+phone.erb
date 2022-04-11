@@ -17,7 +17,7 @@
 </div>
 
 <div class="box mx-3 p-0">
-  <%= render partial: 'product_part_taxon', collection: @product.product_part_taxons, as: :product_part_taxon %>
+  <%= render partial: 'product_part_taxon', collection: @production.product.product_part_taxons, as: :product_part_taxon %>
 </div>
 
 <% if @production.product.images.present? %>

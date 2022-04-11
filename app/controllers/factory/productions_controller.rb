@@ -36,11 +36,9 @@ module Factory
     end
 
     def show
-      @product = @production.product
     end
 
     def dialog
-      @product = @production.product
     end
 
     def create
@@ -48,12 +46,6 @@ module Factory
       @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: r.join(','))
       @production.assign_attributes production_params
       @production.save!
-
-      if current_cart
-        production_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
-        production_cart.customized_at ||= Time.current
-        production_cart.save!
-      end
 
       render 'create'
     end
