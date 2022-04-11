@@ -5,9 +5,9 @@
       <span><%= product_part_taxon.select_str %></span>
     </span>
   </div>
-  <div class="weui-media-box__desc" data-controller="custom" data-custom-only-value="<%= product_part_taxon.only_one? %>">
+  <div class="pt-4" data-controller="custom" data-custom-only-value="<%= product_part_taxon.only_one? %>">
   <% product_part_taxon.parts.each do |part| %>
-    <label class="weui-btn mb-2 <%= product_part_taxon.disabled?(@production.part_ids, part) ? 'weui-btn_mini weui-cell_disabled' : 'weui-btn_mini' %> <%= @production.part_ids.include?(part.id) ? 'weui-btn_primary' : 'weui-btn_default' %>" for="part_<%= part.id %>">
+    <label class="button mb-2 <%= product_part_taxon.disabled?(@production.part_ids, part) ? 'is-small is-static' : 'is-small' %> <%= @production.part_ids.include?(part.id) ? 'is-success' : 'is-light' %>" for="part_<%= part.id %>">
       <span><%= part.name %></span>
       <span class="weui-btn__extra"><%= part.price.to_money.format(html_wrap: true).html_safe %></span>
       <%= hidden_field_tag 'production[part_ids][]', part.id, form: 'edit_custom', data: { part_taxon_id: product_part_taxon.part_taxon_id }, id: nil if @production.part_ids.include?(part.id) && product_part_taxon.disabled?(@production.part_ids, part) %>
