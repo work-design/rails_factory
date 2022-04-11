@@ -88,10 +88,6 @@ module Factory
       end
     end
 
-    # def str_part_ids
-    #   part_ids.join(',')
-    # end
-
     def parts
       Part.find part_ids
     end
