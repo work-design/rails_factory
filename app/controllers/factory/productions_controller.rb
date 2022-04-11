@@ -4,7 +4,7 @@ module Factory
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_card_templates, only: [:index]
-    before_action :set_production, only: [:show]
+    before_action :set_production, only: [:show, :dialog]
     before_action :set_scene, only: [:index], if: -> { params[:produce_on].present? && params[:scene_id].present? }
 
     def index
@@ -36,6 +36,10 @@ module Factory
     end
 
     def show
+      @product = @production.product
+    end
+
+    def dialog
       @product = @production.product
     end
 
