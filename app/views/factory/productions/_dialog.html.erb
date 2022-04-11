@@ -1,12 +1,7 @@
-<div data-controller="weui-dialog" id="dialog">
-  <div class="weui-mask" data-action="click->weui-dialog#close"></div>
-  <div class="weui-half-screen-dialog weui-half-screen-dialog_large weui-half-screen-dialog_show">
-    <div class="weui-half-screen-dialog__hd"></div>
-    <div class="weui-half-screen-dialog__bd">
-      <%= render partial: 'product_part_taxon', collection: @product.product_part_taxons, as: :product_part_taxon %>
-    </div>
-    <div class="weui-half-screen-dialog__ft">
-      <%= render 'tab_bar' %>
-    </div>
-  </div>
+<div class="weui-half-screen-dialog__hd"></div>
+<div class="weui-half-screen-dialog__bd">
+  <%= render partial: 'product_part_taxon', collection: @product.product_part_taxons, as: :product_part_taxon %>
+</div>
+<div class="weui-half-screen-dialog__ft">
+  <%= render 'tab_bar' %>
 </div>
