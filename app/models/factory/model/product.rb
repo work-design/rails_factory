@@ -13,6 +13,7 @@ module Factory
       attribute :max_price, :decimal
       attribute :order_items_count, :integer, default: 0
       attribute :productions_count, :integer, default: 0
+      attribute :product_parts_count, :integer, default: 0
 
       belongs_to :organ, optional: true
       belongs_to :product_taxon, optional: true, counter_cache: true
@@ -32,7 +33,6 @@ module Factory
       has_many_attached :covers
       has_many_attached :images
 
-      has_taxons :product_taxon
       after_save :sync_name, if: -> { saved_change_to_name? }
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
     end

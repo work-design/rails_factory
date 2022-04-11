@@ -5,7 +5,7 @@ module Factory
     included do
       attribute :default, :boolean, default: false
 
-      belongs_to :product
+      belongs_to :product, counter_cache: true
       belongs_to :part
       belongs_to :part_taxon
       belongs_to :product_part_taxon, ->(o) { where(part_taxon_id: o.part_taxon_id) }, foreign_key: :product_id, primary_key: :product_id, counter_cache: true

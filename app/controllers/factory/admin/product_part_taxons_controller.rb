@@ -36,6 +36,7 @@ module Factory
     def product_part_taxon_params
       params.fetch(:product_part_taxon, {}).permit(
         :min_select,
+        :max_select,
         :part_taxon_id,
         part_ids: []
       )
