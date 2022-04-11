@@ -10,14 +10,10 @@
 </div>
 
 <div class="box is-radiusless is-sticky" style="z-index: 3">
-  <div class="has-text-danger has-text-bold">
-    <span><%= @production.price.to_money.symbol %></span>
-    <span id="total_price"><%= @production.price.to_money.to_s %></span>
+  <div class="has-text-bold">
+    <span><%= @production.product.name %></span>
+    <span class="has-text-danger"><%= @production.price.to_money.format(html_wrap: true).html_safe %></span>
   </div>
-</div>
-
-<div class="box mx-3">
-  <h1><%= @product.name %></h1>
 </div>
 
 <div class="box mx-3 p-0">
