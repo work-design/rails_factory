@@ -43,6 +43,21 @@ module Factory
       @product = @production.product
     end
 
+    def create
+      r = production_params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
+      @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: r.join(','))
+      @production.assign_attributes production_params
+      @production.save!
+
+      if current_cart
+        production_cart = @production.production_carts.find_or_initialize_by(state: 'init', cart_id: current_cart.id)
+        production_cart.customized_at ||= Time.current
+        production_cart.save!
+      end
+
+      render 'create'
+    end
+
     private
     def set_production
       @production = Production.find params[:id]
@@ -82,6 +97,13 @@ module Factory
 
     def set_product_taxon
       @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
+    end
+
+    def production_params
+      params.fetch(:production, {}).permit(
+        :product_id,
+        part_ids: []
+      )
     end
 
   end

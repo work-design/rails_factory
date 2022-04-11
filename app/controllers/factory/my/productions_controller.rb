@@ -25,11 +25,7 @@ module Factory
         production_cart.save!
       end
 
-      if params[:commit].present?
-        render 'create'
-      else
-        render 'create_price'
-      end
+      render 'create'
     end
 
     def show

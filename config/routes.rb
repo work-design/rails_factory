@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   concern :productive do
-    resources :productions, only: [:index, :show] do
+    resources :productions, only: [:index, :create, :show] do
       collection do
         post :scene
         post :produce_on

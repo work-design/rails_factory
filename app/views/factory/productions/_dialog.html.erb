@@ -1,5 +1,9 @@
 <div class="weui-half-screen-dialog__hd"></div>
 <div class="weui-half-screen-dialog__bd">
+  <%= form_with model: @production, url: { controller: 'factory/my/productions', action: 'create' }, method: :post, id: 'edit_custom' do |f| %>
+    <%= f.hidden_field :product_id %>
+    <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
+  <% end %>
   <%= render partial: 'product_part_taxon', collection: @product.product_part_taxons, as: :product_part_taxon %>
 </div>
 <div class="weui-half-screen-dialog__ft">
