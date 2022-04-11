@@ -41,22 +41,17 @@ module Factory
     end
 
     def only_one?
-      min_select == 1
+      max_select == min_select && max_select == 1
     end
 
     def disabled?(production_part_ids, part)
       select_ids = part_ids & production_part_ids
-      if parts.size == min_select
-        true
-      elsif select_ids.size == min_select
-        if select_ids.include?(part.id)
-          true
-        else
-          false
-        end
-      else
-        false
-      end
+
+      return false if only_one?
+      return true if select_ids.size == min_select && select_ids.include?(part.id)
+      return true if select_ids.size == max_select && select_ids.exclude?(part.id)
+
+      false
     end
 
   end
