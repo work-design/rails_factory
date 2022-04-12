@@ -10,6 +10,7 @@
   <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create' }, method: :post, id: 'edit_custom' do |f| %>
     <%= f.hidden_field :product_id %>
   <% end %>
+  <%= render 'figure' if @production.product.covers.length > 0 %>
   <div class="box is-shadowless has-background-transparent has-text-bold mb-0">
     <span><%= @production.product.name %></span>
     <span class="has-text-danger"><%= @production.price.to_money.format(html_wrap: true).html_safe %></span>

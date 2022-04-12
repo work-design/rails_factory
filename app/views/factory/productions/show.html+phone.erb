@@ -3,11 +3,7 @@
   <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
 <% end %>
 
-<div class="slide is-1by1" data-controller="slide" data-slide-debug-value="true" data-slide-circle-value="true" data-slide-duration="1s">
-  <% @production.product.covers.each_with_index do |cover, index| %>
-    <%= render partial: 'figure', locals: { cover: cover, index: index } %>
-  <% end %>
-</div>
+<%= render partial: 'figure' if @production.product.covers.length > 0 %>
 
 <div class="box is-radiusless is-sticky" style="z-index: 3">
   <div class="has-text-bold">
