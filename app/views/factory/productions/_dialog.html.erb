@@ -3,6 +3,10 @@
   <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create' }, method: :post, id: 'edit_custom' do |f| %>
     <%= f.hidden_field :product_id %>
   <% end %>
+  <div class="box has-text-bold">
+    <span><%= @production.product.name %></span>
+    <span class="has-text-danger"><%= @production.price.to_money.format(html_wrap: true).html_safe %></span>
+  </div>
   <%= render partial: 'product_part_taxon', collection: @production.product.product_part_taxons, as: :product_part_taxon %>
 </div>
 <div class="weui-half-screen-dialog__ft">
