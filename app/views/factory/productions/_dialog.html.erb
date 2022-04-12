@@ -1,9 +1,16 @@
-<div class="weui-half-screen-dialog__hd"></div>
+<div class="weui-half-screen-dialog__hd">
+  <div class="weui-half-screen-dialog__hd__main"></div>
+  <div class="weui-half-screen-dialog__hd__side">
+    <button class="weui-btn_icon" data-action="weui-dialog#close">
+      <i class="weui-icon-close-thin"></i>
+    </button>
+  </div>
+</div>
 <div class="weui-half-screen-dialog__bd">
   <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create' }, method: :post, id: 'edit_custom' do |f| %>
     <%= f.hidden_field :product_id %>
   <% end %>
-  <div class="box has-text-bold">
+  <div class="box is-shadowless has-background-transparent has-text-bold mb-0">
     <span><%= @production.product.name %></span>
     <span class="has-text-danger"><%= @production.price.to_money.format(html_wrap: true).html_safe %></span>
   </div>
