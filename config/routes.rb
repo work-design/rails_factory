@@ -141,8 +141,9 @@ Rails.application.routes.draw do
         member do
           post :cart
         end
-        resources :trade_items
+        resources :trade_items, only: [:index]
       end
+      resources :trade_items, only: [:create, :update, :destroy]
     end
 
     namespace :panel, defaults: { namespace: 'panel' } do

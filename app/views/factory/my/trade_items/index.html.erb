@@ -6,9 +6,9 @@
     <div class="weui-cells">
       <% @trade_items.each do |trade_item| %>
         <div class="weui-cell">
-          <div class="weui-cell__hd"><%= image_tag trade_item.trade.user.avatar_url, style: 'width: 20px;' %></div>
+          <div class="weui-cell__hd"><%= image_tag trade_item.user.avatar_url, style: 'width: 20px;' %></div>
           <div class="weui-cell__bd">
-            <%= trade_item.trade.user.account_identities.join(',') %>
+            <%= trade_item.user.account_identities.join(',') %>
           </div>
           <div class="weui-cell__ft">
             <div class="weui-btn weui-btn_mini weui-btn_primary">xx</div>
