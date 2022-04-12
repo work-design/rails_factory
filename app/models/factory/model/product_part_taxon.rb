@@ -41,7 +41,7 @@ module Factory
     end
 
     def only_one?
-      max_select == min_select && max_select == 1
+      max_select == min_select && max_select == 1 && product_parts_count > max_select
     end
 
     def disabled?(production_part_ids, part)
