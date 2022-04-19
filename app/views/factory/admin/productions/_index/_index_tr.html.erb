@@ -14,10 +14,10 @@
       <%= link_to({ controller: 'addresses', production_id: model.id }, aria: { label: t('factory.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-map-marker-alt"></i>
       <% end %>
-      <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-pencil"></i>
       <% end %>
-      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
+      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm'), turbo_scroll: true } }) do %>
         <i class="fa-light fa-trash"></i>
       <% end %>
       <%= link_to({ controller: 'production_plans', production_id: model.id }, class: 'button is-small is-rounded is-info') do %>
