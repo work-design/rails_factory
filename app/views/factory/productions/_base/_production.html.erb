@@ -1,4 +1,4 @@
-<div class="weui-media-box weui-media-box_appmsg" data-controller="common">
+<div class="weui-media-box weui-media-box_appmsg" data-controller="common" id="production_<%= model.id %>">
   <%= link_to({ controller: '/factory/productions', action: 'dialog', id: model.id }, text: true, data: { method: 'put', action: 'common#link' }, class: 'weui-media-box__hd') do %>
     <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
   <% end %>
@@ -33,7 +33,7 @@
       <% end %>
     </div>
     <div class="is-flex is-justify-content-flex-end pt-2">
-      <%= render partial: 'cart', locals: { model: model } if current_cart %>
+      <%= render partial: 'factory/productions/_base/cart', locals: { model: model } if current_cart %>
     </div>
   </div>
 </div>
