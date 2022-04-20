@@ -61,8 +61,10 @@ module Factory
 
     def automatic
       product_taxon_ids = scene.product_taxons.where(organ_id: organ_id)
-      Factory::Production.where(product_taxon_id: product_taxon_ids, automatic: true).each do |production|
-        production.production_plans.find_or_create_by(scene_id: scene_id, produce_on: produce_on)
+      Factory::Production.includes(:product).where(product_taxon_id: product_taxon_ids, automatic: true).each do |production|
+        pp = production.production_plans.find_or_initialize_by(scene_id: scene_id, produce_on: produce_on)
+        pp.specialty = production.product.specialty
+        pp.save
       end
     end
 

@@ -31,6 +31,8 @@ module Factory
         :qr_prefix,
         :profit_margin,
         :logo,
+        :specialty,
+        :product_taxon_id,
         :product_taxon_ancestors,
         part_ids: [],
         covers: [],

@@ -14,6 +14,7 @@ module Factory
       attribute :order_items_count, :integer, default: 0
       attribute :productions_count, :integer, default: 0
       attribute :product_parts_count, :integer, default: 0
+      attribute :specialty, :boolean, default: false
 
       belongs_to :organ, optional: true
       belongs_to :product_taxon, optional: true, counter_cache: true
@@ -35,6 +36,7 @@ module Factory
 
       after_save :sync_name, if: -> { saved_change_to_name? }
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
+      after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
     end
 
     def compute_min_max
@@ -49,6 +51,10 @@ module Factory
 
     def sync_name
       productions.update_all name: name
+    end
+
+    def set_specialty
+      self.class.where.not(id: self.id).where(organ_id: self.organ_id).update_all(specialty: false)
     end
 
     def sync_product_taxon
