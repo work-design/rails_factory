@@ -1,4 +1,4 @@
-<%= link_to({ controller: 'productions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'column is-half-mobile has-text-grey') do %>
+<div class="column is-half-mobile has-text-grey">
   <p class="is-size-7 has-text-centered">
     <span>预定截止：</span>
     <span><%= extra_distance_date(model.produce_on) %></span>
@@ -11,13 +11,13 @@
     <time><%= model.scene.deliver_finish_at.to_fs(:time) %></time>
   </p>
   <div class="is-flex is-justify-content-center">
-    <div class="button is-light mt-2 pl-0">
+    <%= button_to({ controller: 'factory/buy/carts', action: 'actions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'button is-light mt-2 pl-0', disabled: model.expired?) do %>
       <span class="icon">
         <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
       </span>
       <div class="">
         <span><%= model.scene.title %></span>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
