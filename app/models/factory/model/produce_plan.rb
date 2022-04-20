@@ -47,11 +47,8 @@ module Factory
     end
 
     def compute_book_time
-      date = produce_on - scene.book_start_days
-      self.book_start_at = scene.book_start_at.change(date.parts)
-
-      date = produce_on - scene.book_finish_days
-      self.book_finish_at = scene.book_finish_at.change(date.parts)
+      self.book_start_at = scene.compute_book_start_at(produce_on)
+      self.book_finish_at = scene.compute_book_finish_at(produce_on)
       self
     end
 

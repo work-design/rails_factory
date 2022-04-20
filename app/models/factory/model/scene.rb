@@ -27,5 +27,19 @@ module Factory
       self.class.where.not(id: self.id).where(organ_id: self.organ_id).update_all(specialty: false)
     end
 
+    def compute_book_start_at(produce_on = Date.today)
+      date = produce_on - book_start_days
+      book_start_at.change(date.parts)
+    end
+
+    def compute_book_finish_at(produce_on = Date.today)
+      date = produce_on - book_finish_days
+      book_finish_at.change(date.parts)
+    end
+
+    def bookable?(produce_on = Date.today)
+      compute_book_finish_at(produce_on) > Time.current
+    end
+
   end
 end
