@@ -109,6 +109,7 @@ zh:
           title: 交易商户
         list:
           title: 代下单
+          pay: 下单
       orders:
         index:
           title: 企业订单
