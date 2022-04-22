@@ -158,4 +158,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resolve 'Factory::Production' do |production, options|
+    [:factory, production, options]
+  end
+
 end
