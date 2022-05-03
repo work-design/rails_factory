@@ -41,13 +41,18 @@ module Factory
     def dialog
     end
 
+    def create_dialog
+      r = production_params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
+      @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: r.join(','))
+      @production.assign_attributes production_params
+      @production.save!
+    end
+
     def create
       r = production_params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
       @production = Production.find_or_initialize_by(product_id: production_params[:product_id], str_part_ids: r.join(','))
       @production.assign_attributes production_params
       @production.save!
-
-      render 'create'
     end
 
     private

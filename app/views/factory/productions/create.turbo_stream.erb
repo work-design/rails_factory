@@ -1,1 +1,3 @@
-<%= turbo_stream.update 'dialog', partial: 'dialog' %>
+<%= turbo_stream.append 'body' do %>
+  <div data-controller="visit" data-visit-url-value="<%= url_for(action: 'show', id: @production.id) %>"></div>
+<% end %>

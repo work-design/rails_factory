@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       collection do
         post :scene
         post :produce_on
+        post :create_dialog
       end
       member do
         put :dialog

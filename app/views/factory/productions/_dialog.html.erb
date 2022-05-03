@@ -7,7 +7,7 @@
   </div>
 </div>
 <div class="weui-half-screen-dialog__bd" data-controller="scroll" id="production_dialog">
-  <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create' }, method: :post, data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' }, id: 'edit_custom' do |f| %>
+  <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create_dialog' }, method: :post, data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' }, id: 'edit_custom' do |f| %>
     <%= f.hidden_field :product_id %>
   <% end %>
   <%= render 'factory/productions/_base/figure' if @production.product.covers.length > 0 %>
