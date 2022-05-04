@@ -1,7 +1,7 @@
 module Factory
   class My::TradeItemsController < Trade::My::TradeItemsController
     before_action :set_production
-    before_action :set_card_templates, only: [:create, :update]
+    before_action :set_card_templates, only: [:create, :update, :destroy]
 
     private
     def set_production
