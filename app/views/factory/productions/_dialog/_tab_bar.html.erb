@@ -3,9 +3,10 @@
     <%= render partial: 'factory/productions/_dialog/cart', locals: { model: @production } if current_cart %>
   </div>
   <div class="column is-half">
-    <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'button is-danger') do %>
+    <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'weui-btn weui-btn_mini weui-btn_primary') do %>
       <i class="fa-solid fa-cart-shopping"></i>
-      <span><%= t('trade.my.carts.show.title') %></span>
+      <span>去购物车</span>
+      <i class="fa-solid fa-angle-right"></i>
     <% end %>
   </div>
 </div>
