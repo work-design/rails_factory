@@ -4,15 +4,15 @@ module Factory
 
     included do
       attribute :qr_code, :string
-      attribute :received_at, :datetime
+      attribute :received_at, :datetime, default: -> { Time.current }
 
       enum state: {
-        purchasing: 'purchasing',
-        receiving: 'receiving',
+        purchased: 'purchased',
+        received: 'received',
         warehouse_in: 'warehouse_in',
         warehouse_out: 'warehouse_out',
         used: 'used'
-      }, _default: 'purchasing'
+      }, _default: 'purchased'
 
       belongs_to :part
       belongs_to :product_item, optional: true

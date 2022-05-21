@@ -1,7 +1,6 @@
-<td><%= model.part_id %></td>
 <td><%= model.qr_code %></td>
 <td>
   <%= image_tag model.qrcode_url, class: 'image is-32x32' %>
 </td>
-<td><%= model.received_at %></td>
+<td><time data-controller="time"><%= model.received_at.to_fs(:iso8601) if model.received_at %></time></td>
 <td><%= model.state_i18n %></td>

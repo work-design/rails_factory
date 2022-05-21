@@ -6,6 +6,13 @@ zh:
           planned: 计划中
           producing: 生产中
           produced: 已完成
+      factory/part_item:
+        state:
+          purchased: 已下单
+          received: 已收货
+          warehouse_in: 已入库
+          warehouse_out: 已出库
+          used: 已使用
       trade/promote_good:
         good_type:
           Factory::Production: 产品
