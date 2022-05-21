@@ -122,6 +122,9 @@ zh:
       factory_taxons:
         index:
           title: 产品分类
+      brands:
+        index:
+          title: 品牌
       providers:
         index:
           title: 指定供应商

@@ -4,6 +4,7 @@ module Factory
 
     included do
       attribute :name, :string
+      attribute :code, :string
       attribute :parts_count, :integer, default: 0
       attribute :products_count, :integer, default: 0
 

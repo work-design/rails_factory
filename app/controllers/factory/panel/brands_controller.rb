@@ -1,3 +1,5 @@
-class Factory::Panel::BrandsController < Factory::Panel::BaseController
+module Factory
+  class Panel::BrandsController < Panel::BaseController
 
+  end
 end
