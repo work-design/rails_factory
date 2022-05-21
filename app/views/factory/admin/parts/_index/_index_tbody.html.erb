@@ -7,9 +7,9 @@
   <%= link_to t('factory.admin.part_plans.index.title'), { controller: 'part_plans', part_id: model.id }, class: 'button' %>
 </td>
 <td class="has-text-right">
-  <p><%= model.import_price.to_fs(:currency, unit: '￥') %></p>
-  <p><%= model.profit_price.to_fs(:currency, unit: '￥') %></p>
-  <p><%= model.price.to_fs(:currency, unit: '￥') %></p>
+  <p><%= model.import_price.to_d.to_fs(:currency, unit: '￥') %></p>
+  <p><%= model.profit_price.to_d.to_fs(:currency, unit: '￥') %></p>
+  <p><%= model.price.to_d.to_fs(:currency, unit: '￥') %></p>
 </td>
 <td>
   <%= link_to({ controller: 'part_providers', part_id: model.id }, class: 'button is-small is-rounded is-light') do %>
