@@ -1,5 +1,5 @@
 module Factory
-  module Model::Provided
+  module Model::Provide
     extend ActiveSupport::Concern
 
     included do
