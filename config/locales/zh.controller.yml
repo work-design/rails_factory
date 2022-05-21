@@ -20,6 +20,9 @@ zh:
         title: 选择场景
     admin:
       title: 产品/生产
+      brands:
+        index:
+          title: 旗下品牌
       factory_taxons:
         index:
           title: 平台商品分类

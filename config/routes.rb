@@ -55,6 +55,7 @@ Rails.application.routes.draw do
       scope :produce_on, controller: :produce_on do
         get :index
       end
+      resources :brands
       resources :product_taxons do
         member do
           patch :reorder
