@@ -1,0 +1,5 @@
+<%= form_with model: @factory_provider, url: { action: 'create' } do |f| %>
+  <%= render 'error_messages', target: f.object  %>
+  <%= render partial: 'provider_search', locals: { f: f } %>
+  <%= f.submit %>
+<% end %>

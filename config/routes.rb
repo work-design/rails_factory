@@ -159,7 +159,7 @@ Rails.application.routes.draw do
 
     namespace :panel, defaults: { namespace: 'panel' } do
       resources :factory_taxons do
-        resources :providers do
+        resources :factory_providers do
           collection do
             post :search
           end
