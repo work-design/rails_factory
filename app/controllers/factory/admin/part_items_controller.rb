@@ -26,24 +26,6 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @part_item.assign_attributes(part_item_params)
-
-      unless @part_item.save
-        render :edit, locals: { model: @part_item }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @part_item.destroy
-    end
-
     private
     def set_part
       @part = Part.find params[:part_id]
@@ -57,7 +39,7 @@ module Factory
       params.fetch(:part_item, {}).permit(
         :part_id,
         :qr_code,
-        :qr_file,
+        :state
       )
     end
 

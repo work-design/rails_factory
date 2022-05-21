@@ -1,0 +1,6 @@
+<%= form_with model: @part_item, url: { action: 'update' } do |f| %>
+  <%= render 'error_messages', target: f.object %>
+  <%= f.datetime_field :received_at %>
+  <%= f.select :state, options_for_select(Factory::PartItem.options_i18n(:state), f.object.state) %>
+  <%= f.submit %>
+<% end %>
