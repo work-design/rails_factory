@@ -166,7 +166,8 @@ Rails.application.routes.draw do
         end
       end
       resources :scenes
-      resources :brands
+      resources :part_brands
+      resources :product_brands
       resources :unifiers
     end
   end

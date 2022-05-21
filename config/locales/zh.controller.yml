@@ -134,9 +134,12 @@ zh:
       factory_providers:
         index:
           title: 指定供应商
-      brands:
+      part_brands:
         index:
-          title: 品牌
+          title: 配件品牌
+      product_brands:
+        index:
+          title: 产品品牌
       scenes:
         index:
           title: 场景

@@ -16,9 +16,11 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
       attribute :specialty, :boolean, default: false
 
-      belongs_to :organ, optional: true
-      belongs_to :product_taxon, optional: true, counter_cache: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :unifier, optional: true
+      belongs_to :product_taxon, counter_cache: true, optional: true
+      belongs_to :brand, counter_cache: 'entities_count', optional: true
 
       has_one :production, -> { where(default: true) }
       has_many :productions, dependent: :destroy_async

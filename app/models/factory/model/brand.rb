@@ -3,10 +3,10 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :type, :string
       attribute :name, :string
       attribute :code, :string
-      attribute :parts_count, :integer, default: 0
-      attribute :products_count, :integer, default: 0
+      attribute :entities_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
