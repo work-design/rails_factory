@@ -79,7 +79,7 @@ zh:
       part_providers:
         index:
           title: 供应商管理
-      providers:
+      provides:
         index:
           title: 供应商
       productions:

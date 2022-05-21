@@ -96,6 +96,11 @@ Rails.application.routes.draw do
           end
         end
       end
+      resources :provides do
+        collection do
+          post :search
+        end
+      end
       resources :productions, only: [] do
         resources :addresses
         resources :trade_items do
