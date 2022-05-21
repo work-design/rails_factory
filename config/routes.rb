@@ -156,6 +156,7 @@ Rails.application.routes.draw do
         end
       end
       resources :scenes
+      resources :brands
     end
   end
 

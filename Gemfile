@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails'
 gem 'pg'
 gem 'puma'
+gem 'propshaft'
 
 gem 'rails_com', github: 'work-design/rails_com'
 gem 'rails_extend', github: 'work-design/rails_extend'

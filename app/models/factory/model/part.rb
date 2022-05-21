@@ -15,8 +15,10 @@ module Factory
       attribute :profit_price, :decimal, default: 0
       attribute :part_providers_count, :integer, default: 0
 
-      belongs_to :organ, optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :part_taxon, counter_cache: true
+      belongs_to :brand, counter_cache: true, optional: true
 
       has_many :product_parts, dependent: :destroy_async
       has_many :products, through: :product_parts

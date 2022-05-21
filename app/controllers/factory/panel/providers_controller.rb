@@ -8,9 +8,6 @@ module Factory
       @factory_providers = @factory_taxon.factory_providers.includes(:provider).page(params[:page])
     end
 
-    def new
-    end
-
     def create
       @factory_provider = @factory_taxon.factory_providers.build
       @factory_provider.provider_id = params[:provider_id]
