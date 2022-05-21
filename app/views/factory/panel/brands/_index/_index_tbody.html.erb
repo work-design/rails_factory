@@ -6,4 +6,11 @@
 </td>
 <td><%= model.parts_count %></td>
 <td><%= model.products_count %></td>
-<td><%= model.organ_id %></td>
+<td>
+<% if model.organ %>
+  <div class="is-several">
+    <%= image_tag model.organ.logo, class: 'image is-24x24' if model.organ.logo.attached? %>
+    <span><%= model.organ.name %></span>
+  </div>
+<% end %>
+</td>
