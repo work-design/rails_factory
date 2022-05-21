@@ -18,6 +18,7 @@ module Factory
 
       belongs_to :organ, optional: true
       belongs_to :product_taxon, optional: true, counter_cache: true
+      belongs_to :unifier, optional: true
 
       has_one :production, -> { where(default: true) }
       has_many :productions, dependent: :destroy_async

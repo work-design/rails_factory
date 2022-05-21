@@ -1,0 +1,10 @@
+<%= form_with theme: 'search', model: Factory::Unifier.new do |f| %>
+  <div class="field-body">
+    <%= f.text_field :name %>
+    <%= f.text_field :code %>
+    <div class="field is-narrow">
+      <%= f.submit %>
+      <%= link_to t('.clear'), filter_params(except: [:name, :code]), class: 'button is-light' %>
+    </div>
+  </div>
+<% end %>

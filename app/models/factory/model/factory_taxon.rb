@@ -5,7 +5,6 @@ module Factory
     included do
       attribute :name, :string
       attribute :position, :integer
-      attribute :code, :string
 
       has_many :factory_providers, dependent: :delete_all
       has_many :providers, through: :factory_providers

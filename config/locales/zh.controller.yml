@@ -140,3 +140,6 @@ zh:
       scenes:
         index:
           title: 场景
+      unifiers:
+        index:
+          title: 平台命名
