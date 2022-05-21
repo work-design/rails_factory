@@ -63,6 +63,12 @@ zh:
       parts:
         index:
           title: 配件/零件/原料
+      part_items:
+        index:
+          title: 收件记录
+      part_plans:
+        index:
+          title: 入库计划
       part_taxons:
         index:
           title: 分类

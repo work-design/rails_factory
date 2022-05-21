@@ -4,7 +4,7 @@
 </td>
 <td><%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %></td>
 <td>
-  <%= link_to 'Plan', { controller: 'part_plans', part_id: model.id }, class: 'button' %>
+  <%= link_to t('factory.admin.part_plans.index.title'), { controller: 'part_plans', part_id: model.id }, class: 'button' %>
 </td>
 <td class="has-text-right">
   <p><%= model.import_price.to_fs(:currency, unit: '￥') %></p>
