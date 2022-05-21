@@ -8,10 +8,10 @@ module Factory
       attribute :selected, :boolean
 
       belongs_to :part, inverse_of: :part_providers, counter_cache: true
-      belongs_to :product  # 对应供应链产品
-      belongs_to :production  # 对应供应链产品型号
+      belongs_to :product, optional: true  # 对应供应链产品
+      belongs_to :production, optional: true  # 对应供应链产品型号
       belongs_to :provider, class_name: 'Org::Organ'
-      belongs_to :organ
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       validates :part_id, uniqueness: { scope: [:provider_id] }
 

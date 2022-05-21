@@ -22,22 +22,8 @@ module Factory
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @part_provider.assign_attributes(part_provider_params)
-
-      unless @part_provider.save
-        render :edit, locals: { model: @part_provider }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @part_provider.destroy
+    def search
+      @organs = Org::Organ.default_where('name-like': params['name-like'])
     end
 
     private
@@ -52,7 +38,8 @@ module Factory
     def part_provider_params
       params.fetch(:part_provider, {}).permit(
         :verified,
-        :selected
+        :selected,
+        :provider_id
       )
     end
 
