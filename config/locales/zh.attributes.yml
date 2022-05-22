@@ -24,6 +24,7 @@ zh:
         profit_price: 利润
         price: 价格
         part_taxon_id: 分类
+        brand_id: 品牌
       factory/part_taxon:
         product_taxon_id: 产品分类
         factory_taxon_id: 平台分类
