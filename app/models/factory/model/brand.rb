@@ -10,6 +10,8 @@ module Factory
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
+      has_many :serials, dependent: :destroy_async
+
       has_one_attached :logo
     end
 

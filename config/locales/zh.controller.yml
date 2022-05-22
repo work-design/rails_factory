@@ -140,6 +140,9 @@ zh:
       product_brands:
         index:
           title: 产品品牌
+      serials:
+        index:
+          title: 产品系列
       scenes:
         index:
           title: 场景
