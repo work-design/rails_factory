@@ -7,9 +7,9 @@
 </td>
 <td><%= model.brand&.name %></td>
 <td class="has-text-right">
-  <p><%= model.import_price.to_d.to_fs(:currency, unit: '￥') %></p>
-  <p><%= model.profit_price.to_d.to_fs(:currency, unit: '￥') %></p>
-  <p><%= model.price.to_d.to_fs(:currency, unit: '￥') %></p>
+  <p><%= model.import_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.profit_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.price.to_money.format(html_wrap: true).html_safe %></p>
 </td>
 <td></td>
 <td>
