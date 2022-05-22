@@ -5,7 +5,7 @@ module Factory
     before_action :set_new_serial, only: [:new, :create]
 
     def index
-      @serials = @brand.serials.page(params[:page])
+      @serials = @brand.serials.roots.page(params[:page])
     end
 
     private

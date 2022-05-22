@@ -1,1 +1,9 @@
-<td><%= model.name %></td>
+<td>
+  <span style="width: <%= model.depth * 1.43 %>em; display: inline-block"></span>
+  <% if !model.leaf? %>
+    <i class="fa-solid fa-caret-down fa-fw" data-action="click->tree#collapse" style="cursor: pointer"></i>
+  <% else %>
+    <i class="fa-solid fa-minus fa-fw"></i>
+  <% end %>
+  <span><%= model.name %></span>
+</td>
