@@ -24,7 +24,7 @@ module Factory
     def serial_params
       params.fetch(:serial, {}).permit(
         :name,
-        parent_ancestors: {}
+        :parent_ancestors
       )
     end
 
