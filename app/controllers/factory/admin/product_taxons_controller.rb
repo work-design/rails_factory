@@ -3,7 +3,7 @@ module Factory
     before_action :set_product_taxon, only: [:show, :import, :productions, :edit, :update, :reorder, :destroy]
     before_action :set_factory_taxons, only: [:new, :edit]
     before_action :set_scenes, only: [:new, :edit]
-    before_action :set_products, only: [:import]
+    before_action :set_products, only: [:import, :productions]
 
     def index
       q_params = {}
@@ -40,11 +40,6 @@ module Factory
     end
 
     def import
-      q_params = {}
-      q_params.merge! 'part.organ_id': current_organ.id if current_organ
-
-      product_ids = @products.pluck(:id)
-      @select_ids = PartProvider.default_where(q_params).where(product_id: product_ids).pluck(:product_id)
     end
 
     def productions
@@ -65,7 +60,12 @@ module Factory
     end
 
     def set_products
+      q_params = {}
+      q_params.merge! 'part.organ_id': current_organ.id if current_organ
       @products = @product_taxon.factory_taxon.products.page(params[:page])
+
+      product_ids = @products.pluck(:id)
+      @select_ids = PartProvider.default_where(q_params).where(product_id: product_ids).pluck(:product_id)
     end
 
     def product_taxon_params
