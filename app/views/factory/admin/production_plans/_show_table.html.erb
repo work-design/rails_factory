@@ -1,20 +1,20 @@
 <tr>
-  <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:product_id) %></td>
-  <td><%= @product_plan.product_id %></td>
+  <td class="has-text-right"><%= Facotry::ProductionPlan.human_attribute_name(:product_id) %></td>
+  <td><%= @production_plan.product_id %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:start_at) %></td>
-  <td><time data-controller="time"><%= @product_plan.start_at.to_fs(:iso8601) %></time></td>
+  <td class="has-text-right"><%= Facotry::ProductionPlan.human_attribute_name(:start_at) %></td>
+  <td><time data-controller="time"><%= @production_plan.start_at.to_fs(:iso8601) %></time></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:finish_at) %></td>
-  <td><time data-controller="time"><%= @product_plan.finish_at.to_fs(:iso8601) %></time></td>
+  <td class="has-text-right"><%= Facotry::ProductionPlan.human_attribute_name(:finish_at) %></td>
+  <td><time data-controller="time"><%= @production_plan.finish_at.to_fs(:iso8601) %></time></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:state) %></td>
-  <td><%= @product_plan.state_i18n %></td>
+  <td class="has-text-right"><%= Facotry::ProductionPlan.human_attribute_name(:state) %></td>
+  <td><%= @production_plan.state_i18n %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Facotry::ProductPlan.human_attribute_name(:planned_count) %></td>
-  <td><%= @product_plan.planned_count %></td>
+  <td class="has-text-right"><%= Facotry::ProductionPlan.human_attribute_name(:planned_count) %></td>
+  <td><%= @production_plan.planned_count %></td>
 </tr>
