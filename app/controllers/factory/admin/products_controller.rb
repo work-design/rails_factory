@@ -1,13 +1,14 @@
 module Factory
   class Admin::ProductsController < Admin::BaseController
     before_action :set_product, only: [:show, :edit, :actions, :part, :update, :destroy]
+    before_action :set_brands, only: [:new, :create, :edit, :update]
 
     def index
       q_params = {}
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, :name)
 
-      @products = Product.includes(:parts, :product_taxon, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(product_taxon_id: :desc).page(params[:page])
+      @products = Product.includes(:parts, :product_taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(product_taxon_id: :desc).page(params[:page])
     end
 
     def new
@@ -31,6 +32,7 @@ module Factory
     def product_params
       p = params.fetch(:product, {}).permit(
         :name,
+        :brand_id,
         :description,
         :qr_prefix,
         :profit_margin,

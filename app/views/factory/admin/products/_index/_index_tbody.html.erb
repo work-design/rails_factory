@@ -8,6 +8,9 @@
     <% end %>
   </div>
 </td>
+<td>
+  <p><%= model.brand&.name %></p>
+</td>
 <td><%= model.profit_margin_str %></td>
 <td>
   <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>

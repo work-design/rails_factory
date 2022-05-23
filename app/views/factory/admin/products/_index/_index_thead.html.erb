@@ -10,6 +10,10 @@
     <i class="fa-light fa-cog"></i>
   <% end %>
 </th>
+<th>
+  <p><%= Factory::Product.human_attribute_name(:brand_id) %></p>
+  <p><%= Factory::Product.human_attribute_name(:serial_id) %></p>
+</th>
 <th><%= Factory::Product.human_attribute_name(:profit_margin) %></th>
 <th>
   <p><%= Factory::Product.human_attribute_name(:min_price) %></p>

@@ -170,9 +170,7 @@ Rails.application.routes.draw do
         end
       end
       resources :scenes
-      resources :part_brands
-      resources :product_brands
-      resources :brands, only: [] do
+      resources :brands do
         resources :serials
       end
       resources :unifiers
