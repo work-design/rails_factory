@@ -1,10 +1,12 @@
 <td>
-  <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
-  <span><%= model.name %></span>
+  <div class="is-several">
+    <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
+    <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
+    <span><%= model.name %></span>
+  </div>
 </td>
 <td><%= link_to model.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: model.factory_taxon_id }, text: true if model.factory_taxon %></td>
 <td><%= model.scene&.title %></td>
-<td><%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %></td>
 <td><%= model.products_count %></td>
 <th>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
