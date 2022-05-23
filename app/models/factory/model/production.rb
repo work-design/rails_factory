@@ -27,8 +27,10 @@ module Factory
 
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
-      has_many :part_providers, foreign_key: :upstream_production_id, dependent: :destroy_async
-      has_many :provided_parts, through: :part_providers, source: :product
+      has_many :part_providers, foreign_key: :production_id, dependent: :destroy_async
+      has_many :upstream_productions, through: :part_providers, source: :upstream_production
+      has_many :production_providers, class_name: 'PartProvider', foreign_key: :upstream_production_id
+      has_many :downstream_productions, through: :production_providers, source: :production
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
       has_many :production_parts, dependent: :destroy_async

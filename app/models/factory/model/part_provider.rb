@@ -12,8 +12,8 @@ module Factory
 
       belongs_to :product, inverse_of: :part_providers, counter_cache: true
       belongs_to :production
-      belongs_to :upstream_product, optional: true  # 对应供应链产品
-      belongs_to :upstream_production  # 对应供应链产品型号
+      belongs_to :upstream_product, class_name: 'Product', optional: true  # 对应供应链产品
+      belongs_to :upstream_production, class_name: 'Production'  # 对应供应链产品型号
 
       validates :product_id, uniqueness: { scope: [:provider_id] }
 
