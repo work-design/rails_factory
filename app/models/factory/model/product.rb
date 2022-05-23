@@ -37,6 +37,8 @@ module Factory
       has_many_attached :covers
       has_many_attached :images
 
+      has_taxons :product_taxon
+
       after_save :sync_name, if: -> { saved_change_to_name? }
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
@@ -49,7 +51,7 @@ module Factory
     end
 
     def profit_margin_str
-      (profit_margin.to_d * 100).to_s(:percentage)
+      (profit_margin.to_d * 100).to_fs(:percentage)
     end
 
     def sync_name
