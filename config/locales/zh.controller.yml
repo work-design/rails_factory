@@ -99,6 +99,9 @@ zh:
       addresses:
         index:
           title: 订货点
+      fits:
+        index:
+          title: 适配产品
     my:
       principal_addresses:
         index:

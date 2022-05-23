@@ -75,10 +75,6 @@ Rails.application.routes.draw do
         resources :scene_automatics
       end
       resources :products do
-        collection do
-          get :add_item
-          get :remove_item
-        end
         member do
           patch :actions
         end
@@ -95,6 +91,7 @@ Rails.application.routes.draw do
             patch :actions
           end
         end
+        resources :fits
       end
       resources :provides do
         collection do

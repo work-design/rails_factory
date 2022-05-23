@@ -30,6 +30,7 @@ module Factory
       has_many :part_taxons, through: :product_part_taxons
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
+      has_many :fits, dependent: :destroy_async
 
       accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
 
