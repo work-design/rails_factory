@@ -14,7 +14,7 @@ module Factory
       has_many :parts, through: :product_parts
 
       validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.max_select } }
-      validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
+      #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
 
       before_validation :sync_name, if: -> { product_id_changed? }
       after_create_commit :reset_product_parts_counter
