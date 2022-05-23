@@ -3,6 +3,7 @@ module Factory
     before_action :set_product
     before_action :set_fit, only: [:show, :edit, :update, :destroy]
     before_action :set_new_fit, only: [:new, :create]
+    before_action :set_productions, only: [:new, :create, :edit, :update]
 
     def index
       q_params = {}
@@ -22,6 +23,10 @@ module Factory
 
     def set_new_fit
       @fit = @product.fits.build(fit_params)
+    end
+
+    def set_productions
+      @productions = @product.productions
     end
 
     def fit_params
