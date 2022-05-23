@@ -107,7 +107,11 @@ Rails.application.routes.draw do
             patch :print
           end
         end
-        resources :provideds
+        resources :part_providers do
+          collection do
+            post :search
+          end
+        end
         resources :production_plans do
           member do
             patch :actions
@@ -124,19 +128,6 @@ Rails.application.routes.draw do
         end
       end
       resources :factory_taxons
-      resources :parts do
-        resources :part_plans
-        resources :part_items do
-          collection do
-            post :batch
-          end
-        end
-        resources :part_providers do
-          collection do
-            post :search
-          end
-        end
-      end
     end
 
     namespace :my, defaults: { namespace: 'my' } do
