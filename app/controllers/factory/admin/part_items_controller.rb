@@ -11,7 +11,7 @@ module Factory
       end
       q_params.merge! params.permit('received_at-gte', 'received_at-lte')
 
-      @part_items = @part.part_items.default_where(q_params).page(params[:page])
+      @part_items = @part.part_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def new
