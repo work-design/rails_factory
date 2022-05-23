@@ -8,12 +8,12 @@ module Factory
       attribute :description, :string
       attribute :qr_prefix, :string
       attribute :sku, :string, index: true
-      attribute :order_items_count, :integer, default: 0
       attribute :published, :boolean, default: true
       attribute :price, :decimal, default: 0
       attribute :import_price, :decimal, default: 0
       attribute :profit_price, :decimal, default: 0
       attribute :part_providers_count, :integer, default: 0
+      attribute :order_items_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
