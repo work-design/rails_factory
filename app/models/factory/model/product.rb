@@ -11,10 +11,11 @@ module Factory
       attribute :profit_margin, :decimal, precision: 4, scale: 2, default: 0
       attribute :min_price, :decimal
       attribute :max_price, :decimal
+      attribute :specialty, :boolean, default: false
       attribute :order_items_count, :integer, default: 0
       attribute :productions_count, :integer, default: 0
       attribute :product_parts_count, :integer, default: 0
-      attribute :specialty, :boolean, default: false
+      attribute :fits_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 

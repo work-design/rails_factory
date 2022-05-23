@@ -7,7 +7,7 @@ module Factory
 
       }
 
-      belongs_to :product
+      belongs_to :product, counter_cache: true
       belongs_to :production, optional: true
       belongs_to :part_brand, class_name: 'Brand'  # 适用于品牌
       belongs_to :part_serial, class_name: 'Serial', optional: true  # 适用于型号
