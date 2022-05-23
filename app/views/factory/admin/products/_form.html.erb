@@ -1,5 +1,6 @@
 <%= render partial: 'com/nodes/outer_select', locals: { f: f, outer: 'product_taxon', node: @product.product_taxon } %>
 <%= f.text_field :name %>
+<%= f.collection_select :brand_id, @brands, :id, :name, include_blank: true %>
 <%= f.number_field :profit_margin, step: 0.01 %>
 <%= f.file_field :logo %>
 <%= render 'com/attachments/list_field', target: @product.covers, f: f %>

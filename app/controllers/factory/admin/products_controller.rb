@@ -24,6 +24,10 @@ module Factory
       @product = Product.find(params[:id])
     end
 
+    def set_brands
+      @brands = Brand.default_where(default_params)
+    end
+
     def product_params
       p = params.fetch(:product, {}).permit(
         :name,
