@@ -5,9 +5,9 @@
     <% end %>
     <%= image_tag model.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if model.logo.attached? %>
     <span><%= model.name %></span>
+    <span class="tag"><%= model.productions_count %></span>
   </div>
 </td>
-<td><%= model.qr_prefix %></td>
 <td>
   <table class="table is-borderless">
   <% model.parts.each do |part| %>
