@@ -2,6 +2,7 @@ module Factory
   class Admin::PartProvidersController < Admin::BaseController
     before_action :set_production
     before_action :set_part_provider, only: [:show, :edit, :update, :destroy]
+    before_action :set_providers, only: [:index]
 
     def index
       q_params = {}
@@ -23,7 +24,10 @@ module Factory
     end
 
     def search
-      @organs = Org::Organ.default_where('name-like': params['name-like'])
+      q_params = {}
+      q_params.merge! params.permit('name-like', :organ_id)
+
+      @productions = Production.default_where(q_params)
     end
 
     private
@@ -35,11 +39,17 @@ module Factory
       @part_provider = @production.part_providers.find(params[:id])
     end
 
+    def set_providers
+      @providers = @production.product_taxon.factory_taxon.providers
+    end
+
     def part_provider_params
       params.fetch(:part_provider, {}).permit(
         :verified,
         :selected,
-        :provider_id
+        :provider_id,
+        :upstream_product_id,
+        :upstream_production_id
       )
     end
 

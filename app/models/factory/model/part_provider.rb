@@ -28,7 +28,7 @@ module Factory
       self.upstream_product_id = upstream_production.product_id
       self.cost_price = upstream_production.price
       self.provider_id = upstream_product.organ_id
-      self.organ = part.organ || product.organ
+      self.organ = production.organ || product.organ
     end
 
     def sync_to_part
@@ -42,7 +42,7 @@ module Factory
     end
 
     def sync_price_to_part
-      part.import_price = self.export_price
+      part.import_price = self.cost_price
       part.save
     end
 
