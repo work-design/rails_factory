@@ -28,9 +28,6 @@ zh:
         price: 价格
         part_taxon_id: 分类
         brand_id: 品牌
-      factory/part_taxon:
-        product_taxon_id: 产品分类
-        factory_taxon_id: 平台分类
       factory/scene:
         book_start_days: 提前天
         book_start_at: 预定开始时间
@@ -49,6 +46,7 @@ zh:
       factory/product_taxon:
         factory_taxon_id: 平台分类
         scene_id: 场景
+        partial: 可作为配件
       factory/part_taxon_provider:
         provider_id: 供应商
       factory/production_plan:
