@@ -133,7 +133,11 @@ Rails.application.routes.draw do
       resources :factory_taxons
       resources :parts do
         resources :part_plans
-        resources :part_items
+        resources :part_items do
+          collection do
+            post :batch
+          end
+        end
         resources :part_providers do
           collection do
             post :search
