@@ -9,7 +9,7 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
 
       belongs_to :product
-      belongs_to :part_taxon
+      belongs_to :part_taxon, class_name: 'ProductTaxon'
       has_many :product_parts, ->(o){ where(part_taxon_id: o.part_taxon_id) }, primary_key: :product_id, foreign_key: :product_id
       has_many :parts, through: :product_parts
 

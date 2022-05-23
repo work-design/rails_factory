@@ -39,7 +39,7 @@ module Factory
     end
 
     def set_part_taxons
-      @part_taxons = Factory::PartTaxon.default_where(default_params).order(id: :asc)
+      @part_taxons = Factory::ProductTaxon.default_where(default_params).order(id: :asc)
     end
 
     def part_params

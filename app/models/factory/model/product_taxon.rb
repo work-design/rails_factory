@@ -8,6 +8,7 @@ module Factory
       attribute :take_stock, :boolean, comment: '可盘点'
       attribute :products_count, :integer, default: 0
       attribute :enabled, :boolean, default: true
+      attribute :partial, :boolean, default: false
 
       belongs_to :template, class_name: 'JiaBo::Template', optional: true
 
