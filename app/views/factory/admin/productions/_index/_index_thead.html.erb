@@ -1,4 +1,7 @@
-<th colspan="2"><%= Factory::Production.human_attribute_name(:name) %></th>
+<th colspan="2">
+  <p><%= Factory::Production.human_attribute_name(:name) %></p>
+  <p><%= Factory::Production.human_attribute_name(:qr_code) %></p>
+</th>
 <th class="has-text-right">
   <p><%= Factory::Production.human_attribute_name(:base_price) %></p>
   <p><%= Factory::Production.human_attribute_name(:cost_price) %></p>
@@ -8,7 +11,6 @@
 <th><%= Factory::Production.human_attribute_name(:vip_price) %></th>
 <th><%= Factory::Production.human_attribute_name(:default) %></th>
 <th><%= Factory::Production.human_attribute_name(:state) %></th>
-<th><%= Factory::Production.human_attribute_name(:qr_code) %></th>
 <th>
   <p><%= Factory::Production.human_attribute_name(:enabled) %></p>
   <p><%= Factory::Production.human_attribute_name(:automatic) %></p>
