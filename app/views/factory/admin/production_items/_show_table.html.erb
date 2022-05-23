@@ -1,12 +1,12 @@
 <tr>
-  <td class="has-text-right"><%= ProductionItem.human_attribute_name(:product_id) %></td>
-  <td><%= @production_item.product_id %></td>
+  <td class="has-text-right"><%= Factory::ProductionItem.human_attribute_name(:product_id) %></td>
+  <td><%= @production_item.production_id %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= ProductionItem.human_attribute_name(:qr_code) %></td>
+  <td class="has-text-right"><%= Factory::ProductionItem.human_attribute_name(:qr_code) %></td>
   <td><%= @production_item.qr_code %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= ProductionItem.human_attribute_name(:qr_file) %></td>
-  <td><%= image_tag @production_item.qr_file %></td>
+  <td class="has-text-right"><%= Factory::ProductionItem.human_attribute_name(:qr_file) %></td>
+  <td><%= image_tag @production_item.qrcode_url %></td>
 </tr>
