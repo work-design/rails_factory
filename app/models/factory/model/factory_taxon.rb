@@ -10,6 +10,7 @@ module Factory
       has_many :providers, through: :factory_providers
       has_many :product_taxons, ->(o) { where(organ_id: o.provider_ids) }, dependent: :nullify
       has_many :products, through: :product_taxons
+      has_many :productions, through: :products, source: :productions
 
       has_one_attached :logo
     end

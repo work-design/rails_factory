@@ -15,10 +15,6 @@ zh:
     product_taxons:
       index:
         title: 类别
-      import:
-        title: 进货
-      productions:
-        provide: 进货
     produce_plans:
       index:
         title: 选择场景
@@ -56,7 +52,11 @@ zh:
           title: 产品组成
       product_taxons:
         index:
-          title: 产品分类
+          title: 类别
+        import:
+          title: 进货
+        productions:
+          provide: 进货
       production_plans:
         index:
           title: 产品批次

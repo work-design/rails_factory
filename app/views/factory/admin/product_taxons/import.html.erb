@@ -1,5 +1,5 @@
 <%= render layout: 'product_table' do %>
-  <%= render partial: 'product_tbody', layout: 'product_tr', collection: @products, as: :model %>
+  <%= render partial: 'product_tbody', layout: 'product_tr', collection: @productions, as: :model %>
 <% end %>
 
-<%= paginate @products %>
+<%= paginate @productions %>
