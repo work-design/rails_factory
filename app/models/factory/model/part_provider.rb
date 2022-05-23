@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :export_price, :decimal
+      attribute :cost_price, :decimal
       attribute :verified, :boolean, default: false
       attribute :selected, :boolean
 
@@ -11,10 +11,11 @@ module Factory
       belongs_to :provider, class_name: 'Org::Organ'
 
       belongs_to :product, inverse_of: :part_providers, counter_cache: true
+      belongs_to :production
       belongs_to :upstream_product, optional: true  # 对应供应链产品
       belongs_to :upstream_production  # 对应供应链产品型号
 
-      validates :part_id, uniqueness: { scope: [:provider_id] }
+      validates :product_id, uniqueness: { scope: [:provider_id] }
 
       scope :verified, -> { where(verified: true) }
 
@@ -24,9 +25,9 @@ module Factory
     end
 
     def sync_from_production
-      self.product_id = production.product_id
-      self.export_price = production.price
-      self.provider_id = product.organ_id
+      self.upstream_product_id = upstream_production.product_id
+      self.cost_price = upstream_production.price
+      self.provider_id = upstream_product.organ_id
       self.organ = part.organ || product.organ
     end
 

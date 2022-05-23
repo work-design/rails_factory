@@ -25,6 +25,7 @@ module Factory
       belongs_to :unifier, optional: true
       belongs_to :product_taxon, counter_cache: true, optional: true
       belongs_to :brand, counter_cache: true, optional: true
+      belongs_to :upstream_product, optional: true
       belongs_to :source_product, optional: true  # 上游产品
 
       has_one :production, -> { where(default: true) }
