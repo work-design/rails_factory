@@ -59,3 +59,8 @@ zh:
         verified: 已验证
         selected: 已选择
         export_price: 出厂价
+      factory/fit:
+        part_brand_id: 适配品牌
+        part_serial_id: 适配型号
+        part_product_id: 适配产品
+        part_production_id: 适配产品

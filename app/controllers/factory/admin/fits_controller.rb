@@ -3,13 +3,13 @@ module Factory
     before_action :set_product
     before_action :set_fit, only: [:show, :edit, :update, :destroy]
     before_action :set_new_fit, only: [:new, :create]
-    before_action :set_productions, only: [:new, :create, :edit, :update]
+    before_action :set_productions, :set_brands, only: [:new, :create, :edit, :update]
 
     def index
       q_params = {}
       q_params.merge! params.permit(:production_id)
 
-      @fits = @product.fits.default_where(q_params).page(params[:page])
+      @fits = @product.fits.includes(:production, :part_brand, :part_serial, :part_product, :part_production).default_where(q_params).page(params[:page])
     end
 
     private
@@ -27,6 +27,10 @@ module Factory
 
     def set_productions
       @productions = @product.productions
+    end
+
+    def set_brands
+      @brands = Brand.all
     end
 
     def fit_params
