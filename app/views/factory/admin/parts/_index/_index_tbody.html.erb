@@ -5,7 +5,6 @@
   </div>
   <p class="has-text-grey"><%= model.qr_prefix %></p>
 </td>
-<td><%= model.brand&.name %></td>
 <td class="has-text-right">
   <p><%= model.import_price.to_money.format(html_wrap: true).html_safe %></p>
   <p><%= model.profit_price.to_money.format(html_wrap: true).html_safe %></p>

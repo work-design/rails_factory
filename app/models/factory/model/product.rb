@@ -20,7 +20,7 @@ module Factory
 
       belongs_to :unifier, optional: true
       belongs_to :product_taxon, counter_cache: true, optional: true
-      belongs_to :brand, counter_cache: 'entities_count', optional: true
+      belongs_to :brand, counter_cache: true, optional: true
 
       has_one :production, -> { where(default: true) }
       has_many :productions, dependent: :destroy_async

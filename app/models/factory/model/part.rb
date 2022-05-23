@@ -18,7 +18,6 @@ module Factory
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       belongs_to :part_taxon, counter_cache: true
-      belongs_to :brand, counter_cache: 'entities_count', optional: true
       belongs_to :unifier, optional: true
       belongs_to :product, optional: true
 
