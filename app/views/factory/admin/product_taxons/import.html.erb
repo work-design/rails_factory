@@ -1,4 +1,4 @@
-<%= render layout: 'product_table', locals: { cache_key: Factory::Product.column_names.hash } do %>
+<%= render layout: 'product_table' do %>
   <%= render partial: 'product_tbody', layout: 'product_tr', collection: @products, as: :model %>
 <% end %>
 

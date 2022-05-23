@@ -15,6 +15,10 @@ zh:
     product_taxons:
       index:
         title: 类别
+      import:
+        title: 进货
+      productions:
+        provide: 进货
     produce_plans:
       index:
         title: 选择场景
@@ -69,13 +73,6 @@ zh:
       part_plans:
         index:
           title: 入库计划
-      part_taxons:
-        index:
-          title: 分类
-        import:
-          title: 进货
-        productions:
-          provide: 进货
       part_providers:
         index:
           title: 供应商管理

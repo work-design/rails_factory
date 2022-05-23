@@ -3,31 +3,12 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :type, :string
-      attribute :name, :string
-      attribute :description, :string
-      attribute :qr_prefix, :string
-      attribute :sku, :string, index: true
-      attribute :published, :boolean, default: true
-      attribute :price, :decimal, default: 0
-      attribute :import_price, :decimal, default: 0
-      attribute :profit_price, :decimal, default: 0
-      attribute :part_providers_count, :integer, default: 0
-      attribute :order_items_count, :integer, default: 0
-
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
-
-      belongs_to :part_taxon, counter_cache: true
-      belongs_to :unifier, optional: true
-      belongs_to :product, optional: true
-
       has_many :product_parts, dependent: :destroy_async
       has_many :products, through: :product_parts
       has_many :part_plans, dependent: :destroy_async
       has_many :part_items, dependent: :destroy_async
       has_many :part_providers, dependent: :destroy_async
 
-      has_one_attached :logo
 
       before_save :sync_price
       after_update :sync_part_taxon_id_to_pp, if: -> { saved_change_to_part_taxon_id? }

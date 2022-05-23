@@ -3,6 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :type, :string
       attribute :name, :string
       attribute :description, :string
       attribute :qr_prefix, :string
@@ -17,11 +18,14 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
       attribute :fits_count, :integer, default: 0
 
+      attribute :part_providers_count, :integer, default: 0
+
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       belongs_to :unifier, optional: true
       belongs_to :product_taxon, counter_cache: true, optional: true
       belongs_to :brand, counter_cache: true, optional: true
+      belongs_to :source_product, optional: true  # 上游产品
 
       has_one :production, -> { where(default: true) }
       has_many :productions, dependent: :destroy_async

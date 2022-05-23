@@ -5,6 +5,7 @@ module Factory
     included do
       attribute :name, :string
       attribute :position, :integer
+      attribute :take_stock, :boolean, comment: '可盘点'
       attribute :products_count, :integer, default: 0
       attribute :enabled, :boolean, default: true
 

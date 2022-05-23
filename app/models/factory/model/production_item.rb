@@ -4,19 +4,22 @@ module Factory
 
     included do
       attribute :qr_code, :string
-      attribute :produced_at, :datetime, default: -> { Time.current }
+      attribute :came_at, :datetime, default: -> { Time.current }
 
       belongs_to :production
       belongs_to :production_plan, counter_cache: true
+      belongs_to :product_item, optional: true
+
       has_many :part_items
 
       enum state: {
+        purchased: 'purchased',
         produced: 'produced',
         received: 'received',
         warehouse_in: 'warehouse_in',
         warehouse_out: 'warehouse_out',
         used: 'used'
-      }
+      }, _default: 'purchased'
 
       after_initialize if: :new_record? do
         self.production = self.production_plan.production if production_plan
