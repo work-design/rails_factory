@@ -30,7 +30,7 @@ module Factory
     end
 
     def set_remaining_part_taxons
-      @part_taxons = PartTaxon.where.not(id: @product.part_taxon_ids).default_where(default_params).order(id: :asc)
+      @part_taxons = ProductTaxon.where.not(id: @product.part_taxon_ids).default_where(default_params).order(id: :asc)
     end
 
     def product_part_taxon_params
