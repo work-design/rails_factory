@@ -66,6 +66,7 @@ module Factory
 
     def production_params
       params.fetch(:production, {}).permit(
+        :name,
         :state,
         :qr_code,
         :base_price,
