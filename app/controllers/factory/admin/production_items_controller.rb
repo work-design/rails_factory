@@ -12,7 +12,7 @@ module Factory
       end
       q_params.merge! params.permit('produced_at-gte', 'produced_at-lte')
 
-      @production_items = @production_plan.production_items.default_where(q_params).page(params[:page])
+      @production_items = @production_plan.production_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def batch
@@ -45,7 +45,7 @@ module Factory
         :production_id,
         :qr_code,
         :qr_file,
-        :produced_at
+        :came_at
       )
     end
 

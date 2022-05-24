@@ -1,0 +1,10 @@
+<table class="table as-search">
+  <tr>
+    <th>供应链厂家</th>
+    <td>
+    <% @providers.each do |provider| %>
+      <div class="button is-light"><%= provider.name %></div>
+    <% end %>
+    </td>
+  </tr>
+</table>

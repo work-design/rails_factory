@@ -2,6 +2,7 @@ zh:
   activerecord:
     attributes:
       factory/product:
+        organ_id: 厂家
         brand_id: 品牌
         serial_id: 系列
         product_taxon_id: 商品分类
