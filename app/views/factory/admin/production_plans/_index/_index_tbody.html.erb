@@ -1,5 +1,7 @@
-<td><%= model.scene&.title %></td>
-<td><%= model.produce_on %></td>
+<td>
+  <p><%= model.scene&.title %></p>
+  <p><%= model.produce_on %></p>
+</td>
 <td>
   <p><time data-controller="time"><%= model.start_at.to_fs(:iso8601) if model.start_at %></time></p>
   <p><time data-controller="time"><%= model.finish_at.to_fs(:iso8601) if model.finish_at %></time></p>
@@ -8,4 +10,7 @@
 <td>
   <p><%= model.planned_count %></p>
   <p><%= link_to model.production_items_count, { controller: 'production_items', production_plan_id: model.id } %></p>
+</td>
+<td>
+  <p><%= model.station&.name %></p>
 </td>

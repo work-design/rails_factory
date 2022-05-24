@@ -3,6 +3,8 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      include Space::Ext::Storable if defined? RailsSpace
+
       attribute :start_at, :datetime
       attribute :finish_at, :datetime
       attribute :state, :string
