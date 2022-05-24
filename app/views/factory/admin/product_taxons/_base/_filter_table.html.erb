@@ -1,10 +1,11 @@
 <table class="table as-search">
   <tr>
-    <th>供应链厂家</th>
+    <th><%= Factory::PartProvider.human_attribute_name(:provider_id) %></th>
     <td>
-    <% @providers.each do |provider| %>
-      <div class="button is-light"><%= provider.name %></div>
-    <% end %>
+      <%= link_to t('.all'), filter_params(except: [:organ_id]), class: active_params(organ_id: '', active: 'button is-info', item: 'button is-light') %>
+      <% @providers.each  do |provider| %>
+        <%= link_to provider.name, filter_params(organ_id: provider.id, except: [:id]), class: active_params(organ_id: provider.id, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
     </td>
   </tr>
 </table>
