@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2531f3644612b2ac1b64563f9bb67227b805fd6c
+  revision: d262db046a3c815003a67afeac46b473c097d19d
   specs:
     rails_com (1.3.0)
       acme-client
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: bd41c8badd08062753af078d860fe314eb80d67d
+  revision: ad6e0689a21e255f4311d34ecf7e46473a3f470c
   specs:
     rails_design (0.0.1)
       rails
@@ -266,7 +266,7 @@ GEM
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.2.0)
-    turbo-rails (1.1.0)
+    turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
