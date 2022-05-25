@@ -6,7 +6,7 @@ zh:
           planned: 计划中
           producing: 生产中
           produced: 已完成
-      factory/part_item:
+      factory/production_item:
         state:
           purchased: 已下单
           received: 已收货
