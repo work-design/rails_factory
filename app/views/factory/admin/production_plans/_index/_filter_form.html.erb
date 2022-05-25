@@ -3,6 +3,7 @@
     <%= f.date_field 'start_at-gte' %>
     <div class="field is-narrow">
       <%= f.submit %>
+      <%= link_to t('.clear'), filter_params(except: ['start_at-gte']), class: 'button is-light' %>
     </div>
   </div>
 <% end %>
