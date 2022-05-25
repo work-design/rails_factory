@@ -14,7 +14,12 @@ module Factory
     end
 
     def warehouse_in
-      binding.b
+      r = params[:result].scan(RegexpUtil.more_between('production_items', 'qrcode'))
+      if r.present?
+        @production_item = ProductionItem.find r[0]
+        @production_item.assign_attributes params.permit(:room_id, :grid_id)
+        @production_item.save
+      end
     end
 
     def qrcode
