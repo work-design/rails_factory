@@ -3,8 +3,6 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      include Space::Ext::Storable if defined? RailsSpace
-
       attribute :start_at, :datetime
       attribute :finish_at, :datetime
       attribute :state, :string
@@ -15,6 +13,8 @@ module Factory
       attribute :trade_items_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
+
+      belongs_to :station, class_name: 'Space::Station', optional: true if defined? RailsSpace
 
       belongs_to :production
       belongs_to :product

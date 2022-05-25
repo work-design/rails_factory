@@ -3,6 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      include Space::Ext::Storable if defined? RailsSpace
       attribute :qr_code, :string
       attribute :came_at, :datetime, default: -> { Time.current }
 
@@ -29,6 +30,14 @@ module Factory
 
     def qrcode_url
       QrcodeHelper.data_url(qr_code)
+    end
+
+    def enter_url
+      Rails.application.routes.url_for(controller: 'factory/me/production_items', action: 'qrcode', id: self.id)
+    end
+
+    def qrcode_enter_url
+      QrcodeHelper.data_url(enter_url)
     end
 
     def print

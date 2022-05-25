@@ -130,6 +130,18 @@ Rails.application.routes.draw do
       resources :factory_taxons
     end
 
+    namespace :me, defaults: { namespace: 'me' } do
+      resources :production_items do
+        collection do
+          post :warehouse_in
+          post :warehouse_out
+        end
+        member do
+          get :qrcode
+        end
+      end
+    end
+
     namespace :my, defaults: { namespace: 'my' } do
       resource :provider
       resources :products

@@ -7,6 +7,6 @@
   <td><%= @production_item.qr_code %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::ProductionItem.human_attribute_name(:qr_file) %></td>
-  <td><%= image_tag @production_item.qrcode_url %></td>
+  <td class="has-text-right"><%= Factory::ProductionItem.human_attribute_name(:enter_url) %></td>
+  <td><%= image_tag @production_item.qrcode_enter_url %></td>
 </tr>
