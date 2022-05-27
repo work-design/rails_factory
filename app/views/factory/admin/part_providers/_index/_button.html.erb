@@ -1,6 +1,8 @@
+<div class="buttons are-small mb-0">
 <% @providers.each do |provider| %>
-<%= link_to({ action: 'new', organ_id: provider.id, **request.query_parameters.except(:id) }, data: { turbo_frame: 'modal', turbo_scroll: true }, class: 'button is-link') do %>
-  <i class="fa-light fa-plus"></i>
-  <span class="pl-1"><%= provider.name %></span>
+  <%= link_to({ action: 'new', organ_id: provider.id, **request.query_parameters.except(:id) }, data: { turbo_frame: 'modal', turbo_scroll: true }, class: 'button is-link') do %>
+    <i class="fa-light fa-plus"></i>
+    <span class="pl-1"><%= provider.name %></span>
+  <% end %>
 <% end %>
-<% end %>
+</div>

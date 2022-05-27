@@ -1,3 +1,7 @@
+<%= render 'filter_form' %>
+<%= render 'filter_table' %>
+<%= render 'button' %>
+
 <%= render layout: 'index_table' do %>
 <% @products.group_by(&:product_taxon).each do |taxon, products| %>
   <tr>
