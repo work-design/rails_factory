@@ -10,7 +10,7 @@
     </div>
     <div class="weui-form-preview__item">
       <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:came_at) %></label>
-      <span class="weui-form-preview__value"><time data-controller="time"><%= @production_item.came_at.to_fs(:iso8601) if @production_item.came_at %></time></span>
+      <span class="weui-form-preview__value"><time data-controller="time"><%= @production_item.came_at&.to_fs(:iso8601) %></time></span>
     </div>
     <div class="weui-form-preview__item">
       <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:grid_id) %></label>

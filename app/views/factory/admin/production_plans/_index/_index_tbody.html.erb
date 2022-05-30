@@ -3,8 +3,8 @@
   <p><%= model.produce_on %></p>
 </td>
 <td>
-  <p><time data-controller="time"><%= model.start_at.to_fs(:iso8601) if model.start_at %></time></p>
-  <p><time data-controller="time"><%= model.finish_at.to_fs(:iso8601) if model.finish_at %></time></p>
+  <p><time data-controller="time"><%= model.start_at&.to_fs(:iso8601) %></time></p>
+  <p><time data-controller="time"><%= model.finish_at&.to_fs(:iso8601) %></time></p>
 </td>
 <td><%= model.state_i18n %></td>
 <td>
