@@ -3,7 +3,6 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      include Space::Ext::Storable if defined? RailsSpace
       attribute :qr_code, :string
       attribute :came_at, :datetime, default: -> { Time.current }
 
@@ -18,6 +17,8 @@ module Factory
         produced: 'produced',
         received: 'received',
         warehouse_in: 'warehouse_in',
+        grid_in: 'grid_in',
+        grid_out: 'grid_out',
         warehouse_out: 'warehouse_out',
         used: 'used'
       }, _default: 'purchased'

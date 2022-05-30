@@ -132,11 +132,9 @@ Rails.application.routes.draw do
 
     namespace :me, defaults: { namespace: 'me' } do
       resources :production_items do
-        collection do
-          post :warehouse_in
-          post :warehouse_out
-        end
         member do
+          post :in
+          post :out
           get :qrcode
         end
       end

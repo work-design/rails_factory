@@ -1,0 +1,27 @@
+<div class="weui-form-preview">
+  <div class="weui-form-preview__bd">
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:name) %></label>
+      <span class="weui-form-preview__value"><%= @production_item.production.name %></span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:qr_code) %></label>
+      <span class="weui-form-preview__value"><%= @production_item.qr_code %></span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:came_at) %></label>
+      <span class="weui-form-preview__value"><time data-controller="time"><%= @production_item.came_at.to_fs(:iso8601) if @production_item.came_at %></time></span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:grid_id) %></label>
+      <span class="weui-form-preview__value">
+        <span><%= @production_item.grid&.code %></span>
+        <span class="has-text-grey">(<%= @production_item.grid_id %>)</span>
+      </span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:state) %></label>
+      <span class="weui-form-preview__value"><%= @production_item.state_i18n %></span>
+    </div>
+  </div>
+</div>

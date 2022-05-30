@@ -1,6 +1,7 @@
 module Factory
   class Me::ProductionItemsController < Me::BaseController
-    before_action :set_production_item, only: [:show, :print, :edit, :update, :qrcode]
+    before_action :set_production_item, only: [:show, :print, :edit, :update, :qrcode, :in, :out]
+    before_action :set_item_from_scan, only: [:in, :out]
 
     def index
       q_params = {}
@@ -13,22 +14,18 @@ module Factory
       @production_items = @production_plan.production_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
-    def warehouse_in
-      r = params[:result].scan(RegexpUtil.more_between('production_items/', '/qrcode'))
-      if r.present?
-        @production_item = ProductionItem.find r[0]
-        @production_item.assign_attributes params.permit(:room_id, :grid_id)
-        @production_item.state = 'warehouse_in'
+    def in
+      if @item.is_a?(Space::Grid)
+        @production_item.grid = @item
+        @production_item.state = 'grid_in'
         @production_item.save
       end
     end
 
-    def warehouse_out
-      r = params[:result].scan(RegexpUtil.more_between('production_items/', '/qrcode'))
-      if r.present?
-        @production_item = ProductionItem.find r[0]
-        @production_item.assign_attributes params.permit(:room_id, :grid_id)
-        @production_item.state = 'warehouse_out'
+    def out
+      if @item.is_a?(Space::Grid)
+        @production_item.grid = @item
+        @production_item.state = 'grid_out'
         @production_item.save
       end
     end
@@ -52,6 +49,13 @@ module Factory
 
     def set_production_item
       @production_item = ProductionItem.find(params[:id])
+    end
+
+    def set_item_from_scan
+      g = params[:result].scan(RegexpUtil.more_between('grids/', '/qrcode'))
+      if g.present?
+        @item = Space::Grid.find g[0]
+      end
     end
 
     def production_item_params
