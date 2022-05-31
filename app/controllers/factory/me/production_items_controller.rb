@@ -61,6 +61,7 @@ module Factory
       g = params[:result].scan(RegexpUtil.more_between('grids/', '/qrcode'))
       if g.present?
         @item = Space::Grid.find g[0]
+        return 
       end
       r = params[:result].scan(RegexpUtil.more_between('rooms/', '/qrcode'))
       if r.present?
