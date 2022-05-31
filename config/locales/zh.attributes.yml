@@ -63,3 +63,9 @@ zh:
         part_serial_id: 适配型号
         part_product_id: 适配产品
         part_production_id: 适配产品
+      factory/production_item:
+        state: 状态
+        qr_code: 编码
+        came_at: 生产/到货时间
+        room_id: 所在仓库
+        grid_id: 所在货架

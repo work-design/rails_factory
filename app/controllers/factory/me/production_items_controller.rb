@@ -18,16 +18,22 @@ module Factory
       if @item.is_a?(Space::Grid)
         @production_item.grid = @item
         @production_item.state = 'grid_in'
-        @production_item.save
+      elsif @item.is_a?(Space::Room)
+        @production_item.room = @item
+        @production_item.state = 'grid_in'
       end
+      @production_item.save
     end
 
     def out
       if @item.is_a?(Space::Grid)
         @production_item.grid = @item
         @production_item.state = 'grid_out'
-        @production_item.save
+      elsif @item.is_a?(Space::Room)
+        @production_item.room = @item
+        @production_item.state = 'grid_out'
       end
+      @production_item.save
     end
 
     def qrcode
@@ -54,7 +60,11 @@ module Factory
     def set_item_from_scan
       g = params[:result].scan(RegexpUtil.more_between('grids/', '/qrcode'))
       if g.present?
-        @item = Space::Grid.find g[0]
+        return @item = Space::Grid.find g[0]
+      end
+      r = params[:result].scan(RegexpUtil.more_between('rooms/', '/qrcode'))
+      if r.present?
+        @item = Space::Room.find r[0]
       end
     end
 
