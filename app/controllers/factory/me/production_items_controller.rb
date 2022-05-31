@@ -60,7 +60,7 @@ module Factory
     def set_item_from_scan
       g = params[:result].scan(RegexpUtil.more_between('grids/', '/qrcode'))
       if g.present?
-        return @item = Space::Grid.find g[0]
+        @item = Space::Grid.find g[0]
       end
       r = params[:result].scan(RegexpUtil.more_between('rooms/', '/qrcode'))
       if r.present?
