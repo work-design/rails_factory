@@ -2,7 +2,7 @@
   data-controller="mini-program"
   data-mini-program-url-value="/pages/print/index?url=<%= url_for(action: 'print', id: model.id, only_path: false) %>"
 >
-<%= button_to({ action: 'print', id: model.id }, method: :patch, data: { action: 'mini-program#link' }, form: { class: 'weui-actionsheet__cell' }) do %>
+<%= button_to({ action: 'print', id: model.id }, method: :patch, form: { data: { action: 'click->mini-program#link' }, class: 'weui-actionsheet__cell' }) do %>
   <i class="fa-light fa-print"></i>
   <span><%= t('factory.admin.production_items.print.title') %></span>
 <% end %>
