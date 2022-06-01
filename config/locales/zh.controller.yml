@@ -63,7 +63,8 @@ zh:
       production_items:
         index:
           title: 产品清单
-          print: 打印
+        print:
+          title: 打印
       parts:
         index:
           title: 配件/零件/原料
