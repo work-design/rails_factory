@@ -26,6 +26,10 @@ module Factory
       @production_item.print
     end
 
+    def print_data
+      render json: PrintUtil.bytes
+    end
+
     private
     def set_production
       @production = Production.find params[:production_id]
