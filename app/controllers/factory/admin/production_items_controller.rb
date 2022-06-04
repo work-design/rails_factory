@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionItemsController < Admin::BaseController
     before_action :set_production
-    before_action :set_production_item, only: [:show, :print, :edit, :update, :destroy]
+    before_action :set_production_item, only: [:show, :print, :print_data, :edit, :update, :destroy]
     before_action :set_new_production_item, only: [:index, :new, :create]
 
     def index
@@ -27,7 +27,7 @@ module Factory
     end
 
     def print_data
-      render json: PrintUtil.bytes
+      render json: @production_item.to_cpcl.bytes
     end
 
     private

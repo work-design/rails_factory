@@ -41,6 +41,14 @@ module Factory
       QrcodeHelper.data_url(enter_url)
     end
 
+    def to_cpcl
+      cpcl = BaseCpcl.new
+      cpcl.text production.name
+      cpcl.text qr_code
+      cpcl.right_qrcode(enter_url)
+      cpcl.render
+    end
+
     def print
       device = JiaBo::Device.first
       template = JiaBo::Template.first
