@@ -50,7 +50,7 @@ module Factory
     end
 
     def to_pdf
-      pdf = BasePdf.new
+      pdf = BasePdf.new(width: 80.mm, height: 60.mm)
       pdf.text production.name
       pdf.text qr_code
       pdf

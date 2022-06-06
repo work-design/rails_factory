@@ -1,7 +1,10 @@
 <tr id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <%= yield %>
   <td>
-    <span data-show-target="item" style="visibility: hidden">
+    <div data-show-target="item" style="visibility: hidden">
+      <button class="button is-small is-rounded is-light" data-controller="print" data-print-url-value="<%= url_for(action: 'pdf', id: model.id) %>" data-action="print#doPrint">
+        <i class="fa-solid fa-print"></i>
+      </button>
       <%= button_to({ action: 'print', id: model.id }, method: :patch, data: { confirm: t('.confirm') }, aria: { label: t('factory.admin.production_items.print.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-print"></i>
       <% end %>
@@ -14,6 +17,6 @@
       <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
         <i class="fa-light fa-trash"></i>
       <% end %>
-    </span>
+    </div>
   </td>
 </tr>
