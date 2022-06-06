@@ -123,6 +123,7 @@ Rails.application.routes.draw do
             member do
               patch :actions
               patch :print
+              get :pdf
               get :print_data
             end
           end

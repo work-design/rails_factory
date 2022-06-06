@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionItemsController < Admin::BaseController
     before_action :set_production
-    before_action :set_production_item, only: [:show, :print, :print_data, :edit, :update, :destroy]
+    before_action :set_production_item, only: [:show, :pdf, :print, :print_data, :edit, :update, :destroy]
     before_action :set_new_production_item, only: [:index, :new, :create]
 
     def index
@@ -24,6 +24,10 @@ module Factory
 
     def print
       @production_item.print
+    end
+
+    def pdf
+      send_data @production_item.to_pdf.render, type: 'application/pdf', disposition: 'inline'
     end
 
     def print_data

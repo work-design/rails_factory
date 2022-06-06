@@ -49,6 +49,13 @@ module Factory
       cpcl.render
     end
 
+    def to_pdf
+      pdf = BasePdf.new
+      pdf.text production.name
+      pdf.text qr_code
+      pdf
+    end
+
     def print
       device = JiaBo::Device.first
       template = JiaBo::Template.first
