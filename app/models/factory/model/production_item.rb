@@ -41,6 +41,10 @@ module Factory
       QrcodeHelper.data_url(enter_url)
     end
 
+    def qrcode_enter_png
+      QrcodeHelper.code_png(enter_url, size: 120, module_px_size: 0)
+    end
+
     def to_cpcl
       cpcl = BaseCpcl.new
       cpcl.text production.name
@@ -50,9 +54,12 @@ module Factory
     end
 
     def to_pdf
-      pdf = BasePdf.new(width: 80.mm, height: 60.mm)
+      pdf = BasePdf.new(width: 140.mm, height: 60.mm)
       pdf.text production.name
       pdf.text qr_code
+      pdf.bounding_box([pdf.bounds.right - 150, pdf.bounds.top], width: 150, height: 150) do
+        pdf.image StringIO.new(qrcode_enter_png.to_blob)
+      end
       pdf
     end
 
