@@ -42,7 +42,7 @@ module Factory
     end
 
     def qrcode_enter_png
-      QrcodeHelper.code_png(enter_url, border_modules: 0, fill: 'snow')
+      QrcodeHelper.code_png(enter_url, border_modules: 0, fill: 'pink')
     end
 
     def to_cpcl
