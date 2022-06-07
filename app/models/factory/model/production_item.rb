@@ -54,13 +54,13 @@ module Factory
     end
 
     def to_pdf
-      pdf = BasePdf.new(width: 140.mm, height: 80.mm)
+      pdf = BasePdf.new(width: 80.mm, height: 50.mm)
       pdf.text production.name
       pdf.text qr_code
       pdf.text 'dddd'
       pdf.text 'rrrr'
-      pdf.bounding_box([pdf.bounds.right - 150, pdf.bounds.top], width: 120, height: 120) do
-        pdf.image StringIO.new(qrcode_enter_png.to_blob), fit: [120, 120], position: :right, vposition: :top
+      pdf.bounding_box([pdf.bounds.right - 60, pdf.bounds.top], width: 60, height: 60) do
+        pdf.image StringIO.new(qrcode_enter_png.to_blob), fit: [60, 60], position: :right, vposition: :top
       end
       pdf
     end
