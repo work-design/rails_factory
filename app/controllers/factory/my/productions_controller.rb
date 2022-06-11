@@ -28,9 +28,6 @@ module Factory
       render 'create'
     end
 
-    def show
-    end
-
     def cart
     end
 
