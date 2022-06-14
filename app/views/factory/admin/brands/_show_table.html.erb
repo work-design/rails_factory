@@ -4,5 +4,5 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::Brand.human_attribute_name(:logo) %></td>
-  <td><%= @brand.logo %></td>
+  <td><%= image_tag @brand.logo, class: 'image' if @brand.logo.attached? %></td>
 </tr>
