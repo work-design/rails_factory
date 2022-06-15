@@ -1,5 +1,5 @@
 module Factory
-  class Buy::BaseController < BuyController
+  class Buy::BaseController < IntoController
 
     def self.local_prefixes
       [controller_path, 'factory/base']

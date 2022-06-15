@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :produce_plans, only: [:index, :show]
 
     namespace :buy, defaults: { namespace: 'buy' } do
+      root 'home#index'
       controller :home do
         get :index
       end
