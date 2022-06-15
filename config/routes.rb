@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :product_taxons, only: [:index, :show]
     resources :produce_plans, only: [:index, :show]
 
-    namespace :buy, defaults: { namespace: 'buy' } do
+    namespace :in, defaults: { namespace: 'in' } do
       root 'home#index'
       controller :home do
         get :index

@@ -1,6 +1,5 @@
 module Factory
-  class Buy::CartsController < Buy::BaseController
-    include Controller::Buy
+  class In::CartsController < In::BaseController
     before_action :set_cart, only: [:add]
     before_action :set_trade_items
     before_action :set_scene, only: [:list]

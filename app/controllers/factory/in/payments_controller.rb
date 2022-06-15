@@ -1,5 +1,5 @@
 module Factory
-  class Buy::PaymentsController < Buy::BaseController
+  class In::PaymentsController < In::BaseController
     before_action :set_payment, only: [:wxpay_pc_pay]
 
     def index

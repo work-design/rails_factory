@@ -1,5 +1,5 @@
 module Factory
-  class Buy::FactoryTaxonsController < Buy::BaseController
+  class In::FactoryTaxonsController < In::BaseController
     before_action :set_factory_taxon, only: [:show, :edit, :update, :destroy]
 
     def index

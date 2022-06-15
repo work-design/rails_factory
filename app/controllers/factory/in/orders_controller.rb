@@ -1,5 +1,5 @@
 module Factory
-  class Buy::OrdersController < Trade::My::OrdersController
+  class In::OrdersController < Trade::Admin::OrdersController
     before_action :set_order, only: [
       :show, :edit, :update, :refund, :payment_types, :edit_payment_type, :wait, :destroy, :cancel,
       :paypal_pay, :stripe_pay, :alipay_pay, :paypal_execute, :wxpay_pay, :wxpay_pc_pay

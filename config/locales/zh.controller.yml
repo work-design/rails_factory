@@ -106,7 +106,7 @@ zh:
           title: 我的站点
         show:
           title: 商品列表
-    buy:
+    in:
       title: 下单管理
       home:
         index:

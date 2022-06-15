@@ -1,5 +1,5 @@
 module Factory
-  class Buy::ProductionsController < ProductionsController
+  class In::ProductionsController < ProductionsController
     include Trade::Controller::Me
     include Controller::Buy
     before_action :set_product_taxon
