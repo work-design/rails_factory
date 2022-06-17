@@ -5,7 +5,7 @@
   <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
 <% end %>
 
-<%= render partial: 'figure', locals: { model: @production.product } if @production.product.covers.length > 0 %>
+<%= render partial: 'covers', locals: { model: @production.product } if @production.product.covers.length > 0 %>
 
 <div class="box is-radiusless is-sticky" style="z-index: 3">
   <div class="has-text-bold">
