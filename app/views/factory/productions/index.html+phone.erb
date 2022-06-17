@@ -1,6 +1,4 @@
-<% if params[:produce_on] && params[:scene_id] %>
-  <%= render 'produce_on_bar' %>
-<% end %>
+<%= render 'produce_on_bar' if params[:produce_on] && params[:scene_id] %>
 
 <div class="box is-radiusless">
   <i class="fa-light fa-location-dot"></i>
