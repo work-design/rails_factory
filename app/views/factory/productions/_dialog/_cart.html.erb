@@ -1,4 +1,5 @@
-<% trade_item = current_cart.trade_items.find(&->(i){ i.good_type == model.class_name && i.good_id == model.id && i.produce_on.to_s == params[:produce_on].to_s && i.scene_id.to_s == params[:scene_id].to_s }) %>
+<% trade_item = @cart.find_trade_items(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+
 <%= button_to({ controller: 'factory/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number - 1 }, class: 'mr-1', form: { data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' } }) do %>
   <i class="fa-solid fa-circle-minus fa-xl has-text-dark-grey"></i>
 <% end if trade_item && trade_item.number > 1 %>
@@ -8,7 +9,11 @@
 <%= form_with(theme: nil, scope: 'trade_item', url: { controller: 'factory/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, data: { controller: 'input', turbo_scroll: true, turbo_scroll_container: 'production_dialog' }) do |f| %>
   <%= f.number_field :number, value: trade_item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
 <% end if trade_item %>
-<%= form_with theme: nil, url: { controller: 'factory/my/trade_items', action: 'create' }, data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' }, class: 'ml-1 button_to' do |f| %>
+<%= button_to({ controller: 'factory/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number + 1 }, class: 'ml-1', form: { data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' } }) do %>
+  <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
+<% end if trade_item %>
+
+<%= form_with theme: nil, url: { controller: 'factory/my/trade_items', action: 'create' }, data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :member_id, value: current_member&.id %>
   <%= f.hidden_field :good_type, value: model.class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
@@ -19,6 +24,3 @@
     <span>加入购物车</span>
   <% end %>
 <% end unless trade_item %>
-<%= button_to({ controller: 'factory/my/trade_items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number + 1 }, class: 'ml-1', form: { data: { turbo_scroll: true, turbo_scroll_container: 'production_dialog' } }) do %>
-  <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
-<% end if trade_item %>

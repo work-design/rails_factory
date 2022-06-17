@@ -3,7 +3,7 @@
     <%= render partial: 'cart', locals: { model: @production, cart: @cart } if @cart %>
   </div>
   <div class="column is-half">
-    <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'button is-danger') do %>
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, class: 'button is-danger') do %>
       <i class="fa-solid fa-cart-shopping"></i>
       <span><%= t('trade.my.carts.show.title') %></span>
     <% end %>
