@@ -6,6 +6,7 @@ module Factory
     before_action :set_card_templates, only: [:index]
     before_action :set_production, only: [:show, :dialog]
     before_action :set_scene, only: [:index], if: -> { params[:produce_on].present? && params[:scene_id].present? }
+    before_action :set_cart, only: [:index, :show]
 
     def index
       q_params = {}
@@ -94,6 +95,10 @@ module Factory
 
     def set_product_taxon
       @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
+    end
+
+    def set_cart
+      @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
     end
 
     def production_params
