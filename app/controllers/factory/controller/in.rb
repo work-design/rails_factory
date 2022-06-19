@@ -1,5 +1,5 @@
 module Factory
-  module Controller::Buy
+  module Controller::In
     extend ActiveSupport::Concern
 
     def set_scenes

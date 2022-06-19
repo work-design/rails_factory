@@ -44,6 +44,7 @@ Rails.application.routes.draw do
           post :actions
         end
       end
+      resources :orders
       resources :payments do
         member do
           get :wxpay_pc_pay
