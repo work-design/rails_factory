@@ -67,21 +67,14 @@ Rails.application.routes.draw do
       end
       resources :plans
       resources :scenes do
-        member do
-          patch :actions
-        end
         resources :produce_plans do
           member do
             get :products
-            patch :actions
           end
         end
         resources :scene_automatics
       end
       resources :products do
-        member do
-          patch :actions
-        end
         resources :product_part_taxons do
           resources :product_parts
         end
@@ -92,7 +85,6 @@ Rails.application.routes.draw do
             get :vip
             patch :update_vip
             patch :provide
-            patch :actions
           end
         end
         resources :fits
@@ -115,15 +107,11 @@ Rails.application.routes.draw do
           end
         end
         resources :production_plans do
-          member do
-            patch :actions
-          end
           resources :production_items do
             collection do
               post :batch
             end
             member do
-              patch :actions
               patch :print
               get :pdf
               get :print_data
