@@ -39,6 +39,13 @@ GIT
       rails (>= 5.0)
 
 GIT
+  remote: https://github.com/work-design/rails_notice.git
+  revision: 9466b5ecddd76cb3b61d71db5d6b14394575c4d5
+  specs:
+    rails_notice (1.0.3)
+      rails_extend
+
+GIT
   remote: https://github.com/work-design/rails_trade.git
   revision: 8e223a1b8543cb0f728c47397f4fe75e2d40c6fb
   specs:
@@ -242,8 +249,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails_notice (0.1.0)
-      rails (>= 5.0.1)
     railties (7.0.3)
       actionpack (= 7.0.3)
       activesupport (= 7.0.3)
@@ -292,6 +297,7 @@ DEPENDENCIES
   rails_design!
   rails_extend!
   rails_factory!
+  rails_notice!
   rails_trade!
   sdoc
 
