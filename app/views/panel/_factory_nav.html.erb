@@ -4,7 +4,7 @@
     <span><%= t('factory.panel.title') %></span>
     <i class="fa-solid dropdown"></i>
   </a>
-  <div class="menu-list">
+  <div class="menu-list" data-empty-target="content">
     <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
     <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
     <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
