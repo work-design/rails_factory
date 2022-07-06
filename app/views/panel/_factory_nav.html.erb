@@ -1,13 +1,13 @@
-<div class="<%= active_helper(modules: 'factory/panel', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu">
-  <%= content_tag :div, class: 'menu-list' do %>
-    <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
-    <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
-    <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
-    <%= link_to t('factory.panel.scenes.index.title'), { controller: 'factory/panel/scenes' }, class: active_helper(controllers: ['scenes'], active: 'is-active') -%>
-  <% end %>
+<div class="<%= active_helper(modules: 'factory/panel', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu empty">
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-store fa-fw"></i>
     <span><%= t('factory.panel.title') %></span>
     <i class="fa-solid dropdown"></i>
   </a>
+  <div class="menu-list">
+    <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
+    <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
+    <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
+    <%= link_to t('factory.panel.scenes.index.title'), { controller: 'factory/panel/scenes' }, class: active_helper(controllers: ['scenes'], active: 'is-active') %>
+  </div>
 </div>
