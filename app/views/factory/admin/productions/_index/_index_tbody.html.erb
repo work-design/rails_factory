@@ -17,8 +17,8 @@
       </tr>
     <% end %>
   </table>
-  <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-cube"></i>
+  <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }) do %>
+    <i class="fa-regular fa-cube fa-sm has-text-grey"></i>
   <% end %>
 </td>
 <td class="has-text-right">
@@ -28,8 +28,8 @@
 </td>
 <td>
   <%= model.price.to_money.format(html_wrap: true).html_safe %>
-  <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-dollar-sign"></i>
+  <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
+    <i class="fa-regular fa-tags fa-sm has-text-grey"></i>
   <% end %>
 </td>
 <td>
@@ -41,8 +41,8 @@
     </div>
   <% end %>
   </div>
-  <%= link_to({ action: 'vip', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.vip.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-pencil"></i>
+  <%= link_to({ action: 'vip', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.vip.title') }) do %>
+    <i class="fa-regular fa-pencil fa-sm has-text-grey"></i>
   <% end %>
 </td>
 <td>
