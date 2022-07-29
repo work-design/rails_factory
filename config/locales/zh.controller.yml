@@ -87,6 +87,8 @@ zh:
           title: 会员价
         part:
           title: 产品组成
+        price:
+          title: 产品价格
       provideds:
         index:
           title: 供应列表

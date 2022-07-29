@@ -18,7 +18,7 @@
     <% end %>
   </table>
   <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-pencil"></i>
+    <i class="fa-regular fa-cube"></i>
   <% end %>
 </td>
 <td class="has-text-right">
@@ -28,8 +28,8 @@
 </td>
 <td>
   <%= model.price.to_money.format(html_wrap: true).html_safe %>
-  <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-pencil"></i>
+  <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-regular fa-dollar-sign"></i>
   <% end %>
 </td>
 <td>
