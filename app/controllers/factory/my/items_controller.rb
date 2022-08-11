@@ -1,11 +1,11 @@
 module Factory
-  class My::TradeItemsController < Trade::My::TradeItemsController
+  class My::ItemsController < Trade::My::ItemsController
     before_action :set_production
     before_action :set_card_templates, only: [:create, :update, :destroy]
 
     private
     def set_production
-      @production = @trade_item.good
+      @production = @item.good
     end
 
     def set_card_templates

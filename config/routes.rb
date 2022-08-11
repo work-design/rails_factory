@@ -96,7 +96,7 @@ Rails.application.routes.draw do
         end
         resources :productions, only: [] do
           resources :addresses
-          resources :trade_items do
+          resources :items do
             member do
               patch :print
             end
@@ -142,9 +142,9 @@ Rails.application.routes.draw do
           member do
             post :cart
           end
-          resources :trade_items, only: [:index]
+          resources :items, only: [:index]
         end
-        resources :trade_items, only: [:create, :update, :destroy]
+        resources :items, only: [:create, :update, :destroy]
       end
 
       namespace :panel, defaults: { namespace: 'panel' } do

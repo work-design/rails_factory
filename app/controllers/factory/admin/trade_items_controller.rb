@@ -11,7 +11,7 @@ module Factory
     end
 
     def print
-      @trade_item.print
+      @item.print
     end
 
     private
@@ -20,11 +20,11 @@ module Factory
     end
 
     def set_trade_item
-      @trade_item = @production.trade_items.find(params[:id])
+      @item = @production.trade_items.find(params[:id])
     end
 
     def trade_item_params
-      params.fetch(:trade_item, {}).permit(
+      params.fetch(:item, {}).permit(
         :number,
         :amount,
         :note,

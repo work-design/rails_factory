@@ -1,7 +1,7 @@
 module Factory
   class In::CartsController < In::BaseController
     before_action :set_cart, only: [:add]
-    before_action :set_trade_items
+    before_action :set_items
     before_action :set_scene, only: [:list]
     before_action :set_scenes, only: [:list]
     before_action :set_production, only: [:list]
