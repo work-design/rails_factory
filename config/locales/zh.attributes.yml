@@ -19,7 +19,7 @@ zh:
         cost_price: 成本价
         profit_price: 调价
         price: 售价
-        vip_price: 会员价
+        card_price: 会员价
         default: 主显产品
         enabled: 上架
         automatic: 自动上架

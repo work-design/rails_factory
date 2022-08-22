@@ -38,7 +38,7 @@ module Factory
     end
 
     def update_vip
-      @production.vip_price = vip_price_params
+      @production.card_price = card_price_params
       @production.save
     end
 
@@ -79,10 +79,10 @@ module Factory
       )
     end
 
-    def vip_price_params
+    def card_price_params
       r = {}
 
-      params.dig(:production, :vip_price).each do |_, v|
+      params.dig(:production, :card_price).each do |_, v|
         r.merge! v[:code] => v[:price]
       end
 
