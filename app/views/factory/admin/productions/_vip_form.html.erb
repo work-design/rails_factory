@@ -1,9 +1,18 @@
 <%= form_with model: @production, url: { action: 'update_vip' } do |f| %>
   <%= render 'error_messages', target: f.object %>
   <% @card_templates.each do |card_template| %>
-    <%= f.fields :card_price do |ef| %>
-      <%= ef.hidden_field :code, value: card_template.code, index: card_template.id %>
-      <%= ef.number_field :price, step: 0.01, value: @production.card_price.fetch(card_template.code, @production.price), label: card_template.name, index: card_template.id %>
+    <%= f.fields :card_price, all: { normal: nil }, wrap: { input: 'field' } do |ef| %>
+      <div class="field is-horizontal" data-controller="enter">
+        <label class="field-label is-normal"><%= card_template.name %></label>
+        <div class="field-body">
+          <%= ef.hidden_field :code, value: card_template.code, index: card_template.id %>
+          <%= ef.number_field :price, step: 0.01, value: @production.card_price.fetch(card_template.code, @production.price), index: card_template.id %>
+          <div class="field is-narrow has-addons is-flex">
+            <i class="fa-solid fa-plus" style="cursor: pointer" data-action="click->field#add"></i>
+            <i class="fa-solid fa-minus pl-1" style="cursor: pointer" data-action="click->field#remove"></i>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% end %>
   <%= f.submit %>
