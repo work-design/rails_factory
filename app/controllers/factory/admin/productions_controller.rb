@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionsController < Admin::BaseController
     before_action :set_product
-    before_action :set_production, only: [:show, :edit, :part, :price, :vip, :update_vip, :update, :destroy]
+    before_action :set_production, only: [:show, :edit, :update, :destroy, :actions, :part, :price, :card, :update_card]
     before_action :set_provide_production, only: [:provide]
 
     def index
@@ -33,11 +33,11 @@ module Factory
     def price
     end
 
-    def vip
+    def card
       @card_templates = Trade::CardTemplate.default_where(default_params)
     end
 
-    def update_vip
+    def update_card
       @production.card_price = card_price_params
       @production.save
     end
