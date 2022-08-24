@@ -1,6 +1,6 @@
 <td>
   <div class="is-several">
-    <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
+    <i class="fa-regular fa-bars fa-fw has-text-grey is-drawable"></i>
     <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
     <span><%= model.name %></span>
   </div>
@@ -9,7 +9,7 @@
   <% if model.factory_taxon %>
     <%= link_to model.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: model.factory_taxon_id }, text: true %>
     <%= link_to({ action: 'import', id: model.id }, aria: { label: t('factory.admin.product_taxons.import.title') }, class: 'has-text-success') do %>
-      <i class="fa-light fa-sign-in-alt"></i>
+      <i class="fa-regular fa-sign-in-alt"></i>
     <% end %>
   <% end %>
 </td>

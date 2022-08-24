@@ -3,7 +3,7 @@
     <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.logo.attached? %>
     <%= link_to model.name, { action: 'show', id: model.id }, text: true %>
     <%= link_to({ controller: 'productions', product_id: model.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-light fa-clone"></i>
+      <i class="fa-regular fa-clone"></i>
       <span class="pl-1"><%= model.productions_count %></span>
     <% end %>
   </div>
@@ -31,7 +31,7 @@
   <% end %>
   <p>
     <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.product_part_taxons.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-light fa-tree"></i>
+      <i class="fa-regular fa-tree"></i>
     <% end %>
   </p>
 </td>
