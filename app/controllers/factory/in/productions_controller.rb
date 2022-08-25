@@ -12,12 +12,9 @@ module Factory
 
     def index
       q_params = {
-        production_plans: {
-          produce_on: params[:produce_on],
-          scene_id: params[:scene_id],
-          organ_id: current_organ.provider_ids
-        }
+        organ_id: current_organ.provider_ids
       }
+      q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
       q_params.merge! params.permit('name-like')
 
       @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
