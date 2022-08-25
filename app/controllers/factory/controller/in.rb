@@ -2,6 +2,10 @@ module Factory
   module Controller::In
     extend ActiveSupport::Concern
 
+    included do
+      layout 'in'
+    end
+
     def set_scenes
       @next_plan = ProducePlan.next_plan(organ_ids: current_organ.provider_ids, produce_on: params[:produce_on].to_date, scene_id: params[:scene_id])
       @prev_plan = ProducePlan.prev_plan(organ_ids: current_organ.provider_ids, produce_on: params[:produce_on].to_date, scene_id: params[:scene_id])
