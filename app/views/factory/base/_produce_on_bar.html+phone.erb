@@ -1,6 +1,6 @@
 <div class="box is-radiusless p-2 mb-0 has-border-bottom is-flex is-justify-content-space-between is-sticky" style="z-index: 3">
   <span data-controller="weui-dialog" data-weui-dialog-id-value="dialog_scene" data-action="click->weui-dialog#toggle">
-    <span class="has-text-weight-semibold"><%= @scene.title %></span>
+    <span class="has-text-weight-semibold"><%= @scene&.title %></span>
     <span class="has-text-link ">
       <span>切换</span>
       <i class="fa-regular fa-angle-right pl-0"></i>

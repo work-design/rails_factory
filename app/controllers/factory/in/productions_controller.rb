@@ -7,8 +7,8 @@ module Factory
     before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
     before_action :set_card_templates, only: [:index]
-    before_action :set_scene, only: [:index]
-    before_action :set_scenes, only: [:index]
+    before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
+    before_action :set_scenes, only: [:index], if: -> { params[:scene_id].present? }
 
     def index
       q_params = {

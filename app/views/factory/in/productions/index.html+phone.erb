@@ -1,4 +1,4 @@
-<%= render 'produce_on_bar' %>
+<%= render 'produce_on_bar' if params[:produce_on] && params[:scene_id] %>
 
 <div class="weui-flex is-align-items-flex-start">
   <%= render 'menu' unless params[:produce_plan_id] %>
@@ -18,4 +18,4 @@
     <%= render 'paginator' %>
   </div>
 </div>
-<%= render 'taxon' %>
+<%= render 'taxon' if params[:produce_on] && params[:scene_id] %>
