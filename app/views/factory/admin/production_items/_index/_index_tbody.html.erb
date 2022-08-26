@@ -1,7 +1,4 @@
 <td><%= model.id %></td>
 <td class="has-text-mono"><%= model.qr_code %></td>
-<td>
-  <%= image_tag model.qrcode_url, class: 'image is-32x32' %>
-</td>
 <td><%= model.state_i18n %></td>
 <td><time data-controller="time"><%= model.came_at&.to_fs(:iso8601) %></time></td>

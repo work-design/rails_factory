@@ -6,7 +6,6 @@
   </a>
   <div class="menu-list" data-empty-target="content">
     <%= link_to t('factory.admin.products.index.title'), { controller: 'factory/admin/products' }, class: active_helper(controllers: ['products', 'product_taxons', 'product_part_taxons', 'productions', 'part_providers', 'production_plans', 'production_items'], active: 'is-active') %>
-    <%# link_to t('factory.admin.parts.index.title'), { controller: 'factory/admin/parts' }, class: active_helper(controllers: ['parts', 'part_taxons', 'part_providers', 'part_plans', 'part_items'], active: 'is-active') %>
     <%= link_to t('factory.admin.scenes.index.title'), { controller: 'factory/admin/scenes' }, class: active_helper(controllers: ['scenes', 'produce_plans'], active: 'is-active') %>
     <%= link_to t('factory.admin.produce_on.index.title'), { controller: 'factory/admin/produce_on' }, class: active_helper(controllers: 'produce_on', active: 'is-active') %>
     <%= link_to t('factory.admin.brands.index.title'), { controller: 'factory/admin/brands' }, class: active_helper(controllers: 'brands', active: 'is-active') %>
