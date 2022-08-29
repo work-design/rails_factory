@@ -4,7 +4,7 @@ module Factory
 
     included do
       belongs_to :production
-      belongs_to :part, class_name: 'Product'
+      belongs_to :part, class_name: 'Production'
 
       after_commit :sync_to_production, on: [:create, :destroy]
     end
