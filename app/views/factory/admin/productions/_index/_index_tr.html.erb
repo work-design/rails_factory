@@ -6,6 +6,9 @@
         <%= link_to({ controller: 'production_plans', production_id: model.id }, aria: { label: t('factory.admin.production_plans.index.title') }, class: 'button is-small is-rounded is-info') do %>
           <i class="fa-regular fa-list-timeline"></i>
         <% end %>
+        <%= link_to({ controller: 'production_items', production_id: model.id }, aria: { label: t('factory.admin.production_items.index.title') }, class: 'button is-small is-rounded is-info') do %>
+          <i class="fa-regular fa-list"></i>
+        <% end %>
         <%= link_to({ controller: 'trade_items', production_id: model.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-success') do %>
           <i class="fa-regular fa-shopping-cart"></i>
         <% end %>

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 94d3d76d9019d4a39906691c86e7cb150932a7dc
+  revision: 73503f1d94b5e3c3bf71150b6b0e533ca1c589ec
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -164,7 +164,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
-    jwt (2.4.1)
+    jwt (2.5.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
