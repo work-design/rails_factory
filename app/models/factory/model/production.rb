@@ -90,10 +90,6 @@ module Factory
       end
     end
 
-    def parts
-      Part.find part_ids
-    end
-
     def sync_price
       self.profit_price ||= default_profit_price
       self.price = self.base_price + self.cost_price + self.profit_price
