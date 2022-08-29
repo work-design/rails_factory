@@ -1,0 +1,14 @@
+<tr id="tr_<%= model.id %>" data-controller="tree-remote show" data-tree-remote-target="item" data-action="mouseenter->show#show mouseleave->show#hide">
+  <%= yield %>
+  <td>
+    <div data-show-target="item" style="visibility: hidden">
+      <%= link_to({ controller: 'products', action: 'show', id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-regular fa-circle-info"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>
+
+<% if params[:product_id] == model.id.to_s %>
+  <%= render partial: 'production', collection: model.productions, as: :model %>
+<% end %>

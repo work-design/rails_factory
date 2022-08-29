@@ -118,7 +118,11 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :factory_taxons
+        resources :factory_taxons do
+          member do
+            get :import
+          end
+        end
       end
 
       namespace :me, defaults: { namespace: 'me' } do

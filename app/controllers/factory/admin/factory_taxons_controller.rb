@@ -1,13 +1,9 @@
 module Factory
   class Admin::FactoryTaxonsController < Admin::BaseController
-    before_action :set_factory_taxon, only: [:show, :productions, :edit, :update, :destroy]
+    before_action :set_factory_taxon, only: [:show, :import, :productions, :edit, :update, :destroy]
 
     def index
       @factory_taxons = FactoryTaxon.order(position: :asc).page(params[:page])
-    end
-
-    def new
-      @factory_taxon = FactoryTaxon.new
     end
 
     def show
@@ -18,6 +14,15 @@ module Factory
 
       product_ids = @products.pluck(:id)
       @select_ids = PartProvider.default_where(q_params).where(product_id: product_ids).pluck(:product_id)
+    end
+
+    def import
+      q_params = {}
+      q_params.merge! params.permit(:organ_id)
+      @products = @factory_taxon.products.default_where(q_params).page(params[:page])
+
+      product_ids = @products.pluck(:id)
+      @select_ids = PartProvider.default_where(default_params).where(product_id: product_ids).pluck(:product_id)
     end
 
     def productions
