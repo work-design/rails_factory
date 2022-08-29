@@ -106,16 +106,15 @@ Rails.application.routes.draw do
               post :search
             end
           end
-          resources :production_plans do
-            resources :production_items do
-              collection do
-                post :batch
-              end
-              member do
-                patch :print
-                get :pdf
-                get :print_data
-              end
+          resources :production_plans
+          resources :production_items do
+            collection do
+              post :batch
+            end
+            member do
+              patch :print
+              get :pdf
+              get :print_data
             end
           end
         end

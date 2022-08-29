@@ -8,6 +8,12 @@
         <span>（<%= @production.name %>）</span>
       <% end %>
     </li>
+    <li>
+      <%= link_to({ controller: 'production_plans', production_id: @production.id }) do %>
+        <span><%= t('factory.admin.production_plans.index.title') %></span>
+        <span>（<%= @production_plan.produce_on %>）</span>
+      <% end %>
+    </li>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>

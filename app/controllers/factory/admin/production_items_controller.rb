@@ -12,7 +12,7 @@ module Factory
       end
       q_params.merge! params.permit('produced_at-gte', 'produced_at-lte')
 
-      @production_items = @production_plan.production_items.default_where(q_params).order(id: :desc).page(params[:page])
+      @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def batch
@@ -37,15 +37,18 @@ module Factory
     private
     def set_production
       @production = Production.find params[:production_id]
+    end
+
+    def set_produce_plan
       @production_plan = ProductionPlan.find params[:production_plan_id]
     end
 
     def set_new_production_item
-      @production_item = @production_plan.production_items.build(production_item_params)
+      @production_item = @production.production_items.build(production_item_params)
     end
 
     def set_production_item
-      @production_item = ProductionItem.find(params[:id])
+      @production_item = @production.production_items.find(params[:id])
     end
 
     def production_item_params
