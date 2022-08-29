@@ -147,6 +147,7 @@ Rails.application.routes.draw do
       end
 
       namespace :panel, defaults: { namespace: 'panel' } do
+        root 'home#index'
         resources :factory_taxons do
           resources :factory_providers do
             collection do
