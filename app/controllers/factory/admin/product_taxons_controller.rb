@@ -14,18 +14,6 @@ module Factory
       @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc).page(params[:page])
     end
 
-    def new
-      @product_taxon = ProductTaxon.new(default_form_params)
-    end
-
-    def create
-      @product_taxon = ProductTaxon.new(product_taxon_params)
-
-      unless @product_taxon.save
-        render :new, locals: { model: @product_taxon }, status: :unprocessable_entity
-      end
-    end
-
     def reorder
       sort_array = params[:sort_array].select { |i| i.integer? }
 
