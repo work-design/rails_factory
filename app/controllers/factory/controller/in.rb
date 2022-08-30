@@ -16,7 +16,7 @@ module Factory
 
     class_methods do
       def local_prefixes
-        [controller_path, 'factory/in/base']
+        [controller_path, 'factory/in/base', 'admin']
       end
     end
 

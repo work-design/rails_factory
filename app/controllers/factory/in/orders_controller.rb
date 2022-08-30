@@ -18,6 +18,7 @@ module Factory
         :address_id,
         :invoice_address_id,
         :note,
+        :current_cart_id,
         trade_items_attributes: {}
       )
       p.merge! current_cart_id: params[:current_cart_id] if params[:current_cart_id]
