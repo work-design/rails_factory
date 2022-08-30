@@ -1,7 +1,7 @@
 <td>
   <div class="is-several">
     <%= link_to({ action: 'productions', product_id: model.id }) do %>
-      <i class="fa-solid fa-fw fa-caret-right" style="cursor: pointer" data-action="click->tree-remote#expand"></i>
+      <i class="fa-solid fa-fw <%= model.id.to_s == params[:product_id] ? 'fa-caret-down' : 'fa-caret-right' %>" style="cursor: pointer"></i>
     <% end %>
     <%= image_tag model.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if model.logo.attached? %>
     <span><%= model.name %></span>
