@@ -36,7 +36,12 @@ Rails.application.routes.draw do
             post :list
           end
         end
-        resources :factory_taxons, only: [:index, :show]
+        resources :factory_taxons, only: [:index, :show] do
+          member do
+            get :import
+            get :productions
+          end
+        end
         resources :produce_plans, only: [:index]
         resources :carts do
           collection do
@@ -45,6 +50,7 @@ Rails.application.routes.draw do
           end
         end
         resources :orders
+        resources :items
         resources :payments do
           member do
             get :wxpay_pc_pay

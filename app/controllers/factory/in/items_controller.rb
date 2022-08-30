@@ -1,5 +1,5 @@
 module Factory
-  class In::TradeItemsController < In::BaseController
+  class In::ItemsController < In::BaseController
     before_action :set_agent
     before_action :set_item, only: [:show, :toggle, :edit, :update, :destroy]
     before_action :set_new_item, only: [:new, :create]

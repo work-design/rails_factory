@@ -16,18 +16,7 @@ module Factory
       @select_ids = PartProvider.default_where(q_params).where(product_id: product_ids).pluck(:product_id)
     end
 
-    def import
-      q_params = {}
-      q_params.merge! params.permit(:organ_id)
-      @products = @factory_taxon.products.default_where(q_params).page(params[:page])
 
-      product_ids = @products.pluck(:id)
-      @select_ids = PartProvider.default_where(default_params).where(product_id: product_ids).pluck(:product_id)
-    end
-
-    def productions
-      @productions = Production.default_where(product_id: params[:product_id])
-    end
 
     private
     def set_factory_taxon

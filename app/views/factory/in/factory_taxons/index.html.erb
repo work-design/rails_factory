@@ -1,5 +1,5 @@
-<div class="cards is-4">
-  <%= render partial: 'factory_taxon', collection: @factory_taxons, as: :model %>
-</div>
+<%= render layout: 'index_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @factory_taxons, as: :model %>
+<% end %>
 
 <%= paginate @factory_taxons %>

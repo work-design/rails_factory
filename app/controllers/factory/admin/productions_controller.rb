@@ -42,6 +42,10 @@ module Factory
       @production.save
     end
 
+    def import
+
+    end
+
     def provide
       part = @production.provided_parts.build
       part.organ_id = current_organ.id
