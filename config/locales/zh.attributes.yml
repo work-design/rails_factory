@@ -7,8 +7,9 @@ zh:
         serial_id: 系列
         product_taxon_id: 商品分类
         qr_prefix: 二维码前缀
-        profit_margin: 利润率
         product_part_taxons: 分类
+      factory/product_host:
+        profit_margin: 利润率
         min_price: 最低价
         max_price: 最高价
       factory/product_part_taxon:

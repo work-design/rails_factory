@@ -1,7 +1,8 @@
 module Factory
   class Admin::ProductsController < Admin::BaseController
-    before_action :set_product, only: [:show, :edit, :actions, :part, :update, :destroy]
     before_action :set_brands, only: [:new, :create, :edit, :update]
+    before_action :set_product, only: [:show, :edit, :actions, :part, :update, :destroy]
+    before_action :set_new_product, only: [:new, :create]
 
     def index
       q_params = {}
@@ -12,7 +13,7 @@ module Factory
     end
 
     def new
-      @product = Product.new
+      @product.product_hosts.build
       @product.product_taxon = ProductTaxon.default_where(default_params).new
     end
 
@@ -23,6 +24,10 @@ module Factory
     private
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def set_new_product
+      @product = Product.new(product_params)
     end
 
     def set_brands
@@ -42,7 +47,8 @@ module Factory
         :product_taxon_ancestors,
         part_ids: [],
         covers: [],
-        images: []
+        images: [],
+        product_hosts_attributes: {}
       )
       p.merge! default_form_params
     end

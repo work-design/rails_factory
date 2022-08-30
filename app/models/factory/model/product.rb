@@ -28,13 +28,14 @@ module Factory
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
       has_many :product_part_taxons, dependent: :destroy_async
+      accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
       has_many :part_taxons, through: :product_part_taxons
       has_many :part_providers
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :fits, dependent: :destroy_async
-
-      accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
+      has_many :product_hosts
+      accepts_nested_attributes_for :product_hosts
 
       has_one_attached :logo
       has_many_attached :covers
@@ -51,10 +52,6 @@ module Factory
       self.min_price = productions.minimum(:price)
       self.max_price = productions.maximum(:price)
       self.save
-    end
-
-    def profit_margin_str
-      (profit_margin.to_d * 100).to_fs(:percentage)
     end
 
     def sync_name

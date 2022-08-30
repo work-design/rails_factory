@@ -4,11 +4,11 @@
     <div data-show-target="item" style="visibility: hidden">
       <%= link_to({ controller: 'fits', product_id: model.id }, aria: { label: t('factory.admin.fits.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-regular fa-gears"></i>
-        <span class="pl-1"><%= model.fits_count %></span>
+        <span class="pl-1"><%= model.product.fits_count %></span>
       <% end %>
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-regular fa-circle-info"></i>
-        <span class="pl-1"><%= model.covers_attachments.size %></span>
+        <span class="pl-1"><%= model.product.covers_attachments.size %></span>
       <% end %>
       <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-regular fa-pencil"></i>
