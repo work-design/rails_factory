@@ -16,7 +16,7 @@ module Factory
     end
 
     def sync_part_taxon
-      self.part_taxon_id = self.part.part_taxon_id
+      self.part_taxon_id = self.part.product_taxon_id
     end
 
   end

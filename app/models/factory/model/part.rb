@@ -9,7 +9,6 @@ module Factory
       has_many :part_items, dependent: :destroy_async
       has_many :part_providers, dependent: :destroy_async
 
-
       before_save :sync_price
       after_update :sync_part_taxon_id_to_pp, if: -> { saved_change_to_part_taxon_id? }
     end
