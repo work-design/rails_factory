@@ -1,5 +1,5 @@
 module Factory
-  module Model::ProductOrgan
+  module Model::ProductHost
     extend ActiveSupport::Concern
 
     included do
@@ -9,6 +9,8 @@ module Factory
 
       belongs_to :organ, class_name: 'Org::Organ'
       belongs_to :product
+
+      has_many :productions, ->(o) { where(organ_id: o.organ_id) }, primary_key: :product_id, foreign_key: :product_id
     end
 
   end

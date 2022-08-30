@@ -3,7 +3,7 @@
 <%= render 'button' %>
 
 <%= render layout: 'index_table' do %>
-<% @products.group_by(&:product_taxon).each do |taxon, products| %>
+<% @product_hosts.group_by(&->(i){ i.product.product_taxon }).each do |taxon, products| %>
   <tr>
     <td rowspan="<%= products.size + 1 %>">
     <% if taxon %>
@@ -24,4 +24,4 @@
 <% end %>
 <% end %>
 
-<%= paginate @products %>
+<%= paginate @product_hosts %>

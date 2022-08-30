@@ -1,15 +1,15 @@
 <td>
   <div class="is-several">
-    <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.logo.attached? %>
-    <%= link_to model.name, { action: 'show', id: model.id }, text: true %>
+    <%= image_tag model.product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.product.logo.attached? %>
+    <%= link_to model.product.name, { action: 'show', id: model.id }, text: true %>
     <%= link_to({ controller: 'productions', product_id: model.id }, aria: { label: t('factory.admin.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fa-regular fa-clone"></i>
-      <span class="pl-1"><%= model.productions_count %></span>
+      <span class="pl-1"><%= model.product.productions_count %></span>
     <% end %>
   </div>
 </td>
 <td>
-  <p><%= model.brand&.name %></p>
+  <p><%= model.product.brand&.name %></p>
 </td>
 <td><%= model.profit_margin_str %></td>
 <td>
@@ -17,13 +17,13 @@
   <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
 </td>
 <td>
-  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+  <%= form_with theme: nil, model: model.product, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :specialty, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
     <label data-action="click->input#check"></label>
   <% end %>
 </td>
 <td>
-  <% model.product_part_taxons.each do |product_part_taxon| %>
+  <% model.product.product_part_taxons.each do |product_part_taxon| %>
     <p>
       <span><%= product_part_taxon.name %></span>
       <span class="has-text-grey is-size-7"><%= product_part_taxon.select_str %></span>
