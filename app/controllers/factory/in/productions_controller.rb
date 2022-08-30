@@ -2,7 +2,7 @@ module Factory
   class In::ProductionsController < ProductionsController
     include Trade::Controller::Me
     include Controller::In
-    before_action :set_product_taxon
+    before_action :set_factory_taxon
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
@@ -71,8 +71,8 @@ module Factory
       @card_templates = Trade::CardTemplate.default_where(default_params)
     end
 
-    def set_product_taxon
-      @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
+    def set_factory_taxon
+      @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
     end
 
   end

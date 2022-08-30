@@ -39,8 +39,8 @@ Rails.application.routes.draw do
         resources :factory_taxons, only: [:index, :show] do
           member do
             get :import
-            get :productions
           end
+          resources :productions
         end
         resources :produce_plans, only: [:index]
         resources :carts do

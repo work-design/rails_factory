@@ -8,17 +8,17 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:good_id)
 
-      @trade_items = current_organ.member_ordered_trade_items.includes(:organ).default_where(q_params).page(params[:page])
+      @items = current_organ.member_ordered_items.includes(:organ).default_where(q_params).page(params[:page])
     end
 
     def toggle
-      if @trade_item.status_init?
-        @trade_item.status = 'checked'
-      elsif @trade_item.status_checked?
-        @trade_item.status = 'init'
+      if @item.status_init?
+        @item.status = 'checked'
+      elsif @item.status_checked?
+        @item.status = 'init'
       end
 
-      @trade_item.save
+      @item.save
     end
 
     private
@@ -30,18 +30,18 @@ module Factory
       @agent = current_member
     end
 
-    def set_new_trade_item
+    def set_new_item
       options = params.permit(:good_type, :good_id, :member_id, :number, :produce_on, :scene_id)
 
-      @trade_item = @agent.get_agent_trade_item(**options.to_h.symbolize_keys)
+      @item = @agent.get_agent_item(**options.to_h.symbolize_keys)
     end
 
-    def set_trade_item
-      @trade_item = Trade::TradeItem.find(params[:id])
+    def set_item
+      @item = Trade::Item.find(params[:id])
     end
 
-    def trade_item_params
-      params.fetch(:trade_item, {}).permit(
+    def item_params
+      params.fetch(:item, {}).permit(
         :number
       )
     end
