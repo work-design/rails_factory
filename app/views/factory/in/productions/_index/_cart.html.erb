@@ -1,23 +1,27 @@
 <% item = @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
 
-<%= form_with theme: nil, url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, class: 'ml-1 button_to' do |f| %>
-  <%= f.hidden_field '[item]number', value: item.number - 1 %>
-  <%= button_tag do %>
+<% if item %>
+<div class="is-flex is-justify-content-center">
+  <%= form_with theme: nil, url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, class: 'ml-1 button_to' do |f| %>
+    <%= f.hidden_field '[item]number', value: item.number - 1 %>
+    <%= button_tag do %>
+      <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
+    <% end %>
+  <% end if item.number > 1 %>
+  <%= button_to({ controller: 'trade/in/items', action: 'destroy', id: item.id }, method: :delete, class: 'mr-1') do %>
     <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
+  <% end if item.number <= 1 %>
+  <%= form_with theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }, class: 'ml-1' do |f| %>
+    <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
   <% end %>
-<% end if item && item.number > 1 %>
-<%= button_to({ controller: 'trade/in/items', action: 'destroy', id: item.id }, method: :delete, class: 'mr-1') do %>
-  <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
-<% end if item && item.number <= 1 %>
-<%= form_with theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }, class: 'ml-1' do |f| %>
-  <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
-<% end if item %>
-<%= form_with theme: nil, url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, class: 'ml-1 button_to' do |f| %>
-  <%= f.hidden_field '[item]number', value: item.number + 1 %>
-  <%= button_tag do %>
-    <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
+  <%= form_with theme: nil, url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, class: 'ml-1 button_to' do |f| %>
+    <%= f.hidden_field '[item]number', value: item.number + 1 %>
+    <%= button_tag do %>
+      <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
+    <% end %>
   <% end %>
-<% end if item %>
+</div>
+<% end %>
 
 <%= form_with theme: nil, url: { controller: 'trade/in/items', action: 'create' }, class: 'ml-1 button_to' do |f| %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
