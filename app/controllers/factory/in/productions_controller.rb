@@ -9,6 +9,7 @@ module Factory
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
     before_action :set_scenes, only: [:index], if: -> { params[:scene_id].present? }
+    before_action :set_cart, only: [:index]
 
     def index
       q_params = {
@@ -73,6 +74,10 @@ module Factory
 
     def set_factory_taxon
       @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
+    end
+
+    def set_cart
+      @cart = current_organ.organ_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
     end
 
   end
