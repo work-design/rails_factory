@@ -1,11 +1,7 @@
 <td>
   <div class="is-several">
-    <%= link_to({ action: 'productions', product_id: model.id }) do %>
-      <i class="fa-solid fa-fw <%= model.id.to_s == params[:product_id] ? 'fa-caret-down' : 'fa-caret-right' %>" style="cursor: pointer"></i>
-    <% end %>
-    <%= image_tag model.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if model.logo.attached? %>
+    <%= image_tag model.product.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if model.product.logo.attached? %>
     <span><%= model.name %></span>
-    <span class="tag"><%= model.productions_count %></span>
   </div>
 </td>
 <td><%= model.organ.name %></td>
@@ -19,12 +15,9 @@
   <% end %>
   </table>
 </td>
-<td>
-  <% if @select_ids.include?(model.id) %>
-    <i class="fa-regular fa-check has-text-success"></i>
-  <% else %>
-    <i class="fa-regular fa-times has-text-gery"></i>
-  <% end %>
+<td><%= model.price.to_money.format(html_wrap: true).html_safe %></td>
+<td class="has-text-centered">
+  <%= render partial: 'cart', locals: { model: model } %>
 </td>
 <td>
   <%# link_to({ controller: 'productions', action: 'part', id: model.id }, aria: { label: t('factory.admin.productions.part.title') }, class: 'button is-small is-rounded is-light') do %>

@@ -17,7 +17,7 @@ module Factory
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
       q_params.merge! params.permit('name-like')
 
-      @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
+      @productions = Production.includes(:parts, :product).where(q_params).default.page(params[:page]).per(10)
     end
 
     def list
