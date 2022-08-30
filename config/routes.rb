@@ -124,7 +124,7 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :factory_taxons do
+        resources :factory_taxons, only: [:index, :show] do
           member do
             get :import
           end
