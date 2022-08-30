@@ -6,7 +6,7 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:id, :payment_type, :payment_status, :state)
 
-      @orders = current_organ.member_orders.includes(:trade_items).default_where(q_params).order(id: :desc).page(params[:page])
+      @orders = current_organ.member_orders.includes(:items).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     private
