@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :qr_code, :string
+      attribute :code, :string
       attribute :came_at, :datetime, default: -> { Time.current }
 
       belongs_to :production
@@ -25,12 +25,12 @@ module Factory
 
       after_initialize if: :new_record? do
         self.production = self.production_plan.production if production_plan
-        self.qr_code ||= UidHelper.nsec_uuid self.production&.qr_code
+        self.code ||= UidHelper.nsec_uuid self.production&.qr_code
       end
     end
 
     def qrcode_url
-      QrcodeHelper.data_url(qr_code)
+      QrcodeHelper.data_url(code)
     end
 
     def enter_url
@@ -48,7 +48,7 @@ module Factory
     def to_cpcl
       cpcl = BaseCpcl.new
       cpcl.text production.name
-      cpcl.text qr_code
+      cpcl.text code
       cpcl.right_qrcode(enter_url)
       cpcl.render
     end
@@ -56,7 +56,7 @@ module Factory
     def to_pdf
       pdf = BasePdf.new(width: 80.mm, height: 50.mm)
       pdf.text production.name
-      pdf.text qr_code
+      pdf.text code
       pdf.text 'dddd'
       pdf.text 'rrrr'
       pdf.bounding_box([pdf.bounds.right - 60, pdf.bounds.top], width: 60, height: 60) do
@@ -71,11 +71,11 @@ module Factory
       data = {
         name: production.name,
         price: production.price,
-        qrcode: qr_code,
+        qrcode: code,
         customer: 'test'
       }
 
-      device.templet_print(msg_no: qr_code, template_id: template.code, data: data)
+      device.templet_print(msg_no: code, template_id: template.code, data: data)
     end
 
   end
