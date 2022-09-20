@@ -1,9 +1,9 @@
 <%= link_to({ action: 'edit', id: model.id }, class: 'weui-actionsheet__cell') do %>
-  <i class="fa-regular fa-pencil"></i>
+  <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit') %></span>
 <% end %>
 <%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { confirm: t('.confirm') }, class: 'has-text-danger', form: { class: 'weui-actionsheet__cell weui-actionsheet__cell_warn' }) do %>
-  <i class="fa-regular fa-trash"></i>
+  <i class="fa-solid fa-trash"></i>
   <span><%= t('.destroy') %></span>
 <% end %>
 <%= link_to({ controller: 'production_items', production_plan_id: model.id }, class: 'weui-actionsheet__cell') do %>
