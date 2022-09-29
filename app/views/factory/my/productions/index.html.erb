@@ -28,7 +28,7 @@
           </ul>
         </div>
         <div class="weui-media-box__ft" data-swipe-target="open">
-          <%= link_to '删除', my_custom_path(custom), method: :delete, data: { confirm: t('.confirm') }, class: 'weui-btn weui-btn_mini weui-btn_warn' %>
+          <%= link_to '删除', my_custom_path(custom), method: :delete, data: { turbo_confirm: t('.confirm') }, class: 'weui-btn weui-btn_mini weui-btn_warn' %>
         </div>
       </div>
     <% end %>
