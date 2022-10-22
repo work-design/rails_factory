@@ -15,7 +15,7 @@
   <% end %>
   </table>
 </td>
-<td><%= model.price.to_money.format(html_wrap: true).html_safe %></td>
+<td><%= model.price.to_money.format.html_safe %></td>
 <td class="has-text-centered">
   <%= render partial: 'cart', locals: { model: model } %>
 </td>

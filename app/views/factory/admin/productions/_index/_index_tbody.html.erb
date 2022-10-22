@@ -22,12 +22,12 @@
   <% end %>
 </td>
 <td class="has-text-right">
-  <p><%= model.base_price.to_money.format(html_wrap: true).html_safe %></p>
-  <p><%= model.cost_price.to_money.format(html_wrap: true).html_safe %></p>
-  <p><%= model.profit_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.base_price.to_money.format.html_safe %></p>
+  <p><%= model.cost_price.to_money.format.html_safe %></p>
+  <p><%= model.profit_price.to_money.format.html_safe %></p>
 </td>
 <td>
-  <%= model.price.to_money.format(html_wrap: true).html_safe %>
+  <%= model.price.to_money.format.html_safe %>
   <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
     <i class="fa-regular fa-tags fa-sm has-text-grey"></i>
   <% end %>
@@ -37,7 +37,7 @@
   <% model.card_price.each do |key, value| %>
     <div class="tags has-addons control mb-0">
       <div class="tag is-success"><%= key %></div>
-      <div class="tag is-light"><%= value.to_money.format(html_wrap: true).html_safe %></div>
+      <div class="tag is-light"><%= value.to_money.format.html_safe %></div>
     </div>
   <% end %>
   </div>

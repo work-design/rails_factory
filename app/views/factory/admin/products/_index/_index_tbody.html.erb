@@ -13,8 +13,8 @@
 </td>
 <td><%= model.profit_margin_str %></td>
 <td>
-  <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>
-  <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.min_price.to_money.format.html_safe %></p>
+  <p><%= model.max_price.to_money.format.html_safe %></p>
 </td>
 <td>
   <%= form_with theme: nil, model: model.product, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>

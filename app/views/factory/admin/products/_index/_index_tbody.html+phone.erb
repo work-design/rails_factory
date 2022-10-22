@@ -3,6 +3,6 @@
 <p class="weui-media-box__desc"><%= model.qr_prefix %></p>
 <p class="weui-media-box__desc"><%= model.profit_margin_str %></p>
 <div class="weui-media-box__desc">
-  <p><%= model.min_price.to_money.format(html_wrap: true).html_safe %></p>
-  <p><%= model.max_price.to_money.format(html_wrap: true).html_safe %></p>
+  <p><%= model.min_price.to_money.format.html_safe %></p>
+  <p><%= model.max_price.to_money.format.html_safe %></p>
 </div>
