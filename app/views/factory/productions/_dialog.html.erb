@@ -14,7 +14,7 @@
   <%= render 'factory/productions/_base/figure' if @production.product.covers.length > 0 %>
   <div class="box is-shadowless has-background-transparent has-text-bold mb-0">
     <span><%= @production.product.name %></span>
-    <span class="has-text-danger"><%= @production.price.to_money.format(html_wrap: true).html_safe %></span>
+    <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
   </div>
   <%= render partial: 'factory/productions/_base/product_part_taxon', collection: @production.product.product_part_taxons, as: :product_part_taxon %>
 </div>

@@ -10,7 +10,7 @@
 <div class="box is-radiusless is-sticky" style="z-index: 3">
   <div class="has-text-bold">
     <span><%= @production.product.name %></span>
-    <span class="has-text-danger"><%= @production.price.to_money.format(html_wrap: true).html_safe %></span>
+    <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
   </div>
 </div>
 
