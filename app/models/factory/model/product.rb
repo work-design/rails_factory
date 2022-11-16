@@ -44,9 +44,14 @@ module Factory
 
       has_taxons :product_taxon
 
+      before_save :sync_from_product_taxon, if: -> { product_taxon_id_changed? }
       after_save :sync_name, if: -> { saved_change_to_name? }
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
+    end
+
+    def sync_from_product_taxon
+      self.factory_taxon_id = product_taxon.factory_taxon_id
     end
 
     def compute_min_max
