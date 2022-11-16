@@ -24,7 +24,7 @@ module Factory
     end
 
     def set_specialty
-      self.class.where.not(id: self.id).where(organ_id: self.organ_id).update_all(specialty: false)
+      self.class.where.not(id: self.id).update_all(specialty: false)
     end
 
     def compute_book_start_at(produce_on = Date.today)
