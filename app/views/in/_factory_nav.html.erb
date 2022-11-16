@@ -1,11 +1,9 @@
 <div class="<%= active_helper(modules: 'factory/in', active: 'menu ex-accordion is-active', item: 'menu ex-accordion is-active') %>" data-controller="menu empty">
-  <div class="menu-label">
-    <a class="menu-label" data-action="menu#toggle">
-      <i class="fa-solid fa-store fa-fw"></i>
-      <span><%= t('factory.in.title') %></span>
-      <i class="fa-solid dropdown"></i>
-    </a>
-  </div>
+  <a class="menu-label" data-action="menu#toggle">
+    <i class="fa-solid fa-store fa-fw"></i>
+    <span><%= t('factory.in.title') %></span>
+    <i class="fa-solid dropdown"></i>
+  </a>
   <div class="menu-list">
     <%= link_to t('factory.in.factory_taxons.index.title'), { controller: 'factory/in/factory_taxons' }, class: active_helper(controllers: ['factory_taxons'], active: 'is-active') %>
     <%= link_to t('factory.in.carts.index.title'), { controller: 'factory/in/carts' }, class: active_helper(controllers: ['carts'], active: 'is-active') %>
