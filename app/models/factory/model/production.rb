@@ -24,6 +24,7 @@ module Factory
 
       belongs_to :product, counter_cache: true
       belongs_to :product_taxon, optional: true
+      belongs_to :factory_taxon, optional: true
 
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts

@@ -21,6 +21,7 @@ module Factory
 
       belongs_to :unifier, optional: true
       belongs_to :product_taxon, counter_cache: true, optional: true
+      belongs_to :factory_taxon, optional: true
       belongs_to :brand, counter_cache: true, optional: true
 
       has_one :production, -> { where(default: true) }
@@ -64,6 +65,7 @@ module Factory
 
     def sync_product_taxon
       productions.update_all(product_taxon_id: product_taxon_id)
+      productions.update_all(factory_taxon_id: factory_taxon_id)
     end
 
   end
