@@ -1,7 +1,10 @@
 module Factory
   class Admin::ProductionsController < Admin::BaseController
     before_action :set_product
-    before_action :set_production, only: [:show, :edit, :update, :destroy, :actions, :part, :price, :card, :update_card]
+    before_action :set_production, only: [
+      :show, :edit, :update, :destroy, :actions,
+      :part, :price, :card, :update_card
+    ]
     before_action :set_provide_production, only: [:provide]
 
     def index
@@ -56,6 +59,10 @@ module Factory
     end
 
     private
+    def set_product_taxon
+      @product_taxon = ProductTaxon.default_where(default_params).find params[:product_taxon_id]
+    end
+
     def set_product
       @product = Product.default_where(default_params).find params[:product_id]
     end

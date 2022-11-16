@@ -1,5 +1,6 @@
 module Factory
   class Admin::ProductsController < Admin::BaseController
+    before_action :set_product_taxon
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :actions, :part, :update, :destroy]
     before_action :set_new_product, only: [:new, :create]
@@ -22,6 +23,10 @@ module Factory
     end
 
     private
+    def set_product_taxon
+      @product_taxon = ProductTaxon.default_where(default_params).find params[:product_taxon_id]
+    end
+
     def set_product
       @product = Product.find(params[:id])
     end
