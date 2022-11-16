@@ -137,6 +137,9 @@ zh:
           tip: 我们会尽快处理您的订单。
     panel:
       title: 产品管理
+      home:
+        index:
+          title: 产品管理
       factory_taxons:
         index:
           title: 产品分类
