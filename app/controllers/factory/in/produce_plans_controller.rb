@@ -1,5 +1,6 @@
 module Factory
   class In::ProducePlansController < ProducePlansController
+    include Controller::In
 
     def index
       q_params = {
@@ -14,7 +15,7 @@ module Factory
     end
 
     def self.local_prefixes
-      [controller_path, 'factory/buy/base', 'buy', 'me']
+      [controller_path, 'factory/in/base', 'buy', 'me']
     end
   end
 end
