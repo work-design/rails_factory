@@ -14,7 +14,12 @@
   <% end %>
 </td>
 <td><%= model.scene&.title %></td>
-<td><%= model.products_count %></td>
+<td>
+  <%= link_to({ controller: 'products', product_taxon_id: model.id }) do %>
+    <i class="fa-solid fa-cubes has-text-success"></i>
+    <span class="pl-1"><%= model.products_count %></span>
+  <% end %>
+</td>
 <th>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>

@@ -3,25 +3,7 @@
 <%= render 'button' %>
 
 <%= render layout: 'index_table' do %>
-<% @product_hosts.group_by(&->(i){ i.product.product_taxon }).each do |taxon, products| %>
-  <tr>
-    <td rowspan="<%= products.size + 1 %>">
-    <% if taxon %>
-      <p><%= taxon.name %></p>
-      <p>
-      <% if taxon.factory_taxon %>
-        <span class="has-text-grey"><%= taxon.factory_taxon.name %></span>
-        <%= link_to({ controller: 'product_taxons', action: 'import', id: taxon.id }, aria: { label: t('factory.admin.product_taxons.import.title') }) do %>
-          <i class="fa-regular fa-sign-in-alt"></i>
-        <% end %>
-      <% end %>
-      </p>
-      <p class="has-text-grey"><%= taxon.scene&.title %></p>
-    <% end %>
-    </td>
-  </tr>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
-<% end %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @products, as: :model %>
 <% end %>
 
-<%= paginate @product_hosts %>
+<%= paginate @products %>

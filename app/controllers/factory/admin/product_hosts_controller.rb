@@ -1,5 +1,5 @@
 module Factory
-  class Admin::ProductsController < Admin::BaseController
+  class Admin::ProductHostsController < Admin::BaseController
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :actions, :part, :update, :destroy]
     before_action :set_new_product, only: [:new, :create]
@@ -9,7 +9,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, :name)
 
-      @products = Product.includes(:parts, :product_taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).page(params[:page])
+      @product_hosts = ProductHost.includes(product: [:parts, :product_taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob]).default_where(q_params).page(params[:page])
     end
 
     def new

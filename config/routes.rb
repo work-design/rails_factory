@@ -70,6 +70,7 @@ Rails.application.routes.draw do
             get :import
             get :productions
           end
+          resources :products
         end
         resources :plans
         resources :scenes do
@@ -80,7 +81,7 @@ Rails.application.routes.draw do
           end
           resources :scene_automatics
         end
-        resources :products do
+        resources :products, only: [] do
           resources :product_part_taxons do
             resources :product_parts
           end

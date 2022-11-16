@@ -1,0 +1,7 @@
+<%= render layout: 'index_table' do %>
+  <% @products.group_by(&:product_taxon).each do |taxon, products| %>
+    <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
+  <% end %>
+<% end %>
+
+<%= paginate @products %>
