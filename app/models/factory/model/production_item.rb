@@ -23,10 +23,12 @@ module Factory
         used: 'used'
       }, _default: 'purchased'
 
-      after_initialize if: :new_record? do
-        self.production = self.production_plan.production if production_plan
-        self.code ||= UidHelper.nsec_uuid self.production&.qr_code
-      end
+      after_initialize :init_code, if: :new_record?
+    end
+
+    def init_code
+      self.production = self.production_plan.production if production_plan
+      self.code ||= UidHelper.nsec_uuid(production&.qr_code)
     end
 
     def qrcode_url
