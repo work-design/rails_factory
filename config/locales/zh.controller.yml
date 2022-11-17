@@ -119,6 +119,9 @@ zh:
       factory_taxons:
         index:
           title: 进货
+      productions:
+        index:
+          title: 进货
       items:
         index:
           title: 订单

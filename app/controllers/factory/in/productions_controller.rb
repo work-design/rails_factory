@@ -2,7 +2,7 @@ module Factory
   class In::ProductionsController < ProductionsController
     include Trade::Controller::Me
     include Controller::In
-    before_action :set_factory_taxon
+    before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
@@ -16,7 +16,7 @@ module Factory
         organ_id: current_organ.provider_ids
       }
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
-      q_params.merge! params.permit('name-like')
+      q_params.merge! params.permit('name-like', :factory_taxon_id)
 
       @productions = Production.includes(:parts, :product).where(q_params).default.page(params[:page]).per(10)
     end

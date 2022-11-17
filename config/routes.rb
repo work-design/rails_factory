@@ -40,7 +40,6 @@ Rails.application.routes.draw do
           member do
             get :import
           end
-          resources :productions
         end
         resources :produce_plans, only: [:index]
         resources :carts do
