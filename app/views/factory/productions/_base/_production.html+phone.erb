@@ -33,7 +33,7 @@
       <% end %>
     </div>
     <div class="is-flex is-justify-content-flex-end pt-2">
-      <%= render partial: 'factory/productions/_base/cart', locals: { model: model } if current_cart %>
+      <%= render partial: 'cart', locals: { model: model } if current_cart %>
     </div>
   </div>
 </div>

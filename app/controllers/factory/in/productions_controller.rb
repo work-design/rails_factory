@@ -4,7 +4,6 @@ module Factory
     include Controller::In
     before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
     before_action :set_produce_plans, only: [:index, :plan]
-    before_action :set_product_taxons, only: [:index]
     before_action :set_product, only: [:show]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
@@ -18,7 +17,7 @@ module Factory
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
       q_params.merge! params.permit('name-like', :factory_taxon_id)
 
-      @productions = Production.includes(:parts, :product).where(q_params).default.page(params[:page]).per(10)
+      @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
     end
 
     def list
@@ -62,10 +61,6 @@ module Factory
 
     def set_scene
       @scene = Scene.find params[:scene_id]
-    end
-
-    def set_product_taxons
-      @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(default_params).order(id: :asc)
     end
 
     def set_card_templates
