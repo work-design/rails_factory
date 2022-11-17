@@ -1,7 +1,7 @@
 module Factory
   class In::CartsController < In::BaseController
-    before_action :set_cart, only: [:add]
-    before_action :set_items
+    before_action :set_cart, only: [:show, :add]
+    before_action :set_items, only: [:show]
     before_action :set_scene, only: [:list]
     before_action :set_scenes, only: [:list]
     before_action :set_production, only: [:list]
@@ -23,7 +23,7 @@ module Factory
     end
 
     def set_items
-      @items = current_member.agent_items.carting.includes(:member).where(member_organ_id: current_organ.id, produce_on: params[:produce_on], scene_id: params[:scene_id])
+      @items = @cart.items.carting.includes(:member).where(member_organ_id: current_organ.id, produce_on: params[:produce_on], scene_id: params[:scene_id])
     end
 
     def set_scene
