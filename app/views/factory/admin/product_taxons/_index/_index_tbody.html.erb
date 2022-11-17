@@ -5,14 +5,6 @@
     <span><%= model.name %></span>
   </div>
 </td>
-<td>
-  <% if model.factory_taxon %>
-    <%= link_to model.factory_taxon.name, { controller: 'factory_taxons', action: 'show', id: model.factory_taxon_id }, text: true %>
-    <%= link_to({ action: 'import', id: model.id }, aria: { label: t('factory.admin.product_taxons.import.title') }, class: 'has-text-success') do %>
-      <i class="fa-solid fa-sign-in-alt"></i>
-    <% end %>
-  <% end %>
-</td>
 <td><%= model.scene&.title %></td>
 <td>
   <%= link_to({ controller: 'products', product_taxon_id: model.id }) do %>
