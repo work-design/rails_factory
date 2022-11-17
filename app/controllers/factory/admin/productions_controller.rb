@@ -5,6 +5,7 @@ module Factory
       :show, :edit, :update, :destroy, :actions,
       :part, :price, :card, :update_card
     ]
+    before_action :set_new_production, only: [:new, :create]
     before_action :set_provide_production, only: [:provide]
 
     def index
@@ -16,18 +17,6 @@ module Factory
     end
 
     def detect
-    end
-
-    def new
-      @production = @product.productions.build
-    end
-
-    def create
-      @production = @product.productions.build(production_params)
-
-      unless @production.save
-        render :new, locals: { model: @production }, status: :unprocessable_entity
-      end
     end
 
     def part
@@ -69,6 +58,10 @@ module Factory
 
     def set_production
       @production = @product.productions.find(params[:id])
+    end
+
+    def set_new_production
+      @production = @product.productions.build production_params
     end
 
     def set_provide_production
