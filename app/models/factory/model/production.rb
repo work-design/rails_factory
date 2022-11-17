@@ -44,7 +44,6 @@ module Factory
       scope :default, -> { where(default: true) }
       scope :automatic, -> { where(automatic: true) }
 
-      #after_initialize if: :new_record?
       before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }

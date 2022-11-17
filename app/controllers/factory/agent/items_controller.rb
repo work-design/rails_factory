@@ -26,7 +26,7 @@ module Factory
     end
 
     def set_new_item
-      options = { agent_id: current_member.id }
+      options = { member_id: current_member.id }
       options.merge! params.permit(:good_type, :good_id, :member_id, :number, :produce_on, :scene_id)
 
       @item = Item.new(**options.to_h.symbolize_keys)
