@@ -54,12 +54,6 @@ module Factory
       self.factory_taxon_id = product_taxon.factory_taxon_id
     end
 
-    def compute_min_max
-      self.min_price = productions.minimum(:price)
-      self.max_price = productions.maximum(:price)
-      self.save
-    end
-
     def sync_name
       productions.update_all name: name
     end

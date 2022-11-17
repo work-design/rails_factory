@@ -17,5 +17,11 @@ module Factory
       (profit_margin.to_d * 100).to_fs(:percentage)
     end
 
+    def compute_min_max
+      self.min_price = productions.minimum(:price)
+      self.max_price = productions.maximum(:price)
+      self.save
+    end
+
   end
 end

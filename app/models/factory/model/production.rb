@@ -23,6 +23,7 @@ module Factory
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       belongs_to :product, counter_cache: true
+      belongs_to :product_host, optional: true
       belongs_to :product_taxon, optional: true
       belongs_to :factory_taxon, optional: true
 
@@ -47,7 +48,7 @@ module Factory
       before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
-      after_save :compute_min_max_price, if: -> { saved_change_to_price? }
+      #after_save :compute_min_max_price, if: -> { saved_change_to_price? }
     end
 
     def init_name
@@ -71,7 +72,7 @@ module Factory
     end
 
     def compute_min_max_price
-      product.compute_min_max
+      product_host.compute_min_max
     end
 
     def compute_cost_price
