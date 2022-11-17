@@ -134,6 +134,8 @@ zh:
       orders:
         index:
           title: 企业订单
+        new:
+          title: 生成订单
       payments:
         success:
           title: 你的订单已支付成功！
