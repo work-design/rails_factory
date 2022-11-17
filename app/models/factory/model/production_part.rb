@@ -10,7 +10,6 @@ module Factory
     end
 
     def sync_to_production
-      production.compute_cost_price
       production.order_part_ids
       production.save
     end
