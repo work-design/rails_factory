@@ -22,6 +22,7 @@ module Factory
         trade_items_attributes: {}
       )
       p.merge! current_cart_id: params[:current_cart_id] if params[:current_cart_id]
+      p
     end
 
     def self.local_prefixes
