@@ -1,0 +1,14 @@
+<%= render 'button' %>
+
+<%= render layout: 'index_sortable_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @product_taxons, as: :model %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @factory_taxons, as: :model %>
+<% end %>
+
+<%= paginate @product_taxons %>
+
+
+<%= render layout: 'index_table' do %>
+<% end %>
+
+<%= paginate @factory_taxons %>

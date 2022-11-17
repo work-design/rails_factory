@@ -11,6 +11,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
+      @factory_taxons = FactoryTaxon.order(position: :asc)
       @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc).page(params[:page])
     end
 
