@@ -28,13 +28,13 @@
 </td>
 <td>
   <%= link_to({ controller: 'production_items', production_id: production_plan.production_id, production_plan_id: production_plan.id }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-barcode-scan"></i>
-    <span>生产明细</span>
+    <i class="fa-solid fa-barcode-scan"></i>
+    <span class="pl-1">生产明细</span>
     <span class="has-text-grey">（<%= production_plan.production_items_count %>）</span>
   <% end if production_plan %>
   <%= link_to({ controller: 'trade_items', production_id: production_plan.production_id, produce_on: production_plan.produce_on }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-bag-shopping"></i>
-    <span>订单明细</span>
+    <i class="fa-solid fa-bag-shopping has-text-info"></i>
+    <span class="pl-1">订单明细</span>
     <span class="has-text-grey">（<%= production_plan.trade_items_count %>）</span>
   <% end if production_plan %>
 </td>
