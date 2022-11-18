@@ -66,6 +66,7 @@ Rails.application.routes.draw do
         resources :product_taxons do
           member do
             patch :reorder
+            get :import
             get :productions
           end
           resources :products
@@ -121,11 +122,6 @@ Rails.application.routes.draw do
               get :pdf
               get :print_data
             end
-          end
-        end
-        resources :factory_taxons, only: [:index, :show] do
-          member do
-            get :import
           end
         end
       end
