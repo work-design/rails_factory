@@ -24,14 +24,16 @@ module Factory
     end
 
     def copy
-      @production = Production.where(product_id: params[:product_id], id: params[:id]).take
+      @product = Product.find params[:product_id]
+      downstream_product = @product.downstreams.find_or_initialize_by(organ_id: current_organ.id)
 
-      downstream = @production.downstreams.build
-      downstream.organ = current_organ
-      downstream.name = @production.name
-      downstream.product_taxon_id = params[:product_taxon_id]
+      @production = @product.production.find(params[:id])
+      downstream_production = downstream_product.productions.find_or_initialize_by(upstream_id: @production.id)
+      downstream_production.organ = current_organ
+      downstream_production.name = @production.name
+      downstream_production.product_taxon_id = params[:product_taxon_id]
 
-      downstream.save
+      downstream_production.save
     end
 
     private

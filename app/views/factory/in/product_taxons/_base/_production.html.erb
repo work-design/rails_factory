@@ -17,14 +17,14 @@
     </table>
   </td>
   <td>
-    <% part_provider = model.part_providers.default_where(default_params).take %>
-    <% if part_provider %>
+    <% downstream_production = model.downstreams.default_where(default_params).take %>
+    <% if downstream_production %>
       <i class="fa-regular fa-check has-text-success"></i>
-      <%= button_to({ controller: 'productions', action: 'destroy', product_id: part_provider.product_id, id: part_provider.production_id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ controller: 'productions', action: 'destroy', product_id: downstream_production.product_id, id: downstream_production.production_id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-times has-text-danger"></i>
       <% end %>
     <% else %>
-      <%= button_to({ controller: 'productions', action: 'provide', product_id: model.product_id, id: model.id, part_taxon_id: @product_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'copy', product_id: model.product_id, id: model.id, part_taxon_id: @product_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-tractor has-text-success"></i>
       <% end %>
     <% end %>

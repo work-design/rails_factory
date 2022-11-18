@@ -40,6 +40,7 @@ Rails.application.routes.draw do
           member do
             get :import
             post :productions
+            post :copy
           end
         end
         resources :produce_plans, only: [:index]
