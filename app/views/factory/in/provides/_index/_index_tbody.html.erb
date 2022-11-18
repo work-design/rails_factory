@@ -4,3 +4,9 @@
     <span><%= model.provider.name %></span>
   </div>
 </td>
+<td>
+  <%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm'), turbo_scroll: true } }) do %>
+    <i class="fa-solid fa-trash has-text-danger"></i>
+    <span class="pl-1">移除供应商</span>
+  <% end %>
+</td>

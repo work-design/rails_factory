@@ -119,6 +119,8 @@ zh:
       provides:
         index:
           title: 供应商
+        add:
+          title: 选为供应商
       productions:
         index:
           title: 进货

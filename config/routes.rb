@@ -45,6 +45,7 @@ Rails.application.routes.draw do
           resources :provides do
             collection do
               post :search
+              post :add
             end
           end
         end
