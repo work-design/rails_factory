@@ -3,6 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :type, :string
       attribute :name, :string
       attribute :qr_code, :string
       attribute :price, :decimal, default: 0

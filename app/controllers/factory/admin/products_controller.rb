@@ -18,17 +18,6 @@ module Factory
       @product.product_taxon = ProductTaxon.default_where(default_params).new
     end
 
-    def import
-      @production = Production.where(product_id: params[:product_id], id: params[:id]).take
-
-      part = @production.provided_parts.build
-      part.organ_id = current_organ.id
-      part.name = @production.name
-      part.part_taxon_id = params[:part_taxon_id]
-
-      part.save
-    end
-
     def edit
       @product.product_taxon ||= ProductTaxon.default_where(default_params).first
     end

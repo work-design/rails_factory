@@ -1,6 +1,6 @@
 module Factory
-  class In::FactoryTaxonsController < In::BaseController
-    before_action :set_factory_taxon, only: [:show, :edit, :update, :destroy, :actions, :import]
+  class In::ProductTaxonsController < In::BaseController
+    before_action :set_product_taxon, only: [:show, :edit, :update, :destroy, :actions, :import]
 
     def index
       @factory_taxons = FactoryTaxon.page(params[:page])
@@ -17,6 +17,17 @@ module Factory
 
     def productions
       @productions = Production.default_where(product_id: params[:product_id])
+    end
+
+    def importx
+      @production = Production.where(product_id: params[:product_id], id: params[:id]).take
+
+      part = @production.provided_parts.build
+      part.organ_id = current_organ.id
+      part.name = @production.name
+      part.part_taxon_id = params[:part_taxon_id]
+
+      part.save
     end
 
     private

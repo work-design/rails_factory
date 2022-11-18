@@ -15,8 +15,6 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
       attribute :fits_count, :integer, default: 0
 
-      attribute :part_providers_count, :integer, default: 0
-
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       belongs_to :unifier, optional: true
@@ -32,7 +30,6 @@ module Factory
       has_many :product_part_taxons, dependent: :destroy_async
       accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
       has_many :part_taxons, through: :product_part_taxons
-      has_many :part_providers
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :fits, dependent: :destroy_async
