@@ -36,9 +36,10 @@ Rails.application.routes.draw do
             post :list
           end
         end
-        resources :factory_taxons, only: [:index, :show] do
+        resources :product_taxons, only: [:index, :show] do
           member do
             get :import
+            post :productions
           end
         end
         resources :produce_plans, only: [:index]
@@ -66,8 +67,6 @@ Rails.application.routes.draw do
         resources :product_taxons do
           member do
             patch :reorder
-            get :import
-            post :productions
           end
           resources :products
         end
