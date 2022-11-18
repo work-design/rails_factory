@@ -49,6 +49,8 @@ module Factory
         :scene_id
       )
       p.merge! default_form_params
+      p.merge! params.permit(:factory_taxon_id) if params[:factory_taxon_id].present?
+      p
     end
 
   end
