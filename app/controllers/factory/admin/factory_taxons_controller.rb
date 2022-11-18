@@ -2,9 +2,7 @@ module Factory
   class Admin::FactoryTaxonsController < Admin::BaseController
     before_action :set_factory_taxon, only: [:show, :import, :productions, :edit, :update, :destroy]
 
-
-
-    def show
+    def import
       @products = @factory_taxon.products.page(params[:page])
 
       q_params = {}
@@ -13,8 +11,6 @@ module Factory
       product_ids = @products.pluck(:id)
       @select_ids = PartProvider.default_where(q_params).where(product_id: product_ids).pluck(:product_id)
     end
-
-
 
     private
     def set_factory_taxon
