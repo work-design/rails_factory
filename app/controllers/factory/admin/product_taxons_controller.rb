@@ -15,20 +15,6 @@ module Factory
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
     end
 
-    def reorder
-      sort_array = params[:sort_array].select { |i| i.integer? }
-
-      if params[:new_index] > params[:old_index]
-        prev_one = @product_taxon.class.find(sort_array[params[:new_index].to_i - 1])
-        @product_taxon.insert_at prev_one.position
-      else
-        next_ones = @product_taxon.class.find(sort_array[(params[:new_index].to_i + 1)..params[:old_index].to_i])
-        next_ones.each do |next_one|
-          next_one.insert_at @product_taxon.position
-        end
-      end
-    end
-
     def import
       @products = @factory_taxon.products.page(params[:page])
 
