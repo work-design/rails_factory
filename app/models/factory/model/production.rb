@@ -27,14 +27,11 @@ module Factory
       belongs_to :product_host, optional: true
       belongs_to :product_taxon, optional: true
       belongs_to :factory_taxon, optional: true
-      belongs_to :upstream_production, class_name: 'Production'  # 对应供应链产品型号
+      belongs_to :upstream, class_name: 'Production'  # 对应供应链产品型号
 
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
-      has_many :part_providers, foreign_key: :production_id, dependent: :destroy_async
-      has_many :upstream_productions, through: :part_providers, source: :upstream_production
-      has_many :production_providers, class_name: 'PartProvider', foreign_key: :upstream_production_id
-      has_many :downstream_productions, through: :production_providers, source: :production
+      has_many :downstreams, class_name: 'Production', foreign_key: :upstream_id
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
       has_many :production_parts, dependent: :destroy_async

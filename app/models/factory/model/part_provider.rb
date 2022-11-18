@@ -9,7 +9,7 @@ module Factory
       belongs_to :production
 
       #validates :product_id, uniqueness: { scope: [:provider_id] }
-      
+
       before_validation :sync_from_production, if: -> { production && production_id_changed? }
       before_save :sync_to_part, if: -> { production && production_id_changed? }
     end
