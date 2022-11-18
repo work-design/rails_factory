@@ -1,0 +1,6 @@
+<%= render 'button' %>
+
+<%= render layout: 'index_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @provides, as: :model %>
+  <%= render partial: 'provider_tbody', layout: 'index_tr', collection: @providers, as: :model %>
+<% end %>

@@ -42,6 +42,11 @@ Rails.application.routes.draw do
             post :productions
             post :copy
           end
+          resources :provides do
+            collection do
+              post :search
+            end
+          end
         end
         resources :produce_plans, only: [:index]
         resources :carts do
@@ -94,11 +99,6 @@ Rails.application.routes.draw do
             end
           end
           resources :fits
-        end
-        resources :provides do
-          collection do
-            post :search
-          end
         end
         resources :productions, only: [] do
           resources :addresses

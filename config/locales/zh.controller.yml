@@ -80,9 +80,6 @@ zh:
       part_providers:
         index:
           title: 供应商管理
-      provides:
-        index:
-          title: 供应商
       productions:
         index:
           title: 产品型号
@@ -119,6 +116,9 @@ zh:
       factory_taxons:
         index:
           title: 进货
+      provides:
+        index:
+          title: 供应商
       productions:
         index:
           title: 进货
