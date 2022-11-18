@@ -6,7 +6,6 @@ module Factory
       :part, :price, :card, :update_card
     ]
     before_action :set_new_production, only: [:new, :create]
-    before_action :set_provide_production, only: [:provide]
 
     def index
       q_params = {}
@@ -38,15 +37,6 @@ module Factory
 
     end
 
-    def provide
-      part = @production.provided_parts.build
-      part.organ_id = current_organ.id
-      part.name = @production.name
-      part.part_taxon_id = params[:part_taxon_id]
-
-      part.save
-    end
-
     private
     def set_product_taxon
       @product_taxon = ProductTaxon.default_where(default_params).find params[:product_taxon_id]
@@ -64,9 +54,7 @@ module Factory
       @production = @product.productions.build production_params
     end
 
-    def set_provide_production
-      @production = Production.where(product_id: params[:product_id], id: params[:id]).take
-    end
+
 
     def production_params
       params.fetch(:production, {}).permit(
