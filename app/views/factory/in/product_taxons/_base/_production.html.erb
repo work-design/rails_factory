@@ -19,12 +19,12 @@
   <td>
     <% downstream_production = model.downstreams.default_where(default_params).take %>
     <% if downstream_production %>
-      <i class="fa-regular fa-check has-text-success"></i>
-      <%= button_to({ controller: 'productions', action: 'destroy', product_id: downstream_production.product_id, id: downstream_production.production_id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fa-solid fa-check has-text-success"></i>
+      <%= button_to({ controller: 'admin/productions', action: 'destroy', product_id: downstream_production.product_id, id: downstream_production.id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-times has-text-danger"></i>
       <% end %>
     <% else %>
-      <%= button_to({ action: 'copy', product_id: model.product_id, id: model.id, part_taxon_id: @product_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'copy', product_id: model.product_id, production_id: model.id }, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-tractor has-text-success"></i>
       <% end %>
     <% end %>

@@ -2,7 +2,7 @@ module Factory
   class In::ProductTaxonsController < In::BaseController
     before_action :set_product_taxon, only: [
       :show, :edit, :update, :destroy, :actions,
-      :import, :productions
+      :import, :productions, :copy
     ]
     before_action :set_providers, only: [:import, :productions]
 
@@ -26,12 +26,12 @@ module Factory
     def copy
       @product = Product.find params[:product_id]
       downstream_product = @product.downstreams.find_or_initialize_by(organ_id: current_organ.id)
+      downstream_product.product_taxon = @product_taxon
 
-      @production = @product.production.find(params[:id])
+      @production = @product.productions.find(params[:production_id])
       downstream_production = downstream_product.productions.find_or_initialize_by(upstream_id: @production.id)
       downstream_production.organ = current_organ
       downstream_production.name = @production.name
-      downstream_production.product_taxon_id = params[:product_taxon_id]
 
       downstream_production.save
     end
