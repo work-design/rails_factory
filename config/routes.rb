@@ -102,7 +102,7 @@ Rails.application.routes.draw do
         end
         resources :productions, only: [] do
           resources :addresses
-          resources :items do
+          resources :trade_items do
             member do
               patch :print
             end

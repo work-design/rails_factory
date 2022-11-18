@@ -7,11 +7,14 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:address_id, :produce_on)
 
-      @trade_items = @production.trade_items.default_where(q_params).page(params[:page])
+      @trade_items = @production.items.default_where(q_params).page(params[:page])
     end
 
     def print
-      @item.print
+      @trade_item.print
+    end
+
+    def show
     end
 
     private
@@ -20,7 +23,7 @@ module Factory
     end
 
     def set_trade_item
-      @item = @production.trade_items.find(params[:id])
+      @trade_item = @production.items.find(params[:id])
     end
 
     def trade_item_params
