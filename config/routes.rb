@@ -67,7 +67,7 @@ Rails.application.routes.draw do
           member do
             patch :reorder
             get :import
-            get :productions
+            post :productions
           end
           resources :products
         end

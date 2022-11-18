@@ -21,18 +21,18 @@
     <% if part_provider %>
       <i class="fa-regular fa-check has-text-success"></i>
       <%= button_to({ controller: 'productions', action: 'destroy', product_id: part_provider.product_id, id: part_provider.production_id }, method: :delete, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-regular fa-times"></i>
+        <i class="fa-solid fa-times has-text-danger"></i>
       <% end %>
     <% else %>
       <%= button_to({ controller: 'productions', action: 'provide', product_id: model.product_id, id: model.id, part_taxon_id: @product_taxon.id }, method: :patch, aria: { label: t('.provide') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-regular fa-tractor"></i>
+        <i class="fa-solid fa-tractor has-text-success"></i>
       <% end %>
     <% end %>
   </td>
   <td></td>
   <td>
     <%= link_to({ controller: 'productions', action: 'show', product_id: model.product_id, id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-circle-info"></i>
+      <i class="fa-solid fa-circle-info has-text-primary"></i>
     <% end %>
   </td>
 </tr>
