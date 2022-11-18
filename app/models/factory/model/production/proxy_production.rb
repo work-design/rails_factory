@@ -1,0 +1,19 @@
+module Factory
+  module Model::Production::ProxyProduction
+    extend ActiveSupport::Concern
+
+    included do
+      belongs_to :provider, class_name: 'Org::Organ', optional: true
+
+      belongs_to :upstream, class_name: 'Production'  # 对应供应链产品型号
+
+      before_save :sync_from_upstream, if: -> { upstream_id_changed? }
+    end
+
+    def sync_from_upstream
+      self.name = upstream.name
+      self.price = upstream.price
+    end
+
+  end
+end

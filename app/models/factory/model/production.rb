@@ -22,17 +22,15 @@ module Factory
       }, _default: 'init'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
-      belongs_to :provider, class_name: 'Org::Organ', optional: true
 
       belongs_to :product, counter_cache: true
       belongs_to :product_host, optional: true
       belongs_to :product_taxon, optional: true
       belongs_to :factory_taxon, optional: true
-      belongs_to :upstream, class_name: 'Production'  # 对应供应链产品型号
 
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
-      has_many :downstreams, class_name: 'Production', foreign_key: :upstream_id
+      has_many :downstreams, class_name: 'ProxyProduction', foreign_key: :upstream_id
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
       has_many :production_parts, dependent: :destroy_async

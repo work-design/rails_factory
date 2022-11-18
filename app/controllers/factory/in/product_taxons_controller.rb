@@ -33,7 +33,6 @@ module Factory
       @production = @product.productions.find(params[:production_id])
       downstream_production = downstream_product.productions.find_or_initialize_by(upstream_id: @production.id)
       downstream_production.organ = current_organ
-      downstream_production.name = @production.name
 
       downstream_production.save
     end
