@@ -11,6 +11,9 @@
     <i class="fa-solid fa-cubes has-text-success"></i>
     <span class="pl-1"><%= model.products_count %></span>
   <% end %>
+  <%= link_to({ controller: 'product_taxons', action: 'import', id: model.id }, aria: { label: t('factory.admin.product_taxons.import.title') }) do %>
+    <i class="fa-solid fa-sign-in-alt"></i>
+  <% end %>
 </td>
 <th>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>

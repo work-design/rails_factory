@@ -16,7 +16,7 @@ module Factory
     end
 
     def import
-      @products = @factory_taxon.products.page(params[:page])
+      @products = @product_taxon.factory_taxon.products.page(params[:page])
 
       q_params = {}
       q_params.merge! 'part.organ_id': current_organ.id if current_organ
