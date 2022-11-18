@@ -21,11 +21,13 @@ module Factory
       }, _default: 'init'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
+      belongs_to :provider, class_name: 'Org::Organ', optional: true
 
       belongs_to :product, counter_cache: true
       belongs_to :product_host, optional: true
       belongs_to :product_taxon, optional: true
       belongs_to :factory_taxon, optional: true
+      belongs_to :upstream_production, class_name: 'Production'  # 对应供应链产品型号
 
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
