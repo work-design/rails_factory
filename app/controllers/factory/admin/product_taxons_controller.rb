@@ -4,7 +4,6 @@ module Factory
     before_action :set_factory_taxons, only: [:new, :edit]
     before_action :set_scenes, only: [:new, :edit]
     before_action :set_products, only: [:import, :productions]
-    before_action :set_providers, only: [:import, :productions]
 
     def index
       q_params = {}
@@ -13,14 +12,6 @@ module Factory
 
       @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
-    end
-
-    def import
-
-    end
-
-    def productions
-      @productions = Production.default_where(product_id: params[:product_id])
     end
 
     private
@@ -43,10 +34,6 @@ module Factory
 
       product_ids = @products.pluck(:id)
       @select_ids = PartProvider.default_where(default_params).where(product_id: product_ids).pluck(:product_id)
-    end
-
-    def set_providers
-      @providers = @product_taxon.factory_taxon.providers
     end
 
     def product_taxon_params

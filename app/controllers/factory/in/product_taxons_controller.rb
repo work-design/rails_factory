@@ -1,6 +1,7 @@
 module Factory
   class In::ProductTaxonsController < In::BaseController
     before_action :set_product_taxon, only: [:show, :edit, :update, :destroy, :actions, :import]
+    before_action :set_providers, only: [:import, :productions]
 
     def index
       @factory_taxons = FactoryTaxon.page(params[:page])
@@ -33,6 +34,10 @@ module Factory
     private
     def set_factory_taxon
       @factory_taxon = FactoryTaxon.find(params[:id])
+    end
+
+    def set_providers
+      @providers = @product_taxon.factory_taxon.providers
     end
 
     def factory_taxon_params
