@@ -18,7 +18,7 @@ module Factory
       @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
 
       product_ids = @products.pluck(:id)
-      @select_ids = PartProvider.default_where(default_params).where(product_id: product_ids).pluck(:product_id)
+      @select_ids = Product.default_where(default_params).where(upstream_id: product_ids).pluck(:upstream_id)
     end
 
     def productions
