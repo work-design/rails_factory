@@ -26,6 +26,7 @@ module Factory
       has_one :production, -> { where(default: true) }
       has_many :downstreams, class_name: self.name, foreign_key: :upstream_id
       has_many :productions, dependent: :destroy_async
+      has_many :proxy_productions, dependent: :destroy_async
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
       has_many :product_part_taxons, dependent: :destroy_async

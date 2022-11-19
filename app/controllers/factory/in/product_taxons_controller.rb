@@ -31,7 +31,7 @@ module Factory
       downstream_product.product_taxon = @product_taxon
 
       @production = @product.productions.find(params[:production_id])
-      downstream_production = downstream_product.productions.find_or_initialize_by(upstream_id: @production.id)
+      downstream_production = downstream_product.proxy_productions.find_or_initialize_by(upstream_id: @production.id)
       downstream_production.organ = current_organ
 
       downstream_production.save

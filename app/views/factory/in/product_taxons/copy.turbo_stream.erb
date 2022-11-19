@@ -1,0 +1,1 @@
+<%= turbo_stream.replace "tr_#{params[:product_id]}_#{@production.id}", partial: 'production', locals: { model: @production } %>
