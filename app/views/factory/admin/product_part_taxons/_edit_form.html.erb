@@ -1,5 +1,6 @@
 <%= form_with model: @product_part_taxon, url: { action: 'update' }, data: { controller: 'equal' } do |f| %>
   <%= render 'error_messages', target: f.object %>
+  <%= f.text_field :name %>
   <%= f.number_field :min_select, step: 1, data: { action: 'equal#update' } %>
   <%= f.number_field :max_select, step: 1, data: { equal_target: 'goal' } %>
   <%= f.submit %>
