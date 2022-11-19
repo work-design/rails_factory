@@ -116,8 +116,10 @@ zh:
           title: 进货
         productions:
           provide: 进货
+        copy:
+          title: 上架
         prune:
-          title: 移除
+          title: 下架
       provides:
         index:
           title: 供应商
