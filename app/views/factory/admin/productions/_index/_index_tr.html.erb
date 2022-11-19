@@ -12,9 +12,6 @@
         <%= link_to({ controller: 'trade_items', production_id: model.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
           <i class="fa-solid fa-shopping-cart has-text-info"></i>
         <% end %>
-        <%= link_to({ controller: 'part_providers', production_id: model.id }, aria: { label: t('factory.admin.part_providers.index.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-hand-holding has-text-danger"></i>
-        <% end %>
         <%= link_to({ controller: 'addresses', production_id: model.id }, aria: { label: t('factory.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
           <i class="fa-solid fa-map-marker-alt has-text-warning"></i>
         <% end %>

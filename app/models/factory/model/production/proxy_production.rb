@@ -12,7 +12,8 @@ module Factory
 
     def sync_from_upstream
       self.name = upstream.name
-      self.price = upstream.price
+      self.cost_price = upstream.price
+      self.provider_id = upstream.organ_id
     end
 
   end
