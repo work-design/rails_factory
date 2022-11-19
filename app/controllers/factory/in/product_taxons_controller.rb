@@ -37,6 +37,12 @@ module Factory
       downstream_production.save
     end
 
+    def prune
+      @product = Product.find params[:product_id]
+      @production = @product.proxy_productions.find(params[:production_id])
+      @production.destroy
+    end
+
     private
     def set_product_taxon
       @product_taxon = ProductTaxon.find(params[:id])

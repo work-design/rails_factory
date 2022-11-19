@@ -41,6 +41,7 @@ Rails.application.routes.draw do
             get :import
             post :productions
             post :copy
+            delete :prune
           end
           resources :provides do
             collection do
