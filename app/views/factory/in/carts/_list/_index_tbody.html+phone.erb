@@ -16,5 +16,5 @@
   </div>
 </div>
 <div class="level is-flex">
-  <%= render partial: 'trade_item', collection: @trade_items.select(&->(i){ i.member_id == model.id }), as: :trade_item %>
+  <%= render partial: 'trade_item', collection: @items.select(&->(i){ i.member_id == model.id }), as: :trade_item %>
 </div>

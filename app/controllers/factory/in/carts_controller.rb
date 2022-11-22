@@ -1,7 +1,8 @@
 module Factory
   class In::CartsController < In::BaseController
     before_action :set_cart, only: [:show, :add]
-    before_action :set_items, only: [:show]
+    before_action :set_organ_cart, only: [:list]
+    before_action :set_items, only: [:show, :list]
     before_action :set_scene, only: [:list]
     before_action :set_scenes, only: [:list]
     before_action :set_production, only: [:list]
@@ -30,6 +31,10 @@ module Factory
       @scene = Scene.find params[:scene_id]
     end
 
+    def set_scenes
+      @scenes = Scene.all
+    end
+
     def set_production
       q_params = {
         production_plans: {
@@ -49,6 +54,10 @@ module Factory
 
     def set_cart
       @cart = Trade::Cart.find params[:id]
+    end
+
+    def set_organ_cart
+      @cart = current_organ.member_carts.take || current_organ.member_carts.create
     end
 
   end
