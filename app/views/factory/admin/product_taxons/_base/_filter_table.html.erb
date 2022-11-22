@@ -2,9 +2,9 @@
   <tr>
     <th><%= Factory::PartProvider.human_attribute_name(:provider_id) %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:organ_id]), class: active_params(organ_id: '', active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:organ_id]), class: active_helper(organ_id: '', active: 'button is-info', item: 'button is-light') %>
       <% @providers.each  do |provider| %>
-        <%= link_to provider.name, filter_params(organ_id: provider.id, except: [:id]), class: active_params(organ_id: provider.id, active: 'button is-info', item: 'button is-light') %>
+        <%= link_to provider.name, filter_params(organ_id: provider.id, except: [:id]), class: active_helper(organ_id: provider.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>
