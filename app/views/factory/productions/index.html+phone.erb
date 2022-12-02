@@ -1,6 +1,6 @@
 <%= render 'produce_on_bar' if params[:produce_on] && params[:scene_id] %>
 
-<%= render 'station' %>
+<%= render 'station' if params[:station_id].present? || params[:desk_id].present? %>
 
 <div class="weui-flex is-align-items-flex-start is-flex-grow-1">
   <%= render 'menu' unless @produce_plan %>
