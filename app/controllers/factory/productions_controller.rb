@@ -1,6 +1,7 @@
 module Factory
   class ProductionsController < BaseController
     before_action :set_product_taxon
+    before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
     before_action :set_card_templates, only: [:index]
@@ -99,6 +100,14 @@ module Factory
 
     def set_cart
       @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+    end
+
+    def set_station
+      if params[:desk_id]
+        @station = Space::Desk.find params[:desk_id]
+      elsif params[:station_id]
+        @station = Space::Station.find params[:station_id]
+      end
     end
 
     def production_params

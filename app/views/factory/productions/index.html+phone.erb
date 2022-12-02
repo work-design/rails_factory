@@ -1,9 +1,6 @@
 <%= render 'produce_on_bar' if params[:produce_on] && params[:scene_id] %>
 
-<div class="box is-radiusless">
-  <i class="fa-solid fa-location-dot has-text-grey"></i>
-  <span class="pl-1"><%= current_organ.address_detail %></span>
-</div>
+<%= render 'station' %>
 
 <div class="weui-flex is-align-items-flex-start is-flex-grow-1">
   <%= render 'menu' unless @produce_plan %>
