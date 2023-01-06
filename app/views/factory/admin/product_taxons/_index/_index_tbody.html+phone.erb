@@ -1,8 +1,4 @@
-<div>
-  <div class="is-several">
-    <i class="fa-solid fa-fw fa-bars has-text-grey is-drawable"></i>
-    <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
-    <span><%= model.name %></span>
-  </div>
-</div>
-<p><%= model.scene&.title %></p>
+<%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'is-several') do %>
+  <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
+  <span><%= model.name %></span>
+<% end %>
