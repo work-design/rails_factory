@@ -1,0 +1,11 @@
+<div class="weui-media-box weui-media-box_appmsg">
+  <div class="weui-media-box__bd">
+    <span><%= taxon.name %></span>
+  </div>
+  <div class="weui-media-box__ft">
+    <%= link_to({ action: 'new', factory_taxon_id: taxon.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fa-solid fa-plus has-text-link"></i>
+      <span class="pl-1"><%= t('.new') %></span>
+    <% end %>
+  </div>
+</div>
