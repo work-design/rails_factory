@@ -1,4 +1,5 @@
 <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'is-several') do %>
   <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
   <span><%= model.name %></span>
+  <span class="tag"><%= model.scene.title %></span>
 <% end %>
