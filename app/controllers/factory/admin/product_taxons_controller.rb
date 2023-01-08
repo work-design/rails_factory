@@ -4,6 +4,7 @@ module Factory
     before_action :set_factory_taxons, only: [:new, :edit]
     before_action :set_scenes, only: [:new, :edit]
     before_action :set_products, only: [:import, :productions]
+    before_action :set_new_product_taxon, only: [:new, :create]
 
     def index
       q_params = {}
@@ -21,6 +22,14 @@ module Factory
 
     def set_factory_taxons
       @factory_taxons = FactoryTaxon.all.limit(10)
+    end
+
+    def set_factory_taxon
+      @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
+    end
+
+    def set_new_product_taxon
+      @product_taxon = ProductTaxon.new(factory_taxon_id: params[:factory_taxon_id])
     end
 
     def set_scenes
