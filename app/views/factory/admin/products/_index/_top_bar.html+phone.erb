@@ -3,7 +3,10 @@
     <%= link_to({ controller: 'product_taxons' }, class: 'px-4') do %>
       <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
     <% end %>
-    <div class="weui-title"><%= @product_taxon.name %></div>
+    <div class="weui-title">
+      <span><%= @product_taxon.name %></span>
+      <span class="tag ml-1"><%= @product_taxon.scene.title %></span>
+    </div>
     <i style="width: 3rem"></i>
   </div>
 </div>
