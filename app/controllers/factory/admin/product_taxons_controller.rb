@@ -29,7 +29,7 @@ module Factory
     end
 
     def set_new_product_taxon
-      @product_taxon = ProductTaxon.new(factory_taxon_id: params[:factory_taxon_id])
+      @product_taxon = ProductTaxon.new(product_taxon_params)
     end
 
     def set_scenes
