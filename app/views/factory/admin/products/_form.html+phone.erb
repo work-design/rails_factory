@@ -1,5 +1,5 @@
 <%= f.text_field :name, required: true %>
-<%= f.collection_select :brand_id, @brands, :id, :name, include_blank: true %>
+<%= f.collection_select :brand_id, @brands, :id, :name, include_blank: true if @brands.present? %>
 <%= f.file_field :logo %>
 <%= f.text_area :description %>
 <%= f.fields :product_hosts do |ef| %>
