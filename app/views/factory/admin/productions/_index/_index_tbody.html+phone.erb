@@ -1,6 +1,6 @@
-<p class="weui-media-box__desc"><%= model.name %></p>
-<p class="weui-media-box__desc"><%= model.state_i18n %></p>
+<p class="weui-media-box__desc">
+  <span><%= model.name %></span>
+  <span class="tag"><%= model.state_i18n %></span>
+</p>
 <p class="weui-media-box__desc"><%= model.qr_code %></p>
-<p class="weui-media-box__desc"><%= model.cost_price.to_money.format.html_safe %></p>
-<p class="weui-media-box__desc"><%= model.profit_price.to_money.format.html_safe %></p>
-<p><%= model.price.to_money.format.html_safe %></p>
+<p class="has-text-danger"><%= model.price.to_money.format.html_safe %></p>

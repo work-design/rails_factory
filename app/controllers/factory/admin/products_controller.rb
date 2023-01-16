@@ -32,7 +32,7 @@ module Factory
     end
 
     def set_new_product
-      @product = Product.new(product_params)
+      @product = @product_taxon.products.build(product_params)
     end
 
     def set_brands

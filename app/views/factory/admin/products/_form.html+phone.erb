@@ -1,0 +1,7 @@
+<%= f.text_field :name, required: true %>
+<%= f.collection_select :brand_id, @brands, :id, :name, include_blank: true %>
+<%= f.file_field :logo %>
+<%= f.text_area :description %>
+<%= f.fields :product_hosts do |ef| %>
+  <%= ef.hidden_field :organ_id, value: current_organ.id %>
+<% end %>
