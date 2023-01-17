@@ -155,7 +155,7 @@ zh:
           title: 产品管理
       factory_taxons:
         index:
-          title: 产品分类
+          title: 分类
       factory_providers:
         index:
           title: 指定供应商
