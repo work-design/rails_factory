@@ -53,7 +53,7 @@ module Factory
     end
 
     def set_produce_on
-      self.produce_on ||= (self.class.where(organ_id: organ_id).maximum(:produce_on) || Date.today) + 1
+      self.produce_on ||= (self.class.where(organ_id: organ_id, scene_id: scene_id).maximum(:produce_on) || Date.today) + 1
       if scene
         compute_book_time
       end
