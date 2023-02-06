@@ -18,10 +18,10 @@ module Factory
         if @produce_plan.expired?
           render 'expired'
         else
-          @productions = @produce_plan.productions.includes(:parts, :product).default.default_where(q_params).page(params[:page]).per(10)
+          @productions = @produce_plan.productions.includes(:parts, :product).default.default_where(q_params).order(id: :asc).page(params[:page]).per(10)
         end
       else
-        @productions = Production.includes(:parts, :product).enabled.default.default_where(q_params).page(params[:page]).per(10)
+        @productions = Production.includes(:parts, :product).enabled.default.default_where(q_params).order(id: :asc).page(params[:page]).per(10)
       end
     end
 
