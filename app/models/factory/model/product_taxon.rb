@@ -17,6 +17,7 @@ module Factory
       belongs_to :scene, optional: true
 
       has_many :products, dependent: :nullify
+      has_many :provides
 
       has_one_attached :logo
 

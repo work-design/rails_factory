@@ -1,6 +1,7 @@
 module Factory
   class In::ProvidesController < In::BaseController
     before_action :set_product_taxon
+    before_action :set_new_provide, only: [:new, :create]
 
     def index
       @provides = current_organ.provides
@@ -23,6 +24,17 @@ module Factory
     private
     def set_product_taxon
       @product_taxon = ProductTaxon.find params[:product_taxon_id]
+    end
+
+    def set_new_provide
+      @provide = @product_taxon.provides.build(provide_params)
+    end
+
+    def provide_params
+      p = params.fetch(:provide, {}).permit(
+        :provider_id
+      )
+      p.merge! default_form_params
     end
 
   end
