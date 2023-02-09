@@ -4,7 +4,7 @@ module Factory
     before_action :set_new_provide, only: [:new, :create]
 
     def index
-      @provides = current_organ.provides
+      @provides = @product_taxon.provides
 
       except_ids = @provides.pluck(:provider_id) << current_organ.id
       @providers = @product_taxon.factory_taxon.providers.where.not(id: except_ids).page(params[:page])
@@ -18,7 +18,7 @@ module Factory
     end
 
     def search
-      @organs = Org::Organ.default_where('name-like': params['name-like'])
+      @organs = Org::Organ.where.not(id: @product_taxon.provides.pluck(:provider_id)).default_where('name-like': params['name-like'])
     end
 
     private
