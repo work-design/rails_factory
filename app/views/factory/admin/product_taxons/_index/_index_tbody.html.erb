@@ -7,14 +7,14 @@
 </td>
 <td><%= model.scene&.title %></td>
 <td>
-  <%= link_to({ controller: 'products', product_taxon_id: model.id }) do %>
+  <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'tag') do %>
     <i class="fa-solid fa-cubes has-text-success"></i>
     <span class="pl-1"><%= model.products_count %></span>
   <% end %>
-  <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, aria: { label: t('factory.in.product_taxons.import.title') }) do %>
+  <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, aria: { label: t('factory.in.product_taxons.import.title') }, class: 'tag is-success') do %>
     <i class="fa-solid fa-sign-in-alt"></i>
   <% end %>
-  <%= link_to({ controller: 'in/provides', product_taxon_id: model.id }, aria: { label: t('factory.in.provides.index.title') }) do %>
+  <%= link_to({ controller: 'in/provides', product_taxon_id: model.id }, aria: { label: t('factory.in.provides.index.title') }, class: 'tag is-link') do %>
     <i class="fa-solid fa-building"></i>
   <% end %>
 </td>
