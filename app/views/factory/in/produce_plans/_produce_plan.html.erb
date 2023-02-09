@@ -1,4 +1,4 @@
-<div class="column is-half-mobile has-text-grey">
+<%= button_to({ controller: 'carts', action: 'actions', scene_id: model.scene_id, produce_on: model.produce_on }, form: { class: 'column is-half-mobile has-text-grey' }, class: 'column_box py-3', disabled: model.expired?) do %>
   <p class="is-size-7 has-text-centered">
     <span>预定截止：</span>
     <span><%= extra_distance_date(model.produce_on) %></span>
@@ -10,14 +10,12 @@
     <span>~</span>
     <time><%= model.scene.deliver_finish_at.to_fs(:time) %></time>
   </p>
-  <div class="is-flex is-justify-content-center">
-    <%= button_to({ controller: 'carts', action: 'actions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'button is-light mt-2 pl-0', disabled: model.expired?) do %>
+  <div class="has-text-centered pt-2">
+    <div class="is-several">
       <span class="icon">
         <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
       </span>
-      <div class="">
-        <span><%= model.scene.title %></span>
-      </div>
-    <% end %>
+      <span><%= model.scene.title %></span>
+    </div>
   </div>
-</div>
+<% end %>
