@@ -34,7 +34,7 @@ module Factory
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
       has_many :production_parts, dependent: :destroy_async
-      has_many :parts, through: :production_parts
+      has_many :parts, ->{ order(id: :asc) }, through: :production_parts
 
       #has_one_attached :logo
       delegate :logo, to: :product
