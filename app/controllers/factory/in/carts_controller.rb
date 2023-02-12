@@ -56,7 +56,7 @@ module Factory
     end
 
     def set_organ_cart
-      @cart = current_organ.member_carts.take || current_organ.member_carts.create
+      @cart = current_organ.member_carts.find_by(member_id: nil) || current_organ.member_carts.create(member_id: nil)
     end
 
   end
