@@ -40,8 +40,7 @@ module Factory
         production_plans: {
           produce_on: params[:produce_on],
           scene_id: params[:scene_id],
-          organ_id: current_organ.provider_ids,
-          specialty: true
+          organ_id: current_organ.provider_ids
         }
       }
 
