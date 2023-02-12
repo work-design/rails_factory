@@ -14,13 +14,4 @@
 
 <%= render 'index_tfoot' %>
 
-<% if request.variant.any?(:work_wechat) %>
-<div
-  data-controller="open-data"
-  data-open-data-options-value="<%= (current_js_app&.agent_config(request.original_url) || {}).to_json %>"
-  data-open-data-apis-value="<%= ['openUserProfile'].to_json %>"
-  data-open-data-debug-value="false">
-</div>
-<% end %>
-
 <%# render 'taxon' %>
