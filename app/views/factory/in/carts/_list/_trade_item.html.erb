@@ -1,17 +1,17 @@
 <div class="level-left is-flex">
-  <%= form_with theme: nil, model: trade_item, url: { controller: 'trade/in/items', action: 'update', id: trade_item.id }, data: { controller: 'input' }, class: 'is-inline level-item mb-0' do |f| %>
-    <%= f.check_box :status, { checked: trade_item.status_checked?, data: { action: 'click->input#form' }, id: nil }, trade_item.id %>
+  <%= form_with theme: nil, model: item, url: { controller: 'trade/in/items', action: 'update', id: item.id }, data: { controller: 'input' }, class: 'is-inline level-item mb-0' do |f| %>
+    <%= f.check_box :status, { checked: item.status_checked?, data: { action: 'click->input#form' }, id: nil }, item.id %>
   <% end %>
   <div class="level-item ml-2">
-    <span><%= trade_item.good_name %></span>
-    <span class="ml-2"><%= trade_item.single_price.to_money.format.html_safe %></span>
+    <span><%= item.good_name %></span>
+    <span class="ml-2"><%= item.single_price.to_money.format.html_safe %></span>
   </div>
 </div>
 <div class="level-right is-flex mt-0">
   <div class="level-item mb-0">
-    <span><%= trade_item.amount.to_money.format.html_safe %></span>
+    <span><%= item.amount.to_money.format.html_safe %></span>
   </div>
   <div class="level-item ml-2">
-    <%= render partial: 'cart', locals: { trade_item: trade_item } %>
+    <%= render partial: 'cart', locals: { item: item } %>
   </div>
 </div>

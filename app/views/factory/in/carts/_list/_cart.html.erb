@@ -1,21 +1,21 @@
 <div class="field has-addons">
   <div class="control">
-    <%= button_to({ controller: 'trade/in/items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number - 1 }, class: 'mr-1') do %>
+    <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { '[item]number': item.number - 1 }, class: 'mr-1') do %>
       <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
-    <% end if trade_item.number > 1 %>
+    <% end if item.number > 1 %>
   </div>
   <div class="control">
-    <%= button_to({ controller: 'trade/in/items', action: 'destroy', id: trade_item.id }, method: :delete, class: 'mr-1') do %>
+    <%= button_to({ controller: 'trade/in/items', action: 'destroy', id: item.id }, method: :delete, class: 'mr-1') do %>
       <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
-    <% end if trade_item.number <= 1 %>
+    <% end if item.number <= 1 %>
   </div>
   <div class="control">
-    <%= form_with(theme: nil, scope: 'trade_item', url: { controller: 'trade/in/items', action: 'update', id: trade_item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
-      <%= f.number_field :number, value: trade_item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
+    <%= form_with(theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
+      <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
     <% end %>
   </div>
   <div class="control">
-    <%= button_to({ controller: 'trade/in/items', action: 'update', id: trade_item.id }, method: :patch, params: { '[trade_item]number': trade_item.number + 1 }, class: 'ml-1') do %>
+    <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { '[item]number': item.number + 1 }, class: 'ml-1') do %>
       <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
     <% end %>
   </div>
