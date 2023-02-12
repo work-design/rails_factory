@@ -11,7 +11,7 @@
         <%= model.product.description %>
       </p>
       <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
-        <% model.parts.group_by(&->(i){ i.part_taxon_id }).each do |_, parts| %>
+        <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
           <% parts.each_with_index do |part, index| %>
             <li class="weui-media-box__info__meta<%= index > 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
           <% end %>
