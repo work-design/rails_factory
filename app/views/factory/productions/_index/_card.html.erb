@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-1by1">
+      <%= image_tag production.product.logo if production.product.logo.attached? %>
+    </figure>
+  </div>
+  <div class="card-content has-text-centered">
+    <h2 class="title has-text-danger"><%= production.price.to_money.format.html_safe %></h2>
+    <%= link_to production.name, { action: 'show', id: production.id } %>
+  </div>
+</div>

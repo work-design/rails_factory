@@ -1,16 +1,3 @@
-<%= render 'breadcrumb' %>
-<div class="cards">
-<% @productions.each do |production| %>
-  <div class="card">
-    <div class="card-image">
-      <figure class="image is-1by1">
-        <%= image_tag production.product.logo if production.product.logo.attached? %>
-      </figure>
-    </div>
-    <div class="card-content">
-      <h2 class="title has-text-danger"><%= production.price %></h2>
-      <%= link_to production.name, { action: 'show', id: production.id } %>
-    </div>
-  </div>
-<% end %>
+<div class="cards is-4">
+  <%= render partial: 'card', collection: @productions, as: :production %>
 </div>
