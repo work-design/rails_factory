@@ -1,15 +1,15 @@
 <div class="columns">
   <div class="column">
-    <%= render partial: 'covers', locals: { model: @product } %>
+    <%= render partial: 'covers', locals: { model: @production.product } %>
   </div>
   <div class="column">
     <div class="box">
-      <h1 class="title"><%= @product.name %></h1>
+      <h1 class="title"><%= @production.product.name %></h1>
       <div class="has-text-danger has-text-bold">
         <span><%= @production.price.to_money.symbol %></span>
         <span id="total_price"><%= @production.price.to_money.to_s %></span>
       </div>
-      <%= form_with theme: nil, url: { controller: 'trade/my/trade_items', action: 'create' } do |f| %>
+      <%= form_with theme: nil, url: { controller: 'trade/my/items', action: 'create' } do |f| %>
         <%= f.hidden_field :good_type, value: @production.class_name %>
         <%= f.hidden_field :good_id, value: @production.id %>
         <%= f.submit t('.add'), class: 'button is-danger' %>
