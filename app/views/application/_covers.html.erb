@@ -1,12 +1,12 @@
 <div class="box" data-controller="showcase" data-showcase-hover-class="is-border">
-  <div class="slide" data-showcase-target="window">
+  <div class="slide is-1by1" data-showcase-target="window">
   <% model.covers.each_with_index do |cover, index| %>
     <figure class="image" data-index="<%= index %>" style="z-index: <%= index == 0 ? 0 : -1 %>">
       <%= image_tag cover %>
     </figure>
   <% end %>
   </div>
-  <div class="images is-flex">
+  <div class="images is-flex py-4">
   <% model.covers.each_with_index do |cover, index| %>
     <figure class="image is-32x32" data-index="<%= index %>" data-action="mouseover->showcase#show">
       <%= image_tag cover %>
