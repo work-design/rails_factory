@@ -2,9 +2,9 @@
   <div class="level-left">
     <div class="level-item is-several">
       <%= image_tag model.avatar.variant(resize_to_limit: [35, 35]), class: 'image is-24x24' if model.avatar.attached? %>
-      <div data-controller="open-data" class="has-text-grey">
+      <div class="has-text-grey">
       <% if request.variant.any?(:work_wechat) %>
-        <ww-open-data type="userName" openid="<%= model.name %>"></ww-open-data>
+        <div data-open-data-target="tag" type="userName" openid="<%= model.name %>"></div>
       <% else %>
         <%= link_to model.name, { action: 'show', id: model } %>
       <% end %>
