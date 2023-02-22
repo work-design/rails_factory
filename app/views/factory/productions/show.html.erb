@@ -9,7 +9,9 @@
         <span><%= @production.price.to_money.symbol %></span>
         <span id="total_price"><%= @production.price.to_money.to_s %></span>
       </div>
-      <%= render partial: 'cart', locals: { model: @production } if @cart %>
+      <div class="is-flex">
+        <%= render partial: 'cart', locals: { model: @production } if @cart %>
+      </div>
     </div>
   </div>
 </div>
