@@ -1,7 +1,7 @@
 <div class="weui-panel">
   <div class="weui-panel__hd"><%= t('.title') %></div>
   <div class="weui-panel__bd">
-    <div data-controller="open-data" class="weui-cells mt-0">
+    <div data-controller="open-data" data-open-data-url-value="<%= session[:enter_url] %>" class="weui-cells mt-0">
       <%= yield %>
     </div>
   </div>
