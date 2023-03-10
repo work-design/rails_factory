@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 097650d301c0eb969fce20076736c0579c964cbd
+  revision: 8abe1363f514553d11dd78d434288de6f7f69cd4
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 81dcef88ea4f0787af01e17b8c3fbf9798a82549
+  revision: 7c6630128b67616179664dc65c84b785d7415a89
   specs:
     rails_design (0.0.1)
       rails
@@ -53,7 +53,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 479ce4be04f519510f9c77e4bf3bf86beb30a339
+  revision: 2654a864c714bf2dfab80b588e7030b70bebc98a
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -146,12 +146,10 @@ GEM
     closure_tree (7.4.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
-    concurrent-ruby (1.2.0)
+    concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
-      irb (>= 1.5.0)
-      reline (>= 0.3.1)
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.12.0)
@@ -169,9 +167,6 @@ GEM
       http-2-next (>= 0.4.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    io-console (0.6.0)
-    irb (1.6.2)
-      reline (>= 0.3.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -196,7 +191,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
-    minitest (5.17.0)
+    minitest (5.18.0)
     monetize (1.12.0)
       money (~> 6.12)
     money (6.16.0)
@@ -218,21 +213,21 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.14.1)
+    nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    pg (1.4.5)
-    propshaft (0.6.4)
+    pg (1.4.6)
+    propshaft (0.7.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
     psych (5.1.0)
       stringio
-    puma (6.1.0)
+    puma (6.1.1)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.3)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (7.0.4.2)
@@ -264,14 +259,12 @@ GEM
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
-    reline (0.3.2)
-      io-console (~> 0.5)
     ruby2_keywords (0.0.5)
     sdoc (2.6.1)
       rdoc (>= 5.0)
     stringio (3.0.5)
     thor (1.2.1)
-    timeout (0.3.1)
+    timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
