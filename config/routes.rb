@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         root 'home#index'
         controller :home do
           get :index
+          get :organs
         end
         concerns :productive
         resources :productions do

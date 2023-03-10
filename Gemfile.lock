@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b9ce1144df731da7cd4fe593e3e245b4e05b98e5
+  revision: 58990a59f8a2fae21b0c71fc7e9336f9bc197351
   specs:
     rails_com (1.3.0)
       acme-client
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: bc0d12ea23a60ff9e0bb072f3378f01303af85b9
+  revision: 81dcef88ea4f0787af01e17b8c3fbf9798a82549
   specs:
     rails_design (0.0.1)
       rails
@@ -53,7 +53,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 603424c5a207ecd853b7aa5d180c62c1ff924570
+  revision: 479ce4be04f519510f9c77e4bf3bf86beb30a339
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -159,7 +159,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    faraday-retry (2.0.0)
+    faraday-retry (2.1.0)
       faraday (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -272,7 +272,7 @@ GEM
     stringio (3.0.5)
     thor (1.2.1)
     timeout (0.3.1)
-    turbo-rails (1.3.3)
+    turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
