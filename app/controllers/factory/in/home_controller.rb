@@ -5,6 +5,7 @@ module Factory
     end
 
     def organs
+      @organs = current_account.organs.includes(:organ_domains)
     end
 
   end
