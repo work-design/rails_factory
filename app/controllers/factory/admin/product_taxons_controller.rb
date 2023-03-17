@@ -29,7 +29,13 @@ module Factory
     end
 
     def set_new_product_taxon
-      @product_taxon = ProductTaxon.new(product_taxon_params)
+      if params[:factory_taxon_id].present?
+        @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
+        @product_taxon = @factory_taxon.product_taxons.build(product_taxon_params)
+        @product_taxon.scene_id = @factory_taxon.scene_id
+      else
+        @product_taxon = ProductTaxon.new(product_taxon_params)
+      end
     end
 
     def set_scenes
@@ -58,8 +64,6 @@ module Factory
         :scene_id
       )
       p.merge! default_form_params
-      p.merge! params.permit(:factory_taxon_id) if params[:factory_taxon_id].present?
-      p
     end
 
   end

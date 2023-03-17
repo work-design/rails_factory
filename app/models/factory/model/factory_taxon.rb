@@ -13,6 +13,7 @@ module Factory
       has_many :providers, through: :factory_providers
       has_many :products, ->(o) { where(organ_id: o.provider_ids) }
       has_many :productions, through: :products, source: :productions
+      has_many :product_taxons
 
       has_one_attached :logo
     end
