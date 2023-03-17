@@ -6,6 +6,7 @@
 </td>
 <td>
   <%= link_to({ controller: 'factory_providers', factory_taxon_id: model.id }, aria: { label: t('factory.panel.factory_providers.index.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-solid fa-industry"></i>
+    <i class="fa-solid fa-industry has-text-info"></i>
+    <span class="pl-1"><%= model.factory_providers_count %></span>
   <% end %>
 </td>
