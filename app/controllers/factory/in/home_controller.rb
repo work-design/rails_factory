@@ -1,6 +1,5 @@
 module Factory
   class In::HomeController < In::BaseController
-    skip_before_action :require_member, only: [:organs]
     before_action :set_roles, only: [:organs]
     def index
     end
