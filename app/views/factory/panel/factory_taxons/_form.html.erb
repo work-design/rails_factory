@@ -1,2 +1,3 @@
 <%= f.text_field :name %>
 <%= f.file_field :logo %>
+<%= f.collection_select :scene_id, @scenes, :id, :title %>

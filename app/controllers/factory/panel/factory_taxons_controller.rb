@@ -1,6 +1,7 @@
 module Factory
   class Panel::FactoryTaxonsController < Panel::BaseController
     before_action :set_factory_taxon, only: [:show, :edit, :update, :destroy]
+    before_action :set_scenes, only: [:new, :create, :edit, :update]
 
     def index
       @factory_taxons = FactoryTaxon.order(id: :asc).page(params[:page])
@@ -23,10 +24,15 @@ module Factory
       @factory_taxon = FactoryTaxon.find(params[:id])
     end
 
+    def set_scenes
+      @scenes = Scene.all.limit(10)
+    end
+
     def factory_taxon_params
       params.fetch(:factory_taxon, {}).permit(
         :name,
-        :logo
+        :logo,
+        :scene_id
       )
     end
 

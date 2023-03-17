@@ -7,6 +7,8 @@ module Factory
       attribute :position, :integer
       attribute :factory_providers_count, :integer
 
+      belongs_to :scene, optional: true
+
       has_many :factory_providers, dependent: :delete_all
       has_many :providers, through: :factory_providers
       has_many :products, ->(o) { where(organ_id: o.provider_ids) }
