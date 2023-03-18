@@ -31,10 +31,9 @@ module Factory
     end
 
     def provide_params
-      p = params.fetch(:provide, {}).permit(
+      params.fetch(:provide, {}).permit(
         :provider_id
       )
-      p.merge! default_form_params
     end
 
   end
