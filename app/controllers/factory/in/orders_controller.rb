@@ -1,5 +1,5 @@
 module Factory
-  class In::OrdersController < Trade::In::OrdersController
+  class In::OrdersController < Trade::Admin::OrdersController
     include Controller::In
 
     def index
