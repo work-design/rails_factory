@@ -5,7 +5,7 @@ module Factory
 
     def index
       q_params = {}
-      q_params.merge! params.permit(:address_id, :produce_on)
+      q_params.merge! params.permit(:address_id, :produce_on, :status)
 
       @trade_items = @production.items.default_where(q_params).page(params[:page])
     end
