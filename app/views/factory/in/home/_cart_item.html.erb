@@ -12,7 +12,7 @@
   </div>
   <div class="weui-cell__ft"></div>
 <% end %>
-<%= link_to({ controller: 'org/me/members', action: 'qrcodes' }, class: 'weui-cell weui-cell_access') do %>
+<%= link_to({ controller: 'org/me/members', action: 'qrcodes' }, state: 'enter', class: 'weui-cell weui-cell_access') do %>
   <div class="weui-cell__bd">
     <i class="fa-solid fa-fw fa-qrcode has-text-primary"></i>
     <span><%= t('org.me.members.qrcodes.title') %></span>
