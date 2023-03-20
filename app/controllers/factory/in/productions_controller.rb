@@ -17,7 +17,7 @@ module Factory
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
       q_params.merge! params.permit('name-like', :factory_taxon_id)
 
-      @productions = Production.includes(:parts, :product, :production_plans).where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
+      @productions = Production.includes(:parts, :product, :production_plans).default_where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
     end
 
     def list
@@ -28,7 +28,7 @@ module Factory
         },
         organ_id: current_organ.provider_ids
       }
-      @productions = Production.includes(:parts, :product, :production_plans).where(q_params).default.page(params[:page]).per(10)
+      @productions = Production.includes(:parts, :product, :production_plans).default_where(q_params).default.page(params[:page]).per(10)
     end
 
     def produce_on
