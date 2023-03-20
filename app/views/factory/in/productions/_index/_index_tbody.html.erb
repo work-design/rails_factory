@@ -1,8 +1,8 @@
 <td>
-  <div class="is-several">
+  <%= link_to({ action: 'show', id: model.id }, class: 'is-several') do %>
     <%= image_tag model.product.logo, class: 'image is-24x24' if model.product.logo.attached? %>
     <span><%= model.name %></span>
-  </div>
+  <% end %>
 </td>
 <td><%= model.organ.name %></td>
 <td>

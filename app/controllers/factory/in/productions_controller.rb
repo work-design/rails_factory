@@ -4,7 +4,7 @@ module Factory
     include Controller::In
     before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
     before_action :set_produce_plans, only: [:index, :plan]
-    before_action :set_product, only: [:show]
+    before_action :set_production, only: [:show]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
     before_action :set_scenes, only: [:index], if: -> { params[:scene_id].present? }
@@ -17,18 +17,18 @@ module Factory
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
       q_params.merge! params.permit('name-like', :factory_taxon_id)
 
-      @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
+      @productions = Production.includes(:parts, :product, :production_plans).where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
     end
 
     def list
       q_params = {
         production_plans: {
           produce_on: params[:produce_on],
-          scene_id: params[:scene_id],
-          organ_id: current_organ.provider_ids
-        }
+          scene_id: params[:scene_id]
+        },
+        organ_id: current_organ.provider_ids
       }
-      @productions = Production.includes(:parts, :product).joins(:production_plans).where(q_params).default.page(params[:page]).per(10)
+      @productions = Production.includes(:parts, :product, :production_plans).where(q_params).default.page(params[:page]).per(10)
     end
 
     def produce_on
@@ -43,20 +43,9 @@ module Factory
       @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
     end
 
-    def show
-      pc = current_cart && current_cart.production_carts.where(product_id: @product.id).order(customized_at: :desc).first
-      if params[:production_id]
-        @production = @product.productions.find params[:production_id]
-      elsif pc
-        @production = pc.production
-      else
-        @production = @product.production
-      end
-    end
-
     private
-    def set_product
-      @product = Product.find params[:id]
+    def set_production
+      @production = Production.find params[:id]
     end
 
     def set_scene
