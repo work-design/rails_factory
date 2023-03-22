@@ -53,11 +53,19 @@ Rails.application.routes.draw do
             post :actions
           end
         end
-        resources :orders
         resources :items
         resources :payments do
           member do
             get :wxpay_pc_pay
+          end
+        end
+      end
+
+      namespace :our, defaults: { namespace: 'our' } do
+        resources :carts do
+          collection do
+            get :list
+            post :actions
           end
         end
       end
