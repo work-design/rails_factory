@@ -26,11 +26,6 @@ Rails.application.routes.draw do
       resources :produce_plans, only: [:index, :show]
 
       namespace :in, defaults: { namespace: 'in' } do
-        root 'home#index'
-        controller :home do
-          get :index
-          get :organs
-        end
         concerns :productive
         resources :productions do
           collection do
