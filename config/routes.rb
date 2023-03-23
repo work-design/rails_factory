@@ -12,6 +12,12 @@ Rails.application.routes.draw do
         end
         resources :product_plans, only: [:index, :show]
       end
+      resources :produce_plans, only: [:index] do
+        collection do
+          get :overview
+          post :actions
+        end
+      end
     end
 
     namespace :factory, defaults: { business: 'factory' } do
@@ -46,7 +52,6 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :produce_plans, only: [:index]
         resources :carts do
           collection do
             get :list
@@ -62,6 +67,7 @@ Rails.application.routes.draw do
       end
 
       namespace :our, defaults: { namespace: 'our' } do
+        concerns :productive
         resources :carts do
           collection do
             get :list
