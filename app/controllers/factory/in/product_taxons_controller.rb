@@ -2,7 +2,7 @@ module Factory
   class In::ProductTaxonsController < In::BaseController
     before_action :set_product_taxon, only: [
       :show, :edit, :update, :destroy, :actions,
-      :import, :productions, :copy
+      :import, :copy, :prune
     ]
     before_action :set_providers, only: [:import, :productions]
     before_action :set_production, only: [:copy, :prune]
@@ -23,10 +23,6 @@ module Factory
       @imported_production_ids = @product_taxon.productions.distinct(:upstream_id).pluck(:upstream_id)
     end
 
-    def productions
-      @productions = Production.default_where(product_id: params[:product_id])
-    end
-
     def copy
       downstream_product = @production.product.downstreams.find_or_initialize_by(organ_id: current_organ.id)
       downstream_product.product_taxon = @product_taxon
@@ -38,9 +34,8 @@ module Factory
     end
 
     def prune
-      @product = Product.find params[:product_id]
-      @production = @product.proxy_productions.find(params[:production_id])
-      @production.destroy
+      production = @production.downstreams.find_by(organ_id: current_organ.id)
+      production.destroy
     end
 
     private

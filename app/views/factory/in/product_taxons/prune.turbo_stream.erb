@@ -1,1 +1,1 @@
-<%= turbo_stream.replace "tr_#{@product.upstream_id}_#{@production.upstream_id}", partial: 'production', locals: { model: @production.upstream } %>
+<%= turbo_stream.append 'body', partial: 'visit' %>
