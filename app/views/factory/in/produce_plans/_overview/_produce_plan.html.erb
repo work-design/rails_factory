@@ -41,10 +41,8 @@
         <% end %>
       </div>
     </div>
-
-    <%= render partial: 'scene', collection: @scenes, as: :scene, locals: { produce_on: @produce_on } %>
   </div>
   <div class="weui-panel__ft">
-    <%# render partial: 'produce_plan', collection: @scenes, as: :scene %>
+    <%= render partial: 'produce_on', collection: (Date.today .. Date.today + 3), as: :date %>
   </div>
 </div>
