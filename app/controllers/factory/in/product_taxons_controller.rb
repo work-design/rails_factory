@@ -13,9 +13,9 @@ module Factory
 
     def import
       q_params = {
-        organ_id: current_organ.provider_ids
+        organ_id: @product_taxon.provider_ids
       }
-      q_params.merge! params.permit(:organ_id) if current_organ.provider_ids.map(&:to_s).include? params[:organ_id]
+      #q_params.merge! params.permit(:organ_id) if @product_taxon.provider_ids.map(&:to_s).include? params[:organ_id]
       @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
 
       product_ids = @products.pluck(:id)
