@@ -1,9 +1,8 @@
-
 <div class="weui-panel">
   <div class="weui-panel__hd"><strong>预定</strong></div>
 </div>
 
-<%= render 'produce_plan' %>
+<%= render partial: 'produce_plan', collection: @scenes, as: :scene %>
 
 <div class="weui-panel">
   <div class="weui-panel__hd"></div>

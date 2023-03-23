@@ -24,7 +24,7 @@ module Factory
 
     private
     def set_scenes
-      @scenes = Scene.all
+      @scenes = Scene.order(id: :asc)
     end
 
     def self.local_prefixes
