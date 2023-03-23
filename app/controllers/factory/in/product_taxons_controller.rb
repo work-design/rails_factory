@@ -5,6 +5,7 @@ module Factory
       :import, :productions, :copy
     ]
     before_action :set_providers, only: [:import, :productions]
+    before_action :set_production, only: [:copy]
 
     def index
       @factory_taxons = FactoryTaxon.page(params[:page])
@@ -26,11 +27,9 @@ module Factory
     end
 
     def copy
-      @product = Product.find params[:product_id]
-      downstream_product = @product.downstreams.find_or_initialize_by(organ_id: current_organ.id)
+      downstream_product = @production.product.downstreams.find_or_initialize_by(organ_id: current_organ.id)
       downstream_product.product_taxon = @product_taxon
 
-      @production = @product.productions.find(params[:production_id])
       downstream_production = downstream_product.proxy_productions.find_or_initialize_by(upstream_id: @production.id)
       downstream_production.organ = current_organ
 
@@ -50,6 +49,10 @@ module Factory
 
     def set_providers
       @providers = @product_taxon.factory_taxon.providers
+    end
+
+    def set_production
+      @production = Production.where(organ_id: @product_taxon.provider_ids).find params[:production_id]
     end
 
     def factory_taxon_params

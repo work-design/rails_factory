@@ -19,11 +19,11 @@
     <% downstream_production = model.downstreams.default_where(default_params).take %>
     <% if downstream_production %>
       <i class="fa-solid fa-check has-text-success"></i>
-      <%= button_to({ action: 'prune', product_id: downstream_production.product_id, production_id: downstream_production.id }, method: :delete, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'prune', production_id: downstream_production.id }, method: :delete, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-times has-text-danger"></i>
       <% end %>
     <% else %>
-      <%= button_to({ action: 'copy', product_id: model.product_id, production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'copy', production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-tractor has-text-success"></i>
       <% end %>
     <% end %>
