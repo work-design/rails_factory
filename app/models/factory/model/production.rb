@@ -43,6 +43,7 @@ module Factory
       scope :default, -> { where(default: true) }
       scope :automatic, -> { where(automatic: true) }
 
+      after_initialize :init_name, if: :new_record?
       before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
@@ -50,7 +51,10 @@ module Factory
     end
 
     def init_name
-      self.name = product.name
+      self.name ||= product&.name
+    end
+
+    def init_logo
       self.logo.attach product.logo_blob
     end
 
