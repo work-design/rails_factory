@@ -43,6 +43,8 @@
     </div>
   </div>
   <div class="weui-panel__ft">
-    <%= render partial: 'produce_on', collection: (Date.today .. Date.today + 3), as: :date %>
+    <div class="columns m-4 is-flex is-multiline">
+      <%= render partial: 'produce_on', collection: (Date.today .. Date.today + 3), as: :date, locals: { scene: scene } %>
+    </div>
   </div>
 </div>

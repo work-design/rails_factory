@@ -1,0 +1,8 @@
+<div class="column is-one-third">
+  <%= link_to({ controller: 'scenes', action: 'show', id: scene.id }, class: 'button_column') do %>
+    <div class="button is-outlined is-success is-block">
+      <div class="header has-text-grey has-text-weight-semibold" style="font-size: 18px"><%= date.to_s %></div>
+      <div class="description has-text-success"><%= date.to_fs(:week) %></div>
+    </div>
+  <% end %>
+</div>
