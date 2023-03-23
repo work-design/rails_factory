@@ -17,7 +17,8 @@ module Factory
       belongs_to :factory_taxon, optional: true
       belongs_to :scene, optional: true
 
-      has_many :products, dependent: :nullify
+      has_many :products
+      has_many :productions
       has_many :provides
       has_many :providers, through: :provides
 

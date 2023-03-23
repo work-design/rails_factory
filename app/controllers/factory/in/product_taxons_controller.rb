@@ -5,7 +5,7 @@ module Factory
       :import, :productions, :copy
     ]
     before_action :set_providers, only: [:import, :productions]
-    before_action :set_production, only: [:copy]
+    before_action :set_production, only: [:copy, :prune]
 
     def index
       @factory_taxons = FactoryTaxon.page(params[:page])
@@ -20,6 +20,7 @@ module Factory
 
       product_ids = @products.pluck(:id)
       @select_ids = Product.default_where(default_params).where(upstream_id: product_ids).pluck(:upstream_id)
+      @imported_production_ids = @product_taxon.productions.distinct(:upstream_id).pluck(:upstream_id)
     end
 
     def productions

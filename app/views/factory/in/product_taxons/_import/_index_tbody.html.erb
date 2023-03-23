@@ -1,14 +1,11 @@
 <td>
   <div class="is-several">
-    <%= button_to({ action: 'productions', product_id: model.id }) do %>
-      <i class="fa-solid fa-fw fa-caret-right" style="cursor: pointer" data-action="click->tree-remote#expand"></i>
-    <% end %>
+    <i class="fa-solid fa-fw fa-minus has-text-grey"></i>
     <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
     <span><%= model.name %></span>
-    <span class="tag"><%= model.productions_count %></span>
   </div>
+  <span class="tag"><%= model.organ.name %></span>
 </td>
-<td><%= model.organ.name %></td>
 <td>
   <table class="table is-borderless">
   <% model.parts.each do |part| %>
