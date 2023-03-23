@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           post :actions
         end
       end
+      resources :scenes
     end
 
     namespace :factory, defaults: { business: 'factory' } do

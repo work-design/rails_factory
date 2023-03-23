@@ -1,3 +1,13 @@
 
+<div class="weui-panel">
+  <div class="weui-panel__hd"><strong>预定</strong></div>
+</div>
 
 <%= render 'produce_plan' %>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd"></div>
+  <div class="weui-panel__bd">
+    <%= render partial: 'raw_scene', collection: @scenes, as: :scene %>
+  </div>
+</div>

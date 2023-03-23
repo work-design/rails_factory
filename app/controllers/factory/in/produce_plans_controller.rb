@@ -1,5 +1,6 @@
 module Factory
   class In::ProducePlansController < ProducePlansController
+    before_action :set_scenes, only: [:overview]
     include Controller::In
 
     def overview
@@ -19,6 +20,11 @@ module Factory
     end
 
     def show
+    end
+
+    private
+    def set_scenes
+      @scenes = Scene.all
     end
 
     def self.local_prefixes
