@@ -16,6 +16,7 @@
   <% end %>
   <%= link_to({ controller: 'in/provides', product_taxon_id: model.id }, aria: { label: t('factory.in.provides.index.title') }, class: 'tag is-link') do %>
     <i class="fa-solid fa-building"></i>
+    <span class="pl-1"><%= model.provides_count %></span>
   <% end %>
 </td>
 <th>

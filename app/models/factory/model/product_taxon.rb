@@ -6,9 +6,10 @@ module Factory
       attribute :name, :string
       attribute :position, :integer
       attribute :take_stock, :boolean, comment: '可盘点'
-      attribute :products_count, :integer, default: 0
       attribute :enabled, :boolean, default: true
       attribute :partial, :boolean, default: false
+      attribute :products_count, :integer, default: 0
+      attribute :provides_count, :integer, default: 0
 
       belongs_to :template, class_name: 'JiaBo::Template', optional: true
 
@@ -18,6 +19,7 @@ module Factory
 
       has_many :products, dependent: :nullify
       has_many :provides
+      has_many :providers, through: :provides
 
       has_one_attached :logo
 

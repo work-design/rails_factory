@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :product_taxon
+      belongs_to :product_taxon, counter_cache: true
 
       belongs_to :organ, class_name: 'Org::Organ'
       belongs_to :provider, class_name: 'Org::Organ'
