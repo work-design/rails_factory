@@ -1,4 +1,4 @@
-<%= button_to({ controller: 'carts', action: 'actions', scene_id: model.scene_id, produce_on: model.produce_on }, form: { class: 'column is-half-mobile has-text-grey' }, class: 'column_box py-3', disabled: model.expired?) do %>
+<%= button_to({ action: 'actions', scene_id: model.scene_id, produce_on: model.produce_on }, form: { class: 'column is-half-mobile has-text-grey' }, class: 'column_box py-3', disabled: model.expired?) do %>
   <p class="is-size-7 has-text-centered">
     <span>预定截止：</span>
     <span><%= extra_distance_date(model.produce_on) %></span>
