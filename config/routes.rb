@@ -6,6 +6,7 @@ Rails.application.routes.draw do
           post :scene
           post :produce_on
           post :create_dialog
+          post :list
         end
         member do
           put :dialog
@@ -19,6 +20,12 @@ Rails.application.routes.draw do
         end
       end
       resources :scenes
+      resources :carts do
+        collection do
+          get :list
+          post :actions
+        end
+      end
     end
 
     namespace :factory, defaults: { business: 'factory' } do
@@ -34,11 +41,6 @@ Rails.application.routes.draw do
 
       namespace :in, defaults: { namespace: 'in' } do
         concerns :productive
-        resources :productions do
-          collection do
-            post :list
-          end
-        end
         resources :product_taxons, only: [:index, :show] do
           member do
             get :import
@@ -53,12 +55,6 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :carts do
-          collection do
-            get :list
-            post :actions
-          end
-        end
         resources :items
         resources :payments do
           member do
@@ -69,12 +65,6 @@ Rails.application.routes.draw do
 
       namespace :our, defaults: { namespace: 'our' } do
         concerns :productive
-        resources :carts do
-          collection do
-            get :list
-            post :actions
-          end
-        end
       end
 
       namespace :admin, defaults: { namespace: 'admin' } do

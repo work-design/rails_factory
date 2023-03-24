@@ -62,5 +62,11 @@ module Factory
       @cart = current_organ.organ_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
     end
 
+    def _prefixes
+      super do |pres|
+        pres + ['factory/in/productions', "factory/in/productions/_#{params[:action]}", 'factory/in/productions/_base']
+      end
+    end
+
   end
 end
