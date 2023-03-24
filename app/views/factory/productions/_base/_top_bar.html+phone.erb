@@ -1,9 +1,17 @@
 <div class="weui-panel is-borderless">
   <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
-    <%= link_to({ action: 'index' }, state: 'return', class: 'px-4') do %>
+    <%= link_to({ controller: 'produce_plans' }, state: 'return', class: 'px-4') do %>
       <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
     <% end %>
-    <div class="weui-title"></div>
+    <div class="weui-title is-flex-direction-column">
+      <div>
+        <span class="has-text-weight-semibold"><%= params[:produce_on] %></span>
+        <span><%= params[:produce_on].to_date.to_fs(:week) %></span>
+      </div>
+      <div>
+        <span class="has-text-weight-semibold"><%= @scene&.title %></span>
+      </div>
+    </div>
     <i style="width: 3rem"></i>
   </div>
 </div>

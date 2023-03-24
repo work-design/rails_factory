@@ -1,8 +1,5 @@
 <%= render 'top_bar' %>
 
-<% if params[:produce_on] && params[:scene_id] %>
-  <%= render 'produce_on_bar' %>
-<% end %>
 <%= render 'station' if params[:station_id].present? || params[:desk_id].present? %>
 
 <%= render 'filter_form' %>
