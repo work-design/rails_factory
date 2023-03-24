@@ -1,5 +1,5 @@
 <div class="column is-one-third">
-  <%= button_to({ action: 'actions', id: scene.id }, class: 'button_column') do %>
+  <%= button_to({ action: 'actions', scene_id: scene.id, produce_on: date }, class: 'button_column') do %>
     <div class="button is-outlined is-success is-block">
       <div class="header has-text-grey has-text-weight-semibold" style="font-size: 18px"><%= date.to_s %></div>
       <div class="description has-text-success"><%= date.to_fs(:week) %></div>
