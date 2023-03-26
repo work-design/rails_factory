@@ -6,7 +6,7 @@
     <div class="weui-title is-flex-direction-column">
       <div>
         <span class="has-text-weight-semibold"><%= params[:produce_on] %></span>
-        <span><%= params[:produce_on].to_date.to_fs(:week) %></span>
+        <span><%= params[:produce_on].to_date.to_fs(:week) if params[:produce_on].present? %></span>
       </div>
       <div>
         <span class="has-text-weight-semibold"><%= @scene&.title %></span>
