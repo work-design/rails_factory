@@ -1,9 +1,9 @@
 <div class="column is-one-third">
   <%= button_to({ action: 'actions', scene_id: scene.id, produce_on: date }, form: { class: 'button_column' }, class: 'button is-outlined is-success is-block') do %>
-    <div class="header has-text-grey has-text-weight-semibold" style="font-size: 18px">
+    <div class="header has-text-weight-semibold" style="font-size: 18px">
       <span><%= extra_distance_date(date) %></span>
       <span><%= date.to_fs(:week) %></span>
     </div>
-    <div class="description has-text-success"><%= date.to_fs %></div>
+    <div class="description"><%= date.to_fs %></div>
   <% end %>
 </div>
