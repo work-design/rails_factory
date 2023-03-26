@@ -2,9 +2,8 @@
   <div class="weui-panel__hd">
     <div class="level is-flex is-justify-content-space-between">
       <div class="level-left">
-        <span class="has-text-weight-normal"><%= extra_distance_date(@produce_on) %></span>
-        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on %></span>
-        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on.to_fs(:week) %></span>
+        <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
+        <span><%= scene.title %></span>
       </div>
       <div class="level-right mt-0">
         <%= link_to({ controller: 'produce_plans' }) do %>
@@ -17,16 +16,13 @@
   <div class="weui-panel__bd">
     <div class="weui-media-box weui-media-box_appmsg">
       <div class="weui-media-box__bd">
-        <div class="is-flex is-justify-content-center">
-          <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
-          <span><%= scene.title %></span>
-        </div>
         <p class="is-size-7 has-text-centered">
-          <span>预定截止：</span>
+          <span>预定时间：</span>
           <span class="<%= scene.bookable?(@produce_on) ? 'has-text-success' : 'has-text-danger' %>">
-        <span><%= extra_distance_date(@produce_on) %></span>
-        <time><%= scene.book_finish_at.to_fs(:time) %></time>
-      </span>
+          <time><%= scene.book_start_at.to_fs(:time) %></time>
+          <span>~</span>
+          <time><%= scene.book_finish_at.to_fs(:time) %></time>
+        </span>
         </p>
         <p class="is-size-7 has-text-centered">
           <span>配送时间：</span>
@@ -35,16 +31,11 @@
           <time><%= scene.deliver_finish_at.to_fs(:time) %></time>
         </p>
       </div>
-      <div class="weui-media-box__ft pr-4">
-        <%= button_to({ action: 'actions', scene_id: scene.id, produce_on: @produce_on }, class: 'button is-large is-primary', disabled: !scene.bookable?(@produce_on)) do %>
-          <span>下单</span>
-        <% end %>
-      </div>
     </div>
   </div>
   <div class="weui-panel__ft">
-    <div class="columns m-4 is-flex is-multiline">
-      <%= render partial: 'produce_on', collection: (Date.today .. Date.today + 3), as: :date, locals: { scene: scene } %>
+    <div class="columns mx-4 mb-4 is-flex is-multiline">
+      <%= render partial: 'produce_on', collection: (Date.today .. Date.today + 1), as: :date, locals: { scene: scene } %>
     </div>
   </div>
 </div>
