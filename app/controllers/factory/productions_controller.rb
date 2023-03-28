@@ -72,7 +72,11 @@ module Factory
     end
 
     def set_product_taxons
-      @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(default_params).order(id: :asc)
+      q_params = {
+        'products_count-gt': 0
+      }
+      q_params.merge! default_params
+      @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(q_params).order(id: :asc)
     end
 
     def set_card_templates
