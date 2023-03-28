@@ -104,7 +104,7 @@ module Factory
       options.merge! client_params
 
       if current_user
-        @cart = Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+        @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
       end
     end
 
