@@ -99,7 +99,13 @@ module Factory
     end
 
     def set_cart
-      @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      options = {}
+      options.merge! default_form_params
+      options.merge! client_params
+
+      if current_user
+        @cart = Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      end
     end
 
     def set_station
