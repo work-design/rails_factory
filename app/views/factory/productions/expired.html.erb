@@ -1,4 +1,4 @@
-<%= render 'top_bar' %>
+<%= render 'top_bar' if params[:scene_id].present? || params[:produce_on].present? %>
 
 <div class="is-middle is-flex-grow-1">
   <span>已经超过下单时间了，请切换其他时间段</span>

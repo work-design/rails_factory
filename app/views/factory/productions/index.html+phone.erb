@@ -1,4 +1,4 @@
-<%= render 'top_bar' %>
+<%= render 'top_bar' if params[:scene_id].present? || params[:produce_on].present? %>
 
 <%= render 'station' if params[:station_id].present? || params[:desk_id].present? %>
 
