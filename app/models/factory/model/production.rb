@@ -10,7 +10,7 @@ module Factory
       attribute :base_price, :decimal, default: 0
       attribute :cost_price, :decimal, default: 0, comment: '成本价'
       attribute :profit_price, :decimal, default: 0, comment: '利润'
-      attribute :str_part_ids, :string
+      attribute :str_part_ids, :string, index: true
       attribute :default, :boolean, default: false
       attribute :enabled, :boolean, default: false
       attribute :automatic, :boolean, default: false
@@ -48,6 +48,8 @@ module Factory
       scope :default, -> { where(default: true) }
       scope :automatic, -> { where(automatic: true) }
 
+      validates :str_part_ids, uniqueness: { scope: :product_id }
+
       after_initialize :init_name, if: :new_record?
       before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
@@ -71,11 +73,6 @@ module Factory
       p_ids = self.production_parts.pluck(:part_id)
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
-    end
-
-    def order_part_ids!
-      order_part_ids
-      self.save
     end
 
     def compute_min_max_price

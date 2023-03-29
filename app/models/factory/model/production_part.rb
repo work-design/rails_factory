@@ -10,7 +10,7 @@ module Factory
 
       before_validation :sync_part_taxon, if: -> { part_id_changed? }
       before_validation :sync_product, if: -> { production_id_changed? }
-      after_commit :sync_to_production, on: [:create, :destroy]
+      before_validation :sync_to_production, if: -> { part_id_changed? }
     end
 
     def sync_product
@@ -23,7 +23,6 @@ module Factory
 
     def sync_to_production
       production.order_part_ids
-      production.save
     end
 
   end
