@@ -29,6 +29,7 @@ module Factory
       has_many :proxy_productions, dependent: :destroy_async
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
+      has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
       has_many :product_part_taxons, dependent: :destroy_async
       accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
       has_many :part_taxons, through: :product_part_taxons
