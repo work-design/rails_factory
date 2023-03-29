@@ -7,16 +7,12 @@
   <p class="has-text-grey"><%= model.qr_code %></p>
 </td>
 <td class="has-inner-table">
-  <table class="table is-fullwidth is-borderless">
-    <% model.parts.each do |part| %>
-      <tr>
-        <td>
-          <span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id }, data: { turbo_frame: 'modal' } %></span>
-        </td>
-        <td><%= part.price %></td>
-      </tr>
+  <% model.parts.each do |part| %>
+    <%= link_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, data: { turbo_frame: 'modal' }, class: 'tag is-info') do %>
+      <span><%= part.name %></span>
+      <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
     <% end %>
-  </table>
+  <% end %>
   <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }) do %>
     <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
   <% end %>

@@ -14,3 +14,7 @@
   <td class="has-text-right"><%= Factory::Production.human_attribute_name(:str_part_ids) %></td>
   <td><%= @production.str_part_ids %></td>
 </tr>
+<tr>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:price) %></td>
+  <td><%= @production.price.to_money.format.html_safe %></td>
+</tr>
