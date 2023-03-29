@@ -12,7 +12,7 @@ module Factory
     end
 
     def sync_part_taxon
-      self.part_taxon = part.product_taxon
+      self.part_taxon = part&.product_taxon
     end
 
     def sync_to_production
