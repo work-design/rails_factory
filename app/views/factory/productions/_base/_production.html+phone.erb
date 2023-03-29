@@ -3,7 +3,7 @@
     <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
   <% end %>
   <div class="weui-media-box__bd is-flex is-flex-direction-column">
-    <%= link_to({ controller: '/factory/productions', action: 'dialog', id: model.id }, text: true, data: { method: 'put', action: 'common#link' }, class: 'weui-media-box__title') do %>
+    <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, class: 'weui-media-box__title') do %>
       <%= model.name %>
     <% end %>
     <p class="weui-media-box__desc pt-0">
