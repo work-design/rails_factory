@@ -16,7 +16,9 @@
     <span><%= @production.product.name %></span>
     <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
   </div>
-  <%= render partial: 'factory/productions/_base/product_part_taxon', collection: @production.product.product_part_taxons, as: :product_part_taxon %>
+  <% @production.same_parts.includes(:product_taxon).group_by(&:product_taxon).each do |part_taxon, parts| %>
+    <%= render partial: 'factory/productions/_base/product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
+  <% end %>
 </div>
 <div class="weui-half-screen-dialog__ft">
   <%= render 'factory/productions/_dialog/tab_bar' %>

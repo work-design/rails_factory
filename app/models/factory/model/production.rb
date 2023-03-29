@@ -36,6 +36,10 @@ module Factory
       has_many :production_parts, dependent: :destroy_async
       has_many :parts, -> { order(id: :asc) }, through: :production_parts
       has_many :part_taxons, -> { order(id: :asc) }, through: :production_parts
+      has_many :same_production_parts, class_name: 'ProductionPart', primary_key: :product_id, foreign_key: :product_id
+      has_many :same_productions, -> { distinct }, through: :same_production_parts, source: :production
+      has_many :same_parts, -> { distinct }, through: :same_production_parts, source: :part
+      has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
 
       #has_one_attached :logo
       delegate :logo, to: :product
@@ -80,6 +84,10 @@ module Factory
 
     def compute_cost_price
       self.cost_price = parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
+    end
+
+    def disabled?(part)
+      same_production_parts.where.not(production_id: self.id).where(part_id: part_ids - [part.id]).blank?
     end
 
     def set_default
