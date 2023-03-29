@@ -13,7 +13,7 @@
       <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
     <% end %>
   <% end %>
-  <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }) do %>
+  <%= link_to({ action: 'part', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }) do %>
     <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
   <% end %>
 </td>
