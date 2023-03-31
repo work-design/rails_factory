@@ -1,14 +1,14 @@
 <div class="weui-media-box weui-media-box_appmsg" data-controller="common" id="production_<%= model.id %>">
-  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, data: { controller: 'empty' }, class: 'weui-media-box__hd as-logo') do %>
+  <%= link_to({ controller: '/factory/productions', action: 'dialog', id: model.id }, text: true, data: { controller: 'empty', method: 'put', action: 'common#link' }, class: 'weui-media-box__hd as-logo') do %>
     <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
   <% end %>
   <div class="weui-media-box__bd as-body">
     <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, class: 'weui-media-box__title') do %>
       <%= model.name %>
     <% end %>
-    <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, class: 'weui-media-box__desc pt-1') do %>
+    <p class="weui-media-box__desc pt-0">
       <%= model.product.description %>
-    <% end %>
+    </p>
     <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
       <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, index| %>
