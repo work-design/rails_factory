@@ -14,13 +14,12 @@
   >
     <div class="weui-panel__bd is-flex is-flex-direction-column is-flex-grow-1" style="height: 100%">
       <%= render partial: 'production', collection: @productions, as: :model %>
-      <% if @productions.total_pages == @productions.current_page %>
-        <%= render 'no_more' %>
-      <% elsif @productions.blank? %>
+      <% if @productions.blank? %>
         <%= render 'blank' %>
+      <% elsif @productions.total_pages <= @productions.current_page %>
+        <%= render 'no_more' %>
       <% elsif @productions.total_pages > @productions.current_page %>
         <%= render 'loading' %>
-      <% else %>
         <%= render 'tip' %>
       <% end %>
     </div>
