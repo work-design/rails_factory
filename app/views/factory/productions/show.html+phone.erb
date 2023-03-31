@@ -16,8 +16,6 @@
   </div>
 </div>
 
-<%= render 'share' %>
-
 <% if @production.same_parts.present? %>
   <div class="box mx-3 p-0">
   <% @production.same_parts.includes(:product_taxon).group_by(&:product_taxon).each do |part_taxon, parts| %>
@@ -31,7 +29,7 @@
 <% if @production.product.images.present? %>
 <div class="box mx-3 p-0">
   <% @production.product.images.each do |image| %>
-    <%= image_tag image, class: 'image' -%>
+    <%= image_tag image, class: 'image is-fullwidth' -%>
   <% end %>
 </div>
 <% end %>
