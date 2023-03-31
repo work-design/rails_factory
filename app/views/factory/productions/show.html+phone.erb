@@ -19,11 +19,13 @@
 <%= render 'share' %>
 
 <% if @production.same_parts.present? %>
-<div class="box mx-3 p-0">
-<% @production.same_parts.includes(:product_taxon).group_by(&:product_taxon).each do |part_taxon, parts| %>
-  <%= render partial: 'product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
-<% end %>
-</div>
+  <div class="box mx-3 p-0">
+  <% @production.same_parts.includes(:product_taxon).group_by(&:product_taxon).each do |part_taxon, parts| %>
+    <%= render partial: 'product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
+  <% end %>
+  </div>
+<% else %>
+  <%= render 'brothers' %>
 <% end %>
 
 <% if @production.product.images.present? %>
