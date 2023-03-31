@@ -2,7 +2,7 @@
   <div class="weui-media-box__title">其他型号</div>
   <div class="pt-4" data-controller="custom" data-custom-only-value="<%# product_part_taxon.only_one? %>">
   <% @production.brothers.each do |brother| %>
-    <%= link_to brother.name, { id: brother.id }, class: 'button is-small' %>
+    <%= link_to brother.name, { id: brother.id }, class: active_helper(id: brother.id, item: 'button is-small', active: 'button is-small is-primary') %>
   <% end %>
   </div>
 </div>
