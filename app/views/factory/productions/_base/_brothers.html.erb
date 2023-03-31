@@ -1,8 +1,13 @@
-<div class="weui-media-box weui-media-box_text">
-  <div class="weui-media-box__title">其他型号</div>
-  <div class="pt-4" data-controller="custom" data-custom-only-value="<%# product_part_taxon.only_one? %>">
-  <% @production.brothers.each do |brother| %>
-    <%= link_to brother.name, { id: brother.id }, class: active_helper(id: brother.id, item: 'button is-small', active: 'button is-small is-primary') %>
-  <% end %>
+<div class="weui-panel is-box">
+  <div class="weui-panel__hd">其他型号</div>
+  <div class="weui-panel__bd">
+    <div class="p-4 buttons are-small" data-controller="custom" data-custom-only-value="<%# product_part_taxon.only_one? %>">
+    <% @production.brothers.each do |brother| %>
+      <%= link_to({ id: brother.id }, class: active_helper(id: brother.id, item: 'button', active: 'button is-primary')) do %>
+        <span><%= brother.name %></span>
+        <span class="has-text-danger pl-2"><%= brother.price.to_money.format.html_safe %></span>
+      <% end %>
+    <% end %>
+    </div>
   </div>
 </div>
