@@ -48,7 +48,7 @@ module Factory
       scope :default, -> { where(default: true) }
       scope :automatic, -> { where(automatic: true) }
 
-      validates :str_part_ids, uniqueness: { scope: :product_id }
+      validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true
 
       after_initialize :init_name, if: :new_record?
       before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
