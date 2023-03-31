@@ -24,7 +24,7 @@
     <%= render partial: 'product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
   <% end %>
   </div>
-<% else %>
+<% elsif @production.brothers.count > 1 %>
   <%= render 'brothers' %>
 <% end %>
 
