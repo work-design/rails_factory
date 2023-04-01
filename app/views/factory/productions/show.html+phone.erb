@@ -9,10 +9,13 @@
   <%= render partial: 'covers', locals: { model: @production.product } if @production.product.covers.length > 0 %>
 </div>
 
-<div class="box mx-3 mt-3 mb-3" style="z-index: 3">
-  <div class="has-text-bold">
-    <span><%= @production.product.name %></span>
+<div class="weui-panel is-radius mx-3 mt-3 mb-3" style="z-index: 3">
+  <div class="weui-panel__hd">
+    <span><%= @production.name %></span>
     <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
+  </div>
+  <div class="weui-panel__bd">
+    <%= @production.product.description %>
   </div>
 </div>
 
