@@ -14,7 +14,7 @@
     <span><%= @production.name %></span>
     <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
   </div>
-  <div class="weui-panel__bd">
+  <div class="weui-panel__bd p-4">
     <%= @production.product.description %>
   </div>
 </div>
