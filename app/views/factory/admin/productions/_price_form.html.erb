@@ -1,4 +1,4 @@
-<%= form_with model: @production, url: { action: 'update' } do |f| %>
+<%= form_with model: @production, scope: :production, url: { action: 'update' } do |f| %>
   <%= render 'error_messages', target: f.object %>
   <%= f.number_field :base_price, step: 0.01 %>
   <%= f.number_field :profit_price, step: 0.01 %>
