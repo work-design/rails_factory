@@ -39,10 +39,10 @@ module Factory
       q_params = {
         production_plans: {
           produce_on: params[:produce_on],
-          scene_id: params[:scene_id],
-          organ_id: current_organ.provider_ids
+          scene_id: params[:scene_id]
         }
       }
+      q_params.merge! default_params
 
       if params[:production_id]
         @production = Production.find params[:production_id]
