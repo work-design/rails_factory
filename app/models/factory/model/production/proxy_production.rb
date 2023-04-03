@@ -7,7 +7,7 @@ module Factory
 
       belongs_to :upstream, class_name: 'Production'  # 对应供应链产品型号
 
-      before_save :sync_from_upstream, if: -> { upstream_id_changed? }
+      before_validation :sync_from_upstream, if: -> { upstream_id_changed? }
     end
 
     def sync_from_upstream

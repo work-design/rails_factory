@@ -54,8 +54,8 @@ module Factory
       validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true
 
       after_initialize :init_name, if: :new_record?
-      before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
+      before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       #after_save :compute_min_max_price, if: -> { saved_change_to_price? }
     end

@@ -34,7 +34,6 @@ module Factory
     end
 
     def import
-
     end
 
     private
@@ -53,8 +52,6 @@ module Factory
     def set_new_production
       @production = @product.productions.build production_params
     end
-
-
 
     def production_params
       params.fetch(:production, {}).permit(
