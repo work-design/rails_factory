@@ -1,4 +1,4 @@
-<%= turbo_frame_tagged 'modal' do %>
+<%= turbo_frame_tagged 'modal', data: { title: t('.title') } do %>
   <%= form_with model: @production, url: { action: 'update' } do |f| %>
     <%= render 'error_messages', target: f.object %>
     <% @product.product_part_taxons.each do |product_part_taxon| %>

@@ -83,12 +83,14 @@ zh:
       productions:
         index:
           title: 产品型号
-        vip:
+        card:
           title: 会员价
         part:
           title: 产品组成
         price:
-          title: 产品价格
+          title: 利润
+        cost:
+          title: 成本价格
       provideds:
         index:
           title: 供应列表

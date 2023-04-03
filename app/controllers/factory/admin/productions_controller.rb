@@ -3,7 +3,7 @@ module Factory
     before_action :set_product
     before_action :set_production, only: [
       :show, :edit, :update, :destroy, :actions,
-      :part, :price, :card, :update_card
+      :part, :price, :cost, :card, :update_card
     ]
     before_action :set_new_production, only: [:new, :create]
 
@@ -61,6 +61,7 @@ module Factory
         :name,
         :state,
         :qr_code,
+        :cost_price,
         :profit_price,
         :default,
         :ordered_at,

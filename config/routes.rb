@@ -96,6 +96,7 @@ Rails.application.routes.draw do
             member do
               get :part
               get :price
+              get :cost
               get :card
               patch :update_card
               patch :provide
