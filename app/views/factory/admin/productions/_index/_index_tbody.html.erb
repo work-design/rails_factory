@@ -18,15 +18,14 @@
   <% end %>
 </td>
 <td class="has-text-right">
-  <p><%= model.base_price.to_money.format.html_safe %></p>
   <p><%= model.cost_price.to_money.format.html_safe %></p>
-  <p><%= model.profit_price.to_money.format.html_safe %></p>
-</td>
-<td>
-  <%= model.price.to_money.format.html_safe %>
-  <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
-    <i class="fa-solid fa-sm fa-tags has-text-grey"></i>
-  <% end %>
+  <p>
+    <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
+      <i class="fa-solid fa-sm fa-tags has-text-grey"></i>
+    <% end %>
+    <span class="pl-1"><%= model.profit_price.to_money.format.html_safe %></span>
+  </p>
+  <p class="has-text-danger"><%= model.price.to_money.format.html_safe %></p>
 </td>
 <td>
   <div>

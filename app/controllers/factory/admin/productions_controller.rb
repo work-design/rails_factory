@@ -61,7 +61,6 @@ module Factory
         :name,
         :state,
         :qr_code,
-        :base_price,
         :profit_price,
         :default,
         :ordered_at,

@@ -7,7 +7,6 @@ module Factory
       attribute :name, :string
       attribute :qr_code, :string
       attribute :price, :decimal, default: 0
-      attribute :base_price, :decimal, default: 0
       attribute :cost_price, :decimal, default: 0, comment: '成本价'
       attribute :profit_price, :decimal, default: 0, comment: '利润'
       attribute :str_part_ids, :string, index: true
@@ -55,7 +54,7 @@ module Factory
       validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true
 
       after_initialize :init_name, if: :new_record?
-      before_validation :sync_price, if: -> { (changes.keys & ['base_price', 'cost_price', 'profit_price']).present? }
+      before_validation :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       #after_save :compute_min_max_price, if: -> { saved_change_to_price? }
@@ -105,7 +104,7 @@ module Factory
 
     def sync_price
       self.profit_price ||= default_profit_price
-      self.price = self.base_price + self.cost_price + self.profit_price
+      self.price = self.cost_price + self.profit_price
     end
 
     def sync_from_product
