@@ -1,5 +1,6 @@
 module Factory
   class Our::ProductionsController < ProductionsController
+    include Controller::Our
     before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show]
@@ -58,7 +59,7 @@ module Factory
     end
 
     def set_cart
-      @cart = current_organ.organ_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
     end
 
     def _prefixes
