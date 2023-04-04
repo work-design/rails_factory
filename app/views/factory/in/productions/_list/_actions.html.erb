@@ -1,5 +1,12 @@
-<%= link_to({ controller: 'carts', action: 'list', production_id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'weui-actionsheet__cell is-flex is-align-items-center') do %>
-  <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
-  <span><%= model.name %></span>
-  <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
+<%= link_to({ controller: 'carts', action: 'list', production_id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'weui-actionsheet__cell has-block-space-between') do %>
+  <span>
+    <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
+    <span><%= model.name %></span>
+    <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
+  </span>
+  <span class="has-text-grey">
+  <% if model.id == @production.id %>
+    <i class="fa-solid fa-check has-text-success"></i>
+  <% end %>
+  </span>
 <% end %>

@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <div class="weui-media-box__ft">
-    <%= button_to({ controller: 'productions', action: 'list', **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless') do %>
+    <%= button_to({ controller: 'productions', action: 'list', id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless') do %>
       <i class="fa-solid fa-lg fa-repeat"></i>
     <% end %>
   </div>

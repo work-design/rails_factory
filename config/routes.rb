@@ -6,9 +6,9 @@ Rails.application.routes.draw do
           post :scene
           post :produce_on
           post :create_dialog
-          post :list
         end
         member do
+          post :list
           put :dialog
         end
         resources :product_plans, only: [:index, :show]
