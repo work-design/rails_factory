@@ -1,5 +1,5 @@
 module Factory
-  class Our::CartsController < In::CartsController
+  class Our::CartsController < Our::BaseController
     before_action :set_cart, only: [:show, :add]
     before_action :set_organ_cart, only: [:list]
     before_action :set_items, only: [:show, :list]
