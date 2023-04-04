@@ -19,12 +19,8 @@ module Factory
     end
 
     private
-    def init_cart(member_id, organ_id)
-      current_organ.member_carts.create(member_id: member_id, organ_id: organ_id)
-    end
-
     def set_items
-      @items = @cart.items.carting.includes(:member).where(member_organ_id: current_organ.id, produce_on: params[:produce_on], scene_id: params[:scene_id])
+      @items = @cart.items.includes(:member).where(member_organ_id: current_client.organ_id, produce_on: params[:produce_on], scene_id: params[:scene_id])
     end
 
     def set_scene
