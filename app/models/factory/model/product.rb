@@ -53,6 +53,7 @@ module Factory
 
     def sync_from_upstream
       self.name = upstream&.name
+      self.logo.attach upstream&.logo_blob
     end
 
     def sync_from_product_taxon
