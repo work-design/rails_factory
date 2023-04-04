@@ -1,6 +1,6 @@
 <div class="weui-panel">
   <div class="weui-panel__bd" data-controller="check" data-check-name-value="trade_item[status]">
-    <%= link_to({ controller: 'trade/in/orders', action: 'cart', current_cart_id: @cart.id }, state: 'enter', class: 'weui-btn_cell weui-btn_cell-warn py-4') do %>
+    <%= link_to({ controller: 'trade/our/orders', action: 'cart', current_cart_id: @cart.id }, state: 'enter', class: 'weui-btn_cell weui-btn_cell-warn py-4') do %>
       <i class="fa-solid fa-credit-card"></i>
       <span class="pl-1"><%= t('.pay') %></span>
     <% end %>
