@@ -56,7 +56,7 @@ module Factory
     end
 
     def set_organ_cart
-      @cart = current_client.organ.member_carts.find_by(member_id: nil) || current_client.organ.member_carts.create(member_id: nil)
+      @cart = current_client.organ.member_carts.find_by(good_type: 'Factory::Production', member_id: nil) || current_client.organ.member_carts.create(good_type: 'Factory::Production', member_id: nil)
       logger.debug "\e[35m  Organ Cart: #{@cart.id} #{@cart.error_text}  \e[0m"
     end
 
