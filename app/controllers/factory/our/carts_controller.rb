@@ -57,6 +57,7 @@ module Factory
 
     def set_organ_cart
       @cart = current_client.organ.member_carts.find_by(member_id: nil) || current_client.organ.member_carts.create(member_id: nil)
+      logger.debug "\e[35m  Organ Cart: #{@cart.id}  \e[0m"
     end
 
   end
