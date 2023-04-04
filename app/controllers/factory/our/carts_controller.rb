@@ -15,7 +15,7 @@ module Factory
     end
 
     def list
-      @members = current_client.organ.members.order(id: :asc).page(params[:page])
+      @members = current_client.organ.members.includes(avatar_attachment: :blob).order(id: :asc).page(params[:page])
     end
 
     private
@@ -56,7 +56,7 @@ module Factory
     end
 
     def set_organ_cart
-      @cart = current_client.organ.member_carts.find_by(member_id: nil) || current_organ.member_carts.create(member_id: nil)
+      @cart = current_client.organ.member_carts.find_by(member_id: nil) || current_client.organ.member_carts.create(member_id: nil)
     end
 
   end
