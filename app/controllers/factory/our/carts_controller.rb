@@ -8,14 +8,14 @@ module Factory
     before_action :set_production, only: [:list]
 
     def index
-      @produce_on = ProducePlan.where(organ_id: current_organ.provider_ids).effective.order(produce_on: :asc).first&.produce_on || Date.today
+      @produce_on = ProducePlan.where(organ_id: current_organ.id).effective.order(produce_on: :asc).first&.produce_on || Date.today
 
-      ids = ProducePlan.where(produce_on: @produce_on, organ_id: current_organ.provider_ids).select(:scene_id).distinct.pluck(:scene_id)
+      ids = ProducePlan.where(produce_on: @produce_on, organ_id: current_organ.id).select(:scene_id).distinct.pluck(:scene_id)
       @scenes = Scene.where(id: ids)
     end
 
     def list
-      @members = current_organ.members.order(id: :asc).page(params[:page])
+      @members = current_client.organ.members.order(id: :asc).page(params[:page])
     end
 
     private
@@ -56,7 +56,7 @@ module Factory
     end
 
     def set_organ_cart
-      @cart = current_organ.member_carts.find_by(member_id: nil) || current_organ.member_carts.create(member_id: nil)
+      @cart = current_client.organ.member_carts.find_by(member_id: nil) || current_organ.member_carts.create(member_id: nil)
     end
 
   end
