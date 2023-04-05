@@ -4,8 +4,8 @@
       <%= f.check_box :status, { checked: item.status_checked?, data: { action: 'click->input#form' }, id: nil }, item.id %>
     <% end %>
     <div class="level-item ml-2">
-      <span><%= item.good_name %></span>
-      <span class="ml-2"><%= item.single_price.to_money.format.html_safe %></span>
+      <span class="has-text-grey"><%= item.good_name %></span>
+      <span class="has-text-danger ml-2"><%= item.single_price.to_money.format.html_safe %></span>
     </div>
   </div>
   <div class="level-right is-flex mt-0">
