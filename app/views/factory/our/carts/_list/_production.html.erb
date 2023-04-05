@@ -29,8 +29,9 @@
     <% end %>
   </div>
   <div class="weui-media-box__ft">
-    <%= button_to({ controller: 'productions', action: 'list', id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless') do %>
+    <%= button_to({ controller: 'productions', action: 'list', id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless has-block-centered is-justify-content-space-evenly', style: 'height: 4em') do %>
       <i class="fa-solid fa-lg fa-repeat"></i>
+      <span>切换</span>
     <% end %>
   </div>
 </div>
