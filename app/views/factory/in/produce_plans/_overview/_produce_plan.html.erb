@@ -1,12 +1,12 @@
 <div class="weui-panel">
   <div class="weui-panel__hd">
     <div class="level is-flex is-justify-content-space-between">
-      <div class="level-left">
+      <div class="level-left is-several">
         <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
         <span><%= scene.title %></span>
       </div>
       <div class="level-right mt-0">
-        <%= link_to({ controller: 'produce_plans' }) do %>
+        <%= link_to({ controller: 'scenes', action: 'show', id: scene.id }, state: 'enter') do %>
           <span>更多</span>
           <i class="fa-solid fa-angle-right"></i>
         <% end %>
