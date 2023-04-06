@@ -1,11 +1,11 @@
 <div class="field has-addons">
   <div class="control">
-    <%= button_to({ controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', params: { '[item]number': item.number - 1 }, data: { turbo_scroll: true }, class: 'mr-1') do %>
+    <%= button_to({ controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', params: { '[item]number': item.number - 1 }, class: 'mr-1', form: { data: { turbo_scroll: true } }) do %>
       <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
     <% end if item.number > 1 %>
   </div>
   <div class="control">
-    <%= button_to({ controller: 'trade/our/items', action: 'destroy', id: item.id }, method: :delete, state: 'redirect_return', data: { turbo_scroll: true }, class: 'mr-1') do %>
+    <%= button_to({ controller: 'trade/our/items', action: 'destroy', id: item.id }, method: :delete, state: 'redirect_return', class: 'mr-1', form: { data: { turbo_scroll: true } }) do %>
       <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
     <% end if item.number <= 1 %>
   </div>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <div class="control">
-    <%= button_to({ controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', params: { '[item]number': item.number + 1 }, data: { turbo_scroll: true }, class: 'ml-1') do %>
+    <%= button_to({ controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', params: { '[item]number': item.number + 1 }, class: 'ml-1', form: { data: { turbo_scroll: true } }) do %>
       <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
     <% end %>
   </div>
