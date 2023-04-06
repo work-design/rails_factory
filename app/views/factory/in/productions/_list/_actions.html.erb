@@ -4,9 +4,10 @@
     <span><%= model.name %></span>
     <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
   </span>
-  <span class="has-text-grey">
-  <% if model.id == @production.id %>
-    <i class="fa-solid fa-check has-text-success"></i>
-  <% end %>
+  <span>
+    <% if model.id == @production.id %>
+      <i class="fa-solid fa-check has-text-success"></i>
+    <% end %>
+    <i class="fa-solid fa-chevron-right has-text-grey-light pl-1"></i>
   </span>
 <% end %>
