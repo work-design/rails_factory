@@ -1,20 +1,20 @@
 <% item = @cart && @cart.find_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
 
-<%= form_with theme: nil, scope: :item, url: { controller: 'trade/my/items', action: 'update', id: item.id }, method: :patch, state: 'redirect', class: 'button_to', data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } do |f| %>
+<%= form_with theme: nil, scope: :item, url: { controller: 'trade/my/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to', data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } do |f| %>
   <%= f.hidden_field :number, value: item.number - 1 %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= button_tag class: 'mr-1' do %>
     <i class="fa-solid fa-circle-minus fa-xl has-text-dark-grey"></i>
   <% end %>
 <% end if item && item.number > 1 %>
-<%= button_to({ controller: 'trade/my/items', action: 'destroy', id: item.id }, method: :delete, state: 'redirect', class: 'mr-1', form: { data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } }) do %>
+<%= button_to({ controller: 'trade/my/items', action: 'destroy', id: item.id }, method: :delete, state: 'redirect_return', class: 'mr-1', form: { data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } }) do %>
   <i class="fa-solid fa-circle-minus fa-xl has-text-dark-grey"></i>
 <% end if item && item.number <= 1 %>
-<%= form_with(theme: nil, scope: 'item', url: { controller: 'trade/my/items', action: 'update', id: item.id }, method: :patch, state: 'redirect', data: { controller: 'input', turbo_scroll: true, turbo_scroll_container: 'production_body' }) do |f| %>
+<%= form_with(theme: nil, scope: 'item', url: { controller: 'trade/my/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input', turbo_scroll: true, turbo_scroll_container: 'production_body' }) do |f| %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
 <% end if item %>
-<%= form_with theme: nil, scope: :item, url: { controller: 'trade/my/items', action: 'update', id: item.id }, method: :patch, state: 'redirect', class: 'button_to', data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } do |f| %>
+<%= form_with theme: nil, scope: :item, url: { controller: 'trade/my/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to', data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } do |f| %>
   <%= f.hidden_field :number, value: item.number + 1 %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= button_tag class: 'ml-1' do %>
@@ -22,7 +22,7 @@
   <% end %>
 <% end if item %>
 
-<%= form_with theme: nil, url: { controller: 'trade/my/items', action: 'create' }, state: 'redirect', data: { turbo_scroll: true, turbo_scroll_container: 'production_body' }, class: 'button_to' do |f| %>
+<%= form_with theme: nil, url: { controller: 'trade/my/items', action: 'create' }, state: 'redirect_return', data: { turbo_scroll: true, turbo_scroll_container: 'production_body' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :good_type, value: model.class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
   <%= f.hidden_field :number, value: 1 %>
