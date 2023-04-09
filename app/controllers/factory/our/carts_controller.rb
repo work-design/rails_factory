@@ -14,9 +14,7 @@ module Factory
       @scenes = Scene.where(id: ids)
     end
 
-    def list
-      @members = current_client.organ.members.includes(avatar_attachment: :blob).order(id: :asc).page(params[:page])
-    end
+ 
 
     private
     def set_items
