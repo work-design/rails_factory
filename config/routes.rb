@@ -63,6 +63,10 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :mem, defaults: { namespace: 'mem' } do
+        concerns :productive
+      end
+
       namespace :our, defaults: { namespace: 'our' } do
         concerns :productive
       end

@@ -15,7 +15,7 @@ module Factory
     end
 
     def list
-      @members = current_client.organ.members.includes(:cart_items, avatar_attachment: :blob).order(id: :asc).page(params[:page])
+      @members = current_client.organ.members.includes(avatar_attachment: :blob).order(id: :asc).page(params[:page])
     end
 
     private
