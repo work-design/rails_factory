@@ -1,7 +1,6 @@
 module Factory
   class Our::ProductionsController < ProductionsController
     include Controller::Our
-    before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
     before_action :set_card_templates, only: [:index]
@@ -82,6 +81,8 @@ module Factory
         member_id: nil,
         user_id: nil
       }
+      options.merge! default_params
+
       @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
       logger.debug "\e[35m  Organ Cart: #{@cart.id} #{@cart.error_text}  \e[0m"
     end

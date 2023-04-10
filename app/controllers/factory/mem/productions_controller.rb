@@ -1,11 +1,9 @@
 module Factory
   class Mem::ProductionsController < ProductionsController
-    before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
-    # before_action :set_scenes, only: [:index], if: -> { params[:scene_id].present? }
     before_action :set_cart, only: [:index]
 
     def index

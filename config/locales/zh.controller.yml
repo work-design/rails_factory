@@ -147,7 +147,8 @@ zh:
       carts:
         index:
           title: 交易商户
-        list:
+      productions:
+        members:
           title: 代下单
           pay: 下单
     panel:

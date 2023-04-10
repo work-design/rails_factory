@@ -1,6 +1,6 @@
 module Factory
   class ProductionsController < BaseController
-    before_action :set_product_taxon
+    before_action :set_product_taxon, if: -> { params[:product_taxon_id].present? }
     before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index]
