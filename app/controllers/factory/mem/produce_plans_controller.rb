@@ -1,5 +1,5 @@
 module Factory
-  class Mem::ProducePlansController < In::ProducePlansController
+  class Mem::ProducePlansController < ProducePlansController
 
     def index
       q_params = {
@@ -14,7 +14,7 @@ module Factory
     end
 
     def self.local_prefixes
-      [controller_path, 'factory/in/base', 'our', 'me']
+      [controller_path, 'factory/base']
     end
   end
 end

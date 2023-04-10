@@ -14,8 +14,6 @@ module Factory
       @scenes = Scene.where(id: ids)
     end
 
- 
-
     private
     def set_items
       @items = @cart.items.includes(:member).where(member_organ_id: current_client.organ_id, produce_on: params[:produce_on], scene_id: params[:scene_id])

@@ -1,5 +1,5 @@
 module Factory
-  class Our::ProducePlansController < In::ProducePlansController
+  class Our::ProducePlansController < ProducePlansController
 
     def index
       q_params = {
