@@ -18,7 +18,7 @@ module Factory
       @productions = Production.includes(:parts, :production_plans, product: { logo_attachment: :blob }).default_where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
     end
 
-    def listx
+    def members
       @members = current_client.organ.members.includes(avatar_attachment: :blob).order(id: :asc).page(params[:page])
     end
 
@@ -64,6 +64,8 @@ module Factory
     end
 
     def set_cart
+      @cart = current_client.organ.member_carts.find_by(good_type: 'Factory::Production', member_id: nil) || current_client.organ.member_carts.create(good_type: 'Factory::Production', member_id: nil)
+      logger.debug "\e[35m  Organ Cart: #{@cart.id} #{@cart.error_text}  \e[0m"
       @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
     end
 
