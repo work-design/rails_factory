@@ -2,21 +2,10 @@ module Factory
   class Panel::FactoryProvidersController < Panel::BaseController
     before_action :set_factory_taxon
     before_action :set_factory_provider, only: [:show, :edit, :update, :destroy]
+    before_action :set_new_factory_provider, only: [:new, :create]
 
     def index
       @factory_providers = @factory_taxon.factory_providers.includes(:provider).page(params[:page])
-    end
-
-    def new
-      @factory_provider = @factory_taxon.factory_providers.build
-    end
-
-    def create
-      @factory_provider = @factory_taxon.factory_providers.build(factory_provider_params)
-
-      unless @factory_provider.save
-        render :new, locals: { model: @factory_provider }, status: :unprocessable_entity
-      end
     end
 
     def search
@@ -31,6 +20,10 @@ module Factory
 
     def set_factory_provider
       @factory_provider = @factory_taxon.factory_providers.find(params[:id])
+    end
+
+    def set_new_factory_provider
+      @factory_provider = @factory_taxon.factory_providers.build(factory_provider_params)
     end
 
     def factory_provider_params
