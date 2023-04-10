@@ -57,7 +57,13 @@ module Factory
     end
 
     def set_cart
-      @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      options = {
+        member_id: current_client.id
+      }
+      options.merge! default_params
+
+      @cart = Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart.compute_amount!
     end
 
     def _prefixes
