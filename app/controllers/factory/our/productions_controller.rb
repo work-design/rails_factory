@@ -5,9 +5,10 @@ module Factory
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
     before_action :set_card_templates, only: [:index]
-    before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
-    # before_action :set_scenes, only: [:index], if: -> { params[:scene_id].present? }
-    before_action :set_cart, only: [:index]
+    before_action :set_scene, only: [:index, :members], if: -> { params[:scene_id].present? }
+    before_action :set_cart, only: [:index, :members]
+    before_action :set_members_production, only: [:members]
+    before_action :set_items, only: [:members]
 
     def index
       q_params = {}
@@ -51,8 +52,20 @@ module Factory
       @production = Production.find params[:id]
     end
 
-    def set_scene
-      @scene = Scene.find params[:scene_id]
+    def set_members_production
+      q_params = {
+        production_plans: {
+          produce_on: params[:produce_on],
+          scene_id: params[:scene_id]
+        }
+      }
+      q_params.merge! default_params
+
+      if params[:production_id]
+        @production = Production.find params[:production_id]
+      else
+        @production = Production.includes(:parts, :product).joins(:production_plans).where(q_params).take
+      end
     end
 
     def set_card_templates
@@ -64,9 +77,17 @@ module Factory
     end
 
     def set_cart
-      @cart = current_client.organ.member_carts.find_by(good_type: 'Factory::Production', member_id: nil) || current_client.organ.member_carts.create(good_type: 'Factory::Production', member_id: nil)
+      options = {
+        member_organ_id: current_client.organ_id,
+        member_id: nil,
+        user_id: nil
+      }
+      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
       logger.debug "\e[35m  Organ Cart: #{@cart.id} #{@cart.error_text}  \e[0m"
-      @cart = current_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+    end
+
+    def set_items
+      @items = @cart.items.includes(:member).where(produce_on: params[:produce_on], scene_id: params[:scene_id])
     end
 
     def _prefixes
