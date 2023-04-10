@@ -1,9 +1,11 @@
 <div class="field has-addons">
   <div class="control">
-    <%= button_to({ controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'mr-1', form: { data: { turbo_scroll: true } }) do %>
-      <%= f.number_field :number, value: item.number - 1 %>
-      <%= f.text_field :current_cart_id, value: @cart.id %>
-      <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
+    <%= form_with(theme: nil, scope: :item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to mr-1', data: { turbo_scroll: true }) do |f| %>
+      <%= f.hidden_field :number, value: item.number - 1 %>
+      <%= f.hidden_field :current_cart_id, value: @cart.id %>
+      <%= button_tag do %>
+        <i class="fa-solid fa-circle-minus fa-xl has-text-grey"></i>
+      <% end %>
     <% end if item.number > 1 %>
   </div>
   <div class="control">
@@ -14,14 +16,16 @@
   <div class="control">
     <%= form_with(theme: nil, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true, controller: 'input' }) do |f| %>
       <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
-      <%= f.text_field :current_cart_id, value: @cart.id %>
+      <%= f.hidden_field :current_cart_id, value: @cart.id %>
     <% end %>
   </div>
   <div class="control">
-    <%= form_with(theme: nil, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'ml-1', form: { data: { turbo_scroll: true } }) do %>
-      <%= f.number_field :number, value: item.number + 1 %>
-      <%= f.text_field :current_cart_id, value: @cart.id %>
-      <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
+    <%= form_with(theme: nil, scope: :item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to ml-1', data: { turbo_scroll: true }) do |f| %>
+      <%= f.hidden_field :number, value: item.number + 1 %>
+      <%= f.hidden_field :current_cart_id, value: @cart.id %>
+      <%= button_to do %>
+        <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
