@@ -180,5 +180,8 @@ Rails.application.routes.draw do
   resolve 'Factory::Production', controller: 'productions' do |production, options|
     route_for(:factory_production, production, options)
   end
+  resolve 'Factory::ProxyProduction', controller: 'productions' do |production, options|
+    route_for(:factory_production, production, options)
+  end
 
 end
