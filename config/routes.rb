@@ -178,7 +178,7 @@ Rails.application.routes.draw do
     end
   end
   resolve 'Factory::Production', controller: 'productions' do |production, options|
-    [:factory, production, options]
+    route_for(:factory_production, production, options)
   end
 
 end
