@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="level-right mt-0">
-  <% unless @items.find_item(@production, member_id: model.id, **params.permit(:produce_on, :scene_id)) %>
+  <% unless @items.find(&->(i){ i.member_id == model.id }) %>
     <%= render partial: 'add_cart', locals: { model: @production, member: model } %>
   <% end if @production %>
   </div>
