@@ -84,6 +84,7 @@ module Factory
       options.merge! default_params
 
       @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart.compute_amount! unless @cart.fresh
       logger.debug "\e[35m  Organ Cart: #{@cart.id} #{@cart.error_text}  \e[0m"
     end
 
