@@ -51,7 +51,7 @@ module Factory
       before_save :sync_from_product_taxon, if: -> { product_taxon_id_changed? }
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
-      after_save_commit :sync_position, if: -> { saved_change_to_position? }
+      after_save_commit :sync_position_later, if: -> { saved_change_to_position? }
     end
 
     def sync_from_upstream
@@ -65,6 +65,10 @@ module Factory
 
     def sync_name
       productions.update_all name: name
+    end
+
+    def sync_position_later
+      ProductSyncPositionJob.perform_later(self)
     end
 
     def sync_position
