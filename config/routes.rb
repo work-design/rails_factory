@@ -82,7 +82,11 @@ Rails.application.routes.draw do
           member do
             patch :reorder
           end
-          resources :products
+          resources :products do
+            member do
+              patch :reorder
+            end
+          end
         end
         resources :plans
         resources :scenes do

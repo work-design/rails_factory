@@ -14,6 +14,7 @@ module Factory
       attribute :productions_count, :integer, default: 0
       attribute :product_parts_count, :integer, default: 0
       attribute :fits_count, :integer, default: 0
+      attribute :position, :integer
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
@@ -44,6 +45,7 @@ module Factory
       has_many_attached :images
 
       has_taxons :product_taxon
+      acts_as_list scope: :product_taxon_id
 
       before_validation :sync_from_upstream, if: -> { upstream_id_changed? }
       before_save :sync_from_product_taxon, if: -> { product_taxon_id_changed? }
