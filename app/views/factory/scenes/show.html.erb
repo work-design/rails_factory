@@ -1,0 +1,35 @@
+<%= render 'top_bar' %>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <div class="is-several">
+      <%= image_tag @scene.logo, class: 'image is-32x32' if @scene.logo.attached? %>
+      <span><%= @scene.title %></span>
+    </div>
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_appmsg">
+      <div class="weui-media-box__bd">
+        <p class="is-size-7 has-text-centered">
+          <span>预定时间：</span>
+          <span class="<%= @scene.bookable?(@produce_on) ? 'has-text-success' : 'has-text-danger' %>">
+          <time><%= @scene.book_start_at.to_fs(:time) %></time>
+          <span>~</span>
+          <time><%= @scene.book_finish_at.to_fs(:time) %></time>
+        </span>
+        </p>
+        <p class="is-size-7 has-text-centered">
+          <span>配送时间：</span>
+          <time><%= @scene.deliver_start_at.to_fs(:time) %></time>
+          <span>~</span>
+          <time><%= @scene.deliver_finish_at.to_fs(:time) %></time>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="weui-panel__ft">
+    <div class="columns mx-4 mb-4 is-flex is-multiline">
+      <%= render partial: 'produce_on', collection: (Date.today .. Date.today + 5), as: :date, locals: { scene: @scene } %>
+    </div>
+  </div>
+</div>
