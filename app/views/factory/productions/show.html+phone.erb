@@ -15,7 +15,13 @@
     <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
   </div>
   <div class="weui-panel__bd p-4">
-    <%= @production.product.description %>
+    <% if @production.upstream %>
+    <p>
+      <span>供应商：</span>
+      <span><%= @production.upstream.organ.name %></span>
+    </p>
+    <% end %>
+    <p><%= @production.product.description %></p>
   </div>
 </div>
 
