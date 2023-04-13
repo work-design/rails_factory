@@ -3,14 +3,10 @@
     <%= form_with theme: nil, model: item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, data: { controller: 'input' }, class: 'is-inline level-item mb-0' do |f| %>
       <%= f.check_box :status, { checked: item.status_checked?, data: { action: 'click->input#form' }, id: nil }, item.id %>
     <% end %>
-    <div class="level-item ml-2">
-      <span class="has-text-grey"><%= item.good_name %></span>
-    </div>
+    <div class="level-item ml-2 has-text-grey"><%= item.good_name %></div>
   </div>
   <div class="level-right is-flex mt-0">
-    <div class="level-item mb-0">
-      <span class="has-text-danger"><%= item.amount.to_money.format.html_safe %></span>
-    </div>
+    <div class="level-item mb-0"><%= item.amount.to_money.format.html_safe %></div>
     <div class="level-item ml-2">
       <%= render partial: 'cart', locals: { item: item } %>
     </div>
