@@ -7,7 +7,10 @@
       <% if request.variant.any?(:work_wechat) %>
         <div data-open-data-target="tag" type="userName" openid="<%= model.name %>"></div>
       <% else %>
-        <%= link_to model.name, { action: 'show', id: model } %>
+        <span><%= model.name %></span>
+      <% end %>
+      <% if current_client == model %>
+        <span class="weui-badge">你自己</span>
       <% end %>
       </div>
     </div>
