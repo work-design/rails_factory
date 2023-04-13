@@ -74,6 +74,7 @@ module Factory
     end
 
     def set_cart
+      return unless current_client
       options = {
         member_organ_id: current_client.organ_id,
         member_id: nil,
