@@ -24,14 +24,12 @@ module Factory
 
     def list
       q_params = {
-        production_plans: {
-          produce_on: params[:produce_on],
-          scene_id: params[:scene_id]
-        },
+        produce_on: params[:produce_on],
+        scene_id: params[:scene_id]
       }
       q_params.merge! default_params
 
-      @productions = Production.includes(:parts, :production_plans, product: { logo_attachment: :blob }).default_where(q_params).default.page(params[:page]).per(10)
+      @production_plans = ProductionPlan.includes(production: [:parts, product: { logo_attachment: :blob }]).default_where(q_params).page(params[:page]).per(10)
     end
 
     def produce_on

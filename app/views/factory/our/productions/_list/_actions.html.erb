@@ -1,0 +1,13 @@
+<%= link_to({ controller: 'carts', action: 'list', production_id: model.production_id, **params.permit(:produce_on, :scene_id) }, class: 'weui-actionsheet__cell has-block-space-between') do %>
+  <span class="is-several">
+    <%= image_tag model.production.product.logo, class: 'image is-24x24' if model.production.product.logo.attached? %>
+    <span><%= model.production.name %></span>
+    <span class="has-text-danger"><%= model.production.price.to_money.format.html_safe %></span>
+  </span>
+  <span>
+    <% if model.production_id == @production.id %>
+      <i class="fa-solid fa-check has-text-success"></i>
+    <% end %>
+    <i class="fa-solid fa-chevron-right has-text-grey-light pl-1"></i>
+  </span>
+<% end %>
