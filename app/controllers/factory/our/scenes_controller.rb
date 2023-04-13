@@ -1,5 +1,6 @@
 module Factory
   class Our::ScenesController < ScenesController
+    include Controller::Our
 
     def index
       q_params = {}

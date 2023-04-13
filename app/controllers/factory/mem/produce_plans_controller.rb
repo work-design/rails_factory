@@ -1,5 +1,6 @@
 module Factory
   class Mem::ProducePlansController < ProducePlansController
+    include Controller::Mem
 
     def index
       q_params = {
