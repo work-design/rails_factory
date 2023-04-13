@@ -1,3 +1,4 @@
+<% member_items = @items.select(&->(i){ i.member_id == model.id }) %>
 <div class="level is-flex">
   <div class="level-left">
     <div class="level-item is-several">
@@ -12,9 +13,9 @@
     </div>
   </div>
   <div class="level-right mt-0">
-  <% unless @items.find(&->(i){ i.member_id == model.id }) %>
+  <% unless member_items.find(&->(i){ i.good_id == @production.id }) %>
     <%= render partial: 'add_cart', locals: { model: @production, member: model } %>
   <% end if @production %>
   </div>
 </div>
-<%= render partial: 'trade_item', collection: @items.select(&->(i){ i.member_id == model.id }), as: :item %>
+<%= render partial: 'trade_item', collection: member_items, as: :item %>
