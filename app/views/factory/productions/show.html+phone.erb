@@ -15,7 +15,7 @@
     <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
   </div>
   <div class="weui-panel__bd p-4">
-    <% if @production.upstream %>
+    <% if @production.is_a?(Factory::ProxyProduction) && @production.upstream %>
     <p>
       <span>供应商：</span>
       <span><%= @production.upstream.organ.name %></span>
