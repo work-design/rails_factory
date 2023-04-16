@@ -8,8 +8,8 @@ module Factory
     def index
       q_params = {}
 
-      if @product_plan
-        q_params.merge!('produced_at-gte': @product_plan.start_at, 'produced_at-lte': @product_plan.finish_at)
+      if @production_plan
+        q_params.merge!('produced_at-gte': @production_plan.start_at, 'produced_at-lte': @production_plan.finish_at)
       end
       q_params.merge! params.permit('produced_at-gte', 'produced_at-lte')
 
