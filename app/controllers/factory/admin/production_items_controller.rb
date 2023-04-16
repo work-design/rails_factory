@@ -9,9 +9,9 @@ module Factory
       q_params = {}
 
       if @production_plan
-        q_params.merge!('produced_at-gte': @production_plan.start_at, 'produced_at-lte': @production_plan.finish_at)
+        q_params.merge!('came_at-gte': @production_plan.start_at, 'came_at-lte': @production_plan.finish_at)
       end
-      q_params.merge! params.permit('produced_at-gte', 'produced_at-lte')
+      q_params.merge! params.permit('came_at-gte', 'came_at-lte')
 
       @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
