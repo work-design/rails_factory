@@ -82,7 +82,11 @@ module Factory
     end
 
     def sync_product_taxon
-      productions.update_all(product_taxon_id: product_taxon_id, factory_taxon_id: factory_taxon_id)
+      productions.update_all(
+        product_taxon_id: product_taxon_id,
+        factory_taxon_id: factory_taxon_id,
+        organ_id: organ_id
+      )
     end
 
   end
