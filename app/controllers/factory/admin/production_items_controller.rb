@@ -3,6 +3,7 @@ module Factory
     before_action :set_production
     before_action :set_production_item, only: [:show, :pdf, :print, :print_data, :edit, :update, :destroy]
     before_action :set_new_production_item, only: [:index, :new, :create]
+    before_action :set_production_plan, if: -> { params[:production_plan_id] }
 
     def index
       q_params = {}
@@ -39,7 +40,7 @@ module Factory
       @production = Production.find params[:production_id]
     end
 
-    def set_produce_plan
+    def set_production_plan
       @production_plan = ProductionPlan.find params[:production_plan_id]
     end
 

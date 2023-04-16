@@ -10,6 +10,11 @@
         <span>（<%= @production.name %>）</span>
       <% end %>
     </li>
+    <% if params[:production_plan_id] %>
+    <li>
+      <%= link_to @production_plan.produce_on, { controller: 'production_plans', anchor: "tr_#{params[:production_plan_id]}" } %>
+    </li>
+    <% end %>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>
