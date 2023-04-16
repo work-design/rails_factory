@@ -55,6 +55,14 @@ module Factory
       cpcl.render
     end
 
+    def to_tspl
+      ts = BaseTspl.new
+      ts.text production.name, x: 20
+      ts.text code, x: 20
+      ts.qrcode(enter_url)
+      ts.render
+    end
+
     def to_pdf
       pdf = BasePdf.new(width: 80.mm, height: 50.mm)
       pdf.text production.name
@@ -68,16 +76,9 @@ module Factory
     end
 
     def print
-      device = JiaBo::Device.first
-      template = JiaBo::Template.first
-      data = {
-        name: production.name,
-        price: production.price,
-        qrcode: code,
-        customer: 'test'
-      }
-
-      device.templet_print(msg_no: code, template_id: template.code, data: data)
+      production.organ.device.print(
+        data: to_tspl
+      )
     end
 
   end
