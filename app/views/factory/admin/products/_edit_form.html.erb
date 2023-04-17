@@ -1,0 +1,6 @@
+<%= form_with model: @product, scope: :product, url: { action: 'update' } do |f| %>
+  <%= render 'error_messages', target: f.object %>
+  <%= f.collection_select :product_taxon_id, @product_taxons, :id, :name %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit %>
+<% end %>

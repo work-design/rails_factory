@@ -4,6 +4,7 @@ module Factory
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
     before_action :set_new_product, only: [:new, :create]
+    before_action :set_product_taxons, only: [:edit, :update]
 
     def index
       q_params = {}
@@ -25,6 +26,10 @@ module Factory
     private
     def set_product_taxon
       @product_taxon = ProductTaxon.default_where(default_params).find params[:product_taxon_id]
+    end
+
+    def set_product_taxons
+      @product_taxons = ProductTaxon.default_where(default_params)
     end
 
     def set_product
