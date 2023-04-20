@@ -36,11 +36,6 @@ module Factory
     end
 
     private
-    def current_wechat_app
-      organ_domain = Org::OrganDomain.find_by(organ_id: params[:organ_id], default: true)
-      organ_domain&.wechat_app
-    end
-
     def set_payment
       @payment = Trade::Payment.find params[:id]
     end
