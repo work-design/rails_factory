@@ -4,7 +4,7 @@
       <i class="fa-solid fa-fw fa-store has-text-primary"></i>
       <span><%= t('factory.admin.title') %></span>
     </div>
-    <%= link_to({ controller: '/factory/productions' }, target: '_blank') do %>
+    <%= link_to({ controller: '/factory/productions' }, state: 'enter') do %>
       <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
       <span>预览商店</span>
     <% end %>
