@@ -3,7 +3,7 @@ module Factory
     before_action :set_product_taxon, only: [:show, :import, :productions, :edit, :update, :reorder, :destroy]
     before_action :set_factory_taxons, only: [:new, :edit]
     before_action :set_scenes, only: [:new, :edit]
-    before_action :set_products, only: [:import, :productions]
+    before_action :set_products, only: [:import]
     before_action :set_new_product_taxon, only: [:new, :create]
 
     def index
@@ -13,6 +13,10 @@ module Factory
 
       @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
+    end
+
+    def productions
+      @productions = @product_taxon.productions.default.page(params[:page])
     end
 
     private

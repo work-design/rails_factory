@@ -1,0 +1,56 @@
+<td>
+  <div class="is-several">
+    <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
+    <span><%= model.name %></span>
+    <span class="tag"><%= model.state_i18n %></span>
+  </div>
+  <p class="has-text-grey"><%= model.qr_code %></p>
+</td>
+<td class="has-inner-table">
+  <% model.parts.each do |part| %>
+    <%= link_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, data: { turbo_frame: 'modal' }, class: 'tag is-info') do %>
+      <span><%= part.name %></span>
+      <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
+    <% end %>
+  <% end %>
+  <%= link_to({ action: 'part', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }) do %>
+    <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
+  <% end %>
+</td>
+<td>
+  <p class="has-block-right">
+    <span><%= model.cost_price.to_money.format.html_safe %></span>
+  </p>
+  <p class="has-block-right">
+    <span><%= model.profit_price.to_money.format.html_safe %></span>
+  </p>
+  <p class="has-block-right has-text-danger">
+    <span><%= model.price.to_money.format.html_safe %></span>
+  </p>
+</td>
+<td>
+  <div>
+  <% model.card_price.each do |key, value| %>
+    <div class="tags has-addons control mb-0">
+      <div class="tag is-success"><%= key %></div>
+      <div class="tag is-light"><%= value.to_money.format.html_safe %></div>
+    </div>
+  <% end %>
+  </div>
+</td>
+<td>
+  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :default, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>
+<td>
+  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :automatic, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>

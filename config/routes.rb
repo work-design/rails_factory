@@ -81,6 +81,7 @@ Rails.application.routes.draw do
         resources :product_taxons do
           member do
             patch :reorder
+            get :productions
           end
           resources :products do
             member do

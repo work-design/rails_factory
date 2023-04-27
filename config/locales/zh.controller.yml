@@ -60,6 +60,8 @@ zh:
           title: 类别
         new:
           title: 添加本店分类
+        productions:
+          title: 主显商品列表
       production_plans:
         index:
           title: 产品批次
