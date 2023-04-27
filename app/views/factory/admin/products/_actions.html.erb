@@ -11,3 +11,11 @@
   <span><%= model.productions_count %></span>
   <span><%= t('factory.admin.productions.index.title') %></span>
 <% end %>
+<%= button_to({ action: 'move_higher', id: model.id }, method: :patch, form: { class: 'weui-actionsheet__cell' }) do %>
+  <i class="fa-solid fa-arrow-up"></i>
+  <span>上移一位</span>
+<% end %>
+<%= button_to({ action: 'move_lower', id: model.id }, method: :patch, form: { class: 'weui-actionsheet__cell' }) do %>
+  <i class="fa-solid fa-arrow-down"></i>
+  <span>下移一位</span>
+<% end %>

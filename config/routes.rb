@@ -85,6 +85,8 @@ Rails.application.routes.draw do
           end
           resources :products do
             member do
+              patch :move_lower
+              patch :move_higher
               patch :reorder
             end
           end
