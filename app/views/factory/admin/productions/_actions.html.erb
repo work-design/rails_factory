@@ -10,3 +10,11 @@
   <i class="fa-solid fa-list-timeline"></i>
   <span><%= t('factory.admin.production_plans.index.title') %></span>
 <% end %>
+<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]default': !model.default }, state: 'redirect', class: model.default ? 'has-text-danger' : 'has-text-success', form: { class: 'weui-actionsheet__cell' }) do %>
+  <i class="fa-solid fa-check"></i>
+  <span>主显产品</span>
+<% end %>
+<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]enabled': !model.enabled }, state: 'redirect', class: model.enabled ? 'has-text-danger' : 'has-text-success', form: { class: 'weui-actionsheet__cell' }) do %>
+  <i class="fa-solid fa-check"></i>
+  <span>上架</span>
+<% end %>
