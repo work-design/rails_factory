@@ -1,8 +1,8 @@
 <div class="weui-navbar is-sticky">
   <%= link_to({ controller: 'factory/mem/produce_plans', action: 'overview' }, class: active_helper(controllers: 'factory/mem/produce_plans', item: 'weui-navbar__item has-text-grey-dark', active: 'weui-navbar__item weui-bar__item_on')) do %>
-    <span>自己点餐</span>
+    <span class="is-size-7">自己点餐</span>
   <% end %>
   <%= link_to({ controller: 'factory/our/produce_plans', action: 'overview' }, class: active_helper(controllers: 'factory/our/produce_plans', item: 'weui-navbar__item has-text-grey-dark', active: 'weui-navbar__item weui-bar__item_on')) do %>
-    <span>帮同事点餐</span>
+    <span class="is-size-7">帮同事点餐</span>
   <% end %>
 </div>
