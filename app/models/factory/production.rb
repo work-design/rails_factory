@@ -1,8 +1,9 @@
 module Factory
   class Production < ApplicationRecord
     include Model::Production
-    include Trade::Ext::Good if defined? RailsTrade
-
-    paginates_per 10
+    if defined? RailsTrade
+      include Trade::Ext::Good
+      include Trade::Ext::Rentable
+    end
   end
 end
