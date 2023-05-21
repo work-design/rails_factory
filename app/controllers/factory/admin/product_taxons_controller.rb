@@ -5,6 +5,7 @@ module Factory
     before_action :set_scenes, only: [:new, :edit]
     before_action :set_products, only: [:import]
     before_action :set_new_product_taxon, only: [:new, :create]
+    before_action :set_product_taxons, only: [:new, :create, :edit, :update]
 
     def index
       q_params = {}
@@ -40,6 +41,10 @@ module Factory
       else
         @product_taxon = ProductTaxon.new(product_taxon_params)
       end
+    end
+
+    def set_product_taxons
+      @product_taxons = @factory_taxon.product_taxons.default_where(default_params)
     end
 
     def set_scenes

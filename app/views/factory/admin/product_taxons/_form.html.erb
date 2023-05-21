@@ -1,5 +1,5 @@
 <%= f.hidden_field :factory_taxon_id %>
-<%= render partial: 'com/nodes/siblings_select', locals: { f: f } %>
+<%= f.collection_select :parent_id, @product_taxons, :id, :name, include_blank: true if @product_taxons.present? %>
 <%= f.text_field :name %>
 <%= f.file_field :logo %>
 <%= f.collection_select :scene_id, @scenes, :id, :title %>
