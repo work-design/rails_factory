@@ -1,0 +1,35 @@
+<div class="weui-media-box weui-media-box_appmsg" id="production_<%= model.id %>">
+  <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__hd') do %>
+    <%= image_tag model.product.logo, class: 'weui-media-box__thumb' if model.product.logo.attached? %>
+  <% end %>
+  <div class="weui-media-box__bd is-flex is-flex-direction-column">
+    <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__title') do %>
+      <%= model.name %>
+    <% end %>
+    <% model.rent_charges.each do |charge| %>
+      <p class="is-flex is-justify-content-space-between pr-6">
+        <span class="has-text-grey">
+          <span><%= charge.min %></span>
+          <span>~</span>
+          <span><%= charge.max %></span>
+          <span><%= model.rent_unit_i18n %></span>
+        </span>
+        <span class="has-text-danger">
+          <span><%= charge.parameter.to_money.format.html_safe %></span>
+          <span>/</span>
+          <span><%= model.rent_unit_i18n %></span>
+        </span>
+      </p>
+    <% end %>
+    <div class="is-level is-flex is-justify-content-space-between pt-2">
+      <div class="level-left">
+        <div class="level-item">可租用： <%# model.tradable_count %></div>
+      </div>
+      <div class="level-right mt-0">
+        <div class="level-item">
+          <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

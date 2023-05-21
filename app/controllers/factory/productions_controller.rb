@@ -27,7 +27,9 @@ module Factory
     end
 
     def rent
-      q_params = {}
+      q_params = {
+        'rent_charges_count-gt': 0
+      }
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
