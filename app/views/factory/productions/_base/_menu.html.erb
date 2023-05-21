@@ -1,6 +1,6 @@
 <div class="columns is-variable m-0 is-flex is-flex-direction-column is-sticky">
 <% @product_taxons.each do |product_taxon| %>
-  <%= link_to({ controller: 'productions', product_taxon_id: product_taxon.id, **params.permit(:station_id, :desk_id) }, class: active_helper(product_taxon_id: product_taxon.id, item: 'column is-primary px-2', active: 'column is-primary px-2 has-background-white')) do %>
+  <%= link_to({ product_taxon_id: product_taxon.id, **params.permit(:station_id, :desk_id) }, class: active_helper(product_taxon_id: product_taxon.id, item: 'column is-primary px-2', active: 'column is-primary px-2 has-background-white')) do %>
     <% if product_taxon.logo.attached? %>
       <div class="weui-grid__icon"><%= image_tag product_taxon.logo %></div>
     <% end %>

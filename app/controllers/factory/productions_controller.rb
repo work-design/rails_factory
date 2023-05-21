@@ -3,11 +3,12 @@ module Factory
     before_action :set_product_taxon, if: -> { params[:product_taxon_id].present? }
     before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
-    before_action :set_product_taxons, only: [:index]
-    before_action :set_card_templates, only: [:index]
+    before_action :set_product_taxons, only: [:index, :rent]
+    before_action :set_card_templates, only: [:index, :rent]
     before_action :set_production, only: [:show, :dialog]
     before_action :set_scene, only: [:index], if: -> { params[:produce_on].present? && params[:scene_id].present? }
     before_action :set_cart, only: [:index, :show, :dialog]
+    before_action :set_rent_cart, only: [:rent]
 
     def index
       q_params = {}
@@ -23,6 +24,14 @@ module Factory
       else
         @productions = Production.includes(:parts, product: { logo_attachment: :blob }).enabled.default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
       end
+    end
+
+    def rent
+      q_params = {}
+      q_params.merge! default_params
+      q_params.merge! params.permit(:product_taxon_id, 'name-like')
+
+      @productions = Production.includes(:parts, product: { logo_attachment: :blob }).enabled.default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
     end
 
     def produce_on
@@ -108,6 +117,17 @@ module Factory
       if current_user
         options.merge! user_id: current_user.id, member_id: nil
         @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+        @cart.compute_amount! unless @cart.fresh
+      end
+    end
+
+    def set_rent_cart
+      options = {}
+      options.merge! default_form_params
+
+      if current_user
+        options.merge! user_id: current_user.id, member_id: nil
+        @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'rent')
         @cart.compute_amount! unless @cart.fresh
       end
     end

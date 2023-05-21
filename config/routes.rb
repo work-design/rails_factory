@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     concern :productive do
       resources :productions, only: [:index, :create, :show] do
         collection do
+          get :rent
           get :members
           post :scene
           post :produce_on
