@@ -10,7 +10,8 @@
           <i class="fa-solid fa-list has-text-success"></i>
         <% end %>
         <%= link_to({ controller: 'trade/admin/rent_charges', rentable_type: model.class_name, rentable_id: model.id }, state: 'enter', aria: { label: t('trade.admin.rent_charges.index.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-clock-rotate-left"></i>
+          <i class="fa-solid fa-clock-rotate-left has-text-danger"></i>
+          <span class="pl-1"><%= model.rent_charges_count %></span>
         <% end %>
         <%= link_to({ controller: 'trade_items', production_id: model.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
           <i class="fa-solid fa-shopping-cart has-text-info"></i>
