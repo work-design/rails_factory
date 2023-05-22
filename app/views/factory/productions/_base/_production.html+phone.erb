@@ -16,9 +16,10 @@
         <% end %>
       <% end %>
     </ul>
-    <div class="is-flex is-align-items-center">
-      <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
-      <% @card_templates.select(&->(i){ model.card_price.keys.include?(i.code) }).each do |card_template| %>
+    <div class="has-block-space-between">
+      <div>
+        <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
+        <% @card_templates.select(&->(i){ model.card_price.keys.include?(i.code) }).each do |card_template| %>
         <div class="tags has-addons is-price control m-0 ml-2" style="display: inline-flex">
           <% if @cart && @cart.cards.map(&->(i){ i.card_template.code }).include?(card_template.code) %>
             <div class="tag is-danger">
@@ -30,10 +31,11 @@
           <% end %>
           <div class="tag is-light"><%= model.card_price.fetch(card_template.code, model.price).to_money.format.html_safe %></div>
         </div>
-      <% end %>
-    </div>
-    <div class="is-flex is-justify-content-flex-end pt-2">
-      <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
+        <% end %>
+      </div>
+      <div>
+        <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
+      </div>
     </div>
   </div>
 </div>
