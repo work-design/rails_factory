@@ -16,3 +16,6 @@ zh:
       trade/promote_good:
         good_type:
           Factory::Production: 产品
+      factory/production:
+        rent_unit:
+          months: 月
