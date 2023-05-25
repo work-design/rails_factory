@@ -26,6 +26,7 @@ module Factory
 
     def delivery
       q_params = {}
+      q_params.merge! params.permit(:state)
 
       @item = Trade::Item.find params[:item_id]
       @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])

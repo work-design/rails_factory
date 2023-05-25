@@ -1,4 +1,7 @@
-<td><%= model.id %></td>
 <td class="has-text-mono"><%= model.code %></td>
 <td><%= model.state_i18n %></td>
 <td><time data-controller="time"><%= model.came_at&.to_fs(:iso8601) %></time></td>
+<td>
+  <p><%= model.held_user_id %></p>
+  <p><%= model.held_member_id %></p>
+</td>

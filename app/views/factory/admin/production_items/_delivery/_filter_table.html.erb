@@ -1,0 +1,11 @@
+<table class="table as-search">
+  <tr>
+    <th><%= Factory::ProductionItem.human_attribute_name(:state) %></th>
+    <td>
+      <%= link_to t('.all'), filter_params(except: [:state]), class: active_helper(state: nil, active: 'button is-info', item: 'button is-light') %>
+      <% Factory::ProductionItem.options_i18n(:state).each do |text, state| %>
+        <%= link_to text, filter_params(state: state), class: active_helper(state: state, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
+    </td>
+  </tr>
+</table>

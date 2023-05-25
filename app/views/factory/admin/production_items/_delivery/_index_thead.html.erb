@@ -1,4 +1,7 @@
-<th><%= Factory::ProductionItem.human_attribute_name(:id) %></th>
 <th><%= Factory::ProductionItem.human_attribute_name(:code) %></th>
 <th><%= Factory::ProductionItem.human_attribute_name(:state) %></th>
 <th><%= Factory::ProductionItem.human_attribute_name(:came_at) %></th>
+<th>
+  <p><%= Factory::ProductionItem.human_attribute_name(:held_user_id) %></p>
+  <p><%= Factory::ProductionItem.human_attribute_name(:held_member_id) %></p>
+</th>
