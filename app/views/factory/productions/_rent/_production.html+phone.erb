@@ -23,7 +23,7 @@
     <% end %>
     <div class="has-block-space-between pt-1">
       <div class="has-text-danger"><%= model.price.to_money.format.html_safe %></div>
-      <div class="level-item">
+      <div class="is-flex">
         <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
       </div>
     </div>
