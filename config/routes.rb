@@ -133,6 +133,7 @@ Rails.application.routes.draw do
           resources :production_items do
             collection do
               post :batch
+              get 'delivery/:item_id' => :delivery
             end
             member do
               patch :print

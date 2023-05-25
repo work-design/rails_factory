@@ -24,6 +24,13 @@ module Factory
       @production_plan.save
     end
 
+    def delivery
+      q_params = {}
+
+      @item = Trade::Item.find params[:item_id]
+      @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])
+    end
+
     def print
       @production_item.print
     end
