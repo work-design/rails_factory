@@ -1,4 +1,3 @@
-<% if params[:production_plan_id] %>
 <div class="buttons are-small mb-0">
   <%= form_with theme: nil, model: @production_item, url: { action: 'create' } do |f| %>
     <%= f.hidden_field :qr_code %>
@@ -11,4 +10,3 @@
     <%= f.submit '批量新增', class: 'button is-info' %>
   <% end %>
 </div>
-<% end %>
