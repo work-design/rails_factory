@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionItemsController < Admin::BaseController
     before_action :set_production
-    before_action :set_production_item, only: [:show, :pdf, :print, :print_data, :edit, :update, :destroy]
+    before_action :set_production_item, only: [:show, :edit, :update, :destroy, :update_delivery, :pdf, :print, :print_data]
     before_action :set_new_production_item, only: [:index, :new, :create]
     before_action :set_production_plan, if: -> { params[:production_plan_id] }
 
@@ -30,6 +30,11 @@ module Factory
 
       @item = Trade::Item.find params[:item_id]
       @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])
+    end
+
+    def update_delivery
+      @item = Trade::Item.find params[:item_id]
+      @production_item.do_rent(@item)
     end
 
     def print

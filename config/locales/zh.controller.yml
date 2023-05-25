@@ -70,6 +70,8 @@ zh:
           title: 产品清单
         delivery:
           title: 发货
+        update_delivery:
+          title: 发货
         print:
           title: 打印
       parts:

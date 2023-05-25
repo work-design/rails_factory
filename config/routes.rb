@@ -136,6 +136,7 @@ Rails.application.routes.draw do
               get 'delivery/:item_id' => :delivery
             end
             member do
+              patch 'delivery/:item_id' => :update_delivery
               patch :print
               get :pdf
               get :print_data
