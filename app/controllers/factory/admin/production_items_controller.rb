@@ -34,7 +34,7 @@ module Factory
 
     def update_delivery
       @item = Trade::Item.find params[:item_id]
-      @production_item.do_rent(@item)
+      @production_item.do_hold(@item)
     end
 
     def print
