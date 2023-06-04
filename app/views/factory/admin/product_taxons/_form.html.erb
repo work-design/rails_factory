@@ -2,4 +2,4 @@
 <%= f.collection_select :parent_id, @product_taxons, :id, :name, include_blank: true if @product_taxons.present? %>
 <%= f.text_field :name %>
 <%= f.file_field :logo %>
-<%= f.collection_select :scene_id, @scenes, :id, :title %>
+<%= f.collection_select :scene_id, @scenes, :id, :title if @scenes.present? %>

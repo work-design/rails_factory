@@ -44,7 +44,11 @@ module Factory
     end
 
     def set_product_taxons
-      @product_taxons = @factory_taxon.product_taxons.default_where(default_params)
+      if params[:factory_taxon_id].present?
+        @product_taxons = @factory_taxon.product_taxons.default_where(default_params)
+      else
+
+      end
     end
 
     def set_scenes
