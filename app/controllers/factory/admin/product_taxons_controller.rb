@@ -5,7 +5,8 @@ module Factory
     before_action :set_scenes, only: [:new, :edit]
     before_action :set_products, only: [:import]
     before_action :set_new_product_taxon, only: [:new, :create]
-    before_action :set_product_taxons, only: [:new, :create, :edit, :update]
+    before_action :set_product_taxons, only: [:new, :create]
+    before_action :set_own_product_taxons, only: [:edit, :update]
 
     def index
       q_params = {}
@@ -46,9 +47,11 @@ module Factory
     def set_product_taxons
       if params[:factory_taxon_id].present?
         @product_taxons = @factory_taxon.product_taxons.default_where(default_params)
-      else
-
       end
+    end
+
+    def set_own_product_taxons
+      @product_taxons = @product_taxon.factory_taxon.product_taxons.default_where(default_params)
     end
 
     def set_scenes
