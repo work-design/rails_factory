@@ -1,6 +1,6 @@
 <div class="weui-panel is-box is-borderless">
   <div class="weui-panel__bd">
-    <div class="columns is-flex m-0">
+    <div class="columns is-mobile">
       <%= render partial: 'product_taxon', collection: Factory::ProductTaxon.default_where(default_params).enabled, as: :product_taxon %>
     </div>
   </div>
