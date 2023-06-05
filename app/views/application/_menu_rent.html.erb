@@ -1,0 +1,12 @@
+<div class="weui-panel is-box is-borderless">
+  <div class="weui-panel__bd">
+    <div class="columns is-mobile">
+      <%= link_to({ controller: 'factory/productions' }, class: 'column is-half') do %>
+        <%= image_tag 'use.png', class: 'image as-centered' %>
+      <% end %>
+      <%= link_to({ controller: 'factory/productions', action: 'rent' }, class: 'column is-half') do %>
+        <%= image_tag 'rent.png', class: 'image as-centered' %>
+      <% end %>
+    </div>
+  </div>
+</div>
