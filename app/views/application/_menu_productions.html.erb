@@ -1,4 +1,7 @@
 <div class="weui-panel is-box is-borderless">
+  <div class="weui-panel__hd">
+    <span class="tag is-danger">限时特价</span>
+  </div>
   <div class="weui-panel__bd">
     <div class="columns is-mobile">
       <%= render partial: 'menu_item_production', collection: Factory::Production.default_where(default_params).default.limit(3), as: :model %>
