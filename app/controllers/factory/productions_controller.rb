@@ -4,7 +4,6 @@ module Factory
     before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index, :rent]
-    before_action :set_card_templates, only: [:index, :rent]
     before_action :set_production, only: [:show, :dialog]
     before_action :set_scene, only: [:index], if: -> { params[:produce_on].present? && params[:scene_id].present? }
     before_action :set_cart, only: [:index, :show, :dialog]
@@ -87,10 +86,6 @@ module Factory
       }
       q_params.merge! default_params
       @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(q_params).order(id: :asc)
-    end
-
-    def set_card_templates
-      @card_templates = Trade::CardTemplate.default_where(default_params)
     end
 
     def set_produce_plans

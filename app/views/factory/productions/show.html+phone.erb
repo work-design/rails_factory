@@ -11,8 +11,23 @@
 
 <div class="weui-panel is-box" style="z-index: 3">
   <div class="weui-panel__hd">
-    <span><%= @production.name %></span>
-    <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
+    <div><%= @production.name %></div>
+    <div class="has-inline-centered mt-1">
+      <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
+      <% @production.card_price_all(@cart).each do |k, v| %>
+      <div class="tags has-addons is-price control m-0 ml-2">
+        <% if v[:checked] %>
+          <div class="tag is-danger">
+            <i class="fa-solid fa-badge-check"></i>
+            <span style="padding-left: 1px"><%= v[:name] %></span>
+          </div>
+        <% else %>
+          <div class="tag is-success"><%= v[:name] %></div>
+        <% end %>
+        <div class="tag is-light"><%= v[:price].to_money.format.html_safe %></div>
+      </div>
+      <% end %>
+    </div>
   </div>
   <div class="weui-panel__bd p-4">
     <% if @production.is_a?(Factory::ProxyProduction) && @production.upstream %>

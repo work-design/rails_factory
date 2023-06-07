@@ -19,17 +19,18 @@
     <div class="has-block-space-between py-1">
       <div class="has-inline-centered">
         <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
-        <% @card_templates.select(&->(i){ model.card_price.keys.include?(i.code) }).each do |card_template| %>
+        <% r = model.card_price_min(@cart) %>
+        <% if r.present? %>
         <div class="tags has-addons is-price control m-0 ml-2">
-          <% if @cart && @cart.cards.map(&->(i){ i.card_template.code }).include?(card_template.code) %>
+          <% if r[:checked] %>
             <div class="tag is-danger">
               <i class="fa-solid fa-badge-check"></i>
-              <span style="padding-left: 1px"><%= card_template.name %></span>
+              <span style="padding-left: 1px"><%= r[:name] %></span>
             </div>
           <% else %>
-            <div class="tag is-success"><%= card_template.name %></div>
+            <div class="tag is-success"><%= r[:name] %></div>
           <% end %>
-          <div class="tag is-light"><%= model.card_price.fetch(card_template.code, model.price).to_money.format.html_safe %></div>
+          <div class="tag is-light"><%= r[:price].to_money.format.html_safe %></div>
         </div>
         <% end %>
       </div>

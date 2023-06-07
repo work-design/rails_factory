@@ -104,8 +104,28 @@ module Factory
     end
 
     def card_price_human
-      xx = organ.card_templates.pluck(:code, :name).to_h
-      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: xx[k], price: v } }
+      codes = organ.card_templates.pluck(:code, :name).to_h
+      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d } }
+    end
+
+    def card_price_min(cart)
+      human = card_price_human
+      codes = cart.cards.map(&->(i){ i.card_template.code })
+      r = human.slice(*codes)
+      if r.present?
+        min = r.min_by { |_, v| v[:price] }
+        min[1].merge! checked: true
+      else
+        min = human.min_by { |_, v| v[:price] }
+      end
+
+      min[1] if min.present?
+    end
+
+    def card_price_all(cart)
+      codes = organ.card_templates.pluck(:code, :name).to_h
+      check_codes = cart.cards.map(&->(i){ i.card_template.code })
+      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d, checked: check_codes.include?(k) } }
     end
 
     def sync_price
