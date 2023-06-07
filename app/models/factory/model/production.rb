@@ -103,6 +103,11 @@ module Factory
       end
     end
 
+    def card_price_human
+      xx = organ.card_templates.pluck(:code, :name).to_h
+      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: xx[k], price: v } }
+    end
+
     def sync_price
       self.profit_price ||= default_profit_price
       self.price = self.cost_price + self.profit_price

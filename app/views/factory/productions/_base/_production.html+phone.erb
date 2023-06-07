@@ -11,7 +11,7 @@
     <% end %>
     <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
       <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
-        <% parts.each_with_index do |part, index| %>
+        <% parts.each_with_index do |part, _| %>
           <li><%= part.name %></li>
         <% end %>
       <% end %>
@@ -24,10 +24,10 @@
           <% if @cart && @cart.cards.map(&->(i){ i.card_template.code }).include?(card_template.code) %>
             <div class="tag is-danger">
               <i class="fa-solid fa-badge-check"></i>
-              <span style="padding-left: 1px"><%= card_template.code %></span>
+              <span style="padding-left: 1px"><%= card_template.name %></span>
             </div>
           <% else %>
-            <div class="tag is-success"><%= card_template.code %></div>
+            <div class="tag is-success"><%= card_template.name %></div>
           <% end %>
           <div class="tag is-light"><%= model.card_price.fetch(card_template.code, model.price).to_money.format.html_safe %></div>
         </div>
