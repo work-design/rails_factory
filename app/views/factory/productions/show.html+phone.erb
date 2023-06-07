@@ -5,11 +5,11 @@
   <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
 <% end %>
 
-<div class="mt-3">
+<div class="weui-panel is-box">
   <%= render partial: 'covers', locals: { model: @production.product } if @production.product.covers.length > 0 %>
 </div>
 
-<div class="weui-panel is-radius mx-3 mt-3 mb-3" style="z-index: 3">
+<div class="weui-panel is-box" style="z-index: 3">
   <div class="weui-panel__hd">
     <span><%= @production.name %></span>
     <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
@@ -26,7 +26,7 @@
 </div>
 
 <% if @production.same_parts.present? %>
-  <div class="box mx-3 p-0 mb-3">
+  <div class="weui-panel is-box">
   <% @production.same_parts.includes(:product_taxon).group_by(&:product_taxon).each do |part_taxon, parts| %>
     <%= render partial: 'product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
   <% end %>
@@ -36,7 +36,7 @@
 <% end %>
 
 <% if @production.product.images.present? %>
-<div class="box mx-3 p-0">
+<div class="weui-panel is-box">
   <% @production.product.images.each do |image| %>
     <%= image_tag image, class: 'image is-fullwidth' -%>
   <% end %>
