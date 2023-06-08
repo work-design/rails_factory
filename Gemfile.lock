@@ -53,7 +53,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: e5f82cca79b499dac3cc15b8fa2758615a8940df
+  revision: 75e24df86b487d9ed4e2ed845cb7db5f6b120e3b
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -232,7 +232,7 @@ GEM
       stringio
     puma (6.3.0)
       nio4r (~> 2.0)
-    racc (1.6.2)
+    racc (1.7.0)
     rack (2.2.7)
     rack-test (2.1.0)
       rack (>= 1.3)
