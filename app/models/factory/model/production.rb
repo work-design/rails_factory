@@ -110,7 +110,7 @@ module Factory
 
     def card_price_min(cart)
       human = card_price_human
-      codes = cart.cards.map(&->(i){ i.card_template.code })
+      codes = cart && cart.cards.map(&->(i){ i.card_template.code })
       r = human.slice(*codes)
       if r.present?
         min = r.min_by { |_, v| v[:price] }
@@ -124,8 +124,8 @@ module Factory
 
     def card_price_all(cart)
       codes = organ.card_templates.pluck(:code, :name).to_h
-      check_codes = cart.cards.map(&->(i){ i.card_template.code })
-      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d, checked: check_codes.include?(k) } }
+      check_codes = cart && cart.cards.map(&->(i){ i.card_template.code })
+      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d, checked: Array(check_codes).include?(k) } }
     end
 
     def sync_price
