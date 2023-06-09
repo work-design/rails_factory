@@ -22,12 +22,6 @@ Rails.application.routes.draw do
         end
       end
       resources :scenes
-      resources :carts do
-        collection do
-          get :list
-          post :actions
-        end
-      end
     end
 
     namespace :factory, defaults: { business: 'factory' } do
