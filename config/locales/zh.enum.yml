@@ -19,3 +19,4 @@ zh:
       factory/production:
         rent_unit:
           months: 月
+          years: 年
