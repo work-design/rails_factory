@@ -72,6 +72,7 @@ module Factory
         :name,
         :position,
         :logo,
+        :logo_color,
         :parent_id,
         :parent_ancestors,
         :enabled,

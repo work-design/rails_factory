@@ -24,6 +24,7 @@ module Factory
       has_many :providers, through: :provides
 
       has_one_attached :logo
+      has_one_attached :logo_color
 
       default_scope -> { order(position: :asc) }
       scope :enabled, -> { where(enabled: true, nav: false)}

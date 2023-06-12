@@ -6,3 +6,11 @@
   <td class="has-text-right"><%= Factory::ProductTaxon.human_attribute_name(:position) %></td>
   <td><%= @product_taxon.position %></td>
 </tr>
+<tr>
+  <td class="has-text-right"><%= Factory::ProductTaxon.human_attribute_name(:logo) %></td>
+  <td><%= image_tag @product_taxon.logo, class: 'image is-64x64' if @product_taxon.logo.attached? %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Factory::ProductTaxon.human_attribute_name(:logo_color) %></td>
+  <td><%= image_tag @product_taxon.logo_color, class: 'image is-64x64' if @product_taxon.logo_color.attached? %></td>
+</tr>
