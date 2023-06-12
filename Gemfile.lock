@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 2d80900b3f2d1169d939e6a96eecbb43802f26b7
+  revision: 8f06e7ecfddb31ba8f4f03acd48e93eb455e742b
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: b4320afda426e1d18fab8e4bdacbfc6cda09559a
+  revision: 6281dcf0e771c673d02519243bf02914e32ffcb7
   specs:
     rails_design (0.0.1)
       rails
@@ -46,14 +46,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_space.git
-  revision: e1b6ada5d305e35cdb5bfb96ae0ecea2ea0a9056
+  revision: d77c1820d56ae69ec2ade443f9d329d260626915
   specs:
     rails_space (0.0.1)
       rails (>= 7.0.3)
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 75e24df86b487d9ed4e2ed845cb7db5f6b120e3b
+  revision: 5d2970c2ebcad69f144b4e277472db8495359885
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -166,7 +166,7 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.1)
     http-form_data (2.3.0)
-    httpx (0.23.3)
+    httpx (0.23.4)
       http-2-next (>= 0.4.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)

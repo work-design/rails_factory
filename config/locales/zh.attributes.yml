@@ -49,6 +49,7 @@ zh:
         scene_id: 场景
         partial: 可作为配件
         products_count: 产品数
+        enabled: 上架
       factory/part_taxon_provider:
         provider_id: 供应商
       factory/production_plan:
