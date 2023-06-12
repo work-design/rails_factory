@@ -76,6 +76,7 @@ module Factory
         :parent_ancestors,
         :enabled,
         :partial,
+        :nav,
         :factory_taxon_id,
         :scene_id
       )

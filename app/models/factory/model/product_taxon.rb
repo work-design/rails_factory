@@ -7,7 +7,8 @@ module Factory
       attribute :position, :integer
       attribute :take_stock, :boolean, comment: '可盘点'
       attribute :enabled, :boolean, default: true
-      attribute :partial, :boolean, default: false
+      attribute :partial, :boolean, default: false, comment: '可作为配件'
+      attribute :nav, :boolean, default: false, comment: '单独分类'
       attribute :products_count, :integer, default: 0
       attribute :provides_count, :integer, default: 0
 
@@ -25,7 +26,8 @@ module Factory
       has_one_attached :logo
 
       default_scope -> { order(position: :asc) }
-      scope :enabled, -> { where(enabled: true)}
+      scope :enabled, -> { where(enabled: true, nav: false)}
+      scope :nav, -> { where(enabled: true, nav: true) }
 
       acts_as_list scope: :organ_id
     end
