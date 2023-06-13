@@ -25,6 +25,22 @@ module Factory
       end
     end
 
+    def nav
+      q_params = {}
+      q_params.merge! default_params
+      q_params.merge! params.permit(:product_taxon_id, 'name-like')
+
+      if @produce_plan
+        if @produce_plan.expired?
+          render 'expired'
+        else
+          @productions = @produce_plan.productions.includes(:organ, :parts, product: { logo_attachment: :blob }).default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+        end
+      else
+        @productions = Production.includes(:organ, :parts, product: { logo_attachment: :blob }).enabled.default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+      end
+    end
+
     def rent
       q_params = {
         'rent_charges_count-gt': 0

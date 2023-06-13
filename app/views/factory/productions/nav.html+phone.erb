@@ -1,0 +1,29 @@
+<% if params[:scene_id].present? || params[:produce_on].present? || params[:return_state].present? %>
+  <%= render 'top_bar' %>
+<% end %>
+
+<%= render 'station' if params[:station_id].present? || params[:desk_id].present? %>
+
+<%= render 'filter_form' %>
+<div
+  data-controller="page"
+  data-page-debug-value="true"
+  data-action="touchmove->page#move:passive"
+  class="weui-panel is-borderless weui-panel_access mt-0 weui-flex__item"
+  style="height: 100%"
+>
+  <div class="weui-panel__bd is-flex is-flex-direction-column is-flex-grow-1" style="height: 100%">
+    <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'trade/my/items' } %>
+    <% if @productions.blank? %>
+      <%= render 'blank' %>
+    <% elsif @productions.total_pages <= @productions.current_page %>
+      <%= render 'no_more' %>
+    <% elsif @productions.total_pages > @productions.current_page %>
+      <%= render 'loading' %>
+      <%= render 'tip' %>
+    <% end %>
+  </div>
+  <%= render 'paginator' %>
+</div>
+
+<%= render 'taxon' if @produce_plan %>
