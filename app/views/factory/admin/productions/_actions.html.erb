@@ -2,10 +2,6 @@
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit') %></span>
 <% end %>
-<%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { turbo_confirm: t('.confirm') }, class: 'has-text-danger', form: { class: 'weui-actionsheet__cell weui-actionsheet__cell_warn' }) do %>
-  <i class="fa-solid fa-trash"></i>
-  <span><%= t('.destroy') %></span>
-<% end %>
 <%= link_to({ controller: 'production_plans', production_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-list-timeline"></i>
   <span><%= t('factory.admin.production_plans.index.title') %></span>
