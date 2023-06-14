@@ -1,4 +1,4 @@
-<div style="background-color: #fefefe;height: 100%">
+<div class="weui-menu-sidebar">
 <div class="columns is-variable m-0 is-flex is-flex-direction-column is-sticky">
 <% @product_taxons.each do |product_taxon| %>
   <%= link_to({ product_taxon_id: product_taxon.id, **params.permit(:station_id, :desk_id) }, class: active_helper(product_taxon_id: product_taxon.id, item: 'column is-primary px-2', active: 'column is-primary px-2 has-background-white')) do %>

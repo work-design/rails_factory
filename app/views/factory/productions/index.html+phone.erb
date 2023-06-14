@@ -5,13 +5,13 @@
 <%= render 'station' if params[:station_id].present? || params[:desk_id].present? %>
 
 <%= render 'filter_form' %>
-<div class="weui-flex is-align-items-flex-start is-flex-grow-1" style="background: transparent">
+<div class="weui-menu">
   <%= render 'menu' unless @produce_plan %>
   <div
     data-controller="page"
     data-page-debug-value="true"
     data-action="touchmove->page#move:passive"
-    class="weui-panel is-borderless weui-panel_access mt-0 weui-flex__item"
+    class="weui-menu-content weui-flex__item"
     style="height: 100%; background: transparent"
   >
     <div class="weui-panel__bd is-flex is-flex-direction-column is-flex-grow-1" style="height: 100%; background: transparent">
