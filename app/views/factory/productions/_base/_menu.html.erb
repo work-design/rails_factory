@@ -1,3 +1,4 @@
+<div style="background-color: #fefefe;height: 100%">
 <div class="columns is-variable m-0 is-flex is-flex-direction-column is-sticky">
 <% @product_taxons.each do |product_taxon| %>
   <%= link_to({ product_taxon_id: product_taxon.id, **params.permit(:station_id, :desk_id) }, class: active_helper(product_taxon_id: product_taxon.id, item: 'column is-primary px-2', active: 'column is-primary px-2 has-background-white')) do %>
@@ -7,4 +8,5 @@
     <p class="<%= active_helper(product_taxon_id: product_taxon.id, item: 'weui-grid__label', active: 'weui-grid__label has-text-success') %>" style="width: 4em"><%= product_taxon.name %></p>
   <% end %>
 <% end %>
+</div>
 </div>
