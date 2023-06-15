@@ -36,7 +36,7 @@
       </div>
       <% else %>
         <div class="tags has-addons is-price control m-0">
-          <div class="tag is-light has-text-danger"><%= r[:price].to_money.format.html_safe %></div>
+          <div class="tag is-light"><%= r[:price].to_money.format.html_safe %></div>
           <div class="tag is-success"><%= r[:name] %></div>
         </div>
         <div class="has-block-space-between pb-1">
