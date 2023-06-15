@@ -1,0 +1,10 @@
+<div class="weui-panel is-box is-borderless has-border">
+  <div class="weui-panel__hd">
+    <span class="tag is-danger">全部商品</span>
+  </div>
+  <div class="weui-panel__bd">
+    <div class="columns is-mobile">
+      <%= render partial: 'menu_item_production', collection: Factory::Production.default_where(default_params).default.limit(5), as: :model %>
+    </div>
+  </div>
+</div>
