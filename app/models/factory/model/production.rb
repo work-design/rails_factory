@@ -104,7 +104,7 @@ module Factory
     end
 
     def card_price_human
-      codes = organ.card_templates.pluck(:code, :name).to_h
+      codes = organ.card_templates.load.pluck(:code, :name).to_h
       card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d } }
     end
 
