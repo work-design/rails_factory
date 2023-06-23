@@ -182,10 +182,10 @@ Rails.application.routes.draw do
       end
     end
   end
-  resolve 'Factory::Production', controller: 'productions' do |production, options|
+  resolve 'Factory::Production', controller: '/factory/productions' do |production, options|
     url_for(controller: 'factory/productions', action: 'show', id: production, **options)
   end
-  resolve 'Factory::ProxyProduction', controller: 'productions' do |production, options|
+  resolve 'Factory::ProxyProduction', controller: '/factory/productions' do |production, options|
     url_for(controller: 'factory/productions', action: 'show', id: production, **options)
   end
 
