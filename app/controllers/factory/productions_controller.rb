@@ -10,7 +10,9 @@ module Factory
     before_action :set_rent_cart, only: [:rent]
 
     def index
-      q_params = {}
+      q_params = {
+        product_taxon_id: ProductTaxon.default_where(default_params).where(nav: false).pluck(:id)
+      }
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, 'name-like')
 
