@@ -49,7 +49,7 @@ module Factory
       delegate :logo, to: :product
 
       scope :enabled, -> { where(enabled: true) }
-      scope :default, -> { where(default: true) }
+      scope :default, -> { where(default: true, enabled: true) }
       scope :automatic, -> { where(automatic: true) }
 
       validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true

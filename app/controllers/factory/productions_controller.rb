@@ -21,7 +21,7 @@ module Factory
           @productions = @produce_plan.productions.includes(:organ, :parts, product: { logo_attachment: :blob }).default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
         end
       else
-        @productions = Production.includes(:organ, :parts, product: { logo_attachment: :blob }).enabled.default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+        @productions = Production.includes(:organ, :parts, product: { logo_attachment: :blob }).default.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
       end
     end
 
