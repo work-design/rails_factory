@@ -17,19 +17,19 @@
 </td>
 <td>
   <p class="has-block-right">
-    <%= link_to({ action: 'cost', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }) do %>
-      <i class="fa-solid fa-sm fa-tags has-text-grey"></i>
-    <% end %>
     <span><%= model.cost_price.to_money.format.html_safe %></span>
+    <%= link_to({ action: 'cost', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }) do %>
+      <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
+    <% end %>
   </p>
   <p class="has-block-right">
-    <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
-      <i class="fa-solid fa-sm fa-tags has-text-grey"></i>
-    <% end %>
     <span><%= model.profit_price.to_money.format.html_safe %></span>
+    <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
+      <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
+    <% end %>
   </p>
   <p class="has-block-right has-text-danger">
-    <span><%= model.price.to_money.format.html_safe %></span>
+    <span class="mr-5"><%= model.price.to_money.format.html_safe %></span>
   </p>
 </td>
 <td>
