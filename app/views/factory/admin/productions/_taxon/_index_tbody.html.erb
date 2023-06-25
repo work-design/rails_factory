@@ -20,13 +20,13 @@
 <td>
   <p class="has-block-right">
     <span><%= model.cost_price.to_money.format.html_safe %></span>
-    <%= link_to({ action: 'cost', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }) do %>
+    <%= link_to({ action: 'cost', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, style: 'visibility: hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
     <% end %>
   </p>
   <p class="has-block-right">
     <span><%= model.profit_price.to_money.format.html_safe %></span>
-    <%= link_to({ action: 'price', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }) do %>
+    <%= link_to({ action: 'price', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, style: 'visibility: hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
     <% end %>
   </p>
