@@ -17,10 +17,6 @@ module Factory
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
     end
 
-    def productions
-      @productions = @product_taxon.productions.default.page(params[:page])
-    end
-
     private
     def set_product_taxon
       @product_taxon = ProductTaxon.find(params[:id])

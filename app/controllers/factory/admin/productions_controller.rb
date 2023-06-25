@@ -1,11 +1,12 @@
 module Factory
   class Admin::ProductionsController < Admin::BaseController
-    before_action :set_product
+    before_action :set_product, except: [:taxon]
     before_action :set_production, only: [
       :show, :edit, :update, :destroy, :actions,
       :part, :price, :cost, :card, :update_card
     ]
     before_action :set_new_production, only: [:new, :create]
+    before_action :set_product_taxon, only: [:taxon]
 
     def index
       q_params = {}
@@ -13,6 +14,10 @@ module Factory
       q_params.merge! params.permit(:product_plan_id)
 
       @productions = @product.productions.default_where(q_params).order(id: :asc).page(params[:page])
+    end
+
+    def taxon
+      @productions = @product_taxon.productions.default.page(params[:page])
     end
 
     def detect

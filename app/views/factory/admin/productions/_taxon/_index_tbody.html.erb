@@ -39,17 +39,17 @@
   </div>
 </td>
 <td>
-  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id, product_id: model.product_id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :default, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
     <label data-action="click->input#check"></label>
   <% end %>
 </td>
 <td>
-  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id, product_id: model.product_id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
     <label data-action="click->input#check"></label>
   <% end %>
-  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+  <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id, product_id: model.product_id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :automatic, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
     <label data-action="click->input#check"></label>
   <% end %>

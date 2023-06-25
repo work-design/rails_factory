@@ -2,7 +2,7 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
-      <%= link_to({ action: 'productions', id: model.id }, aria: { label: t('factory.admin.product_taxons.productions.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: model.id }, aria: { label: t('factory.admin.productions.taxon.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-list has-text-primary"></i>
       <% end %>
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>

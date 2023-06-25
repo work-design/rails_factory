@@ -77,7 +77,6 @@ Rails.application.routes.draw do
         resources :product_taxons do
           member do
             patch :reorder
-            get :productions
           end
           resources :products do
             member do
@@ -113,6 +112,9 @@ Rails.application.routes.draw do
           resources :fits
         end
         resources :productions, only: [] do
+          collection do
+            get 'taxon/:product_taxon_id' => :taxon
+          end
           resources :addresses
           resources :trade_items do
             member do
