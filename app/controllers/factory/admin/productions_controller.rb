@@ -17,7 +17,7 @@ module Factory
     end
 
     def taxon
-      @productions = @product_taxon.productions.default.page(params[:page])
+      @productions = @product_taxon.productions.includes(:product).default.order(id: :asc).page(params[:page])
     end
 
     def detect
