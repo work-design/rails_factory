@@ -149,7 +149,7 @@ module Factory
 
     def set_station
       if params[:desk_id]
-        @station = Space::Desk.find params[:desk_id]
+        @desk = Space::Desk.find params[:desk_id]
       elsif params[:station_id]
         @station = Space::Station.find params[:station_id]
       end
