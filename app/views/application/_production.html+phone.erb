@@ -19,7 +19,7 @@
     <% r = model.card_price_min(@cart) %>
     <% if r.present? %>
       <% if r[:checked] %>
-      <p><span class="has-text-grey"><%= model.price.to_money.format.html_safe %></span></p>
+      <p style="padding-left: 4px"><span class="has-text-grey"><%= model.price.to_money.format.html_safe %></span></p>
       <div class="has-block-space-between pb-1">
         <div class="has-inline-centered">
           <div class="tags has-addons is-price control m-0">
