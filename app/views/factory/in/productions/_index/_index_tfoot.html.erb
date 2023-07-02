@@ -3,8 +3,8 @@
     <th colspan="3"></th>
     <th><%= @cart.amount.to_money.format.html_safe %></th>
     <th class="has-text-centered">
-      <%= link_to({ controller: 'orders', action: 'new', current_cart_id: @cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
-        <i class="fa-regular fa-credit-card"></i>
+      <%= link_to({ controller: 'trade/in/orders', action: 'new', current_cart_id: @cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
+        <i class="fa-solid fa-credit-card"></i>
         <span class="pl-1"><%= t('factory.in.orders.new.title') %></span>
       <% end %>
     </th>
