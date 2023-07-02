@@ -9,7 +9,7 @@
       <i class="fa-solid fa-xl fa-circle-minus has-text-grey"></i>
     <% end %>
   <% end if item.number > 1 %>
-  <%= button_to({ controller: 'trade/in/items', action: 'destroy', id: item.id }, method: :delete, state: 'redirect_return', class: 'mr-1') do %>
+  <%= button_to({ controller: 'trade/in/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart.id }, state: 'redirect_return', class: 'mr-1') do %>
     <i class="fa-solid fa-xl fa-circle-minus has-text-grey"></i>
   <% end if item.number <= 1 %>
   <%= form_with theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input' }, class: 'ml-1' do |f| %>
@@ -33,6 +33,6 @@
   <%= f.hidden_field :produce_on, value: params[:produce_on] %>
   <%= f.hidden_field :scene_id, value: params[:scene_id] %>
   <%= button_tag do %>
-    <i class="fa-solid fa-circle-plus fa-xl has-text-grey"></i>
+    <i class="fa-solid fa-xl fa-circle-plus has-text-grey"></i>
   <% end %>
 <% end unless item %>
