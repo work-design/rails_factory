@@ -17,7 +17,7 @@
       <% end %>
     </ul>
     <% r = model.card_price_min(@cart) %>
-    <% if r.present? %>
+    <% if r.present? && !model.presell %>
       <% if r[:checked] %>
       <p style="padding-left: 4px"><span class="has-text-grey"><%= model.price.to_money.format.html_safe %></span></p>
       <div class="has-block-space-between pb-1">
@@ -46,7 +46,7 @@
           </div>
         </div>
       <% end %>
-    <% else %>
+    <% elsif !model.presell %>
       <div class="has-block-space-between py-1">
         <div class="has-inline-centered">
           <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>

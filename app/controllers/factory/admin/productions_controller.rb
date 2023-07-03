@@ -66,6 +66,7 @@ module Factory
         :cost_price,
         :profit_price,
         :default,
+        :presell,
         :ordered_at,
         :enabled,
         :automatic,

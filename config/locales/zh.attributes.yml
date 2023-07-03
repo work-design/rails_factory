@@ -21,6 +21,7 @@ zh:
         price: 售价
         card_price: 会员价
         default: 主显产品
+        presell: 预售
         enabled: 上架
         automatic: 自动上架
       factory/part:
