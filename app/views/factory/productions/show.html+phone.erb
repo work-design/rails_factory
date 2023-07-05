@@ -12,6 +12,7 @@
 <div class="weui-panel is-box" style="z-index: 3">
   <div class="weui-panel__hd">
     <div><%= @production.name %></div>
+    <% unless @production.presell %>
     <div class="has-inline-centered mt-1">
       <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
       <% @production.card_price_all(@cart).each do |k, v| %>
@@ -28,6 +29,7 @@
       </div>
       <% end %>
     </div>
+    <% end %>
   </div>
   <div class="weui-panel__bd p-4">
     <% if @production.is_a?(Factory::ProxyProduction) && @production.upstream %>
