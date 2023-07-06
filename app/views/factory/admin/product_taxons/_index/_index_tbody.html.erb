@@ -8,23 +8,23 @@
 <td><%= model.scene&.title %></td>
 <td>
   <p data-show-target="item" style="visibility: hidden">
-    <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'tag') do %>
-      <i class="fa-solid fa-cubes has-text-success"></i>
+    <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'tag is-primary') do %>
+      <i class="fa-solid fa-cubes"></i>
       <span class="pl-1"><%= model.products_count %></span>
     <% end %>
   </p>
   <p data-show-target="item" style="visibility: hidden">
-    <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-list has-text-primary"></i>
-      <span><%= t('factory.admin.productions.taxon.title') %></span>
+    <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: model.id }, class: 'tag is-info') do %>
+      <i class="fa-solid fa-list"></i>
+      <span class="pl-1"><%= t('factory.admin.productions.taxon.title') %></span>
     <% end %>
   </p>
 </td>
 <td>
   <p data-show-target="item" style="visibility: hidden">
-    <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, class: 'button is-small is-rounded is-success') do %>
+    <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, class: 'tag is-success') do %>
       <i class="fa-solid fa-sign-in-alt"></i>
-      <span><%= t('factory.in.product_taxons.import.title') %></span>
+      <span class="pl-1"><%= t('factory.in.product_taxons.import.title') %></span>
     <% end %>
   </p>
   <p data-show-target="item" style="visibility: hidden">
