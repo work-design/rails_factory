@@ -3,6 +3,6 @@
     <span class="tag is-danger">全部商品</span>
   </div>
   <div class="weui-panel__bd">
-    <%= render partial: 'production', collection: Factory::Production.default_where(default_params).default.limit(5), as: :model, locals: { item_con: 'trade/my/items' } %>
+    <%= render partial: 'production', collection: Factory::Production.default_where(default_params).list.limit(5), as: :model, locals: { item_con: 'trade/my/items' } %>
   </div>
 </div>

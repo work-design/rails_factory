@@ -4,7 +4,7 @@
   </div>
   <div class="weui-panel__bd">
     <div class="columns is-mobile">
-      <%= render partial: 'menu_item_production', collection: Factory::Production.default_where(default_params).default.limit(3), as: :model %>
+      <%= render partial: 'menu_item_production', collection: Factory::Production.default_where(default_params).list.limit(3), as: :model %>
     </div>
   </div>
 </div>
