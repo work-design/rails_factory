@@ -7,17 +7,32 @@
 </td>
 <td><%= model.scene&.title %></td>
 <td>
-  <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'tag') do %>
-    <i class="fa-solid fa-cubes has-text-success"></i>
-    <span class="pl-1"><%= model.products_count %></span>
-  <% end %>
-  <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, aria: { label: t('factory.in.product_taxons.import.title') }, class: 'tag is-success') do %>
-    <i class="fa-solid fa-sign-in-alt"></i>
-  <% end %>
-  <%= link_to({ controller: 'in/provides', product_taxon_id: model.id }, aria: { label: t('factory.in.provides.index.title') }, class: 'tag is-link') do %>
-    <i class="fa-solid fa-building"></i>
-    <span class="pl-1"><%= model.provides_count %></span>
-  <% end %>
+  <p data-show-target="item" style="visibility: hidden">
+    <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'tag') do %>
+      <i class="fa-solid fa-cubes has-text-success"></i>
+      <span class="pl-1"><%= model.products_count %></span>
+    <% end %>
+  </p>
+  <p data-show-target="item" style="visibility: hidden">
+    <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fa-solid fa-list has-text-primary"></i>
+      <span><%= t('factory.admin.productions.taxon.title') %></span>
+    <% end %>
+  </p>
+</td>
+<td>
+  <p data-show-target="item" style="visibility: hidden">
+    <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, class: 'button is-small is-rounded is-success') do %>
+      <i class="fa-solid fa-sign-in-alt"></i>
+      <span><%= t('factory.in.product_taxons.import.title') %></span>
+    <% end %>
+  </p>
+  <p data-show-target="item" style="visibility: hidden">
+    <%= link_to({ controller: 'in/provides', product_taxon_id: model.id }, aria: { label: t('factory.in.provides.index.title') }, class: 'tag is-link') do %>
+      <i class="fa-solid fa-building"></i>
+      <span class="pl-1"><%= model.provides_count %></span>
+    <% end %>
+  </p>
 </td>
 <th>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
