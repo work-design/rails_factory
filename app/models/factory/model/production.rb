@@ -65,7 +65,7 @@ module Factory
     end
 
     def init_name
-      self.name ||= product&.name
+      self.name = product&.name
     end
 
     def init_logo
