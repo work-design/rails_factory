@@ -73,7 +73,7 @@ module Factory
     end
 
     def name
-      super.include?(product.name) ? super : "#{product.name} #{name}"
+      attributes['name'].include?(product.name) ? attributes['name'] : "#{product.name} #{attributes['name']}"
     end
 
     def title
