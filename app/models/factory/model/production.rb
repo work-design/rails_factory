@@ -72,6 +72,10 @@ module Factory
       self.logo.attach product.logo_blob
     end
 
+    def name
+      super.include?(product.name) ? super : "#{product.name} #{name}"
+    end
+
     def title
       parts.pluck(:name).join(',')
     end
