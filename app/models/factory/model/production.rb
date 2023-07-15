@@ -14,6 +14,7 @@ module Factory
       attribute :enabled, :boolean, default: false
       attribute :automatic, :boolean, default: false
       attribute :presell, :boolean, default: false
+      attribute :link, :string
       attribute :position, :integer
 
       enum state: {

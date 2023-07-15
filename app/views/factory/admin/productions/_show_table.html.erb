@@ -18,3 +18,7 @@
   <td class="has-text-right"><%= Factory::Production.human_attribute_name(:price) %></td>
   <td><%= @production.price.to_money.format.html_safe %></td>
 </tr>
+<tr>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:link) %></td>
+  <td><%= @production.link %></td>
+</tr>

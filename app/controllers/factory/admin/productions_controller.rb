@@ -70,6 +70,7 @@ module Factory
         :ordered_at,
         :enabled,
         :automatic,
+        :link,
         part_ids: []
       )
     end
