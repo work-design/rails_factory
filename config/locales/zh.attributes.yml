@@ -8,6 +8,9 @@ zh:
         product_taxon_id: 商品分类
         qr_prefix: 二维码前缀
         product_part_taxons: 分类
+        logo: 主图
+        covers: 橱窗轮播图
+        images: 商品描述图
       factory/product_host:
         profit_margin: 利润率
         min_price: 最低价

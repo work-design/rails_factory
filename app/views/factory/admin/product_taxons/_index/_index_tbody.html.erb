@@ -6,28 +6,27 @@
   </div>
 </td>
 <td><%= model.scene&.title %></td>
+<td><%= model.products_count %></td>
 <td>
-  <p data-show-target="item" style="visibility: hidden">
+  <p>
     <%= link_to({ controller: 'products', product_taxon_id: model.id }, class: 'tag is-primary') do %>
       <i class="fa-solid fa-cubes"></i>
-      <span class="pl-1"><%= model.products_count %></span>
+      <span class="pl-1"><%= t('factory.admin.products.index.title') %></span>
     <% end %>
   </p>
-  <p data-show-target="item" style="visibility: hidden">
+  <p>
     <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: model.id }, class: 'tag is-info') do %>
       <i class="fa-solid fa-list"></i>
       <span class="pl-1"><%= t('factory.admin.productions.taxon.title') %></span>
     <% end %>
   </p>
-</td>
-<td>
-  <p data-show-target="item" style="visibility: hidden">
+  <p>
     <%= link_to({ controller: 'in/product_taxons', action: 'import', id: model.id }, class: 'tag is-success') do %>
       <i class="fa-solid fa-sign-in-alt"></i>
       <span class="pl-1"><%= t('factory.in.product_taxons.import.title') %></span>
     <% end %>
   </p>
-  <p data-show-target="item" style="visibility: hidden">
+  <p>
     <%= link_to({ controller: 'in/provides', product_taxon_id: model.id }, aria: { label: t('factory.in.provides.index.title') }, class: 'tag is-link') do %>
       <i class="fa-solid fa-building"></i>
       <span class="pl-1"><%= model.provides_count %></span>
