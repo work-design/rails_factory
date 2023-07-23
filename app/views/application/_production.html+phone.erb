@@ -4,7 +4,8 @@
   <% end %>
   <div class="weui-media-box__bd as-body">
     <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__title') do %>
-      <%= model.name %>
+      <% if model.product.brand %><span class="tag is-danger"><%= model.product.brand&.name %></span><% end %>
+      <span><%= model.name %></span>
     <% end %>
     <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__desc pt-1') do %>
       <%= model.product.description %>
