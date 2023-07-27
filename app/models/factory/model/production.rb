@@ -65,19 +65,19 @@ module Factory
     end
 
     def init_name
-      self.name = product&.name
+      self.name ||= product.name
     end
 
     def init_logo
       self.logo.attach product.logo_blob
     end
 
-    def name
-      attributes['name'].include?(product.name) ? attributes['name'] : "#{product.name} #{attributes['name']}"
-    end
-
     def title
-      parts.pluck(:name).join(',')
+      if parts.present?
+        parts.pluck(:name).join(',')
+      else
+        name.include?(product.name) ? name : "#{product.name} #{name}"
+      end
     end
 
     def order_part_ids
