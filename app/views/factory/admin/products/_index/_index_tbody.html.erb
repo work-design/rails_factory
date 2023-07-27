@@ -10,6 +10,7 @@
       </span>
     <% end %>
   </div>
+  <p class="has-text-grey"><%= model.description.truncate(27) %></p>
 </td>
 <td>
   <p><%= model.brand&.name %></p>
