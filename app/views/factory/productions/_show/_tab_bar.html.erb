@@ -1,7 +1,4 @@
 <div class="has-block-space-around has-background-grey-lighter is-safe-bottom m-0 py-3" style="z-index: 500">
-  <div class="is-flex is-justify-content-center is-align-items-center">
-    <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items' } %>
-  </div>
   <div
     class="button is-small is-light is-radius"
     data-controller="mask wx-share"
@@ -15,10 +12,17 @@
     <%= image_tag 'wx_moment.svg', class: 'image is-16x16' %>
     <span class="pl-1">分享</span>
   </div>
-  <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
-    <span class="pr-1"><%= t('trade.my.carts.show.title') %></span>
-    <i class="fa-solid fa-angle-right"></i>
-  <% end if @cart %>
+  <% if @cart %>
+  <div>
+    <div class="has-inline-centered">
+      <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items' } %>
+    </div>
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
+      <span class="pr-1"><%= t('trade.my.carts.show.title') %></span>
+      <i class="fa-solid fa-angle-right"></i>
+    <% end %>
+  </div>
+  <% end %>
 </div>
 <div
   data-controller="mask"
