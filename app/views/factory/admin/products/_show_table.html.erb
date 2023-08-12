@@ -8,7 +8,7 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::Product.human_attribute_name(:description) %></td>
-  <td><%= @product.description %></td>
+  <td><%= simple_format @product.description %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::Product.human_attribute_name(:covers) %></td>
