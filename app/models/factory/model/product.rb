@@ -19,8 +19,8 @@ module Factory
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       belongs_to :unifier, optional: true
-      belongs_to :product_taxon, counter_cache: true, optional: true
       belongs_to :factory_taxon, optional: true
+      belongs_to :product_taxon, counter_cache: true, optional: true
       belongs_to :brand, counter_cache: true, optional: true
       belongs_to :upstream, class_name: 'Product', optional: true  # 对应供应链产品
 
