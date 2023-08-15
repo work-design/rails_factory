@@ -61,6 +61,7 @@ module Factory
       before_validation :sync_from_product, if: -> { product_id_changed? }
       before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
+      after_update :set_enabled, if: -> { saved_change_to_enabled? }
       #after_save :compute_min_max_price, if: -> { saved_change_to_price? }
     end
 
@@ -96,10 +97,6 @@ module Factory
 
     def disabled?(part)
       same_production_parts.where.not(production_id: self.id).where(part_id: part_ids - [part.id]).blank?
-    end
-
-    def set_default
-      self.class.where.not(id: self.id).where(product_id: self.product_id).update_all(default: false)
     end
 
     def default_profit_price
@@ -143,6 +140,18 @@ module Factory
     def sync_from_product
       self.product_taxon_id = product.product_taxon_id
       self.organ_id = product.organ_id
+    end
+
+    def set_default
+      self.class.where.not(id: self.id).where(product_id: self.product_id).update_all(default: false)
+    end
+
+    def set_enabled
+      if enabled
+        organ.update enabled: true
+      else
+        organ.update enabled: self.class.where(organ_id: organ_id).exists?(enabled: true)
+      end
     end
 
   end

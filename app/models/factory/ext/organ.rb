@@ -3,6 +3,8 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :production_enabled, :boolean
+
       has_many :factory_providers, class_name: 'Factory::FactoryProvider', foreign_key: :provider_id, dependent: :destroy_async
       has_many :provides, class_name: 'Factory::Provide', dependent: :destroy_async
       has_many :providers, through: :provides
