@@ -3,9 +3,6 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :productions_count, :integer, default: 0
-
-      has_many :productions, class_name: 'Factory::Production'
       has_many :factory_providers, class_name: 'Factory::FactoryProvider', foreign_key: :provider_id, dependent: :destroy_async
       has_many :provides, class_name: 'Factory::Provide', dependent: :destroy_async
       has_many :providers, through: :provides
