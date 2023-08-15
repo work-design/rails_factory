@@ -148,9 +148,9 @@ module Factory
 
     def set_enabled
       if enabled
-        organ.update enabled: true
+        organ.update production_enabled: true
       else
-        organ.update enabled: self.class.where(organ_id: organ_id).exists?(enabled: true)
+        organ.update production_enabled: self.class.where(organ_id: organ_id).exists?(enabled: true)
       end
     end
 
