@@ -23,7 +23,7 @@ module Factory
         producing: 'producing'
       }, _default: 'init'
 
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
+      belongs_to :organ, class_name: 'Org::Organ', counter_cache: true, optional: true
 
       belongs_to :product, counter_cache: true
       belongs_to :product_host, optional: true
