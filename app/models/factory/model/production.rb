@@ -13,7 +13,7 @@ module Factory
       attribute :default, :boolean, default: false
       attribute :enabled, :boolean, default: false
       attribute :automatic, :boolean, default: false
-      attribute :presell, :boolean, default: false
+      attribute :presell, :boolean, default: false, comment: '预售'
       attribute :link, :string
       attribute :position, :integer
 
