@@ -5,7 +5,7 @@
     <%= f.hidden_field :came_at, value: Time.current.to_s(:local) %>
     <%= f.submit '新增', class: 'button is-info' %>
   <% end %>
-  <%= form_with theme: nil, scope: nil, model: @production_item, url: { action: 'batch' }, class: 'ml-2' do |f| %>
+  <%= form_with theme: nil, scope: '', model: @production_item, url: { action: 'batch' }, class: 'ml-2' do |f| %>
     <%= f.hidden_field :production_plan_id, value: params[:production_plan_id] %>
     <%= f.submit '批量新增', class: 'button is-info' %>
   <% end %>
