@@ -72,6 +72,9 @@ zh:
           title: 发货
         print:
           title: 打印
+      production_plan_items:
+        index:
+          title: 产品清单
       parts:
         index:
           title: 配件/零件/原料
