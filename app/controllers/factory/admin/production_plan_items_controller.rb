@@ -19,6 +19,14 @@ module Factory
       @production_plan.save
     end
 
+    def create
+      if @production_item.save
+        render :create, status: :created
+      else
+        render :new, locals: { model: @production_item }, status: :unprocessable_entity
+      end
+    end
+
     def delivery
       q_params = {}
       q_params.merge! params.permit(:state)
