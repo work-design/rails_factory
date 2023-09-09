@@ -3,10 +3,10 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :product_taxon, counter_cache: true
-
       belongs_to :organ, class_name: 'Org::Organ'
       belongs_to :provider, class_name: 'Org::Organ'
+
+      belongs_to :product_taxon, counter_cache: true, optional: true
 
       validates :provider_id, uniqueness: { scope: :product_taxon_id }
 
