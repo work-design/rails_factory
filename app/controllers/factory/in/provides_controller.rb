@@ -10,13 +10,6 @@ module Factory
       @providers = @product_taxon.factory_taxon.providers.where.not(id: except_ids).page(params[:page])
     end
 
-    def add
-      @provider = Org::Organ.find params[:provider_id]
-      @provide = current_organ.provides.build(provider_id: params[:provider_id])
-      @provide.product_taxon = @product_taxon
-      @provide.save
-    end
-
     def search
       @organs = Org::Organ.where.not(id: @product_taxon.provides.pluck(:provider_id)).default_where('name-like': params['name-like'])
     end
