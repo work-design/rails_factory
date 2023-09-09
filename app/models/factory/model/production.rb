@@ -66,11 +66,11 @@ module Factory
     end
 
     def init_name
-      self.name ||= product.name
+      self.name ||= product&.name
     end
 
     def init_logo
-      self.logo.attach product.logo_blob
+      self.logo.attach product.logo_blob if product
     end
 
     def title
