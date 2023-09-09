@@ -2,22 +2,14 @@ module Factory
   class Admin::ProductionPlansController < Admin::BaseController
     before_action :set_production
     before_action :set_production_plan, only: [:show, :edit, :update, :destroy]
+    before_action :set_new_production_plan, only: [:new, :create]
     before_action :prepare_form, only: [:new, :edit]
 
     def index
-      @production_plans = @production.production_plans.order(id: :desc).page(params[:page])
-    end
+      q_params = {}
+      q_params.merge! params.permit('start_at-gte', 'start_at-lte', 'produce_on-gte', 'produce_on-lte')
 
-    def new
-      @production_plan = @production.production_plans.build
-    end
-
-    def create
-      @production_plan = @production.production_plans.build(production_plan_params)
-
-      unless @production_plan.save
-        render :new, locals: { model: @production_plan }, status: :unprocessable_entity
-      end
+      @production_plans = @production.production_plans.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     private
@@ -27,6 +19,10 @@ module Factory
 
     def set_production_plan
       @production_plan = @production.production_plans.find(params[:id])
+    end
+
+    def set_new_production_plan
+      @production_plan = @production.production_plans.build(production_plan_params)
     end
 
     def prepare_form
