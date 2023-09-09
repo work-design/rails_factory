@@ -4,10 +4,10 @@
     <span><%= model.name %></span>
   </div>
 </td>
+<td></td>
 <td>
   <%= button_to({ action: 'add', provider_id: model.id }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-plus has-text-success"></i>
     <span class="pl-1"><%= t('factory.in.provides.add.title') %></span>
   <% end %>
 </td>
-<td></td>
