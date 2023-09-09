@@ -1,7 +1,7 @@
-<%= form_with theme: 'search' do |f| %>
+<%= form_with theme: 'search', data: { controller: 'input' } do |f| %>
   <div class="field-body">
-    <%= f.date_field 'produce_on-gte' %>
-    <%= f.date_field 'produce_on-lte' %>
+    <%= f.date_field 'produce_on-gte', data: { action: 'input#filter' } %>
+    <%= f.date_field 'produce_on-lte', data: { action: 'input#filter' } %>
     <div class="field is-narrow">
       <%= f.submit %>
       <%= link_to t('.clear'), filter_params(except: ['start_at-gte', 'produce_on-gte', 'produce_on-lte']), class: 'button is-light' %>
