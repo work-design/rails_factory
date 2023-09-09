@@ -126,7 +126,13 @@ Rails.application.routes.draw do
               post :search
             end
           end
-          resources :production_plans
+          resources :production_plans do
+            resources :production_plan_items, path: 'items', only: [:index, :create] do
+              collection do
+                post :batch
+              end
+            end
+          end
           resources :production_items do
             collection do
               post :batch

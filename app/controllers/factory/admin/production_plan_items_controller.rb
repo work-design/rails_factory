@@ -1,21 +1,22 @@
 module Factory
-  class Admin::ProductionItemsController < Admin::BaseController
+  class Admin::ProductionPlanItemsController < Admin::ProductionItemsController
     before_action :set_production
+    before_action :set_production_plan
     before_action :set_production_item, only: [:show, :edit, :update, :destroy, :update_delivery, :pdf, :print, :print_data]
     before_action :set_new_production_item, only: [:index, :new, :create]
 
     def index
       q_params = {}
-      q_params.merge! params.permit('came_at-gte', 'came_at-lte')
+      q_params.merge! 'came_at-gte': @production_plan.start_at, 'came_at-lte': @production_plan.finish_at
 
       @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def batch
-      10.times do
-        @production.production_items.build
+      (@production_plan.planned_count - @production_plan.production_items_count).times do
+        @production_plan.production_items.build
       end
-      @production.save
+      @production_plan.save
     end
 
     def delivery
@@ -53,7 +54,7 @@ module Factory
     end
 
     def set_new_production_item
-      @production_item = @production.production_items.build(production_item_params)
+      @production_item = @production_plan.production_items.build(production_item_params)
     end
 
     def set_production_item
