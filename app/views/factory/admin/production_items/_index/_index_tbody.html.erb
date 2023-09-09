@@ -1,3 +1,3 @@
 <td class="has-text-mono"><%= model.code %></td>
 <td><%= model.state_i18n %></td>
-<td><time data-controller="time"><%= model.came_at&.to_fs(:iso8601) %></time></td>
+<td><time data-controller="time" data-format="human"><%= model.came_at&.to_fs(:iso8601) %></time></td>
