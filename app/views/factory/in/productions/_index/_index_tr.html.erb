@@ -1,11 +1,5 @@
 <tr id="tr_<%= model.id %>" data-controller="tree-remote show" data-tree-remote-target="item" data-action="mouseenter->show#show mouseleave->show#hide">
   <%= yield %>
-  <td>
-    <div data-show-target="item" style="visibility: hidden">
-      <%= link_to({ action: 'show', id: model.id }, aria: { label: t('.show') }, data: { turbo_frame: 'modal' }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-circle-info has-text-info"></i>
-      <% end %>
-    </div>
-  </td>
+  <td></td>
 </tr>
 

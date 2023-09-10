@@ -12,10 +12,10 @@ module Factory
       @payment = Trade::Payment.new(organ_id: params[:organ_id], type: params[:type])
       @payment.seller_identifier = current_wechat_app&.appid
 
-      member_orders = current_organ.member_orders.where(organ_id: params[:organ_id]).unpaid
-      @payment.total_amount = member_orders.sum(:amount)
+      organ_orders = current_organ.organ_orders.where(organ_id: params[:organ_id]).unpaid
+      @payment.total_amount = organ_orders.sum(:amount)
 
-      member_orders.each do |order|
+      organ_orders.each do |order|
         @payment.payment_orders.build(order_id: order.id, check_amount: order.unreceived_amount)
       end
 

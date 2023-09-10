@@ -1,0 +1,11 @@
+<table class="table as-search">
+  <tr>
+    <th><%= Factory::Product.human_attribute_name(:organ_id) %></th>
+    <td>
+      <%= link_to t('.all'), filter_params(except: [:organ_id]), class: active_helper(organ_id: '', active: 'button is-info', item: 'button is-light') %>
+      <% @product_taxon.providers.each do |provider| %>
+        <%= link_to provider.name, filter_params(organ_id: provider.id, except: [:id]), class: active_helper(organ_id: provider.id, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
+    </td>
+  </tr>
+</table>
