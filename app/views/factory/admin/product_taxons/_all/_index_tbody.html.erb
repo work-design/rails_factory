@@ -1,0 +1,21 @@
+<td>
+  <div class="is-several">
+    <i class="fa-solid fa-fw fa-bars has-text-grey is-drawable"></i>
+    <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
+    <span><%= model.name %></span>
+  </div>
+</td>
+<td><%= model.scene&.title %></td>
+<td><%= model.products_count %></td>
+<th>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :nav, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</th>
+<th>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :partial, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</th>
