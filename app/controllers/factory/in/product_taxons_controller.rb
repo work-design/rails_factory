@@ -30,7 +30,7 @@ module Factory
     end
 
     def prune
-      production = @production.downstreams.find_by(organ_id: current_organ.id)
+      production = @production.downstream_provides.find_by(organ_id: current_organ.id)
       production.destroy
     end
 

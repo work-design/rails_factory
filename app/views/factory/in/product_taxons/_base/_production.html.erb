@@ -18,7 +18,7 @@
   <td>
     <% if @imported_production_ids.include?(model.id) %>
       <i class="fa-solid fa-check has-text-success"></i>
-      <%= button_to({ action: 'prune', production_id: model.id }, method: :delete, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'prune' }, method: :delete, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-times has-text-danger"></i>
       <% end %>
     <% else %>
