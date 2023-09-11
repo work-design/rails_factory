@@ -125,7 +125,7 @@ zh:
         index:
           title: 进货
         import:
-          title: 进货
+          title: 从供应商上架
         productions:
           provide: 进货
         copy:
