@@ -3,4 +3,5 @@
     <%= render partial: 'taxon_tbody', locals: { taxon: taxon, size: product_taxons.size + 1 } if taxon %>
     <%= render partial: 'index_tbody', layout: 'index_tr', collection: product_taxons, as: :model %>
   <% end %>
+  <%= render partial: 'factory_tbody', layout: 'factory_tr', collection: @factory_taxons, as: :model %>
 <% end %>
