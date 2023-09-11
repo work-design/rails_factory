@@ -3,13 +3,11 @@ module RailsFactory
   class Engine < ::Rails::Engine
 
     config.autoload_paths += Dir[
-      "#{config.root}/app/models/brand",
-      "#{config.root}/app/models/production"
+      "#{config.root}/app/models/brand"
     ]
 
     config.eager_load_paths += Dir[
-      "#{config.root}/app/models/brand",
-      "#{config.root}/app/models/production"
+      "#{config.root}/app/models/brand"
     ]
 
     config.generators do |g|

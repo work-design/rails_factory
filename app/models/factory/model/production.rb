@@ -3,7 +3,6 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :type, :string
       attribute :name, :string
       attribute :qr_code, :string
       attribute :price, :decimal, default: 0
@@ -32,7 +31,6 @@ module Factory
 
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
-      has_many :downstreams, class_name: 'ProxyProduction', foreign_key: :upstream_id
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
 
@@ -71,6 +69,12 @@ module Factory
 
     def init_logo
       self.logo.attach product.logo_blob if product
+    end
+
+    def sync_from_upstream(upstream)
+      self.name = upstream.name
+      self.cost_price = upstream.price
+      self.provider_id = upstream.organ_id
     end
 
     def title
