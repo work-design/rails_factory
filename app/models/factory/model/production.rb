@@ -38,12 +38,13 @@ module Factory
       has_many :parts, -> { order(id: :asc) }, through: :production_parts
       has_many :part_taxons, -> { order(id: :asc) }, through: :production_parts
 
+      has_many :brothers, class_name: self.name, primary_key: :product_id, foreign_key: :product_id
       has_many :same_production_parts, class_name: 'ProductionPart', primary_key: :product_id, foreign_key: :product_id
       has_many :same_productions, -> { distinct }, through: :same_production_parts, source: :production
       has_many :same_parts, -> { distinct }, through: :same_production_parts, source: :part
       has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
 
-      has_many :brothers, class_name: self.name, primary_key: :product_id, foreign_key: :product_id
+      has_many :production_provides
 
       #has_one_attached :logo
       delegate :logo, to: :product
@@ -74,7 +75,8 @@ module Factory
     def sync_from_upstream(upstream)
       self.name = upstream.name
       self.cost_price = upstream.price
-      self.provider_id = upstream.organ_id
+
+      production_provides.find_or_initialize_by(provider_id: upstream.organ_id)
     end
 
     def title

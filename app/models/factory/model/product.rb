@@ -3,7 +3,6 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :type, :string
       attribute :name, :string
       attribute :description, :string
       attribute :qr_prefix, :string
@@ -22,12 +21,9 @@ module Factory
       belongs_to :factory_taxon, optional: true
       belongs_to :product_taxon, counter_cache: true, optional: true
       belongs_to :brand, counter_cache: true, optional: true
-      belongs_to :upstream, class_name: 'Product', optional: true  # 对应供应链产品
 
       has_one :production, -> { where(default: true) }
-      has_many :downstreams, class_name: self.name, foreign_key: :upstream_id
       has_many :productions, dependent: :destroy_async
-      has_many :proxy_productions, dependent: :destroy_async
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
       has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
@@ -54,9 +50,9 @@ module Factory
       after_save_commit :sync_position_later, if: -> { saved_change_to_position? }
     end
 
-    def sync_from_upstream
-      self.name = upstream&.name
-      self.logo.attach upstream&.logo_blob
+    def sync_from_upstream(upstream)
+      self.name = upstream.name
+      self.logo.attach upstream.logo_blob
     end
 
     def sync_from_product_taxon

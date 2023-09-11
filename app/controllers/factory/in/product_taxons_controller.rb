@@ -19,8 +19,8 @@ module Factory
       @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
 
       product_ids = @products.pluck(:id)
-      @select_ids = Product.default_where(default_params).where(upstream_id: product_ids).pluck(:upstream_id)
-      @imported_production_ids = @product_taxon.productions.distinct(:upstream_id).pluck(:upstream_id)
+      @select_ids = ProductionProvide.default_where(default_params).where(upstream_product_id: product_ids).pluck(:upstream_product_id)
+      @imported_production_ids = ProductionProvide.default_where(default_params).distinct(:upstream_production_id).pluck(:upstream_production_id)
     end
 
     def copy
