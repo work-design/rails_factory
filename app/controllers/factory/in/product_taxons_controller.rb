@@ -24,13 +24,9 @@ module Factory
     end
 
     def copy
-      downstream_product = @production.product.downstreams.find_or_initialize_by(organ_id: current_organ.id)
-      downstream_product.product_taxon = @product_taxon
-
-      downstream_production = downstream_product.proxy_productions.find_or_initialize_by(upstream_id: @production.id)
-      downstream_production.organ = current_organ
-
-      downstream_production.save
+      downstream_provide = @production.downstream_provides.find_or_initialize_by(organ_id: current_organ.id)
+      downstream_provide.sync_from_upstream(@product_taxon)
+      downstream_provide.save
     end
 
     def prune

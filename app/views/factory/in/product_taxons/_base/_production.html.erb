@@ -1,7 +1,7 @@
 <tr id="tr_<%= model.product_id %>_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <td>
-    <div class="is-several pl-2">
-      <strong><%= model.name %></strong>
+    <div class="is-several pl-4">
+      <span><%= model.name %></span>
       <span class="has-text-danger pl-1"><%= model.price.to_money.format.html_safe %></span>
     </div>
   </td>
@@ -22,7 +22,7 @@
         <i class="fa-solid fa-times has-text-danger"></i>
       <% end %>
     <% else %>
-      <%= button_to({ action: 'copy', production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'copy' }, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-tractor has-text-success"></i>
       <% end %>
     <% end %>

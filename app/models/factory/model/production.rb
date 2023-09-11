@@ -44,7 +44,7 @@ module Factory
       has_many :same_parts, -> { distinct }, through: :same_production_parts, source: :part
       has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
 
-      has_many :production_provides
+      has_many :downstream_provides, class_name: 'ProductionProvide', foreign_key: :upstream_production_id
 
       #has_one_attached :logo
       delegate :logo, to: :product
@@ -70,13 +70,6 @@ module Factory
 
     def init_logo
       self.logo.attach product.logo_blob if product
-    end
-
-    def sync_from_upstream(upstream)
-      self.name = upstream.name
-      self.cost_price = upstream.price
-
-      production_provides.find_or_initialize_by(provider_id: upstream.organ_id)
     end
 
     def title
