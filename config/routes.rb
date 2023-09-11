@@ -74,6 +74,9 @@ Rails.application.routes.draw do
         end
         resources :brands
         resources :product_taxons do
+          collection do
+            get :all
+          end
           member do
             patch :reorder
           end

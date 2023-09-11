@@ -14,6 +14,14 @@ module Factory
       q_params.merge! params.permit(:name)
 
       @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
+    end
+
+    def all
+      q_params = {}
+      q_params.merge! default_params
+      q_params.merge! params.permit(:name)
+
+      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
     end
 

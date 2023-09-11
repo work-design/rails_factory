@@ -1,3 +1,5 @@
+<%= render 'button' %>
+
 <%= render layout: 'index_table' do %>
   <% @product_taxons.group_by(&:factory_taxon).each do |taxon, product_taxons| %>
     <%= render partial: 'taxon_tbody', locals: { taxon: taxon, size: product_taxons.size + 1 } if taxon %>
