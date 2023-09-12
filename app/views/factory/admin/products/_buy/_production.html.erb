@@ -1,0 +1,26 @@
+<tr id="tr_<%= model.product_id %>_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+  <td>
+    <div class="is-several pl-4">
+      <span><%= model.name %></span>
+      <span class="has-text-danger pl-1"><%= model.price.to_money.format.html_safe %></span>
+    </div>
+  </td>
+  <td>
+    <table class="table is-borderless">
+      <% model.parts.each do |part| %>
+        <tr>
+          <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id } %></span></td>
+          <td><%= part.price %></td>
+        </tr>
+      <% end %>
+    </table>
+  </td>
+  <td>
+  </td>
+  <td></td>
+  <td>
+    <%= link_to({ controller: 'productions', action: 'show', product_id: model.product_id, id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fa-solid fa-circle-info has-text-info"></i>
+    <% end %>
+  </td>
+</tr>
