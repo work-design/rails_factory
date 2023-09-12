@@ -1,3 +1,4 @@
+<% item = @cart.organ_item(good_type: model.class_name, purchase_id: model.id) %>
 <tr id="tr_<%= model.product_id %>_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <td><span class="pl-4"><%= model.name %></span></td>
   <td><span class="has-text-danger pl-1"><%= model.cost_price.to_money.format.html_safe %></span></td>
@@ -12,9 +13,21 @@
     </table>
   </td>
   <td>
+    <% model.upstream_provides.each do |pp| %>
+      <p>
+        <span><%= pp.provider.name %></span>
+        <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: pp.provider_id, current_cart_id: @cart.id } }) do %>
+          <i class="fa-solid fa-check has-text-info"></i>
+        <% end if item && item.organ_id != pp.provider_id %>
+        <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, current_cart_id: @cart.id } }) do %>
+          <i class="fa-solid fa-times has-text-danger"></i>
+        <% end if item && item.organ_id == pp.provider_id %>
+      </p>
+    <% end %>
   </td>
   <td class="has-text-centered">
-    <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model } %>
+    <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
+    <%= "xx_#{item.object_id}" %>
   </td>
   <td>
     <%= link_to({ controller: 'productions', action: 'show', product_id: model.product_id, id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>

@@ -45,6 +45,7 @@ module Factory
       has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
 
       has_many :downstream_provides, class_name: 'ProductionProvide', foreign_key: :upstream_production_id
+      has_many :upstream_provides, class_name: 'ProductionProvide', foreign_key: :production_id
 
       #has_one_attached :logo
       delegate :logo, to: :product
