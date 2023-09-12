@@ -5,6 +5,7 @@ module Factory
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
     before_action :set_new_product, only: [:new, :create]
     before_action :set_product_taxons, only: [:edit, :update]
+    before_action :set_cart, only: [:buy]
 
     def index
       q_params = {}
@@ -50,6 +51,16 @@ module Factory
 
     def set_brands
       @brands = Brand.default_where(default_params)
+    end
+
+    def set_cart
+      options = {
+        member_organ_id: current_organ.id
+      }
+
+      options.merge! user_id: nil, member_id: nil, client_id: nil
+      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart.compute_amount! unless @cart.fresh
     end
 
     def product_params
