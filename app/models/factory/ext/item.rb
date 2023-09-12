@@ -19,5 +19,11 @@ module Factory
       self.expire_at = produce_plan.book_finish_at
     end
 
+    def sync_from_purchase
+      return unless purchase
+      self.good_name = purchase.name
+      self.extra = Hash(self.extra).merge purchase.item_extra
+    end
+
   end
 end

@@ -1,10 +1,6 @@
 <tr id="tr_<%= model.product_id %>_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
-  <td>
-    <div class="is-several pl-4">
-      <span><%= model.name %></span>
-      <span class="has-text-danger pl-1"><%= model.price.to_money.format.html_safe %></span>
-    </div>
-  </td>
+  <td><span class="pl-4"><%= model.name %></span></td>
+  <td><span class="has-text-danger pl-1"><%= model.cost_price.to_money.format.html_safe %></span></td>
   <td>
     <table class="table is-borderless">
       <% model.parts.each do |part| %>
