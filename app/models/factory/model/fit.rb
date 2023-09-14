@@ -4,7 +4,7 @@ module Factory
 
     included do
       enum grade: {
-
+        primary: 'primary'
       }
 
       belongs_to :product, counter_cache: true
