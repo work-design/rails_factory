@@ -60,6 +60,8 @@ zh:
       product_taxons:
         index:
           title: 类别
+        all:
+          title: 管理分类
         new:
           title: 添加本店分类
       production_plans:
