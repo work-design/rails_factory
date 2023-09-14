@@ -126,6 +126,7 @@ Rails.application.routes.draw do
               patch :print
             end
           end
+          resources :purchase_items
           resources :part_providers do
             collection do
               post :search

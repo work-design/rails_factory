@@ -58,7 +58,7 @@ module Factory
       validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true
 
       after_initialize :init_name, if: :new_record?
-      before_save :sync_from_product, if: -> { product_id_changed? }
+      before_save :sync_from_product, if: -> { product_id_changed? || (new_record? && product) }
       before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_update :set_enabled, if: -> { saved_change_to_enabled? }
