@@ -14,15 +14,15 @@
   </td>
   <td>
     <% model.upstream_provides.each do |pp| %>
-      <p>
-        <span><%= pp.provider.name %></span>
+      <div>
+        <span class="pr-1"><%= pp.provider.name %></span>
         <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: pp.provider_id, current_cart_id: @cart.id } }) do %>
           <i class="fa-solid fa-check has-text-info"></i>
         <% end if item && item.organ_id != pp.provider_id %>
         <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, current_cart_id: @cart.id } }) do %>
           <i class="fa-solid fa-times has-text-danger"></i>
         <% end if item && item.organ_id == pp.provider_id %>
-      </p>
+      </div>
     <% end %>
   </td>
   <td class="has-text-centered">

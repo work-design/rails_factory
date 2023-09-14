@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: d2c79bc3bb3e8b6c7d1282f9621232233ce3fe9a
+  revision: 7ba1cd3b25b70caaddb147d7e675b3c67988f5ed
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -46,14 +46,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_space.git
-  revision: 25bdd01243636a72c3dc3aa7699257624fa5a90e
+  revision: 7b72f70e21de30f0cc6a784244257a03b0a28ded
   specs:
     rails_space (0.0.1)
       rails (>= 7.0.3)
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: e5c6b5a2843939d85e0b46cf7dc709b82ebc8347
+  revision: 4a27eefdc5267c8d827e4ccdf2806aec1e744ce9
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
