@@ -6,7 +6,6 @@
   </div>
 </td>
 <td><%= model.scene&.title %></td>
-<td><%= model.products_count %></td>
 <th>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :nav, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
