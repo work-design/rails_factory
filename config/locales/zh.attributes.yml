@@ -27,6 +27,7 @@ zh:
         presell: 预售
         enabled: 上架
         automatic: 自动上架
+        stock: 库存
       factory/part:
         import_price: 进货价
         profit_price: 利润
