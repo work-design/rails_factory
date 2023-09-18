@@ -15,6 +15,7 @@ module Factory
       attribute :presell, :boolean, default: false, comment: '预售'
       attribute :link, :string
       attribute :position, :integer
+      attribute :stock, :decimal
 
       enum state: {
         init: 'init',
