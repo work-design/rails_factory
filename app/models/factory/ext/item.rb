@@ -6,7 +6,10 @@ module Factory
       attribute :produce_on, :date, comment: '对接生产管理'
       attribute :purchase_id, :integer
 
-      enum :purchase_status, received: 'received', prefix: true
+      enum purchase_status: {
+        init: 'init',
+        received: 'received'
+      }, _prefix: true
 
       belongs_to :scene, class_name: 'Factory::Scene', optional: true
       belongs_to :produce_plan, ->(o) { where(organ_id: o.organ_id, produce_on: o.produce_on) }, class_name: 'Factory::ProducePlan', foreign_key: :scene_id, primary_key: :scene_id, optional: true  # 产品对应批次号

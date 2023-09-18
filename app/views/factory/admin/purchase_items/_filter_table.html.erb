@@ -1,10 +1,10 @@
 <table class="table as-search">
   <tr>
-    <th><%= Trade::Item.human_attribute_name(:status) %></th>
+    <th><%= Trade::Item.human_attribute_name(:purchase_status) %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:status]), class: active_helper(status: nil, active: 'button is-info', item: 'button is-light') %>
-      <% Trade::Item.options_i18n(:status).each do |text, status| %>
-        <%= link_to text, filter_params(status: status), class: active_helper(status: status, active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:purchase_status]), class: active_helper(purchase_status: nil, active: 'button is-info', item: 'button is-light') %>
+      <% Trade::Item.options_i18n(:purchase_status).each do |text, purchase_status| %>
+        <%= link_to text, filter_params(purchase_status: purchase_status), class: active_helper(purchase_status: purchase_status, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>

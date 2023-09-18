@@ -115,6 +115,8 @@ zh:
       purchase_items:
         index:
           title: 采购订单
+        update:
+          title: 接收
       addresses:
         index:
           title: 订货点
