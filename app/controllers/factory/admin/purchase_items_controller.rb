@@ -14,17 +14,6 @@ module Factory
       @item.print
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @item.assign_attributes item_params
-      @item.save
-    end
-
     private
     def set_production
       @production = Production.find params[:production_id]
@@ -32,6 +21,10 @@ module Factory
 
     def set_item
       @item = @production.purchase_items.find(params[:id])
+    end
+
+    def model_object
+      @item
     end
 
     def item_params
