@@ -42,5 +42,13 @@ module Factory
       purchase.save
     end
 
+    def sync_log
+      log = self.stock_log || self.build_stock_log
+      log.title = self.note.presence || I18n.t('wallet_log.income.wallet_advance.title')
+      log.tag_str = I18n.t('wallet_log.income.wallet_advance.tag_str')
+      log.amount = self.number
+      log.save
+    end
+
   end
 end
