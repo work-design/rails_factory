@@ -23,8 +23,8 @@ module Factory
       @item = @production.purchase_items.find(params[:id])
     end
 
-    def model_object
-      @item
+    def model_name
+      'item'
     end
 
     def item_params

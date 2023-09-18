@@ -17,6 +17,8 @@ module Factory
       belongs_to :purchase, polymorphic: true, foreign_type: :good_type, optional: true
 
       before_validation :sync_from_produce_plan, if: -> { respond_to?(:produce_plan) && produce_plan }
+      after_save :increment_stock, if: -> { purchase_status == 'received' && ['init'].include?(purchase_status_before_last_save) }
+      after_save :decrement_stock, if: -> { purchase_status != 'received' && ['received'].include?(purchase_status_before_last_save) }
     end
 
     def sync_from_produce_plan
@@ -28,6 +30,16 @@ module Factory
       return unless purchase
       self.good_name = purchase.name
       self.extra = Hash(self.extra).merge purchase.item_extra
+    end
+
+    def increment_stock
+      purchase.stock = purchase.stock.to_d + number
+      purchase.save
+    end
+
+    def decrement_stock
+      purchase.stock = purchase.stock.to_d - number
+      purchase.save
     end
 
   end
