@@ -17,6 +17,9 @@ module Factory
     def show
     end
 
+    def edit
+    end
+
     def update
       @item.assign_attributes item_params
       @item.save
