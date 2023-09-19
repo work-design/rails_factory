@@ -71,6 +71,7 @@ module Factory
         :enabled,
         :automatic,
         :link,
+        :stock,
         part_ids: []
       )
     end

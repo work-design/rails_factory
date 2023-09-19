@@ -36,24 +36,24 @@ module Factory
 
     def increment_stock
       purchase.stock = purchase.stock.to_d + number
-
-      sync_log(number, '收货')
+      purchase.last_stock_log = {
+        amount: number,
+        title: '收货',
+        source_type: self.class_name,
+        source_id: id
+      }
       purchase.save
     end
 
     def decrement_stock
       purchase.stock = purchase.stock.to_d - number
-
-      sync_log(-number, '取消收货')
+      purchase.last_stock_log = {
+        amount: -number,
+        title: '取消收货',
+        source_type: self.class_name,
+        source_id: id
+      }
       purchase.save
-    end
-
-    def sync_log(amount, note)
-      log = self.stock_logs.build
-      log.title = note
-      log.production = purchase
-      log.amount = amount
-      log.save
     end
 
   end

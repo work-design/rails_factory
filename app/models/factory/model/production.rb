@@ -16,6 +16,7 @@ module Factory
       attribute :link, :string
       attribute :position, :integer
       attribute :stock, :decimal, default: 0
+      attribute :last_stock_log, :json, default: {}
 
       enum state: {
         init: 'init',
@@ -34,6 +35,7 @@ module Factory
       has_many :carts, through: :production_carts
       has_many :production_items, dependent: :destroy_async
       has_many :production_plans, dependent: :destroy_async
+      has_many :stock_logs
 
       has_many :production_parts, dependent: :destroy_async
       has_many :parts, -> { order(id: :asc) }, through: :production_parts
@@ -64,6 +66,7 @@ module Factory
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_update :set_enabled, if: -> { saved_change_to_enabled? }
       #after_save :compute_min_max_price, if: -> { saved_change_to_price? }
+      after_save :sync_log, if: -> { saved_change_to_stock? }
     end
 
     def init_name
@@ -153,6 +156,17 @@ module Factory
       else
         organ.update production_enabled: self.class.where(organ_id: organ_id).exists?(enabled: true)
       end
+    end
+
+    def sync_log
+      log = self.stock_logs.build
+      if last_stock_log&.dig('source_type')
+        log.assign_attributes last_stock_log.slice('title', 'amount', 'source_type', 'source_id')
+      else
+        log.amount = stock - stock_before_last_save.to_d
+        log.title = '手动修改库存'
+      end
+      log.save
     end
 
   end
