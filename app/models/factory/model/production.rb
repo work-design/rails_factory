@@ -160,6 +160,7 @@ module Factory
 
     def sync_log
       log = self.stock_logs.build
+      log.stock = stock
       if last_stock_log&.dig('source_type')
         log.assign_attributes last_stock_log.slice('title', 'amount', 'source_type', 'source_id')
       else

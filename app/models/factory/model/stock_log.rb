@@ -6,6 +6,7 @@ module Factory
       attribute :title, :string
       attribute :tag_str, :string
       attribute :amount, :decimal
+      attribute :stock, :decimal
 
       belongs_to :production
       belongs_to :source, polymorphic: true, optional: true
