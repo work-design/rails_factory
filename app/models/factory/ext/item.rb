@@ -16,8 +16,10 @@ module Factory
       belongs_to :production_plan, ->(o) { where(produce_on: o.produce_on, scene_id: o.scene_id) }, class_name: 'Factory::ProductionPlan', foreign_key: :good_id, primary_key: :production_id, counter_cache: :trade_items_count, optional: true
       belongs_to :purchase, polymorphic: true, foreign_type: :good_type, optional: true
 
+      has_many :stock_logs, class_name: 'Factory::StockLog', as: :source
+
       before_validation :sync_from_produce_plan, if: -> { respond_to?(:produce_plan) && produce_plan }
-      after_save :increment_stock, if: -> { purchase_status == 'received' && ['init'].include?(purchase_status_before_last_save) }
+      after_save :increment_stock, if: -> { purchase_status == 'received' && ['init', nil].include?(purchase_status_before_last_save) }
       after_save :decrement_stock, if: -> { purchase_status != 'received' && ['received'].include?(purchase_status_before_last_save) }
     end
 
@@ -34,19 +36,23 @@ module Factory
 
     def increment_stock
       purchase.stock = purchase.stock.to_d + number
+
+      sync_log(number, '收货')
       purchase.save
     end
 
     def decrement_stock
       purchase.stock = purchase.stock.to_d - number
+
+      sync_log(-number, '取消收货')
       purchase.save
     end
 
-    def sync_log
-      log = self.stock_log || self.build_stock_log
-      log.title = self.note.presence || I18n.t('wallet_log.income.wallet_advance.title')
-      log.tag_str = I18n.t('wallet_log.income.wallet_advance.tag_str')
-      log.amount = self.number
+    def sync_log(amount, note)
+      log = self.stock_logs.build
+      log.title = note
+      log.production = purchase
+      log.amount = amount
       log.save
     end
 
