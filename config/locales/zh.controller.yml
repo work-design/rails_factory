@@ -117,6 +117,9 @@ zh:
           title: 采购订单
         update:
           title: 接收
+      stock_logs:
+        index:
+          title: 库存历史
       addresses:
         index:
           title: 订货点

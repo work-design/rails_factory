@@ -127,6 +127,7 @@ Rails.application.routes.draw do
             end
           end
           resources :purchase_items
+          resources :stock_logs
           resources :part_providers do
             collection do
               post :search

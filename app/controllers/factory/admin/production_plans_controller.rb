@@ -3,7 +3,7 @@ module Factory
     before_action :set_production
     before_action :set_production_plan, only: [:show, :edit, :update, :destroy]
     before_action :set_new_production_plan, only: [:new, :create]
-    before_action :prepare_form, only: [:new, :edit]
+    before_action :set_scenes, only: [:new, :edit]
 
     def index
       q_params = {}
@@ -25,7 +25,7 @@ module Factory
       @production_plan = @production.production_plans.build(production_plan_params)
     end
 
-    def prepare_form
+    def set_scenes
       @scenes = Scene.default_where(default_params)
     end
 

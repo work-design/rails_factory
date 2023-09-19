@@ -1,0 +1,10 @@
+<td><%= model.title %></td>
+<td><%= model.tag_str %></td>
+<td>
+  <span><%= model.amount.to_money.format.html_safe %></span>
+</td>
+<td>
+  <p><%= model.source_type %></p>
+  <p><%= model.source_id %></p>
+</td>
+<td><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></td>
