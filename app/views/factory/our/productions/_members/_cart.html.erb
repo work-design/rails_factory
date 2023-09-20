@@ -15,7 +15,7 @@
   </div>
   <div class="control">
     <%= form_with(theme: nil, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true, controller: 'input' }) do |f| %>
-      <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
+      <%= f.number_field :number, value: item.number.to_fs(:rounded, precision: 0), data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
     <% end %>
   </div>
