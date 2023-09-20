@@ -22,17 +22,4 @@
   <% end %>
 <% end if item %>
 
-<%= form_with theme: nil, url: { controller: 'trade/mem/items', action: 'create' }, state: 'redirect_return', data: { turbo_scroll: true }, class: 'button_to' do |f| %>
-  <%= f.hidden_field :good_type, value: model.class_name %>
-  <%= f.hidden_field :good_id, value: model.id %>
-  <%= f.hidden_field :number, value: 1 %>
-  <%= f.hidden_field :current_cart_id, value: @cart&.id %>
-  <%= f.hidden_field :fetch_oneself, value: params[:fetch_oneself] %>
-  <%= f.hidden_field :produce_on, value: params[:produce_on] %>
-  <%= f.hidden_field :scene_id, value: params[:scene_id] %>
-  <%= f.hidden_field :station_id, value: params[:station_id] %>
-  <%= f.hidden_field :desk_id, value: params[:desk_id] %>
-  <%= button_tag do %>
-    <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
-  <% end %>
-<% end unless item %>
+
