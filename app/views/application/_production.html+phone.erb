@@ -43,7 +43,7 @@
         <div class="has-block-space-between pb-1">
           <div class="has-inline-centered has-text-danger"><%= model.price.to_money.format.html_safe %></div>
           <div class="is-flex">
-            <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
+            <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: @cart && @cart.find_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) } %>
           </div>
         </div>
       <% end %>
@@ -53,7 +53,7 @@
           <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
         </div>
         <div class="is-flex">
-          <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
+          <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: @cart && @cart.find_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) } %>
         </div>
       </div>
     <% end %>
