@@ -1,5 +1,3 @@
-<% item = @cart && @cart.find_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-
 <%= form_with theme: nil, scope: :item, url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to', data: { turbo_scroll: true } do |f| %>
   <%= f.hidden_field :number, value: item.number - 1 %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>

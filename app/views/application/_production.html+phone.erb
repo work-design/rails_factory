@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="is-flex">
-          <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
+          <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: @cart && @cart.find_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) } %>
         </div>
       </div>
       <% else %>
