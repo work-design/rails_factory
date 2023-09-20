@@ -47,6 +47,8 @@ zh:
       products:
         index:
           title: 产品
+        show:
+          title: 产品详情
         buy:
           title: 采购
       product_parts:
