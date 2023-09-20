@@ -1,0 +1,31 @@
+<% if params[:scene_id].present? || params[:produce_on].present? || params[:return_state].present? %>
+  <%= render 'top_bar' %>
+<% end %>
+
+<% if params[:station_id].present? %>
+  <%= render 'space_station' %>
+<% end %>
+
+<%= render 'filter_form' %>
+<div class="weui-menu">
+  <%= render 'menu' unless @produce_plan %>
+  <div
+    data-controller="page"
+    data-page-debug-value="true"
+    data-action="touchmove->page#move:passive"
+    class="weui-menu-content"
+  >
+    <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'trade/mem/items' } %>
+    <% if @productions.blank? %>
+      <%= render 'blank' %>
+    <% elsif @productions.total_pages <= @productions.current_page %>
+      <%= render 'no_more' %>
+    <% elsif @productions.total_pages > @productions.current_page %>
+      <%= render 'loading' %>
+      <%= render 'tip' %>
+    <% end %>
+    <%= render 'paginator' %>
+  </div>
+</div>
+
+<%= render 'taxon' if @produce_plan %>
