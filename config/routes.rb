@@ -67,6 +67,10 @@ Rails.application.routes.draw do
         concerns :productive
       end
 
+      namespace :agent, defaults: { namespace: 'agent' } do
+        concerns :productive
+      end
+
       namespace :admin, defaults: { namespace: 'admin' } do
         root 'home#index'
         scope :produce_on, controller: :produce_on do
