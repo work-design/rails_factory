@@ -66,7 +66,7 @@ module Factory
       @cart.compute_amount! unless @cart.fresh
     end
 
-    def _prefixes
+    def _prefixess
       super do |pres|
         pres + ['factory/in/productions', "factory/in/productions/_#{params[:action]}", 'factory/in/productions/_base']
       end
