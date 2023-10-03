@@ -20,6 +20,10 @@ zh:
     produce_plans:
       index:
         title: 选择场景
+    agent:
+      productions:
+        index:
+          title: 商品列表
     admin:
       title: 产品
       home:

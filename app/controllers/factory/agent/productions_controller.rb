@@ -56,12 +56,13 @@ module Factory
     end
 
     def set_cart
-      options = {
-        agent_id: current_member.id
-      }
-      options.merge! default_params
-
-      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      if params[:current_cart_id].present?
+        @cart = Trade::Cart.find params[:current_cart_id]
+      else
+        options = { agent_id: current_member.id, client_id: nil }
+        options.merge! default_params
+        @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      end
       @cart.compute_amount! unless @cart.fresh
     end
 
