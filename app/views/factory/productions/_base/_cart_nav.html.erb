@@ -1,0 +1,20 @@
+<div class="is-sticky" style="padding-top: 4rem">
+  <div class="">
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'level-item mb-0') do %>
+      <i class="fa-solid fa-bag-shopping fa-2x fa-weui-badge">
+        <span class="weui-badge"><%= @cart.items.count %></span>
+      </i>
+    <% end %>
+    <div class="level-item pl-4 is-align-items-baseline">
+      <%= @cart.item_amount.to_money.format.html_safe %>
+    </div>
+  </div>
+  <div class="">
+    <div class="level-item">
+      <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
+        <span class="pr-1">去购物车</span>
+        <i class="fa-solid fa-angle-right"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

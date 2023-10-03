@@ -1,4 +1,4 @@
-<%= form_with theme: nil, scope: :item, url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to', data: { turbo_scroll: true } do |f| %>
+<%= form_with theme: nil, scope: :item, url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true }, class: 'button_to' do |f| %>
   <%= f.hidden_field :number, value: item.number - 1 %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= button_tag class: 'mr-1' do %>
@@ -8,11 +8,11 @@
 <%= button_to({ controller: item_con, action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart.id }, state: 'redirect_return', class: 'mr-1', form: { data: { turbo_scroll: true } }) do %>
   <i class="fa-solid fa-circle-minus fa-xl has-text-dark-grey"></i>
 <% end if item && item.number <= 1 %>
-<%= form_with(theme: nil, scope: 'item', url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input', turbo_scroll: true }) do |f| %>
+<%= form_with theme: nil, scope: 'item', url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input', turbo_scroll: true }, class: 'field' do |f| %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= f.number_field :number, value: item.number.to_fs(:rounded, precision: 0), data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 2.5em; height: 80%' %>
 <% end if item %>
-<%= form_with theme: nil, scope: :item, url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to', data: { turbo_scroll: true } do |f| %>
+<%= form_with theme: nil, scope: :item, url: { controller: item_con, action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true }, class: 'button_to' do |f| %>
   <%= f.hidden_field :number, value: item.number + 1 %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= button_tag class: 'ml-1' do %>
