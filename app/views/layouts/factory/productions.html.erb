@@ -2,13 +2,7 @@
   <%= render 'nav_bar' %>
   <div id="alert"></div>
   <main class="columns container">
-    <div class="column">
-      <%= render 'breadcrumb' %>
-      <%= yield %>
-    </div>
-    <div class="column is-narrow">
-      <%= render 'cart_nav' %>
-    </div>
+    <%= yield %>
   </main>
   <%= render 'footer' %>
 <% end %>
