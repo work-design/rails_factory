@@ -1,19 +1,21 @@
 <div class="is-sticky" style="padding-top: 4rem">
-  <div class="">
-    <%= link_to({ controller: cart_con, action: 'show', id: @cart.id }, state: 'enter', class: '') do %>
-      <i class="fa-solid fa-bag-shopping"></i>
-      <span class="pl-1"><%= @cart.items.count %></span>
-    <% end %>
-    <div class="level-item pl-4 is-align-items-baseline">
-      <%= @cart.item_amount.to_money.format.html_safe %>
-    </div>
+  <div>
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="pl-1"><%= @cart.items.count %></span>
   </div>
-  <div class="">
-    <div class="">
-      <%= link_to({ controller: cart_con, action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
-        <span class="pr-1">去购物车</span>
-        <i class="fa-solid fa-angle-right"></i>
-      <% end %>
+  <% @cart.items.each do |item| %>
+    <div>
+      <%= image_tag item.good.logo, class: 'image is-32x32' if item.good.logo.attached? %>
+      <span><%= item.good_name %></span>
+      <span>*</span>
+      <span><%= item.number %></span>
     </div>
+  <% end %>
+  <div><%= @cart.item_amount.to_money.format.html_safe %></div>
+  <div>
+    <%= link_to({ controller: cart_con, action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
+      <span class="pr-1">去购物车</span>
+      <i class="fa-solid fa-angle-right"></i>
+    <% end %>
   </div>
 </div>
