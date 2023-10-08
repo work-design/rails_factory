@@ -1,21 +1,19 @@
-<div class="columns">
-  <div class="column">
-    <%= render partial: 'covers', locals: { model: @production.product } %>
-  </div>
-  <div class="column">
-    <div class="box">
-      <h1 class="title"><%= @production.product.name %></h1>
-      <div class="has-text-danger has-text-bold">
-        <span><%= @production.price.to_money.symbol %></span>
-        <span id="total_price"><%= @production.price.to_money.to_s %></span>
-      </div>
-      <div class="is-flex mt-1">
-        <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items' } if @cart %>
-        <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
-          <span class="pr-1"><%= t('trade.my.carts.show.title') %></span>
-          <i class="fa-solid fa-angle-right"></i>
-        <% end if @cart %>
-      </div>
+<div class="column">
+  <%= render partial: 'covers', locals: { model: @production.product } %>
+</div>
+<div class="column">
+  <div class="box">
+    <h1 class="title"><%= @production.product.name %></h1>
+    <div class="has-text-danger has-text-bold">
+      <span><%= @production.price.to_money.symbol %></span>
+      <span id="total_price"><%= @production.price.to_money.to_s %></span>
+    </div>
+    <div class="is-flex mt-1">
+      <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items' } if @cart %>
+      <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
+        <span class="pr-1"><%= t('trade.my.carts.show.title') %></span>
+        <i class="fa-solid fa-angle-right"></i>
+      <% end if @cart %>
     </div>
   </div>
 </div>
