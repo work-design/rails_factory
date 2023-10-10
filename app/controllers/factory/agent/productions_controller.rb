@@ -5,13 +5,10 @@ module Factory
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
 
-    def index
-      q_params = {}
-      q_params.merge! default_params
+    def indexx
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
-      q_params.merge! params.permit('name-like', :factory_taxon_id)
 
-      @productions = Production.includes(:parts, :production_plans, product: { logo_attachment: :blob }).default_where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
+      @productions = Production.includes(:parts, :production_plans, product: { logo_attachment: :blob }).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
     end
 
     def list

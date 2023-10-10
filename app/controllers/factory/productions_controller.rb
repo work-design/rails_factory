@@ -14,17 +14,19 @@ module Factory
         product_taxon_id: ProductTaxon.default_where(default_params).where(nav: false).pluck(:id)
       }
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id, 'name-like')
+      q_params.merge! params.permit(:product_taxon_id, :factory_taxon_id, 'name-like')
 
       if @produce_plan
         if @produce_plan.expired?
           render 'expired'
         else
-          @productions = @produce_plan.productions.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }]).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+          @productions = @produce_plan.productions.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }])
         end
       else
-        @productions = Production.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }]).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+        @productions = Production.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }])
       end
+
+      @productions = @productions.list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
     end
 
     def nav
