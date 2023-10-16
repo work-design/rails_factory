@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      layout 'me'
+      layout 'agent'
     end
 
     def set_cart
