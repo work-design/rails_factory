@@ -1,5 +1,10 @@
 module Factory
   module Controller::Agent
+    extend ActiveSupport::Concern
+
+    included do
+      layout 'me'
+    end
 
     def set_cart
       options = {
