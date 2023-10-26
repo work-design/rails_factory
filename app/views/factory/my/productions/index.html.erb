@@ -18,10 +18,10 @@
               <span><%= custom.price %></span>
             </li>
             <li class="weui-media-box__info__meta">
-              <%= link_to edit_my_custom_path(custom), aria: { label: t('.edit') } do %>
+              <%= link_to edit_my_custom_path(custom), aria: { label: t('.edit.title') } do %>
                 <i class="fa-solid fa-pencil weui-icon"></i>
               <% end %>
-              <%= link_to cart_my_custom_path(custom), method: :post, aria: { label: t('.new') } do %>
+              <%= link_to cart_my_custom_path(custom), method: :post, aria: { label: t('.new.title') } do %>
                 <i class="fa-solid fa-plus weui-icon"></i>
               <% end %>
             </li>

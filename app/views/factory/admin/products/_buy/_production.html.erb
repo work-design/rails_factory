@@ -29,7 +29,7 @@
     <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
   </td>
   <td>
-    <%= link_to({ controller: 'productions', action: 'show', product_id: model.product_id, id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'productions', action: 'show', product_id: model.product_id, id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fa-solid fa-circle-info has-text-info"></i>
     <% end %>
   </td>
