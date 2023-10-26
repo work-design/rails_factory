@@ -16,7 +16,11 @@ module Factory
         organ_id: @product_taxon.provider_ids
       }
       #q_params.merge! params.permit(:organ_id) if @product_taxon.provider_ids.map(&:to_s).include? params[:organ_id]
-      @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+      if @product_taxon.factory_taxon
+        @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+      else
+        @products = Product.default_where(q_params).page(params[:page])
+      end
 
       product_ids = @products.pluck(:id)
       @select_ids = ProductionProvide.default_where(default_params).where(upstream_product_id: product_ids).pluck(:upstream_product_id)
@@ -40,7 +44,11 @@ module Factory
     end
 
     def set_providers
-      @providers = @product_taxon.factory_taxon.providers
+      if @product_taxon.factory_taxon
+        @providers = @product_taxon.factory_taxon.providers
+      else
+        @providers = current_organ.providers
+      end
     end
 
     def set_production

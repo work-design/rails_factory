@@ -32,5 +32,21 @@ en:
       product_part_taxons:
         index:
           title: Part Taxons
+    in:
+      provides:
+        index:
+          title: Providers Admin
     panel:
       title: Factory Panel
+      factory_taxons:
+        index:
+          title: Platform Taxon
+      unifiers:
+        index:
+          title: Unifiers
+      brands:
+        index:
+          title: Brands
+      scenes:
+        index:
+          title: Scenes
