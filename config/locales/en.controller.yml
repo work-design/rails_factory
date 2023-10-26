@@ -21,10 +21,12 @@ en:
           title: Produce Plans
       factory_taxons:
         index:
-          title: Factory Taxon
+          title: Platform Taxon
       product_taxons:
         index:
           title: Product Taxon
+        all:
+          title: Admin Taxon from Platform Taxon
       product_part_taxons:
         index:
           title: Part Taxons

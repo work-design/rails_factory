@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: ee194e2cc5876d6e4531f2edbec6cb4a2530861b
+  revision: ca3cbce13e8cf08de3a8324aac6078f155650f34
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -48,14 +48,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_space.git
-  revision: 7b72f70e21de30f0cc6a784244257a03b0a28ded
+  revision: 49ad586834c14174dc9b9c263aee75e2ce907cc6
   specs:
     rails_space (0.0.1)
       rails (>= 7.0.3)
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: f0be12900f441e2b773934cad13bd2b1989ec68b
+  revision: acd8230803d1021dc0d0a5952ffd3535ddd6059d
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
