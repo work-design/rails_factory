@@ -30,6 +30,7 @@ module Factory
     def copy
       downstream_provide = @production.downstream_provides.find_or_initialize_by(organ_id: current_organ.id)
       downstream_provide.sync_from_upstream(@product_taxon)
+      binding.b
       downstream_provide.save
     end
 
