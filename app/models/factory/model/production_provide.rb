@@ -15,6 +15,8 @@ module Factory
       has_many :downstream_productions, class_name: 'Production', foreign_key: :upstream_production_id
 
       has_many :brothers, class_name: self.name, primary_key: :upstream_product_id, foreign_key: :upstream_product_id
+
+      after_destroy :prune
     end
 
     def sync_from_upstream(product_taxon)
@@ -33,6 +35,10 @@ module Factory
       production.product = product
       production.name = upstream_production.name
       production.cost_price = upstream_production.price
+    end
+
+    def prune
+      product.destroy
     end
 
   end

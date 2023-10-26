@@ -38,7 +38,7 @@ en:
           title: Providers Admin
       product_taxons:
         import:
-          title: Import
+          title: Import From Provider
         copy:
           title: Copy
         prune:
