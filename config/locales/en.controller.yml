@@ -10,6 +10,7 @@ en:
       products:
         index:
           title: Product List
+
       parts:
         index:
           title: Product parts
