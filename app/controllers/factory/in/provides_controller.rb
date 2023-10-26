@@ -7,7 +7,11 @@ module Factory
       @provides = @product_taxon.provides
 
       except_ids = @provides.pluck(:provider_id) << current_organ.id
-      @providers = @product_taxon.factory_taxon.providers.where.not(id: except_ids).page(params[:page])
+      if @product_taxon.factory_taxon
+        @providers = @product_taxon.factory_taxon.providers.where.not(id: except_ids).page(params[:page])
+      else
+        @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
+      end
     end
 
     def search
