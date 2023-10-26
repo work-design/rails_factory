@@ -36,6 +36,13 @@ en:
       provides:
         index:
           title: Providers Admin
+      product_taxons:
+        import:
+          title: Import
+        copy:
+          title: Copy
+        prune:
+          title: Prune
     panel:
       title: Factory Panel
       factory_taxons:
