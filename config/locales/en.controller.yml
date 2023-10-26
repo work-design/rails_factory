@@ -10,7 +10,8 @@ en:
       products:
         index:
           title: Product List
-
+        buy:
+          title: Purchase
       parts:
         index:
           title: Product parts
