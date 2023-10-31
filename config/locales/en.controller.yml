@@ -15,6 +15,11 @@ en:
           title: Product List
         buy:
           title: Purchase
+      productions:
+        index:
+          title: Serials
+        taxon:
+          title: Taxon Summary
       parts:
         index:
           title: Product parts
@@ -45,7 +50,7 @@ en:
       title: Import
       provides:
         index:
-          title: Providers Admin
+          title: Providers
       product_taxons:
         import:
           title: Import From Provider
