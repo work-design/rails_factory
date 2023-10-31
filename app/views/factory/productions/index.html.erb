@@ -4,5 +4,5 @@
   </div>
 </div>
 <div class="column is-narrow">
-  <%= render partial: 'cart_nav', locals: { cart_con: 'trade/my/carts' } %>
+  <%= render partial: 'cart_nav', locals: { cart_con: 'trade/my/carts' } if @cart %>
 </div>

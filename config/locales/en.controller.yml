@@ -5,6 +5,9 @@ en:
         title: Products
       show:
         add: Add Cart
+    productions:
+      index:
+        title: Products
     admin:
       title: Factory
       brands:
