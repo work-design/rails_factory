@@ -8,6 +8,10 @@ en:
     productions:
       index:
         title: Products
+    agent:
+      productions:
+        index:
+          title: Products
     admin:
       title: Factory
       brands:

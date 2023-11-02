@@ -1,12 +1,13 @@
 module Factory
-  class Agent::ProductionsController < ProductionsController
+  class Agent::ProductionsController < Agent::BaseController
     include Controller::Agent
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
 
-    def indexx
+    def index
+      q_params = {}
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
 
       @productions = Production.includes(:parts, :production_plans, product: { logo_attachment: :blob }).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
@@ -64,9 +65,9 @@ module Factory
       @cart.compute_amount! unless @cart.fresh
     end
 
-    def _prefixess
+    def _prefixes
       super do |pres|
-        pres + ['factory/in/productions', "factory/in/productions/_#{params[:action]}", 'factory/in/productions/_base']
+        pres + ['factory/productions', "factory/productions/_#{params[:action]}", 'factory/productions/_base']
       end
     end
 
