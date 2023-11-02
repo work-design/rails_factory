@@ -5,6 +5,7 @@ module Factory
     before_action :set_production, only: [:show, :list]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
+    before_action :set_cart, only: [:index, :nav, :show, :dialog]
 
     def index
       q_params = {}
@@ -67,7 +68,7 @@ module Factory
 
     def _prefixes
       super do |pres|
-        pres + ['factory/productions', "factory/productions/_#{params[:action]}", 'factory/productions/_base']
+        pres + [controller_path, "factory/productions/_#{params[:action]}", 'factory/productions/_base', 'factory/productions']
       end
     end
 
