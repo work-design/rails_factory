@@ -1,8 +1,11 @@
 <%= render layout: 'layouts/application_head' do %>
   <%= render 'nav_bar' %>
-  <div id="alert"></div>
-  <main class="columns container">
-    <%= yield %>
+  <%= render 'alert' %>
+  <main class="container">
+    <%= render 'breadcrumb' %>
+    <div class="columns">
+      <%= yield %>
+    </div>
   </main>
   <%= render 'footer' %>
 <% end %>
