@@ -1,9 +1,5 @@
-<div class="breadcrumb has-succeeds-separator">
-  <ul>
-    <li><%= link_to t('factory.admin.product_taxons.index.title'), { controller: 'product_taxons' } %></li>
-    <li><span class="px-3"><%= @product.product_taxon.name %></span></li>
-    <li><%= link_to t('factory.admin.products.index.title'), { controller: 'products', product_taxon_id: @product.product_taxon_id } %></li>
-    <li><span class="px-3"><%= @product.name %></span></li>
-    <li class="is-active"><%= t('.title') %></li>
-  </ul>
-</div>
+<li><%= link_to t('.product_taxons.index.title'), { controller: 'product_taxons' } %></li>
+<li><span class="px-3"><%= @product.product_taxon.name %></span></li>
+<li><%= link_to t('.products.index.title'), { controller: 'products', product_taxon_id: @product.product_taxon_id } %></li>
+<li><span class="px-3"><%= @product.name %></span></li>
+<li class="is-active"><%= t('.title') %></li>

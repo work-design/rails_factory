@@ -1,8 +1,4 @@
-<div class="breadcrumb has-succeeds-separator">
-  <ul>
-    <li><%= link_to t('factory.admin.scenes.index.title'), { controller: 'scenes' } %></li>
-    <li><%= link_to @scene.title, { controller: 'produce_plans', scene_id: @produce_plan.scene_id } %></li>
-    <li class="is-active mr-2"><%= @produce_plan.produce_on %></li>
-    <li class="is-active"><%= t('.title') %></li>
-  </ul>
-</div>
+<li><%= link_to t('.scenes.index.title'), { controller: 'scenes' } %></li>
+<li><%= link_to @scene.title, { controller: 'produce_plans', scene_id: @produce_plan.scene_id } %></li>
+<li><span class="px-3"><%= @produce_plan.produce_on %></span></li>
+<li class="is-active"><%= t('.title') %></li>
