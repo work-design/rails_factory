@@ -55,7 +55,11 @@ module Factory
     end
 
     def set_own_product_taxons
-      @product_taxons = @product_taxon.factory_taxon.product_taxons.default_where(default_params)
+      if @product_taxon.factory_taxon
+        @product_taxons = @product_taxon.factory_taxon.product_taxons.default_where(default_params)
+      else
+        @product_taxons = ProductTaxon.none
+      end
     end
 
     def set_scenes
