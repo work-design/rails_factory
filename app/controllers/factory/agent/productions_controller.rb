@@ -9,6 +9,7 @@ module Factory
 
     def index
       q_params = {}
+      q_params.merge! default_params
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
 
       @productions = Production.includes(:parts, :production_plans, product: { logo_attachment: :blob }).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
