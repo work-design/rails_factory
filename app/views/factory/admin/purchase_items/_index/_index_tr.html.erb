@@ -2,10 +2,10 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
-      <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { item: { purchase_status: 'received' } }, aria: { label: t('factory.admin.purchase_items.update.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { item: { purchase_status: 'received' } }, aria: { label: t('.update.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-tractor has-text-success"></i>
-      <% end if ['init'].include?(model.purchase_status) %>
-      <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { item: { purchase_status: 'init' } }, aria: { label: t('factory.admin.purchase_items.update.title') }, class: 'button is-small is-rounded is-light') do %>
+      <% end if ['init', nil].include?(model.purchase_status) %>
+      <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { item: { purchase_status: 'init' } }, aria: { label: t('.update.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-tractor has-text-danger"></i>
       <% end if ['received'].include?(model.purchase_status) %>
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>

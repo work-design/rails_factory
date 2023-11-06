@@ -59,6 +59,8 @@ en:
       purchase_items:
         index:
           title: Purchase Items
+        update:
+          title: Receive
       scenes:
         index:
           title: Scenes

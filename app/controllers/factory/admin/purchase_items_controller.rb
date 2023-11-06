@@ -7,7 +7,7 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:address_id, :produce_on, :purchase_status)
 
-      @items = @production.purchase_items.default_where(q_params).page(params[:page])
+      @items = @production.purchase_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def print
