@@ -1,6 +1,6 @@
 <% if turbo_frame_request_id == 'modal' %>
   <%= turbo_frame_tagged 'modal', data: { title: t('.title') } do %>
-    <%= render partial: 'edit_form', locals: { model: model } %>
+    <%= render partial: 'edit_form', locals: { model: @product } %>
   <% end %>
 <% else %>
   <%= render partial: 'product_bar', locals: { product: @product } %>
