@@ -6,24 +6,23 @@
 </td>
 <td>
   <table class="table is-borderless">
-    <% model.parts.each do |part| %>
-      <tr>
-        <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id } %></span></td>
-        <td><%= part.price %></td>
-      </tr>
-    <% end %>
+  <% model.parts.each do |part| %>
+    <tr>
+      <td><span class="tag"><%= link_to part.name, { controller: 'parts', action: 'show', id: part.id } %></span></td>
+      <td><%= part.price %></td>
+    </tr>
+  <% end %>
   </table>
 </td>
 <td>
-  <% if @imported_production_ids.include?(model.id) %>
-    <i class="fa-solid fa-check has-text-success"></i>
-    <%= button_to({ action: 'prune' }, method: :delete, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-times has-text-danger"></i>
-    <% end %>
-  <% else %>
-    <%= button_to({ action: 'copy' }, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-tractor has-text-success"></i>
-    <% end %>
+<% if @imported_production_ids.include?(model.id) %>
+  <i class="fa-solid fa-check has-text-success"></i>
+  <%= button_to({ action: 'prune' }, method: :delete, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-solid fa-times has-text-danger"></i>
   <% end %>
+<% else %>
+  <%= button_to({ action: 'copy' }, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-solid fa-tractor has-text-success"></i>
+  <% end %>
+<% end %>
 </td>
-<td></td>
