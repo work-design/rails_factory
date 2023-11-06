@@ -9,7 +9,7 @@ module Factory
       enum purchase_status: {
         init: 'init',
         received: 'received'
-      }, _prefix: true
+      }, _prefix: true, _default: 'init'
 
       belongs_to :scene, class_name: 'Factory::Scene', optional: true
       belongs_to :produce_plan, ->(o) { where(organ_id: o.organ_id, produce_on: o.produce_on) }, class_name: 'Factory::ProducePlan', foreign_key: :scene_id, primary_key: :scene_id, optional: true  # 产品对应批次号
