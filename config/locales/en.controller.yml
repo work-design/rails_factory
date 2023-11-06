@@ -27,6 +27,12 @@ en:
           title: Serials
         taxon:
           title: Taxon Summary
+      production_items:
+        index:
+          title: Items
+      production_plans:
+        index:
+          title: Plans
       parts:
         index:
           title: Product parts
@@ -50,9 +56,15 @@ en:
       produce_on:
         index:
           title: Produce Histories
+      purchase_items:
+        index:
+          title: Purchase Items
       scenes:
         index:
           title: Scenes
+      stock_logs:
+        index:
+          title: Stock Logs
     in:
       title: Import
       provides:
