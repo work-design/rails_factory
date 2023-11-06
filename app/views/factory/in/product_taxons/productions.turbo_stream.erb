@@ -1,3 +1,3 @@
 <%= turbo_stream.after "tr_#{params[:product_id]}" do %>
-  <%= render partial: 'production', collection: @productions, as: :model %>
+  <%= render partial: 'production', layout: 'production_tr', collection: @productions, as: :model %>
 <% end %>

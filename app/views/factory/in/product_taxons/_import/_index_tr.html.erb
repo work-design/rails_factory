@@ -3,10 +3,10 @@
   <td>
     <div data-show-target="item" style="visibility: hidden">
       <%= link_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-circle-info"></i>
+        <i class="fa-solid fa-circle-info has-text-info"></i>
       <% end %>
     </div>
   </td>
 </tr>
 
-<%= render partial: 'production', collection: model.productions, as: :model %>
+<%= render partial: 'production', layout: 'production_tr', collection: model.productions, as: :model %>
