@@ -10,7 +10,7 @@
       </div>
       <span><%= item.good_name %></span>
       <span>*</span>
-      <span><%= item.number %></span>
+      <span><%= item.number.to_human %></span>
     </div>
   <% end %>
   <div><%= @cart.item_amount.to_money.format.html_safe %></div>
