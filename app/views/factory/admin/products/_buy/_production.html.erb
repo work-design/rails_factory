@@ -1,4 +1,5 @@
-<% item = @cart.organ_item(good_type: model.class_name, purchase_id: model.id) %>
+<% item = @cart.organ_item(purchase_id: model.id) %>
+
 <tr id="tr_<%= model.product_id %>_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <td><span class="pl-4"><%= model.name %></span></td>
   <td><span class="has-text-danger pl-1"><%= model.cost_price.to_money.format.html_safe %></span></td>
