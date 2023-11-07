@@ -14,6 +14,11 @@ module Factory
       @scenes = Factory::Scene.where(id: ids)
     end
 
+    def set_cart
+      @cart = current_organ.organ_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart.compute_amount! unless @cart.fresh
+    end
+
     class_methods do
       def local_prefixes
         [controller_path, 'factory/in/base', 'in', 'admin']

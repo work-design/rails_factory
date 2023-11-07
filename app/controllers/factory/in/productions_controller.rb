@@ -60,9 +60,5 @@ module Factory
       @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
     end
 
-    def set_cart
-      @cart = current_organ.organ_carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use')
-    end
-
   end
 end
