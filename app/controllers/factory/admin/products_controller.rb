@@ -60,7 +60,7 @@ module Factory
 
       options.merge! user_id: nil, member_id: nil
       options.merge! client_id: nil if defined? RailsCrm
-      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'purchase')
       @cart.compute_amount! unless @cart.fresh
     end
 
