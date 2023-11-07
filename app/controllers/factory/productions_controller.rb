@@ -112,17 +112,6 @@ module Factory
       @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
     end
 
-    def set_cart
-      options = {}
-      options.merge! default_form_params
-
-      if current_user
-        options.merge! user_id: current_user.id, member_id: nil, client_id: nil
-        @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
-        @cart.compute_amount! unless @cart.fresh
-      end
-    end
-
     def set_rent_cart
       options = {}
       options.merge! default_form_params
