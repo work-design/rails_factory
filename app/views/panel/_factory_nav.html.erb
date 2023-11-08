@@ -2,7 +2,7 @@
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-store fa-fw"></i>
     <span><%= t('factory.panel.title') %></span>
-    <i class="fa-solid dropdown"></i>
+    <i class="fa-solid fa-fw dropdown"></i>
   </a>
   <div class="menu-list" data-empty-target="content">
     <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
