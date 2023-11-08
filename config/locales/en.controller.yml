@@ -83,7 +83,7 @@ en:
         index:
           title: Buy
     panel:
-      title: Factory Panel
+      title: Factory
       factory_taxons:
         index:
           title: Platform Taxon
