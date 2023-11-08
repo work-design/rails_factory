@@ -1,0 +1,21 @@
+<div class="<%= active_helper(modules: 'factory/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion is-active') %>" data-controller="menu empty">
+  <a class="menu-label" data-action="menu#toggle">
+    <i class="fa-solid fa-fw fa-store"></i>
+    <span><%= t('factory.admin.title') %></span>
+    <i class="fa-solid dropdown"></i>
+  </a>
+  <div class="menu-list" data-empty-target="content">
+    <%= link_to t('factory.admin.product_taxons.index.title'), { controller: 'factory/admin/product_taxons' }, class: active_helper(controllers: ['products', 'product_taxons', 'product_part_taxons', 'productions', 'part_providers', 'production_plans', 'production_items'], active: 'is-active') %>
+    <%= link_to t('factory.admin.produce_on.index.title'), { controller: 'factory/admin/produce_on' }, class: active_helper(controllers: 'produce_on', active: 'is-active') %>
+  </div>
+</div>
+<div class="<%= active_helper(modules: 'factory/in', active: 'menu ex-accordion is-active', item: 'menu ex-accordion is-active') %>" data-controller="menu empty">
+  <a class="menu-label" data-action="menu#toggle">
+    <i class="fa-solid fa-fw fa-cart-shopping"></i>
+    <span><%= t('factory.in.title') %></span>
+    <i class="fa-solid dropdown"></i>
+  </a>
+  <div class="menu-list" data-empty-target="content">
+    <%= link_to t('factory.in.productions.index.title'), { controller: 'factory/in/productions' }, class: active_helper(controllers: ['productions'], active: 'is-active') %>
+  </div>
+</div>
