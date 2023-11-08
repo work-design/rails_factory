@@ -1,7 +1,7 @@
 <% item = @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
 
 <% if item %>
-<div class="is-flex is-justify-content-center">
+<div data-controller="modify" data-modify-submit-value="true" class="is-flex is-justify-content-center">
   <%= form_with theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true }, class: 'ml-1 button_to' do |f| %>
     <%= f.hidden_field :current_cart_id, value: @cart.id %>
     <%= f.hidden_field :number, value: item.number - 1 %>
@@ -14,15 +14,11 @@
   <% end if item.number <= 1 %>
   <%= form_with theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input', turbo_scroll: true }, class: 'ml-1' do |f| %>
     <%= f.hidden_field :current_cart_id, value: @cart.id %>
-    <%= f.number_field :number, value: item.number.to_human, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
+    <%= f.number_field :number, value: item.number.to_human, data: { action: 'change->input#form', modify_target: 'input' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
   <% end %>
-  <%= form_with theme: nil, scope: 'item', url: { controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true }, class: 'ml-1 button_to' do |f| %>
-    <%= f.hidden_field :current_cart_id, value: @cart.id %>
-    <%= f.hidden_field :number, value: item.number + 1 %>
-    <%= button_tag do %>
-      <i class="fa-solid fa-xl fa-circle-plus has-text-dark-grey"></i>
-    <% end %>
-  <% end %>
+  <button data-action="modify#plus" class="button_to">
+    <i class="fa-solid fa-xl fa-circle-plus has-text-dark-grey"></i>
+  </button>
 </div>
 <% end %>
 
