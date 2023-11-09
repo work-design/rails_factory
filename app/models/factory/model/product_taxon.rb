@@ -30,6 +30,8 @@ module Factory
       scope :enabled, -> { where(enabled: true, nav: false)}
       scope :nav, -> { where(enabled: true, nav: true) }
 
+      validates :name, presence: true
+
       acts_as_list scope: :organ_id
     end
 
