@@ -1,7 +1,7 @@
 <tfoot>
   <tr>
     <th colspan="4"></th>
-    <th><%= @cart.amount.to_money.format.html_safe %></th>
+    <th id="cart_amount"><%= @cart.amount.to_money.format.html_safe %></th>
     <th>
       <%= link_to({ controller: 'trade/in/orders', action: 'new', current_cart_id: @cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
         <i class="fa-solid fa-credit-card"></i>
