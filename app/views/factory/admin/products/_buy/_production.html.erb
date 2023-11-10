@@ -19,12 +19,6 @@
     <span class="pr-1"><%= pp.provider.name %></span>
     <% if item = @cart.organ_item(purchase_id: model.id, good_id: pp.upstream_production_id) %>
       <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
-      <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: pp.provider_id, current_cart_id: @cart.id } }) do %>
-        <i class="fa-solid fa-check has-text-info"></i>
-      <% end if item && item.organ_id != pp.provider_id %>
-      <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, current_cart_id: @cart.id } }) do %>
-        <i class="fa-solid fa-times has-text-danger"></i>
-      <% end if item && item.organ_id == pp.provider_id %>
     <% else %>
       <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: pp.upstream_production_id } %>
     <% end %>
@@ -33,6 +27,12 @@
   <div>
   <% if item = @cart.organ_item(purchase_id: model.id, good_id: nil) %>
     <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
+    <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, current_cart_id: @cart.id } }) do %>
+      <i class="fa-solid fa-times has-text-danger"></i>
+    <% end if item.organ_id.present? %>
+    <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { current_cart_id: @cart.id } }) do %>
+      <i class="fa-solid fa-check has-text-info"></i>
+    <% end %>
   <% else %>
     <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: nil } %>
   <% end %>
