@@ -4,7 +4,8 @@ module Factory
     before_action :set_cart_item, only: []
 
     def edit_assign
-      @providers = current_organ.providers
+      upstream_organ_ids = @item.purchase.upstream_provides.pluck(:provider_id)
+      @providers = current_organ.providers.where.not(id: upstream_organ_ids)
     end
 
     private
