@@ -27,6 +27,7 @@
   <div>
   <% if item = @cart.organ_item(purchase_id: model.id, good_id: nil) %>
     <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
+    <span><%= item.organ&.name %></span>
     <%= button_to({ controller: 'in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil } }) do %>
       <i class="fa-solid fa-times has-text-danger"></i>
     <% end if item.organ_id.present? %>
