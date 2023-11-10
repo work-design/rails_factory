@@ -51,7 +51,11 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :items
+        resources :items do
+          member do
+            post :edit_assign
+          end
+        end
         resources :payments do
           member do
             get :wxpay_pc_pay

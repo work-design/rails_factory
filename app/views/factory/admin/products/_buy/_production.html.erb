@@ -30,7 +30,7 @@
     <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, current_cart_id: @cart.id } }) do %>
       <i class="fa-solid fa-times has-text-danger"></i>
     <% end if item.organ_id.present? %>
-    <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { current_cart_id: @cart.id } }) do %>
+    <%= button_to({ controller: 'in/items', action: 'edit_assign', id: item.id }) do %>
       <i class="fa-solid fa-hand-point-right has-text-info"></i>
     <% end %>
   <% else %>
