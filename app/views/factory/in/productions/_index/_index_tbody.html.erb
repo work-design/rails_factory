@@ -18,7 +18,7 @@
 <td><%= model.price.to_money.format.html_safe %></td>
 <td class="has-text-centered">
 <% if item = @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-  <%= render partial: 'cart', locals: { model: model, item_con: 'trade/in/items', item: item } %>
+  <%= render partial: 'cart', locals: { model: model, item_con: 'trade/in/items', item: item, cart: @cart } %>
 <% else %>
   <%= render partial: 'add_cart', locals: { model: model, item_con: 'trade/in/items', cart: @cart } %>
 <% end %>
