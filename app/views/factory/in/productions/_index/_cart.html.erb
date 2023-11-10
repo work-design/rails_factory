@@ -4,7 +4,7 @@
 <div data-controller="modify" data-modify-submit-value="true" class="is-flex is-justify-content-center">
   <% if item.number > 1 %>
     <button data-action="modify#minus" class="button_to">
-      <i class="fa-solid fa-xl fa-circle-minus has-text-grey"></i>
+      <i class="fa-solid fa-xl fa-circle-minus has-text-dark-grey"></i>
     </button>
   <% else %>
     <%= button_to({ controller: 'trade/in/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart.id }, data: { turbo_scroll: true }, class: 'mr-1') do %>
