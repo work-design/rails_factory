@@ -17,7 +17,11 @@
 </td>
 <td><%= model.price.to_money.format.html_safe %></td>
 <td class="has-text-centered">
-  <%= render partial: 'cart', locals: { model: model, item_con: 'trade/in/items', item: @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) } %>
+<% if item = @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <%= render partial: 'cart', locals: { model: model, item_con: 'trade/in/items', item: item } %>
+<% else %>
+  <%= render partial: 'add_cart', locals: { model: model, item_con: 'trade/in/items', cart: @cart } %>
+<% end %>
 </td>
 <td>
   <%# link_to({ controller: 'productions', action: 'part', id: model.id }, aria: { label: t('factory.admin.productions.part.title') }, class: 'button is-small is-rounded is-light') do %>
