@@ -31,7 +31,7 @@
       <i class="fa-solid fa-times has-text-danger"></i>
     <% end if item.organ_id.present? %>
     <%= button_to({ controller: 'trade/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { current_cart_id: @cart.id } }) do %>
-      <i class="fa-solid fa-check has-text-info"></i>
+      <i class="fa-solid fa-hand-point-right has-text-info"></i>
     <% end %>
   <% else %>
     <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: nil } %>
