@@ -1,5 +1,3 @@
-<% item = @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-
 <% if item %>
 <div data-controller="modify" data-modify-submit-value="true" class="is-flex is-justify-content-center">
   <% if item.number > 1 %>
