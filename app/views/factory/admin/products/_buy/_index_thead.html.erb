@@ -1,7 +1,10 @@
 <th>
   <p><%= Factory::Product.human_attribute_name(:name) %></p>
 </th>
-<th><%= Factory::Production.human_attribute_name(:cost_price) %></th>
+<th>
+  <p><%= Factory::Production.human_attribute_name(:price) %></p>
+  <p><%= Factory::Production.human_attribute_name(:cost_price) %></p>
+</th>
 <th><%= Factory::Product.human_attribute_name(:description) %></th>
 <th></th>
 <th></th>
