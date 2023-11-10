@@ -27,10 +27,6 @@ module Factory
       end
 
       @productions = @productions.list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
-
-      if @cart
-        @items = @cart.find_items(@productions, **params.slice(:produce_on, :scene_id, :station_id, :desk_id))
-      end
     end
 
     def nav
