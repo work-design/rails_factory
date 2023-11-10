@@ -24,7 +24,7 @@
             <i class="fa-solid fa-times has-text-danger"></i>
           <% end if item && item.organ_id == pp.provider_id %>
         <% else %>
-          <%= render partial: 'add_purchase_cart', locals: { item_con: 'trade/in/items', model: model, cart: @cart } %>
+          <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: pp.upstream_production_id } %>
         <% end %>
       </div>
     <% end %>
