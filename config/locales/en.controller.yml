@@ -74,6 +74,8 @@ en:
           title: Providers
         create:
           title: Add To
+        destroy:
+          title: Move Out
       product_taxons:
         import:
           title: Import From Provider
