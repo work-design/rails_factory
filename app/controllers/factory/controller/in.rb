@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      layout 'in'
+      layout -> { turbo_frame_body? ? 'frame/body' : 'in' }
     end
 
     def set_scenes
