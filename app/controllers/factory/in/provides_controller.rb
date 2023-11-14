@@ -12,8 +12,8 @@ module Factory
       else
         @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
       end
-      maintains = Crm::Maintain.includes(:client_member).default_where(default_params).where(vendor: true).where.not(client_member: { organ_id: except_ids })
-      @vendors = maintains.map(&:client_member).compact
+      maintains = Crm::Maintain.includes(:client_member).select(:client_member_id).default_where(default_params).where(vendor: true).where.not(client_member: { organ_id: except_ids })
+      @vendors = maintains.map(&:client_member).uniq
     end
 
     def search
