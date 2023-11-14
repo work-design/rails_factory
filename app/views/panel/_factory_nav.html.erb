@@ -5,9 +5,9 @@
     <i class="fa-solid fa-fw dropdown"></i>
   </a>
   <div class="menu-list" data-empty-target="content">
-    <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
-    <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
-    <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
-    <%= link_to t('factory.panel.scenes.index.title'), { controller: 'factory/panel/scenes' }, class: active_helper(controllers: ['scenes'], active: 'is-active') %>
+    <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
+    <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
+    <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
+    <%= link_to t('factory.panel.scenes.index.title'), { controller: 'factory/panel/scenes' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['scenes'], active: 'is-active') %>
   </div>
 </div>
