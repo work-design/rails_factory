@@ -72,6 +72,8 @@ en:
       provides:
         index:
           title: Providers
+        create:
+          title: Add To
       product_taxons:
         import:
           title: Import From Provider

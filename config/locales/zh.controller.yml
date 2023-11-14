@@ -154,7 +154,7 @@ zh:
       provides:
         index:
           title: 供应商
-        add:
+        create:
           title: 选为供应商
       productions:
         index:
