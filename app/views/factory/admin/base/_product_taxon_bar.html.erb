@@ -1,0 +1,17 @@
+<h2 class="title has-text-centered">
+  <%= @product_taxon.name %>
+</h2>
+
+<div class="tabs">
+  <ul>
+    <li class="<%= active_helper(products: ['show', 'edit'], active: 'is-active') %>">
+      <%= link_to t('.product_taxons.show.title'), { controller: 'product_taxons', action: 'show', id: @product_taxon.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'products', active: 'is-active') %>">
+      <%= link_to t('.products.index.title'), { controller: 'products', product_taxon_id: @product_taxon.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'products', active: 'is-active') %>">
+      <%= link_to t('.productions.taxon.title'), { controller: 'productions', action: 'taxon', product_taxon_id: @product_taxon.id } %>
+    </li>
+  </ul>
+</div>
