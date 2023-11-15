@@ -1,12 +1,17 @@
 module Factory
   class Admin::ProductTaxonsController < Admin::BaseController
-    before_action :set_product_taxon, only: [:show, :import, :productions, :edit, :update, :reorder, :destroy]
+    before_action :set_product_taxon, only: [
+      :show, :productions, :edit, :update, :reorder, :destroy,
+      :import, :copy, :prune
+    ]
     before_action :set_factory_taxons, only: [:new, :edit]
     before_action :set_scenes, only: [:new, :edit]
     before_action :set_products, only: [:import]
     before_action :set_new_product_taxon, only: [:new, :create]
     before_action :set_product_taxons, only: [:new, :create]
     before_action :set_own_product_taxons, only: [:edit, :update]
+    before_action :set_production, only: [:copy, :prune]
+    before_action :set_providers, only: [:import, :productions]
 
     def index
       q_params = {}
@@ -23,6 +28,33 @@ module Factory
 
       @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
+    end
+
+    def import
+      q_params = {
+        organ_id: @product_taxon.provider_ids
+      }
+      q_params.merge! params.permit(:organ_id) if @product_taxon.provider_ids.map(&:to_s).include? params[:organ_id]
+      if @product_taxon.factory_taxon
+        @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+      else
+        @products = Product.default_where(q_params).page(params[:page])
+      end
+
+      product_ids = @products.pluck(:id)
+      @select_ids = ProductionProvide.default_where(default_params).where(upstream_product_id: product_ids).pluck(:upstream_product_id)
+      @imported_production_ids = ProductionProvide.default_where(default_params).distinct(:upstream_production_id).pluck(:upstream_production_id)
+    end
+
+    def copy
+      downstream_provide = @production.downstream_provides.find_or_initialize_by(organ_id: current_organ.id)
+      downstream_provide.sync_from_upstream(@product_taxon)
+      downstream_provide.save
+    end
+
+    def prune
+      production = @production.downstream_provides.find_by(organ_id: current_organ.id)
+      production.destroy
     end
 
     private
@@ -69,10 +101,27 @@ module Factory
     def set_products
       q_params = {}
       q_params.merge! params.permit(:organ_id)
-      @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+
+      if @product_taxon.factory_taxon
+        @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+      else
+        @products = Product.default_where(q_params).page(params[:page])
+      end
 
       product_ids = @products.pluck(:id)
-      @select_ids = PartProvider.default_where(default_params).where(product_id: product_ids).pluck(:product_id)
+      @select_ids = ProductionProvide.default_where(default_params).where(product_id: product_ids).pluck(:product_id)
+    end
+
+    def set_production
+      @production = Production.where(organ_id: @product_taxon.provider_ids).find params[:production_id]
+    end
+
+    def set_providers
+      if @product_taxon.factory_taxon
+        @providers = @product_taxon.factory_taxon.providers
+      else
+        @providers = current_organ.providers
+      end
     end
 
     def product_taxon_params

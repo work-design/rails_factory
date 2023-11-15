@@ -1,5 +1,5 @@
 module Factory
-  class In::ProvidesController < In::BaseController
+  class Admin::ProvidesController < Admin::BaseController
     before_action :set_product_taxon
     before_action :set_new_provide, only: [:new, :create]
 

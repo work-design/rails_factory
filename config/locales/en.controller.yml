@@ -69,8 +69,6 @@ en:
       stock_logs:
         index:
           title: Stock Logs
-    in:
-      title: Import
       provides:
         index:
           title: Providers
@@ -78,6 +76,8 @@ en:
           title: Add To
         destroy:
           title: Move Out
+    in:
+      title: Import
       product_taxons:
         import:
           title: Import From Provider

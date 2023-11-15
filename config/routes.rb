@@ -40,15 +40,7 @@ Rails.application.routes.draw do
         concerns :productive
         resources :product_taxons, only: [:index, :show] do
           member do
-            get :import
             post :productions
-            post :copy
-            delete :prune
-          end
-          resources :provides do
-            collection do
-              post :search
-            end
           end
         end
         resources :items do
@@ -87,6 +79,9 @@ Rails.application.routes.draw do
           end
           member do
             patch :reorder
+            get :import
+            post :copy
+            delete :prune
           end
           resources :products do
             collection do
@@ -96,6 +91,11 @@ Rails.application.routes.draw do
               patch :move_lower
               patch :move_higher
               patch :reorder
+            end
+          end
+          resources :provides do
+            collection do
+              post :search
             end
           end
         end

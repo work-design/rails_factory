@@ -113,6 +113,13 @@ zh:
       provideds:
         index:
           title: 供应列表
+      provides:
+        index:
+          title: 供应商
+        create:
+          title: 选为供应商
+        destroy:
+          title: 移除供应商
       trade_items:
         index:
           title: 订单明细
@@ -151,13 +158,6 @@ zh:
           title: 上架
         prune:
           title: 下架
-      provides:
-        index:
-          title: 供应商
-        create:
-          title: 选为供应商
-        destroy:
-          title: 移除供应商
       productions:
         index:
           title: 进货

@@ -4,14 +4,20 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper(products: ['show', 'edit'], active: 'is-active') %>">
+    <li class="<%= active_helper(product_taxons: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.product_taxons.show.title'), { controller: 'product_taxons', action: 'show', id: @product_taxon.id } %>
+    </li>
+    <li class="<%= active_helper(product_taxons: ['import'], active: 'is-active') %>">
+      <%= link_to t('.product_taxons.import.title'), { controller: 'product_taxons', action: 'import', id: @product_taxon.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'products', active: 'is-active') %>">
       <%= link_to t('.products.index.title'), { controller: 'products', product_taxon_id: @product_taxon.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'products', active: 'is-active') %>">
+    <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
       <%= link_to t('.productions.taxon.title'), { controller: 'productions', action: 'taxon', product_taxon_id: @product_taxon.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'provides', active: 'is-active') %>">
+      <%= link_to t('.provides.index.title'), { controller: 'provides', product_taxon_id: @product_taxon.id } %>
     </li>
   </ul>
 </div>
