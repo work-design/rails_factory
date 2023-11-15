@@ -52,6 +52,12 @@ en:
           title: Product Taxon
         all:
           title: Admin Taxon from Platform Taxon
+        import:
+          title: Import From Provider
+        copy:
+          title: Copy
+        prune:
+          title: Prune
       product_part_taxons:
         index:
           title: Part Taxons
@@ -79,12 +85,7 @@ en:
     in:
       title: Import
       product_taxons:
-        import:
-          title: Import From Provider
-        copy:
-          title: Copy
-        prune:
-          title: Prune
+
       productions:
         index:
           title: Buy
