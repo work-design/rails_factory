@@ -99,6 +99,11 @@ Rails.application.routes.draw do
             end
           end
         end
+        resources :products, only: [] do
+          collection do
+            get :all
+          end
+        end
         resources :plans
         resources :scenes do
           resources :produce_plans do

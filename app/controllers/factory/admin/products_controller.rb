@@ -1,6 +1,6 @@
 module Factory
   class Admin::ProductsController < Admin::BaseController
-    before_action :set_product_taxon
+    before_action :set_product_taxon, except: [:all]
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
     before_action :set_new_product, only: [:new, :create]
@@ -13,6 +13,10 @@ module Factory
       q_params.merge! params.permit(:product_taxon_id, :name)
 
       @products = Product.includes(:parts, :product_taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
+    end
+
+    def all
+      @products = Product.default_where(default_params).page(params[:page])
     end
 
     def buy

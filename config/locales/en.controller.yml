@@ -20,6 +20,8 @@ en:
       products:
         index:
           title: Product List
+        all:
+          title: Products
         buy:
           title: Purchase
       productions:
