@@ -12,11 +12,11 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id, :name)
 
-      @products = Product.includes(:parts, :product_taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
+      @products = Product.includes(:parts, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
     end
 
     def all
-      @products = Product.default_where(default_params).page(params[:page])
+      @products = Product.includes(:product_taxon, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(default_params).page(params[:page])
     end
 
     def buy
