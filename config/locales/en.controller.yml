@@ -32,6 +32,8 @@ en:
       production_items:
         index:
           title: Items
+        delivery:
+          title: Delivery
       production_plans:
         index:
           title: Plans
