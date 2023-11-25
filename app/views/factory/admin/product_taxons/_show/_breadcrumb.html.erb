@@ -1,0 +1,8 @@
+<li><%= link_to t('.index.title'), { controller: 'product_taxons' } %></li>
+<li>
+  <span class="px-3"><%= @product_taxon.name %></span>
+  <% if @product_taxon.factory_taxon %>
+  <span class="pr-3 has-text-grey">（<%= @product_taxon.factory_taxon.name %>）</span>
+  <% end %>
+</li>
+<li class="is-active"><%= t('.title') %></li>
