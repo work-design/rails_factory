@@ -1,12 +1,7 @@
+<td><%= model.name %></td>
+<td><%= model.id %></td>
 <td>
-  <div class="is-several">
-    <%= image_tag model.organ.logo, class: 'image is-24x24' if model.organ.logo.attached? %>
-    <span><%= model.organ.name %></span>
-  </div>
-</td>
-<td><%= model.identity %></td>
-<td>
-  <%= button_to({ action: 'create' }, params: { 'provide[provider_id]': model.organ_id }, class: 'button is-small is-rounded is-light') do %>
+  <%= button_to({ action: 'create' }, params: { 'provide[provider_id]': model.id }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-plus has-text-success"></i>
     <span class="pl-1"><%= t('.create.title') %></span>
   <% end %>
