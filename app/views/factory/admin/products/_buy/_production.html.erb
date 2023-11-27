@@ -16,16 +16,16 @@
 <td>
   <table>
   <% model.upstream_provides.each do |pp| %>
-  <tr>
-    <td><%= pp.provider.name %></td>
-    <td>
-    <% if item = @cart.organ_item(purchase_id: model.id, good_id: pp.upstream_production_id) %>
-      <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
-    <% else %>
-      <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: pp.upstream_production_id } %>
-    <% end %>
-    </td>
-  </tr>
+    <tr>
+      <td>
+      <% if item = @cart.organ_item(purchase_id: model.id, good_id: pp.upstream_production_id) %>
+        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
+      <% else %>
+        <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: pp.upstream_production_id } %>
+      <% end %>
+      </td>
+      <td><%= pp.provider.name %></td>
+    </tr>
   <% end %>
   <% if item = @cart.organ_item(purchase_id: model.id, good_id: nil) %>
     <%= render partial: 'purchase_cart_assign', locals: { model: model, item: item } %>
