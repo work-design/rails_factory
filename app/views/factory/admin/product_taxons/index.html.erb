@@ -1,4 +1,4 @@
-<%= render 'button' %>
+<%= render 'index_bar' %>
 
 <%= render layout: 'index_table' do %>
   <% @product_taxons.group_by(&:factory_taxon).each do |taxon, product_taxons| %>
