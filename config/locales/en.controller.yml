@@ -48,10 +48,10 @@ en:
           title: Produce Plans
       factory_taxons:
         index:
-          title: Platform Taxon
+          title: Platform Categories
       product_taxons:
         index:
-          title: Product Taxon
+          title: Categories
         all:
           title: Admin Taxon from Platform Taxon
         import:

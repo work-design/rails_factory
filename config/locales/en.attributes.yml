@@ -1,0 +1,81 @@
+en:
+  activerecord:
+    attributes:
+      factory/product:
+        organ_id: 厂家
+        brand_id: 品牌
+        serial_id: 系列
+        product_taxon_id: 商品分类
+        qr_prefix: 二维码前缀
+        product_part_taxons: 分类
+        logo: 主图
+        covers: 橱窗轮播图
+        images: 商品描述图
+      factory/product_host:
+        profit_margin: 利润率
+        min_price: 最低价
+        max_price: 最高价
+      factory/product_part_taxon:
+        min_select: 最低选择数
+        max_select: 最多选择数
+      factory/production:
+        cost_price: Cost
+        profit_price: Profit
+        price: Price
+        card_price: Vip Price
+        default: 主显产品
+        presell: Pre Sell
+        enabled: Available
+        automatic: 自动上架
+        stock: Stock
+      factory/part:
+        import_price: 进货价
+        profit_price: 利润
+        price: 价格
+        part_taxon_id: 分类
+        brand_id: 品牌
+      factory/scene:
+        book_start_days: 提前天
+        book_start_at: 预定开始时间
+        book_finish_days: 提前天
+        book_finish_at: 预定结束时间
+        deliver_start_at: 配送开始时间
+        deliver_finish_at: 配送结束时间
+        automatic: 自动生成
+      factory/produce_plan:
+        produce_on: 生产日期
+        specialty: 主推
+        book_start_at: 预定开始时间
+        book_finish_at: 预定结束时间
+        production_plans_count: 上架产品数
+        state: 状态
+      factory/product_taxon:
+        factory_taxon_id: Platform Category
+        scene_id: Scene
+        partial: 可作为配件
+        products_count: Products
+        enabled: Available
+        nav: As Nav
+      factory/part_taxon_provider:
+        provider_id: 供应商
+      factory/production_plan:
+        planned_count: 计划生产数
+        production_items_count: 已生产数
+      factory/part_provider:
+        provider_id: 供应商
+        verified: 已验证
+        selected: 已选择
+        export_price: 出厂价
+      factory/provide:
+        provider_id: 供应商
+      factory/fit:
+        part_brand_id: 适配品牌
+        part_serial_id: 适配型号
+        part_product_id: 适配产品
+        part_production_id: 适配产品
+      factory/production_item:
+        state: 状态
+        qr_code: 编码
+        came_at: 生产/到货时间
+        room_id: 所在仓库
+        grid_id: 所在货架
