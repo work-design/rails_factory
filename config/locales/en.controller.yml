@@ -29,6 +29,14 @@ en:
           title: Serials
         taxon:
           title: Taxon Summary
+        card:
+          title: Vip Price
+        price:
+          title: Price
+        cost:
+          title: Cost
+        part:
+          title: Parts
       production_items:
         index:
           title: Items

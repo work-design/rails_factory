@@ -7,28 +7,28 @@
 </td>
 <td class="has-inner-table">
   <% model.parts.each do |part| %>
-    <%= link_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, data: { turbo_frame: 'modal' }, class: 'tag is-info') do %>
+    <%= button_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, class: 'tag is-info') do %>
       <span><%= part.name %></span>
       <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
     <% end %>
   <% end %>
-  <%= link_to({ action: 'part', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, style: 'visibility: hidden') do %>
+  <%= button_to({ action: 'part', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, style: 'visibility: hidden') do %>
     <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
   <% end %>
 </td>
 <td>
-  <p class="has-block-right">
+  <div class="has-block-right">
     <span><%= model.cost_price.to_money.format.html_safe %></span>
-    <%= link_to({ action: 'cost', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, style: 'visibility: hidden') do %>
+    <%= button_to({ action: 'cost', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, style: 'visibility: hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
     <% end %>
-  </p>
-  <p class="has-block-right">
+  </div>
+  <div class="has-block-right">
     <span><%= model.profit_price.to_money.format.html_safe %></span>
-    <%= link_to({ action: 'price', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, style: 'visibility: hidden') do %>
+    <%= button_to({ action: 'price', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, style: 'visibility: hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
     <% end %>
-  </p>
+  </div>
   <p class="has-block-right has-text-danger">
     <span class="mr-5"><%= model.price.to_money.format.html_safe %></span>
   </p>
@@ -42,7 +42,7 @@
     </div>
   <% end %>
   </div>
-  <%= link_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.card.title') }) do %>
+  <%= button_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.card.title') }) do %>
     <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
   <% end %>
 </td>

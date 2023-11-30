@@ -119,10 +119,10 @@ Rails.application.routes.draw do
           end
           resources :productions do
             member do
-              get :part
-              get :price
-              get :cost
-              get :card
+              match :part, via: [:get, :post]
+              match :price, via: [:get, :post]
+              match :cost, via: [:get, :post]
+              match :card, via: [:get, :post]
               patch :update_card
               patch :provide
             end
