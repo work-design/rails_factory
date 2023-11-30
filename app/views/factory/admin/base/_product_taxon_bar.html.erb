@@ -10,10 +10,10 @@
     <li class="<%= active_helper(product_taxons: ['import'], active: 'is-active') %>">
       <%= link_to t('.product_taxons.import.title'), { controller: 'product_taxons', action: 'import', id: @product_taxon.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'products', active: 'is-active') %>">
+    <li class="<%= active_helper(products: ['index'], active: 'is-active') %>">
       <%= link_to t('.products.index.title'), { controller: 'products', product_taxon_id: @product_taxon.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'products', active: 'is-active') %>">
+    <li class="<%= active_helper(products: ['buy'], active: 'is-active') %>">
       <%= link_to({ controller: 'products', action: 'buy', product_taxon_id: @product_taxon.id }) do %>
         <i class="fa-solid fa-store"></i>
         <span class="pl-1"><%= t('.products.buy.title') %></span>
