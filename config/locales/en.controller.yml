@@ -14,6 +14,9 @@ en:
           title: Products
     admin:
       title: Inventory
+      addresses:
+        index:
+          title: Addresses
       brands:
         index:
           title: Brands
@@ -92,6 +95,9 @@ en:
           title: Add To
         destroy:
           title: Move Out
+      trade_items:
+        index:
+          title: Sold List
     in:
       title: Import
       product_taxons:
