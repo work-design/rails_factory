@@ -53,6 +53,10 @@ module Factory
     end
 
     private
+    def pluralize_model_name
+      'production_items'
+    end
+
     def set_production
       @production = Production.find params[:production_id]
     end
