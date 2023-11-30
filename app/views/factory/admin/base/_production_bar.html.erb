@@ -16,11 +16,11 @@
     <li class="<%= active_helper(controllers: 'purchase_items', active: 'is-active') %>">
       <%= link_to t('.purchase_items.index.title'), { controller: 'factory/admin/purchase_items', production_id: @production.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'trade_items', active: 'is-active') %>">
-      <%= link_to t('.trade_items.index.title'), { controller: 'trade_items', production_id: @production.id } %>
-    </li>
     <li class="<%= active_helper(controllers: 'stock_logs', active: 'is-active') %>">
       <%= link_to t('.stock_logs.index.title'), { controller: 'stock_logs', production_id: @production.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'trade_items', active: 'is-active') %>">
+      <%= link_to t('.trade_items.index.title'), { controller: 'trade_items', production_id: @production.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'addresses', active: 'is-active') %>">
       <%= link_to t('.addresses.index.title'), { controller: 'addresses', production_id: @production.id } %>
