@@ -18,7 +18,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
+      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc).page(params[:page])
     end
 
     def all
