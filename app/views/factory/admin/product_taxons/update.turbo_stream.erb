@@ -1,0 +1,11 @@
+<% if referer_controller == controller_path && ['index'].include?(referer_meta[:action]) %>
+  <%= turbo_stream.replace "tr_#{params[:id]}", partial: 'index_tbody', layout: 'index_tr', locals: { model: @product_taxon } %>
+  <%= turbo_stream.remove 'modal' %>
+<% elsif referer_controller == controller_path && ['all'].include?(referer_meta[:action]) %>
+  <%= turbo_stream.replace "tr_#{params[:id]}", partial: '_all/index_tbody', layout: '_all/index_tr', locals: { model: @product_taxon } %>
+  <%= turbo_stream.remove 'modal' %>
+<% elsif referer_controller == controller_path && referer_meta[:action] == 'edit' %>
+  <%= turbo_stream.replace "box", partial: 'show', locals: { model: @product_taxon } %>
+<% else %>
+  <%= turbo_stream.append 'body', partial: 'visit', locals: { url: url_for(action: 'index') } %>
+<% end %>
