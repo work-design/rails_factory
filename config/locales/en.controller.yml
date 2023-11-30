@@ -13,7 +13,7 @@ en:
         index:
           title: Products
     admin:
-      title: Factory
+      title: Inventory
       brands:
         index:
           title: Brands
@@ -92,7 +92,7 @@ en:
         index:
           title: Buy
     panel:
-      title: Factory
+      title: Inventory
       factory_taxons:
         index:
           title: Platform Taxon
