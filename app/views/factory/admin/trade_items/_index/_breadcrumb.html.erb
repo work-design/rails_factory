@@ -1,6 +1,2 @@
-<li><%= link_to t('factory.admin.product_taxons.index.title'), { controller: 'product_taxons' } %></li>
-<li><span class="px-3"><%= @production.product_taxon.name %></span></li>
-<li><%= link_to t('factory.admin.products.index.title'), { controller: 'products', product_taxon_id: @production.product_taxon_id } %></li>
-<li><span class="px-3"><%= @production.product.name %></span></li>
-<li><%= link_to t('factory.admin.productions.index.title'), { controller: 'productions', product_id: @production.product_id } %></li>
+<%= render 'production_breadcrumb' %>
 <li class="is-active"><%= t('factory.admin.trade_items.index.title') %></li>
