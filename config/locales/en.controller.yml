@@ -22,7 +22,7 @@ en:
           title: Brands
       products:
         index:
-          title: Product List
+          title: Products
         all:
           title: Products
         buy:
