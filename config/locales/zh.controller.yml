@@ -72,6 +72,8 @@ zh:
           title: 管理分类
         new:
           title: 添加本店分类
+        import:
+          title: 从上游导入
       production_plans:
         index:
           title: 产品批次
