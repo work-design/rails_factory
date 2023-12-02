@@ -1,8 +1,8 @@
 <td>
-  <div class="is-several">
+  <%= link_to({ action: 'show', id: model.id }) do %>
     <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
     <span><%= model.name %></span>
-  </div>
+  <% end %>
   <p class="has-text-grey"><%= model.scene&.title %></p>
 </td>
 <td><%= link_to model.products_count, { controller: 'products', product_taxon_id: model.id } %></td>
