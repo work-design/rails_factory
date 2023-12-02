@@ -16,5 +16,11 @@
         <span class="pl-1"><%= t('.product_part_taxons.index.title') %></span>
       <% end %>
     </li>
+    <li class="<%= active_helper(controllers: 'fits', active: 'is-active') %>">
+      <%= link_to({ controller: 'fits', product_id: @product.id }) do %>
+        <i class="fa-solid fa-cogs"></i>
+        <span class="pl-1"><%= t('.fits.index.title') %></span>
+      <% end %>
+    </li>
   </ul>
 </div>

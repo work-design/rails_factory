@@ -20,6 +20,9 @@ en:
       brands:
         index:
           title: Brands
+      fits:
+        index:
+          title: Fits
       products:
         index:
           title: Products
