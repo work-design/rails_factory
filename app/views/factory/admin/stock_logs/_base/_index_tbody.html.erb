@@ -9,7 +9,7 @@
   <span class="has-text-grey"><%= model.amount.to_human %></span>
 <% end %>
 </td>
-<td><%= model.stock.to_human %></td>
+<td><%= model.stock.to_d.to_human %></td>
 <td>
   <p><%= model.source_type %></p>
   <p><%= model.source_id %></p>
