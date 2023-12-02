@@ -11,6 +11,7 @@ zh:
         logo: 主图
         covers: 橱窗轮播图
         images: 商品描述图
+        productions_count: 型号数
       factory/product_host:
         profit_margin: 利润率
         min_price: 最低价

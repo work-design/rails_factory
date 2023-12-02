@@ -4,10 +4,6 @@
     <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.logo.attached? %>
     <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
       <span><%= model.name %></span>
-      <span class="tag is-light">
-        <i class="fa-solid fa-clone"></i>
-        <span class="pl-1"><%= model.productions_count %></span>
-      </span>
     <% end %>
   </div>
   <p class="has-text-grey"><%= model.description.to_s.truncate(27) %></p>
@@ -30,4 +26,9 @@
       <i class="fa-solid fa-tree"></i>
     <% end %>
   </p>
+</td>
+<td>
+  <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
+    <span><%= model.productions_count %></span>
+  <% end %>
 </td>
