@@ -100,8 +100,10 @@ en:
           title: Sold List
     in:
       title: Import
+      items:
+        edit_assign:
+          title: Assign Provider
       product_taxons:
-
       productions:
         index:
           title: Buy

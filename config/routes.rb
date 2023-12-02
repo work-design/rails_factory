@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         resources :items do
           member do
             post :edit_assign
+            patch :update_assign
           end
         end
         resources :payments do
