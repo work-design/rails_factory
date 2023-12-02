@@ -1,14 +1,20 @@
 <h2 class="title has-text-centered">
-  <%= product.name %>
+  <%= @product.name %>
 </h2>
 
 <div class="tabs">
   <ul>
     <li class="<%= active_helper(products: ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('factory.admin.products.show.title'), { controller: 'factory/admin/products', action: 'show', product_taxon_id: product.product_taxon_id, id: product.id } %>
+      <%= link_to t('factory.admin.products.show.title'), { controller: 'factory/admin/products', action: 'show', product_taxon_id: @product.product_taxon_id, id: @product.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
-      <%= link_to t('factory.admin.productions.index.title'), { controller: 'factory/admin/productions', action: 'index', product_id: product.id } %>
+      <%= link_to t('factory.admin.productions.index.title'), { controller: 'factory/admin/productions', action: 'index', product_id: @product.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'product_part_taxons', active: 'is-active') %>">
+      <%= link_to({ controller: 'product_part_taxons', product_id: @product.id }) do %>
+        <i class="fa-solid fa-tree"></i>
+        <span class="pl-1"><%= t('.product_part_taxons.index.title') %></span>
+      <% end %>
     </li>
   </ul>
 </div>
