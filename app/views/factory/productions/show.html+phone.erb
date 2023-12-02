@@ -32,11 +32,11 @@
     <% end %>
   </div>
   <div class="weui-panel__bd p-4">
-    <% if @production.is_a?(Factory::ProxyProduction) && @production.upstream %>
-    <p>
-      <span>供应商：</span>
-      <span><%= @production.upstream.organ.name %></span>
-    </p>
+    <% @production.upstream_provides.each do |upstream| %>
+      <p>
+        <span>供应商：</span>
+        <span><%= upstream.organ.name %></span>
+      </p>
     <% end %>
     <div><%= simple_format @production.product.description %></div>
   </div>
