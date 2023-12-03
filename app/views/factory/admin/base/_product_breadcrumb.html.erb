@@ -1,0 +1,9 @@
+<li><%= link_to t('.product_taxons.index.title'), { controller: 'product_taxons', anchor: "tr_#{@product.product_taxon.id}" } %></li>
+<li>
+  <span class="pl-3"><%= @product.product_taxon.name %></span>
+  <% if @product.product_taxon.factory_taxon %>
+    <span class="pr-3 has-text-grey">（<%= @product.product_taxon.factory_taxon.name %>）</span>
+  <% end %>
+</li>
+<li><%= link_to t('.products.index.title'), { controller: 'products', product_taxon_id: @product.product_taxon_id } %></li>
+<li><span class="px-3"><%= @product.name %></span></li>

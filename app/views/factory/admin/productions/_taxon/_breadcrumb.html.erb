@@ -1,10 +1,2 @@
-<li><%= link_to t('factory.admin.product_taxons.index.title'), { controller: 'product_taxons', anchor: "tr_#{@product_taxon.id}" } %></li>
-<li>
-  <div class="px-3">
-    <span><%= @product_taxon.name %></span>
-    <% if @product_taxon.factory_taxon %>
-      <span class="has-text-grey">（<%= @product_taxon.factory_taxon.name %>）</span>
-    <% end %>
-  </div>
-</li>
+<%= render 'product_taxon_breadcrumb' %>
 <li class="is-active"><%= t('.title') %></li>
