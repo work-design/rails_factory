@@ -17,11 +17,5 @@ module Factory
       @cart.compute_amount! unless @cart.fresh
     end
 
-    class_methods do
-      def local_prefixes
-        [controller_path, 'agent', 'me']
-      end
-    end
-
   end
 end
