@@ -85,6 +85,8 @@ en:
           title: Purchase Items
         update:
           title: Receive
+        batch_receive:
+          title: Receive
       scenes:
         index:
           title: Scenes

@@ -140,7 +140,11 @@ Rails.application.routes.draw do
               patch :print
             end
           end
-          resources :purchase_items
+          resources :purchase_items do
+            collection do
+              post :batch_receive
+            end
+          end
           resources :stock_logs
           resources :part_providers do
             collection do

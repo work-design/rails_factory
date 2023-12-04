@@ -27,6 +27,10 @@ module Factory
       'item'
     end
 
+    def pluralize_model_name
+      'items'
+    end
+
     def item_params
       params.fetch(:item, {}).permit(
         :number,
