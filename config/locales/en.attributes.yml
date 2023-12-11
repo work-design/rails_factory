@@ -16,8 +16,8 @@ en:
         min_price: 最低价
         max_price: 最高价
       factory/product_part_taxon:
-        min_select: 最低选择数
-        max_select: 最多选择数
+        min_select: Min Select
+        max_select: Max Select
       factory/production:
         cost_price: Cost
         profit_price: Profit
