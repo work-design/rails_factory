@@ -126,7 +126,7 @@ module Factory
     end
 
     def product_taxon_params
-      p = params.fetch(:product_taxon, {}).permit(
+      _p = params.fetch(:product_taxon, {}).permit(
         :name,
         :position,
         :logo,
@@ -134,12 +134,11 @@ module Factory
         :parent_id,
         :parent_ancestors,
         :enabled,
-        :partial,
         :nav,
         :factory_taxon_id,
         :scene_id
       )
-      p.merge! default_form_params
+      _p.merge! default_form_params
     end
 
   end
