@@ -16,7 +16,7 @@
     <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
   <% end %>
 </td>
-<td>
+<td style="--money-width: <%= model.max_indent %>ch">
   <div>
     <span><%= model.cost_price.to_money.format.html_safe %></span>
     <%= button_to({ action: 'cost', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, style: 'visibility: hidden') do %>

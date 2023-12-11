@@ -112,7 +112,7 @@ module Factory
     end
 
     def max_indent
-      [cost_price.indent, profit_price.indent, price.indent].max
+      [cost_price.to_money.indent, profit_price.to_money.indent, price.to_money.indent].max
     end
 
     def card_price_human
