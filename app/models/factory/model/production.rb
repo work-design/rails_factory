@@ -111,6 +111,10 @@ module Factory
       end
     end
 
+    def max_indent
+      [cost_price.indent, profit_price.indent, price.indent].max
+    end
+
     def card_price_human
       codes = organ.card_templates.load.pluck(:code, :name).to_h
       card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d } }
