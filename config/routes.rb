@@ -84,7 +84,7 @@ Rails.application.routes.draw do
             post :copy
             delete :prune
           end
-          resources :products do
+          resources :products, controller: 'taxon/products' do
             collection do
               get :buy
             end
@@ -100,9 +100,9 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :products, only: [] do
+        resources :products, only: [:index] do
           collection do
-            get :all
+            get :buy
           end
         end
         resources :plans

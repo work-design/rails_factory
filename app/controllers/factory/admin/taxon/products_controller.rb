@@ -1,5 +1,5 @@
 module Factory
-  class Admin::ProductsController < Admin::BaseController
+  class Taxon::Admin::ProductsController < Admin::ProductsController
     before_action :set_product_taxon, except: [:all]
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
@@ -10,8 +10,9 @@ module Factory
     def index
       q_params = {}
       q_params.merge! default_params
+      q_params.merge! params.permit(:product_taxon_id, :name)
 
-      @products = Product.includes(:product_taxon, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).page(params[:page])
+      @products = Product.includes(:parts, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
     end
 
     def buy
