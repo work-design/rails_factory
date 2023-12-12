@@ -1,5 +1,5 @@
 module Factory
-  class Taxon::Admin::ProductsController < Admin::ProductsController
+  class Admin::Taxon::ProductsController < Admin::ProductsController
     before_action :set_product_taxon
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
