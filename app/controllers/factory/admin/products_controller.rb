@@ -59,7 +59,8 @@ module Factory
 
     def set_cart
       options = {
-        member_organ_id: current_organ.id
+        member_organ_id: current_organ.id,
+        purchasable: true
       }
 
       options.merge! user_id: nil, member_id: nil
