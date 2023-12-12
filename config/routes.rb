@@ -100,7 +100,7 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :products, only: [:index] do
+        resources :products do
           collection do
             get :buy
           end
