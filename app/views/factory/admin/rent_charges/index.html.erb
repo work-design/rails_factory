@@ -1,0 +1,17 @@
+
+<%= render 'production_bar' %>
+<%= render 'index_bar' %>
+
+<div>
+  <%= @production.rent_unit %>
+  <%= button_to({ controller: 'rentables', action: 'edit' }) do %>
+    <i class="fa-solid fa-pencil"></i>
+    <span><%= t('trade.admin.rentables.edit.title') %></span>
+  <% end if false %>
+</div>
+
+<%= render layout: 'index_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @rent_charges, as: :model %>
+<% end %>
+
+<%= paginate @rent_charges %>

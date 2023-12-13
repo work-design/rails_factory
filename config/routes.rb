@@ -173,6 +173,12 @@ Rails.application.routes.draw do
               get :print_data
             end
           end
+          resources :rent_charges do
+            member do
+              get :wallet
+              patch 'wallet' => :update_wallet
+            end
+          end
         end
       end
 
