@@ -2,19 +2,19 @@ en:
   activerecord:
     attributes:
       factory/product:
-        organ_id: 厂家
-        brand_id: 品牌
-        serial_id: 系列
-        product_taxon_id: 商品分类
+        organ_id: Provider
+        brand_id: Brand
+        serial_id: Serial
+        product_taxon_id: Category
         qr_prefix: 二维码前缀
         product_part_taxons: 分类
-        logo: 主图
-        covers: 橱窗轮播图
-        images: 商品描述图
+        logo: Logo
+        covers: Covers
+        images: Images
       factory/product_host:
         profit_margin: 利润率
-        min_price: 最低价
-        max_price: 最高价
+        min_price: Min Price
+        max_price: Max Price
       factory/product_part_taxon:
         min_select: Min Select
         max_select: Max Select
@@ -23,10 +23,10 @@ en:
         profit_price: Profit
         price: Price
         card_price: Vip Price
-        default: 主显产品
+        default: Primary
         presell: Pre Sell
         enabled: Available
-        automatic: 自动上架
+        automatic: Automatic Refresh
         stock: Stock
       factory/part:
         import_price: 进货价
