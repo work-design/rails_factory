@@ -2,18 +2,6 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
-      <%= link_to({ controller: 'products', product_taxon_id: model.id }, aria: { label: t('.products.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-cubes has-text-primary"></i>
-      <% end %>
-      <%= link_to({ controller: 'products', action: 'buy', product_taxon_id: model.id }, aria: { label: t('.products.buy.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-store has-text-primary"></i>
-      <% end %>
-      <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: model.id }, aria: { label: t('.productions.taxon.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-list has-text-link"></i>
-      <% end %>
-      <%= link_to({ action: 'import', id: model.id }, aria: { label: t('.import.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-sign-in-alt has-text-success"></i>
-      <% end %>
       <%= button_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-circle-info has-text-info"></i>
       <% end %>
