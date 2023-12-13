@@ -3,6 +3,10 @@
   <td><%= @production.name %></td>
 </tr>
 <tr>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:title) %></td>
+  <td><%= @production.title %></td>
+</tr>
+<tr>
   <td class="has-text-right"><%= Factory::Production.human_attribute_name(:state) %></td>
   <td><%= @production.state_i18n %></td>
 </tr>
