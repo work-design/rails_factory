@@ -7,15 +7,15 @@
   </div>
   <p class="has-text-grey"><%= model.description.to_s.truncate(27) %></p>
 </td>
-<td colspan="2" class="has-inner-table">
-  <table>
-  <% model.productions.each do |production| %>
-    <tr>
-      <td><%= production.name %></td>
-      <td><%= production.stock %></td>
-    </tr>
-  <% end %>
-  </table>
+<td>
+<% model.productions.each do |production| %>
+  <p><%= production.name %></p>
+<% end %>
+</td>
+<td>
+<% model.productions.each do |production| %>
+  <p><%= production.stock %></p>
+<% end %>
 </td>
 <td>
   <p><%= model.product_taxon.name %></p>
