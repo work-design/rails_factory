@@ -3,12 +3,13 @@ module Factory
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
     before_action :set_new_product, only: [:new, :create]
-    before_action :set_product_taxons, only: [:edit, :update]
+    before_action :set_product_taxons, only: [:index, :edit, :update]
     before_action :set_cart, only: [:buy]
 
     def index
       q_params = {}
       q_params.merge! default_params
+      q_params.merge! params.permit(:product_taxon_id)
 
       @products = Product.includes(:product_taxon, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).page(params[:page])
     end

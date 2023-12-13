@@ -1,0 +1,6 @@
+<div data-switch-target="src" class="buttons are-small">
+  <%= link_to t('.all'), filter_params(except: [:product_taxon_id]), class: active_helper(product_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
+  <% @product_taxons.each do |product_taxon| %>
+    <%= link_to product_taxon.name, filter_params(product_taxon_id: product_taxon.id, except: [:id]), class: active_helper(product_taxon_id: product_taxon.id, active: 'button is-info', item: 'button is-light') %>
+  <% end %>
+</div>
