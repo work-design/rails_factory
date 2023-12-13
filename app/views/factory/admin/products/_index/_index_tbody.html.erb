@@ -1,6 +1,6 @@
 <td>
   <div class="is-several">
-    <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.logo.attached? %>
+    <%= image_tag model.logo.variant(resize_to_limit: [32, 32]), class: 'image is-32x32' if model.logo.attached? %>
     <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
       <span><%= model.name %></span>
     <% end %>
@@ -8,16 +8,14 @@
   <p class="has-text-grey"><%= model.description.to_s.truncate(27) %></p>
 </td>
 <td>
-  <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
-    <%= model.productions_count %>
-  <% end %>
+<% model.productions.each do |production| %>
+  <p>
+    <span><%= production.name %></span>
+  </p>
+<% end %>
 </td>
 <td>
   <p><%= model.product_taxon.name %></p>
-</td>
-<td>
-  <p><%= model.brand&.name %></p>
-  <p class="has-text-grey"><%# model.serial&.name %></p>
 </td>
 <td>
   <% model.product_part_taxons.each do |product_part_taxon| %>
