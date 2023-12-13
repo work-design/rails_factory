@@ -5,7 +5,7 @@ module Factory
       :import, :copy, :prune
     ]
     before_action :set_factory_taxons, only: [:new, :edit]
-    before_action :set_scenes, only: [:new, :edit]
+    before_action :set_scenes, only: [:index, :new, :edit]
     before_action :set_products, only: [:import]
     before_action :set_new_product_taxon, only: [:new, :create]
     before_action :set_product_taxons, only: [:new, :create]
