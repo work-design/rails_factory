@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 766b451ddf6fa510b4d8a5ef0aae15432a43050f
+  revision: 0c3995384e4b253e314a647bdea69024ce383893
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -56,7 +56,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 6943e07016ad98340606c2aa68f3c94da635f0d0
+  revision: d2637c8551605d90c3e883940c0c633d4c1500ce
   specs:
     rails_trade (0.0.3)
       rails_extend
