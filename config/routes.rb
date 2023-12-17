@@ -60,6 +60,10 @@ Rails.application.routes.draw do
         concerns :productive
       end
 
+      namespace :my, defaults: { namespace: 'my' } do
+        concerns :productive
+      end
+
       namespace :our, defaults: { namespace: 'our' } do
         concerns :productive
       end

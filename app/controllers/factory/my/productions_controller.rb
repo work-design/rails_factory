@@ -1,13 +1,6 @@
 module Factory
-  class My::ProductionsController < My::BaseController
+  class My::ProductionsController < ProductionsController
     before_action :set_production, only: [:show, :edit, :update, :destroy]
-
-    def index
-      q_params = {}
-      q_params.merge! params.permit(:product_plan_id)
-
-      @productions = current_cart.productions.default_where(q_params).page(params[:page])
-    end
 
     def new
       @production = current_cart.productions.build
@@ -44,10 +37,6 @@ module Factory
       else
         render 'update_price'
       end
-    end
-
-    def destroy
-      @production.destroy
     end
 
     private
