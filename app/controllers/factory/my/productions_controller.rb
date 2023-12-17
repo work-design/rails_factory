@@ -1,5 +1,6 @@
 module Factory
   class My::ProductionsController < ProductionsController
+    include Controller::My
     before_action :set_production, only: [:show, :edit, :update, :destroy]
 
     def new
