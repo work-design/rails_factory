@@ -1,5 +1,5 @@
 module Factory
-  class Agent::ProductionsController < Agent::BaseController
+  class Agent::ProductionsController < ProductionsController
     include Controller::Agent
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
@@ -65,12 +65,6 @@ module Factory
         @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
       end
       @cart.compute_amount! unless @cart.fresh
-    end
-
-    def _prefixes
-      super do |pres|
-        pres + [controller_path, "factory/productions/_#{params[:action]}", 'factory/productions/_base', 'factory/productions']
-      end
     end
 
   end
