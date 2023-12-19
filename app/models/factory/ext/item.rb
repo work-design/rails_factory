@@ -39,7 +39,7 @@ module Factory
       purchase.last_stock_log = {
         amount: number,
         title: '收货',
-        source_type: self.class_name,
+        source_type: self.base_class_name,
         source_id: id
       }
       purchase.save
@@ -50,7 +50,7 @@ module Factory
       purchase.last_stock_log = {
         amount: -number,
         title: '取消收货',
-        source_type: self.class_name,
+        source_type: self.base_class_name,
         source_id: id
       }
       purchase.save

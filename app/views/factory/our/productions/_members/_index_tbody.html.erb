@@ -20,5 +20,5 @@
 </td>
 <td><%# model.amount.to_money.format.html_safe %></td>
 <td>
-  <%= render partial: 'cart', locals: { model: @production, member: model, trade_item: model.trade_items.find(&->(i){ i.good_type == @production.class_name && i.good_id == @production.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } if @production %>
+  <%= render partial: 'cart', locals: { model: @production, member: model, trade_item: model.trade_items.find(&->(i){ i.good_type == @production.base_class_name && i.good_id == @production.id && i.produce_plan_id.to_s == params[:produce_plan_id].to_s }) } if @production %>
 </td>
