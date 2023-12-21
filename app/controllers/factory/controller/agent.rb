@@ -5,6 +5,8 @@ module Factory
 
     included do
       layout 'agent'
+
+      before_action :require_org_member
     end
 
     def set_cart
