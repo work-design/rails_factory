@@ -1,7 +1,8 @@
 module Factory
   module Controller::Agent
-    include Controller::Application
     extend ActiveSupport::Concern
+    include Controller::Application
+    include Org::Controller::Admin
 
     included do
       layout 'agent'
