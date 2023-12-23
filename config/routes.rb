@@ -91,6 +91,7 @@ Rails.application.routes.draw do
           resources :products, controller: 'taxon/products' do
             collection do
               get :buy
+              get :publish
             end
             member do
               patch :move_lower
