@@ -10,9 +10,9 @@
   </div>
   <div class="media-right as-x">
   <% if item = @cart && @cart.find_item(good_id: model.id) %>
-    <%= render partial: 'cart', locals: { cart: @cart, item_con: item_con, item: item } %>
+    <%= render partial: 'cart_big', locals: { cart: @cart, item_con: item_con, item: item } %>
   <% else %>
-    <%= render partial: 'add_cart', locals: { cart: @cart, model: model, item_con: item_con } %>
+    <%= render partial: 'add_cart_big', locals: { cart: @cart, model: model, item_con: item_con } %>
   <% end %>
   </div>
 </div>

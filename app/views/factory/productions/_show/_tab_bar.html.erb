@@ -1,6 +1,6 @@
 <div class="has-block-space-around has-background-grey-lighter is-safe-bottom m-0 py-3" style="z-index: 500">
   <div>
-    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'has-block-centered px-2') do %>
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'has-column-centered px-2') do %>
       <i class="fa-solid fa-cart-shopping"></i>
       <span class="is-size-7 pt-1 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
     <% end if @cart %>
