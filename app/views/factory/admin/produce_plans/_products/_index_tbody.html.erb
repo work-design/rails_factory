@@ -12,7 +12,7 @@
     <%= form_with(theme: nil, scope: 'production_plan', url: { controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, data: { controller: 'input' }) do |f| %>
       <%= f.number_field :planned_count, value: production_plan.planned_count, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 50px; height: 26px' %>
     <% end if production_plan %>
-    <%= button_to({ controller: 'production_plans', action: 'create', production_id: model.id }, params: { '[production_plan]scene_id': @produce_plan.scene_id, '[production_plan]produce_on': @produce_plan.produce_on }, class: 'ml-1') do %>
+    <%= button_to({ controller: 'production_plans', action: 'create', production_id: model.id }, params: { 'production_plan[scene_id]': @produce_plan.scene_id, 'production_plan[produce_on]': @produce_plan.produce_on }, class: 'ml-1') do %>
       <i class="fa-solid fa-circle-plus fa-2x has-text-grey"></i>
     <% end unless production_plan %>
     <%= button_to({ controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, params: { '[production_plan]planned_count': production_plan.planned_count + 1 }, class: 'ml-1') do %>
