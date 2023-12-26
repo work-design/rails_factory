@@ -7,7 +7,7 @@ module Factory
       after_save :increment_stock_with_back, if: -> { status != 'received' && ['deliverable'].include?(status_before_last_save) }
     end
 
-    def decrement_stock_with_buy
+    def decrement_stock_with_ordered
       good.stock = good.stock.to_d - number
       good.last_stock_log = {
         amount: -number,
