@@ -10,6 +10,10 @@ module Factory
       @items = @production.purchase_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
+    def batch_receive
+
+    end
+
     def print
       @item.print
     end
