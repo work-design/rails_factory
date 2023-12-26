@@ -30,13 +30,15 @@ module Factory
         produced: 'produced'
       }
 
-      after_initialize if: :new_record? do
-        self.product = production.product
-        self.organ_id = production.organ_id
-        self.produce_on ||= Date.tomorrow
-        #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
-      end
+      after_initialize :init_produce, if: :new_record?
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
+    end
+
+    def init_produce
+      self.product = production.product
+      self.organ_id = production.organ_id
+      self.produce_on ||= Date.tomorrow
+      #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
     end
 
     def set_specialty
