@@ -5,8 +5,8 @@
     </figure>
   </div>
   <div class="media-content">
-    <h2 class="title has-text-danger"><%= model.price.to_money.format.html_safe %></h2>
-    <p><%= model.name %></p>
+    <h5 class="title"><%= model.name %></h5>
+    <strong class="has-text-danger"><%= model.price.to_money.format.html_safe %></strong>
   </div>
   <div class="media-right as-x">
   <% if item = @cart && @cart.find_item(good_id: model.id) %>
