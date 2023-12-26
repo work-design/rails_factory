@@ -3,8 +3,8 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      after_save :decrement_stock_with_ordered, if: -> { status == 'deliverable' && ['trial', 'ordered'].include?(status_before_last_save) }
-      after_save :increment_stock_with_back, if: -> { status != 'received' && ['deliverable'].include?(status_before_last_save) }
+      after_save :decrement_stock_with_ordered, if: -> { saved_change_to_status? && status == 'deliverable' && ['trial', 'ordered'].include?(status_before_last_save) }
+      after_save :increment_stock_with_back, if: -> { saved_change_to_status? && ['ordered'].include?(status) && ['deliverable'].include?(status_before_last_save) }
     end
 
     def decrement_stock_with_ordered
