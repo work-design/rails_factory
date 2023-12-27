@@ -26,6 +26,10 @@ zh:
           title: 商品列表
     admin:
       title: 产品
+      taxon:
+        products:
+          index:
+            title: 产品
       home:
         index:
           title: 进销存/生产

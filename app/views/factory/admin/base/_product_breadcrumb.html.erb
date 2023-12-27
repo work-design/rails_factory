@@ -7,5 +7,5 @@
     <% end %>
   </div>
 </li>
-<li><%= link_to t('.products.index.title'), { controller: 'products', product_taxon_id: @product.product_taxon_id } %></li>
+<li><%= link_to t('factory.admin.taxon.products.index.title'), { controller: 'taxon/products', product_taxon_id: @product.product_taxon_id } %></li>
 <li><span class="px-3"><%= @product.name %></span></li>
