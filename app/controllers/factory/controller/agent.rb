@@ -3,6 +3,7 @@ module Factory
     extend ActiveSupport::Concern
     include Controller::Application
     include Org::Controller::Admin
+    include Roled::Controller::Admin
 
     included do
       layout 'agent'
