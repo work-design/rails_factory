@@ -1,15 +1,8 @@
-<th style="width: 1.25em"></th>
 <th>
-  <span><%= Factory::Product.human_attribute_name(:name) %></span>
-  <%= button_to({ controller: 'com/admin/blob_defaults', action: 'add', record_class: 'Product', name: 'logo' }, aria: { label: t('com.admin.blob_defaults.add.title') }) do %>
-    <i class="fa-solid fa-cog has-text-grey"></i>
-  <% end %>
+  <p><%= Factory::Product.human_attribute_name(:name) %></p>
 </th>
-<th><%= Factory::Product.human_attribute_name(:description) %></th>
-<th>
-  <p><%= Factory::Product.human_attribute_name(:brand_id) %></p>
-  <p><%= Factory::Product.human_attribute_name(:serial_id) %></p>
-</th>
+<th><%= Factory::Production.human_attribute_name(:name) %></th>
+<th><%= Factory::Production.human_attribute_name(:stock) %></th>
+<th><%= Factory::Product.human_attribute_name(:product_taxon_id) %></th>
 <th></th>
 <th></th>
-<th><%= Factory::Product.human_attribute_name(:productions_count) %></th>

@@ -1,23 +1,16 @@
+<td><i class="fa-solid fa-fw fa-bars has-text-grey is-drawable"></i></td>
 <td>
-  <div class="is-several">
+  <%= link_to({ controller: 'productions', product_id: model.id }, text: true, class: 'is-several') do %>
     <%= image_tag model.logo.variant(resize_to_limit: [32, 32]), class: 'image is-32x32' if model.logo.attached? %>
-    <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
-      <span><%= model.name %></span>
-    <% end %>
-  </div>
+    <span><%= model.name %></span>
+  <% end %>
+</td>
+<td><%= model.description.to_s.truncate(27) %></td>
+<td>
+  <p><%= model.brand&.name %></p>
 </td>
 <td>
-<% model.productions.each do |production| %>
-  <p><%= production.name %></p>
-<% end %>
-</td>
-<td>
-<% model.productions.each do |production| %>
-  <p><%= production.stock %></p>
-<% end %>
-</td>
-<td>
-  <p><%= model.product_taxon.name %></p>
+  <%= model.covers_attachments.size %>
 </td>
 <td>
   <% model.product_part_taxons.each do |product_part_taxon| %>
@@ -33,7 +26,7 @@
   </p>
 </td>
 <td>
-  <%= link_to({ controller: 'fits', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-    <span class="pl-1"><%= model.fits_count %></span>
+  <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
+    <span><%= model.productions_count %></span>
   <% end %>
 </td>
