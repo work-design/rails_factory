@@ -3,6 +3,10 @@
   <td><%= @product.name %></td>
 </tr>
 <tr>
+  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:logo) %></td>
+  <td><%= image_tag @product.logo, class: 'image is-64x64' %></td>
+</tr>
+<tr>
   <td class="has-text-right"><%= Factory::Product.human_attribute_name(:qr_prefix) %></td>
   <td><%= @product.qr_prefix %></td>
 </tr>
