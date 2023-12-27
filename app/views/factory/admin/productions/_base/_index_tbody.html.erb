@@ -56,7 +56,7 @@
     <label data-action="click->input#check"></label>
   <% end %>
 </td>
-<td><%= model.stock %></td>
+<td><%= link_to model.stock, { controller: 'stock_logs', production_id: model.id } if model.stock %></td>
 <td>
   <%= form_with theme: nil, model: model, scope: :production, url: { action: 'update', id: model.id }, data: { controller: 'input', turbo_scroll: true } do |f| %>
     <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
