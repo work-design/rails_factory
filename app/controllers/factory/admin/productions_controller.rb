@@ -7,6 +7,9 @@ module Factory
     ]
     before_action :set_new_production, only: [:new, :create]
     before_action :set_product_taxon, only: [:taxon]
+    after_action only: [:update, :update_card] do
+      mark_audits(instance: :@production)
+    end
 
     def index
       q_params = {}

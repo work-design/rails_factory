@@ -6,7 +6,10 @@ module Factory
       include Trade::Ext::Purchase
       include Trade::Ext::Rentable
     end
-    include Auditor::Ext::Discard if defined? RailsAudit
+    if defined? RailsAudit
+      include Auditor::Ext::Discard
+      include Auditor::Ext::Audited
+    end
 
     def item_extra
       attributes.slice('product_taxon_id')
