@@ -40,7 +40,7 @@
     <li>
       <%= link_to({ controller: 'rent_charges', production_id: @production.id }) do %>
         <i class="fa-solid fa-clock-rotate-left has-text-danger"></i>
-        <span><%= t('.rent_charges.index.title') %></span>
+        <span class="pl-1"><%= t('.rent_charges.index.title') %></span>
         <span class="pl-1"><%= @production.rent_charges_count %></span>
       <% end %>
     </li>
