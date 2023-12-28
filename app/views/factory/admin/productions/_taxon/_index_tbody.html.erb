@@ -1,9 +1,8 @@
 <td>
-  <div class="is-several">
+  <%= link_to({ action: 'show', id: model.id, product_id: model.product_id }, class: 'is-several') do %>
     <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
     <span><%= model.title %></span>
-    <span class="tag"><%= model.state_i18n %></span>
-  </div>
+  <% end %>
   <p class="has-text-grey"><%= model.qr_code %></p>
 </td>
 <td class="has-inner-table">
@@ -17,20 +16,20 @@
     <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
   <% end %>
 </td>
-<td>
-  <p class="has-block-right">
+<td style="--money-width: <%= model.max_indent %>ch">
+  <p>
     <span><%= model.cost_price.to_money.format.html_safe %></span>
     <%= link_to({ action: 'cost', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, style: 'visibility: hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
     <% end %>
   </p>
-  <p class="has-block-right">
+  <p>
     <span><%= model.profit_price.to_money.format.html_safe %></span>
     <%= link_to({ action: 'price', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, style: 'visibility: hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags has-text-grey"></i>
     <% end %>
   </p>
-  <p class="has-block-right has-text-danger">
+  <p class="has-text-danger">
     <span class="mr-5"><%= model.price.to_money.format.html_safe %></span>
   </p>
 </td>
