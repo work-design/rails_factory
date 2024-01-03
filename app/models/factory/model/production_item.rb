@@ -87,7 +87,7 @@ module Factory
     def sync_stock
       change = amount - amount_before_last_save.to_d
 
-      production.stock += change
+      production.stock = production.stock.to_d + change
 
       log = self.stock_logs.build
       log.amount = change
