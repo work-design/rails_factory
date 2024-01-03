@@ -12,6 +12,7 @@ module Factory
       belongs_to :product_item, optional: true
 
       has_many :part_items
+      has_many :stock_logs, primary_key: :production_id, foreign_key: :production_id
 
       enum state: {
         purchased: 'purchased',
@@ -25,6 +26,7 @@ module Factory
       }, _default: 'purchased'
 
       after_initialize :init_code, if: :new_record?
+      after_save :sync_stock, if: -> { saved_change_to_amount? }
     end
 
     def init_code
@@ -80,6 +82,19 @@ module Factory
       production.organ.device.print(
         data: to_tspl
       )
+    end
+
+    def sync_stock
+      change = amount - amount_before_last_save.to_d
+
+      production.stock += change
+
+      log = self.stock_logs.build
+      log.stock = change
+      log.title = '录入商品'
+
+      log.save
+      production.save
     end
 
   end
