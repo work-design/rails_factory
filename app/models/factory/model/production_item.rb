@@ -4,6 +4,7 @@ module Factory
 
     included do
       attribute :code, :string
+      attribute :amount, :decimal, default: 1
       attribute :came_at, :datetime, default: -> { Time.current }
 
       belongs_to :production

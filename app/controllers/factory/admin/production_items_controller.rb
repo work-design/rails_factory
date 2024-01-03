@@ -64,6 +64,7 @@ module Factory
       params.fetch(:production_item, {}).permit(
         :production_plan_id,
         :code,
+        :amount,
         :qr_file,
         :came_at
       )

@@ -6,4 +6,7 @@
   <%= form_with theme: nil, scope: '', model: @production_item, url: { action: 'batch' }, class: 'ml-2' do |f| %>
     <%= f.submit '批量新增', class: 'button is-info' %>
   <% end %>
+  <%= button_to({ action: 'new' }, class: 'button is-primary') do %>
+    <span><%= t('.new.title') %></span>
+  <% end %>
 </div>
