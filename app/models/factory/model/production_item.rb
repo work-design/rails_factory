@@ -90,10 +90,10 @@ module Factory
       production.stock += change
 
       log = self.stock_logs.build
-      log.stock = change
+      log.amount = change
       log.title = '录入商品'
 
-      log.save
+      #log.save
       production.save
     end
 
