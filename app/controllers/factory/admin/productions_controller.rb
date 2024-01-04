@@ -82,7 +82,7 @@ module Factory
     def card_price_params
       r = {}
 
-      params.dig(:production, :card_price).each do |_, v|
+      params.fetch(:production, {}).fetch(:card_price, []).each do |_, v|
         r.merge! v[:code] => v[:price]
       end
 
