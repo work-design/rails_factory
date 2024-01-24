@@ -3,7 +3,7 @@ module Factory
     before_action :set_item, only: [:show, :edit_assign, :update_assign]
 
     def edit_assign
-      upstream_organ_ids = @item.purchase.upstream_provides.pluck(:provider_id)
+      upstream_organ_ids = @item.purchase.production_provides.pluck(:provider_id)
       @providers = current_organ.providers.where.not(id: upstream_organ_ids)
     end
 

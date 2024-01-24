@@ -15,7 +15,7 @@
 </td>
 <td>
   <table>
-  <% model.upstream_provides.each do |pp| %>
+  <% model.production_provides.each do |pp| %>
     <tr>
       <td>
       <% if item = @cart.find_item(purchase_id: model.id, good_id: pp.upstream_production_id) %>

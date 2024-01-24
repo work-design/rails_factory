@@ -32,7 +32,7 @@
     <% end %>
   </div>
   <div class="weui-panel__bd p-4">
-    <% @production.upstream_provides.each do |upstream| %>
+    <% @production.production_provides.each do |upstream| %>
       <p>
         <span>供应商：</span>
         <span><%= upstream.organ.name %></span>
