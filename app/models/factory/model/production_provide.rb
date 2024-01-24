@@ -15,9 +15,9 @@ module Factory
       has_many :downstream_products, class_name: 'Product', foreign_key: :upstream_product_id
       has_many :downstream_productions, class_name: 'Production', foreign_key: :upstream_production_id
 
-      has_many :brothers, class_name: self.name, primary_key: :upstream_product_id, foreign_key: :upstream_product_id
+      has_many :brothers, class_name: self.name, primary_key: :upstream_product_id, foreign_key: :upstream_product_id, validate: false
 
-      before_create :sync_from_upstream
+      before_validation :sync_from_upstream, if: :new_record?
       after_destroy :prune
     end
 
@@ -26,9 +26,10 @@ module Factory
       self.provider_id = upstream_production.organ_id
 
       if product.nil? && brothers.present?
-        self.product = brothers[0].product
+        self.product = brothers.find(&:product).product
+      else
+        build_product
       end
-      product || build_product
       product.product_taxon = product_taxon
       product.name = upstream_product.name
       product.logo.attach upstream_product.logo_blob
