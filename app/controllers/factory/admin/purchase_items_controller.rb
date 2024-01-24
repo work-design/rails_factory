@@ -11,7 +11,10 @@ module Factory
     end
 
     def batch_receive
-
+      @production.purchase_items.where(id: params[:ids].split(',')).each do |i|
+        i.purchase_status = 'received'
+        i.save
+      end
     end
 
     def print

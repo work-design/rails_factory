@@ -138,6 +138,8 @@ zh:
           title: 采购订单
         update:
           title: 接收
+        batch_receive:
+          title: 收货
       stock_logs:
         index:
           title: 库存历史
