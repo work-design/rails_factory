@@ -41,9 +41,10 @@ module Factory
     end
 
     def prune
-      if brothers.pluck(:id) == [id]
+      if brothers.blank? # 当删除到只剩自己的时候,after destroy brothers 为空。
         product.destroy
       end
+      production.destroy
     end
 
   end
