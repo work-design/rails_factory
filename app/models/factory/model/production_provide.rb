@@ -41,7 +41,9 @@ module Factory
     end
 
     def prune
-      product.destroy
+      if brothers.pluck(:id) == [id]
+        product.destroy
+      end
     end
 
   end
