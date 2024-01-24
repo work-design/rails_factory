@@ -41,7 +41,7 @@ module Factory
     end
 
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.default_where(default_params).find(params[:id])
     end
 
     def set_new_product

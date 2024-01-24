@@ -4,7 +4,7 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::Product.human_attribute_name(:logo) %></td>
-  <td><%= image_tag @product.logo, class: 'image is-64x64' %></td>
+  <td><%= image_tag @product.logo, class: 'image is-64x64' if @product.logo.attached? %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Factory::Product.human_attribute_name(:qr_prefix) %></td>
