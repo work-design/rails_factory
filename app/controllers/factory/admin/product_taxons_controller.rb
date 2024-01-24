@@ -12,6 +12,7 @@ module Factory
     before_action :set_own_product_taxons, only: [:edit, :update]
     before_action :set_production, only: [:copy, :prune]
     before_action :set_providers, only: [:import, :productions]
+    before_action :set_factory_taxons, only: [:edit, :update]
 
     def index
       q_params = {}
