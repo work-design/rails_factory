@@ -8,6 +8,7 @@ module Factory
     end
 
     def decrement_stock_with_ordered
+      return unless good
       good.stock = good.stock.to_d - number
       good.last_stock_log = {
         amount: -number,
@@ -19,6 +20,7 @@ module Factory
     end
 
     def increment_stock_with_back
+      return unless good
       good.stock = good.stock.to_d + number
       good.last_stock_log = {
         amount: number,
