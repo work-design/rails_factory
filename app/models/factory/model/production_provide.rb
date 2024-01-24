@@ -6,6 +6,7 @@ module Factory
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :provider, class_name: 'Org::Organ'
 
+      belongs_to :product_taxon
       belongs_to :product
       belongs_to :production
       belongs_to :upstream_product, class_name: 'Product'  # 对应供应链产品
@@ -16,10 +17,11 @@ module Factory
 
       has_many :brothers, class_name: self.name, primary_key: :upstream_product_id, foreign_key: :upstream_product_id
 
+      before_create :sync_from_upstream
       after_destroy :prune
     end
 
-    def sync_from_upstream(product_taxon)
+    def sync_from_upstream
       self.upstream_product = upstream_production.product
       self.provider_id = upstream_production.organ_id
 
