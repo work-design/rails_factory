@@ -23,6 +23,38 @@
   <td><%= @production.price.to_money.format.html_safe %></td>
 </tr>
 <tr>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:card_price) %></td>
+  <td>
+    <div>
+    <% @production.card_price.each do |key, value| %>
+      <div class="tags has-addons is-tag-price control mb-0">
+        <div class="tag is-success"><%= key %></div>
+        <div class="tag is-light"><%= value.to_money.format.html_safe %></div>
+      </div>
+    <% end %>
+    </div>
+    <%= button_to({ action: 'card' }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('.card.title') }) do %>
+      <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:wallet_price) %></td>
+  <td>
+    <div>
+    <% @production.wallet_price.each do |key, value| %>
+      <div class="tags has-addons is-tag-price control mb-0">
+        <div class="tag is-success"><%= key %></div>
+        <div class="tag is-light"><%= value.to_money.format.html_safe %></div>
+      </div>
+    <% end %>
+    </div>
+    <%= button_to({ action: 'wallet' }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('.wallet.title') }) do %>
+      <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
+    <% end %>
+  </td>
+</tr>
+<tr>
   <td class="has-text-right"><%= Factory::Production.human_attribute_name(:link) %></td>
   <td><%= @production.link %></td>
 </tr>

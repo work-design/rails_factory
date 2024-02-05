@@ -130,6 +130,8 @@ Rails.application.routes.draw do
               match :cost, via: [:get, :post]
               match :card, via: [:get, :post]
               patch :update_card
+              match :wallet, via: [:get, :post]
+              patch :update_wallet
               patch :provide
             end
           end

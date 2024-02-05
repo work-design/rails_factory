@@ -3,11 +3,11 @@ module Factory
     before_action :set_product, except: [:taxon]
     before_action :set_production, only: [
       :show, :edit, :update, :destroy, :actions,
-      :part, :price, :cost, :card, :update_card
+      :part, :price, :cost, :card, :update_card, :wallet, :update_wallet
     ]
     before_action :set_new_production, only: [:new, :create]
     before_action :set_product_taxon, only: [:taxon]
-    after_action only: [:update, :update_card] do
+    after_action only: [:update, :update_card, :update_wallet] do
       mark_audits(instance: :@production)
     end
 

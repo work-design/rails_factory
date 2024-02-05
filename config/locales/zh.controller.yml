@@ -118,6 +118,8 @@ zh:
           title: 利润
         cost:
           title: 成本价格
+        wallet:
+          title: 积分兑换
       provideds:
         index:
           title: 供应列表
