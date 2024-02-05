@@ -41,6 +41,15 @@ module Factory
       @production.save
     end
 
+    def wallet
+      @wallet_templates = Trade::WalletTemplate.default_where(default_params)
+    end
+
+    def update_wallet
+      @production.wallet_price = wallet_price_params
+      @production.save
+    end
+
     def import
     end
 
@@ -83,6 +92,16 @@ module Factory
       r = {}
 
       params.fetch(:production, {}).fetch(:card_price, []).each do |_, v|
+        r.merge! v[:code] => v[:price]
+      end
+
+      r
+    end
+
+    def wallet_price_params
+      r = {}
+
+      params.fetch(:production, {}).fetch(:wallet_price, {}).each do |_, v|
         r.merge! v[:code] => v[:price]
       end
 
