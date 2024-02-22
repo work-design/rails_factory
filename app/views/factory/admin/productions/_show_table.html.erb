@@ -1,29 +1,29 @@
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:name) %></td>
+  <td><%= Factory::Production.human_attribute_name(:name) %></td>
   <td><%= @production.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:title) %></td>
+  <td><%= Factory::Production.human_attribute_name(:title) %></td>
   <td><%= @production.title %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:state) %></td>
+  <td><%= Factory::Production.human_attribute_name(:state) %></td>
   <td><%= @production.state_i18n %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:qr_code) %></td>
+  <td><%= Factory::Production.human_attribute_name(:qr_code) %></td>
   <td><%= @production.qr_code %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:str_part_ids) %></td>
+  <td><%= Factory::Production.human_attribute_name(:str_part_ids) %></td>
   <td><%= @production.str_part_ids %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:price) %></td>
+  <td><%= Factory::Production.human_attribute_name(:price) %></td>
   <td><%= @production.price.to_money.format.html_safe %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:card_price) %></td>
+  <td><%= Factory::Production.human_attribute_name(:card_price) %></td>
   <td>
     <div>
     <% @production.card_price.each do |key, value| %>
@@ -39,7 +39,7 @@
   </td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:wallet_price) %></td>
+  <td><%= Factory::Production.human_attribute_name(:wallet_price) %></td>
   <td>
     <div>
     <% @production.wallet_price.each do |key, value| %>
@@ -55,10 +55,10 @@
   </td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:link) %></td>
+  <td><%= Factory::Production.human_attribute_name(:link) %></td>
   <td><%= @production.link %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Production.human_attribute_name(:stock) %></td>
+  <td><%= Factory::Production.human_attribute_name(:stock) %></td>
   <td><%= @production.stock %></td>
 </tr>

@@ -1,20 +1,20 @@
 <tr>
-  <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:part_id) %></td>
+  <td><%= Factory::PartPlan.human_attribute_name(:part_id) %></td>
   <td><%= @part_plan.part_id %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:start_at) %></td>
+  <td><%= Factory::PartPlan.human_attribute_name(:start_at) %></td>
   <td><time data-controller="time"><%= @part_plan.start_at.to_fs(:iso8601) %></time></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:finish_at) %></td>
+  <td><%= Factory::PartPlan.human_attribute_name(:finish_at) %></td>
   <td><time data-controller="time"><%= @part_plan.finish_at.to_fs(:iso8601) %></time></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:state) %></td>
+  <td><%= Factory::PartPlan.human_attribute_name(:state) %></td>
   <td><%= @part_plan.state %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::PartPlan.human_attribute_name(:purchased_count) %></td>
+  <td><%= Factory::PartPlan.human_attribute_name(:purchased_count) %></td>
   <td><%= @part_plan.purchased_count %></td>
 </tr>

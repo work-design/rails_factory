@@ -1,21 +1,21 @@
 <tr>
-  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:name) %></td>
+  <td><%= Factory::Product.human_attribute_name(:name) %></td>
   <td><%= @product.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:logo) %></td>
+  <td><%= Factory::Product.human_attribute_name(:logo) %></td>
   <td><%= image_tag @product.logo, class: 'image is-64x64' if @product.logo.attached? %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:qr_prefix) %></td>
+  <td><%= Factory::Product.human_attribute_name(:qr_prefix) %></td>
   <td><%= @product.qr_prefix %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:description) %></td>
+  <td><%= Factory::Product.human_attribute_name(:description) %></td>
   <td><%= simple_format @product.description %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:covers) %></td>
+  <td><%= Factory::Product.human_attribute_name(:covers) %></td>
   <td>
     <div class="is-flex">
       <%= render 'com/attachments/list', target: @product.covers %>
@@ -23,7 +23,7 @@
   </td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Factory::Product.human_attribute_name(:images) %></td>
+  <td><%= Factory::Product.human_attribute_name(:images) %></td>
   <td>
     <div class="is-flex">
     <% @product.images.each do |image| %>
