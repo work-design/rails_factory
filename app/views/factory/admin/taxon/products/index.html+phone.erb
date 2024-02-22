@@ -1,8 +1,8 @@
 <%= render 'top_bar' %>
 
-<%= render layout: 'index_table' do %>
+<%= render layout: 'index_list' do %>
   <% @products.group_by(&:product_taxon).each do |taxon, products| %>
-    <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
+    <%= render partial: 'index_item', layout: 'index_item_actions', collection: products, as: :model %>
   <% end %>
 <% end %>
 
