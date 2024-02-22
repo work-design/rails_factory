@@ -1,8 +1,8 @@
 <%= render 'top_bar' %>
 
-<%= render layout: 'index_table' do %>
+<%= render layout: 'index_list' do %>
   <% @product_taxons.each do |taxon, product_taxons| %>
     <%= render partial: 'taxon_tbody', locals: { taxon: taxon, size: product_taxons.size + 1 } if taxon %>
-    <%= render partial: 'index_tbody', layout: 'index_tr', collection: product_taxons, as: :model %>
+    <%= render partial: 'index_tbody', layout: 'index_item_actions', collection: product_taxons, as: :model %>
   <% end %>
 <% end %>
