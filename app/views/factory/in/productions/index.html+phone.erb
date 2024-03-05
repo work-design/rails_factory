@@ -9,7 +9,7 @@
     data-action="touchmove->page#move:passive"
     class="weui-menu-content"
   >
-    <div class="weui-panel__bd is-flex is-flex-direction-column is-flex-grow-1" style="height: 100%">
+    <div class="weui-panel__bd is-flex flex-direction-column flex-grow-1" style="height: 100%">
       <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'trade/mem/items' } %>
       <%= render 'loading' %>
       <% if @productions.total_pages == @productions.current_page %>

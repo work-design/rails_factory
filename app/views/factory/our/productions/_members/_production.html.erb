@@ -5,12 +5,12 @@
     <% end if model.product.logo.attached? %>
   </div>
   <div class="weui-media-box__bd">
-    <%= link_to({ controller: 'productions', action: 'show', id: model.id }, state: 'enter', text: true, class: 'is-flex is-flex-direction-column') do %>
+    <%= link_to({ controller: 'productions', action: 'show', id: model.id }, state: 'enter', text: true, class: 'is-flex flex-direction-column') do %>
       <h4 class="weui-media-box__title"><%= model.name %></h4>
       <p class="weui-media-box__desc pt-0">
         <%= model.product.description %>
       </p>
-      <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
+      <ul class="weui-media-box__info flex-wrap-wrap mt-0">
         <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
           <% parts.each_with_index do |part, index| %>
             <li class="weui-media-box__info__meta<%= index > 0 ? ' weui-media-box__info__meta_extra' : '' %>"><%= part.name %></li>
@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <div class="weui-media-box__ft">
-    <%= button_to({ controller: 'productions', action: 'list', id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless has-column-centered is-justify-content-space-evenly', style: 'height: 4em') do %>
+    <%= button_to({ controller: 'productions', action: 'list', id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless has-column-centered justify-content-space-evenly', style: 'height: 4em') do %>
       <i class="fa-solid fa-lg fa-repeat"></i>
       <span>切换</span>
     <% end %>

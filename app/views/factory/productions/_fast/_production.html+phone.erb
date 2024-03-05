@@ -9,14 +9,14 @@
     <p class="weui-media-box__desc pt-0">
       <%= model.product.description %>
     </p>
-    <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
+    <ul class="weui-media-box__info flex-wrap-wrap mt-0">
       <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, index| %>
           <li><%= part.name %></li>
         <% end %>
       <% end %>
     </ul>
-    <div class="is-flex is-align-items-center">
+    <div class="is-flex align-items-center">
       <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
       <% @card_templates.select(&->(i){ model.card_price.keys.include?(i.code) }).each do |card_template| %>
         <div class="tags has-addons is-price control m-0 ml-2" style="display: inline-flex">
@@ -32,7 +32,7 @@
         </div>
       <% end %>
     </div>
-    <div class="is-flex is-justify-content-flex-end pt-2">
+    <div class="is-flex justify-content-flex-end pt-2">
       <%= render partial: 'cart', locals: { model: model } %>
     </div>
   </div>

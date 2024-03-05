@@ -10,7 +10,7 @@
     <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__desc pt-1') do %>
       <%= model.product.description %>
     <% end %>
-    <ul class="weui-media-box__info is-flex-wrap-wrap mt-0">
+    <ul class="weui-media-box__info flex-wrap-wrap mt-0">
       <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, _| %>
           <li><%= part.name %></li>
