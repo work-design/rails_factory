@@ -2,7 +2,7 @@
   <%= @production.name %>
 </h2>
 
-<div class="tabs">
+<div class="tabs mb-3">
   <ul>
     <li class="<%= active_helper(productions: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.productions.show.title'), { controller: 'factory/admin/productions', action: 'show', product_id: @production.product_id, id: @production.id } %>
