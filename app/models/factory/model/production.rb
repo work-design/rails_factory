@@ -5,7 +5,6 @@ module Factory
     included do
       attribute :name, :string
       attribute :qr_code, :string
-      attribute :price, :decimal, default: 0
       attribute :cost_price, :decimal, default: 0, comment: '成本价'
       attribute :profit_price, :decimal, default: 0, comment: '利润'
       attribute :str_part_ids, :string, index: true
