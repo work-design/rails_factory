@@ -21,6 +21,8 @@ module Factory
 
       product_taxons = ProductTaxon.includes(:factory_taxon).default_where(q_params).order(position: :asc).page(params[:page])
       @product_taxons = product_taxons.group_by(&:factory_taxon)
+
+      @count_hash = Factory::Production.default_where(default_params).where(enabled: true).group(:product_taxon_id).count
     end
 
     def all
