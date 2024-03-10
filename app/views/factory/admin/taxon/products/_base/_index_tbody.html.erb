@@ -8,7 +8,12 @@
 </td>
 <td>
 <% model.productions.each do |production| %>
-  <p><%= production.name %></p>
+  <p>
+    <span><%= production.name %></span>
+    <% if production.enabled %>
+      <span class="tag is-success"><%= production.enabled_i18n %></span>
+    <% end %>
+  </p>
 <% end %>
 </td>
 <td>
