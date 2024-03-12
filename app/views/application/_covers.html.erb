@@ -6,7 +6,7 @@
     </figure>
   <% end %>
   </div>
-  <div class="images is-flex py-4">
+  <div class="images flex py-4">
   <% model.covers.each_with_index do |cover, index| %>
     <figure class="image is-32x32" data-index="<%= index %>" data-action="mouseover->showcase#show">
       <%= image_tag cover %>

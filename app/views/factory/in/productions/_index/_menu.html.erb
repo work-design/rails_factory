@@ -1,4 +1,4 @@
-<div class="columns is-variable m-0 is-flex flex-direction-column is-sticky" style="top: 38px">
+<div class="columns is-variable m-0 flex flex-direction-column is-sticky" style="top: 38px">
 <% Factory::FactoryTaxon.all.each do |factory_taxon| %>
   <%= link_to({ controller: 'productions', factory_taxon_id: factory_taxon.id, **params.permit(:scene_id, :produce_on) }, class: active_helper(factory_taxon_id: factory_taxon.id, item: 'column is-primary px-2', active: 'column is-primary px-2 has-background-white')) do %>
     <div class="weui-grid__icon"><%= image_tag factory_taxon.logo if factory_taxon.logo.attached? %></div>

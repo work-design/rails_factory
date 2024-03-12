@@ -2,7 +2,7 @@
   <div class="level-left flex-direction-row">
     <div class="level-item ml-2 has-text-grey"><%= item.good_name %></div>
   </div>
-  <div class="level-right is-flex mt-0">
+  <div class="level-right flex mt-0">
     <div class="level-item mb-0"><%= item.amount.to_money.format.html_safe %></div>
     <div class="level-item ml-2">
       <%= render partial: 'cart', locals: { item: item } %>

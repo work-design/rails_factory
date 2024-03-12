@@ -1,17 +1,17 @@
 <div class="weui-media-box weui-media-box_appmsg">
   <div class="weui-media-box__bd">
-    <div class="is-flex justify-content-center">
+    <div class="flex justify-content-center">
       <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
       <span><%= scene.title %></span>
     </div>
-    <p class="is-size-7 has-text-centered">
+    <p class="size-7 has-text-centered">
       <span>预定时间：</span>
       <span>
         <span><%= scene.book_start_at.to_fs(:time) %></span>
         <time><%= scene.book_finish_at.to_fs(:time) %></time>
       </span>
     </p>
-    <p class="is-size-7 has-text-centered">
+    <p class="size-7 has-text-centered">
       <span>配送时间：</span>
       <time><%= scene.deliver_start_at.to_fs(:time) %></time>
       <span>~</span>

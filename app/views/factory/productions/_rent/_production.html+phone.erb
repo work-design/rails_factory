@@ -25,7 +25,7 @@
       <div>
         <span class="has-text-grey">押金：</span><span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
       </div>
-      <div class="is-flex">
+      <div class="flex">
         <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>
       </div>
     </div>

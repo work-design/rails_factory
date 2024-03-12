@@ -2,7 +2,7 @@
   <span><%= model.name %></span>
   <span class="tag"><%= model.state_i18n %></span>
 </p>
-<div class="is-flex mt-1">
+<div class="flex mt-1">
 <% if model.default %>
   <div class="tags has-addons mr-2">
     <span class="tag mb-1"><%= Factory::Production.human_attribute_name(:default) %></span>

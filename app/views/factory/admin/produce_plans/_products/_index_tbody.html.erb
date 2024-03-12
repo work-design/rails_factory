@@ -2,7 +2,7 @@
 <td><%= link_to model.name, { controller: 'productions', action: 'index', product_id: model.product_id, id: model.id }, text: true %></td>
 <td><%= model.price.to_money.format.html_safe %></td>
 <td>
-  <div class="is-flex align-items-center">
+  <div class="flex align-items-center">
     <%= button_to({ controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, params: { 'production_plan[planned_count]': production_plan.planned_count - 1 }, class: 'mr-1') do %>
       <i class="fa-solid fa-circle-minus fa-2x"></i>
     <% end if production_plan && production_plan.planned_count > 1 %>

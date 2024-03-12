@@ -2,7 +2,7 @@
   <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__hd') do %>
     <%= image_tag model.logo, class: 'weui-media-box__thumb' if model.logo.attached? %>
   <% end %>
-  <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__bd is-flex flex-direction-column') do %>
+  <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__bd flex flex-direction-column') do %>
     <h4 class="weui-media-box__title"><%= model.name %></h4>
     <p class="weui-media-box__desc pt-0">
       <%= model.description %>

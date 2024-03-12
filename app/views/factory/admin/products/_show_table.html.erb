@@ -17,7 +17,7 @@
 <tr>
   <td><%= Factory::Product.human_attribute_name(:covers) %></td>
   <td>
-    <div class="is-flex">
+    <div class="flex">
       <%= render 'com/attachments/list', target: @product.covers %>
     </div>
   </td>
@@ -25,7 +25,7 @@
 <tr>
   <td><%= Factory::Product.human_attribute_name(:images) %></td>
   <td>
-    <div class="is-flex">
+    <div class="flex">
     <% @product.images.each do |image| %>
       <%= image_tag image, class: 'image is-128x128 mr-4' %>
     <% end %>

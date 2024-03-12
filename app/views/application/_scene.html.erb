@@ -1,13 +1,13 @@
 <%= link_to({ controller: '/factory/productions', scene_id: scene.id, produce_on: produce_on }, class: 'column is-half-mobile has-text-grey') do %>
   <div class="column_box py-3">
-    <p class="is-size-7">
+    <p class="size-7">
       <span>预定截止：</span>
       <span class="<%= scene.bookable?(produce_on) ? 'has-text-success' : 'has-text-danger' %>">
         <span><%= extra_distance_date(produce_on) %></span>
         <time><%= scene.book_finish_at.to_fs(:time) %></time>
       </span>
     </p>
-    <p class="is-size-7">
+    <p class="size-7">
       <span>配送时间：</span>
       <time><%= scene.deliver_start_at.to_fs(:time) %></time>
       <span>~</span>

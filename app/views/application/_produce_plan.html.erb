@@ -4,8 +4,8 @@
     <div class="level is-mobile justify-content-space-between px-4 my-4">
       <div class="level-left">
         <span><%= extra_distance_date(@produce_on) %></span>
-        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on %></span>
-        <span class="has-text-weight-normal has-text-grey is-size-7"><%= @produce_on.to_fs(:week) %></span>
+        <span class="has-text-weight-normal has-text-grey size-7"><%= @produce_on %></span>
+        <span class="has-text-weight-normal has-text-grey size-7"><%= @produce_on.to_fs(:week) %></span>
       </div>
       <div class="level-right mt-0">
         <%= link_to({ controller: '/factory/produce_plans' }) do %>
@@ -14,7 +14,7 @@
         <% end %>
       </div>
     </div>
-    <div class="columns is-multiline is-flex m-0">
+    <div class="columns is-multiline flex m-0">
       <%= render partial: 'scene', collection: @scenes, as: :scene, locals: { produce_on: @produce_on } %>
     </div>
   </div>

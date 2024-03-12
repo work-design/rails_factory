@@ -16,7 +16,7 @@
         <% end %>
       <% end %>
     </ul>
-    <div class="is-flex align-items-center">
+    <div class="flex align-items-center">
       <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
       <% @card_templates.select(&->(i){ model.card_price.keys.include?(i.code) }).each do |card_template| %>
         <div class="tags has-addons is-price control m-0 ml-2" style="display: inline-flex">
@@ -32,7 +32,7 @@
         </div>
       <% end %>
     </div>
-    <div class="is-flex justify-content-flex-end pt-2">
+    <div class="flex justify-content-flex-end pt-2">
       <%= render partial: 'cart', locals: { model: model } %>
     </div>
   </div>
