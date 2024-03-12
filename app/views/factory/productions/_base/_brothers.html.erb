@@ -3,7 +3,7 @@
   <div class="weui-panel__bd">
     <div class="p-4 buttons are-small" data-controller="custom" data-custom-only-value="<%# product_part_taxon.only_one? %>">
     <% @production.brothers.enabled.each do |brother| %>
-      <%= link_to({ id: brother.id }, data: { controller: 'scroll' }, class: active_helper(id: brother.id, item: 'button', active: 'button is-primary')) do %>
+      <%= link_to({ id: brother.id }, data: { controller: 'scroll', action: 'scroll#preserve' }, class: active_helper(id: brother.id, item: 'button', active: 'button is-primary')) do %>
         <span><%= brother.name %></span>
         <% unless brother.presell %>
           <span class="pl-2"><%= brother.price.to_money.format.html_safe %></span>
