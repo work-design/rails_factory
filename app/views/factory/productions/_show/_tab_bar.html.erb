@@ -1,34 +1,17 @@
-<div class="has-block-space-around has-background-grey-lighter is-safe-bottom m-0 py-3" style="z-index: 500">
-  <div>
-    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'has-column-centered px-2') do %>
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span class="size-7 pt-1 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
-    <% end if @cart %>
-  </div>
-  <div class="has-v-centered">
-    <div class="has-inline-centered">
-      <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items' } %>
-    </div>
-    <div
-      class="button is-small is-light is-radius ml-2"
-      data-controller="mask wx-share"
-      data-mask-id-value="mask"
-      data-wx-share-title-value="<%= @production.name %>"
-      data-wx-share-desc-value="<%= @production.product.description %>>"
-      data-wx-share-link-value="<%= url_for(controller: '/factory/productions', action: 'show', id: @production.id, only_path: false) %>"
-      data-wx-share-image-value="<%= @production.logo.url %>"
-      data-action="click->mask#show click->wx-share#ready"
-    >
-      <%= image_tag 'wx_moment.svg', class: 'image is-16x16' %>
-      <span class="pl-1">分享</span>
-    </div>
-  </div>
-</div>
-<div
-  data-controller="mask"
-  data-action="click->mask#close"
-  class="weui-mask weui-mask-share"
-  id="mask"
-  style="display: none"
->
+<div class="tabs is-fullwidth is-safe-bottom">
+  <ul>
+    <li>
+      <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter') do %>
+        <i class="fa-solid size-5 fa-cart-shopping"></i>
+        <span class="size-7 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
+      <% end if @cart %>
+    </li>
+    <li class="has-text-right pr-3">
+    <% if item = @cart&.find_item(good_id: @production.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+      <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
+    <% else %>
+      <%= render partial: 'add_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
+    <% end %>
+    </li>
+  </ul>
 </div>
