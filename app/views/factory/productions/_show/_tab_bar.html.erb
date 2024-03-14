@@ -1,17 +1,15 @@
-<div class="tabs is-fullwidth is-safe-bottom">
-  <ul>
-    <li>
-      <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter') do %>
-        <i class="fa-solid size-5 fa-cart-shopping"></i>
-        <span class="size-7 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
-      <% end if @cart %>
-    </li>
-    <li class="has-text-right pr-3">
-    <% if item = @cart&.find_item(good_id: @production.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-      <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
-    <% else %>
-      <%= render partial: 'add_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
-    <% end %>
-    </li>
-  </ul>
+<div class="level flex-direction-row is-safe-bottom">
+  <div class="level-left py-3">
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter') do %>
+      <i class="fa-solid size-5 fa-cart-shopping"></i>
+      <span class="size-7 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
+    <% end if @cart %>
+  </div>
+  <div class="level-right py-3">
+  <% if item = @cart&.find_item(good_id: @production.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+    <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
+  <% else %>
+    <%= render partial: 'add_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
+  <% end %>
+  </div>
 </div>
