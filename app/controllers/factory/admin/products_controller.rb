@@ -3,7 +3,7 @@ module Factory
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
     before_action :set_new_product, only: [:new, :create]
-    before_action :set_product_taxons, only: [:index, :edit, :update]
+    before_action :set_product_taxons, only: [:index, :new, :create, :edit, :update]
     before_action :set_cart, only: [:buy]
 
     def index
@@ -45,7 +45,7 @@ module Factory
     end
 
     def set_new_product
-      @product = @product_taxon.products.build(product_params)
+      @product = Product.new(product_params)
     end
 
     def set_brands
