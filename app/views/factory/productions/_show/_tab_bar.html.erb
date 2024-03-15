@@ -1,11 +1,11 @@
-<div class="level flex-direction-row is-safe-bottom">
-  <div class="level-left py-3">
+<div class="level flex-direction-row is-safe-bottom" style="background-color: #f7f7f7">
+  <div class="level-left p-3">
     <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter') do %>
       <i class="fa-solid size-5 fa-cart-shopping"></i>
       <span class="size-7 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
     <% end if @cart %>
   </div>
-  <div class="level-right py-3">
+  <div class="level-right p-3">
   <% if item = @cart&.find_item(good_id: @production.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
     <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
   <% else %>
