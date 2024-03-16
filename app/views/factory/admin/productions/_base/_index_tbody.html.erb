@@ -6,6 +6,7 @@
   <p class="has-text-grey"><%= model.title %></p>
 </td>
 <td>
+<div class="button_tos is-column">
   <% model.parts.each do |part| %>
     <%= button_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, class: 'button is-small is-info') do %>
       <span><%= part.name %></span>
@@ -15,6 +16,7 @@
   <%= button_to({ action: 'part', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, style: 'visibility: hidden') do %>
     <i class="fa-solid fa-sm fa-cube has-text-grey"></i>
   <% end %>
+</div>
 </td>
 <td style="--money-width: <%= model.max_indent %>ch">
   <div>
