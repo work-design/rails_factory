@@ -1,7 +1,7 @@
 <div class="level flex-direction-row is-safe-bottom" style="background-color: #f7f7f7">
   <div class="level-left p-3">
-    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter') do %>
-      <i class="fa-solid size-5 fa-cart-shopping"></i>
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'has-column-centered') do %>
+      <i class="fa-solid fa-cart-shopping size-5"></i>
       <span class="size-7 has-text-grey"><%= t('trade.my.carts.show.title') %></span>
     <% end if @cart %>
   </div>
