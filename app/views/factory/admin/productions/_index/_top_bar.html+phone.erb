@@ -1,12 +1,10 @@
-<div class="weui-panel is-borderless">
-  <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
-    <%= link_to({ controller: 'products', product_taxon_id: @product.product_taxon_id }, class: 'px-4') do %>
-      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
-    <% end %>
-    <div class="weui-title flex-direction-column">
-      <div><%= @product.name %></div>
-      <div><%= t('.title') %></div>
-    </div>
-    <i style="width: 3rem"></i>
+<div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="box as-bar">
+  <%= link_to({ controller: 'products', product_taxon_id: @product.product_taxon_id }, class: 'px-4') do %>
+    <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+  <% end %>
+  <div class="weui-title flex-direction-column">
+    <div><%= @product.name %></div>
+    <div><%= t('.title') %></div>
   </div>
+  <i class="px-4"></i>
 </div>

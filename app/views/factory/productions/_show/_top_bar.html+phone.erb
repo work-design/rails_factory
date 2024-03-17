@@ -1,11 +1,9 @@
-<div class="weui-panel is-borderless">
-  <div data-controller="mini-program" class="weui-panel__hd as-bar">
-    <%= link_to({ action: 'index', product_taxon_id: @production.product_taxon_id }, state: 'return', class: 'px-4') do %>
-      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
-    <% end %>
-    <div class="weui-title"><%= @production.title %></div>
-    <%= button_to({ action: 'actions' }, class: 'px-4') do %>
-      <i class="fa-solid fa-lg fa-fw-1 fa-ellipsis-h"></i>
-    <% end %>
-  </div>
+<div data-controller="mini-program" class="box as-bar">
+  <%= link_to({ action: 'index', product_taxon_id: @production.product_taxon_id }, state: 'return', class: 'px-4') do %>
+    <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+  <% end %>
+  <div class="weui-title"><%= @production.title %></div>
+  <%= button_to({ action: 'actions' }, class: 'px-4') do %>
+    <i class="fa-solid fa-lg fa-fw-1 fa-ellipsis-h"></i>
+  <% end %>
 </div>
