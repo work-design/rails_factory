@@ -1,17 +1,17 @@
-<%= link_to({ action: 'edit', id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ action: 'edit', id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit.title') %></span>
 <% end %>
-<%= link_to({ controller: 'productions', product_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'productions', product_id: model.id }, class: 'cell') do %>
   <i class="fa-regular fa-clone"></i>
   <span><%= model.productions_count %></span>
   <span><%= t('factory.admin.productions.index.title') %></span>
 <% end %>
-<%= button_to({ action: 'move_higher', id: model.id }, method: :patch, form: { class: 'weui-actionsheet__cell' }) do %>
+<%= button_to({ action: 'move_higher', id: model.id }, method: :patch, form: { class: 'cell' }) do %>
   <i class="fa-solid fa-arrow-up"></i>
   <span>上移一位</span>
 <% end %>
-<%= button_to({ action: 'move_lower', id: model.id }, method: :patch, form: { class: 'weui-actionsheet__cell' }) do %>
+<%= button_to({ action: 'move_lower', id: model.id }, method: :patch, form: { class: 'cell' }) do %>
   <i class="fa-solid fa-arrow-down"></i>
   <span>下移一位</span>
 <% end %>

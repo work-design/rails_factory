@@ -1,12 +1,12 @@
-<%= link_to({ action: 'edit', id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ action: 'edit', id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit.title') %></span>
 <% end %>
-<%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { turbo_confirm: t('.confirm') }, class: 'has-text-danger', form: { class: 'weui-actionsheet__cell weui-actionsheet__cell_warn' }) do %>
+<%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { turbo_confirm: t('.confirm') }, class: 'has-text-danger', form: { class: 'cell weui-actionsheet__cell_warn' }) do %>
   <i class="fa-solid fa-trash"></i>
   <span><%= t('.destroy.title') %></span>
 <% end %>
-<%= link_to({ controller: 'produce_plans', scene_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'produce_plans', scene_id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-hammer"></i>
   <span><%= t('factory.admin.produce_plans.index.title') %></span>
 <% end %>
