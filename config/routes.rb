@@ -99,12 +99,13 @@ Rails.application.routes.draw do
               patch :reorder
             end
           end
-          resources :provides do
+          resources :provides, controller: 'taxon/provides' do
             collection do
               post :search
             end
           end
         end
+        resources :provides
         resources :products do
           collection do
             get :buy

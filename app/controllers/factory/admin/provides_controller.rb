@@ -1,17 +1,12 @@
 module Factory
   class Admin::ProvidesController < Admin::BaseController
-    before_action :set_product_taxon
     before_action :set_new_provide, only: [:new, :create]
 
     def index
-      @provides = @product_taxon.provides
+      @provides = Provide.where(default_params).page(params[:page])
 
       except_ids = @provides.pluck(:provider_id) << current_organ.id
-      if @product_taxon.factory_taxon
-        @providers = @product_taxon.factory_taxon.providers.where.not(id: except_ids).page(params[:page])
-      else
-        @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
-      end
+      @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
       @vendors = Crm::Client.default_where(default_params).where(vendor: true).where.not(client_organ_id: except_ids)
     end
 
@@ -22,18 +17,15 @@ module Factory
     end
 
     private
-    def set_product_taxon
-      @product_taxon = ProductTaxon.find params[:product_taxon_id]
-    end
-
     def set_new_provide
-      @provide = @product_taxon.provides.build(provide_params)
+      @provide = Provide.new(provide_params)
     end
 
     def provide_params
-      params.fetch(:provide, {}).permit(
+      _p = params.fetch(:provide, {}).permit(
         :provider_id
       )
+      _p.merge! default_form_params
     end
 
   end
