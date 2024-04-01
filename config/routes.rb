@@ -105,7 +105,11 @@ Rails.application.routes.draw do
             end
           end
         end
-        resources :provides
+        resources :provides do
+          collection do
+            post :search
+          end
+        end
         resources :products do
           collection do
             get :buy
