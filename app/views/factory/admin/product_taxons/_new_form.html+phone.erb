@@ -1,5 +1,5 @@
 <%= form_with theme: 'weui', model: model, scope: model_name, url: { action: 'create', **params.permit(:factory_taxon_id) }, state: 'return' do |f| %>
-  <div class="weui-form__control-area">
+  <div class="form-fields">
     <%= f.hidden_field :factory_taxon_id %>
     <%# render partial: 'com/nodes/siblings_select', locals: { f: f } %>
     <%= f.text_field :name %>
