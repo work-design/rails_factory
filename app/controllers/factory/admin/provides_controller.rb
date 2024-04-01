@@ -7,7 +7,6 @@ module Factory
 
       except_ids = @provides.pluck(:provider_id) << current_organ.id
       @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
-      @vendors = Crm::Client.default_where(default_params).where(vendor: true).where.not(client_organ_id: except_ids)
     end
 
     def search
