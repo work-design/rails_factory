@@ -1,6 +1,7 @@
 <div class="column">
   <%= render partial: 'covers', locals: { model: @production.product } %>
 </div>
+
 <div class="column">
   <div class="box">
     <h1 class="title"><%= @production.product.name %></h1>
@@ -8,7 +9,11 @@
       <span><%= @production.price.to_money.format.html_safe %></span>
     </div>
     <div class="flex mt-1">
-      <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items' } if @cart %>
+      <% if item = @cart&.find_item(good_id: @production.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+        <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
+      <% else %>
+        <%= render partial: 'add_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
+      <% end %>
       <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
         <span class="pr-1"><%= t('trade.my.carts.show.title') %></span>
         <i class="fa-solid fa-angle-right"></i>
