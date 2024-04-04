@@ -1,7 +1,7 @@
 <tr id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <%= yield %>
   <td>
-    <div data-show-target="item" style="visibility: hidden">
+    <div data-show-target="item" class="visibility-hidden">
       <%= button_to({ action: 'update_delivery', id: model.id }, method: :patch, data: { turbo_confirm: t('.confirm') }, aria: { label: t('factory.admin.production_items.update_delivery.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-list has-text-danger"></i>
       <% end %>
