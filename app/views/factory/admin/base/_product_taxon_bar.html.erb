@@ -1,4 +1,4 @@
-<div class="tabs mb-3">
+<div class="tabs is-boxed mb-3">
   <ul>
     <li class="<%= active_helper(product_taxons: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.product_taxons.show.title'), { controller: 'product_taxons', action: 'show', id: @product_taxon.id } %>
