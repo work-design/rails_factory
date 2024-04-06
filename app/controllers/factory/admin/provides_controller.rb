@@ -22,6 +22,7 @@ module Factory
 
     def provide_params
       _p = params.fetch(:provide, {}).permit(
+        :name,
         :provider_id
       )
       _p.merge! default_form_params

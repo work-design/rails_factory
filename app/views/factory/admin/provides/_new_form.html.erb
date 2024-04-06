@@ -5,6 +5,7 @@
   </header>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object  %>
+    <%= f.text_field :name %>
     <%= render partial: 'provider_search', locals: { f: f } %>
   </section>
   <footer class="modal-card-foot is-block">
