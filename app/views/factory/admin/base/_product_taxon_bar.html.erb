@@ -25,7 +25,7 @@
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'provides', active: 'is-active') %>">
-      <%= link_to({ controller: 'provides', product_taxon_id: @product_taxon.id }) do %>
+      <%= link_to({ controller: 'taxon/provides', product_taxon_id: @product_taxon.id }) do %>
         <i class="fa-solid fa-building"></i>
         <span class="pl-1"><%= t('.provides.index.title') %></span>
       <% end %>
