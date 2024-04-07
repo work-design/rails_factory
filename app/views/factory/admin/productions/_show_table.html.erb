@@ -1,30 +1,30 @@
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:name) %></td>
-  <td><%= @production.name %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:title) %></td>
-  <td><%= @production.title %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:state) %></td>
-  <td><%= @production.state_i18n %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:qr_code) %></td>
-  <td><%= @production.qr_code %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:str_part_ids) %></td>
-  <td><%= @production.str_part_ids %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:price) %></td>
-  <td><%= @production.price.to_money.format.html_safe %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:card_price) %></td>
-  <td>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:name) %></dt>
+  <dd><%= @production.name %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:title) %></dt>
+  <dd><%= @production.title %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:state) %></dt>
+  <dd><%= @production.state_i18n %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:qr_code) %></dt>
+  <dd><%= @production.qr_code %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:str_part_ids) %></dt>
+  <dd><%= @production.str_part_ids %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:price) %></dt>
+  <dd><%= @production.price.to_money.format.html_safe %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:card_price) %></dt>
+  <dd>
     <div>
     <% @production.card_price.each do |key, value| %>
       <div class="tags has-addons is-tag-price control mb-0">
@@ -36,11 +36,11 @@
     <%= button_to({ action: 'card' }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('.card.title') }) do %>
       <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
     <% end %>
-  </td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:wallet_price) %></td>
-  <td>
+  </dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:wallet_price) %></dt>
+  <dd>
     <div>
     <% @production.wallet_price.each do |key, value| %>
       <div class="tags has-addons is-tag-price control mb-0">
@@ -52,13 +52,13 @@
     <%= button_to({ action: 'wallet' }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('.wallet.title') }) do %>
       <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
     <% end %>
-  </td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:link) %></td>
-  <td><%= @production.link %></td>
-</tr>
-<tr>
-  <td><%= Factory::Production.human_attribute_name(:stock) %></td>
-  <td><%= @production.stock %></td>
-</tr>
+  </dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:link) %></dt>
+  <dd><%= @production.link %></dd>
+</div>
+<div>
+  <dt><%= Factory::Production.human_attribute_name(:stock) %></dt>
+  <dd><%= @production.stock %></dd>
+</div>

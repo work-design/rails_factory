@@ -1,12 +1,12 @@
-<tr>
-  <td><%= Factory::Brand.human_attribute_name(:name) %></td>
-  <td><%= @brand.name %></td>
-</tr>
-<tr>
-  <td><%= Factory::Brand.human_attribute_name(:products_count) %></td>
-  <td><%= @brand.products_count %></td>
-</tr>
-<tr>
-  <td><%= Factory::Brand.human_attribute_name(:organ_id) %></td>
-  <td><%= @brand.organ_id %></td>
-</tr>
+<div>
+  <dt><%= Factory::Brand.human_attribute_name(:name) %></dt>
+  <dd><%= @brand.name %></dd>
+</div>
+<div>
+  <dt><%= Factory::Brand.human_attribute_name(:products_count) %></dt>
+  <dd><%= @brand.products_count %></dd>
+</div>
+<div>
+  <dt><%= Factory::Brand.human_attribute_name(:organ_id) %></dt>
+  <dd><%= @brand.organ_id %></dd>
+</div>

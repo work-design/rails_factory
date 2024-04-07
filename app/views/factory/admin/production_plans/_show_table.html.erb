@@ -1,20 +1,20 @@
-<tr>
-  <td><%= Factory::ProductionPlan.human_attribute_name(:product_id) %></td>
-  <td><%= @production_plan.product_id %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductionPlan.human_attribute_name(:start_at) %></td>
-  <td><time data-controller="time"><%= @production_plan.start_at&.to_fs(:iso8601) %></time></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductionPlan.human_attribute_name(:finish_at) %></td>
-  <td><time data-controller="time"><%= @production_plan.finish_at&.to_fs(:iso8601) %></time></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductionPlan.human_attribute_name(:state) %></td>
-  <td><%= @production_plan.state_i18n %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductionPlan.human_attribute_name(:planned_count) %></td>
-  <td><%= @production_plan.planned_count %></td>
-</tr>
+<div>
+  <dt><%= Factory::ProductionPlan.human_attribute_name(:product_id) %></dt>
+  <dd><%= @production_plan.product_id %></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductionPlan.human_attribute_name(:start_at) %></dt>
+  <dd><time data-controller="time"><%= @production_plan.start_at&.to_fs(:iso8601) %></time></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductionPlan.human_attribute_name(:finish_at) %></dt>
+  <dd><time data-controller="time"><%= @production_plan.finish_at&.to_fs(:iso8601) %></time></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductionPlan.human_attribute_name(:state) %></dt>
+  <dd><%= @production_plan.state_i18n %></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductionPlan.human_attribute_name(:planned_count) %></dt>
+  <dd><%= @production_plan.planned_count %></dd>
+</div>

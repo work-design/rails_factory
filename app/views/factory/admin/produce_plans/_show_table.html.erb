@@ -1,12 +1,12 @@
-<tr>
-  <td><%= Factory::ProducePlan.human_attribute_name(:title) %></td>
-  <td><%= @produce_plan.title %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProducePlan.human_attribute_name(:produce_on) %></td>
-  <td><%= @produce_plan.produce_on.to_fs(:date) %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProducePlan.human_attribute_name(:state) %></td>
-  <td><%= @produce_plan.state_i18n %></td>
-</tr>
+<div>
+  <dt><%= Factory::ProducePlan.human_attribute_name(:title) %></dt>
+  <dd><%= @produce_plan.title %></dd>
+</div>
+<div>
+  <dt><%= Factory::ProducePlan.human_attribute_name(:produce_on) %></dt>
+  <dd><%= @produce_plan.produce_on.to_fs(:date) %></dt>
+</div>
+<div>
+  <dt><%= Factory::ProducePlan.human_attribute_name(:state) %></dt>
+  <dd><%= @produce_plan.state_i18n %></dd>
+</div>

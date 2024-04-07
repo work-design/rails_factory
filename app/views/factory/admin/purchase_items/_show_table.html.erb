@@ -1,20 +1,20 @@
-<tr>
-  <td><%= Trade::Item.human_attribute_name(:number) %></td>
-  <td><%= @item.number %></td>
-</tr>
-<tr>
-  <td><%= Trade::Item.human_attribute_name(:amount) %></td>
-  <td><%= @item.amount %></td>
-</tr>
-<tr>
-  <td><%= Trade::Item.human_attribute_name(:note) %></td>
-  <td><%= @item.note %></td>
-</tr>
-<tr>
-  <td><%= Trade::Item.human_attribute_name(:extra) %></td>
-  <td><%= @item.extra %></td>
-</tr>
-<tr>
-  <td><%= Trade::Item.human_attribute_name(:purchase_status) %></td>
-  <td><%= @item.purchase_status_i18n %></td>
-</tr>
+<div>
+  <dt><%= Trade::Item.human_attribute_name(:number) %></dt>
+  <dd><%= @item.number %></dd>
+</div>
+<div>
+  <dt><%= Trade::Item.human_attribute_name(:amount) %></dt>
+  <dd><%= @item.amount %></dd>
+</div>
+<div>
+  <dt><%= Trade::Item.human_attribute_name(:note) %></dt>
+  <dd><%= @item.note %></dd>
+</div>
+<div>
+  <dt><%= Trade::Item.human_attribute_name(:extra) %></dt>
+  <dd><%= @item.extra %></dd>
+</div>
+<div>
+  <dt><%= Trade::Item.human_attribute_name(:purchase_status) %></dt>
+  <dd><%= @item.purchase_status_i18n %></dd>
+</div>

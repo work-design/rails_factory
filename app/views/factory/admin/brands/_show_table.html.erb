@@ -1,8 +1,8 @@
-<tr>
-  <td><%= Factory::Brand.human_attribute_name(:name) %></td>
-  <td><%= @brand.name %></td>
-</tr>
-<tr>
-  <td><%= Factory::Brand.human_attribute_name(:logo) %></td>
-  <td><%= image_tag @brand.logo, class: 'image' if @brand.logo.attached? %></td>
-</tr>
+<div>
+  <dt><%= Factory::Brand.human_attribute_name(:name) %></dt>
+  <dd><%= @brand.name %></dd>
+</div>
+<div>
+  <dt><%= Factory::Brand.human_attribute_name(:logo) %></dt>
+  <dt><%= image_tag @brand.logo, class: 'image' if @brand.logo.attached? %></dd>
+</div>

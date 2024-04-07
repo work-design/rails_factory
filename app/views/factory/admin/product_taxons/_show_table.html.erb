@@ -1,16 +1,16 @@
-<tr>
-  <td><%= Factory::ProductTaxon.human_attribute_name(:name) %></td>
-  <td><%= @product_taxon.name %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductTaxon.human_attribute_name(:position) %></td>
-  <td><%= @product_taxon.position %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductTaxon.human_attribute_name(:logo) %></td>
-  <td><%= image_tag @product_taxon.logo, class: 'image is-64x64' if @product_taxon.logo.attached? %></td>
-</tr>
-<tr>
-  <td><%= Factory::ProductTaxon.human_attribute_name(:logo_color) %></td>
-  <td><%= image_tag @product_taxon.logo_color, class: 'image is-64x64' if @product_taxon.logo_color.attached? %></td>
-</tr>
+<div>
+  <dt><%= Factory::ProductTaxon.human_attribute_name(:name) %></dt>
+  <dd><%= @product_taxon.name %></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductTaxon.human_attribute_name(:position) %></dt>
+  <dd><%= @product_taxon.position %></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductTaxon.human_attribute_name(:logo) %></dt>
+  <dt><%= image_tag @product_taxon.logo, class: 'image is-64x64' if @product_taxon.logo.attached? %></dd>
+</div>
+<div>
+  <dt><%= Factory::ProductTaxon.human_attribute_name(:logo_color) %></dt>
+  <dt><%= image_tag @product_taxon.logo_color, class: 'image is-64x64' if @product_taxon.logo_color.attached? %></dd>
+</div>
