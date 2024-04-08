@@ -5,10 +5,10 @@
   <div class="weui-panel__bd">
     <% @product_plans.each do |product_plan| %>
       <%= link_to product_path(@product, product_plan_id: product_plan.id), class: 'weui-media-box weui-media-box_appmsg' do %>
-        <div class="weui-media-box__hd">
-          <%= image_tag @product.logo, class: 'weui-media-box__thumb' if @product.logo.attached? %>
+        <div class="media-left">
+          <%= image_tag @product.logo, class: 'image is-64x64' if @product.logo.attached? %>
         </div>
-        <div class="weui-media-box__bd">
+        <div class="media-content">
           <h4 class="weui-media-box__title">
             <time data-controller="time"><%= product_plan.start_at.to_fs(:iso8601) %></time>
             <span>-</span>
