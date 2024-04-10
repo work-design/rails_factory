@@ -4,7 +4,7 @@
   </div>
   <div class="weui-panel__bd">
     <% @product_plans.each do |product_plan| %>
-      <%= link_to product_path(@product, product_plan_id: product_plan.id), class: 'weui-media-box weui-media-box_appmsg' do %>
+      <%= link_to product_path(@product, product_plan_id: product_plan.id), class: 'media' do %>
         <div class="media-left">
           <%= image_tag @product.logo, class: 'image is-64x64' if @product.logo.attached? %>
         </div>
