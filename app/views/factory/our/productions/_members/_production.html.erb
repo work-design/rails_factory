@@ -28,7 +28,7 @@
       </div>
     <% end %>
   </div>
-  <div class="media-right as-x">
+  <div class="media-right">
     <%= button_to({ controller: 'productions', action: 'list', id: model.id, **params.permit(:produce_on, :scene_id) }, class: 'button is-borderless has-column-centered justify-content-space-evenly', style: 'height: 4em') do %>
       <i class="fa-solid fa-lg fa-repeat"></i>
       <span>切换</span>
