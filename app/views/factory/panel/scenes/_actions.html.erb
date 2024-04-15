@@ -1,4 +1,4 @@
-<%= button_to({ action: 'edit', id: model.id }, class: 'cell') do %>
+<%= button_to({ action: 'edit', id: model.id }, class: 'cell has-column-centered') do %>
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit.title') %></span>
 <% end %>
@@ -6,7 +6,7 @@
   <i class="fa-solid fa-trash"></i>
   <span><%= t('.destroy.title') %></span>
 <% end %>
-<%= link_to({ controller: 'produce_plans', scene_id: model.id }, class: 'cell') do %>
+<%= link_to({ controller: 'produce_plans', scene_id: model.id }, class: 'cell has-column-centered') do %>
   <i class="fa-regular fa-hammer"></i>
   <span><%= t('factory.admin.produce_plans.index.title') %></span>
 <% end %>

@@ -5,12 +5,12 @@
   <div class="weui-panel__bd">
     <div class="weui-cells">
       <% @trade_items.each do |trade_item| %>
-        <div class="weui-cell">
-          <div class="weui-cell__hd"><%= image_tag trade_item.user.avatar_url, style: 'width: 20px;' %></div>
-          <div class="weui-cell__bd">
+        <div class="media">
+          <div class="media-left"><%= image_tag trade_item.user.avatar_url, style: 'width: 20px;' %></div>
+          <div class="media-content">
             <%= trade_item.user.account_identities.join(',') %>
           </div>
-          <div class="weui-cell__ft">
+          <div class="media-right">
             <div class="weui-btn weui-btn_mini weui-btn_primary">xx</div>
           </div>
         </div>
