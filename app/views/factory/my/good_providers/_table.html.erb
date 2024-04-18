@@ -25,7 +25,7 @@
         <%= link_to edit_my_good_provider_path(good_provider), aria: { label: t('.edit.title') }, class: 'ui pink mini icon button' do %>
           <i class="pencil alternate icon"></i>
         <% end %>
-        <%= link_to my_good_provider_path(good_provider), method: :delete, aria: { label: t('.destroy.title') }, data: { confrim: t('.confirm') }, class: 'ui red mini icon button' do %>
+        <%= link_to my_good_provider_path(good_provider), method: :delete, aria: { label: t('.destroy.title') }, data: { confrim: t('.destroy.confirm') }, class: 'ui red mini icon button' do %>
           <i class="times icon"></i>
         <% end %>
       </td>
