@@ -77,6 +77,7 @@ module Factory
         :qr_code,
         :cost_price,
         :profit_price,
+        :price,
         :default,
         :presell,
         :ordered_at,
