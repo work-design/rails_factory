@@ -13,6 +13,7 @@ module Factory
     before_action :set_production, only: [:copy, :prune]
     before_action :set_providers, only: [:import, :productions]
     before_action :set_factory_taxons, only: [:edit, :update]
+    before_action :set_count_hash, only: [:update]
 
     def index
       q_params = {}
@@ -88,6 +89,10 @@ module Factory
       if params[:factory_taxon_id].present?
         @product_taxons = @factory_taxon.product_taxons.default_where(default_params)
       end
+    end
+
+    def set_count_hash
+      @count_hash = { @product_taxon.id => @product_taxon.productions.where(enabled: true).count }
     end
 
     def set_own_product_taxons
