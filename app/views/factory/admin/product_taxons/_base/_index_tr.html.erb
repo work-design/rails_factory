@@ -8,6 +8,9 @@
       <%= button_to({ action: 'edit', id: model.id }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-pencil has-text-info"></i>
       <% end %>
+      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy.title') }, form: { data: { turbo_confirm: t('.destroy.confirm') } }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-trash has-text-danger"></i>
+      <% end if model.products_count <= 0 %>
     </div>
   </td>
 </tr>
