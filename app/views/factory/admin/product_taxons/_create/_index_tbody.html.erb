@@ -1,0 +1,21 @@
+<td>
+  <%= link_to({ action: 'show', id: model.id }, class: 'is-several') do %>
+    <%= image_tag model.logo, class: 'image is-32x32' if model.logo.attached? %>
+    <span><%= model.name %></span>
+  <% end %>
+  <p class="has-text-grey"><%= model.scene&.title %></p>
+</td>
+<td>
+  <p><%= link_to model.products_count, { controller: 'taxon/products', product_taxon_id: model.id } %></p>
+</td>
+<td>
+  <%= link_to({ controller: 'taxon/provides', product_taxon_id: model.id }, aria: { label: t('.taxon.provides.index.title') }) do %>
+    <span><%= model.provides_count %></span>
+  <% end %>
+</td>
+<th>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :enabled, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</th>
