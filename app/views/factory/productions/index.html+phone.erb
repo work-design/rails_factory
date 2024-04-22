@@ -8,6 +8,10 @@
   <%= render 'space_desk' %>
 <% end %>
 
+<% if params[:dispatch].present? %>
+  <%= render 'space_dispatch' %>
+<% end %>
+
 <%= render 'filter_form' %>
 <div class="weui-menu">
   <%= render 'menu' unless @produce_plan %>
