@@ -4,7 +4,7 @@
     <span class="pl-1"><%= Trade::Cart.enum_i18n(:dispatch, params[:dispatch]) %></span>
   </div>
   <div>
-    <%= link_to({ controller: '/space/desks', station_id: @desk.room.station_id }) do %>
+    <%= button_to({ action: 'change_dispatch', dispatch: params[:dispatch] }) do %>
       <i class="fa-solid fa-chevron-right"></i>
     <% end %>
   </div>

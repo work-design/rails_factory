@@ -9,6 +9,7 @@ Rails.application.routes.draw do
           post :scene
           post :produce_on
           post :create_dialog
+          post :change_dispatch
         end
         member do
           post :list

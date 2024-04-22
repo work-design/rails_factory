@@ -67,6 +67,10 @@ module Factory
       @produce_plans = ProducePlan.default_where(q_params).order(id: :asc)
     end
 
+    def change_dispatch
+
+    end
+
     def show
     end
 
