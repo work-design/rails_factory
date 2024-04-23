@@ -22,8 +22,7 @@ module Factory
       options.merge! default_form_params
 
       if current_user
-        options.merge! user_id: current_user.id, member_id: nil, client_id: nil, good_type: 'Factory::Production', aim: 'use', dispatch: 'delivery'
-        options.merge! params.permit(:dispatch)
+        options.merge! user_id: current_user.id, member_id: nil, client_id: nil, good_type: 'Factory::Production', aim: 'use'
         @cart = Trade::Cart.find_or_create_by(options)
         @cart.compute_amount! unless @cart.fresh
       end
