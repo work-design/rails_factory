@@ -4,11 +4,19 @@ module Factory
 
     included do
       attribute :production_enabled, :boolean
-      attribute :factory_settings, :json
+      attribute :factory_settings, :json, default: {}
 
       has_many :factory_providers, class_name: 'Factory::FactoryProvider', foreign_key: :provider_id, dependent: :destroy_async
       has_many :provides, class_name: 'Factory::Provide', dependent: :destroy_async
       has_many :providers, through: :provides
+    end
+
+    def form_factory_settings
+      r = Hash(factory_settings).map { |k, v| { key: k, value: v } }
+      if r.blank?
+        r = [{ key: nil, value: nil }]
+      end
+      RailsCom::Settings.new(r)
     end
 
     def name_detail
