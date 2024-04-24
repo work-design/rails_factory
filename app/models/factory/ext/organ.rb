@@ -4,6 +4,7 @@ module Factory
 
     included do
       attribute :production_enabled, :boolean
+      attribute :factory_settings, :json
 
       has_many :factory_providers, class_name: 'Factory::FactoryProvider', foreign_key: :provider_id, dependent: :destroy_async
       has_many :provides, class_name: 'Factory::Provide', dependent: :destroy_async

@@ -78,6 +78,7 @@ Rails.application.routes.draw do
         scope :produce_on, controller: :produce_on do
           get :index
         end
+        resource :organ
         resources :brands
         resources :product_taxons do
           collection do
