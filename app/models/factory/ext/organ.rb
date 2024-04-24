@@ -11,14 +11,6 @@ module Factory
       has_many :providers, through: :provides
     end
 
-    def form_factory_settings
-      r = Hash(factory_settings).map { |k, v| { key: k, value: v } }
-      if r.blank?
-        r = [{ key: nil, value: nil }]
-      end
-      RailsCom::Settings.new(r)
-    end
-
     def name_detail
       "#{name} (#{id})"
     end

@@ -1,1 +1,3 @@
-<%= f.text_field 'factory_settings[a]' %>
+<%= f.fields :factory_settings, model: RailsCom::Setting.new(f.object.factory_settings), label: nil, placeholder: true, wrap: { input: 'field > control', select: 'field is-narrow > control > select is-fullwidth' } do |pf| %>
+  <%= pf.text_field :column, autocomplete: 'off' %>
+<% end %>
