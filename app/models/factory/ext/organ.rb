@@ -11,6 +11,14 @@ module Factory
       has_many :providers, through: :provides
     end
 
+    def dispatch
+      factory_settings.fetch('dispatch', 'delivery')
+    end
+
+    def dispatch_i18n
+      Trade::Item.enum_i18n(:dispatch, dispatch)
+    end
+
     def name_detail
       "#{name} (#{id})"
     end
