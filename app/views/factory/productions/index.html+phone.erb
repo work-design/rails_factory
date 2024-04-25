@@ -10,6 +10,8 @@
 
 <% if params[:dispatch].present? %>
   <%= render 'space_dispatch' %>
+<% else %>
+  <%= render 'space_dispatch_default' %>
 <% end %>
 
 <%= render 'filter_form' %>
