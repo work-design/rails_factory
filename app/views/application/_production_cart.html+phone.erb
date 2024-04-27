@@ -1,7 +1,7 @@
 <% if model.product.productions_count > 1 %>
-  <% if @cart %>
+  <% if @cart.find_items(model.product.production_ids, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
     <%= button_to({ action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, form: { id: "cart_#{model.id}#{@cart&.identity}" }, class: 'button is-small is-rounded is-primary') do %>
-      <span>选规格</span>
+      <span>规格加入购物车</span>
     <% end %>
   <% else %>
     <%= button_to({ action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, form: { id: "cart_#{model.id}#{@cart&.identity}" }, class: 'button is-small is-rounded is-primary') do %>
