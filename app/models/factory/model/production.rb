@@ -6,8 +6,8 @@ module Factory
       attribute :name, :string
       attribute :qr_code, :string
       attribute :price, :decimal
-      attribute :cost_price, :decimal, default: 0, comment: '成本价'
-      attribute :profit_price, :decimal, default: 0, comment: '利润'
+      attribute :cost_price, :decimal, comment: '成本价'
+      attribute :profit_price, :decimal, comment: '利润'
       attribute :str_part_ids, :string, index: true
       attribute :default, :boolean, default: false
       attribute :enabled, :boolean, default: false
