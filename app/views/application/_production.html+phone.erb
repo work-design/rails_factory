@@ -34,6 +34,8 @@
         <div class="flex">
         <% if item %>
           <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
+        <% elsif model.productions_count > 1 %>
+          <i>选规格</i>
         <% else %>
           <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
         <% end %>
@@ -62,6 +64,10 @@
         <div class="flex">
         <% if item %>
           <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
+        <% elsif model.product.productions_count > 1 %>
+          <%= button_to({ action: 'show', id: model.id }, class: 'button is-small is-rounded is-primary') do %>
+            <span>选规格</span>
+          <% end %>
         <% else %>
           <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
         <% end %>
