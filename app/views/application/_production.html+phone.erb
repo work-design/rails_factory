@@ -1,9 +1,9 @@
 <% item = @cart&.find_item(good_id: model.id, dispatch: params[:dispatch], produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-<div id="production_<%= model.id %>" data-controller="common" class="weui-media-box weui-media-box_appmsg is-box">
-  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', data: { controller: 'empty' }, class: 'weui-media-box__hd as-logo') do %>
+<div id="production_<%= model.id %>" data-controller="common" class="media is-box">
+  <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', data: { controller: 'empty' }, class: 'media-left as-logo') do %>
     <%= image_tag model.product.logo, class: 'image is-64x64' if model.product.logo.attached? %>
   <% end %>
-  <div class="weui-media-box__bd as-body">
+  <div class="media-content as-body">
     <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__title') do %>
       <% if model.product.brand %><span class="tag is-light is-danger"><%= model.product.brand&.name %></span><% end %>
       <span><%= model.title %></span>
