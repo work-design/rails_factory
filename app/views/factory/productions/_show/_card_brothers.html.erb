@@ -1,0 +1,7 @@
+<div class="p-4 buttons are-small">
+<% @production.brothers.enabled.each do |brother| %>
+  <%= button_to({ id: brother.id }, class: brother.id.to_s == params[:id] ? 'button is-primary' : 'button') do %>
+    <span><%= brother.name %></span>
+  <% end %>
+<% end %>
+</div>
