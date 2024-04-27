@@ -22,6 +22,11 @@
 <% end %>
 </td>
 <td>
+<% model.productions.each do |production| %>
+  <p><%= production.price.to_money.format.html_safe %></p>
+<% end %>
+</td>
+<td>
   <% model.product_part_taxons.each do |product_part_taxon| %>
     <p>
       <span><%= product_part_taxon.name %></span>
