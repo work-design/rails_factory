@@ -1,0 +1,9 @@
+<% if item = @cart&.find_item(good_id: model.id, dispatch: params[:dispatch], produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
+<% elsif model.product.productions_count > 1 %>
+  <%= button_to({ action: 'show', id: model.id }, class: 'button is-small is-rounded is-primary') do %>
+    <span>选规格</span>
+  <% end %>
+<% else %>
+  <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
+<% end %>

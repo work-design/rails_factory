@@ -1,4 +1,3 @@
-<% item = @cart&.find_item(good_id: model.id, dispatch: params[:dispatch], produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
 <div id="production_<%= model.id %>" data-controller="common" class="media is-box">
   <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', data: { controller: 'empty' }, class: 'media-left as-logo') do %>
     <%= image_tag model.product.logo, class: 'image is-64x64' if model.product.logo.attached? %>
@@ -32,13 +31,7 @@
           </div>
         </div>
         <div class="flex">
-        <% if item %>
-          <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
-        <% elsif model.productions_count > 1 %>
-          <i>选规格</i>
-        <% else %>
-          <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
-        <% end %>
+          <%= yield %>
         </div>
       </div>
       <% else %>
@@ -48,11 +41,7 @@
             <div class="tag is-success"><%= r[:name] %></div>
           </div>
           <div class="flex">
-          <% if item %>
-            <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
-          <% else %>
-            <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
-          <% end %>
+            <%= yield %>
           </div>
         </div>
       <% end %>
@@ -62,15 +51,7 @@
           <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
         </div>
         <div class="flex">
-        <% if item %>
-          <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
-        <% elsif model.product.productions_count > 1 %>
-          <%= button_to({ action: 'show', id: model.id }, class: 'button is-small is-rounded is-primary') do %>
-            <span>选规格</span>
-          <% end %>
-        <% else %>
-          <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
-        <% end %>
+          <%= yield %>
         </div>
       </div>
     <% end %>
