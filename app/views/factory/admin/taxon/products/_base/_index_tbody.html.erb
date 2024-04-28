@@ -33,9 +33,10 @@
       <span class="has-text-grey size-7"><%= product_part_taxon.select_str %></span>
     </p>
   <% end %>
-  <p>
-    <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, aria: { label: t('factory.admin.product_part_taxons.index.title') }, class: 'button is-small is-rounded is-light') do %>
+  <p data-show-target="item" class="visibility-hidden">
+    <%= link_to({ controller: 'product_part_taxons', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fa-solid fa-tree"></i>
+      <span class="pl-1"><%= t('.product_part_taxons.index.title') %></span>
     <% end %>
   </p>
 </td>
