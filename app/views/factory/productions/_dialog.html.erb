@@ -7,7 +7,7 @@
     </button>
   </div>
 </div>
-<div class="weui-half-screen-dialog__bd" data-controller="scroll" id="production_dialog">
+<div id="production_dialog" data-controller="scroll" class="weui-half-screen-dialog__bd">
   <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create_dialog' }, method: :post, data: { turbo_scroll: true }, id: 'edit_custom' do |f| %>
     <%= f.hidden_field :product_id %>
   <% end %>
