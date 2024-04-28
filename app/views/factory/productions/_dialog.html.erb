@@ -8,17 +8,7 @@
   </div>
 </div>
 <div id="production_dialog" data-controller="scroll" class="weui-half-screen-dialog__bd">
-  <%= form_with model: @production, url: { controller: '/factory/productions', action: 'create_dialog' }, method: :post, data: { turbo_scroll: true }, id: 'edit_custom' do |f| %>
-    <%= f.hidden_field :product_id %>
-  <% end %>
-  <%# render 'factory/productions/_base/figure' if @production.product.covers.length > 0 %>
-  <div class="box is-shadowless has-background-transparent has-text-bold mb-0">
-    <span><%= @production.product.name %></span>
-    <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
-  </div>
-  <% @production.same_parts.includes(:product_taxon).group_by(&:product_taxon).each do |part_taxon, parts| %>
-    <%= render partial: 'product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
-  <% end %>
+  <%= render 'dialog_form' %>
 </div>
 <div class="weui-half-screen-dialog__ft">
   <%= render 'factory/productions/_dialog/tab_bar' %>
