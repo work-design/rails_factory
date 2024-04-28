@@ -1,7 +1,8 @@
 <% if model.product.productions_count > 1 %>
-  <% if @cart.find_items(model.product.production_ids, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <% items = @cart&.find_items(model.product.production_ids, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <% if items.present? %>
     <%= button_to({ action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, form: { id: "cart_#{model.id}#{@cart&.identity}" }, class: 'button is-small is-rounded is-primary') do %>
-      <span>规格加入购物车</span>
+      <span><%= items.size %>规格加入购物车</span>
     <% end %>
   <% else %>
     <%= button_to({ action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, form: { id: "cart_#{model.id}#{@cart&.identity}" }, class: 'button is-small is-rounded is-primary') do %>
@@ -9,7 +10,8 @@
     <% end %>
   <% end %>
 <% else %>
-  <% if item = @cart&.find_item(good_id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <% item = @cart&.find_item(good_id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <% if item %>
     <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: @cart } %>
   <% else %>
     <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
