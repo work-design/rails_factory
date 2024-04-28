@@ -2,11 +2,11 @@
 <% if model.product.productions_count > 1 %>
   <% items = cart&.find_items(model.product.production_ids, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
   <% if items.present? %>
-    <%= button_to({ action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, class: 'button is-small is-rounded is-primary') do %>
+    <%= button_to({ controller: 'factory/productions', action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, class: 'button is-small is-rounded is-primary') do %>
       <span>已选 <%= items.size %> 规格</span>
     <% end %>
   <% else %>
-    <%= button_to({ action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, class: 'button is-small is-rounded is-primary') do %>
+    <%= button_to({ controller: 'factory/productions', action: 'show', id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch }, class: 'button is-small is-rounded is-primary') do %>
       <span>选规格</span>
     <% end %>
   <% end %>
