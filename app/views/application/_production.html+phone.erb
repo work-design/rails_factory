@@ -30,9 +30,7 @@
             </div>
           </div>
         </div>
-        <div class="flex">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
       <% else %>
         <div class="has-block-space-between pb-1">
@@ -40,9 +38,7 @@
             <div class="tag is-light"><%= r[:price].to_money.format.html_safe %></div>
             <div class="tag is-success"><%= r[:name] %></div>
           </div>
-          <div class="flex">
-            <%= yield %>
-          </div>
+          <%= yield %>
         </div>
       <% end %>
     <% elsif !model.presell %>
@@ -50,9 +46,7 @@
         <div class="has-inline-centered">
           <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
         </div>
-        <div class="flex">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
     <% end %>
   </div>
