@@ -23,7 +23,7 @@
     data-action="touchmove->page#move:passive"
     class="weui-menu-content"
   >
-    <%= render partial: 'production_cart', layout: 'production', collection: @productions, as: :model, locals: { item_con: 'trade/my/items' } %>
+    <%= render partial: 'production_cart', layout: 'production', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/my/items' } %>
     <% if @productions.blank? %>
       <%= render 'blank' %>
     <% elsif @productions.total_pages <= @productions.current_page %>
