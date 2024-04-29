@@ -3,7 +3,7 @@
     <%= image_tag model.product.logo, class: 'image is-64x64' if model.product.logo.attached? %>
   <% end %>
   <div class="media-content as-body">
-    <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__title') do %>
+    <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'color-grey-dark') do %>
       <% if model.product.brand %><span class="tag is-light is-danger"><%= model.product.brand&.name %></span><% end %>
       <span><%= model.title %></span>
     <% end %>
