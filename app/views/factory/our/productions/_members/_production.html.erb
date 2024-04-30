@@ -18,7 +18,7 @@
         <% end %>
       </ul>
       <div>
-        <span class="has-text-danger"><%= model.price.to_money.format.html_safe %></span>
+        <span class="color-danger"><%= model.price.to_money.format.html_safe %></span>
         <% @cart.cards.each do |card| %>
         <div class="tags has-addons control m-0" style="display: inline-flex">
           <div class="tag is-success"><%= card.card_template.code %></div>

@@ -21,11 +21,11 @@
     <% if item.organ_id.present? %>
       <span><%= item.organ.name %></span>
       <%= button_to({ controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil } }) do %>
-        <i class="fa-solid fa-times has-text-danger"></i>
+        <i class="fa-solid fa-times color-danger"></i>
       <% end %>
     <% end %>
     <%= button_to({ controller: 'factory/in/items', action: 'edit_assign', id: item.id }) do %>
-      <i class="fa-solid fa-hand-point-right has-text-info"></i>
+      <i class="fa-solid fa-hand-point-right color-info"></i>
     <% end %>
   </td>
 </tr>

@@ -14,7 +14,7 @@
     <div><%= @production.name %></div>
     <% unless @production.presell %>
     <div class="has-inline-centered mt-1">
-      <span class="has-text-danger"><%= @production.price.to_money.format.html_safe %></span>
+      <span class="color-danger"><%= @production.price.to_money.format.html_safe %></span>
       <% @production.card_price_all(@cart).each do |k, v| %>
       <div class="tags has-addons is-price control m-0 ml-2">
         <% if v[:checked] %>

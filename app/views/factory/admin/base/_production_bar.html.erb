@@ -5,37 +5,37 @@
     </li>
     <li class="<%= active_helper(controllers: 'production_plans', active: 'is-active') %>">
       <%= link_to({ controller: 'factory/admin/production_plans', production_id: @production.id }) do %>
-        <i class="fa-solid fa-list has-text-info"></i>
+        <i class="fa-solid fa-list color-info"></i>
         <span class="pl-1"><%= t('.production_plans.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'production_items', active: 'is-active') %>">
       <%= link_to({ controller: 'factory/admin/production_items', production_id: @production.id }) do %>
-        <i class="fa-solid fa-list has-text-info"></i>
+        <i class="fa-solid fa-list color-info"></i>
         <span class="pl-1"><%= t('.production_items.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'purchase_items', active: 'is-active') %>">
       <%= link_to({ controller: 'factory/admin/purchase_items', production_id: @production.id }) do %>
-        <i class="fa-solid fa-list has-text-success"></i>
+        <i class="fa-solid fa-list color-success"></i>
         <span class="pl-1"><%= t('.purchase_items.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'stock_logs', active: 'is-active') %>">
       <%= link_to({ controller: 'stock_logs', production_id: @production.id }) do %>
-        <i class="fa-solid fa-clock-rotate-left has-text-info"></i>
+        <i class="fa-solid fa-clock-rotate-left color-info"></i>
         <span class="pl-1"><%= t('.stock_logs.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'trade_items', active: 'is-active') %>">
       <%= link_to({ controller: 'trade_items', production_id: @production.id }) do %>
-        <i class="fa-solid fa-shopping-cart has-text-info"></i>
+        <i class="fa-solid fa-shopping-cart color-info"></i>
         <span class="pl-1"><%= t('.trade_items.index.title') %></span>
       <% end %>
     </li>
     <li>
       <%= link_to({ controller: 'rent_charges', production_id: @production.id }) do %>
-        <i class="fa-solid fa-clock-rotate-left has-text-danger"></i>
+        <i class="fa-solid fa-clock-rotate-left color-danger"></i>
         <span class="pl-1"><%= t('.rent_charges.index.title') %></span>
         <span class="pl-1"><%= @production.rent_charges_count %></span>
       <% end %>

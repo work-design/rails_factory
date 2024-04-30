@@ -13,7 +13,7 @@
       <%= f.number_field :planned_count, value: production_plan.planned_count, data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 50px; height: 26px' %>
     <% end if production_plan %>
     <%= button_to({ controller: 'production_plans', action: 'create', production_id: model.id }, params: { 'production_plan[scene_id]': @produce_plan.scene_id, 'production_plan[produce_on]': @produce_plan.produce_on }, class: 'ml-1') do %>
-      <i class="fa-solid fa-circle-plus fa-2x has-text-grey"></i>
+      <i class="fa-solid fa-circle-plus fa-2x color-grey"></i>
     <% end unless production_plan %>
     <%= button_to({ controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, params: { 'production_plan[planned_count]': production_plan.planned_count + 1 }, class: 'ml-1') do %>
       <i class="fa-solid fa-circle-plus fa-2x"></i>
@@ -30,11 +30,11 @@
   <%= link_to({ controller: 'production_items', production_id: production_plan.production_id, production_plan_id: production_plan.id }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-barcode-scan"></i>
     <span class="pl-1">生产明细</span>
-    <span class="has-text-grey">（<%= production_plan.production_items_count %>）</span>
+    <span class="color-grey">（<%= production_plan.production_items_count %>）</span>
   <% end if production_plan %>
   <%= link_to({ controller: 'trade_items', production_id: production_plan.production_id, produce_on: production_plan.produce_on }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-solid fa-bag-shopping has-text-info"></i>
+    <i class="fa-solid fa-bag-shopping color-info"></i>
     <span class="pl-1">订单明细</span>
-    <span class="has-text-grey">（<%= production_plan.trade_items_count %>）</span>
+    <span class="color-grey">（<%= production_plan.trade_items_count %>）</span>
   <% end if production_plan %>
 </td>

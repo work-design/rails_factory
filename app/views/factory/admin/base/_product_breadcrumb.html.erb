@@ -3,7 +3,7 @@
   <div class="px-3">
     <span><%= @product.product_taxon.name %></span>
     <% if @product.product_taxon.factory_taxon %>
-      <span class="has-text-grey">（<%= @product.product_taxon.factory_taxon.name %>）</span>
+      <span class="color-grey">（<%= @product.product_taxon.factory_taxon.name %>）</span>
     <% end %>
   </div>
 </li>

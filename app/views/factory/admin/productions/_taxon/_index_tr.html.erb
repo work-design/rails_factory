@@ -4,13 +4,13 @@
     <div data-show-target="item" class="visibility-hidden">
       <div>
         <%= link_to({ controller: 'production_plans', production_id: model.id }, aria: { label: t('factory.admin.production_plans.index.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-list has-text-info"></i>
+          <i class="fa-solid fa-list color-info"></i>
         <% end %>
         <%= link_to({ controller: 'production_items', production_id: model.id }, aria: { label: t('factory.admin.production_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-list has-text-success"></i>
+          <i class="fa-solid fa-list color-success"></i>
         <% end %>
         <%= link_to({ controller: 'trade_items', production_id: model.id }, aria: { label: t('factory.admin.trade_items.index.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-shopping-cart has-text-info"></i>
+          <i class="fa-solid fa-shopping-cart color-info"></i>
         <% end %>
         <%= link_to({ controller: 'addresses', production_id: model.id }, aria: { label: t('factory.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
           <i class="fa-solid fa-map-marker-alt has-text-warning"></i>
@@ -18,10 +18,10 @@
       </div>
       <div class="mt-2">
         <%= link_to({ action: 'show', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-circle-info has-text-info"></i>
+          <i class="fa-solid fa-circle-info color-info"></i>
         <% end %>
         <%= link_to({ action: 'edit', id: model.id, product_id: model.product_id }, data: { turbo_frame: 'modal', turbo_scroll: true }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
-          <i class="fa-solid fa-pencil has-text-info"></i>
+          <i class="fa-solid fa-pencil color-info"></i>
         <% end %>
       </div>
     </div>

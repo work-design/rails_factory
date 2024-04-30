@@ -1,3 +1,3 @@
 <%= link_to({ page: @productions.next_page, **params.permit(:product_taxon_id, :per) }, data: { controller: 'common', action: 'common#link', page_target: 'tip' }, class: 'justify-content-center', id: 'tip') do %>
-  <p class="has-text-centered has-text-grey">点击加载更多</p>
+  <p class="has-text-centered color-grey">点击加载更多</p>
 <% end %>
