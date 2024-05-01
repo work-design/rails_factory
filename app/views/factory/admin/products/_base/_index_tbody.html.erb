@@ -22,7 +22,7 @@
 <% end %>
 </td>
 <td>
-  <p><%= model.product_taxon.name %></p>
+  <p><%= model.product_taxon&.name %></p>
 </td>
 <td>
   <% model.product_part_taxons.each do |product_part_taxon| %>

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: b602ea287f2d1c2c7776db8237962ab4c27d975e
+  revision: 8c1053dcd4dbd6e941ad9202a079ff9fd1fa08b8
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 495808144943f2a3a450681f1c60ae92476db037
+  revision: 133534cc011bf150ae7c7480ddcce93fcb326113
   specs:
     rails_com (1.3.0)
       acme-client
@@ -26,28 +26,28 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: e0e230f4587a7be62ce3dc6b18e2591e591b8973
+  revision: f034e77e863f3a062e1232d1f988ffcebefb8159
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 1dce7c01356975fdea54de2694a23f94bb4cb5e1
+  revision: b1f2b15541cda88995f05c48f4e3bbd893df260c
   specs:
     rails_notice (1.0.3)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_space.git
-  revision: a056ba5a50bb605b846127b5b3dc75222e088426
+  revision: 9d94c9dfab84fd69aee32d2d1cd8b392cd9e3b7c
   specs:
     rails_space (0.0.1)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 08a5d171261cee943914fa6accaa0cab07365072
+  revision: 49c523c7250c93ea1b06995e8188b74ad3c105cb
   specs:
     rails_trade (0.0.3)
       rails_com
@@ -172,7 +172,7 @@ GEM
       activesupport (>= 6.1)
     http-2-next (1.0.3)
     http-form_data (2.3.0)
-    httpx (1.2.3)
+    httpx (1.2.4)
       http-2-next (>= 1.0.3)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
@@ -357,7 +357,7 @@ CHECKSUMS
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   http-2-next (1.0.3)
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
-  httpx (1.2.3)
+  httpx (1.2.4)
   i18n (1.14.4) sha256=c7deedead0866ea9102975a4eab7968f53de50793a0c211a37808f75dd187551
   io-console (0.7.2) sha256=f0dccff252f877a4f60d04a4dc6b442b185ebffb4b320ab69212a92b48a7a221
   irb (1.12.0) sha256=07634937fbb7d28d07e46da50d0aa43b4d2f7258174d08de4e32dfb57c10539d
