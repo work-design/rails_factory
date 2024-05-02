@@ -3,6 +3,6 @@
 <% if item %>
   <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
 <% else %>
-  <%= render partial: 'add_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
+  <%= render partial: 'new_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
 <% end %>
 </footer>
