@@ -1,8 +1,10 @@
-<footer class="modal-card-foot justify-content-center">
-<% item = @cart&.find_item(good_id: @production.id, dispatch: params[:dispatch] || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-<% if item %>
+<footer class="modal-card-foot justify-content-space-around">
+  <% item = @cart.init_cart_item(params, good_id: @production.id) %>
+  <% if item.persisted? %>
+    <%= button_to({ controller: 'trade/my/items', id: item.id, action: 'destroy' }, method: :delete, params: { current_cart_id: @cart.id }, class: 'button is-small') do %>
+      <i class="fa-solid fa-circle-xmark color-grey"></i>
+      <span class="ml-1">移出购物车</span>
+    <% end %>
+  <% end %>
   <%= render partial: 'new_cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
-<% else %>
-  <%= render partial: 'new_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
-<% end %>
 </footer>
