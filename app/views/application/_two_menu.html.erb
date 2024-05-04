@@ -1,9 +1,9 @@
 <div class="columns flex m-4">
-  <%= link_to({ controller: '/factory/productions' }, class: 'column is-half box mb-0 mr-4') do %>
+  <%= link_to({ controller: '/factory/productions', dispatch: 'dine' }, class: 'column is-half box mb-0 mr-4') do %>
     <%= image_tag 'menu_01.jpg' %>
     <div class="has-text-centered is-family-zhushi">自取点单</div>
   <% end %>
-  <%= link_to({ controller: '/home', action: 'working' }, class: 'column is-half box') do %>
+  <%= link_to({ controller: '/factory/productions', dispatch: 'delivery' }, class: 'column is-half box') do %>
     <%= image_tag 'menu_02.jpg' %>
     <div class="has-text-centered is-family-zhushi">外卖速递</div>
   <% end %>
