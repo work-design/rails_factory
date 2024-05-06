@@ -1,0 +1,14 @@
+<div id="modal" data-controller="modal" class="modal is-mobile is-active">
+  <div data-action="click->modal#close" class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <button type="button" data-action="modal#close" class="delete"></button>
+      <p class="modal-card-title"><%= @production.product.name %></p>
+      <span style="width: 1.25rem"></span>
+    </header>
+    <div class="modal-card-body">
+      <%= yield %>
+    </div>
+    <%= render 'modal_foot' %>
+  </div>
+</div>
