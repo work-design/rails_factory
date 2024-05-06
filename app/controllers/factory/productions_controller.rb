@@ -8,6 +8,7 @@ module Factory
     before_action :set_scene, only: [:index, :nav], if: -> { params[:produce_on].present? && params[:scene_id].present? }
     before_action :set_cart, only: [:index, :nav, :show, :dialog]
     before_action :set_rent_cart, only: [:rent]
+    before_action :require_user, only: [:show]
 
     def index
       q_params = {
