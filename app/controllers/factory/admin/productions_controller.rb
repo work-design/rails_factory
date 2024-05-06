@@ -85,6 +85,7 @@ module Factory
         :automatic,
         :link,
         :stock,
+        :step,
         part_ids: []
       )
     end
