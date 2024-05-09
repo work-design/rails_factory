@@ -20,7 +20,7 @@ module Factory
     end
 
     def sync_name
-      self.name = part_taxon.name
+      #self.name = part_taxon.name
     end
 
     def select_str

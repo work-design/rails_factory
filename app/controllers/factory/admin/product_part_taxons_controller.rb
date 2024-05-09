@@ -31,6 +31,7 @@ module Factory
         :min_select,
         :max_select,
         :part_taxon_id,
+        :name,
         part_ids: []
       )
     end
