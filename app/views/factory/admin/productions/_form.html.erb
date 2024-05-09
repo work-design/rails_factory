@@ -2,7 +2,9 @@
   <%= f.label :name %>
   <div class="field-body">
     <div class="field has-addons">
-      <div class="control"><div class="button is-static"><%= @product.name %></div></div>
+      <div class="control">
+        <div class="button is-static"><%= @product.name %></div>
+      </div>
       <%= f.text_field :name, label: nil, all: { normal: nil }, wrap: { input: 'control' } %>
     </div>
   </div>
