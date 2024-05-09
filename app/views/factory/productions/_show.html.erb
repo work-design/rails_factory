@@ -1,3 +1,5 @@
-<% %>
-
-<%= render 'card_brothers' %>
+<% if @production.parts.present? %>
+  <%= render 'dialog_form' %>
+<% else %>
+  <%= render 'card_brothers' %>
+<% end %>
