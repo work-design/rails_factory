@@ -85,12 +85,6 @@ module Factory
       end
     end
 
-    def order_part_ids
-      p_ids = self.production_parts.pluck(:part_id)
-      p_ids.sort!
-      self.str_part_ids = p_ids.join(',')
-    end
-
     def compute_min_max_price
       product_host.compute_min_max
     end
