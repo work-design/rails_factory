@@ -1,10 +1,18 @@
-<%= form_with model: @production, url: { action: 'update' } do |f| %>
-  <%= render 'error_messages', target: f.object %>
-  <% @product.product_part_taxons.each do |product_part_taxon| %>
-    <p class="has-border-bottom mb-2"><%= product_part_taxon.name %></p>
-    <% product_part_taxon.parts.each do |product| %>
-      <%= f.collection_check_boxes :part_ids, product.productions, :id, :name, { label: product.name, wrap: { select: 'field-body control' } }, { multiple: true } %>
+<%= form_with theme: 'modal', model: @production, url: { action: 'update' } do |f| %>
+  <header class="modal-card-head">
+    <p class="modal-card-title"><%= t('.title') %></p>
+    <button type="button" data-action="modal#close" class="delete"></button>
+  </header>
+  <section class="modal-card-body">
+    <%= render 'error_messages', target: f.object %>
+    <% @product.product_part_taxons.each do |product_part_taxon| %>
+      <p class="has-border-bottom mb-2"><%= product_part_taxon.name %></p>
+      <% product_part_taxon.parts.each do |product| %>
+        <%= f.collection_check_boxes :part_ids, product.productions, :id, :name, { label: product.name, wrap: { select: 'field-body control' } }, { multiple: true } %>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= f.submit %>
+  </section>
+  <footer class="modal-card-foot">
+    <%= f.submit %>
+  </footer>
 <% end %>
