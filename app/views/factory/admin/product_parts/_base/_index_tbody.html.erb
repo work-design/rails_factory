@@ -1,6 +1,6 @@
 <td><%= model.part_taxon_id %></td>
-<td><%= link_to model.part.name, { controller: 'parts', action: 'show', id: model.part_id }, text: true %></td>
-<td><%= model.part.price %></td>
+<td><%= button_to model.part.name, { controller: 'products', action: 'show', id: model.part_id }, text: true %></td>
+<td><%= model.part.name %></td>
 <td>
   <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :default, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
