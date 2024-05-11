@@ -6,10 +6,7 @@
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
     <% @product.product_part_taxons.each do |product_part_taxon| %>
-      <p class="has-border-bottom mb-2"><%= product_part_taxon.name %></p>
-      <% product_part_taxon.parts.each do |product| %>
-        <%= f.collection_check_boxes :part_ids, product.productions, :id, :name, { label: product.name, wrap: { label: 'field-label', select: 'field-body control' } }, { multiple: true } %>
-      <% end %>
+      <%= f.collection_check_boxes :part_ids, product_part_taxon.parts, :id, :name, { label: product_part_taxon.name, wrap: { label: 'field-label', select: 'field-body control' } }, { multiple: true } %>
     <% end %>
   </section>
   <footer class="modal-card-foot justify-content-center">
