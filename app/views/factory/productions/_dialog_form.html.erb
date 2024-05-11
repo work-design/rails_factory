@@ -6,6 +6,6 @@
   <span><%= @production.product.name %></span>
   <span class="color-danger"><%= @production.price.to_money.format.html_safe %></span>
 </div>
-<% @production.same_parts.includes(:product_part_taxon).group_by(&:product_part_taxon).each do |part_taxon, parts| %>
-  <%= render partial: 'product_part_taxon', locals: { part_taxon: part_taxon, parts: parts } %>
+<% @production.same_product_parts.includes(:product_part_taxon, :part).group_by(&:product_part_taxon).each do |product_part_taxon, product_parts| %>
+  <%= render partial: 'product_part_taxon', locals: { product_part_taxon: product_part_taxon, product_parts: product_parts } %>
 <% end %>
