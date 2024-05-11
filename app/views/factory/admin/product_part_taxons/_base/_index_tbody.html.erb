@@ -8,4 +8,13 @@
 </td>
 <td class="color-grey"><%= model.select_str %></td>
 <td><%= link_to model.product_parts_count, { controller: 'product_parts', product_part_taxon_id: model.id } %></td>
-<td></td>
+<td>
+<% model.product_parts.each do |product_part| %>
+  <p>
+    <span><%= product_part.part.name %></span>
+    <% if product_part.default %>
+      <i class="fa-solid fa-check color-success"></i>
+    <% end %>
+  </p>
+<% end %>
+</td>
