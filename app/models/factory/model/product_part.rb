@@ -3,16 +3,11 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      attribute :name, :string
-      attribute :min_select, :integer, default: 1
-      attribute :max_select, :integer
       attribute :default, :boolean, default: false
-      attribute :production_parts_count, :integer, default: 0
 
       belongs_to :product, counter_cache: true
       belongs_to :part, class_name: 'Production'
-      belongs_to :part_taxon, class_name: 'ProductTaxon'
-      belongs_to :product_part_taxon, ->(o) { where(part_taxon_id: o.part_taxon_id) }, foreign_key: :product_id, primary_key: :product_id, counter_cache: true
+      belongs_to :product_part_taxon
 
       validates :part_id, uniqueness: { scope: :product_id }
 
