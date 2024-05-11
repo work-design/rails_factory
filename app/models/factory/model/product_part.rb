@@ -11,11 +11,11 @@ module Factory
 
       validates :part_id, uniqueness: { scope: :product_id }
 
-      before_validation :sync_part_taxon, on: :create
+      after_initialize :sync_product, if: :new_record?
     end
 
-    def sync_part_taxon
-      #self.part_taxon_id = self.part.product_taxon_id
+    def sync_product
+      self.product_id = product_part_taxon.product_id if product_part_taxon
     end
 
 
