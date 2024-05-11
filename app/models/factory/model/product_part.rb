@@ -23,31 +23,6 @@ module Factory
       self.part_taxon_id = self.part.product_taxon_id
     end
 
-    def select_str
-      if max_select == min_select && production_parts_count > max_select.to_i
-        "#{production_parts_count} 选 #{max_select}"
-      elsif max_select == min_select && production_parts_count == max_select
-        "必选 #{max_select}"
-      elsif max_select.to_i > min_select.to_i
-        "可选 #{min_select} - #{max_select}"
-      else
-        ""
-      end
-    end
-
-    def only_one?
-      max_select == min_select && max_select == 1 && production_parts_count > max_select
-    end
-
-    def disabled?(production_part_ids, part)
-      select_ids = part_ids & production_part_ids
-
-      return false if only_one?
-      return true if select_ids.size == min_select && select_ids.include?(part.id)
-      return true if select_ids.size == max_select && select_ids.exclude?(part.id)
-
-      false
-    end
 
   end
 end
