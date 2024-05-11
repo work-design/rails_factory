@@ -1,5 +1,0 @@
-<%= form_with theme: nil, model: product_part_taxon, url: { action: 'update', id: product_part_taxon.id }, data: { controller: 'input' } do |f| %>
-  <div class="labels">
-    <%= f.collection_check_boxes :part_ids, product_part_taxon.part_taxon.products, :id, :name, {}, { data: { action: 'input#form' } } %>
-  </div>
-<% end %>
