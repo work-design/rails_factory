@@ -10,7 +10,7 @@ module Factory
       attribute :production_parts_count, :integer, default: 0
 
       belongs_to :product, counter_cache: true
-      belongs_to :part, class_name: 'Product'
+      belongs_to :part, class_name: 'Production'
       belongs_to :part_taxon, class_name: 'ProductTaxon'
       belongs_to :product_part_taxon, ->(o) { where(part_taxon_id: o.part_taxon_id) }, foreign_key: :product_id, primary_key: :product_id, counter_cache: true
 
@@ -20,7 +20,7 @@ module Factory
     end
 
     def sync_part_taxon
-      self.part_taxon_id = self.part.product_taxon_id
+      #self.part_taxon_id = self.part.product_taxon_id
     end
 
 
