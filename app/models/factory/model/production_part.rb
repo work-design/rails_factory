@@ -11,6 +11,7 @@ module Factory
       after_initialize :sync_to_production, if: -> { part_id_changed? }
       before_validation :sync_part_taxon, if: -> { part_id_changed? }
       before_validation :sync_product, if: -> { production_id_changed? }
+      after_destroy :destroy_to_production!
     end
 
     def sync_product
@@ -21,11 +22,20 @@ module Factory
       self.part_taxon = part&.product_taxon
     end
 
+    private
     def sync_to_production
       p_ids = production.part_ids
       p_ids << part_id
       p_ids.sort!
       production.str_part_ids = p_ids.join(',')
+    end
+
+    def destroy_to_production!
+      p_ids = production.part_ids
+      p_ids.delete part_id
+      p_ids.sort!
+      production.str_part_ids = p_ids.join(',')
+      production.save
     end
 
   end

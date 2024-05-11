@@ -6,10 +6,10 @@
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
       <%= link_to t('factory.admin.productions.index.title'), { controller: 'factory/admin/productions', action: 'index', product_id: @product.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'product_part_taxons', active: 'is-active') %>">
-      <%= link_to({ controller: 'product_part_taxons', product_id: @product.id }) do %>
+    <li class="<%= active_helper(controllers: 'product_parts', active: 'is-active') %>">
+      <%= link_to({ controller: 'product_parts', product_id: @product.id }) do %>
         <i class="fa-solid fa-tree"></i>
-        <span class="pl-1"><%= t('.product_part_taxons.index.title') %></span>
+        <span class="pl-1"><%= t('.product_parts.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fits', active: 'is-active') %>">

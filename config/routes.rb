@@ -127,9 +127,7 @@ Rails.application.routes.draw do
           resources :scene_automatics
         end
         resources :products, only: [] do
-          resources :product_part_taxons do
-            resources :product_parts
-          end
+          resources :product_parts
           resources :productions do
             member do
               match :part, via: [:get, :post]

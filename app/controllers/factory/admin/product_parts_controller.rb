@@ -7,21 +7,13 @@ module Factory
       @product_parts = @product.product_parts.order(part_id: :asc).page(params[:page])
     end
 
-    def new
-      @product_part = @product.product_parts.build
-    end
-
-    def create
-      @product_part = ProductPart.new(product_part_params)
-
-      unless @product_part.save
-        render :new, locals: { model: @product_part }, status: :unprocessable_entity
-      end
-    end
-
     private
     def set_product
       @product = Product.find params[:product_id]
+    end
+
+    def set_new_product_part
+      @product_part = @product.product_parts.build(product_part_params)
     end
 
     def set_product_part
@@ -30,7 +22,10 @@ module Factory
 
     def product_part_params
       params.fetch(:product_part, {}).permit(
+        :min_select,
+        :max_select,
         :part_id,
+        :name,
         :default
       )
     end
