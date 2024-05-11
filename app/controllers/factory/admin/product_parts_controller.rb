@@ -3,6 +3,7 @@ module Factory
     before_action :set_product
     before_action :set_product_part_taxon
     before_action :set_product_part, only: [:show, :edit, :update, :destroy]
+    before_action :set_new_product_part, only: [:new, :create]
 
     def index
       @product_parts = @product_part_taxon.product_parts.order(part_id: :asc).page(params[:page])
@@ -18,7 +19,7 @@ module Factory
     end
 
     def set_new_product_part
-      @product_part = @product.product_parts.build(product_part_params)
+      @product_part = @product_part_taxon.product_parts.build(product_part_params)
     end
 
     def set_product_part
@@ -27,10 +28,7 @@ module Factory
 
     def product_part_params
       params.fetch(:product_part, {}).permit(
-        :min_select,
-        :max_select,
         :part_id,
-        :name,
         :default
       )
     end
