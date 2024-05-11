@@ -7,7 +7,5 @@
   <p><%= model.max_select %></p>
 </td>
 <td class="color-grey"><%= model.select_str %></td>
-<td><%= model.product_parts_count %></td>
-<td>
-  <%= render partial: 'part_form', locals: { product_part_taxon: model } %>
-</td>
+<td><%= link_to model.product_parts_count, { controller: 'product_parts', product_part_taxon_id: model.id } %></td>
+<td></td>
