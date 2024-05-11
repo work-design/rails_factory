@@ -94,8 +94,8 @@ module Factory
       self.cost_price = parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
     end
 
-    def disabled?(part)
-      same_production_parts.where.not(production_id: self.id).where(part_id: part_ids - [part.id]).blank?
+    def disabled?(part_id)
+      same_production_parts.where.not(production_id: self.id).where(part_id: part_ids - [part_id]).blank?
     end
 
     def default_profit_price
