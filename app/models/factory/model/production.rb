@@ -38,8 +38,10 @@ module Factory
       has_many :stock_logs
 
       has_many :production_parts, dependent: :destroy_async
-      has_many :parts, -> { order(id: :asc) }, through: :production_parts
+      has_many :parts, -> { order(id: :asc) }, through: :production_parts, dependent: :destroy
       has_many :part_taxons, -> { order(id: :asc) }, through: :production_parts
+      has_many :part_productions, class_name: 'ProductionPart', foreign_key: :part_id
+      has_many :productions, through: :part_productions
 
       has_many :brothers, class_name: self.name, primary_key: :product_id, foreign_key: :product_id
       has_many :same_production_parts, class_name: 'ProductionPart', primary_key: :product_id, foreign_key: :product_id
