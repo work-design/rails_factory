@@ -6,7 +6,7 @@ module Factory
       attribute :default, :boolean, default: false
 
       belongs_to :product_part_taxon, counter_cache: true
-      belongs_to :product, counter_cache: true
+      belongs_to :product, counter_cache: true, optional: true
       belongs_to :part, class_name: 'Production'
 
       validates :part_id, uniqueness: { scope: :product_id }

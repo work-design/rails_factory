@@ -106,9 +106,7 @@ Rails.application.routes.draw do
               post :search
             end
           end
-          resources :product_part_taxons, controller: 'taxon/product_part_taxons' do
-            resources :product_parts
-          end
+          resources :product_part_taxons, controller: 'taxon/product_part_taxons'
         end
         resources :provides do
           collection do
@@ -130,9 +128,7 @@ Rails.application.routes.draw do
           resources :scene_automatics
         end
         resources :products, only: [] do
-          resources :product_part_taxons do
-            resources :product_parts
-          end
+          resources :product_part_taxons
           resources :productions do
             member do
               match :part, via: [:get, :post]
@@ -146,6 +142,9 @@ Rails.application.routes.draw do
             end
           end
           resources :fits
+        end
+        resources :product_part_taxons, only: [] do
+          resources :product_parts
         end
         resources :productions, only: [] do
           collection do

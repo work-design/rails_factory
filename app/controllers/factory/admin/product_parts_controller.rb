@@ -1,6 +1,5 @@
 module Factory
   class Admin::ProductPartsController < Admin::BaseController
-    before_action :set_product
     before_action :set_product_part_taxon
     before_action :set_product_part, only: [:show, :edit, :update, :destroy]
     before_action :set_new_product_part, only: [:new, :create]
@@ -10,12 +9,8 @@ module Factory
     end
 
     private
-    def set_product
-      @product = Product.find params[:product_id]
-    end
-
     def set_product_part_taxon
-      @product_part_taxon = @product.product_part_taxons.find params[:product_part_taxon_id]
+      @product_part_taxon = ProductPartTaxon.find params[:product_part_taxon_id]
     end
 
     def set_new_product_part
