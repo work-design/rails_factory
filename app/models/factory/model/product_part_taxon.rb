@@ -9,7 +9,7 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
 
       belongs_to :product, optional: true
-      belongs_to :product_taxon
+      belongs_to :product_taxon, counter_cache: true
       belongs_to :part_taxon, class_name: 'ProductTaxon'
 
       has_many :product_parts
@@ -18,11 +18,11 @@ module Factory
       validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.max_select } }
       #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
 
-      before_validation :sync_name, if: -> { product_id_changed? }
+      before_validation :sync_product_taxon_id, if: -> { product_id_changed? }
     end
 
-    def sync_name
-      #self.name = part_taxon.name
+    def sync_product_taxon_id
+      self.product_taxon_id = product.product_taxon_id
     end
 
     def select_str

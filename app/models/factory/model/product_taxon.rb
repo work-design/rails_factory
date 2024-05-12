@@ -10,6 +10,7 @@ module Factory
       attribute :nav, :boolean, default: false, comment: '单独分类'
       attribute :products_count, :integer, default: 0
       attribute :provides_count, :integer, default: 0
+      attribute :product_part_taxons_count, :integer, default: 0
 
       belongs_to :template, class_name: 'JiaBo::Template', optional: true
 
