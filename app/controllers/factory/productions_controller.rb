@@ -4,9 +4,9 @@ module Factory
     before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index, :rent]
-    before_action :set_production, only: [:show, :create_dialog, :dialog, :actions]
+    before_action :set_production, only: [:show, :dialog, :actions]
     before_action :set_scene, only: [:index, :nav], if: -> { params[:produce_on].present? && params[:scene_id].present? }
-    before_action :set_cart, only: [:index, :nav, :show, :dialog]
+    before_action :set_cart, only: [:index, :nav, :show, :create_dialog]
     before_action :set_rent_cart, only: [:rent]
     before_action :require_user, only: [:show]
 
@@ -79,13 +79,14 @@ module Factory
     end
 
     def create_dialog
-      r = production_params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
-      @custom_production = @production.product.productions.find_by(str_part_ids: r.join(','))
+      from_production = Production.find params[:id]
+      r = params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
+      @production = from_production.product.productions.find_by(str_part_ids: r.join(','))
 
-      unless @custom_production
-        @custom_production = @production.product.productions.build(str_part_ids: r.join(','))
-        @custom_production.assign_attributes production_params
-        @custom_production.save!
+      unless @production
+        @production = from_production.product.productions.build(str_part_ids: r.join(','))
+        @production.part_ids = r
+        @production.save!
       end
     end
 
@@ -138,13 +139,6 @@ module Factory
       elsif params[:station_id]
         @station = Space::Station.find params[:station_id]
       end
-    end
-
-    def production_params
-      params.fetch(:production, {}).permit(
-        :product_id,
-        part_ids: []
-      )
     end
 
   end

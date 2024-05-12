@@ -4,7 +4,7 @@ module Factory
 
     included do
       belongs_to :production
-      belongs_to :product
+      belongs_to :product, optional: true
       belongs_to :part, class_name: 'Production'
       belongs_to :part_taxon, class_name: 'ProductTaxon'
 
@@ -15,7 +15,7 @@ module Factory
     end
 
     def sync_product
-      self.product = production&.product
+      self.product_id = production.product_id
     end
 
     def sync_part_taxon
@@ -26,6 +26,7 @@ module Factory
     def sync_to_production
       p_ids = production.part_ids
       p_ids << part_id
+      p_ids.uniq!
       p_ids.sort!
       production.str_part_ids = p_ids.join(',')
     end

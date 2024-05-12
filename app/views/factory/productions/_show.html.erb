@@ -1,5 +1,5 @@
 <% if @production.parts.present? %>
-  <%= render 'dialog_form' %>
+  <%= render partial: 'dialog_form', locals: { production: @production } %>
 <% else %>
   <%= render 'card_brothers' %>
 <% end %>
