@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :production
+      belongs_to :production, validate: true
       belongs_to :product, optional: true
       belongs_to :part, class_name: 'Production'
       belongs_to :part_taxon, class_name: 'ProductTaxon'
