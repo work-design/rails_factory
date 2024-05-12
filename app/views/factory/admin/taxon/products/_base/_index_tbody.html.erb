@@ -6,6 +6,7 @@
     <% end %>
   </div>
 </td>
+<td><%= model.base_price.to_money.format.html_safe %></td>
 <td>
 <% model.productions.each do |production| %>
   <p>

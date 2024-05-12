@@ -86,6 +86,7 @@ module Factory
       unless @production
         @production = from_production.product.productions.build(str_part_ids: r.join(','))
         @production.part_ids = r
+        @production.compute_price
         @production.save!
       end
     end
