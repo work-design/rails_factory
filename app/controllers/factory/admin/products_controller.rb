@@ -74,6 +74,7 @@ module Factory
         :logo,
         :specialty,
         :product_taxon_id,
+        :base_price,
         :product_taxon_ancestors,
         part_ids: [],
         covers: [],

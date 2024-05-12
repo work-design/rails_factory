@@ -8,11 +8,11 @@ Rails.application.routes.draw do
           get :members
           post :scene
           post :produce_on
-          post :create_dialog
           post :change_dispatch
         end
         member do
           post :list
+          patch :create_dialog
           put :dialog
         end
         resources :product_plans, only: [:index, :show]

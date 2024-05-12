@@ -74,6 +74,7 @@ module Factory
         :profit_margin,
         :logo,
         :specialty,
+        :base_price,
         :product_taxon_id,
         :product_taxon_ancestors,
         part_ids: [],

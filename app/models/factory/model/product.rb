@@ -9,6 +9,7 @@ module Factory
       attribute :sku, :string, index: true
       attribute :published, :boolean, default: true
       attribute :specialty, :boolean, default: false
+      attribute :base_price, :decimal
       attribute :order_items_count, :integer, default: 0
       attribute :productions_count, :integer, default: 0
       attribute :product_parts_count, :integer, default: 0
