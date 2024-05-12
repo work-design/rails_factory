@@ -5,8 +5,9 @@ module Factory
     included do
       attribute :default, :boolean, default: false
 
-      belongs_to :product_part_taxon, counter_cache: true
       belongs_to :product, counter_cache: true, optional: true
+      belongs_to :product_taxon
+      belongs_to :product_part_taxon, counter_cache: true
       belongs_to :part, class_name: 'Production'
 
       validates :part_id, uniqueness: { scope: :product_id }
@@ -15,7 +16,10 @@ module Factory
     end
 
     def sync_product
-      self.product_id = product_part_taxon.product_id if product_part_taxon
+      if product_part_taxon
+        self.product_id = product_part_taxon.product_id
+        self.product_taxon_id = product_part_taxon.product_taxon_id
+      end
     end
 
   end

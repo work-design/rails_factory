@@ -45,7 +45,7 @@ module Factory
 
       has_many :brothers, class_name: self.name, primary_key: :product_id, foreign_key: :product_id
       has_many :same_production_parts, class_name: 'ProductionPart', primary_key: :product_id, foreign_key: :product_id
-      has_many :same_product_parts, ->(o){ where(product_id: o.product_id) }, class_name: 'ProductPart', primary_key: :product_taxon_id, foreign_key: :product_taxon_id
+      has_many :same_product_parts, ->(o){ where(product_id: [o.product_id, nil]) }, class_name: 'ProductPart', primary_key: :product_taxon_id, foreign_key: :product_taxon_id
       has_many :same_productions, -> { distinct }, through: :same_production_parts, source: :production
       has_many :same_parts, -> { distinct }, through: :same_production_parts, source: :part
       has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
