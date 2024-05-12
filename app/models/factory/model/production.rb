@@ -97,7 +97,7 @@ module Factory
     end
 
     def compute_price
-      self.price = product.base_price + parts.sum(&:price)
+      self.price = product.base_price + parts.sum(&->(i){ i.price.to_d })
     end
 
     def disabled?(part_id)
