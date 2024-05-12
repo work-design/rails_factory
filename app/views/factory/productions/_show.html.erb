@@ -1,4 +1,4 @@
-<% if @production.parts.present? %>
+<% if @production.parts.present? || @production.product.product_parts_count > 0 %>
   <%= render partial: 'dialog_form', locals: { production: @production } %>
 <% else %>
   <%= render 'card_brothers' %>
