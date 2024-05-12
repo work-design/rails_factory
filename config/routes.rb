@@ -106,6 +106,9 @@ Rails.application.routes.draw do
               post :search
             end
           end
+          resources :product_part_taxons, controller: 'taxon/product_part_taxons' do
+            resources :product_parts
+          end
         end
         resources :provides do
           collection do

@@ -1,6 +1,6 @@
 module Factory
   class Admin::ProductPartTaxonsController < Admin::BaseController
-    before_action :set_product
+    before_action :set_product, if: -> { params[:product_id].present? }
     before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
     before_action :set_new_product_part_taxon, only: [:new, :create]
     before_action :set_part_taxons, only: [:new, :create, :edit, :update]

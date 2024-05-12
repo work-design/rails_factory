@@ -8,7 +8,8 @@ module Factory
       attribute :max_select, :integer
       attribute :product_parts_count, :integer, default: 0
 
-      belongs_to :product
+      belongs_to :product, optional: true
+      belongs_to :product_taxon
       belongs_to :part_taxon, class_name: 'ProductTaxon'
 
       has_many :product_parts

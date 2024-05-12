@@ -21,6 +21,7 @@ module Factory
       has_many :productions
       has_many :provides
       has_many :providers, through: :provides
+      has_many :product_part_taxons
 
       has_one_attached :logo
       has_one_attached :logo_color
