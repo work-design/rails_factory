@@ -36,7 +36,7 @@ module Factory
       p_ids.delete part_id
       p_ids.sort!
       production.str_part_ids = p_ids.join(',')
-      production.save
+      production.save!
     end
 
   end
