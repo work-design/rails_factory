@@ -44,7 +44,7 @@ module Factory
       has_many_attached :images
 
       has_taxons :product_taxon
-      acts_as_list scope: :product_taxon_id
+      acts_as_list scope: :organ_id
 
       before_save :sync_from_product_taxon, if: -> { product_taxon_id_changed? }
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
