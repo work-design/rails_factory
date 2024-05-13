@@ -24,10 +24,9 @@ module Factory
           @productions = @produce_plan.productions.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }])
         end
       else
-        @products = Product.includes(:production, :parts, :brand, logo_attachment: :blob).default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+        @products = Product.includes(:production, :product_taxon, :parts, :brand, logo_attachment: :blob).default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+        @productions = @products.map(&:production).compact
       end
-
-      @productions = @products.map(&:production).compact
     end
 
     def nav
