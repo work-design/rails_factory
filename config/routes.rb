@@ -148,6 +148,7 @@ Rails.application.routes.draw do
         end
         resources :productions, only: [] do
           collection do
+            get :all
             get 'taxon/:product_taxon_id' => :taxon
           end
           resources :addresses
