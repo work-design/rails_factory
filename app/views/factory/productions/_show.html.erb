@@ -1,5 +1,5 @@
 <% if @production.parts.present? || @production.product.product_parts_count > 0 || @production.product_taxon.product_part_taxons_count.to_i > 0 %>
   <%= render partial: 'dialog_form', locals: { production: @production } %>
-<% else %>
+<% elsif @production.brothers.enabled.count > 1 %>
   <%= render 'card_brothers' %>
 <% end %>
