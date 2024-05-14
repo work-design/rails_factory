@@ -82,7 +82,7 @@ module Factory
 
     def title
       if parts.present?
-        "#{product.name} #{parts.pluck(:name).join(',')}"
+        "#{product.name}"
       else
         name.include?(product.name.to_s) ? name : "#{product.name} #{name}"
       end
