@@ -43,6 +43,8 @@ module Factory
       has_many_attached :covers
       has_many_attached :images
 
+      scope :published, -> { where(published: true) }
+
       has_taxons :product_taxon
       acts_as_list scope: :organ_id
 
