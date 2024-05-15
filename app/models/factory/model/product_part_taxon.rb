@@ -51,5 +51,12 @@ module Factory
       false
     end
 
+    def cancelable?(production_part_ids, part_id)
+      select_ids = part_ids & production_part_ids
+
+      return false if only_one?
+      select_ids.include?(part_id)
+    end
+
   end
 end
