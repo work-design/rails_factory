@@ -1,10 +1,7 @@
 <%= form_with model: production, url: { action: 'create_dialog' }, id: 'edit_custom' do |f| %>
 <% end %>
 <%# render 'factory/productions/_base/figure' if production.product.covers.length > 0 %>
-<div class="box has-text-bold mb-0">
-  <span><%= production.product.name %></span>
-  <span class="color-danger"><%= production.price.to_money.format.html_safe %></span>
-</div>
+
 <% production.same_product_parts.includes(:product_part_taxon, :part).group_by(&:product_part_taxon).each do |product_part_taxon, product_parts| %>
   <%= render partial: 'product_part_taxon', locals: { product_part_taxon: product_part_taxon, product_parts: product_parts } %>
 <% end %>
