@@ -3,7 +3,7 @@
     <span><%= product_part_taxon.name %></span>
     <span class="size-7"><%= product_part_taxon.select_str %></span>
   </strong>
-  <div data-controller="custom" data-custom-only-value="<%= product_part_taxon.only_one? %>" class="buttons are-small pt-4">
+  <div data-controller="custom" data-custom-only-value="<%= product_part_taxon.only_one? %>" class="buttons are-small no-disabled pt-4">
   <% product_parts.each do |product_part| %>
     <label class="button <%= @production.part_ids.include?(product_part.part_id) ? 'is-success' : 'is-light' %>" for="part_<%= product_part.part_id %>"<%= product_part_taxon.disabled?(@production.part_ids, product_part.part_id) ? ' disabled' : '' %>>
       <span><%= product_part.part.name %></span>
