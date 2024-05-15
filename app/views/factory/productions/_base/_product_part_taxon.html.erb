@@ -1,13 +1,15 @@
-<div class="box mt-3">
+<div data-id="<%= product_part_taxon.id %>" class="box mt-3">
   <strong>
     <span><%= product_part_taxon.name %></span>
     <span class="size-7"><%= product_part_taxon.select_str %></span>
   </strong>
   <div data-controller="custom" data-custom-only-value="<%= product_part_taxon.only_one? %>" class="pt-4">
   <% product_parts.each do |product_part| %>
-    <label class="button is-small mb-2 <%= @production.part_ids.include?(product_part.part_id) ? 'is-success' : 'is-light' %>" for="part_<%= product_part.part_id %>"<%= product_part_taxon.disabled?(@production.part_ids, product_part.part_id) ? ' disabled' : '' %>>
+    <label class="button is-small <%= @production.part_ids.include?(product_part.part_id) ? 'is-success' : 'is-light' %>" for="part_<%= product_part.part_id %>"<%= product_part_taxon.disabled?(@production.part_ids, product_part.part_id) ? ' disabled' : '' %>>
       <span><%= product_part.part.name %></span>
-      <span class="weui-btn__extra"><%= product_part.part.price.to_money.format.html_safe %></span>
+      <% if product_part.part.price.to_d > 0 %>
+        <span class="ml-1"><%= product_part.part.price.to_money.format.html_safe %></span>
+      <% end %>
       <%= hidden_field_tag 'part_ids[]', product_part.part_id, form: 'edit_custom', data: { part_taxon_id: product_part.part.product_taxon_id }, id: nil if @production.part_ids.include?(product_part.part_id) && product_part_taxon.disabled?(@production.part_ids, product_part.part_id) %>
       <%= check_box_tag 'part_ids[]', product_part.part_id, @production.part_ids.include?(product_part.part_id), disabled: product_part_taxon.disabled?(@production.part_ids, product_part.part_id), data: { action: 'custom#toggle', part_taxon_id: product_part_taxon.part_taxon_id }, class: 'weui-check', id: "part_#{product_part.part_id}", form: 'edit_custom' %>
     </label>
