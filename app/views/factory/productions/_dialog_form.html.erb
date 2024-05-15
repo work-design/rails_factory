@@ -1,7 +1,7 @@
 <%= form_with model: production, url: { action: 'create_dialog' }, id: 'edit_custom' do |f| %>
 <% end %>
 <%# render 'factory/productions/_base/figure' if production.product.covers.length > 0 %>
-<div class="box is-shadowless has-background-transparent has-text-bold mb-0">
+<div class="box has-text-bold mb-0">
   <span><%= production.product.name %></span>
   <span class="color-danger"><%= production.price.to_money.format.html_safe %></span>
 </div>
