@@ -7,10 +7,10 @@
       <% if model.product.brand %><span class="tag is-light is-danger"><%= model.product.brand&.name %></span><% end %>
       <span><%= model.title %></span>
     <% end %>
-    <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__desc pt-1') do %>
+    <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'color-grey size-0_9 display-block mt-1') do %>
       <%= model.product.description %>
     <% end %>
-    <ul class="weui-media-box__info flex-wrap-wrap mt-1">
+    <ul class="media-info mt-1">
       <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, _| %>
           <li><%= part.name %></li>
