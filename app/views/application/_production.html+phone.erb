@@ -10,7 +10,7 @@
     <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__desc pt-1') do %>
       <%= model.product.description %>
     <% end %>
-    <ul class="weui-media-box__info flex-wrap-wrap mt-0">
+    <ul class="weui-media-box__info flex-wrap-wrap mt-1">
       <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, _| %>
           <li><%= part.name %></li>
@@ -20,7 +20,7 @@
     <% r = model.card_price_min(@cart) %>
     <% if @cart && r.present? %>
       <% if r[:checked] %>
-      <div class="has-block-space-between pb-1">
+      <div class="has-block-space-between mt-1">
         <div class="has-inline-centered">
           <div class="tags has-addons is-price control m-0">
             <div class="tag is-light color-danger"><%= r[:price].to_money.format.html_safe %></div>
@@ -33,7 +33,7 @@
         <%= yield %>
       </div>
       <% else %>
-        <div class="has-block-space-between pb-1">
+        <div class="has-block-space-between mt-1">
           <div class="tags has-addons is-price control m-0">
             <div class="tag is-light"><%= r[:price].to_money.format.html_safe %></div>
             <div class="tag is-success"><%= r[:name] %></div>
