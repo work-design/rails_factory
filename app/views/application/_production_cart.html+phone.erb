@@ -11,11 +11,8 @@
     <% end %>
   <% end %>
 <% else %>
-  <% item = cart&.find_item(good_id: model.id, dispatch: params[:dispatch].presence || current_organ.dispatch, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-  <% if item %>
-    <%= render partial: 'cart', locals: { model: model, item_con: item_con, item: item, cart: cart } %>
-  <% else %>
-    <%= render partial: 'add_cart', locals: { model: model, item_con: item_con } %>
+  <% if cart %>
+    <%= render partial: 'cart', locals: { item_con: item_con, item: cart.init_cart_item(params, good_id: model.id), cart: cart } %>
   <% end %>
 <% end %>
 </div>
