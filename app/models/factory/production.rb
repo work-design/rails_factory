@@ -12,7 +12,10 @@ module Factory
     end
 
     def item_extra
-      attributes.slice('product_taxon_id')
+      {
+        product_taxon_id: product_taxon_id,
+        part_ids: part_ids
+      }
     end
   end
 end
