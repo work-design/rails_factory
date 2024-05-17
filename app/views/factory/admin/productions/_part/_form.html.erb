@@ -9,7 +9,7 @@
       <%= f.collection_check_boxes :part_ids, product_part_taxon.parts, :id, :name, { label: product_part_taxon.name, wrap: { label: 'field-label', select: 'field-body control' } }, { multiple: true } %>
     <% end %>
   </section>
-  <footer class="modal-card-foot justify-content-center">
+  <footer class="modal-card-foot">
     <%= f.submit %>
   </footer>
 <% end %>

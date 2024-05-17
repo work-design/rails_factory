@@ -10,7 +10,7 @@
     <%= f.number_field :min_select, step: 1, data: { action: 'equal#update' } %>
     <%= f.number_field :max_select, step: 1, data: { equal_target: 'goal' } %>
   </section>
-  <footer class="modal-card-foot justify-content-center">
+  <footer class="modal-card-foot">
     <%= f.submit %>
   </footer>
 <% end %>
