@@ -1,3 +1,3 @@
 <footer class="modal-card-foot flex-direction-column">
-  <%= render partial: 'new_cart', locals: { item: @cart.init_cart_item(params, good_id: @production.id), item_con: 'trade/my/items', cart: @cart } %>
+  <%= render partial: 'cart_new', locals: { item: @cart.init_cart_item(params, good_id: @production.id), item_con: 'trade/my/items', cart: @cart } %>
 </footer>
