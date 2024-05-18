@@ -1,7 +1,7 @@
 <footer class="modal-card-foot flex-direction-column">
   <div class="is-fullwidth">
-  <% @cart.find_items(@production.brother_ids, good_type: @production.base_class_name).each do |item| %>
-    <div>
+  <% @cart.find_items(@production.brother_ids, good_type: @production.base_class_name, **params.permit!).each do |item| %>
+    <div data-id="<%= item.id %>">
       <span><%= item.good.name %></span>
       <ul class="media-info display-inline-flex">
         <% item.good.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
