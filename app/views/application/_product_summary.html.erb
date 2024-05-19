@@ -1,0 +1,17 @@
+<table id="product_summary_<%= production.product_id %>" class="table is-embed align-self-flex-start color-grey">
+<% cart.find_items(production.brother_ids, good_type: production.base_class_name, **options).each do |item| %>
+  <tr data-id="<%= item.id %>">
+    <td><%= item.good.name %></td>
+    <td>
+      <ul class="media-info display-inline-flex">
+        <% item.good.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
+          <% parts.each_with_index do |part, _| %>
+            <li><%= part.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </td>
+    <td><%= item.number.to_human %></td>
+  </tr>
+<% end %>
+</table>
