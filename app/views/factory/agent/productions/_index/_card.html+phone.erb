@@ -9,8 +9,8 @@
     <strong class="color-danger"><%= model.price.to_money.format.html_safe %></strong>
   </div>
   <div class="media-right as-x">
-  <% if item = @cart && @cart.find_item(good_id: model.id) %>
-    <%= render partial: 'cart_big', locals: { cart: @cart, item_con: item_con, item: item } %>
+  <% if @cart %>
+    <%= render partial: 'cart_big', locals: { cart: @cart, item_con: item_con, item: @cart.init_cart_item(params, good_id: model.id) } %>
   <% else %>
     <%= render partial: 'add_cart_auto', locals: { cart: @cart, model: model, item_con: item_con } %>
   <% end %>
