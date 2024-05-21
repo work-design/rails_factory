@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 6386f3197441780472dc4e915e3301289125a89f
+  revision: bc8962742c3a545c46bf160f1f93e2b5a82b2f19
   specs:
     rails_design (0.0.1)
       rails
@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 569757e70c7e266997862165fa0a5df560dc911d
+  revision: 40b004f2d827af0b6a66a6a4455be99bcf521c86
   specs:
     rails_trade (0.0.3)
       rails_com

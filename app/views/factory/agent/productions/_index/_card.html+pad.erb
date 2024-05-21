@@ -1,5 +1,5 @@
 <div class="card">
-  <%= button_to({ action: 'show', id: model.id }, class: 'p-3 is-fullwidth is-fullheight', form: { class: 'card-content p-0' }) do %>
+  <%= button_to({ action: 'show', id: model.id }, params: { dispatch: params[:dispatch] || current_organ.dispatch }, class: 'p-3 is-fullwidth is-fullheight', form: { class: 'card-content p-0' }) do %>
     <h2 class="title has-text-left"><%= model.name %></h2>
     <p class="color-danger has-text-right"><%= model.price.to_money.format.html_safe %></p>
   <% end %>
