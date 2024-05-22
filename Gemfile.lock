@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 40b004f2d827af0b6a66a6a4455be99bcf521c86
+  revision: bb231532ab3368dd9b5246dd9534082ac89b682e
   specs:
     rails_trade (0.0.3)
       rails_com
