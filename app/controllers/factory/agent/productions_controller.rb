@@ -1,5 +1,5 @@
 module Factory
-  class Agent::ProductionsController < ProductionsController
+  class Agent::ProductionsController < Admin::ProductionsController
     include Controller::Agent
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
