@@ -6,6 +6,7 @@ module Factory
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
     before_action :set_cart, only: [:index, :nav, :show, :dialog]
+    skip_before_action :require_user, only: [:show]
 
     def index
       q_params = {}
