@@ -1,4 +1,5 @@
 <div class="column">
+  <%= render 'product_taxon_bar' %>
   <div class="cards is-4">
     <%= render partial: 'production_cart', layout: 'card', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/my/items' } %>
   </div>

@@ -1,0 +1,6 @@
+<div class="buttons mt-3 mx-4">
+  <%= link_to t('.all'), filter_params(except: [:product_taxon_id]), class: 'button is-light' %>
+  <% @product_taxons.each do |product_taxon| %>
+    <%= link_to product_taxon.name, { product_taxon_id: product_taxon.id, **params.permit(:station_id, :desk_id, :dispatch) }, class: active_helper(product_taxon_id: product_taxon.id, item: 'button is-light', active: 'button is-primary') %>
+  <% end %>
+</div>
