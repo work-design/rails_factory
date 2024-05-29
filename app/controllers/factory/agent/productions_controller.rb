@@ -9,6 +9,7 @@ module Factory
     skip_before_action :require_user, only: [:show]
 
     def index
+      params.with_defaults! per: 20
       q_params = {}
       q_params.merge! default_params
       q_params.merge! params.permit(:product_taxon_id)
