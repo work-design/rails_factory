@@ -1,0 +1,12 @@
+
+<%= link_to({ controller: 'organs', action: 'show' }, class: 'button') do %>
+  <span><%= t('organs.show.title') %></span>
+<% end %>
+
+<%= link_to({ controller: 'scenes' }, class: 'button is-active') do %>
+  <span><%= t('.scenes.index.title') %></span>
+<% end %>
+
+<%= link_to({ controller: 'provides' }, class: 'button is-active') do %>
+  <span><%= t('.provides.index.title') %></span>
+<% end %>
