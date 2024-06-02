@@ -8,10 +8,8 @@
     <% end if @cart %>
   </div>
   <div class="level-right p-3">
-  <% if item = @cart&.find_item(good_id: @production.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
-    <%= render partial: 'cart', locals: { model: @production, item_con: 'trade/my/items', item: item, cart: @cart } %>
-  <% else %>
-    <%= render partial: 'add_cart_button', locals: { model: @production, item_con: 'trade/my/items' } %>
+  <% if @cart %>
+    <%= render partial: 'cart_new', locals: { model: @production, item_con: 'trade/my/items', item: @cart.init_cart_item(params, good_id: @production.id), cart: @cart } %>
   <% end %>
   </div>
 </div>
