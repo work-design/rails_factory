@@ -1,10 +1,14 @@
-<div class="<%= active_helper(modules: 'factory/panel', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu empty">
-  <a class="menu-label" data-action="menu#toggle">
-    <i class="fa-solid fa-store fa-fw"></i>
-    <span><%= t('factory.panel.title') %></span>
-    <i class="fa-solid fa-fw dropdown"></i>
-  </a>
-  <div class="menu-list" data-empty-target="content">
+<div class="menu ex-accordion is-active">
+  <div class="menu-label">
+    <div>
+      <i class="fa-solid fa-fw fa-store"></i>
+      <span><%= t('factory.panel.title') %></span>
+    </div>
+    <%= link_to({ controller: 'factory/panel/home' }, aria: { label: '设置' }) do %>
+      <i class="fa-solid fa-cog"></i>
+    <% end %>
+  </div>
+  <div class="menu-list">
     <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
     <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
     <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
