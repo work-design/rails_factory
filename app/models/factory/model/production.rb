@@ -18,11 +18,11 @@ module Factory
       attribute :stock, :decimal
       attribute :last_stock_log, :json, default: {}
 
-      enum state: {
+      enum :state, {
         init: 'init',
         checked: 'checked',
         producing: 'producing'
-      }, _default: 'init'
+      }, default: 'init'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 

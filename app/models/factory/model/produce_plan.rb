@@ -10,11 +10,11 @@ module Factory
       attribute :book_start_at, :datetime
       attribute :production_plans_count, :integer, default: 0
 
-      enum state: {
+      enum :state, {
         planned: 'planned',
         producing: 'producing',
         produced: 'produced'
-      }, _default: 'planned'
+      }, default: 'planned'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       has_many :trade_items, class_name: 'Trade::TradeItem'

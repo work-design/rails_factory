@@ -14,7 +14,7 @@ module Factory
       has_many :part_items
       has_many :stock_logs, primary_key: :production_id, foreign_key: :production_id
 
-      enum state: {
+      enum :state, {
         purchased: 'purchased',
         produced: 'produced',
         received: 'received',
@@ -23,7 +23,7 @@ module Factory
         grid_out: 'grid_out',
         warehouse_out: 'warehouse_out',
         used: 'used'
-      }, _default: 'purchased'
+      }, default: 'purchased'
 
       after_initialize :init_code, if: :new_record?
       after_save :sync_stock, if: -> { saved_change_to_amount? }
