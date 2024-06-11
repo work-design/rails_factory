@@ -24,7 +24,7 @@ module Factory
       has_many :production_items
       has_many :trade_items, ->(o){ where(good_type: 'Factory::Production', produce_on: o.produce_on) }, class_name: 'Trade::TradeItem', foreign_key: :good_id, primary_key: :production_id
 
-      enum state: {
+      enum :state, {
         planned: 'planned',
         producing: 'producing',
         produced: 'produced'
