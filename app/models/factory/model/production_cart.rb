@@ -12,11 +12,11 @@ module Factory
       belongs_to :product
       belongs_to :production, inverse_of: :production_carts
 
-      enum state: {
+      enum :state, {
         init: 'init',
         checked: 'checked',
         carted: 'carted'
-      }
+      }, default: 'init'
 
       before_validation :sync_product, on: :create
     end
