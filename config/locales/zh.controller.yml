@@ -31,6 +31,9 @@ zh:
       home:
         index:
           title: 进销存/生产
+      organs:
+        show:
+          title: 系统设置
       taxon:
         products:
           index:

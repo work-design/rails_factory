@@ -1,12 +1,19 @@
-
-<%= link_to({ controller: 'organs', action: 'show' }, class: 'button') do %>
-  <span><%= t('organs.show.title') %></span>
-<% end %>
-
-<%= link_to({ controller: 'scenes' }, class: 'button is-active') do %>
-  <span><%= t('.scenes.index.title') %></span>
-<% end %>
-
-<%= link_to({ controller: 'provides' }, class: 'button is-active') do %>
-  <span><%= t('.provides.index.title') %></span>
-<% end %>
+<div class="fixed-grid has-6-cols">
+  <div class="grid">
+    <div class="cell is-box">
+      <%= link_to({ controller: 'organs', action: 'show' }, class: 'button is-primary is-fullwidth') do %>
+        <span><%= t('.organs.show.title') %></span>
+      <% end %>
+    </div>
+    <div class="cell is-box">
+      <%= link_to({ controller: 'scenes' }, class: 'button is-active') do %>
+        <span><%= t('.scenes.index.title') %></span>
+      <% end %>
+    </div>
+    <div class="cell is-box">
+      <%= link_to({ controller: 'provides' }, class: 'button is-active') do %>
+        <span><%= t('.provides.index.title') %></span>
+      <% end %>
+    </div>
+  </div>
+</div>
