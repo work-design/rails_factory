@@ -1,19 +1,18 @@
 <div class="fixed-grid has-6-cols">
   <div class="grid">
-    <div class="cell is-box">
-      <%= link_to({ controller: 'organs', action: 'show' }, class: 'button is-primary is-fullwidth') do %>
-        <span><%= t('.organs.show.title') %></span>
-      <% end %>
-    </div>
-    <div class="cell is-box">
-      <%= link_to({ controller: 'scenes' }, class: 'button is-active') do %>
-        <span><%= t('.scenes.index.title') %></span>
-      <% end %>
-    </div>
-    <div class="cell is-box">
-      <%= link_to({ controller: 'provides' }, class: 'button is-active') do %>
-        <span><%= t('.provides.index.title') %></span>
-      <% end %>
-    </div>
+    <%= link_to({ controller: 'organs', action: 'show' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.organs.show.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'product_taxons' }, class: 'cell button is-fullwidth flex-direction-column') do %>
+      <span><%= t('.product_taxons.index.title') %></span>
+      <span class="color-grey"><%= @taxon_count %></span>
+    <% end %>
+    <%= link_to({ controller: 'scenes' }, class: 'cell button is-fullwidth flex-direction-column') do %>
+      <span><%= t('.scenes.index.title') %></span>
+      <span class="color-grey"><%= @scene_count %></span>
+    <% end %>
+    <%= link_to({ controller: 'provides' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.provides.index.title') %></span>
+    <% end %>
   </div>
 </div>
