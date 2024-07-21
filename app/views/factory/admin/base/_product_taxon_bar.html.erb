@@ -1,4 +1,6 @@
-<div class="tabs is-centered is-boxed mb-3">
+<h2 class="title has-text-centered"><%= @product_taxon.name %></h2>
+
+<div class="tabs is-centered mb-3">
   <ul>
     <li class="<%= active_helper(product_taxons: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.product_taxons.show.title'), { controller: 'product_taxons', action: 'show', id: @product_taxon.id } %>
