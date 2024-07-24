@@ -33,7 +33,7 @@ module Factory
 
       validates :name, presence: true
 
-      acts_as_list scope: :organ_id
+      positioned on: :organ_id
 
       after_save :sync_factory_taxon_to_products, if: -> { saved_change_to_factory_taxon_id? }
     end
