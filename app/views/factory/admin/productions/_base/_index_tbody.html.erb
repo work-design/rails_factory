@@ -3,7 +3,7 @@
     <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
     <span><%= model.name %></span>
   <% end %>
-  <p class="color-grey"><%= model.title %></p>
+  <p class="text-grey"><%= model.title %></p>
 </td>
 <td>
 <div class="button_tos is-column">
@@ -14,7 +14,7 @@
     <% end %>
   <% end %>
   <%= button_to({ action: 'part', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, class: 'visibility-hidden') do %>
-    <i class="fa-solid fa-sm fa-cube color-grey"></i>
+    <i class="fa-solid fa-sm fa-cube text-grey"></i>
   <% end %>
 </div>
 </td>
@@ -22,16 +22,16 @@
   <div>
     <span><%= model.cost_price.to_money.format.html_safe %></span>
     <%= button_to({ action: 'cost', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, class: 'visibility-hidden') do %>
-      <i class="fa-solid fa-fw fa-sm fa-tags color-grey"></i>
+      <i class="fa-solid fa-fw fa-sm fa-tags text-grey"></i>
     <% end %>
   </div>
   <div>
     <span><%= model.profit_price.to_money.format.html_safe %></span>
     <%= button_to({ action: 'price', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, class: 'visibility-hidden') do %>
-      <i class="fa-solid fa-fw fa-sm fa-tags color-grey"></i>
+      <i class="fa-solid fa-fw fa-sm fa-tags text-grey"></i>
     <% end %>
   </div>
-  <div class="color-danger">
+  <div class="text-danger">
     <span class="mr-5"><%= model.price.to_money.format.html_safe %></span>
   </div>
 </td>
@@ -45,7 +45,7 @@
   <% end %>
   </div>
   <%= button_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('factory.admin.productions.card.title') }) do %>
-    <i class="fa-solid fa-pencil fa-sm color-grey"></i>
+    <i class="fa-solid fa-pencil fa-sm text-grey"></i>
   <% end %>
 </td>
 <td>

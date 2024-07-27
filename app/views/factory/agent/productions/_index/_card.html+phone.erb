@@ -6,7 +6,7 @@
   </div>
   <div class="media-content">
     <h2 class="title is-6"><%= model.title %></h2>
-    <strong class="color-danger"><%= model.price.to_money.format.html_safe %></strong>
+    <strong class="text-danger"><%= model.price.to_money.format.html_safe %></strong>
   </div>
   <div class="media-right as-x">
   <% if @cart %>

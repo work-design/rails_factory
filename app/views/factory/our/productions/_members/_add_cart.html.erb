@@ -1,5 +1,5 @@
-<span class="color-grey pr-2"><%= model.name %></span>
-<span class="color-danger pr-2"><%= model.price.to_money.format.html_safe %></span>
+<span class="text-grey pr-2"><%= model.name %></span>
+<span class="text-danger pr-2"><%= model.price.to_money.format.html_safe %></span>
 
 <%= form_with theme: nil, url: { controller: 'trade/our/items', action: 'create' }, state: 'redirect_return', data: { turbo_scroll: true }, class: 'button_to' do |f| %>
   <%= f.hidden_field :good_type, value: model.base_class_name %>
@@ -9,6 +9,6 @@
   <%= f.hidden_field :member_id, value: member.id %>
   <%= f.hidden_field :current_cart_id, value: @cart.id %>
   <%= button_tag do %>
-    <i class="fa-solid fa-circle-plus fa-xl color-grey"></i>
+    <i class="fa-solid fa-circle-plus fa-xl text-grey"></i>
   <% end %>
 <% end %>

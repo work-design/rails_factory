@@ -1,17 +1,17 @@
-<%= link_to({ controller: '/factory/productions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'column is-half-mobile color-grey') do %>
+<%= link_to({ controller: '/factory/productions', scene_id: model.scene_id, produce_on: model.produce_on }, class: 'column is-half-mobile text-grey') do %>
   <div class="column_box py-3">
-    <p class="size-7 has-text-centered">
+    <p class="size-7 text-centered">
       <span>预定截止：</span>
       <span><%= extra_distance_date(model.produce_on) %></span>
       <time><%= model.scene.book_finish_at.to_fs(:time) %></time>
     </p>
-    <p class="size-7 has-text-centered">
+    <p class="size-7 text-centered">
       <span>配送时间：</span>
       <time><%= model.scene.deliver_start_at.to_fs(:time) %></time>
       <span>~</span>
       <time><%= model.scene.deliver_finish_at.to_fs(:time) %></time>
     </p>
-    <div class="has-text-centered pt-2">
+    <div class="text-centered pt-2">
       <div class="is-several">
         <%= image_tag model.scene.logo, class: 'image is-32x32' if model.scene.logo.attached? %>
         <span><%= model.scene.title %></span>

@@ -8,7 +8,7 @@
     <div class="weui-half-screen-dialog__hd__main">
       <div class="weui-half-screen-dialog__title">
         <span><%= @scene.title %></span>
-        <span class="has-text-weight-normal color-grey size-7">
+        <span class="text-weight-normal text-grey size-7">
           <span>（</span>
           <span><%= params[:produce_on] %></span>
           <span><%= params[:produce_on].to_date.to_fs(:week) %></span>
@@ -23,36 +23,36 @@
       <div class="column is-half align-self-center">
       <% if @prev_plan %>
         <%= link_to({ produce_on: @prev_plan.produce_on, scene_id: params[:scene_id] }, class: 'flex align-items-center') do %>
-          <i class="fa-solid fa-chevron-left color-info"></i>
-          <span class="color-info">前一天</span>
-          <span class="color-grey size-7 pl-1 flex flex-direction-column align-items-center">
+          <i class="fa-solid fa-chevron-left text-info"></i>
+          <span class="text-info">前一天</span>
+          <span class="text-grey size-7 pl-1 flex flex-direction-column align-items-center">
             <span><%= @prev_plan.produce_on %></span>
             <span><%= @prev_plan.produce_on.to_fs(:week) %></span>
           </span>
         <% end %>
       <% else %>
         <div>
-          <i class="fa-solid fa-chevron-left color-grey"></i>
+          <i class="fa-solid fa-chevron-left text-grey"></i>
           <span>前一天</span>
-          <span class="color-grey size-7">没有了</span>
+          <span class="text-grey size-7">没有了</span>
         </div>
       <% end %>
       </div>
       <div class="column is-half align-self-center">
       <% if @next_plan %>
         <%= link_to({ produce_on: @next_plan.produce_on, scene_id: params[:scene_id] }, class: 'flex align-items-center') do %>
-          <span class="color-info">后一天</span>
-          <span class="color-grey size-7 pl-1 flex flex-direction-column align-items-center">
+          <span class="text-info">后一天</span>
+          <span class="text-grey size-7 pl-1 flex flex-direction-column align-items-center">
             <span><%= @next_plan.produce_on %></span>
             <span><%= @next_plan.produce_on.to_fs(:week) %></span>
           </span>
-          <i class="fa-solid fa-chevron-right color-info pl-1"></i>
+          <i class="fa-solid fa-chevron-right text-info pl-1"></i>
         <% end %>
       <% else %>
-        <div class="has-text-right">
+        <div class="text-right">
           <span>后一天</span>
-          <span class="color-grey size-7">没有了</span>
-          <i class="fa-solid fa-chevron-right color-grey"></i>
+          <span class="text-grey size-7">没有了</span>
+          <i class="fa-solid fa-chevron-right text-grey"></i>
         </div>
       <% end %>
       </div>

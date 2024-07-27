@@ -8,13 +8,13 @@
     <% end %>
     <% model.rent_charges.each do |charge| %>
       <p class="has-block-space-between">
-        <span class="color-grey">
+        <span class="text-grey">
           <span><%= charge.min %></span>
           <span>~</span>
           <span><%= charge.max %></span>
           <span><%= model.rent_unit_i18n %></span>
         </span>
-        <span class="color-danger">
+        <span class="text-danger">
           <span><%= charge.parameter.to_money.format.html_safe %></span>
           <span>/</span>
           <span><%= model.rent_unit_i18n %></span>
@@ -23,7 +23,7 @@
     <% end %>
     <div class="has-block-space-between pt-1">
       <div>
-        <span class="color-grey">押金：</span><span class="color-danger"><%= model.price.to_money.format.html_safe %></span>
+        <span class="text-grey">押金：</span><span class="text-danger"><%= model.price.to_money.format.html_safe %></span>
       </div>
       <div class="flex">
         <%= render partial: 'cart', locals: { model: model, item_con: item_con } %>

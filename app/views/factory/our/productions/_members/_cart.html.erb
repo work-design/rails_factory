@@ -4,18 +4,18 @@
       <%= f.hidden_field :number, value: item.number - 1 %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
       <%= button_tag do %>
-        <i class="fa-solid fa-circle-minus fa-xl color-grey"></i>
+        <i class="fa-solid fa-circle-minus fa-xl text-grey"></i>
       <% end %>
     <% end if item.number > 1 %>
   </div>
   <div class="control">
     <%= button_to({ controller: 'trade/our/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart.id }, state: 'redirect_return', class: 'mr-1', form: { data: { turbo_scroll: true } }) do %>
-      <i class="fa-solid fa-circle-minus fa-xl color-grey"></i>
+      <i class="fa-solid fa-circle-minus fa-xl text-grey"></i>
     <% end if item.number <= 1 %>
   </div>
   <div class="control">
     <%= form_with(theme: nil, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { turbo_scroll: true, controller: 'input' }) do |f| %>
-      <%= f.number_field :number, value: item.number.to_fs(:rounded, precision: 0), data: { action: 'change->input#form' }, class: 'has-background-light has-text-centered', style: 'width: 30px' %>
+      <%= f.number_field :number, value: item.number.to_fs(:rounded, precision: 0), data: { action: 'change->input#form' }, class: 'background-light text-centered', style: 'width: 30px' %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
     <% end %>
   </div>
@@ -24,7 +24,7 @@
       <%= f.hidden_field :number, value: item.number + 1 %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
       <%= button_to do %>
-        <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
+        <i class="fa-solid fa-circle-plus fa-xl text-dark-grey"></i>
       <% end %>
     <% end %>
   </div>

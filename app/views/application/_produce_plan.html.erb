@@ -4,8 +4,8 @@
     <div class="level is-mobile justify-content-space-between px-4 my-4">
       <div class="level-left">
         <span><%= extra_distance_date(@produce_on) %></span>
-        <span class="has-text-weight-normal color-grey size-7"><%= @produce_on %></span>
-        <span class="has-text-weight-normal color-grey size-7"><%= @produce_on.to_fs(:week) %></span>
+        <span class="text-weight-normal text-grey size-7"><%= @produce_on %></span>
+        <span class="text-weight-normal text-grey size-7"><%= @produce_on.to_fs(:week) %></span>
       </div>
       <div class="level-right mt-0">
         <%= link_to({ controller: '/factory/produce_plans' }) do %>

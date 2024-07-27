@@ -25,7 +25,7 @@
       <div class="has-block-space-between pb-1">
         <div class="has-inline-centered">
           <div class="tags has-addons is-price control m-0">
-            <div class="tag is-light color-danger"><%= r[:price].to_money.format.html_safe %></div>
+            <div class="tag is-light text-danger"><%= r[:price].to_money.format.html_safe %></div>
             <div class="tag is-danger">
               <span style="padding-left: 1px"><%= r[:name] %></span>
               <i class="fa-solid fa-badge-check"></i>
@@ -46,7 +46,7 @@
     <% elsif !model.presell %>
       <div class="has-block-space-between py-1">
         <div class="has-inline-centered">
-          <span class="color-danger"><%= model.price.to_money.format.html_safe %></span>
+          <span class="text-danger"><%= model.price.to_money.format.html_safe %></span>
         </div>
         <%= yield %>
       </div>

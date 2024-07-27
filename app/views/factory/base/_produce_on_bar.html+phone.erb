@@ -1,17 +1,17 @@
 <div class="box radiusless p-2 mb-0 has-border-bottom flex justify-content-space-between is-sticky" style="z-index: 3">
   <span data-controller="weui-dialog" data-weui-dialog-id-value="dialog_scene" data-action="click->weui-dialog#toggle">
-    <span class="has-text-weight-semibold"><%= @scene&.title %></span>
-    <span class="color-link ">
+    <span class="text-weight-semibold"><%= @scene&.title %></span>
+    <span class="text-link ">
       <span>切换</span>
       <i class="fa-solid fa-angle-right pl-0"></i>
     </span>
   </span>
   <span class="ml-4" data-controller="weui-dialog" data-weui-dialog-id-value="dialog_produce_on" data-action="click->weui-dialog#toggle">
     <span>
-      <span class="has-text-weight-semibold"><%= params[:produce_on] %></span>
+      <span class="text-weight-semibold"><%= params[:produce_on] %></span>
       <span><%= params[:produce_on].to_date.to_fs(:week) %></span>
     </span>
-    <span class="color-link">
+    <span class="text-link">
       <span>切换</span>
       <i class="fa-solid fa-angle-right pl-0"></i>
     </span>

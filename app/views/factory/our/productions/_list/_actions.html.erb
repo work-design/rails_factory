@@ -2,12 +2,12 @@
   <span class="is-several">
     <%= image_tag model.production.product.logo, class: 'image is-24x24' if model.production.product.logo.attached? %>
     <span><%= model.production.name %></span>
-    <span class="color-danger"><%= model.production.price.to_money.format.html_safe %></span>
+    <span class="text-danger"><%= model.production.price.to_money.format.html_safe %></span>
   </span>
   <span>
     <% if model.production_id == @production.id %>
-      <i class="fa-solid fa-check color-success"></i>
+      <i class="fa-solid fa-check text-success"></i>
     <% end %>
-    <i class="fa-solid fa-chevron-right color-grey-light pl-1"></i>
+    <i class="fa-solid fa-chevron-right text-grey-light pl-1"></i>
   </span>
 <% end %>

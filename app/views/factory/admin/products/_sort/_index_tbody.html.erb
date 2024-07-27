@@ -1,4 +1,4 @@
-<td><i class="fa-solid fa-fw fa-bars color-grey is-drawable"></i></td>
+<td><i class="fa-solid fa-fw fa-bars text-grey is-drawable"></i></td>
 <td>
   <%= link_to({ controller: 'productions', product_id: model.id }, text: true, class: 'is-several') do %>
     <%= image_tag model.logo.variant(resize_to_limit: [32, 32]), class: 'image is-32x32' if model.logo.attached? %>
@@ -16,7 +16,7 @@
   <% model.product_part_taxons.each do |product_part_taxon| %>
     <p>
       <span><%= product_part_taxon.name %></span>
-      <span class="color-grey size-7"><%= product_part_taxon.select_str %></span>
+      <span class="text-grey size-7"><%= product_part_taxon.select_str %></span>
     </p>
   <% end %>
   <p>

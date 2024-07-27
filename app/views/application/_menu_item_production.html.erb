@@ -1,7 +1,7 @@
-<%= link_to({ controller: 'factory/productions', action: 'show', id: model.id }, class: 'column is-one-third py-5 has-text-centered') do %>
+<%= link_to({ controller: 'factory/productions', action: 'show', id: model.id }, class: 'column is-one-third py-5 text-centered') do %>
   <p><%= image_tag model.logo, class: 'image is-64x64 is-radius as-centered' if model.logo.attached? %></p>
-  <p class="color-grey mt-1"><%= model.name %></p>
+  <p class="text-grey mt-1"><%= model.name %></p>
   <% unless model.presell %>
-    <p class="color-danger mt-1"><%= model.price.to_money.format.html_safe %></p>
+    <p class="text-danger mt-1"><%= model.price.to_money.format.html_safe %></p>
   <% end %>
 <% end %>

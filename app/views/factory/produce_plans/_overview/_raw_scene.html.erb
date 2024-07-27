@@ -4,14 +4,14 @@
       <%= image_tag scene.logo, class: 'image is-32x32' if scene.logo.attached? %>
       <span><%= scene.title %></span>
     </div>
-    <p class="size-7 has-text-centered">
+    <p class="size-7 text-centered">
       <span>预定时间：</span>
       <span>
         <span><%= scene.book_start_at.to_fs(:time) %></span>
         <time><%= scene.book_finish_at.to_fs(:time) %></time>
       </span>
     </p>
-    <p class="size-7 has-text-centered">
+    <p class="size-7 text-centered">
       <span>配送时间：</span>
       <time><%= scene.deliver_start_at.to_fs(:time) %></time>
       <span>~</span>

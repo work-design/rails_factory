@@ -14,10 +14,10 @@
         <% end %>
       <% end %>
     </ul>
-    <div class="color-danger">
+    <div class="text-danger">
       <%= model.min_price.to_money.format.html_safe %>
       <% if model.min_price != model.max_price %>
-        <span class="color-grey">~</span>
+        <span class="text-grey">~</span>
         <%= model.max_price.to_money.format.html_safe %>
       <% end %>
     </div>

@@ -4,11 +4,11 @@
       <span><%= t('.organs.show.title') %></span>
     <% end %>
     <%= link_to({ controller: 'product_taxons' }, class: 'cell button is-fullwidth flex-direction-column') do %>
-      <span class="color-grey"><%= @taxon_count %></span>
+      <span class="text-grey"><%= @taxon_count %></span>
       <span><%= t('.product_taxons.index.title') %></span>
     <% end %>
     <%= link_to({ controller: 'scenes' }, class: 'cell button is-fullwidth flex-direction-column') do %>
-      <span class="color-grey"><%= @scene_count %></span>
+      <span class="text-grey"><%= @scene_count %></span>
       <span><%= t('.scenes.index.title') %></span>
     <% end %>
     <%= link_to({ controller: 'provides' }, class: 'cell button is-fullwidth') do %>

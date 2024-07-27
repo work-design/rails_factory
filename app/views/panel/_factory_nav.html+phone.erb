@@ -1,29 +1,29 @@
 <div data-controller="empty" class="weui-panel is-box is-borderless">
   <div class="weui-panel__hd">
     <div>
-      <i class="fa-solid fa-fw fa-store has-text-primary"></i>
+      <i class="fa-solid fa-fw fa-store text-primary"></i>
       <span><%= t('factory.panel.title') %></span>
     </div>
   </div>
   <div class="weui-panel__bd">
     <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
       <%= link_to({ controller: 'factory/panel/factory_taxons' }, class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
+        <div class="text-primary">
           <i class="fa-solid fa-fw fa-xl fa-folder-tree"></i>
         </div>
-        <div class="color-grey size-7 mt-1"><%= t('factory.panel.factory_taxons.index.title') %></div>
+        <div class="text-grey size-7 mt-1"><%= t('factory.panel.factory_taxons.index.title') %></div>
       <% end %>
       <%= link_to({ controller: 'factory/panel/scenes' }, class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
+        <div class="text-primary">
           <i class="fa-solid fa-fw fa-xl fa-lightbulb"></i>
         </div>
-        <div class="color-grey size-7 mt-1"><%= t('factory.panel.scenes.index.title') %></div>
+        <div class="text-grey size-7 mt-1"><%= t('factory.panel.scenes.index.title') %></div>
       <% end %>
       <%= link_to({ controller: 'factory/panel/brands' }, class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
+        <div class="text-primary">
           <i class="fa-solid fa-fw fa-xl fa-copyright"></i>
         </div>
-        <div class="color-grey size-7 mt-1"><%= t('factory.panel.brands.index.title') %></div>
+        <div class="text-grey size-7 mt-1"><%= t('factory.panel.brands.index.title') %></div>
       <% end %>
     </div>
   </div>

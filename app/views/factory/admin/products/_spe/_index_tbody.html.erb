@@ -1,6 +1,6 @@
 <td>
   <div class="is-several">
-    <i class="fa-solid fa-fw fa-bars color-grey is-drawable"></i>
+    <i class="fa-solid fa-fw fa-bars text-grey is-drawable"></i>
     <%= image_tag model.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if model.logo.attached? %>
     <%= link_to({ controller: 'productions', product_id: model.id }, aria: { label: t('factory.admin.productions.index.title') }, text: true) do %>
       <span><%= model.name %></span>
@@ -10,7 +10,7 @@
       </span>
     <% end %>
   </div>
-  <p class="color-grey"><%= model.description.truncate(27) %></p>
+  <p class="text-grey"><%= model.description.truncate(27) %></p>
 </td>
 <td>
   <p><%= model.brand&.name %></p>
@@ -25,7 +25,7 @@
   <% model.product_part_taxons.each do |product_part_taxon| %>
     <p>
       <span><%= product_part_taxon.name %></span>
-      <span class="color-grey size-7"><%= product_part_taxon.select_str %></span>
+      <span class="text-grey size-7"><%= product_part_taxon.select_str %></span>
     </p>
   <% end %>
   <p>

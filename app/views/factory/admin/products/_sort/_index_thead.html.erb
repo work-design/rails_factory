@@ -2,7 +2,7 @@
 <th>
   <span><%= Factory::Product.human_attribute_name(:name) %></span>
   <%= button_to({ controller: 'com/admin/blob_defaults', action: 'add', record_class: 'Product', name: 'logo' }, aria: { label: t('com.admin.blob_defaults.add.title') }) do %>
-    <i class="fa-solid fa-cog color-grey"></i>
+    <i class="fa-solid fa-cog text-grey"></i>
   <% end %>
 </th>
 <th><%= Factory::Product.human_attribute_name(:description) %></th>

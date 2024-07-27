@@ -2,7 +2,7 @@
   <td rowspan="<%= size %>">
     <span><%= taxon.name %></span>
     <%= link_to({ action: 'new', factory_taxon_id: taxon.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-plus color-link"></i>
+      <i class="fa-solid fa-plus text-link"></i>
       <span class="pl-1"><%= t('.new.title') %></span>
     <% end %>
   </td>

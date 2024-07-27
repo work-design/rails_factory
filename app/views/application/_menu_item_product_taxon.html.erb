@@ -1,4 +1,4 @@
-<%= link_to({ controller: 'factory/productions', product_taxon_id: model.id }, class: 'column is-half py-4 has-text-centered') do %>
+<%= link_to({ controller: 'factory/productions', product_taxon_id: model.id }, class: 'column is-half py-4 text-centered') do %>
   <p><%= image_tag model.logo, class: 'image is-48x48 as-centered' if model.logo.attached? %></p>
   <p><%= model.name %></p>
 <% end %>

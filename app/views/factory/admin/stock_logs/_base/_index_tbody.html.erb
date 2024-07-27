@@ -2,11 +2,11 @@
 <td><%= model.tag_str %></td>
 <td>
 <% if model.amount > 0 %>
-  <span class="color-success"><%= model.amount.to_human %></span>
+  <span class="text-success"><%= model.amount.to_human %></span>
 <% elsif model.amount < 0 %>
-  <span class="color-danger"><%= model.amount.to_human %></span>
+  <span class="text-danger"><%= model.amount.to_human %></span>
 <% else %>
-  <span class="color-grey"><%= model.amount.to_human %></span>
+  <span class="text-grey"><%= model.amount.to_human %></span>
 <% end %>
 </td>
 <td><%= model.stock.to_d.to_human %></td>

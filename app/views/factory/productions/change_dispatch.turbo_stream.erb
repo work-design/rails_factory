@@ -5,11 +5,11 @@
       <% Trade::Item.options_i18n(:dispatch).each do |text, value| %>
         <%= link_to({ controller: '/factory/productions', dispatch: value }, class: 'cell has-column-centered') do %>
           <% if value.to_s == params[:dispatch] %>
-            <i class="fa-solid fa-check color-success"></i>
+            <i class="fa-solid fa-check text-success"></i>
           <% else %>
-            <i class="fa-solid fa-right-left color-info"></i>
+            <i class="fa-solid fa-right-left text-info"></i>
           <% end %>
-          <strong class="color-black"><%= text %></strong>
+          <strong class="text-black"><%= text %></strong>
       <% end %>
       <% end %>
       </div>
