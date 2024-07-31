@@ -1,6 +1,7 @@
 module Factory
   class In::HomeController < In::BaseController
     before_action :set_roles, only: [:organs]
+
     def index
     end
 

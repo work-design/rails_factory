@@ -164,6 +164,9 @@ zh:
           title: 商品列表
     in:
       title: 下单管理
+      home:
+        index:
+          title: 采购
       product_taxons:
         index:
           title: 进货

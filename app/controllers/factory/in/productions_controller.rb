@@ -1,9 +1,9 @@
 module Factory
-  class In::ProductionsController < ProductionsController
+  class In::ProductionsController < Admin::ProductionsController
     include Trade::Controller::Me
     include Controller::In
     before_action :set_factory_taxon, if: -> { params[:factory_taxon_id].present? }
-    before_action :set_produce_plans, only: [:index, :plan]
+    #before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
