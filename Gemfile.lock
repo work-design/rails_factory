@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: b0c5604934075b7af0406bd79c3f96d2ed0d2fa2
+  revision: 89667fe1a800a6131052819ded6750eefc09bab7
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: d4beb93fb735ec64322650dd48d25c713705447c
+  revision: 6b1abb280fafcb1152f199d6e511f8d1fad9cdf1
   specs:
     rails_com (1.3.0)
       acme-client
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: ac09f6f45788c2f14725bbaee1eec4b757dba0b8
+  revision: 161fb4712b1d7794e937eeae52ae55668e1c8174
   specs:
     rails_design (0.0.1)
       rails
@@ -50,7 +50,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 47535c326bed31af923c0933caf5caca20c710f2
+  revision: 2a10b1c7abb7dc728d09684e1c4fb9bcc2ba6af7
   specs:
     rails_trade (0.0.3)
       rails_com
@@ -172,7 +172,7 @@ GEM
       faraday (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    http-2 (1.0.0)
+    http-2 (1.0.1)
     http-form_data (2.3.0)
     httpx (1.3.0)
       http-2 (>= 1.0.0)
@@ -361,7 +361,7 @@ CHECKSUMS
   faraday-net_http (3.1.1)
   faraday-retry (2.2.1) sha256=4146fed14549c0580bf14591fca419a40717de0dd24f267a8ec2d9a728677608
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
-  http-2 (1.0.0)
+  http-2 (1.0.1)
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
   httpx (1.3.0)
   i18n (1.14.4) sha256=c7deedead0866ea9102975a4eab7968f53de50793a0c211a37808f75dd187551

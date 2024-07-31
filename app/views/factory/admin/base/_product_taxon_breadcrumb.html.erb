@@ -1,9 +1,11 @@
 <li><%= link_to t('.product_taxons.index.title'), { controller: 'product_taxons' } %></li>
 <li>
-  <div class="px-3">
-    <span><%= @product_taxon.name %></span>
-    <% if @product_taxon.factory_taxon %>
-      <span class="text-grey">（<%= @product_taxon.factory_taxon.name %>）</span>
-    <% end %>
+  <div class="navbar-item has-dropdown is-hoverable">
+    <%= link_to @product_taxon.name, { controller: 'product_taxons' }, class: 'navbar-link' %>
+    <div class="navbar-dropdown is-right">
+      <% Factory::ProductTaxon.all.each do |taxon| %>
+        <%= link_to taxon.name, { product_taxon_id: taxon.id }, class: 'navbar-item' %>
+      <% end %>
+    </div>
   </div>
 </li>
