@@ -13,8 +13,9 @@
       <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
     <% end %>
   <% end %>
-  <%= button_to({ action: 'part', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.part.title') }, class: 'visibility-hidden') do %>
+  <%= button_to({ action: 'part', id: model.id }, data: { show_target: 'item' }, class: 'visibility-hidden') do %>
     <i class="fa-solid fa-sm fa-cube text-grey"></i>
+    <span class="ml-1 text-grey size-7"><%= t('.productions.part.title') %></span>
   <% end %>
 </div>
 </td>
