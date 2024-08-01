@@ -15,6 +15,7 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
       attribute :fits_count, :integer, default: 0
       attribute :position, :integer
+      attribute :profit_margin, :decimal, precision: 3, scale: 2
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 

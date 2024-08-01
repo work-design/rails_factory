@@ -104,14 +104,6 @@ module Factory
       same_production_parts.where.not(production_id: self.id).where(part_id: part_ids - [part_id]).blank?
     end
 
-    def default_profit_price
-      if product.profit_margin
-        self.cost_price * (100 + product.profit_margin) / 100
-      else
-        0
-      end
-    end
-
     def max_indent
       [cost_price.to_money.indent, profit_price.to_money.indent, price.to_money.indent].max
     end
@@ -144,6 +136,14 @@ module Factory
     def sync_price
       self.profit_price ||= default_profit_price
       self.price = self.cost_price + self.profit_price
+    end
+
+    def default_profit_price
+      if product.profit_margin
+        self.cost_price * (1 + product.profit_margin)
+      else
+        0
+      end
     end
 
     def sync_from_product
