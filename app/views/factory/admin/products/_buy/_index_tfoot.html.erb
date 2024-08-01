@@ -1,19 +1,16 @@
-<tfoot>
-  <tr>
-    <th colspan="3"></th>
-    <th>
-      <div id="cart_nav">
-        <%= link_to({ controller: 'trade/in/carts', action: 'show', id: @cart.id }) do %>
-          <i class="fa-solid fa-cart-shopping"></i>
-        <% end %>
-        <%= @cart.amount.to_money.format.html_safe %>
-      </div>
-    </th>
-    <th>
-      <%= link_to({ controller: 'trade/in/orders', action: 'cart', current_cart_id: @cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
-        <i class="fa-solid fa-credit-card"></i>
-        <span class="pl-1"><%= t('factory.in.orders.new.title') %></span>
+<div class="level sticky-bottom">
+  <div class="level-left">
+    <div id="cart_nav">
+      <%= link_to({ controller: 'trade/in/carts', action: 'show', id: @cart.id }) do %>
+        <i class="fa-solid fa-cart-shopping"></i>
       <% end %>
-    </th>
-  </tr>
-</tfoot>
+      <%= @cart.amount.to_money.format.html_safe %>
+    </div>
+  </div>
+  <div class="level-right">
+    <%= link_to({ controller: 'trade/in/orders', action: 'cart', current_cart_id: @cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
+      <i class="fa-solid fa-credit-card"></i>
+      <span class="pl-1"><%= t('factory.in.orders.new.title') %></span>
+    <% end %>
+  </div>
+</div>
