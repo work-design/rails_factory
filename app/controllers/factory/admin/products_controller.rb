@@ -53,15 +53,7 @@ module Factory
     end
 
     def set_cart
-      options = {
-        member_organ_id: current_organ.id,
-        purchasable: true
-      }
-
-      options.merge! user_id: nil, member_id: nil
-      options.merge! client_id: nil, contact_id: nil if defined? RailsCrm
-      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
-      @cart.compute_amount! unless @cart.fresh
+      @cart = Trade::Cart.get_cart(params, member_organ_id: current_organ.id, purchasable: true)
     end
 
     def product_params
