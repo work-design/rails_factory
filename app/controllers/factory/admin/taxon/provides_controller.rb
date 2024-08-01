@@ -31,7 +31,8 @@ module Factory
 
     def provide_params
       params.fetch(:provide, {}).permit(
-        :provider_id
+        :provider_id,
+        :name
       )
     end
 
