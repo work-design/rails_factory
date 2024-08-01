@@ -1,6 +1,6 @@
 module Factory
   class In::ItemsController < Trade::In::ItemsController
-    before_action :set_item, only: [:show, :edit_assign, :update_assign]
+    before_action :set_cart, :set_item, only: [:show, :edit_assign, :update_assign]
 
     def edit_assign
       upstream_organ_ids = @item.purchase.production_provides.pluck(:provider_id)

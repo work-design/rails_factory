@@ -74,16 +74,7 @@ module Factory
     end
 
     def set_cart
-      return unless current_client
-      options = {
-        member_organ_id: current_client.organ_id,
-        member_id: nil,
-        user_id: nil
-      }
-      options.merge! default_params
-
-      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
-      @cart.compute_amount! unless @cart.fresh
+      @cart = Trade::Cart.get_cart(params, member_organ_id: current_client.organ_id, **default_form_params)
       logger.debug "\e[35m  Organ Cart: #{@cart.id} #{@cart.error_text}  \e[0m"
     end
 
