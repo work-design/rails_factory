@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       namespace :in, defaults: { namespace: 'in' } do
         concerns :productive
         root 'home#index'
+        resources :provides
         resources :product_taxons, only: [:index, :show] do
           member do
             post :productions

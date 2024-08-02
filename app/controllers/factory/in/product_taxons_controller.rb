@@ -3,7 +3,7 @@ module Factory
     before_action :set_product_taxon, only: [:show, :edit, :update, :destroy, :actions]
 
     def index
-      @factory_taxons = FactoryTaxon.page(params[:page])
+      @product_taxons = ProductTaxon.page(params[:page])
     end
 
     private
