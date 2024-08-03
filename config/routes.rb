@@ -40,7 +40,6 @@ Rails.application.routes.draw do
       namespace :in, defaults: { namespace: 'in' } do
         concerns :productive
         root 'home#index'
-        resources :provides
         resources :product_taxons, only: [:index, :show] do
           member do
             post :productions
@@ -106,6 +105,9 @@ Rails.application.routes.draw do
           resources :provides, controller: 'taxon/provides' do
             collection do
               post :search
+            end
+            member do
+              match :invite, via: [:get, :post]
             end
           end
           resources :product_part_taxons, controller: 'taxon/product_part_taxons'

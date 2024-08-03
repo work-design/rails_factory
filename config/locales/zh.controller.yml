@@ -133,6 +133,8 @@ zh:
           title: 供应商
         create:
           title: 选为供应商
+        invite:
+          title: 邀请
         destroy:
           title: 移除供应商
       trade_items:

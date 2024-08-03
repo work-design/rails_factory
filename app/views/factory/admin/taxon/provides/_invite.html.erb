@@ -1,0 +1,9 @@
+<dl class="as-show">
+  <div>
+    <dt><%= Factory::Provide.human_attribute_name(:invite_url) %></dt>
+    <dd data-controller="clipboard">
+      <span data-clipboard-target="source"><%= @provide.invite_url %></span>
+      <button data-action="clipboard#copyInner" class="button is-small is-success">Copy</button>
+    </dd>
+  </div>
+</dl>

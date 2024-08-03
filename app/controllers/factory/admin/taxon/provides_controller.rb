@@ -1,6 +1,7 @@
 module Factory
   class Admin::Taxon::ProvidesController < Admin::ProvidesController
     before_action :set_product_taxon
+    before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_provide, only: [:new, :create]
 
     def index
@@ -23,6 +24,10 @@ module Factory
     private
     def set_product_taxon
       @product_taxon = ProductTaxon.find params[:product_taxon_id]
+    end
+
+    def set_provide
+      @provide = @product_taxon.provides.find params[:id]
     end
 
     def set_new_provide

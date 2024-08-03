@@ -20,5 +20,13 @@ module Factory
       self.organ_id = product_taxon&.organ_id
     end
 
+    def invite_url
+      Rails.application.routes.url_for(
+        controller: 'org/board/organs',
+        invite_token: invite_token,
+        host: (organ.provider || organ).host
+      )
+    end
+
   end
 end
