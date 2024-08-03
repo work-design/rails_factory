@@ -18,11 +18,7 @@
   <% model.production_provides.each do |pp| %>
     <tr>
       <td>
-      <% if item = @cart.find_item(purchase_id: model.id, good_id: pp.upstream_production_id) %>
-        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, item: item } %>
-      <% else %>
-        <%= render partial: 'add_purchase_cart', locals: { cart: @cart, item_con: 'trade/in/items', model: model, good_id: pp.upstream_production_id } %>
-      <% end %>
+        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, cart: @cart, item: @cart.init_cart_item(params, purchase_id: model.id, good_id: pp.upstream_production_id) } %>
       </td>
       <td><%= pp.provider.name %></td>
     </tr>
