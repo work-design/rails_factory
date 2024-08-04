@@ -1,3 +1,5 @@
+<% if item.persisted? %>
+
 <tr id="cart_<%= item.cart_identity %>">
   <td data-controller="modify" data-modify-submit-value="true" class="has-inline-centered">
     <% if item.number > 1 %>
@@ -29,3 +31,20 @@
     <% end %>
   </td>
 </tr>
+
+<% else %>
+  <tr id="cart_<%= model.id %>_">
+    <td>
+      <%= form_with theme: nil, url: { controller: 'factory/in/items', action: 'create' }, class: 'button_to' do |f| %>
+        <%= f.hidden_field :current_cart_id, value: @cart.id %>
+        <%= f.hidden_field :good_type, value: model.base_class_name %>
+        <%= f.hidden_field :purchase_id, value: model.id %>
+        <%= f.hidden_field :good_id, value: nil %>
+        <%= button_tag do %>
+          <i class="fa-solid fa-circle-plus fa-xl text-dark-grey"></i>
+        <% end %>
+      <% end %>
+    </td>
+    <td></td>
+  </tr>
+<% end %>

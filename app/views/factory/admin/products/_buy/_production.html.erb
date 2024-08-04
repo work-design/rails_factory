@@ -23,10 +23,6 @@
       <td><%= pp.provider.name %></td>
     </tr>
   <% end %>
-  <% if item = @cart.find_item(purchase_id: model.id, good_id: nil) %>
-    <%= render partial: 'purchase_cart_assign', locals: { model: model, item: item } %>
-  <% else %>
-    <%= render partial: 'add_purchase_cart_assign', locals: { model: model } %>
-  <% end %>
+  <%= render partial: 'purchase_cart_assign', locals: { model: model, item: @cart.init_cart_item(params, purchase_id: model.id, good_id: nil) } %>
   </table>
 </td>
