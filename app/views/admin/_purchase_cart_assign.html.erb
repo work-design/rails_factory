@@ -1,12 +1,12 @@
 <% if item.persisted? %>
-  <tr id="cart_<%= item.cart_identity %>">
+  <tr id="<%= item.cart_identity %>">
     <td data-controller="modify" data-modify-submit-value="true" class="has-inline-centered">
       <% if item.number > 1 %>
         <button data-action="modify#minus" class="button_to mr-1">
           <i class="fa-solid fa-xl fa-circle-minus text-dark-grey"></i>
         </button>
       <% else %>
-        <%= button_to({ controller: 'factory/in/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart&.id }, state: 'redirect', class: 'mr-1') do %>
+        <%= button_to({ controller: 'factory/in/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart&.id }, class: 'mr-1') do %>
           <i class="fa-solid fa-xl fa-circle-minus text-dark-grey"></i>
         <% end %>
       <% end %>
@@ -31,13 +31,13 @@
     </td>
   </tr>
 <% else %>
-  <tr id="cart_<%= model.id %>_">
+  <tr id="<%= item.cart_identity %>">
     <td>
       <%= form_with theme: nil, url: { controller: 'factory/in/items', action: 'create' }, class: 'button_to' do |f| %>
-        <%= f.hidden_field :current_cart_id, value: @cart.id %>
-        <%= f.hidden_field :good_type, value: model.base_class_name %>
-        <%= f.hidden_field :purchase_id, value: model.id %>
-        <%= f.hidden_field :good_id, value: nil %>
+        <%= f.hidden_field :current_cart_id, value: cart.id %>
+        <%= f.hidden_field :good_type %>
+        <%= f.hidden_field :purchase_id %>
+        <%= f.hidden_field :good_id %>
         <%= button_tag do %>
           <i class="fa-solid fa-circle-plus fa-xl text-dark-grey"></i>
         <% end %>

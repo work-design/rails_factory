@@ -33,6 +33,11 @@ module Factory
       return unless purchase
       self.good_name = purchase.name
       self.extra = Hash(self.extra).merge purchase.item_extra
+      compute_purchase_price
+    end
+
+    def compute_purchase_price
+      self.single_price = purchase.cost_price
     end
 
     def increment_stock
