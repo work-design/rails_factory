@@ -33,7 +33,7 @@
 <% else %>
   <tr id="<%= item.cart_identity %>">
     <td>
-      <%= form_with theme: nil, url: { controller: 'factory/in/items', action: 'create' }, class: 'button_to' do |f| %>
+      <%= form_with theme: nil, model: item, url: { controller: 'factory/in/items', action: 'create' }, class: 'button_to' do |f| %>
         <%= f.hidden_field :current_cart_id, value: cart.id %>
         <%= f.hidden_field :good_type %>
         <%= f.hidden_field :purchase_id %>
