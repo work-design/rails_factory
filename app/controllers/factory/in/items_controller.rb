@@ -1,7 +1,13 @@
 module Factory
   class In::ItemsController < Trade::In::ItemsController
-    before_action :set_cart, only: [:create, :show, :edit_assign, :update_assign]
-    before_action :set_item, only: [:show, :edit_assign, :update_assign]
+    before_action :set_cart, only: [
+      :show, :edit, :update, :destroy, :actions,
+      :create, :edit_assign, :update_assign
+    ]
+    before_action :set_item, only: [
+      :show, :edit, :update, :destroy, :actions,
+      :edit_assign, :update_assign
+    ]
     before_action :set_new_item, only: [:create]
 
     def edit_assign
