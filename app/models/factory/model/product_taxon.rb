@@ -23,6 +23,7 @@ module Factory
       has_many :provides
       has_many :providers, through: :provides
       has_many :product_part_taxons
+      has_many :brothers, class_name: self.name, primary_key: :organ_id, foreign_key: :organ_id
 
       has_one_attached :logo
       has_one_attached :logo_color
