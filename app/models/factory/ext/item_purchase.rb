@@ -18,6 +18,7 @@ module Factory
 
       has_many :stock_logs, class_name: 'Factory::StockLog', as: :source
 
+      after_initialize :sync_from_purchase, if: -> { new_record? && purchase_id.present? }
       before_validation :sync_from_produce_plan, if: -> { respond_to?(:produce_plan) && produce_plan }
       after_save :increment_stock, if: -> { saved_change_to_purchase_status? && purchase_status == 'received' && ['init', nil].include?(purchase_status_before_last_save) }
       after_save :decrement_stock, if: -> { saved_change_to_purchase_status? && purchase_status != 'received' && ['received'].include?(purchase_status_before_last_save) }
