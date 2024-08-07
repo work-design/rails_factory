@@ -3,7 +3,9 @@
 <%= f.file_field :logo %>
 <%= f.text_area :description %>
 <%= f.number_field :base_price %>
-<%= f.fields :product_hosts do |ef| %>
-  <%= ef.number_field :profit_margin, step: 0.01 %>
-  <%= ef.hidden_field :organ_id, value: current_organ.id %>
+<%= f.number_field :profit_margin, step: 0.01 %>
+<%= f.fields :productions do |ef| %>
+  <%= ef.text_field :name %>
+  <%= ef.number_field :cost_price %>
+  <%= ef.number_field :profit_price %>
 <% end %>

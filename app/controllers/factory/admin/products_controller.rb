@@ -24,6 +24,7 @@ module Factory
 
     def new
       @product.product_hosts.build
+      @product.productions.build
       @product.product_taxon = ProductTaxon.default_where(default_params).new
     end
 
@@ -71,7 +72,7 @@ module Factory
         part_ids: [],
         covers: [],
         images: [],
-        product_hosts_attributes: {}
+        productions_attributes: {}
       )
       p.merge! default_form_params
     end

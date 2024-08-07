@@ -15,7 +15,9 @@ module Factory
       attribute :product_parts_count, :integer, default: 0
       attribute :fits_count, :integer, default: 0
       attribute :position, :integer
-      attribute :profit_margin, :decimal, precision: 3, scale: 2, default: 0
+      attribute :profit_margin, :decimal, precision: 4, scale: 2, default: 0
+      attribute :min_price, :decimal
+      attribute :max_price, :decimal
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
@@ -38,6 +40,7 @@ module Factory
       has_many :product_hosts
 
       accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
+      accepts_nested_attributes_for :productions
       accepts_nested_attributes_for :product_hosts
 
       has_one_attached :logo
@@ -53,6 +56,16 @@ module Factory
       after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
       after_save_commit :sync_position_later, if: -> { saved_change_to_position? }
+    end
+
+    def profit_margin_str
+      (profit_margin.to_d * 100).to_fs(:percentage)
+    end
+
+    def compute_min_max!
+      self.min_price = productions.minimum(:price)
+      self.max_price = productions.maximum(:price)
+      self.save
     end
 
     def sync_from_product_taxon

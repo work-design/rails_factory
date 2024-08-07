@@ -68,7 +68,7 @@ module Factory
       before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_update :set_enabled, if: -> { saved_change_to_enabled? }
-      #after_save :compute_min_max_price, if: -> { saved_change_to_price? }
+      after_save :compute_min_max_price, if: -> { saved_change_to_price? }
       after_save :sync_log, if: -> { saved_change_to_stock? }
     end
 
@@ -89,7 +89,7 @@ module Factory
     end
 
     def compute_min_max_price
-      product_host.compute_min_max
+      product.compute_min_max!
     end
 
     def compute_cost_price
