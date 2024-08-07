@@ -11,6 +11,7 @@ module Factory
     private
     def set_product_part_taxon
       @product_part_taxon = ProductPartTaxon.find params[:product_part_taxon_id]
+      @product_taxon = @product_part_taxon.product_taxon
     end
 
     def set_new_product_part
