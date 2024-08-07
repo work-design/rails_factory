@@ -1,6 +1,3 @@
-<% if @product_taxons.keys.compact.size > 0 %>
-  <th><%= Factory::ProductTaxon.human_attribute_name(:factory_taxon_id) %></th>
-<% end %>
 <th>
   <p><%= Factory::ProductTaxon.human_attribute_name(:name) %></p>
   <% if @scenes.present? %>

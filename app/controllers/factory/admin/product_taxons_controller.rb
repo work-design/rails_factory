@@ -4,7 +4,7 @@ module Factory
       :show, :productions, :edit, :update, :reorder, :destroy,
       :import, :copy, :prune
     ]
-    before_action :set_factory_taxons, only: [:new, :edit]
+    before_action :set_factory_taxons, only: [:index, :new, :edit, :edit, :update]
     before_action :set_scenes, only: [:index, :new, :edit]
     before_action :set_products, only: [:import]
     before_action :set_new_product_taxon, only: [:new, :create]
@@ -12,7 +12,6 @@ module Factory
     before_action :set_own_product_taxons, only: [:edit, :update]
     before_action :set_production, only: [:copy, :prune]
     before_action :set_providers, only: [:import, :productions]
-    before_action :set_factory_taxons, only: [:edit, :update]
     before_action :set_count_hash, only: [:update]
 
     def index
@@ -20,9 +19,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      product_taxons = ProductTaxon.includes(:factory_taxon).default_where(q_params).order(position: :asc).page(params[:page])
-      @product_taxons = product_taxons.group_by(&:factory_taxon)
-
+      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc).page(params[:page])
       @count_hash = Factory::Production.default_where(default_params).where(enabled: true).group(:product_taxon_id).count
     end
 
@@ -31,7 +28,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc)
+      @product_taxons = ProductTaxon.includes(:factory_taxon).default_where(q_params).order(position: :asc)
       @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
     end
 

@@ -2,8 +2,7 @@
 <%= render 'index_actions' %>
 
 <%= render layout: 'index_table' do %>
-  <% @product_taxons.each do |taxon, product_taxons| %>
-    <%= render partial: 'taxon_tbody', locals: { taxon: taxon, size: product_taxons.size + 1 } if @product_taxons.keys.compact.size > 0 %>
-    <%= render partial: 'index_tbody', layout: 'index_tr', collection: product_taxons, as: :model %>
-  <% end %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @product_taxons, as: :model %>
 <% end %>
+
+<%= paginate @product_taxons %>
