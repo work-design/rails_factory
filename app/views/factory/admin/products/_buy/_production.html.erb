@@ -1,8 +1,6 @@
 <td><span class="pl-4"><%= model.name %></span></td>
-<td>
-  <p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p>
-  <p class="text-grey"><%= model.price.to_money.format.html_safe %></p>
-</td>
+<td><p class="text-grey"><%= model.price.to_money.format.html_safe %></p></td>
+<td><p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p></td>
 <td>
   <table class="table is-borderless">
     <% model.parts.each do |part| %>
