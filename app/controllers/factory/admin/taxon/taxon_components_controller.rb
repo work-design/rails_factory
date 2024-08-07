@@ -1,5 +1,5 @@
 module Factory
-  class Admin::Taxon::ProductPartTaxonsController < Admin::ProductPartTaxonsController
+  class Admin::Taxon::TaxonComponentsController < Admin::ProductPartTaxonsController
     before_action :set_product_taxon
     before_action :set_new_product_part_taxon, only: [:new, :create]
 
