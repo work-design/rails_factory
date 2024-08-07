@@ -3,9 +3,9 @@
     <%= yield %>
   </div>
   <div class="media-right">
-    <%= link_to({ action: 'new', factory_taxon_id: model.id }, data: { turbo_scroll: true }, class: 'button is-small is-rounded is-light') do %>
+    <%= button_to({ action: 'new', factory_taxon_id: model.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fa-solid fa-plus text-link"></i>
-      <span class="pl-1"><%= t('.new.title') %></span>
+      <span class="ml-1"><%= t('.new.title') %></span>
     <% end %>
   </div>
 </div>
