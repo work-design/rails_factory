@@ -1,5 +1,5 @@
 module Factory
-  class Admin::ProductTaxonsController < Admin::BaseController
+  class Admin::TaxonsController < Admin::BaseController
     before_action :set_product_taxon, only: [
       :show, :productions, :edit, :update, :reorder, :destroy,
       :import, :copy, :prune

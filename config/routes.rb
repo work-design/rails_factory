@@ -34,13 +34,13 @@ Rails.application.routes.draw do
         end
       end
       resources :products, only: [:index, :show]
-      resources :product_taxons, only: [:index, :show]
+      resources :taxons, only: [:index, :show]
       resources :produce_plans, only: [:index, :show]
 
       namespace :in, defaults: { namespace: 'in' } do
         concerns :productive
         root 'home#index'
-        resources :product_taxons, only: [:index, :show] do
+        resources :taxons, only: [:index, :show] do
           member do
             post :productions
           end
@@ -81,7 +81,7 @@ Rails.application.routes.draw do
         end
         resource :organ
         resources :brands
-        resources :product_taxons do
+        resources :taxons do
           collection do
             get :all
           end
@@ -110,7 +110,7 @@ Rails.application.routes.draw do
               match :invite, via: [:get, :post]
             end
           end
-          resources :product_part_taxons, controller: 'taxon/product_part_taxons'
+          resources :taxon_components
         end
         resources :provides do
           collection do

@@ -1,5 +1,5 @@
 module Factory
-  module Model::TaxonPart
+  module Model::TaxonComponent
     extend ActiveSupport::Concern
 
     included do
@@ -8,8 +8,7 @@ module Factory
       attribute :max_select, :integer
       attribute :product_parts_count, :integer, default: 0
 
-      belongs_to :product, optional: true
-      belongs_to :product_taxon, counter_cache: true
+      belongs_to :taxon, counter_cache: true
       belongs_to :part_taxon, class_name: 'ProductTaxon'
 
       has_many :product_parts
