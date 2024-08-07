@@ -7,7 +7,7 @@
         <span class="ml-1"><%= t('.destroy.title') %></span>
       <% end %>
       <%= button_to({ action: 'invite', id: model.id }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-trash text-danger"></i>
+        <i class="fa-solid fa-trash"></i>
         <span class="ml-1"><%= t('.invite.title') %></span>
       <% end %>
       <%= button_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>

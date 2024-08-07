@@ -116,6 +116,9 @@ Rails.application.routes.draw do
           collection do
             post :search
           end
+          member do
+            match :invite, via: [:get, :post]
+          end
         end
         resources :products do
           collection do
