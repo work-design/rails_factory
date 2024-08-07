@@ -3,10 +3,10 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :production
-      belongs_to :product, optional: true
-      belongs_to :part, class_name: 'Production'
       belongs_to :part_taxon, class_name: 'ProductTaxon'
+      belongs_to :product
+      belongs_to :production
+      belongs_to :part, class_name: 'Production'
 
       after_initialize :sync_to_production, if: -> { part_id_changed? }
       before_validation :sync_part_taxon, if: -> { part_id_changed? }

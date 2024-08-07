@@ -1,5 +1,5 @@
 module Factory
-  module Model::ProductPartTaxon
+  module Model::TaxonPart
     extend ActiveSupport::Concern
 
     included do

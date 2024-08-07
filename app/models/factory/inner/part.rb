@@ -1,5 +1,5 @@
 module Factory
-  module Model::Part
+  module Inner::Part
     extend ActiveSupport::Concern
 
     included do
