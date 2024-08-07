@@ -40,7 +40,7 @@ module Factory
     end
 
     def set_providers
-      @providers = @production.product_taxon.factory_taxon.providers
+      @providers = @production.taxon.factory_taxon.providers
     end
 
     def part_provider_params

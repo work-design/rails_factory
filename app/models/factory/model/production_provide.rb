@@ -6,7 +6,7 @@ module Factory
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :provider, class_name: 'Org::Organ'
 
-      belongs_to :product_taxon
+      belongs_to :taxon
       belongs_to :product
       belongs_to :production
       belongs_to :upstream_product, class_name: 'Product'  # 对应供应链产品
@@ -30,7 +30,7 @@ module Factory
       else
         build_product
       end
-      product.product_taxon = product_taxon
+      product.taxon = taxon
       product.name = upstream_product.name
       product.logo.attach upstream_product.logo_blob
 

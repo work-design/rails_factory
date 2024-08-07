@@ -10,7 +10,7 @@ module Factory
     def index
       q_params = {}
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id, :name)
+      q_params.merge! params.permit(:taxon_id, :name)
 
       @products = Product.includes(:parts, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
     end
@@ -18,7 +18,7 @@ module Factory
     def buy
       q_params = {}
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id, :name)
+      q_params.merge! params.permit(:taxon_id, :name)
 
       @products = Product.includes(:brand, productions: { production_provides: :provider }, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
     end
@@ -28,16 +28,16 @@ module Factory
     end
 
     def edit
-      @product.product_taxon ||= ProductTaxon.default_where(default_params).first
+      @product.product_taxon ||= Taxon.default_where(default_params).first
     end
 
     private
     def set_product_taxon
-      @product_taxon = ProductTaxon.default_where(default_params).find params[:product_taxon_id]
+      @taxon = Taxon.default_where(default_params).find params[:taxon_id]
     end
 
     def set_product_taxons
-      @product_taxons = ProductTaxon.default_where(default_params)
+      @taxons = Taxon.default_where(default_params)
     end
 
     def set_product
@@ -45,7 +45,7 @@ module Factory
     end
 
     def set_new_product
-      @product = @product_taxon.products.build(product_params)
+      @product = @taxon.products.build(product_params)
     end
 
     def set_brands
@@ -66,7 +66,7 @@ module Factory
         :logo,
         :specialty,
         :base_price,
-        :product_taxon_id,
+        :taxon_id,
         :published,
         :product_taxon_ancestors,
         part_ids: [],

@@ -10,7 +10,7 @@ module Factory
     end
 
     def search
-      ids = @product_taxon.provides.pluck(:provider_id)
+      ids = @taxon.provides.pluck(:provider_id)
       ids.append current_organ.id
       @organs = Org::Organ.where.not(id: ids).default_where('name-like': params['name-like'])
     end

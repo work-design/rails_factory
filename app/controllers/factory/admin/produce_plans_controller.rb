@@ -13,15 +13,15 @@ module Factory
     end
 
     def products
-      @product_taxons = @produce_plan.scene.product_taxons.default_where(default_params)
+      @taxons = @produce_plan.scene.product_taxons.default_where(default_params)
       @production_plans = @produce_plan.production_plans
       q_params = {
-        product_taxon_id: @product_taxons.map(&:id)
+        taxon_id: @taxons.map(&:id)
       }
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id)
+      q_params.merge! params.permit(:taxon_id)
 
-      @products = Product.includes(:productions, :product_taxon, logo_attachment: :blob).default_where(q_params).order(product_taxon_id: :desc).page(params[:page])
+      @products = Product.includes(:productions, :product_taxon, logo_attachment: :blob).default_where(q_params).order(taxon_id: :desc).page(params[:page])
     end
 
     private

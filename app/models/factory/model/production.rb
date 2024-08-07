@@ -28,7 +28,7 @@ module Factory
 
       belongs_to :product, counter_cache: true
       belongs_to :product_host, optional: true
-      belongs_to :product_taxon, optional: true
+      belongs_to :taxon, optional: true
       belongs_to :factory_taxon, optional: true
 
       has_many :production_carts, dependent: :destroy_async
@@ -45,7 +45,7 @@ module Factory
 
       has_many :brothers, class_name: self.name, primary_key: :product_id, foreign_key: :product_id
       has_many :same_production_parts, class_name: 'ProductionPart', primary_key: :product_id, foreign_key: :product_id
-      has_many :same_product_parts, ->(o){ where(product_id: [o.product_id, nil]) }, class_name: 'ProductPart', primary_key: :product_taxon_id, foreign_key: :product_taxon_id
+      has_many :same_product_parts, ->(o){ where(product_id: [o.product_id, nil]) }, class_name: 'ProductPart', primary_key: :taxon_id, foreign_key: :taxon_id
       has_many :same_productions, -> { distinct }, through: :same_production_parts, source: :production
       has_many :same_parts, -> { distinct }, through: :same_production_parts, source: :part
       has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
@@ -147,7 +147,7 @@ module Factory
     end
 
     def sync_from_product
-      self.product_taxon_id = product.product_taxon_id
+      self.taxon_id = product.taxon_id
       self.organ_id = product.organ_id
     end
 

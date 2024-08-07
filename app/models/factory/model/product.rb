@@ -32,7 +32,7 @@ module Factory
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
       has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
-      has_many :product_part_taxons, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :product_taxon_id, foreign_key: :product_taxon_id
+      has_many :product_part_taxons, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
       has_many :part_taxons, through: :product_part_taxons
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
@@ -49,11 +49,11 @@ module Factory
 
       scope :published, -> { where(published: true) }
 
-      has_taxons :product_taxon
+      has_taxons :taxon
       positioned on: :organ_id
 
-      before_save :sync_from_product_taxon, if: -> { product_taxon_id_changed? }
-      after_save :sync_product_taxon, if: -> { saved_change_to_product_taxon_id? }
+      before_save :sync_from_taxon, if: -> { taxon_id_changed? }
+      after_save :sync_taxon, if: -> { saved_change_to_taxon_id? }
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
       after_save_commit :sync_position_later, if: -> { saved_change_to_position? }
     end
@@ -68,9 +68,9 @@ module Factory
       self.save
     end
 
-    def sync_from_product_taxon
-      self.factory_taxon_id = product_taxon.factory_taxon_id
-      self.organ_id = product_taxon.organ_id
+    def sync_from_taxon
+      self.factory_taxon_id = taxon.factory_taxon_id
+      self.organ_id = taxon.organ_id
     end
 
     def sync_name
@@ -82,7 +82,7 @@ module Factory
     end
 
     def sync_position
-      self.class.where(product_taxon_id: product_taxon_id).find_each do |p|
+      self.class.where(taxon_id: taxon_id).find_each do |p|
         p.productions.update_all position: p.position
       end
     end
@@ -91,9 +91,9 @@ module Factory
       self.class.where.not(id: self.id).where(organ_id: self.organ_id).update_all(specialty: false)
     end
 
-    def sync_product_taxon
+    def sync_taxon
       productions.update_all(
-        product_taxon_id: product_taxon_id,
+        taxon_id: taxon_id,
         factory_taxon_id: factory_taxon_id,
         organ_id: organ_id
       )

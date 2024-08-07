@@ -1,5 +1,5 @@
 module Factory
-  class Admin::ProductPartTaxonsController < Admin::BaseController
+  class Admin::ProductComponentsController < Admin::BaseController
     before_action :set_product, if: -> { params[:product_id].present? }
     before_action :set_product_part_taxon, only: [:show, :edit, :update, :destroy]
     before_action :set_new_product_part_taxon, only: [:new, :create]
@@ -23,7 +23,7 @@ module Factory
     end
 
     def set_part_taxons
-      @part_taxons = ProductTaxon.default_where(default_params).order(id: :asc)
+      @part_taxons = Taxon.default_where(default_params).order(id: :asc)
     end
 
     def product_part_taxon_params

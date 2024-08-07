@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :part_taxon, class_name: 'ProductTaxon'
+      belongs_to :part_taxon, class_name: 'Taxon'
       belongs_to :product
       belongs_to :production
       belongs_to :part, class_name: 'Production'
@@ -19,7 +19,7 @@ module Factory
     end
 
     def sync_part_taxon
-      self.part_taxon = part&.product_taxon
+      self.part_taxon = part&.taxon
     end
 
     private

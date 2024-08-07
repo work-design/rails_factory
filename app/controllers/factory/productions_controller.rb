@@ -1,6 +1,6 @@
 module Factory
   class ProductionsController < BaseController
-    before_action :set_product_taxon, if: -> { params[:product_taxon_id].present? }
+    before_action :set_taxon, if: -> { params[:taxon_id].present? }
     before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_product_taxons, only: [:index, :rent]
@@ -12,10 +12,10 @@ module Factory
 
     def index
       q_params = {
-        product_taxon_id: ProductTaxon.default_where(default_params).where(nav: false).pluck(:id)
+        taxon_id: Taxon.default_where(default_params).where(nav: false).pluck(:id)
       }
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id, :factory_taxon_id, 'name-like')
+      q_params.merge! params.permit(:taxon_id, :factory_taxon_id, 'name-like')
 
       if @produce_plan
         if @produce_plan.expired?
@@ -32,7 +32,7 @@ module Factory
     def nav
       q_params = {}
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id, 'name-like')
+      q_params.merge! params.permit(:taxon_id, 'name-like')
 
       if @produce_plan
         if @produce_plan.expired?
@@ -50,7 +50,7 @@ module Factory
         'rent_charges_count-gt': 0
       }
       q_params.merge! default_params
-      q_params.merge! params.permit(:product_taxon_id, 'name-like')
+      q_params.merge! params.permit(:taxon_id, 'name-like')
 
       @productions = Production.includes(:organ, :parts, product: { logo_attachment: :blob }).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
     end
@@ -115,11 +115,11 @@ module Factory
         'products_count-gt': 0
       }
       q_params.merge! default_params
-      @product_taxons = ProductTaxon.with_attached_logo.enabled.default_where(q_params).order(id: :asc)
+      @taxons = Taxon.with_attached_logo.enabled.default_where(q_params).order(id: :asc)
     end
 
     def set_product_taxon
-      @product_taxon = ProductTaxon.find params[:product_taxon_id] if params[:product_taxon_id]
+      @taxon = Taxon.find params[:taxon_id] if params[:taxon_id]
     end
 
     def set_rent_cart

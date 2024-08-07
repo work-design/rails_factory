@@ -38,7 +38,7 @@ module Factory
 
     def init_provider
       ft = Factory::FactoryTaxon.first
-      pt = ft.product_taxons.build(organ_id: id)
+      pt = ft.taxons.build(organ_id: id)
       pt.scene_id = ft.scene_id
       pt.name = ft.name
       pt.provides.build(provider_id: 1)

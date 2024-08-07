@@ -6,7 +6,7 @@ module Factory
       :part, :price, :cost, :card, :update_card, :wallet, :update_wallet
     ]
     before_action :set_new_production, only: [:new, :create]
-    before_action :set_product_taxon, only: [:taxon]
+    before_action :set_taxon, only: [:taxon]
     after_action only: [:update, :update_card, :update_wallet] do
       mark_audits(instance: :@production)
     end
@@ -20,7 +20,7 @@ module Factory
     end
 
     def taxon
-      @productions = @product_taxon.productions.includes(:product).default.order(id: :asc).page(params[:page])
+      @productions = @taxon.productions.includes(:product).default.order(id: :asc).page(params[:page])
     end
 
     def detect
@@ -55,7 +55,7 @@ module Factory
 
     private
     def set_product_taxon
-      @product_taxon = ProductTaxon.default_where(default_params).find params[:product_taxon_id]
+      @taxon = Taxon.default_where(default_params).find params[:taxon_id]
     end
 
     def set_product

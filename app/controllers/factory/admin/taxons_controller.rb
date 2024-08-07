@@ -1,15 +1,15 @@
 module Factory
   class Admin::TaxonsController < Admin::BaseController
-    before_action :set_product_taxon, only: [
+    before_action :set_taxon, only: [
       :show, :productions, :edit, :update, :reorder, :destroy,
       :import, :copy, :prune
     ]
     before_action :set_factory_taxons, only: [:index, :new, :edit, :edit, :update]
     before_action :set_scenes, only: [:index, :new, :edit]
     before_action :set_products, only: [:import]
-    before_action :set_new_product_taxon, only: [:new, :create]
-    before_action :set_product_taxons, only: [:new, :create]
-    before_action :set_own_product_taxons, only: [:edit, :update]
+    before_action :set_new_taxon, only: [:new, :create]
+    before_action :set_taxons, only: [:new, :create]
+    before_action :set_own_taxons, only: [:edit, :update]
     before_action :set_production, only: [:copy, :prune]
     before_action :set_providers, only: [:import, :productions]
     before_action :set_count_hash, only: [:update]
@@ -19,8 +19,8 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @product_taxons = ProductTaxon.default_where(q_params).order(position: :asc).page(params[:page])
-      @count_hash = Factory::Production.default_where(default_params).where(enabled: true).group(:product_taxon_id).count
+      @taxons = Taxon.default_where(q_params).order(position: :asc).page(params[:page])
+      @count_hash = Factory::Production.default_where(default_params).where(enabled: true).group(:taxon_id).count
     end
 
     def all
@@ -28,17 +28,17 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @product_taxons = ProductTaxon.includes(:factory_taxon).default_where(q_params).order(position: :asc)
-      @factory_taxons = FactoryTaxon.where.not(id: @product_taxons.pluck(:factory_taxon_id)).order(position: :asc)
+      @taxons = Taxon.includes(:factory_taxon).default_where(q_params).order(position: :asc)
+      @factory_taxons = FactoryTaxon.where.not(id: @taxons.pluck(:factory_taxon_id)).order(position: :asc)
     end
 
     def import
       q_params = {
-        organ_id: @product_taxon.provider_ids
+        organ_id: @taxon.provider_ids
       }
-      q_params.merge! params.permit(:organ_id) if @product_taxon.provider_ids.map(&:to_s).include? params[:organ_id]
-      if @product_taxon.factory_taxon
-        @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+      q_params.merge! params.permit(:organ_id) if @taxon.provider_ids.map(&:to_s).include? params[:organ_id]
+      if @taxon.factory_taxon
+        @products = @taxon.factory_taxon.products.default_where(q_params).page(params[:page])
       else
         @products = Product.default_where(q_params).page(params[:page])
       end
@@ -50,7 +50,7 @@ module Factory
 
     def copy
       downstream_provide = @production.downstream_provides.find_or_initialize_by(organ_id: current_organ.id)
-      downstream_provide.product_taxon = @product_taxon
+      downstream_provide.taxon = @taxon
       downstream_provide.save
     end
 
@@ -60,8 +60,8 @@ module Factory
     end
 
     private
-    def set_product_taxon
-      @product_taxon = ProductTaxon.find(params[:id])
+    def set_taxon
+      @taxon = Taxon.find(params[:id])
     end
 
     def set_factory_taxons
@@ -72,31 +72,31 @@ module Factory
       @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
     end
 
-    def set_new_product_taxon
+    def set_new_taxon
       if params[:factory_taxon_id].present?
         @factory_taxon = FactoryTaxon.find params[:factory_taxon_id]
-        @product_taxon = @factory_taxon.product_taxons.build(product_taxon_params)
-        @product_taxon.scene_id = @factory_taxon.scene_id
+        @taxon = @factory_taxon.taxons.build(taxon_params)
+        @taxon.scene_id = @factory_taxon.scene_id
       else
-        @product_taxon = ProductTaxon.new(product_taxon_params)
+        @taxon = Taxon.new(taxon_params)
       end
     end
 
-    def set_product_taxons
+    def set_taxons
       if params[:factory_taxon_id].present?
-        @product_taxons = @factory_taxon.product_taxons.default_where(default_params)
+        @taxons = @factory_taxon.taxons.default_where(default_params)
       end
     end
 
     def set_count_hash
-      @count_hash = { @product_taxon.id => @product_taxon.productions.where(enabled: true).count }
+      @count_hash = { @taxon.id => @taxon.productions.where(enabled: true).count }
     end
 
     def set_own_product_taxons
-      if @product_taxon.factory_taxon
-        @product_taxons = @product_taxon.factory_taxon.product_taxons.default_where(default_params)
+      if @taxon.factory_taxon
+        @taxons = @taxon.factory_taxon.product_taxons.default_where(default_params)
       else
-        @product_taxons = ProductTaxon.none
+        @taxons = Taxon.none
       end
     end
 
@@ -108,8 +108,8 @@ module Factory
       q_params = {}
       q_params.merge! params.permit(:organ_id)
 
-      if @product_taxon.factory_taxon
-        @products = @product_taxon.factory_taxon.products.default_where(q_params).page(params[:page])
+      if @taxon.factory_taxon
+        @products = @taxon.factory_taxon.products.default_where(q_params).page(params[:page])
       else
         @products = Product.default_where(q_params).page(params[:page])
       end
@@ -119,12 +119,12 @@ module Factory
     end
 
     def set_production
-      @production = Production.where(organ_id: @product_taxon.provider_ids).find params[:production_id]
+      @production = Production.where(organ_id: @taxon.provider_ids).find params[:production_id]
     end
 
     def set_providers
-      if @product_taxon.factory_taxon
-        @providers = @product_taxon.factory_taxon.providers
+      if @taxon.factory_taxon
+        @providers = @taxon.factory_taxon.providers
       else
         @providers = current_organ.providers
       end

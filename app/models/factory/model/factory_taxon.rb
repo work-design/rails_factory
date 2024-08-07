@@ -13,7 +13,7 @@ module Factory
       has_many :providers, through: :factory_providers
       has_many :products
       has_many :productions, through: :products, source: :productions
-      has_many :product_taxons
+      has_many :taxons
 
       has_one_attached :logo
     end

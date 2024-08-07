@@ -13,7 +13,7 @@ module Factory
 
     def item_extra
       {
-        product_taxon_id: product_taxon_id,
+        taxon_id: taxon_id,
         part_id: part_ids
       }
     end
