@@ -135,7 +135,7 @@ Rails.application.routes.draw do
           resources :scene_automatics
         end
         resources :products, only: [] do
-          resources :taxon_components
+          resources :product_components
           resources :productions do
             member do
               match :part, via: [:get, :post]
@@ -150,7 +150,7 @@ Rails.application.routes.draw do
           end
           resources :fits
         end
-        resources :taxon_components, only: [] do
+        resources :product_components, only: [] do
           resources :product_parts
         end
         resources :productions, only: [] do

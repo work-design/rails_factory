@@ -32,7 +32,7 @@ module Factory
       elsif max_select.to_i > min_select.to_i
         "可选 #{min_select} - #{max_select}"
       else
-        ""
+        ''
       end
     end
 
