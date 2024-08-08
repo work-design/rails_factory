@@ -10,7 +10,7 @@ module Factory
       attribute :nav, :boolean, default: false, comment: '单独分类'
       attribute :products_count, :integer, default: 0
       attribute :provides_count, :integer, default: 0
-      attribute :product_part_taxons_count, :integer, default: 0
+      attribute :taxon_components_count, :integer, default: 0
 
       belongs_to :template, class_name: 'JiaBo::Template', optional: true
 
@@ -22,7 +22,7 @@ module Factory
       has_many :productions
       has_many :provides
       has_many :providers, through: :provides
-      has_many :product_part_taxons
+      has_many :taxon_components
       has_many :brothers, class_name: self.name, primary_key: :organ_id, foreign_key: :organ_id
 
       has_one_attached :logo

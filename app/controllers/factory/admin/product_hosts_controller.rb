@@ -9,7 +9,7 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:taxon_id, :name)
 
-      @product_hosts = ProductHost.includes(product: [:parts, :taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob]).default_where(q_params).page(params[:page])
+      @product_hosts = ProductHost.includes(product: [:parts, :taxon, :brand, :taxon_components, logo_attachment: :blob, covers_attachments: :blob]).default_where(q_params).page(params[:page])
     end
 
     def new

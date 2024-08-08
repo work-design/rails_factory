@@ -32,14 +32,14 @@ module Factory
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
       has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
-      has_many :product_part_taxons, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
-      has_many :part_taxons, through: :product_part_taxons
+      has_many :taxon_components, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
+      has_many :part_taxons, through: :taxon_components
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :fits, dependent: :destroy_async
       has_many :product_hosts
 
-      accepts_nested_attributes_for :product_part_taxons, reject_if: :all_blank, allow_destroy: true
+      accepts_nested_attributes_for :taxon_components, reject_if: :all_blank, allow_destroy: true
       accepts_nested_attributes_for :productions
       accepts_nested_attributes_for :product_hosts
 
