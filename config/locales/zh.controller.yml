@@ -69,7 +69,7 @@ zh:
       product_parts:
         index:
           title: 产品组成
-      product_part_taxons:
+      taxon_components:
         index:
           title: 产品组成设置
         part:

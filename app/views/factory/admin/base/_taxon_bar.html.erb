@@ -17,7 +17,7 @@
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'taxon_components', active: 'is-active') %>">
-      <%= link_to({ controller: 'taxon/taxon_components', taxon_id: @taxon.id }) do %>
+      <%= link_to({ controller: 'taxon_components', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-tree"></i>
         <span class="pl-1"><%= t('.taxon_components.index.title') %></span>
       <% end %>
