@@ -13,7 +13,7 @@ module Factory
     end
 
     def set_new_taxon_component
-      @taxon_component = @taxon.taxon_components.build(product_part_taxon_params)
+      @taxon_component = @taxon.taxon_components.build(taxon_component_params)
     end
   end
 end
