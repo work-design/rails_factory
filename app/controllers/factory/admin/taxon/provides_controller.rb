@@ -1,6 +1,6 @@
 module Factory
   class Admin::Taxon::ProvidesController < Admin::ProvidesController
-    before_action :set_product_taxon
+    before_action :set_taxon
     before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_provide, only: [:new, :create]
 
@@ -22,7 +22,7 @@ module Factory
     end
 
     private
-    def set_product_taxon
+    def set_taxon
       @taxon = Taxon.find params[:taxon_id]
     end
 

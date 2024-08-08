@@ -92,9 +92,9 @@ module Factory
       @count_hash = { @taxon.id => @taxon.productions.where(enabled: true).count }
     end
 
-    def set_own_product_taxons
+    def set_own_taxons
       if @taxon.factory_taxon
-        @taxons = @taxon.factory_taxon.product_taxons.default_where(default_params)
+        @taxons = @taxon.factory_taxon.taxons.default_where(default_params)
       else
         @taxons = Taxon.none
       end
@@ -130,8 +130,8 @@ module Factory
       end
     end
 
-    def product_taxon_params
-      _p = params.fetch(:product_taxon, {}).permit(
+    def taxon_params
+      _p = params.fetch(:taxon, {}).permit(
         :name,
         :position,
         :logo,

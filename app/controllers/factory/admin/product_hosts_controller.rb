@@ -9,16 +9,16 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:taxon_id, :name)
 
-      @product_hosts = ProductHost.includes(product: [:parts, :product_taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob]).default_where(q_params).page(params[:page])
+      @product_hosts = ProductHost.includes(product: [:parts, :taxon, :brand, :product_part_taxons, logo_attachment: :blob, covers_attachments: :blob]).default_where(q_params).page(params[:page])
     end
 
     def new
       @product.product_hosts.build
-      @product.product_taxon = Taxon.default_where(default_params).new
+      @product.taxon = Taxon.default_where(default_params).new
     end
 
     def edit
-      @product.product_taxon ||= Taxon.default_where(default_params).first
+      @product.taxon ||= Taxon.default_where(default_params).first
     end
 
     private
@@ -44,7 +44,7 @@ module Factory
         :logo,
         :specialty,
         :taxon_id,
-        :product_taxon_ancestors,
+        :taxon_ancestors,
         part_ids: [],
         covers: [],
         images: [],

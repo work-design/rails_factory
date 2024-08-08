@@ -17,7 +17,7 @@ module Factory
     end
 
     def sync_organ
-      self.organ_id = product_taxon&.organ_id
+      self.organ_id = taxon&.organ_id
     end
 
     def invite_url

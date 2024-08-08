@@ -54,7 +54,7 @@ module Factory
     end
 
     private
-    def set_product_taxon
+    def set_taxon
       @taxon = Taxon.default_where(default_params).find params[:taxon_id]
     end
 

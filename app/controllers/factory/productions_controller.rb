@@ -3,7 +3,7 @@ module Factory
     before_action :set_taxon, if: -> { params[:taxon_id].present? }
     before_action :set_station, only: [:index, :show]
     before_action :set_produce_plans, only: [:index, :plan]
-    before_action :set_product_taxons, only: [:index, :rent]
+    before_action :set_taxons, only: [:index, :rent]
     before_action :set_production, only: [:show, :dialog, :actions]
     before_action :set_scene, only: [:index, :nav], if: -> { params[:produce_on].present? && params[:scene_id].present? }
     before_action :set_cart, only: [:index, :nav, :show, :create_dialog]
@@ -24,7 +24,7 @@ module Factory
           @productions = @produce_plan.productions.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }])
         end
       else
-        @products = Product.includes(:production, :product_taxon, :parts, :brand, logo_attachment: :blob).published.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
+        @products = Product.includes(:production, :taxon, :parts, :brand, logo_attachment: :blob).published.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
         @productions = @products.map(&:production).compact
       end
     end
@@ -110,7 +110,7 @@ module Factory
       @scenes = Factory::Scene.where(id: ids)
     end
 
-    def set_product_taxons
+    def set_taxons
       q_params = {
         'products_count-gt': 0
       }
@@ -118,7 +118,7 @@ module Factory
       @taxons = Taxon.with_attached_logo.enabled.default_where(q_params).order(id: :asc)
     end
 
-    def set_product_taxon
+    def set_taxon
       @taxon = Taxon.find params[:taxon_id] if params[:taxon_id]
     end
 

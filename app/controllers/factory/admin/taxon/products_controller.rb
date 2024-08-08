@@ -1,10 +1,10 @@
 module Factory
   class Admin::Taxon::ProductsController < Admin::ProductsController
-    before_action :set_product_taxon
+    before_action :set_taxon
     before_action :set_brands, only: [:new, :create, :edit, :update]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
     before_action :set_new_product, only: [:new, :create]
-    before_action :set_product_taxons, only: [:index, :edit, :update]
+    before_action :set_taxons, only: [:index, :edit, :update]
     before_action :set_cart, only: [:buy]
 
     def index
@@ -28,15 +28,15 @@ module Factory
     end
 
     def edit
-      @product.product_taxon ||= Taxon.default_where(default_params).first
+      @product.taxon ||= Taxon.default_where(default_params).first
     end
 
     private
-    def set_product_taxon
+    def set_taxon
       @taxon = Taxon.default_where(default_params).find params[:taxon_id]
     end
 
-    def set_product_taxons
+    def set_taxons
       @taxons = Taxon.default_where(default_params)
     end
 
@@ -68,7 +68,7 @@ module Factory
         :base_price,
         :taxon_id,
         :published,
-        :product_taxon_ancestors,
+        :taxon_ancestors,
         part_ids: [],
         covers: [],
         images: [],
