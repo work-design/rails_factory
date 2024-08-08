@@ -16,7 +16,7 @@ zh:
     product_plans:
       index:
         title: 产品批次
-    product_taxons:
+    taxons:
       index:
         title: 类别
     produce_plans:
@@ -74,7 +74,7 @@ zh:
           title: 产品组成设置
         part:
           title: 产品组成
-      product_taxons:
+      taxons:
         index:
           title: 类别
         all:
@@ -169,7 +169,7 @@ zh:
       home:
         index:
           title: 采购
-      product_taxons:
+      taxons:
         index:
           title: 进货
         import:
