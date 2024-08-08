@@ -3,7 +3,7 @@
     <th><%= link_to Factory::Product.human_attribute_name(:taxon_id), { controller: 'taxons' }, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:taxon_id]), class: active_helper(taxon_id: '', active: 'button is-info', item: 'button is-light') %>
-      <% Factory::ProductTaxon.default_where(default_params).each do |taxon| %>
+      <% Factory::Taxon.default_where(default_params).each do |taxon| %>
         <%= link_to taxon.name, filter_params(taxon_id: taxon.id, except: [:id]), class: active_helper(taxon_id: taxon.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
       <%= link_to({ controller: 'taxons', action: 'new' }, data: { turbo_frame: 'modal' }, class: 'button is-light') do %>

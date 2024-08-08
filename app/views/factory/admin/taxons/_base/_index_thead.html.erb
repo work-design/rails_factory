@@ -1,10 +1,10 @@
 <th>
-  <p><%= Factory::ProductTaxon.human_attribute_name(:name) %></p>
+  <p><%= Factory::Taxon.human_attribute_name(:name) %></p>
   <% if @scenes.present? %>
-    <p><%= Factory::ProductTaxon.human_attribute_name(:scene_id) %></p>
+    <p><%= Factory::Taxon.human_attribute_name(:scene_id) %></p>
   <% end %>
 </th>
-<th><%= Factory::ProductTaxon.human_attribute_name(:products_count) %></th>
+<th><%= Factory::Taxon.human_attribute_name(:products_count) %></th>
 <th>已上架</th>
-<th><%= Factory::ProductTaxon.human_attribute_name(:provides_count) %></th>
-<th><%= Factory::ProductTaxon.human_attribute_name(:enabled) %></th>
+<th><%= Factory::Taxon.human_attribute_name(:provides_count) %></th>
+<th><%= Factory::Taxon.human_attribute_name(:enabled) %></th>

@@ -1,16 +1,16 @@
 <div>
-  <dt><%= Factory::ProductTaxon.human_attribute_name(:name) %></dt>
+  <dt><%= Factory::Taxon.human_attribute_name(:name) %></dt>
   <dd><%= @taxon.name %></dd>
 </div>
 <div>
-  <dt><%= Factory::ProductTaxon.human_attribute_name(:position) %></dt>
+  <dt><%= Factory::Taxon.human_attribute_name(:position) %></dt>
   <dd><%= @taxon.position %></dd>
 </div>
 <div>
-  <dt><%= Factory::ProductTaxon.human_attribute_name(:logo) %></dt>
+  <dt><%= Factory::Taxon.human_attribute_name(:logo) %></dt>
   <dt><%= image_tag @taxon.logo, class: 'image is-64x64' if @taxon.logo.attached? %></dd>
 </div>
 <div>
-  <dt><%= Factory::ProductTaxon.human_attribute_name(:logo_color) %></dt>
+  <dt><%= Factory::Taxon.human_attribute_name(:logo_color) %></dt>
   <dt><%= image_tag @taxon.logo_color, class: 'image is-64x64' if @taxon.logo_color.attached? %></dd>
 </div>
