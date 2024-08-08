@@ -66,6 +66,9 @@ zh:
           title: 产品详情
         buy:
           title: 采购
+      product_components:
+        index:
+          title: 产品组成
       product_parts:
         index:
           title: 产品组成
