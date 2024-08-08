@@ -11,8 +11,8 @@ module Factory
       belongs_to :taxon, counter_cache: true
       belongs_to :part_taxon, class_name: 'Taxon'
 
-      has_many :product_parts
-      has_many :parts, through: :product_parts
+      has_many :taxon_parts
+      has_many :parts, through: :taxon_parts
 
       validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.max_select } }
       #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
