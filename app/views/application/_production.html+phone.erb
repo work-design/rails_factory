@@ -11,7 +11,7 @@
       <%= model.product.description %>
     <% end %>
     <ul class="media-info mt-1">
-      <% model.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
+      <% model.parts.group_by(&->(i){ i.taxon_id }).each do |_, parts| %>
         <% parts.each_with_index do |part, _| %>
           <li><%= part.name %></li>
         <% end %>

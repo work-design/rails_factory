@@ -5,7 +5,7 @@
     <i class="fa-solid fa-fw dropdown"></i>
   </a>
   <div class="menu-list" data-empty-target="content">
-    <%= link_to t('factory.admin.product_taxons.index.title'), { controller: 'factory/admin/product_taxons' }, class: active_helper(controllers: ['products', 'product_taxons', 'product_part_taxons', 'productions', 'part_providers', 'production_plans', 'production_items'], active: 'is-active') %>
+    <%= link_to t('factory.admin.taxons.index.title'), { controller: 'factory/admin/taxons' }, class: active_helper(controllers: ['products', 'taxons', 'product_part_taxons', 'productions', 'part_providers', 'production_plans', 'production_items'], active: 'is-active') %>
     <%= link_to t('factory.admin.scenes.index.title'), { controller: 'factory/admin/scenes' }, class: active_helper(controllers: ['scenes', 'produce_plans'], active: 'is-active') %>
     <%= link_to t('factory.admin.produce_on.index.title'), { controller: 'factory/admin/produce_on' }, class: active_helper(controllers: 'produce_on', active: 'is-active') %>
     <%= link_to t('factory.admin.brands.index.title'), { controller: 'factory/admin/brands' }, class: active_helper(controllers: 'brands', active: 'is-active') %>

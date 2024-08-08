@@ -1,0 +1,7 @@
+<%= render layout: 'index_table' do %>
+  <% @taxons.group_by(&:factory_taxon).each do |taxon, taxons| %>
+    <%= render partial: 'taxon_tbody', locals: { taxon: taxon, size: taxons.size + 1 } %>
+    <%= render partial: 'index_tbody', layout: 'index_tr', collection: taxons, as: :model %>
+  <% end %>
+  <%= render partial: 'factory_tbody', layout: 'factory_tr', collection: @factory_taxons, as: :model %>
+<% end %>

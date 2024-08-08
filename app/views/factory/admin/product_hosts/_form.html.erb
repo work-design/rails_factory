@@ -1,4 +1,4 @@
-<%= render partial: 'com/nodes/outer_select', locals: { f: f, outer: 'product_taxon', node: f.object.product_taxon } %>
+<%= render partial: 'com/nodes/outer_select', locals: { f: f, outer: 'taxon', node: f.object.taxon } %>
 <%= f.text_field :name, required: true %>
 <%= f.collection_select :brand_id, @brands, :id, :name, include_blank: true %>
 <%= f.file_field :logo %>

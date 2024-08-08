@@ -1,41 +1,41 @@
 <h2 class="title text-centered">
-  <%= @product_taxon.name %>
+  <%= @taxon.name %>
 </h2>
 
 <div class="tabs is-centered mb-3">
   <ul>
-    <li class="<%= active_helper(product_taxons: ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('.product_taxons.show.title'), { controller: 'product_taxons', action: 'show', id: @product_taxon.id } %>
+    <li class="<%= active_helper(taxons: ['show', 'edit'], active: 'is-active') %>">
+      <%= link_to t('.taxons.show.title'), { controller: 'taxons', action: 'show', id: @taxon.id } %>
     </li>
     <li class="<%= active_helper(products: ['index'], active: 'is-active') %>">
-      <%= link_to t('.products.index.title'), { controller: 'taxon/products', product_taxon_id: @product_taxon.id } %>
+      <%= link_to t('.products.index.title'), { controller: 'taxon/products', taxon_id: @taxon.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
-      <%= link_to({ controller: 'productions', action: 'taxon', product_taxon_id: @product_taxon.id }) do %>
+      <%= link_to({ controller: 'productions', action: 'taxon', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-list"></i>
         <span class="pl-1"><%= t('factory.admin.productions.taxon.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'product_part_taxons', active: 'is-active') %>">
-      <%= link_to({ controller: 'taxon/product_part_taxons', product_taxon_id: @product_taxon.id }) do %>
+      <%= link_to({ controller: 'taxon/product_part_taxons', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-tree"></i>
         <span class="pl-1"><%= t('.product_part_taxons.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(products: ['buy'], active: 'is-active') %>">
-      <%= link_to({ controller: 'taxon/products', action: 'buy', product_taxon_id: @product_taxon.id }) do %>
+      <%= link_to({ controller: 'taxon/products', action: 'buy', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-store"></i>
         <span class="pl-1"><%= t('.products.buy.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(product_taxons: ['import'], active: 'is-active') %>">
-      <%= link_to({ controller: 'product_taxons', action: 'import', id: @product_taxon.id }) do %>
+    <li class="<%= active_helper(taxons: ['import'], active: 'is-active') %>">
+      <%= link_to({ controller: 'taxons', action: 'import', id: @taxon.id }) do %>
         <i class="fa-solid fa-sign-in-alt"></i>
-        <span class="pl-1"><%= t('factory.admin.product_taxons.import.title') %></span>
+        <span class="pl-1"><%= t('factory.admin.taxons.import.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'provides', active: 'is-active') %>">
-      <%= link_to({ controller: 'taxon/provides', product_taxon_id: @product_taxon.id }) do %>
+      <%= link_to({ controller: 'taxon/provides', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-building"></i>
         <span class="pl-1"><%= t('.provides.index.title') %></span>
       <% end %>

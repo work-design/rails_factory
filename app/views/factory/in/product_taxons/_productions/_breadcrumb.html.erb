@@ -2,9 +2,9 @@
   <ul>
     <li><%= link_to t('factory.admin.products.index.title'), { controller: 'products' } %></li>
     <li>
-      <%= link_to({ controller: 'product_taxons', id: @product_taxon.factory_taxon_id }) do %>
-        <span><%= @product_taxon.name %></span>
-        <span class="text-grey">（<%= @product_taxon.factory_taxon.name %>）</span>
+      <%= link_to({ controller: 'taxons', id: @taxon.factory_taxon_id }) do %>
+        <span><%= @taxon.name %></span>
+        <span class="text-grey">（<%= @taxon.factory_taxon.name %>）</span>
       <% end %>
     </li>
     <li><span></span></li>

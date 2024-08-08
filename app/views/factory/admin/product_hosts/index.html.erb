@@ -2,7 +2,7 @@
 <%= render 'index_bar' %>
 
 <%= render layout: 'index_table' do %>
-<% @product_hosts.group_by(&->(i){ i.product.product_taxon }).each do |taxon, products| %>
+<% @product_hosts.group_by(&->(i){ i.product.taxon }).each do |taxon, products| %>
 
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: products, as: :model %>
 <% end %>

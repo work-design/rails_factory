@@ -4,7 +4,7 @@
     <%= link_to @taxon.name, { controller: 'taxons' }, class: 'navbar-link' %>
     <div class="navbar-dropdown is-right">
       <% @taxon.brothers.each do |taxon| %>
-        <%= link_to taxon.name, { taxon_id: taxon.id }, class: active_helper(taxon_id: taxon.id, item: 'navbar-item', active: 'navbar-item is-active') %>
+        <%= link_to taxon.name, { id: taxon.id }, class: 'navbar-item' %>
       <% end %>
     </div>
   </div>

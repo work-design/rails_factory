@@ -1,0 +1,12 @@
+<%= render 'top_bar' %>
+
+<div class="m-3">
+<% @taxons.each do |taxon, taxons| %>
+  <%= render layout: 'index_list' do %>
+    <%= render partial: 'taxon_item', locals: { taxon: taxon, size: taxons.size + 1 } if taxon %>
+    <%= render partial: 'index_item', layout: 'index_item_actions', collection: taxons, as: :model %>
+  <% end %>
+<% end %>
+</div>
+
+<%= render 'button' %>

@@ -1,0 +1,9 @@
+<div class="weui-panel__hd"><%= t('.title') %></div>
+<div class="weui-grids">
+  <% @taxons.each do |taxon| %>
+    <%= link_to({ controller: 'products', taxon_id: taxon.id }, class: 'weui-grid') do %>
+      <div class="weui-grid__icon"><%= image_tag taxon.logo if taxon.logo.attached? %></div>
+      <p class="weui-grid__label"><%= taxon.name %></p>
+    <% end %>
+  <% end %>
+</div>

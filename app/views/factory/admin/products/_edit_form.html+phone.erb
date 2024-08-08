@@ -1,6 +1,6 @@
 <%= form_with theme: 'weui', model: model, scope: model_name, url: { action: 'update' }, state: 'redirect' do |f| %>
   <div class="form-fields">
-    <%= f.collection_select :product_taxon_id, @product_taxons, :id, :name %>
+    <%= f.collection_select :taxon_id, @taxons, :id, :name %>
     <%= render partial: 'form', locals: { f: f } %>
   </div>
   <%= f.submit %>

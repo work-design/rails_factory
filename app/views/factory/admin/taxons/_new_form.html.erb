@@ -1,4 +1,4 @@
-<%= form_with model: @product_taxon, url: { action: 'create', **params.permit(:factory_taxon_id) }, class: 'modal-card' do |f| %>
+<%= form_with model: @taxon, url: { action: 'create', **params.permit(:factory_taxon_id) }, class: 'modal-card' do |f| %>
   <header class="modal-card-head">
     <p class="modal-card-title"><%= t('.title') %></p>
     <button type="button" data-action="modal#close" class="delete"></button>

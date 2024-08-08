@@ -1,11 +1,11 @@
-<li><%= link_to t('.product_taxons.index.title'), { controller: 'product_taxons', anchor: "tr_#{@product.product_taxon.id}" } %></li>
+<li><%= link_to t('.taxons.index.title'), { controller: 'taxons', anchor: "tr_#{@product.taxon.id}" } %></li>
 <li>
   <div class="px-3">
-    <span><%= @product.product_taxon.name %></span>
-    <% if @product.product_taxon.factory_taxon %>
-      <span class="text-grey">（<%= @product.product_taxon.factory_taxon.name %>）</span>
+    <span><%= @product.taxon.name %></span>
+    <% if @product.taxon.factory_taxon %>
+      <span class="text-grey">（<%= @product.taxon.factory_taxon.name %>）</span>
     <% end %>
   </div>
 </li>
-<li><%= link_to t('factory.admin.taxon.products.index.title'), { controller: 'taxon/products', product_taxon_id: @product.product_taxon_id } %></li>
+<li><%= link_to t('factory.admin.taxon.products.index.title'), { controller: 'taxon/products', taxon_id: @product.taxon_id } %></li>
 <li><span class="px-3"><%= @product.name %></span></li>

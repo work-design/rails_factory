@@ -11,7 +11,7 @@
   </div>
   <div class="weui-panel__bd">
     <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
-      <%= link_to({ controller: 'taxon/products', product_taxon_id: @product_taxon.id }, class: 'column has-column-centered') do %>
+      <%= link_to({ controller: 'taxon/products', taxon_id: @taxon.id }, class: 'column has-column-centered') do %>
         <div class="text-primary">
           <i class="fa-solid fa-fw fa-xl fa-folder-tree"></i>
         </div>

@@ -5,10 +5,10 @@
   <% end %>
   <p class="text-grey"><%= model.scene&.title %></p>
 </td>
-<td><%= link_to model.products_count, { controller: 'taxon/products', product_taxon_id: model.id } %></td>
+<td><%= link_to model.products_count, { controller: 'taxon/products', taxon_id: model.id } %></td>
 <td><%= @count_hash[model.id] %></td>
 <td>
-  <%= link_to({ controller: 'taxon/provides', product_taxon_id: model.id }, aria: { label: t('.taxon.provides.index.title') }) do %>
+  <%= link_to({ controller: 'taxon/provides', taxon_id: model.id }, aria: { label: t('.taxon.provides.index.title') }) do %>
     <span><%= model.provides_count %></span>
   <% end %>
 </td>

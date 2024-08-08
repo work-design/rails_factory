@@ -8,7 +8,7 @@
   <table class="table is-borderless">
   <% model.parts.each do |part| %>
     <tr>
-      <td><span class="tag"><%= link_to part.name, { controller: 'products', action: 'show', product_taxon_id: part.product_taxon_id, id: part.id } %></span></td>
+      <td><span class="tag"><%= link_to part.name, { controller: 'products', action: 'show', taxon_id: part.taxon_id, id: part.id } %></span></td>
       <td><%= part.price %></td>
     </tr>
   <% end %>
@@ -17,11 +17,11 @@
 <td>
 <% if @imported_production_ids.include?(model.id) %>
   <i class="fa-solid fa-check text-success"></i>
-  <%= button_to({ action: 'prune' }, method: :delete, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
+  <%= button_to({ action: 'prune' }, method: :delete, params: { production_id: model.id }, aria: { label: t('factory.in.taxons.prune.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-times text-danger"></i>
   <% end %>
 <% else %>
-  <%= button_to({ action: 'copy' }, params: { production_id: model.id }, aria: { label: t('factory.in.product_taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
+  <%= button_to({ action: 'copy' }, params: { production_id: model.id }, aria: { label: t('factory.in.taxons.copy.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-tractor text-success"></i>
   <% end %>
 <% end %>

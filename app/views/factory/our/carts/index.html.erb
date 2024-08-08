@@ -1,7 +1,7 @@
 <div class="weui-panel">
   <div class="weui-panel__hd">供应商</div>
   <div class="weui-panel__bd">
-    <%= render partial: 'organ', collection: current_organ.provides.includes(:product_taxon).group_by(&:provider), as: :provider %>
+    <%= render partial: 'organ', collection: current_organ.provides.includes(:taxon).group_by(&:provider), as: :provider %>
   </div>
 </div>
 

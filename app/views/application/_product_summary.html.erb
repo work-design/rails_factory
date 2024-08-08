@@ -4,7 +4,7 @@
     <td><%= item.good.name %></td>
     <td>
       <ul class="media-info display-inline-flex">
-        <% item.good.parts.group_by(&->(i){ i.product_taxon_id }).each do |_, parts| %>
+        <% item.good.parts.group_by(&->(i){ i.taxon_id }).each do |_, parts| %>
           <% parts.each_with_index do |part, _| %>
             <li><%= part.name %></li>
           <% end %>

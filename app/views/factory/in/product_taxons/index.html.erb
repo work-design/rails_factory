@@ -1,5 +1,5 @@
 <%= render layout: 'index_table' do %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @product_taxons, as: :model %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @taxons, as: :model %>
 <% end %>
 
-<%= paginate @product_taxons %>
+<%= paginate @taxons %>

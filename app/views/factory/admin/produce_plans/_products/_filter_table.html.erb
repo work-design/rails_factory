@@ -1,10 +1,10 @@
 <table class="table as-search">
   <tr>
-    <th><%= Factory::Product.human_attribute_name(:product_taxon_id) %></th>
+    <th><%= Factory::Product.human_attribute_name(:taxon_id) %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:product_taxon_id]), class: active_helper(product_taxon_id: '', active: 'button is-info', item: 'button is-light') %>
-      <% @product_taxons.each do |product_taxon| %>
-        <%= link_to product_taxon.name, filter_params(product_taxon_id: product_taxon.id, except: [:id]), class: active_helper(product_taxon_id: product_taxon.id, active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:taxon_id]), class: active_helper(taxon_id: '', active: 'button is-info', item: 'button is-light') %>
+      <% @taxons.each do |taxon| %>
+        <%= link_to taxon.name, filter_params(taxon_id: taxon.id, except: [:id]), class: active_helper(taxon_id: taxon.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>

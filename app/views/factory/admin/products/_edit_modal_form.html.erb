@@ -5,7 +5,7 @@
   </header>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
-    <%= f.collection_select :product_taxon_id, @product_taxons, :id, :name %>
+    <%= f.collection_select :taxon_id, @taxons, :id, :name %>
     <%= render partial: 'form', locals: { f: f } %>
   </section>
   <footer class="modal-card-foot">
