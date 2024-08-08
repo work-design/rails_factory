@@ -29,19 +29,16 @@ module Factory
       has_one :production, -> { where(default: true) }
       has_many :productions, dependent: :destroy_async
       has_many :production_provides, dependent: :destroy_async
+      has_many :product_components
       has_many :product_parts, dependent: :destroy_async
       has_many :parts, through: :product_parts
       has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
-      has_many :taxon_components, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
-      has_many :part_taxons, through: :taxon_components
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :fits, dependent: :destroy_async
-      has_many :product_hosts
 
-      accepts_nested_attributes_for :taxon_components, reject_if: :all_blank, allow_destroy: true
+      accepts_nested_attributes_for :product_components, reject_if: :all_blank, allow_destroy: true
       accepts_nested_attributes_for :productions
-      accepts_nested_attributes_for :product_hosts
 
       has_one_attached :logo
       has_many_attached :covers
