@@ -16,10 +16,10 @@
         <span class="pl-1"><%= t('factory.admin.productions.taxon.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(controllers: 'product_part_taxons', active: 'is-active') %>">
-      <%= link_to({ controller: 'taxon/product_part_taxons', taxon_id: @taxon.id }) do %>
+    <li class="<%= active_helper(controllers: 'taxon_components', active: 'is-active') %>">
+      <%= link_to({ controller: 'taxon/taxon_components', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-tree"></i>
-        <span class="pl-1"><%= t('.product_part_taxons.index.title') %></span>
+        <span class="pl-1"><%= t('.taxon_components.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(products: ['buy'], active: 'is-active') %>">

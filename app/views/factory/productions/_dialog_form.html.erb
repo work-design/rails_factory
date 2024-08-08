@@ -3,6 +3,6 @@
 <% end %>
 <%# render 'factory/productions/_base/figure' if production.product.covers.length > 0 %>
 
-<% production.same_product_parts.includes(:product_part_taxon, :part).group_by(&:product_part_taxon).each do |product_part_taxon, product_parts| %>
-  <%= render partial: 'product_part_taxon', locals: { product_part_taxon: product_part_taxon, product_parts: product_parts } %>
+<% production.same_product_parts.includes(:taxon_component, :part).group_by(&:taxon_component).each do |taxon_component, product_parts| %>
+  <%= render partial: 'taxon_component', locals: { taxon_component: taxon_component, product_parts: product_parts } %>
 <% end %>
