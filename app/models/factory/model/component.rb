@@ -8,11 +8,10 @@ module Factory
       attribute :max_select, :integer
       attribute :product_parts_count, :integer, default: 0
 
-      belongs_to :taxon, counter_cache: true
       belongs_to :part_taxon, class_name: 'Taxon'
 
-      has_many :taxon_parts
-      has_many :parts, through: :taxon_parts
+      has_many :component_items
+      has_many :parts, through: :component_items
 
       validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.max_select } }
       #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
