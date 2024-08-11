@@ -3,6 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :type, :string
       attribute :name, :string
       attribute :min_select, :integer, default: 1
       attribute :max_select, :integer
