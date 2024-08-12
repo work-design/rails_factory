@@ -11,17 +11,12 @@ module Factory
 
       belongs_to :part_taxon, class_name: 'Taxon'
 
-      has_many :component_items
-      has_many :parts, through: :component_items
+      has_many :component_parts
+      has_many :parts, through: :component_parts
 
       validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.max_select } }
       #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
 
-      before_validation :sync_taxon_id, if: -> { product_id_changed? }
-    end
-
-    def sync_taxon_id
-      self.taxon_id = product.taxon_id
     end
 
     def select_str
