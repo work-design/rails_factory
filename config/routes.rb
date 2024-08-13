@@ -175,6 +175,7 @@ Rails.application.routes.draw do
               post :search
             end
           end
+          resources :production_parts
           resources :production_plans do
             resources :production_plan_items, path: 'items', only: [:index, :create, :show, :edit, :destroy] do
               collection do

@@ -130,6 +130,9 @@ zh:
           title: 成本价格
         wallet:
           title: 积分兑换
+      production_parts:
+        index:
+          title: 物料清单
       provideds:
         index:
           title: 供应列表

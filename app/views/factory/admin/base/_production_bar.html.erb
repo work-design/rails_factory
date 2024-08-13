@@ -4,20 +4,26 @@
     <li class="<%= active_helper(productions: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.productions.show.title'), { controller: 'factory/admin/productions', action: 'show', product_id: @production.product_id, id: @production.id } %>
     </li>
+    <li class="<%= active_helper(controllers: 'production_parts', active: 'is-active') %>">
+      <%= link_to({ controller: 'production_parts', production_id: @production.id }) do %>
+        <i class="fa-solid fa-list text-info"></i>
+        <span class="pl-1"><%= t('.production_parts.index.title') %></span>
+      <% end %>
+    </li>
     <li class="<%= active_helper(controllers: 'production_plans', active: 'is-active') %>">
-      <%= link_to({ controller: 'factory/admin/production_plans', production_id: @production.id }) do %>
+      <%= link_to({ controller: 'production_plans', production_id: @production.id }) do %>
         <i class="fa-solid fa-list text-info"></i>
         <span class="pl-1"><%= t('.production_plans.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'production_items', active: 'is-active') %>">
-      <%= link_to({ controller: 'factory/admin/production_items', production_id: @production.id }) do %>
+      <%= link_to({ controller: 'production_items', production_id: @production.id }) do %>
         <i class="fa-solid fa-list text-info"></i>
         <span class="pl-1"><%= t('.production_items.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'purchase_items', active: 'is-active') %>">
-      <%= link_to({ controller: 'factory/admin/purchase_items', production_id: @production.id }) do %>
+      <%= link_to({ controller: 'purchase_items', production_id: @production.id }) do %>
         <i class="fa-solid fa-list text-success"></i>
         <span class="pl-1"><%= t('.purchase_items.index.title') %></span>
       <% end %>

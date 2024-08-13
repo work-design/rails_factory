@@ -3,6 +3,8 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :number, :integer
+
       belongs_to :part_taxon, class_name: 'Taxon'
       belongs_to :product
       belongs_to :production
