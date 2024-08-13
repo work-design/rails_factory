@@ -1,0 +1,18 @@
+<td><%= model.name %></td>
+<td><%= model.part_taxon.name %></td>
+<td>
+  <p><%= model.min_select %></p>
+  <p><%= model.max_select %></p>
+</td>
+<td class="text-grey"><%= model.select_str %></td>
+<td><%= link_to model.product_parts_count, { controller: 'product_parts', taxon_component_id: model.id } %></td>
+<td>
+<% model.product_parts.each do |product_part| %>
+  <p>
+    <span><%= product_part.part.name %></span>
+    <% if product_part.default %>
+      <i class="fa-solid fa-check text-success"></i>
+    <% end %>
+  </p>
+<% end %>
+</td>
