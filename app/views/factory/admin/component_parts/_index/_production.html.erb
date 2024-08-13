@@ -1,0 +1,16 @@
+<td><span class="pl-4"><%= model.name %></span></td>
+<td><p class="text-grey"><%= model.price.to_money.format.html_safe %></p></td>
+<td><p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p></td>
+<td>
+  <table class="table is-borderless">
+    <% model.parts.each do |part| %>
+      <tr>
+        <td><span class="tag"><%= button_to part.name, { controller: 'products', action: 'show', id: part.id } %></span></td>
+        <td><%= part.price %></td>
+      </tr>
+    <% end %>
+  </table>
+</td>
+<td>
+
+</td>

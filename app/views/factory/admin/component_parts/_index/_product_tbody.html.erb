@@ -1,0 +1,11 @@
+<td>
+  <div class="is-several">
+    <%= image_tag model.logo.variant(resize_to_limit: [32, 32]), class: 'image is-32x32' if model.logo.attached? %>
+    <span><%= model.name %></span>
+  </div>
+</td>
+<td colspan="2"></td>
+<td>
+  <p><%= model.brand&.name %></p>
+</td>
+<td><%= model.description.to_s.truncate(27) %></td>

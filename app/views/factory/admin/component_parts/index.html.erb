@@ -10,4 +10,6 @@
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @component_parts, as: :model %>
 <% end %>
 
-<%= paginate @component_parts %>
+<%= render layout: 'product_table' do %>
+  <%= render partial: 'product_tbody', layout: 'product_tr', collection: @component.taxon.products, as: :model %>
+<% end %>
