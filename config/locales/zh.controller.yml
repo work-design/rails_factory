@@ -37,7 +37,7 @@ zh:
       taxon:
         products:
           index:
-            title: 产品
+            title: 产品列表
       brands:
         index:
           title: 旗下品牌
@@ -117,7 +117,7 @@ zh:
           title: 供应商管理
       productions:
         index:
-          title: 产品型号
+          title: 型号列表
         taxon:
           title: 主显商品列表
         card:
