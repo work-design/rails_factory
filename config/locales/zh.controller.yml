@@ -90,7 +90,7 @@ zh:
           title: 从上游导入
       production_plans:
         index:
-          title: 产品批次
+          title: 生产计划
       production_items:
         index:
           title: 产品清单
