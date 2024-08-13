@@ -6,3 +6,9 @@
     <label data-action="click->input#check"></label>
   <% end %>
 </td>
+<td>
+  <%= button_to({ action: 'destroy', id: model.id }, method: :delete, form: { data: { turbo_confirm: t('.destroy.confirm') } }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-solid fa-trash text-danger"></i>
+    <span class="ml-1"><%= t('.destroy.title') %></span>
+  <% end %>
+</td>

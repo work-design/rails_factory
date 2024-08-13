@@ -12,5 +12,7 @@
   </table>
 </td>
 <td>
-
+  <%= button_to({ action: 'create' }, params: { 'component_part[part_id]': model.id }, class: 'button is-small') do %>
+    <span><%= t('.create.title') %></span>
+  <% end %>
 </td>
