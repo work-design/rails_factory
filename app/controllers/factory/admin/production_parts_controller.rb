@@ -3,7 +3,6 @@ module Factory
     before_action :set_production
     before_action :set_production_part, only: [:show, :edit, :update, :destroy]
     before_action :set_new_production_part, only: [:new, :create]
-    before_action :set_scenes, only: [:new, :edit]
 
     def index
       q_params = {}
@@ -27,13 +26,7 @@ module Factory
 
     def production_part_params
       params.fetch(:production_part, {}).permit(
-        :scene_id,
-        :start_at,
-        :finish_at,
-        :produce_on,
-        :state,
-        :planned_count,
-        :specialty
+        :number
       )
     end
 
