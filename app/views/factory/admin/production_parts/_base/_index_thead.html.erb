@@ -1,14 +1,6 @@
+<th><%= Factory::ProductionPart.human_attribute_name(:part_id) %></th>
+<th><%= Factory::ProductionPart.human_attribute_name(:number) %></th>
 <th>
-  <p><%= Factory::ProductionPlan.human_attribute_name(:produce_plan_id) %></p>
-  <p><%= Factory::ProductionPlan.human_attribute_name(:produce_on) %></p>
-</th>
-<th>
-  <p><%= Factory::ProductionPlan.human_attribute_name(:start_at) %></p>
-  <p><%= Factory::ProductionPlan.human_attribute_name(:finish_at) %></p>
-</th>
-<th><%= Factory::ProductionPlan.human_attribute_name(:state) %></th>
-<th>
-  <p><%= Factory::ProductionPlan.human_attribute_name(:planned_count) %></p>
   <p><%= Factory::ProductionPlan.human_attribute_name(:production_items_count) %></p>
 </th>
 <th><%= Factory::ProductionPlan.human_attribute_name(:station_id) %></th>
