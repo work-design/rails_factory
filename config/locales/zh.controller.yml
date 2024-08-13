@@ -147,12 +147,12 @@ zh:
           title: 移除供应商
       trade_items:
         index:
-          title: 订单明细
+          title: 销售明细
         print:
           title: 打印订单
       purchase_items:
         index:
-          title: 采购订单
+          title: 采购
         update:
           title: 接收
         batch_receive:
