@@ -20,9 +20,9 @@ module Factory
     end
 
     def select_str
-      if max_select == min_select && product_parts_count > max_select.to_i
+      if max_select == min_select && component_parts_count > max_select.to_i
         "#{product_parts_count} 选 #{max_select}"
-      elsif max_select == min_select && product_parts_count == max_select
+      elsif max_select == min_select && component_parts_count == max_select
         "必选 #{max_select}"
       elsif max_select.to_i > min_select.to_i
         "可选 #{min_select} - #{max_select}"
@@ -32,7 +32,7 @@ module Factory
     end
 
     def only_one?
-      max_select == min_select && max_select == 1 && product_parts_count > max_select
+      max_select == min_select && max_select == 1 && component_parts_count > max_select
     end
 
     def disabled?(production_part_ids, part_id)

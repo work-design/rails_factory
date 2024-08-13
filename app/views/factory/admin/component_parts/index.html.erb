@@ -11,5 +11,5 @@
 <% end %>
 
 <%= render layout: 'product_table' do %>
-  <%= render partial: 'product_tbody', layout: 'product_tr', collection: @component.taxon.products, as: :model %>
+  <%= render partial: 'product_tbody', layout: 'product_tr', collection: @component.part_taxon.products, as: :model %>
 <% end %>
