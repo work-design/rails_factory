@@ -150,8 +150,8 @@ Rails.application.routes.draw do
           end
           resources :fits
         end
-        resources :product_components, only: [] do
-          resources :product_parts
+        resources :components, only: [] do
+          resources :component_parts
         end
         resources :productions, only: [] do
           collection do
