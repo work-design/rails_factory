@@ -31,8 +31,8 @@ module Factory
       has_many :production_provides, dependent: :destroy_async
       has_many :components, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
       has_many :product_components
-      has_many :product_parts, dependent: :destroy_async
-      has_many :parts, through: :product_parts
+      has_many :component_parts, through: :components
+      has_many :parts, through: :component_parts
       has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts

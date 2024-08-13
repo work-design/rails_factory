@@ -23,7 +23,6 @@ module Factory
     end
 
     def new
-      @product.product_hosts.build
       @product.productions.build
       @product.taxon = Taxon.default_where(default_params).new
     end
