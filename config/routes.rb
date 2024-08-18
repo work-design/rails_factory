@@ -127,12 +127,17 @@ Rails.application.routes.draw do
         end
         resources :plans
         resources :scenes do
-          resources :produce_plans do
+          resources :produce_plans, controller: 'scene/produce_plans' do
             member do
               get :products
             end
           end
           resources :scene_automatics
+        end
+        resources :produce_plans do
+          member do
+            get :products
+          end
         end
         resources :products, only: [] do
           resources :product_components

@@ -19,7 +19,7 @@ module Factory
       belongs_to :production
       belongs_to :product
       belongs_to :scene, optional: true
-      belongs_to :produce_plan, ->(o){ where(produce_on: o.produce_on) }, foreign_key: :scene_id, primary_key: :scene_id, counter_cache: true, optional: true
+      belongs_to :produce_plan, ->(o){ where(produce_on: o.produce_on, organ_id: o.organ_id) }, foreign_key: :scene_id, primary_key: :scene_id, counter_cache: true, optional: true
 
       has_many :production_items
       has_many :trade_items, ->(o){ where(good_type: 'Factory::Production', produce_on: o.produce_on) }, class_name: 'Trade::TradeItem', foreign_key: :good_id, primary_key: :production_id
@@ -38,7 +38,7 @@ module Factory
       self.product = production.product
       self.organ_id = production.organ_id
       self.produce_on ||= Date.tomorrow
-      #self.assign_attributes produce_plan.attributes.slice('start_at', 'finish_at', 'state')
+      produce_plan || build_produce_plan
     end
 
     def set_specialty

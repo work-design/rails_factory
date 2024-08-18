@@ -2,7 +2,7 @@
 <td>
 <% model[1].each do |produce_plan| %>
   <div class="level">
-    <div class="level-item"><%= produce_plan.scene.title %></div>
+    <div class="level-item"><%= produce_plan.scene&.title %></div>
   </div>
 <% end %>
 </td>
