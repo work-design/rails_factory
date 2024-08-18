@@ -1,9 +1,7 @@
-<td><%= model[0] %></td>
+<td><%= produce_on %></td>
 <td>
-<% model[1].each do |produce_plan| %>
-  <div class="level">
-    <div class="level-item"><%= produce_plan.scene&.title %></div>
-  </div>
-<% end %>
+<%= @produce_plans[produce_on] %>
+
+
 </td>
 <td></td>
