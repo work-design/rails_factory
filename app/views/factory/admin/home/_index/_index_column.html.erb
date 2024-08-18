@@ -11,6 +11,9 @@
       <span class="text-grey"><%= @scene_count %></span>
       <span><%= t('.scenes.index.title') %></span>
     <% end %>
+    <%= link_to({ controller: 'produce_plans' }, class: 'cell button is-fullwidth flex-direction-column') do %>
+      <span><%= t('.produce_plans.index.title') %></span>
+    <% end %>
     <%= link_to({ controller: 'provides' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.provides.index.title') %></span>
     <% end %>
