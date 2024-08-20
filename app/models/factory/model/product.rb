@@ -37,6 +37,7 @@ module Factory
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :fits, dependent: :destroy_async
+      has_many :production_plans
 
       accepts_nested_attributes_for :product_components, reject_if: :all_blank, allow_destroy: true
       accepts_nested_attributes_for :productions

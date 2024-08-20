@@ -1,7 +1,7 @@
 <%= render layout: 'product_table' do %>
 <% @productions.group_by(&:product).each do |product, productions| %>
   <tr>
-    <td rowspan="<%= product.productions_count + 1 %>">
+    <td rowspan="<%= productions.size + 1 %>">
       <div class="is-several">
         <%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if product.logo.attached? %>
         <%= link_to product.name, { action: 'show', id: product.id }, text: true %>
@@ -15,7 +15,7 @@
 <%= render layout: 'index_table' do %>
   <% @production_plans.group_by(&:product).each do |product, production_plans| %>
     <tr>
-      <td rowspan="<%= product.productions_count + 1 %>">
+      <td rowspan="<%= production_plans.size + 1 %>">
         <div class="is-several">
           <%= image_tag product.logo.variant(resize_to_limit: [80, 80]), class: 'image is-32x32' if product.logo.attached? %>
           <%= link_to product.name, { action: 'show', id: product.id }, text: true %>
