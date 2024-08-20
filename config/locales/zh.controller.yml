@@ -91,6 +91,8 @@ zh:
       production_plans:
         index:
           title: 生产计划
+        create:
+          title: 加入生产计划
       production_items:
         index:
           title: 产品清单
