@@ -1,23 +1,23 @@
 <td><%= link_to model.production.name, { controller: 'productions', action: 'index', product_id: model.product_id, id: model.production_id }, text: true %></td>
 <td><%= model.production.price.to_money.format.html_safe %></td>
 <td>
-  <%= render partial: 'production_plan', locals: { production_plan: production_plan } %>
+  <%= render partial: 'production_plan', locals: { production_plan: model } %>
 </td>
 <td>
-  <%= form_with theme: nil, model: production_plan, url: { controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, data: { controller: 'input' } do |f| %>
+  <%= form_with theme: nil, model: model, url: { controller: 'production_plans', action: 'update', production_id: model.production_id, id: model.id }, data: { controller: 'input' } do |f| %>
     <%= f.check_box :specialty, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
     <label data-action="click->input#check"></label>
   <% end %>
 </td>
 <td>
-  <%= link_to({ controller: 'production_items', production_id: production_plan.production_id, produce_on: production_plan.produce_on }, class: 'button is-small is-rounded is-light') do %>
+  <%= link_to({ controller: 'production_items', production_id: model.production_id, produce_on: model.produce_on }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-barcode-scan"></i>
     <span class="pl-1">生产明细</span>
-    <span class="text-grey">（<%= production_plan.production_items_count %>）</span>
+    <span class="text-grey">（<%= model.production_items_count %>）</span>
   <% end %>
-  <%= link_to({ controller: 'trade_items', production_id: production_plan.production_id, produce_on: production_plan.produce_on }, class: 'button is-small is-rounded is-light') do %>
+  <%= link_to({ controller: 'trade_items', production_id: model.production_id, produce_on: model.produce_on }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-bag-shopping text-info"></i>
     <span class="pl-1">订单明细</span>
-    <span class="text-grey">（<%= production_plan.trade_items_count %>）</span>
+    <span class="text-grey">（<%= model.trade_items_count %>）</span>
   <% end %>
 </td>
