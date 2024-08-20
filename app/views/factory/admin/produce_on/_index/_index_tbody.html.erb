@@ -1,4 +1,10 @@
-<% produce_plan = @produce_plans[produce_on] %>
-
 <td><%= produce_on %></td>
-<td></td>
+<td>
+<% Array(@produce_plans[produce_on]).each do |produce_plan| %>
+  <p>
+    <%= link_to({ controller: 'produce_plans', action: 'products', id: produce_plan.id }) do %>
+      <span><%= t('.produce_plans.products.title') %></span>
+    <% end %>
+  </p>
+<% end %>
+</td>

@@ -10,7 +10,7 @@ module Factory
       }
       q_params.merge! default_params
 
-      @produce_plans = ProducePlan.default_where(q_params).group_by(&->(i){ i.produce_on.to_s })
+      @produce_plans = ProducePlan.default_where(q_params).group_by(&->(i){ i.produce_on })
     end
 
   end
