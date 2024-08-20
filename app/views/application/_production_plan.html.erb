@@ -1,0 +1,23 @@
+<div class="flex align-items-center">
+<% if production_plan %>
+  <% if production_plan.planned_count > 1 %>
+    <%= button_to({ controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, params: { 'production_plan[planned_count]': production_plan.planned_count - 1 }, class: 'mr-1') do %>
+      <i class="fa-solid fa-2x fa-circle-minus"></i>
+    <% end %>
+  <% else %>
+    <%= button_to({ controller: 'production_plans', action: 'destroy', production_id: model.id, id: production_plan.id }, method: :delete, class: 'mr-1') do %>
+      <i class="fa-solid fa-2x fa-circle-minus"></i>
+    <% end %>
+  <% end %>
+  <%= form_with(theme: nil, scope: 'production_plan', url: { controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, data: { controller: 'input' }) do |f| %>
+    <%= f.number_field :planned_count, value: production_plan.planned_count, data: { action: 'change->input#form' }, class: 'background-light text-centered', style: 'width: 50px; height: 26px' %>
+  <% end %>
+  <%= button_to({ controller: 'production_plans', action: 'update', production_id: model.id, id: production_plan.id }, method: :patch, params: { 'production_plan[planned_count]': production_plan.planned_count + 1 }, class: 'ml-1') do %>
+    <i class="fa-solid fa-2x fa-circle-plus"></i>
+  <% end %>
+<% else %>
+  <%= button_to({ controller: 'production_plans', action: 'create', production_id: model.id }, params: { 'production_plan[scene_id]': @produce_plan.scene_id, 'production_plan[produce_on]': @produce_plan.produce_on }, class: 'ml-1') do %>
+    <i class="fa-solid fa-2x fa-circle-plus text-grey"></i>
+  <% end %>
+<% end %>
+</div>
