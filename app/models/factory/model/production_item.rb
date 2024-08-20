@@ -8,7 +8,6 @@ module Factory
       attribute :came_at, :datetime, default: -> { Time.current }
 
       belongs_to :production
-      belongs_to :production_plan, counter_cache: true, optional: true
       belongs_to :product_item, optional: true
 
       has_many :part_items
@@ -30,7 +29,6 @@ module Factory
     end
 
     def init_code
-      self.production = self.production_plan.production if production_plan
       self.code ||= UidHelper.nsec_uuid(production&.qr_code)
     end
 
