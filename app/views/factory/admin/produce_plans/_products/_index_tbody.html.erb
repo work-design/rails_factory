@@ -10,7 +10,7 @@
   <% end %>
 </td>
 <td>
-  <%= link_to({ controller: 'production_plans', production_id: model.production_id, produce_on: model.produce_on }, class: 'button is-small is-rounded is-light') do %>
+  <%= link_to({ controller: 'production_plans', action: 'show', production_id: model.production_id, id: model.id }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-solid fa-barcode-scan"></i>
     <span class="ml-1"><%= t('.production_plans.index.title') %></span>
   <% end %>
