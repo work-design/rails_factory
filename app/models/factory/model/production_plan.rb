@@ -13,8 +13,8 @@ module Factory
       attribute :trade_items_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
-
       belongs_to :station, class_name: 'Space::Station', optional: true if defined? RailsSpace
+      has_many :trade_items, ->(o){ where(good_type: 'Factory::Production', produce_on: o.produce_on) }, class_name: 'Trade::TradeItem', foreign_key: :good_id, primary_key: :production_id
 
       belongs_to :production
       belongs_to :product
@@ -22,7 +22,6 @@ module Factory
       belongs_to :produce_plan, ->(o){ where(produce_on: o.produce_on, organ_id: o.organ_id) }, foreign_key: :scene_id, primary_key: :scene_id, counter_cache: true, optional: true
 
       has_many :production_items
-      has_many :trade_items, ->(o){ where(good_type: 'Factory::Production', produce_on: o.produce_on) }, class_name: 'Trade::TradeItem', foreign_key: :good_id, primary_key: :production_id
 
       enum :state, {
         planned: 'planned',
