@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductionPlansController < Admin::BaseController
     before_action :set_production
-    before_action :set_production_plan, only: [:show, :edit, :update, :destroy]
+    before_action :set_production_plan, only: [:show, :edit, :update, :destroy, :inline, :actions]
     before_action :set_new_production_plan, only: [:new, :create]
     before_action :set_scenes, only: [:new, :edit]
 

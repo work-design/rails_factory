@@ -1,8 +1,8 @@
 <td><%= link_to model.production.name, { controller: 'productions', action: 'index', product_id: model.product_id, id: model.production_id }, text: true %></td>
 <td><%= model.production.price.to_money.format.html_safe %></td>
-<td>
+<td id="inline_<%= model.id %>_planned_count" style="width: 150px">
   <span><%= model.planned_count %></span>
-  <%= button_to({ controller: 'production_plans', action: 'edit', production_id: model.production_id, id: model.id }, params: { 'production_plan[scene_id]': @produce_plan.scene_id, 'production_plan[produce_on]': @produce_plan.produce_on }) do %>
+  <%= button_to({ controller: 'production_plans', action: 'inline', production_id: model.production_id, id: model.id }, params: { field: 'planned_count', field_type: 'number_field' }, form: { data: { show_target: 'item' }, class: 'button_to visibility-hidden' }) do %>
     <i class="fa-solid fa-pencil text-grey"></i>
   <% end %>
 </td>
