@@ -1,7 +1,10 @@
 <td><%= link_to model.production.name, { controller: 'productions', action: 'index', product_id: model.product_id, id: model.production_id }, text: true %></td>
 <td><%= model.production.price.to_money.format.html_safe %></td>
 <td>
-  <%= render partial: 'production_plan', locals: { production_plan: model } %>
+  <span><%= model.planned_count %></span>
+  <%= button_to({ controller: 'production_plans', action: 'edit', production_id: model.production_id, id: model.id }, params: { 'production_plan[scene_id]': @produce_plan.scene_id, 'production_plan[produce_on]': @produce_plan.produce_on }) do %>
+    <i class="fa-solid fa-pencil text-grey"></i>
+  <% end %>
 </td>
 <td>
   <%= form_with theme: nil, model: model, url: { controller: 'production_plans', action: 'update', production_id: model.production_id, id: model.id }, data: { controller: 'input' } do |f| %>
