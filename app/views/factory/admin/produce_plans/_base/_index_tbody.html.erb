@@ -1,4 +1,4 @@
-<td><%= model.produce_on %></td>
+<td><%= link_to model.produce_on, { action: 'show', id: model.id } %></td>
 <td>
   <p class="text-grey"><time data-controller="time"><%= model.book_start_at&.to_fs(:iso8601) %></time></p>
   <p><time data-controller="time"><%= model.book_finish_at&.to_fs(:iso8601) %></time></p>

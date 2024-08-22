@@ -1,6 +1,6 @@
 <td>
   <p><%= model.scene&.title %></p>
-  <p><%= model.produce_on %></p>
+  <p><%= link_to model.produce_on, { action: 'show', id: model.id } %></p>
 </td>
 <td>
   <p><time data-controller="time"><%= model.start_at&.to_fs(:iso8601) %></time></p>
