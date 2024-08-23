@@ -3,7 +3,7 @@
 <div class="tabs is-centered mb-3">
   <ul>
     <li class="<%= active_helper(products: ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('.products.show.title'), { controller: 'products', action: 'show', taxon_id: @product.taxon_id, id: @product.id } %>
+      <%= link_to t('.products.show.title'), { controller: 'products', action: 'show', id: @product.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
       <%= link_to t('.productions.index.title'), { controller: 'productions', action: 'index', product_id: @product.id } %>
