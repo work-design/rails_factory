@@ -1,14 +1,9 @@
 <%= form_with theme: 'modal', model: @taxon, url: { action: 'update', **params.permit(:factory_taxon_id) } do |f| %>
-  <header class="modal-card-head">
-    <p class="modal-card-title"><%= t('.title') %></p>
-    <button type="button" data-action="modal#close" class="delete"></button>
-  </header>
+  <%= render 'modal_header' %>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
     <%= f.collection_select :factory_taxon_id, @factory_taxons, :id, :name %>
     <%= render partial: 'form', locals: { f: f } %>
   </section>
-  <footer class="modal-card-foot">
-    <%= f.submit %>
-  </footer>
+  <%= f.submit %>
 <% end %>

@@ -1,8 +1,5 @@
 <%= form_with theme: 'inline', model: @production, url: { action: 'update' }, class: 'modal-card' do |f| %>
-  <header class="modal-card-head">
-    <p class="modal-card-title"><%= t('.title') %></p>
-    <button type="button" data-action="modal#close" class="delete"></button>
-  </header>
+  <%= render 'modal_header' %>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
     <%= render 'component_table' do %>

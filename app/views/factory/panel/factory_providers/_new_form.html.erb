@@ -1,13 +1,8 @@
-<%= form_with model: @factory_provider, url: { action: 'create' }, class: 'modal-card' do |f| %>
-  <header class="modal-card-head">
-    <p class="modal-card-title"><%= t('.title') %></p>
-    <button type="button" data-action="modal#close" class="delete"></button>
-  </header>
+<%= form_with theme: 'modal', model: @factory_provider, url: { action: 'create' } do |f| %>
+  <%= render 'modal_header' %>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object  %>
     <%= render partial: 'provider_search', locals: { f: f } %>
   </section>
-  <footer class="modal-card-foot">
-    <%= f.submit %>
-  </footer>
+  <%= f.submit %>
 <% end %>
