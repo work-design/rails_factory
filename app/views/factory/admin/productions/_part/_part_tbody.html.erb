@@ -1,3 +1,8 @@
+<td><%= f.check_box 'xx', include_hidden: false, data: { action: 'show#toggle' } %></td>
 <td>
-  <%= f.collection_check_boxes :part_ids, component.parts, :id, :name, { label: component.name, wrap: { label: 'field-label', select: 'field-body control' } }, { multiple: true } %>
+  <div data-show-target="check" class="display-none">
+    <%= f.hidden_field :part_id, value: part.id, disabled: true %>
+    <%= f.number_field :number, disabled: true, style: 'width: 5em' %>
+  </div>
+  <span data-show-target="hidden">1</span>
 </td>
