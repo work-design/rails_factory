@@ -86,7 +86,7 @@ module Factory
         :link,
         :stock,
         :step,
-        part_ids: []
+        production_parts_attributes: [:part_id, :number]
       )
     end
 
