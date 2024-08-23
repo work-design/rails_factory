@@ -1,7 +1,7 @@
 module Factory
   class Admin::ProductsController < Admin::BaseController
     before_action :set_brands, only: [:new, :create, :edit, :update]
-    before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
+    before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part, :edit_image]
     before_action :set_new_product, only: [:new, :create]
     before_action :set_taxons, only: [:index, :new, :create, :edit, :update]
     before_action :set_cart, only: [:buy]

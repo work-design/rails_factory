@@ -121,6 +121,9 @@ Rails.application.routes.draw do
           end
         end
         resources :products do
+          member do
+            post :edit_image
+          end
           collection do
             get :buy
           end
