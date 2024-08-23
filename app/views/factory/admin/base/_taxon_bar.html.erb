@@ -8,7 +8,10 @@
       <%= link_to t('.taxons.show.title'), { controller: 'taxons', action: 'show', id: @taxon.id } %>
     </li>
     <li class="<%= active_helper(products: ['index'], active: 'is-active') %>">
-      <%= link_to t('.products.index.title'), { controller: 'taxon/products', taxon_id: @taxon.id } %>
+      <%= link_to({ controller: 'taxon/products', taxon_id: @taxon.id }) do %>
+        <span><%= t('factory.admin.taxon.products.index.title') %></span>
+        <span class="tag"><%= @taxon.products_count %></span>
+      <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
       <%= link_to({ controller: 'productions', action: 'taxon', taxon_id: @taxon.id }) do %>
