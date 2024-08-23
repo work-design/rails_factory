@@ -100,6 +100,7 @@ Rails.application.routes.draw do
               patch :move_lower
               patch :move_higher
               patch :reorder
+              post :edit_image
             end
           end
           resources :provides, controller: 'taxon/provides' do
