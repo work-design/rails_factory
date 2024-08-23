@@ -3,7 +3,6 @@
 <%= render 'index_actions' %>
 
 <%= render layout: 'index_table' do %>
+  <%= render partial: 'taxon_tbody', layout: 'taxon_tr', collection: @taxon_components, as: :model %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @product_components, as: :model %>
 <% end %>
-
-<%= paginate @product_components %>

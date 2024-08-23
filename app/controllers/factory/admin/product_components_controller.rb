@@ -6,7 +6,8 @@ module Factory
     before_action :set_part_taxons, only: [:new, :create, :edit, :update]
 
     def index
-      @product_components = @product.components.includes(:part_taxon, component_parts: :part).order(part_taxon_id: :asc).page(params[:page])
+      @taxon_components = @product.taxon.taxon_components
+      @product_components = @product.product_components.includes(:part_taxon, component_parts: :part).order(part_taxon_id: :asc)
     end
 
     private
