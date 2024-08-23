@@ -10,6 +10,7 @@ module Factory
       attribute :component_parts_count, :integer, default: 0
 
       belongs_to :part_taxon, class_name: 'Taxon'
+      belongs_to :taxon, counter_cache: true
 
       has_many :component_parts
       has_many :parts, through: :component_parts
