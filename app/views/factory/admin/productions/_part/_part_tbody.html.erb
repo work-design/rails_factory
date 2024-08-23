@@ -1,5 +1,5 @@
 <%= f.fields :production_parts, model: @production.production_parts.find(&->(i){ i.part_id == part.id }) || @production.production_parts.build do |ef| %>
-  <td><%= ef.check_box '_destroy', checked: ef.object.persisted?, include_hidden: true, data: { action: 'show#toggle' } %></td>
+  <td><%= ef.check_box '_destroy', { checked: ef.object.persisted?, include_hidden: true, data: { action: 'show#toggle' } }, '0', '1' %></td>
   <td>
   <% if ef.object.persisted? %>
     <div data-show-target="check">
