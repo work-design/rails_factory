@@ -1,8 +1,18 @@
-<td><%= f.check_box 'xx', include_hidden: false, data: { action: 'show#toggle' } %></td>
-<td>
-  <div data-show-target="check" class="display-none">
-    <%= f.hidden_field :part_id, value: part.id, disabled: true %>
-    <%= f.number_field :number, disabled: true, style: 'width: 5em' %>
-  </div>
-  <span data-show-target="hidden">1</span>
-</td>
+<%= f.fields :production_parts, model: @production.production_parts.find(&->(i){ i.part_id == part.id }) || @production.production_parts.build do |ef| %>
+  <td><%= ef.check_box 'xx', checked: ef.object.persisted?, include_hidden: false, data: { action: 'show#toggle' } %></td>
+  <td>
+  <% if ef.object.persisted? %>
+    <div data-show-target="check">
+      <%= ef.hidden_field :part_id, value: part.id %>
+      <%= ef.number_field :number, style: 'width: 5em' %>
+    </div>
+    <span data-show-target="hidden" class="display-none"><%= ef.object.number %></span>
+  <% else %>
+    <div data-show-target="check" class="display-none">
+      <%= ef.hidden_field :part_id, disabled: true, value: part.id %>
+      <%= ef.number_field :number, disabled: true, style: 'width: 5em' %>
+    </div>
+    <span data-show-target="hidden"><%= ef.object.number %></span>
+  <% end %>
+  </td>
+<% end %>
