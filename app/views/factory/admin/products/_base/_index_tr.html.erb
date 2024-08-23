@@ -12,5 +12,11 @@
         <i class="fa-solid fa-trash text-danger"></i>
       <% end %>
     </div>
+    <div data-show-target="item" class="visibility-hidden">
+      <%= button_to({ action: 'edit_image', id: model.id, taxon_id: model.taxon_id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-pencil text-link"></i>
+        <span class="ml-1"><%= t('.edit_image.title') %></span>
+      <% end %>
+    </div>
   </td>
 </tr>
