@@ -10,9 +10,9 @@ module Factory
       belongs_to :production
       belongs_to :part, class_name: 'Production'
 
-      after_initialize :sync_to_production, if: -> { part_id_changed? }
       before_validation :sync_part_taxon, if: -> { part_id_changed? }
       before_validation :sync_product, if: -> { production_id_changed? }
+      after_save :sync_to_production, if: -> { (saved_changes.keys & ['part_id', 'number']).present? }
       after_destroy :destroy_to_production!
     end
 
@@ -26,16 +26,17 @@ module Factory
 
     private
     def sync_to_production
-      p_ids = production.part_ids
-      p_ids << part_id
+      p_ids = production.production_parts.map { |i| "#{i.part_id}_#{i.number}" }
+      p_ids << "#{part_id}_#{number}"
       p_ids.uniq!
       p_ids.sort!
       production.str_part_ids = p_ids.join(',')
+      production.save!
     end
 
     def destroy_to_production!
-      p_ids = production.part_ids
-      p_ids.delete part_id
+      p_ids = production.production_parts.map { |i| "#{i.part_id}_#{i.number}" }
+      p_ids.delete "#{part_id}_#{number}"
       p_ids.sort!
       production.str_part_ids = p_ids.join(',')
       production.save!
