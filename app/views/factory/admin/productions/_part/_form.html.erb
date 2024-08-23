@@ -5,8 +5,8 @@
   </header>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
-    <% @product.components.each do |component| %>
-      <%= f.collection_check_boxes :part_ids, component.parts, :id, :name, { label: component.name, wrap: { label: 'field-label', select: 'field-body control' } }, { multiple: true } %>
+    <%= render 'component_table' do %>
+      <%= render partial: 'component_tbody', layout: 'component_tr', collection: @product.components, as: :component, locals: { f: f } %>
     <% end %>
   </section>
   <%= f.submit %>
