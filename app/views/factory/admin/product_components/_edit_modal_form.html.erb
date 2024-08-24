@@ -1,8 +1,5 @@
 <%= form_with theme: 'modal', model: @product_component, url: { action: 'update' }, data: { controller: 'equal' } do |f| %>
-  <header class="modal-card-head">
-    <p class="modal-card-title"><%= t('.title') %></p>
-    <button type="button" data-action="modal#close" class="delete"></button>
-  </header>
+  <%= render 'modal_header' %>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
     <%= f.text_field :name %>
