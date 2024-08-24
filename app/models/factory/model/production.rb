@@ -152,6 +152,12 @@ module Factory
       self.organ_id = product.organ_id
     end
 
+    def compute_part_str
+      p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
+      p_ids.sort!
+      self.str_part_ids = p_ids.join(',')
+    end
+
     def add_part_str!(part_str)
       p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
       p_ids << part_str

@@ -79,12 +79,12 @@ module Factory
 
     def create_dialog
       from_production = Production.find params[:id]
-      r = params.fetch(:part_ids, []).reject(&:blank?).map!(&:to_i).sort!
-      @production = from_production.product.productions.find_by(str_part_ids: r.join(','))
+      temp_production = from_production.product.productions.build(params.permit(production_parts_attributes: [:part_id, :number]))
+      r = temp_production.compute_part_str
+      @production = from_production.product.productions.find_by(str_part_ids: r)
 
       unless @production
-        @production = from_production.product.productions.build(str_part_ids: r.join(','))
-        @production.part_ids = r
+        @production = temp_production
         @production.compute_price
         @production.save!
       end
