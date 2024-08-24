@@ -11,7 +11,7 @@ module Factory
       belongs_to :part, class_name: 'Production'
 
       before_validation :sync_part_taxon, if: -> { part_id_changed? }
-      before_validation :sync_product, if: -> { production_id_changed? }
+      before_validation :sync_product, if: -> { new_record? || production_id_changed? }
       after_save :sync_to_production, if: -> { (saved_changes.keys & ['part_id', 'number']).present? }
       after_destroy :destroy_to_production!
     end
