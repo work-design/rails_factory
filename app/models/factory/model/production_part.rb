@@ -26,20 +26,11 @@ module Factory
 
     private
     def sync_to_production
-      p_ids = production.production_parts.map { |i| "#{i.part_id}_#{i.number}" }
-      p_ids << "#{part_id}_#{number}"
-      p_ids.uniq!
-      p_ids.sort!
-      production.str_part_ids = p_ids.join(',')
-      production.save!
+      production.add_part_str!("#{part_id}_#{number}")
     end
 
     def destroy_to_production!
-      p_ids = production.production_parts.map { |i| "#{i.part_id}_#{i.number}" }
-      p_ids.delete "#{part_id}_#{number}"
-      p_ids.sort!
-      production.str_part_ids = p_ids.join(',')
-      production.save!
+      production.remove_part_str!("#{part_id}_#{number}")
     end
 
   end
