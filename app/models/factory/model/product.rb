@@ -33,7 +33,7 @@ module Factory
       has_many :product_components
       has_many :component_parts, through: :components
       has_many :parts, through: :component_parts
-      has_many :part_products, class_name: 'ProductPart', foreign_key: :part_id, dependent: :destroy_async
+      has_many :part_products, class_name: 'ComponentPart', foreign_key: :part_id, dependent: :destroy_async
       has_many :production_carts, dependent: :destroy_async
       has_many :carts, through: :production_carts
       has_many :fits, dependent: :destroy_async
