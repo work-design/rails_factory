@@ -2,7 +2,7 @@ module Factory
   class Admin::Taxon::ProductsController < Admin::ProductsController
     before_action :set_taxon
     before_action :set_brands, only: [:new, :create, :edit, :update]
-    before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part]
+    before_action :set_product, only: [:show, :edit, :update, :destroy, :reorder, :actions, :part, :edit_image]
     before_action :set_new_product, only: [:new, :create]
     before_action :set_taxons, only: [:index, :edit, :update]
     before_action :set_cart, only: [:buy]
