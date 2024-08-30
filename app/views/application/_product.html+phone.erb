@@ -3,7 +3,7 @@
     <%= image_tag model.logo, class: 'image is-64x64' if model.logo.attached? %>
   <% end %>
   <div class="media-content as-body">
-    <%= link_to({ action: 'show', id: model.id }, text: true, state: 'enter', class: 'color-grey-dark') do %>
+    <%= link_to({ action: 'show', id: model.id }, text: true, state: 'enter', class: 'text-grey-dark') do %>
       <% if model.brand %>
         <span class="tag is-light is-danger"><%= model.brand.name %></span>
       <% end %>

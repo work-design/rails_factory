@@ -6,11 +6,11 @@
   <i class="fa-solid fa-list-timeline"></i>
   <span><%= t('factory.admin.production_plans.index.title') %></span>
 <% end %>
-<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]default': !model.default }, state: 'redirect', class: model.default ? 'color-danger' : 'color-success', form: { class: 'cell' }) do %>
+<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]default': !model.default }, state: 'redirect', class: model.default ? 'text-danger' : 'text-success', form: { class: 'cell' }) do %>
   <i class="fa-solid fa-check"></i>
   <span>主显产品</span>
 <% end %>
-<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]enabled': !model.enabled }, state: 'redirect', class: model.enabled ? 'color-danger' : 'color-success', form: { class: 'cell' }) do %>
+<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]enabled': !model.enabled }, state: 'redirect', class: model.enabled ? 'text-danger' : 'text-success', form: { class: 'cell' }) do %>
   <i class="fa-solid fa-check"></i>
   <span>上架</span>
 <% end %>

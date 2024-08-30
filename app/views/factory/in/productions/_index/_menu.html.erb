@@ -2,7 +2,7 @@
 <% Factory::FactoryTaxon.all.each do |factory_taxon| %>
   <%= link_to({ controller: 'productions', factory_taxon_id: factory_taxon.id, **params.permit(:scene_id, :produce_on) }, class: active_helper(factory_taxon_id: factory_taxon.id, item: 'column is-primary px-2', active: 'column is-primary px-2 background-white')) do %>
     <div class="weui-grid__icon"><%= image_tag factory_taxon.logo if factory_taxon.logo.attached? %></div>
-    <p class="weui-grid__label <%= active_helper(factory_taxon_id: factory_taxon.id, active: 'color-success') %>"><%= factory_taxon.name %></p>
+    <p class="weui-grid__label <%= active_helper(factory_taxon_id: factory_taxon.id, active: 'text-success') %>"><%= factory_taxon.name %></p>
   <% end %>
 <% end %>
 </div>
