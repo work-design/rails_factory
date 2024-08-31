@@ -1,11 +1,11 @@
 <div class="media">
   <div data-controller="empty" class="media-left">
-    <%= link_to({ controller: 'productions', action: 'show', id: model.id }, state: 'enter', text: true) do %>
+    <%= link_to({ controller: 'productions', action: 'show', id: model.id }, text: true) do %>
       <%= image_tag model.product.logo, class: 'image is-64x64' %>
     <% end if model.product.logo.attached? %>
   </div>
   <div class="media-content">
-    <%= link_to({ controller: 'productions', action: 'show', id: model.id }, state: 'enter', text: true, class: 'flex flex-direction-column') do %>
+    <%= link_to({ controller: 'productions', action: 'show', id: model.id }, text: true, class: 'flex flex-direction-column') do %>
       <h4 class="weui-media-box__title"><%= model.name %></h4>
       <p class="weui-media-box__desc pt-0">
         <%= model.product.description %>

@@ -1,15 +1,15 @@
 <div id="product_<%= model.id %>" data-controller="common" class="media is-box">
-  <%= link_to({ action: 'show', id: model.id }, text: true, state: 'enter', data: { controller: 'empty' }, class: 'media-left as-logo') do %>
+  <%= link_to({ action: 'show', id: model.id }, text: true, data: { controller: 'empty' }, class: 'media-left as-logo') do %>
     <%= image_tag model.logo, class: 'image is-64x64' if model.logo.attached? %>
   <% end %>
   <div class="media-content as-body">
-    <%= link_to({ action: 'show', id: model.id }, text: true, state: 'enter', class: 'text-grey-dark') do %>
+    <%= link_to({ action: 'show', id: model.id }, text: true, class: 'text-grey-dark') do %>
       <% if model.brand %>
         <span class="tag is-light is-danger"><%= model.brand.name %></span>
       <% end %>
       <span><%= model.name %></span>
     <% end %>
-    <%= link_to({ action: 'show', id: model.id }, text: true, state: 'enter', class: 'weui-media-box__desc pt-1') do %>
+    <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__desc pt-1') do %>
       <%= model.description %>
     <% end %>
     <ul class="weui-media-box__info flex-wrap-wrap mt-0">

@@ -1,7 +1,7 @@
 <span class="text-grey pr-2"><%= model.name %></span>
 <span class="text-danger pr-2"><%= model.price.to_money.format.html_safe %></span>
 
-<%= form_with theme: nil, url: { controller: 'trade/our/items', action: 'create' }, state: 'redirect_return', class: 'button_to' do |f| %>
+<%= form_with theme: nil, url: { controller: 'trade/our/items', action: 'create' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :good_type, value: model.base_class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
   <%= f.hidden_field :produce_on, value: params[:produce_on] %>

@@ -1,9 +1,9 @@
 <div class="weui-media-box weui-media-box_appmsg is-box" id="production_<%= model.id %>">
-  <%= link_to({ action: 'show', id: model.id }, state: 'enter', text: true, class: 'weui-media-box__hd as-logo') do %>
+  <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__hd as-logo') do %>
     <%= image_tag model.product.logo, class: 'image is-64x64' if model.product.logo.attached? %>
   <% end %>
   <div class="weui-media-box__bd as-body">
-    <%= link_to({ action: 'show', id: model.id }, state: 'enter', text: true, class: 'weui-media-box__title pb-1') do %>
+    <%= link_to({ action: 'show', id: model.id }, text: true, class: 'weui-media-box__title pb-1') do %>
       <%= model.name %>
     <% end %>
     <% model.rent_charges.each do |charge| %>

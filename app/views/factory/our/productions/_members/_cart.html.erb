@@ -1,6 +1,6 @@
 <div class="field has-addons">
   <div class="control">
-    <%= form_with(theme: nil, scope: :item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to mr-1') do |f| %>
+    <%= form_with(theme: nil, scope: :item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, class: 'button_to mr-1') do |f| %>
       <%= f.hidden_field :number, value: item.number - 1 %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
       <%= button_tag do %>
@@ -9,18 +9,18 @@
     <% end if item.number > 1 %>
   </div>
   <div class="control">
-    <%= button_to({ controller: 'trade/our/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart.id }, state: 'redirect_return', class: 'mr-1') do %>
+    <%= button_to({ controller: 'trade/our/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart.id }, class: 'mr-1') do %>
       <i class="fa-solid fa-circle-minus fa-xl text-grey"></i>
     <% end if item.number <= 1 %>
   </div>
   <div class="control">
-    <%= form_with(theme: nil, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input' }) do |f| %>
+    <%= form_with(theme: nil, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
       <%= f.number_field :number, value: item.number.to_fs(:rounded, precision: 0), data: { action: 'change->input#form' }, class: 'background-light text-centered', style: 'width: 30px' %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
     <% end %>
   </div>
   <div class="control">
-    <%= form_with(theme: nil, scope: :item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', class: 'button_to ml-1') do |f| %>
+    <%= form_with(theme: nil, scope: :item, url: { controller: 'trade/our/items', action: 'update', id: item.id }, method: :patch, class: 'button_to ml-1') do |f| %>
       <%= f.hidden_field :number, value: item.number + 1 %>
       <%= f.hidden_field :current_cart_id, value: @cart.id %>
       <%= button_to do %>
