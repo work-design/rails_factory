@@ -5,12 +5,14 @@
   <% if ef.object.persisted? %>
     <div data-show-target="check">
       <%= ef.hidden_field :part_id %>
+      <%= ef.hidden_field :component_id %>
       <%= ef.number_field :number, style: 'width: 5em' %>
     </div>
     <span data-show-target="hidden" class="display-none"><%= ef.object.number %></span>
   <% else %>
     <div data-show-target="check" class="display-none">
       <%= ef.hidden_field :part_id, disabled: true, value: part.id %>
+      <%= ef.hidden_field :component_id, disabled: true, value: component.id %>
       <%= ef.number_field :number, disabled: true, style: 'width: 5em' %>
     </div>
     <span data-show-target="hidden"><%= ef.object.number %></span>

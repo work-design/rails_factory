@@ -9,6 +9,7 @@ module Factory
       belongs_to :product
       belongs_to :production
       belongs_to :part, class_name: 'Production'
+      belongs_to :component
 
       before_validation :sync_part_taxon, if: -> { part_id_changed? }
       before_validation :sync_product, if: -> { new_record? || production_id_changed? }

@@ -86,7 +86,7 @@ module Factory
         :link,
         :stock,
         :step,
-        production_parts_attributes: [:part_id, :number, :id, :_destroy]
+        production_parts_attributes: [:part_id, :component_id, :number, :id, :_destroy]
       )
     end
 
