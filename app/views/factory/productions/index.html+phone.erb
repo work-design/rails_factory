@@ -1,4 +1,4 @@
-<% if params[:scene_id].present? || params[:produce_on].present? || params[:return_state].present? %>
+<% if params[:scene_id].present? || params[:produce_on].present? %>
   <%= render 'top_bar' %>
 <% end %>
 
@@ -6,12 +6,6 @@
   <%= render 'space_station' %>
 <% elsif params[:desk_id].present? %>
   <%= render 'space_desk' %>
-<% end %>
-
-<% if params[:dispatch].present? %>
-  <%= render 'space_dispatch' %>
-<% else %>
-  <%= render 'space_dispatch_default' %>
 <% end %>
 
 <%= render 'filter_form' %>

@@ -1,11 +1,11 @@
-<div class="box is-normal radiusless flex justify-content-space-between mb-0">
-  <div>
-    <i class="fa-solid fa-location-dot text-grey"></i>
-    <span class="pl-1"><%= Trade::Cart.enum_i18n(:dispatch, params[:dispatch]) %></span>
-  </div>
-  <div>
-    <%= button_to({ action: 'change_dispatch', dispatch: params[:dispatch] }) do %>
-      <i class="fa-solid fa-chevron-right"></i>
-    <% end %>
-  </div>
-</div>
+<% if params[:dispatch].present? %>
+  <%= button_to({ action: 'change_dispatch', dispatch: params[:dispatch] }) do %>
+    <span class="mr-1"><%= Trade::Cart.enum_i18n(:dispatch, params[:dispatch]) %></span>
+    <i class="fa-solid fa-right-left"></i>
+  <% end %>
+<% else %>
+  <%= button_to({ action: 'change_dispatch', dispatch: current_organ.dispatch }) do %>
+    <span class="mr-1"><%= current_organ.dispatch_i18n %></span>
+    <i class="fa-solid fa-right-left"></i>
+  <% end %>
+<% end %>
