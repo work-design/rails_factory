@@ -94,11 +94,11 @@ module Factory
     end
 
     def compute_cost_price
-      self.cost_price = parts.sum(&:price)  # price 可由系统提前设定，未设定则通过零件自动计算
+      self.cost_price = production_parts.includes(:part).sum(&->(i){ i.part.price * i.number })  # price 可由系统提前设定，未设定则通过零件自动计算
     end
 
     def compute_price
-      self.price = product.base_price.to_d + parts.sum(&->(i){ i.price.to_d })
+      self.price = product.base_price.to_d + compute_cost_price
     end
 
     def disabled?(part_id)
@@ -164,6 +164,7 @@ module Factory
       p_ids.uniq!
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
+      self.compute_price
       self.save!
     end
 
@@ -172,6 +173,7 @@ module Factory
       p_ids.delete part_str
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
+      self.compute_price
       self.save!
     end
 
