@@ -1,4 +1,4 @@
-<div id="production_<%= model.id %>" data-controller="common" class="media is-box">
+<div id="production_<%= model.id %>" data-controller="common" class="media is-boxed">
   <%= link_to({ controller: '/factory/productions', action: 'show', id: model.id }, text: true, data: { controller: 'empty' }, class: 'media-left as-logo') do %>
     <%= image_tag model.product.logo, class: 'image is-64x64' if model.product.logo.attached? %>
   <% end %>
