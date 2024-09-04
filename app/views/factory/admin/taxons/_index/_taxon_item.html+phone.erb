@@ -1,9 +1,9 @@
 <div class="media">
   <div class="media-content">
-    <span><%= taxon.name %></span>
+    <span><%= model.name %></span>
   </div>
   <div class="media-right">
-    <%= button_to({ action: 'new', factory_taxon_id: taxon.id }, class: 'button is-small is-rounded is-light') do %>
+    <%= button_to({ action: 'new' }, class: 'button is-small is-rounded is-light') do %>
       <i class="fa-solid fa-plus text-link"></i>
       <span class="pl-1"><%= t('.new.title') %></span>
     <% end %>
