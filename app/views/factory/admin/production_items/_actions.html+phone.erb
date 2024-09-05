@@ -1,8 +1,8 @@
-<%= button_to({ action: 'edit', id: model.id }, class: 'cell') do %>
+<%= button_to({ action: 'edit', id: model.id }, class: 'cell has-column-centered') do %>
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit.title') %></span>
 <% end %>
-<%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'text-danger', form: { turbo_confirm: t('.destroy.confirm'), class: 'cell weui-actionsheet__cell_warn' }) do %>
+<%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'text-danger', form: { turbo_confirm: t('.destroy.confirm'), class: 'cell has-column-centered' }) do %>
   <i class="fa-solid fa-trash"></i>
   <span><%= t('.destroy.title') %></span>
 <% end %>
@@ -11,7 +11,7 @@
   data-mini-program-url-value="/pages/print/index"
   data-mini-program-data-value="<%= { url: url_for(action: 'print_data', id: model.id, only_path: false) }.to_json %>"
   data-action="click->mini-program#link"
-  class="cell"
+  class="cell has-column-centered"
 >
   <%= button_to({ action: 'print', id: model.id }, method: :patch, class: 'text-primary') do %>
     <i class="fa-solid fa-print"></i>
