@@ -1,34 +1,32 @@
-<div class="weui-form-preview">
-  <div class="weui-form-preview__bd">
-    <div class="weui-form-preview__item">
-      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:name) %></label>
-      <span class="weui-form-preview__value"><%= @production_item.production.name %></span>
-    </div>
-    <div class="weui-form-preview__item">
-      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:code) %></label>
-      <span class="weui-form-preview__value"><%= @production_item.code %></span>
-    </div>
-    <div class="weui-form-preview__item">
-      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:came_at) %></label>
-      <span class="weui-form-preview__value"><time data-controller="time"><%= @production_item.came_at&.to_fs(:iso8601) %></time></span>
-    </div>
-    <div class="weui-form-preview__item">
-      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:room_id) %></label>
-      <span class="weui-form-preview__value">
-        <span><%= @production_item.room&.code %></span>
-        <span class="text-grey">(<%= @production_item.room_id %>)</span>
-      </span>
-    </div>
-    <div class="weui-form-preview__item">
-      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:grid_id) %></label>
-      <span class="weui-form-preview__value">
-        <span><%= @production_item.grid&.code %></span>
-        <span class="text-grey">(<%= @production_item.grid_id %>)</span>
-      </span>
-    </div>
-    <div class="weui-form-preview__item">
-      <label class="weui-form-preview__label"><%= Factory::ProductionItem.human_attribute_name(:state) %></label>
-      <span class="weui-form-preview__value"><%= @production_item.state_i18n %></span>
-    </div>
+<dl class="as-show is-boxed">
+  <div>
+    <dt><%= Factory::ProductionItem.human_attribute_name(:name) %></dt>
+    <dd><%= @production_item.production.name %></dd>
   </div>
-</div>
+  <div>
+    <dt><%= Factory::ProductionItem.human_attribute_name(:code) %></dt>
+    <dd><%= @production_item.code %></dd>
+  </div>
+  <div>
+    <dt><%= Factory::ProductionItem.human_attribute_name(:came_at) %></dt>
+    <dd><time data-controller="time"><%= @production_item.came_at&.to_fs(:iso8601) %></time></dd>
+  </div>
+  <div>
+    <dt><%= Factory::ProductionItem.human_attribute_name(:room_id) %></dt>
+    <dd>
+      <span><%= @production_item.room&.code %></span>
+      <span class="text-grey">(<%= @production_item.room_id %>)</span>
+    </dd>
+  </div>
+  <div>
+    <dt><%= Factory::ProductionItem.human_attribute_name(:grid_id) %></dt>
+    <dd>
+      <span><%= @production_item.grid&.code %></span>
+      <span class="text-grey">(<%= @production_item.grid_id %>)</span>
+    </dd>
+  </div>
+  <div>
+    <dt><%= Factory::ProductionItem.human_attribute_name(:state) %></dt>
+    <dd><%= @production_item.state_i18n %></dd>
+  </div>
+</dl>
