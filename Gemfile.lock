@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: f0ef1f2af0c09fd80c44d343b42eab4ba07d852a
+  revision: 80c5dc83180d90b375b9b5edd75af683452160e3
   specs:
     rails_auth (1.2.0)
       bcrypt (~> 3.1)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 08908a8bf19f3449769b2275fbbe730b51c477d4
+  revision: 611480197fadbcfe1bfd2fb1cf035ad7dd82b145
   specs:
     rails_com (1.3.0)
       acme-client
@@ -296,12 +296,13 @@ GEM
     sdoc (2.6.1)
       rdoc (>= 5.0)
     securerandom (0.3.1)
-    solid_queue (0.6.1)
+    solid_queue (0.7.1)
       activejob (>= 7.1)
       activerecord (>= 7.1)
       concurrent-ruby (>= 1.3.1)
       fugit (~> 1.11.0)
       railties (>= 7.1)
+      thor (~> 1.3.1)
     stringio (3.1.1)
     thor (1.3.1)
     timeout (0.4.1)
@@ -431,7 +432,7 @@ CHECKSUMS
   rotp (6.3.0) sha256=75d40087e65ed0d8022c33055a6306c1c400d1c12261932533b5d6cbcd868854
   sdoc (2.6.1) sha256=d78305be6fe9f81cb93787c24f8c2d47e418c2f1de2e7ff75c032d465fe3c5f8
   securerandom (0.3.1) sha256=98f0450c0ea46d2f9a4b6db4f391dbd83dc08049592eada155739f40e0341bde
-  solid_queue (0.6.1)
+  solid_queue (0.7.1)
   stringio (3.1.1) sha256=53456e14175c594e0e8eb2206a1be33f3974d4fe21c131e628908b05c8c2ae1e
   thor (1.3.1) sha256=fa7e3471d4f6a27138e3d9c9b0d4daac9c3d7383927667ae83e9ab42ae7401ef
   timeout (0.4.1) sha256=6f1f4edd4bca28cffa59501733a94215407c6960bd2107331f0280d4abdebb9a
