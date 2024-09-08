@@ -5,22 +5,23 @@
       <span class="ml-1 text-danger"><%= component_part.part.price.to_money.format.html_safe %></span>
     <% end %>
     <%= hidden_field_tag 'production_parts_attributes[][component_id]', component_part.component_id, form: 'edit_custom', id: nil %>
-    <%= hidden_field_tag 'production_parts_attributes[][part_id]', component_part.part_id, form: 'edit_custom', data: { part_taxon_id: component_part.part.taxon_id }, id: nil %>
   </div>
   <div>
   <% if @production.part_ids.include?(component_part.part_id) %>
     <button data-action="modify#minus" class="button_to mr-1">
       <i class="fa-solid fa-xl fa-minus text-grey"></i>
     </button>
+    <%= hidden_field_tag 'production_parts_attributes[][part_id]', component_part.part_id, form: 'edit_custom', id: nil %>
     <%= number_field_tag 'production_parts_attributes[][number]', @production.parts_hash[component_part.part_id].number, data: { action: 'change->input#form focus->input#blank', modify_target: 'input' }, form: 'edit_custom', class: 'text-centered', style: 'width: 3rem' %>
     <button data-action="modify#plus" class="button_to ml-1">
       <i class="fa-solid fa-xl fa-plus text-grey"></i>
     </button>
   <% else %>
     <%= hidden_field_tag 'production_parts_attributes[][number]', component_part.min, form: 'edit_custom', id: nil %>
-    <%= button_tag form: 'edit_custom', class: 'button_to' do %>
+    <label class="button_to">
       <i class="fa-solid fa-xl fa-plus text-grey"></i>
-    <% end %>
+      <%= check_box_tag 'production_parts_attributes[][part_id]', component_part.part_id, false, disabled: component.disabled?(@production.part_ids, component_part.part_id), data: { action: 'custom#toggle', part_taxon_id: component.part_taxon_id }, id: nil, class: 'display-none', form: 'edit_custom' %>
+    </label>
   <% end %>
   </div>
 </div>
