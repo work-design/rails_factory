@@ -79,7 +79,7 @@ module Factory
 
     def create_dialog
       from_production = Production.find params[:id]
-      temp_production = from_production.product.productions.build(params.permit(production_parts_attributes: [:part_id, :number]))
+      temp_production = from_production.product.productions.build(params.permit(production_parts_attributes: [:part_id, :component_id, :number]))
       r = temp_production.compute_part_str
       @production = from_production.product.productions.find_by(str_part_ids: r)
 

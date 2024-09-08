@@ -53,7 +53,7 @@ module Factory
       has_many :production_provides, foreign_key: :production_id
       has_many :downstream_provides, class_name: 'ProductionProvide', foreign_key: :upstream_production_id
 
-      accepts_nested_attributes_for :production_parts, allow_destroy: true
+      accepts_nested_attributes_for :production_parts, allow_destroy: true, reject_if: ->(attributes){ attributes.slice('part_id').blank? }
       #has_one_attached :logo
       delegate :logo, to: :product
 
