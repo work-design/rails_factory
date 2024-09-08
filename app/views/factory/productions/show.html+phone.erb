@@ -3,11 +3,9 @@
   <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
 <% end %>
 
-<div class="box is-border">
-  <%= render partial: 'covers', locals: { model: @production.product } if @production.product.covers.length > 0 %>
-</div>
+<%= render partial: 'covers', locals: { model: @production.product } if @production.product.covers.present? %>
 
-<div class="box is-border" style="z-index: 3">
+<div class="box is-border mt-3" style="z-index: 3">
   <div class="p-4">
     <div><%= @production.name %></div>
     <% unless @production.presell %>
