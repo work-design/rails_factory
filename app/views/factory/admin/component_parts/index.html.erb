@@ -11,5 +11,8 @@
 <% end %>
 
 <%= render layout: 'product_table' do %>
-  <%= render partial: 'product_tbody', layout: 'product_tr', collection: @component.part_taxon.products, as: :model %>
+  <% @productions.group_by(&:product).each do |product, productions| %>
+    <%= render partial: 'product_tbody', layout: 'product_tr', locals: { model: product } %>
+    <%= render partial: 'production', layout: 'production_tr', collection: productions, as: :model %>
+  <% end %>
 <% end %>

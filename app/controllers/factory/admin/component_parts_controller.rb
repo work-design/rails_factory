@@ -5,7 +5,8 @@ module Factory
     before_action :set_new_component_part, only: [:new, :create]
 
     def index
-      @component_parts = @component.component_parts.order(part_id: :asc).page(params[:page])
+      @component_parts = @component.component_parts.order(part_id: :asc)
+      @productions = @component.part_taxon.productions.where.not(id: @component_parts.pluck(:part_id)).includes(:product)
     end
 
     private
