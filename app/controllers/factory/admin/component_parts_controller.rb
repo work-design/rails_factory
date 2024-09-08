@@ -26,7 +26,9 @@ module Factory
     def component_part_params
       params.fetch(:component_part, {}).permit(
         :part_id,
-        :default
+        :default,
+        :min,
+        :max
       )
     end
 

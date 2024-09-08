@@ -27,6 +27,7 @@ module Factory
         :max_select,
         :part_taxon_id,
         :name,
+        :multiple,
         part_ids: []
       )
     end

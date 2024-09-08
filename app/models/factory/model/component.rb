@@ -8,6 +8,7 @@ module Factory
       attribute :min_select, :integer, default: 1
       attribute :max_select, :integer
       attribute :component_parts_count, :integer, default: 0
+      attribute :multiple, :boolean, default: false
 
       belongs_to :part_taxon, class_name: 'Taxon'
       belongs_to :taxon, counter_cache: true

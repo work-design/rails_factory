@@ -4,6 +4,8 @@ module Factory
 
     included do
       attribute :default, :boolean, default: false
+      attribute :min, :integer, default: 1
+      attribute :max, :integer
 
       belongs_to :component, counter_cache: true
       belongs_to :taxon
