@@ -16,7 +16,7 @@
     <button data-action="modify#minus" class="button_to mr-1">
       <i class="fa-solid fa-xl fa-minus text-grey"></i>
     </button>
-    <%= number_field_tag 'production_parts_attributes[][number]', component_part.min, data: { action: 'change->input#form focus->input#blank', modify_target: 'input' }, form: 'edit_custom', class: 'text-centered', style: 'width: 3rem' %>
+    <%= number_field_tag 'production_parts_attributes[][number]', @production.parts_hash[component_part.part_id].number, data: { action: 'change->input#form focus->input#blank', modify_target: 'input' }, form: 'edit_custom', class: 'text-centered', style: 'width: 3rem' %>
     <button data-action="modify#plus" class="button_to ml-1">
       <i class="fa-solid fa-xl fa-plus text-grey"></i>
     </button>

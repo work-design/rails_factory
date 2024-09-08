@@ -149,6 +149,12 @@ module Factory
       self.organ_id = product.organ_id
     end
 
+    def parts_hash
+      production_parts.each_with_object({}) do |i, h|
+        h.merge! i.part_id => i
+      end
+    end
+
     def compute_part_str
       p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
       p_ids.sort!
