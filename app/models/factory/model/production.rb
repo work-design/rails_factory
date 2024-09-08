@@ -66,6 +66,7 @@ module Factory
 
       after_initialize :init_name, if: :new_record?
       before_save :sync_from_product, if: -> { product_id_changed? || (new_record? && product) }
+      before_save :compute_profit_price, if: -> { (changes.keys & ['cost_price']).present? }
       before_save :compute_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_update :set_enabled, if: -> { saved_change_to_enabled? }
@@ -98,8 +99,15 @@ module Factory
       self.cost_price = product.base_price.to_d + compute_cost_price
     end
 
+    def compute_profit_price
+      if product.profit_margin
+        self.profit_price = self.cost_price * product.profit_margin
+      else
+        self.profit_price = 0
+      end
+    end
+
     def compute_price
-      self.profit_price ||= default_profit_price
       self.price = self.cost_price + self.profit_price
     end
 
@@ -136,14 +144,6 @@ module Factory
       card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d, checked: Array(check_codes).include?(k) } }
     end
 
-    def default_profit_price
-      if product.profit_margin
-        self.cost_price * (1 + product.profit_margin)
-      else
-        0
-      end
-    end
-
     def sync_from_product
       self.taxon_id = product.taxon_id
       self.organ_id = product.organ_id
@@ -161,7 +161,7 @@ module Factory
       p_ids.uniq!
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
-      self.compute_price
+      self.compute_cost_price
       self.save!
     end
 
@@ -170,7 +170,7 @@ module Factory
       p_ids.delete part_str
       p_ids.sort!
       self.str_part_ids = p_ids.join(',')
-      self.compute_price
+      self.compute_cost_price
       self.save!
     end
 
