@@ -66,7 +66,7 @@ module Factory
 
       after_initialize :init_name, if: :new_record?
       before_save :sync_from_product, if: -> { product_id_changed? || (new_record? && product) }
-      before_save :sync_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
+      before_save :compute_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_update :set_enabled, if: -> { saved_change_to_enabled? }
       after_save :compute_min_max_price, if: -> { saved_change_to_price? }
@@ -94,11 +94,13 @@ module Factory
     end
 
     def compute_cost_price
-      self.cost_price = production_parts.includes(:part).sum(&->(i){ i.part.price * i.number })  # price 可由系统提前设定，未设定则通过零件自动计算
+      _cost_price = production_parts.includes(:part).sum(&->(i){ i.part.price * i.number })  # price 可由系统提前设定，未设定则通过零件自动计算
+      self.cost_price = product.base_price.to_d + compute_cost_price
     end
 
     def compute_price
-      self.price = product.base_price.to_d + compute_cost_price
+      self.profit_price ||= default_profit_price
+      self.price = self.cost_price + self.profit_price
     end
 
     def disabled?(part_id)
@@ -132,11 +134,6 @@ module Factory
       codes = organ.card_templates.pluck(:code, :name).to_h
       check_codes = cart && cart.cards.map(&->(i){ i.card_template.code })
       card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d, checked: Array(check_codes).include?(k) } }
-    end
-
-    def sync_price
-      self.profit_price ||= default_profit_price
-      self.price = self.cost_price + self.profit_price
     end
 
     def default_profit_price
