@@ -1,0 +1,25 @@
+<div class="button is-fullwidth justify-content-space-between is-light">
+  <div>
+    <span><%= component_part.part.name %></span>
+    <% if component_part.part.price.to_d > 0 %>
+      <span class="ml-1"><%= component_part.part.price.to_money.format.html_safe %></span>
+    <% end %>
+    <% if component.cancelable?(@production.part_ids, component_part.part_id) %>
+      <i class="fa-solid fa-xmark ml-1"></i>
+    <% end %>
+    <%= hidden_field_tag 'production_parts_attributes[][component_id]', component_part.component_id, form: 'edit_custom', id: nil %>
+    <%= hidden_field_tag 'production_parts_attributes[][part_id]', component_part.part_id, form: 'edit_custom', data: { part_taxon_id: component_part.part.taxon_id }, id: nil if @production.part_ids.include?(component_part.part_id) && component.disabled?(@production.part_ids, component_part.part_id) %>
+    <%= check_box_tag 'production_parts_attributes[][part_id]', component_part.part_id, @production.part_ids.include?(component_part.part_id), disabled: component.disabled?(@production.part_ids, component_part.part_id), data: { action: 'custom#toggle', part_taxon_id: component.part_taxon_id }, class: 'weui-check display-none', id: "part_#{component_part.part_id}", form: 'edit_custom' %>
+  </div>
+  <div>
+    <% if @production.part_ids.include?(component_part.part_id) %>
+      <button data-action="modify#minus" class="button_to mr-1">
+        <i class="fa-solid fa-xl fa-minus text-grey"></i>
+      </button>
+      <%= number_field_tag 'production_parts_attributes[][number]', component_part.min, form: 'edit_custom', class: 'text-centered', style: 'width: 3rem' %>
+    <% end %>
+    <button data-action="modify#plus" class="button_to ml-1">
+      <i class="fa-solid fa-xl fa-plus text-grey"></i>
+    </button>
+  </div>
+</div>
