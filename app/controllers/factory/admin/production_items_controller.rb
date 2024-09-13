@@ -45,7 +45,7 @@ module Factory
 
     private
     def set_production
-      @production = Production.find params[:production_id]
+      @production = Production.default_where(default_filter_params).find params[:production_id]
     end
 
     def set_production_plan
