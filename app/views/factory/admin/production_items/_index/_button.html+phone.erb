@@ -1,8 +1,8 @@
-<%= form_with theme: nil, model: @production_item, url: { action: 'create' }, class: 'button' do |f| %>
+<%= form_with theme: nil, model: @production_item, url: { action: 'create' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :code %>
   <%= f.hidden_field :produced_at, value: Time.current.to_fs(:local) %>
-  <%= f.submit '新增' %>
+  <%= f.submit '新增', class: 'button is-fullwidth' %>
 <% end %>
-<%= form_with theme: nil, model: @production_item, url: { action: 'batch' }, class: 'button' do |f| %>
-  <%= f.submit '批量新增' %>
+<%= form_with theme: nil, model: @production_item, url: { action: 'batch' }, class: 'button_to' do |f| %>
+  <%= f.submit '批量新增', class: 'button is-fullwidth' %>
 <% end %>
