@@ -2,27 +2,17 @@
   <span><%= model.name %></span>
   <span class="tag"><%= model.state_i18n %></span>
 </p>
-<div class="flex mt-1">
+<div class="mt-1 flex">
 <% if model.default %>
-  <div class="tags has-addons mr-2">
+  <div class="tags has-addons mb-0 mr-2">
     <span class="tag mb-1"><%= Factory::Production.human_attribute_name(:default) %></span>
     <span class="tag is-primary mb-1"><i class="fa-solid fa-check"></i></span>
-  </div>
-<% else %>
-  <div class="tags has-addons mr-2">
-    <span class="tag mb-1"><%= Factory::Production.human_attribute_name(:default) %></span>
-    <span class="tag is-danger mb-1"><i class="fa-solid fa-times"></i></span>
   </div>
 <% end %>
 <% if model.enabled %>
   <div class="tags has-addons">
     <span class="tag mb-1"><%= Factory::Production.human_attribute_name(:enabled) %></span>
     <span class="tag is-primary mb-1"><i class="fa-solid fa-check"></i></span>
-  </div>
-<% else %>
-  <div class="tags has-addons">
-    <span class="tag mb-1"><%= Factory::Production.human_attribute_name(:enabled) %></span>
-    <span class="tag is-danger mb-1"><i class="fa-solid fa-times"></i></span>
   </div>
 <% end %>
 </div>

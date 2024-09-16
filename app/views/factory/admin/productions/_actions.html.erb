@@ -10,11 +10,25 @@
   <i class="fa-solid fa-list"></i>
   <span><%= t('.production_items.index.title') %></span>
 <% end %>
-<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]default': !model.default }, class: model.default ? 'text-danger has-column-centered' : 'text-success has-column-centered', form: { class: 'cell' }) do %>
-  <i class="fa-solid fa-check"></i>
-  <span>主显产品</span>
+<% if model.default %>
+  <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { 'production[default]': false }, class: 'text-danger has-column-centered', form: { class: 'cell' }) do %>
+    <i class="fa-solid fa-times"></i>
+    <span>主显产品</span>
+  <% end %>
+<% else %>
+  <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { 'production[default]': true }, class: 'text-success has-column-centered', form: { class: 'cell' }) do %>
+    <i class="fa-solid fa-check"></i>
+    <span>主显产品</span>
+  <% end %>
 <% end %>
-<%= button_to({ action: 'update', id: model.id }, method: :patch, params: { '[production]enabled': !model.enabled }, class: model.enabled ? 'text-danger has-column-centered' : 'text-success has-column-centered', form: { class: 'cell' }) do %>
-  <i class="fa-solid fa-check"></i>
-  <span>上架</span>
+<% if model.enabled %>
+  <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { 'production[enabled]': false }, class: 'text-danger has-column-centered', form: { class: 'cell' }) do %>
+    <i class="fa-solid fa-times"></i>
+    <span>下架</span>
+  <% end %>
+<% else %>
+  <%= button_to({ action: 'update', id: model.id }, method: :patch, params: { 'production[enabled]': true }, class: 'text-success has-column-centered', form: { class: 'cell' }) do %>
+    <i class="fa-solid fa-check"></i>
+    <span>上架</span>
+  <% end %>
 <% end %>
