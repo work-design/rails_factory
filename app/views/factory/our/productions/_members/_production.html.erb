@@ -1,5 +1,5 @@
 <div class="media">
-  <div data-controller="empty" class="media-left">
+  <div class="media-left">
     <%= link_to({ controller: 'productions', action: 'show', id: model.id }, text: true) do %>
       <%= image_tag model.product.logo, class: 'image is-64x64' %>
     <% end if model.product.logo.attached? %>
