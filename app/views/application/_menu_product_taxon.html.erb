@@ -1,4 +1,4 @@
-<div class="weui-panel is-box is-borderless">
+<div class="box is-padding-less mx-3">
   <div class="weui-panel__bd">
     <div class="columns is-mobile">
       <%= render partial: 'menu_item_taxon', collection: Factory::Taxon.default_where(default_params).enabled, as: :model %>
