@@ -1,7 +1,7 @@
-<p class="">
+<%= link_to({ action: 'show', id: model.id }) do %>
   <span><%= model.title %></span>
   <span class="tag"><%= model.state_i18n %></span>
-</p>
+<% end %>
 <div class="mt-1 flex">
 <% if model.default %>
   <div class="tags has-addons mb-0 mr-2">
