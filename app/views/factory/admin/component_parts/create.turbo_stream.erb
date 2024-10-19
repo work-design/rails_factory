@@ -1,0 +1,2 @@
+<%= turbo_stream.append 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: model } %>
+<%= turbo_stream.remove "production_#{@component_part.part.product_id}_#{@component_part.part_id}" %>
