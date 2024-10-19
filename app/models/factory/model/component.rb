@@ -17,13 +17,13 @@ module Factory
       has_many :parts, through: :component_parts
 
       validates :min_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.max_select } }
-      #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.product_parts_count } }
+      #validates :max_select, numericality: { only_integer: true, less_than_or_equal_to: -> (o) { o.component_parts_count } }
 
     end
 
     def select_str
       if max_select == min_select && component_parts_count > max_select.to_i
-        "#{product_parts_count} 选 #{max_select}"
+        "#{component_parts_count} 选 #{max_select}"
       elsif max_select == min_select && component_parts_count == max_select
         "必选 #{max_select}"
       elsif max_select.to_i > min_select.to_i
