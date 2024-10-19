@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 21f893d7b8dc73003e30abc1973eb44f873f7932
+  revision: cf5e55562a7866dbe1af7e7596a9525465d5897a
   specs:
     rails_com (1.3.0)
       acme-client
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 043865c0fa43206e3f9748cb438ba2790e5644db
+  revision: 9fb6e5ce7f75a02ac0c5629ad237f61003fa6e15
   specs:
     rails_design (0.0.1)
       rails
@@ -46,14 +46,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_space.git
-  revision: fdfda25d182701863d9469956a0287f3a052b876
+  revision: da2e3740072fc14186adabf1d6ada6c5d57b329d
   specs:
     rails_space (0.0.1)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: beabe2f471a31b97f7d9f352b9ec3c807e96fc24
+  revision: 6c8b3994e9b47d84367b29c8767d311de845b876
   specs:
     rails_trade (0.0.3)
       rails_com
@@ -315,7 +315,7 @@ GEM
     stringio (3.1.1)
     thor (1.3.2)
     timeout (0.4.1)
-    turbo-rails (2.0.10)
+    turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
@@ -446,7 +446,7 @@ CHECKSUMS
   stringio (3.1.1) sha256=53456e14175c594e0e8eb2206a1be33f3974d4fe21c131e628908b05c8c2ae1e
   thor (1.3.2) sha256=eef0293b9e24158ccad7ab383ae83534b7ad4ed99c09f96f1a6b036550abbeda
   timeout (0.4.1) sha256=6f1f4edd4bca28cffa59501733a94215407c6960bd2107331f0280d4abdebb9a
-  turbo-rails (2.0.10) sha256=11cde241f9335ef6962322642dfd764178de192d0ba45101963da0f10f8e5738
+  turbo-rails (2.0.11)
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   uri (0.13.1) sha256=df2d8b13e3e8c8a43432637e2ace4f9de7b42674361b4dd26302b40f7d7fcd1e
   useragent (0.16.10) sha256=1794380d9ea5c087d687bbfe14752f81839293f238c1132ef05c9344f09e65bb

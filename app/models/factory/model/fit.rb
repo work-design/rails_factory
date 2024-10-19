@@ -3,7 +3,7 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
-      enum grade: {
+      enum :grade, {
         primary: 'primary'
       }
 
