@@ -17,21 +17,21 @@
   <% end %>
 </td>
 <td style="--money-width: <%= model.max_indent %>ch">
-  <p>
+  <div>
     <span><%= model.cost_price.to_money.format.html_safe %></span>
     <%= button_to({ action: 'cost', id: model.id, product_id: model.product_id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, class: 'visibility-hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags text-grey"></i>
     <% end %>
-  </p>
-  <p>
+  </div>
+  <div>
     <span><%= model.profit_price.to_money.format.html_safe %></span>
     <%= button_to({ action: 'price', id: model.id, product_id: model.product_id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, class: 'visibility-hidden') do %>
       <i class="fa-solid fa-fw fa-sm fa-tags text-grey"></i>
     <% end %>
-  </p>
-  <p class="text-danger">
+  </div>
+  <div class="text-danger">
     <span class="mr-5"><%= model.price.to_money.format.html_safe %></span>
-  </p>
+  </div>
 </td>
 <td>
   <div class="tags-group">
