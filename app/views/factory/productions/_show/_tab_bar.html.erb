@@ -1,7 +1,7 @@
 <div class="level flex-direction-row is-safe-bottom" style="background-color: #f7f7f7">
   <div class="level-left p-3">
     <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, class: 'has-column-centered') do %>
-      <div class="fa-weui-badge">
+      <div class="right-badge">
         <i class="fa-solid fa-fw fa-xl fa-cart-shopping"></i>
         <span class="weui-badge"><%= @cart.items.count %></span>
       </div>
