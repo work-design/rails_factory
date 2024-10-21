@@ -90,6 +90,7 @@ module Factory
         @production.compute_price
         @production.save!
       end
+      logger.debug "\e[35m  Production: #{@production.id}  \e[0m"
     end
 
     def create
