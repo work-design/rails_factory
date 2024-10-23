@@ -1,15 +1,15 @@
 <table id="product_summary_<%= production.product_id %>" class="table is-embed is-fullwidth align-self-flex-start text-grey">
 <% cart.find_items(production.brother_ids, good_type: production.base_class_name, **options).each do |item| %>
   <tr data-id="<%= item.id %>">
-    <td>
+    <td style="width: 1em; padding: 0">
       <% if item.good_id == production.id %>
         <i class="fa-solid fa-fw fa-check text-success"></i>
       <% else %>
         <i class="px-3"></i>
       <% end %>
-      <span><%= item.good.name %></span>
     </td>
     <td>
+      <p><%= item.good.name %></p>
       <ul class="media-info display-inline-flex">
         <% item.good.production_parts.includes(:part).each do |production_part| %>
           <li>
