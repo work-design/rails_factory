@@ -2,7 +2,7 @@
   <%= render partial: 'product_summary', locals: { production: @production, cart: @cart, options: params.permit(:dispatch) } %>
   <div class="flex justify-content-space-between align-items-center is-fullwidth">
     <div class="text-danger"><%= @production.price.to_money.format.html_safe %></div>
-    <%= render partial: 'cart_new', locals: { item: @cart.init_cart_item(params, good_id: @production.id), item_con: 'trade/my/items', cart: @cart } %>
+    <%= render partial: 'cart_add', locals: { item: @cart.init_cart_item(params, good_id: @production.id), item_con: 'trade/my/items', cart: @cart } %>
   </div>
   <div class="flex justify-content-center align-items-center is-fullwidth mt-2">
     <button data-action="click->modal#close" class="button is-small is-rounded is-primary">确认</button>
