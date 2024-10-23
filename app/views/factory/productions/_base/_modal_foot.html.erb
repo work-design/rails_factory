@@ -4,4 +4,14 @@
     <div class="text-danger"><%= @production.price.to_money.format.html_safe %></div>
     <%= render partial: 'cart_new', locals: { item: @cart.init_cart_item(params, good_id: @production.id), item_con: 'trade/my/items', cart: @cart } %>
   </div>
+  <div class="flex justify-content-space-between align-items-center is-fullwidth mt-2">
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, class: 'button is-small is-rounded') do %>
+      <div class="right-badge">
+        <i class="fa-solid fa-fw fa-xl fa-cart-shopping"></i>
+        <span class="weui-badge"><%= @cart.items.count %></span>
+      </div>
+      <span>去购物车</span>
+    <% end if @cart %>
+    <button data-action="click->modal#close" class="button is-small is-rounded">确认</button>
+  </div>
 </footer>
