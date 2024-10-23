@@ -17,11 +17,16 @@
       <span><%= item.number.to_human %></span>
       <span class="text-grey-light">份</span>
     </td>
-    <td style="width: 1em; padding: 0">
+    <td class="text-right" style="width: 6em; padding: 0">
       <% if item.good_id == production.id %>
-        <i class="fa-solid fa-fw fa-check text-success"></i>
+        <div class="button is-small">
+          <i class="fa-solid fa-check text-success"></i>
+          <span class="ml-1">当前商品</span>
+        </div>
       <% else %>
-        <i class="px-3"></i>
+        <%= button_to({ action: 'show', id: item.good_id }, params: { dispatch: params[:dispatch].presence || current_organ.dispatch }, class: 'button is-small is-rounded') do %>
+          <span>选择</span>
+        <% end %>
       <% end %>
     </td>
   </tr>
