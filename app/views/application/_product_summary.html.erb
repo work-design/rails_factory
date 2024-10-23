@@ -1,7 +1,7 @@
-<table id="product_summary_<%= production.product_id %>" class="table is-embed is-interval is-fullwidth align-self-flex-start text-grey">
+<dl id="product_summary_<%= production.product_id %>" class="as-show is-fullwidth px-0 is-interval">
 <% cart.find_items(production.brother_ids, good_type: production.base_class_name, **options).each do |item| %>
-  <tr data-id="<%= item.id %>" style="background-color: <%= item.good_id == production.id ? '#eee' : 'auto' %>">
-    <td>
+  <div data-id="<%= item.id %>" style="background-color: <%= item.good_id == production.id ? '#eee' : 'auto' %>">
+    <dt>
       <ul class="media-info display-inline-flex">
         <% item.good.production_parts.includes(:part).each do |production_part| %>
           <li>
@@ -12,10 +12,10 @@
           </li>
         <% end %>
       </ul>
-    </td>
-    <td class="text-right">
+    </dt>
+    <dd class="text-right">
       <%= render partial: 'cart_new', locals: { item: @cart.init_cart_item(params, good_id: item.good_id), item_con: 'trade/my/items', cart: @cart } %>
-    </td>
-  </tr>
+    </dd>
+  </div>
 <% end %>
-</table>
+</dl>
