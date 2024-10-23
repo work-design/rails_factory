@@ -1,4 +1,4 @@
-<table id="product_summary_<%= production.product_id %>" class="table is-embed is-fullwidth align-self-flex-start text-grey">
+<table id="product_summary_<%= production.product_id %>" class="table is-embed is-interval is-fullwidth align-self-flex-start text-grey">
 <% cart.find_items(production.brother_ids, good_type: production.base_class_name, **options).each do |item| %>
   <tr data-id="<%= item.id %>">
     <td style="width: 1em; padding: 0">
