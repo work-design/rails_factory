@@ -1,7 +1,19 @@
 <footer class="modal-card-foot flex-direction-column">
   <%= render partial: 'product_summary', locals: { production: @production, cart: @cart, options: params.permit(:dispatch) } %>
   <div class="flex justify-content-space-between align-items-center is-fullwidth">
-    <div class="text-danger"><%= @production.price.to_money.format.html_safe %></div>
+    <div>
+      <p class="text-danger"><%= @production.price.to_money.format.html_safe %></p>
+      <ul class="media-info display-inline-flex text-grey">
+        <% @production.production_parts.includes(:part).each do |production_part| %>
+          <li>
+            <span><%= production_part.part.name %></span>
+            <% if production_part.number.to_i > 1 %>
+              <span>x <%= production_part.number %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
     <%= render partial: 'cart_add', locals: { item: @cart.init_cart_item(params, good_id: @production.id), item_con: 'trade/my/items', cart: @cart } %>
   </div>
   <div class="flex justify-content-center align-items-center is-fullwidth mt-2">
