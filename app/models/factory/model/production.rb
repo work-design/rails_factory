@@ -91,7 +91,7 @@ module Factory
     end
 
     def compute_min_max_price
-      product.compute_min_max!
+      product.compute_min_max_later
     end
 
     def compute_cost_price

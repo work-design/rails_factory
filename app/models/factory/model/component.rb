@@ -48,7 +48,10 @@ module Factory
           return true
         end
       end
-      return true if select_ids.size == max_select && select_ids.exclude?(part_id)
+
+      if select_ids.size == max_select && select_ids.exclude?(part_id)
+        return true
+      end
 
       false
     end

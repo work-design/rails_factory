@@ -67,6 +67,10 @@ module Factory
       self.save
     end
 
+    def compute_min_max_later
+      ProductMinMaxPriceJob.perform_later(self)
+    end
+
     def sync_from_taxon
       self.factory_taxon_id = taxon.factory_taxon_id
       self.organ_id = taxon.organ_id
