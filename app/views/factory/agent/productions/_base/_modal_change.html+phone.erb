@@ -2,13 +2,13 @@
   <div data-action="click->modal#close" class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <span style="width: 1.25rem"></span>
-      <p class="modal-card-title"><%= @production.product.name %></p>
       <button type="button" data-action="modal#close" class="delete"></button>
+      <p class="modal-card-title"><%= @production.product.name %></p>
+      <span style="width: 1.25rem"></span>
     </header>
     <div class="modal-card-body">
       <%= yield %>
     </div>
-    <%= render partial: 'modal_foot_component', locals: { item_con: 'trade/my/items' } %>
+    <%= render partial: 'modal_foot_component', locals: { item_con: 'trade/agent/items' } %>
   </div>
 </div>

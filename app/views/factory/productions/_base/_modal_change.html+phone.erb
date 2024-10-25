@@ -9,6 +9,6 @@
     <div class="modal-card-body">
       <%= yield %>
     </div>
-    <%= render 'modal_foot_component' %>
+    <%= render partial: 'modal_foot_component', locals: { item_con: 'trade/my/items' } %>
   </div>
 </div>
