@@ -46,14 +46,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_space.git
-  revision: da20fd3fd87492a7dfa041de1bca0cff0539331d
+  revision: ec8f8df5a8e7e82ff7b333a11023dfde06a10f89
   specs:
     rails_space (0.0.1)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 8843ffc5382c9cf7a84a13dd88f09fb6066333a8
+  revision: faae7a1926d2c253112499915f73f2c1b81ceea6
   specs:
     rails_trade (0.0.3)
       rails_com
