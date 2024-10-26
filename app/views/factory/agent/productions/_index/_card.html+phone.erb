@@ -4,7 +4,7 @@
       <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
       <strong class="size-4"><%= model.title %></strong>
     </div>
-    <p class="text-danger"><%= model.price.to_money.format.html_safe %></p>
+    <p class="text-danger mt-1"><%= model.price.to_money.format.html_safe %></p>
   </div>
   <div class="media-right">
     <%= yield %>
