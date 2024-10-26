@@ -1,0 +1,22 @@
+<div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="box as-bar">
+  <% if params[:desk_id] %>
+    <%= link_to({ controller: 'space/admin/desks', action: 'all' }, class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
+  <% else %>
+    <%= link_to({ controller: 'produce_plans' }, class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
+  <% end %>
+  <div class="weui-title flex-direction-column">
+    <div>
+      <span class="text-weight-semibold"><%= params[:produce_on] %></span>
+      <span><%= params[:produce_on].to_date.to_fs(:week) if params[:produce_on].present? %></span>
+    </div>
+    <div>
+      <span class="text-weight-semibold"><%= @scene&.title %></span>
+    </div>
+  </div>
+  <i class="px-5"></i>
+  <%= render 'space_dispatch' %>
+</div>
