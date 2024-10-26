@@ -20,9 +20,9 @@
     <%= render partial: 'production_cart', layout: 'production', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/my/items' } %>
     <% if @productions.blank? %>
       <%= render 'blank' %>
-    <% elsif @products.total_pages <= @products.current_page %>
+    <% elsif @productions.total_pages <= @productions.current_page %>
       <%= render 'no_more' %>
-    <% elsif @products.total_pages > @products.current_page %>
+    <% elsif @productions.total_pages > @productions.current_page %>
       <%= render 'loading' %>
       <%= render 'tip' %>
     <% end %>
