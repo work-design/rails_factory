@@ -2,7 +2,7 @@
   <div class="media-content">
     <div class="is-several">
       <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
-      <strong class="is-6"><%= model.title %></strong>
+      <strong class="size-4"><%= model.title %></strong>
     </div>
     <p class="text-danger"><%= model.price.to_money.format.html_safe %></p>
   </div>
