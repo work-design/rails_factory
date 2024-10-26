@@ -1,12 +1,10 @@
 <div class="media is-boxed">
-  <div class="media-left">
-    <figure class="image is-64x64 is-1by1">
-      <%= image_tag model.logo if model.logo.attached? %>
-    </figure>
-  </div>
   <div class="media-content">
-    <h2 class="title is-6"><%= model.title %></h2>
-    <strong class="text-danger"><%= model.price.to_money.format.html_safe %></strong>
+    <div class="is-several">
+      <%= image_tag model.logo, class: 'image is-24x24' if model.logo.attached? %>
+      <strong class="is-6"><%= model.title %></strong>
+    </div>
+    <p class="text-danger"><%= model.price.to_money.format.html_safe %></p>
   </div>
   <div class="media-right">
     <%= yield %>
