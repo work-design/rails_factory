@@ -1,9 +1,6 @@
-<%= form_with url: { controller: '/factory/productions', action: 'create' }, method: :post, id: 'edit_custom' do |f| %>
-  <%= f.hidden_field :product_id, value: @production.product_id %>
-  <%= f.hidden_field :product_plan_id, value: params[:product_plan_id] %>
+<% if @production.product.covers.present? %>
+  <%= render partial: 'covers', locals: { model: @production.product } %>
 <% end %>
-
-<%= render partial: 'covers', locals: { model: @production.product } if @production.product.covers.present? %>
 
 <div class="box is-border mt-3" style="z-index: 3">
   <div class="p-4">
