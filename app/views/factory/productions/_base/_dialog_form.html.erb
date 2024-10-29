@@ -1,7 +1,6 @@
 <%= form_with model: production, url: { action: 'create_dialog' }, id: 'edit_custom' do |f| %>
   <%= hidden_field_tag :dispatch, params[:dispatch] %>
 <% end %>
-<%# render 'factory/productions/_base/figure' if production.product.covers.length > 0 %>
 
 <% production.same_component_parts.includes(:component, :part).group_by(&:component).each do |component, component_parts| %>
   <%= render partial: 'component', locals: { component: component, component_parts: component_parts } %>
