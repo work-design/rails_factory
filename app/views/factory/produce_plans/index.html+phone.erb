@@ -1,15 +1,13 @@
 <div class="mb-3"></div>
 <% @produce_plans.each do |produce_on, produce_plans| %>
 <div class="box is-padding-less mx-3">
-  <div class="weui-panel__hd">
+  <div class="box-header">
     <span><%= extra_distance_date(produce_on) %></span>
     <span class="text-weight-normal text-grey size-7"><%= produce_on %></span>
     <span class="text-weight-normal text-grey size-7"><%= produce_on.to_fs(:week) %></span>
   </div>
-  <div class="weui-panel__bd">
-    <div class="columns is-multiline flex m-0">
-      <%= render partial: 'produce_plan', collection: produce_plans, as: :model %>
-    </div>
+  <div class="columns is-multiline flex m-0">
+    <%= render partial: 'produce_plan', collection: produce_plans, as: :model %>
   </div>
 </div>
 <% end %>

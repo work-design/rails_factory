@@ -21,7 +21,7 @@ module Factory
         if @produce_plan.expired?
           render 'expired'
         else
-          @productions = @produce_plan.productions.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }])
+          @productions = @produce_plan.productions.includes(:organ, :parts, product: [:brand, { logo_attachment: :blob }]).page(params[:page]).per(params[:per])
         end
       else
         @productions = Production.includes(:taxon, :parts, product: [:brand, { logo_attachment: :blob }]).list.default_where(q_params).order(position: :asc).page(params[:page]).per(params[:per])
