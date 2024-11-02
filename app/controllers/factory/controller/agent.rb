@@ -6,8 +6,6 @@ module Factory
     include Roled::Controller::Admin
 
     included do
-      layout 'agent'
-
       before_action :require_org_member
     end
 
