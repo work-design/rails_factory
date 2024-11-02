@@ -5,6 +5,7 @@ module Factory
     before_action :set_production, only: [:show, :list]
     before_action :set_card_templates, only: [:index]
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
+    before_action :set_desk, only: [:index], if: -> { params[:desk_id].present? }
     before_action :set_cart, only: [:index, :nav, :show, :create_dialog]
 
     def index
@@ -48,6 +49,10 @@ module Factory
 
     def set_scene
       @scene = Scene.find params[:scene_id]
+    end
+
+    def set_desk
+      @desk = Space::Desk.find params[:desk_id]
     end
 
     def set_card_templates
