@@ -1,5 +1,5 @@
 module Factory
-  class Agent::ProductionsController < Admin::ProductionsController
+  class Agent::ProductionsController < ProductionsController
     include Controller::Agent
     before_action :set_produce_plans, only: [:index, :plan]
     before_action :set_production, only: [:show, :list]
@@ -7,6 +7,7 @@ module Factory
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
     before_action :set_desk, only: [:index], if: -> { params[:desk_id].present? }
     before_action :set_cart, only: [:index, :nav, :show, :create_dialog]
+    skip_before_action :require_user, only: [:show]
 
     def index
       params.with_defaults! per: 20
