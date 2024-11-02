@@ -71,6 +71,7 @@ Rails.application.routes.draw do
       end
 
       namespace :agent, defaults: { namespace: 'agent' } do
+        root 'home#index'
         concerns :productive
       end
 
