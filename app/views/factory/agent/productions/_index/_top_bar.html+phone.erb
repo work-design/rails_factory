@@ -11,7 +11,7 @@
   <div class="weui-title flex-direction-column">
   <% if params[:desk_id] %>
     <div><span><%= @desk.name %></span></div>
-  <% else %>
+  <% elsif params[:scene_id] || params[:produce_on] %>
     <div>
       <span class="text-weight-semibold"><%= params[:produce_on] %></span>
       <span><%= params[:produce_on].to_date.to_fs(:week) if params[:produce_on].present? %></span>
