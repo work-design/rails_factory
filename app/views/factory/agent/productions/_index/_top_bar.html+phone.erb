@@ -9,13 +9,17 @@
     <% end %>
   <% end %>
   <div class="weui-title flex-direction-column">
+  <% if params[:desk_id] %>
+    <div><span><%= @desk.name %></span></div>
+  <% else %>
     <div>
       <span class="text-weight-semibold"><%= params[:produce_on] %></span>
       <span><%= params[:produce_on].to_date.to_fs(:week) if params[:produce_on].present? %></span>
     </div>
     <div>
-      <span class="text-weight-semibold"><%= @scene&.title %></span>
+      <span class="text-weight-semibold"><%= @scene.title %></span>
     </div>
+  <% end %>
   </div>
   <i class="px-5"></i>
   <%= render 'space_dispatch' %>
