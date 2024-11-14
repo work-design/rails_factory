@@ -260,10 +260,10 @@ Rails.application.routes.draw do
     end
   end
   resolve 'Factory::Production' do |production|
-    url_for(controller: '/factory/productions', action: 'show', id: production, return_state: StateUtil.encode(request))
+    url_for(controller: '/factory/productions', action: 'show', id: production)
   end
   resolve 'Factory::ProxyProduction' do |production|
-    url_for(controller: '/factory/productions', action: 'show', id: production, return_state: StateUtil.encode(request))
+    url_for(controller: '/factory/productions', action: 'show', id: production)
   end
 
 end
