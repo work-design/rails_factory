@@ -4,6 +4,7 @@ module Factory
     include Controller::Application
     include Org::Controller::Admin
     include Roled::Controller::Admin
+    include Com::Controller::Admin
 
     included do
       layout 'agent'
