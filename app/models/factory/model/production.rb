@@ -82,10 +82,6 @@ module Factory
       self.logo.attach product.logo_blob if product
     end
 
-    def good_name
-      title
-    end
-
     def title
       if parts.present?
         "#{product.name}"
