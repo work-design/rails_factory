@@ -4,6 +4,6 @@
 <%= f.text_area :description %>
 <%= f.number_field :base_price %>
 <%= f.number_field :profit_margin, step: 0.01 %>
-<%= f.fields :productions, wrap: { all: nil, input: 'field' }, label: nil, placeholder: true do |ef| %>
+<%= f.fields :productions, all: { input: nil }, wrap: { input: 'field' }, label: nil, placeholder: true do |ef| %>
   <%= render partial: 'item_form', locals: { ef: ef } %>
 <% end %>
