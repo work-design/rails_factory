@@ -1,8 +1,13 @@
 <div class="card">
-  <%= button_to({ action: 'show', id: model.id }, params: { dispatch: params[:dispatch] || current_organ.dispatch }, class: 'p-3 is-fullwidth is-fullheight', form: { class: 'card-content p-0' }) do %>
-    <h2 class="title text-left"><%= model.title %></h2>
-    <p class="text-danger text-right"><%= model.price.to_money.format.html_safe %></p>
-  <% end %>
+  <div class="card-content">
+    <%= link_to({ action: 'show', id: model.id }, params: { dispatch: params[:dispatch] || current_organ.dispatch }, class: 'is-several') do %>
+      <%= image_tag model.logo.variant(resize_to_limit: [24, 24]), class: 'image' if model.logo.attached? %>
+      <%= link_to model.title, { action: 'show', id: model.id } %>
+    <% end %>
+    <p>
+      <strong class="text-danger"><%= model.price.to_money.format.html_safe %></strong>
+    </p>
+  </div>
   <div class="card-footer py-2">
     <%= yield %>
   </div>
