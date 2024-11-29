@@ -8,7 +8,7 @@ zh:
         add: 加入购物车
     productions:
       index:
-        title: 在线商城
+        title: 在线下单
       show:
         add: 加入购物车
       change_dispatch:
