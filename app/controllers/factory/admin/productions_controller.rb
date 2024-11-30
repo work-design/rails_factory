@@ -2,7 +2,7 @@ module Factory
   class Admin::ProductionsController < Admin::BaseController
     before_action :set_product, except: [:taxon], if: -> { params[:product_id].present? }
     before_action :set_production, only: [
-      :show, :edit, :update, :destroy, :actions,
+      :show, :edit, :update, :refresh, :destroy, :actions,
       :part, :price, :cost, :card, :update_card, :wallet, :update_wallet
     ]
     before_action :set_new_production, only: [:new, :create]
