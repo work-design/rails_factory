@@ -8,6 +8,7 @@
   <% if model.brand %>
     <p><span class="tag is-danger is-light"><%= model.brand.name %></span></p>
   <% end %>
+  <p class="text-grey"><%= model.description %></p>
 </td>
 <td><%= model.base_price.to_money.format.html_safe %></td>
 <td>
