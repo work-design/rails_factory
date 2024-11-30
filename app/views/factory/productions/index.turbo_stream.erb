@@ -1,5 +1,5 @@
 <%= turbo_stream.replace 'container' do %>
-  <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'trade/my/items' } %>
+  <%= render partial: 'production_cart', layout: 'production', collection: @productions, as: :model, locals: { item_con: 'trade/my/items' } %>
   <%= render 'loading' %>
 <% end %>
 <% if @productions.total_pages == @productions.current_page %>
