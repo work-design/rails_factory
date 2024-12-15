@@ -2,7 +2,7 @@ module Factory
   module Controller::Agent
     extend ActiveSupport::Concern
     include Controller::Application
-    include Org::Controller::Admin
+    include Org::Controller::Admin if defined? RailsOrg
     include Roled::Controller::Admin
     include Com::Controller::Admin
 
