@@ -1,6 +1,8 @@
 module Factory
   class ProductionItem < ApplicationRecord
     include Model::ProductionItem
-    include Space::Ext::Storable if defined? RailsSpace
+    if defined? RailsSpace
+      include Space::Ext::Storable
+    end
   end
 end
