@@ -1,5 +1,5 @@
 module Factory
-  module Model::Cart
+  module Ext::Cart
     extend ActiveSupport::Concern
 
     included do
