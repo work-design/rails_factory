@@ -3,6 +3,7 @@ module Factory
     before_action :set_production
     before_action :set_production_space, only: [:show, :edit, :update, :destroy]
     before_action :set_new_production_space, only: [:new, :create]
+    before_action :set_stations, only: [:new, :create]
 
     def index
       q_params = {}
@@ -14,6 +15,10 @@ module Factory
     private
     def set_production
       @production = Production.find params[:production_id]
+    end
+
+    def set_stations
+      @stations = Space::Station.default_where(default_params)
     end
 
     def set_production_space
