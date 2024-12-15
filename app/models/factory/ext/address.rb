@@ -1,5 +1,5 @@
 module Factory
-  module Model::Address
+  module Ext::Address
     extend ActiveSupport::Concern
 
     included do
