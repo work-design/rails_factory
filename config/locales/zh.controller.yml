@@ -92,6 +92,9 @@ zh:
           title: 添加本店分类
         import:
           title: 从上游导入
+      production_spaces:
+        index:
+          title: 上料台管理
       production_plans:
         index:
           title: 生产计划
