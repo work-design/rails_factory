@@ -1,7 +1,7 @@
-<div id="station_id" class="field is-horizontal">
+<div id="room_id" class="field is-horizontal">
 <%= f.collection_select(
-      :station_id,
-      @stations,
+      :room_id,
+      @station.rooms,
       :id,
       :name,
       {
@@ -11,12 +11,10 @@
       {
         data: {
           controller: 'common',
-          common_url_value: url_for(action: 'rooms'),
+          common_url_value: url_for(action: 'desks'),
           action: 'common#postInput'
         }
       }
     )
 %>
 </div>
-<div id="room_id"></div>
-<div id="desk_id"></div>

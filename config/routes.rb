@@ -214,7 +214,12 @@ Rails.application.routes.draw do
               patch 'wallet' => :update_wallet
             end
           end
-          resources :production_spaces
+          resources :production_spaces do
+            collection do
+              post :rooms
+              post :desks
+            end
+          end
         end
       end
 

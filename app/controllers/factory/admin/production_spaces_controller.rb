@@ -2,7 +2,7 @@ module Factory
   class Admin::ProductionSpacesController < Admin::BaseController
     before_action :set_production
     before_action :set_production_space, only: [:show, :edit, :update, :destroy]
-    before_action :set_new_production_space, only: [:new, :create]
+    before_action :set_new_production_space, only: [:new, :create, :rooms, :desks]
     before_action :set_stations, only: [:new, :create]
 
     def index
@@ -10,6 +10,14 @@ module Factory
       q_params.merge! params.permit(:station_id, :room_id, :grid_id, :desk_id)
 
       @production_spaces = @production.production_spaces.default_where(q_params).order(id: :desc).page(params[:page])
+    end
+
+    def rooms
+      @station = Space::Station.find production_space_params[:station_id]
+    end
+
+    def desks
+      @room = Space::Room.find production_space_params[:room_id]
     end
 
     private
