@@ -34,11 +34,6 @@ module Factory
 
       self.good_name = purchase.name
       self.extra = Hash(self.extra).merge purchase.item_extra
-      compute_purchase_price
-      compute_amount
-    end
-
-    def compute_purchase_price
       self.single_price = purchase.cost_price
     end
 
