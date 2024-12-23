@@ -39,7 +39,7 @@ module Factory
       has_many :production_spaces
 
       has_many :production_parts, dependent: :destroy_async
-      has_many :parts, -> { order(id: :asc) }, through: :production_parts, dependent: :destroy
+      has_many :parts, through: :production_parts, dependent: :destroy
       has_many :part_taxons, -> { order(id: :asc) }, through: :production_parts
       has_many :part_productions, class_name: 'ProductionPart', foreign_key: :part_id
       has_many :productions, through: :part_productions
