@@ -1,6 +1,6 @@
-<%= form_with url: { action: 'batch_receive' }, class: 'button_to ml-2' do |f| %>
+<%= form_with url: { action: 'batch_receive' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
-  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-small text-success' do %>
+  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-success' do %>
     <i class="fa-solid fa-cash-register"></i>
     <span class="pl-1"><%= t('.batch_receive.title') %></span>
   <% end %>
