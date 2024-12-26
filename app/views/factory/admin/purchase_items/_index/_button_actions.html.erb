@@ -1,9 +1,7 @@
-<div class="buttons are-small">
-  <%= form_with url: { action: 'batch_receive' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to ml-2 display-none' do |f| %>
-    <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-    <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button is-small text-success' do %>
-      <i class="fa-solid fa-cash-register"></i>
-      <span class="pl-1"><%= t('.batch_receive.title') %></span>
-    <% end %>
+<%= form_with url: { action: 'batch_receive' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
+  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-success' do %>
+    <i class="fa-solid fa-cash-register"></i>
+    <span class="pl-1"><%= t('.batch_receive.title') %></span>
   <% end %>
-</div>
+<% end %>
