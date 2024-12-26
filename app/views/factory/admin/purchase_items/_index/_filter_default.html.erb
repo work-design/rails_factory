@@ -1,6 +1,4 @@
-<div data-switch-target="src" class="buttons are-small">
-  <%= link_to t('.all'), filter_params(except: [:purchase_status]), class: active_helper(purchase_status: nil, active: 'button is-info', item: 'button is-light') %>
-  <% Trade::Item.options_i18n(:purchase_status).each do |text, value| %>
-    <%= link_to text, filter_params(purchase_status: value, except: [:id]), class: active_helper(purchase_status: value, active: 'button is-info', item: 'button is-light') %>
-  <% end %>
-</div>
+<%= link_to t('.all'), filter_params(except: [:purchase_status]), class: active_helper(purchase_status: nil, active: 'button is-info', item: 'button is-light') %>
+<% Trade::Item.options_i18n(:purchase_status).each do |text, value| %>
+  <%= link_to text, filter_params(purchase_status: value, except: [:id]), class: active_helper(purchase_status: value, active: 'button is-info', item: 'button is-light') %>
+<% end %>
