@@ -5,13 +5,14 @@ zh:
         organ_id: 厂家
         brand_id: 品牌
         serial_id: 系列
-        product_taxon_id: 商品分类
+        taxon_id: 商品分类
         qr_prefix: 二维码前缀
         product_part_taxons: 分类
         logo: 主图
         covers: 橱窗轮播图
         images: 商品描述图
         productions_count: 型号数
+        base_price: 基础价格
       factory/product_host:
         profit_margin: 利润率
         min_price: 最低价
