@@ -1,4 +1,4 @@
-<div data-controller="slide" data-slide-debug-value="true" data-slide-delay-value="3" data-slide-target="container" class="slide is-1by1 is-boxed mt-3">
+<div data-controller="slide" data-slide-debug-value="true" data-slide-delay-value="3" data-slide-target="container" class="slide is-1by1 as-boxed mt-3">
 <% model.covers.each_with_index do |cover, index| %>
   <figure class="image" data-action="touchmove->slide#move:passive touchend->slide#end:passive" data-index="<%= index %>">
     <% if cover.content_type.to_s.start_with?('video') %>
