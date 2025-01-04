@@ -13,7 +13,6 @@ zh:
         images: 商品描述图
         productions_count: 型号数
         base_price: 基础价格
-      factory/product_host:
         profit_margin: 利润率
         min_price: 最低价
         max_price: 最高价
@@ -51,7 +50,7 @@ zh:
         book_finish_at: 预定结束时间
         production_plans_count: 上架产品数
         state: 状态
-      factory/product_taxon:
+      factory/taxon:
         factory_taxon_id: 平台分类
         scene_id: 场景
         partial: 可作为配件
