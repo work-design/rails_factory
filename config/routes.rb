@@ -113,6 +113,18 @@ Rails.application.routes.draw do
             end
           end
           resources :taxon_components
+          resources :productions, controller: 'taxon/productions' do
+            member do
+              match :part, via: [:get, :post]
+              match :price, via: [:get, :post]
+              match :cost, via: [:get, :post]
+              match :card, via: [:get, :post]
+              patch :update_card
+              match :wallet, via: [:get, :post]
+              patch :update_wallet
+              patch :provide
+            end
+          end
         end
         resources :provides do
           collection do
@@ -166,7 +178,6 @@ Rails.application.routes.draw do
         resources :productions, only: [] do
           collection do
             get :all
-            get 'taxon/:taxon_id' => :taxon
           end
           resources :addresses
           resources :trade_items do

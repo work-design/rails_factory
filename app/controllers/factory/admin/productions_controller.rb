@@ -19,10 +19,6 @@ module Factory
       @productions = @product.productions.includes(:parts).default_where(q_params).order(id: :asc).page(params[:page])
     end
 
-    def taxon
-      @productions = @taxon.productions.includes(:product).default.order(id: :asc).page(params[:page])
-    end
-
     def detect
     end
 

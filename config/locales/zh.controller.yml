@@ -40,6 +40,9 @@ zh:
             title: 产品
           edit_image:
             title: 商品图片
+        productions:
+          index:
+            title: 主显商品列表
       brands:
         index:
           title: 旗下品牌
@@ -127,8 +130,6 @@ zh:
       productions:
         index:
           title: 型号列表
-        taxon:
-          title: 主显商品列表
         card:
           title: 会员价
         part:

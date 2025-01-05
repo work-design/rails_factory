@@ -13,34 +13,34 @@
         <span class="tag"><%= @taxon.products_count %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
-      <%= link_to({ controller: 'productions', action: 'taxon', taxon_id: @taxon.id }) do %>
+    <li class="<%= active_helper(controller: 'taxon/productions', action: 'index', taxon_id: @taxon.id, active: 'is-active') %>">
+      <%= link_to({ controller: 'taxon/productions', action: 'index', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-eye"></i>
-        <span class="pl-1"><%= t('factory.admin.productions.taxon.title') %></span>
+        <span class="ml-1"><%= t('factory.admin.taxon.productions.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'taxon_components', active: 'is-active') %>">
       <%= link_to({ controller: 'taxon_components', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-cogs"></i>
-        <span class="pl-1"><%= t('.taxon_components.index.title') %></span>
+        <span class="ml-1"><%= t('.taxon_components.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(products: ['buy'], active: 'is-active') %>">
       <%= link_to({ controller: 'taxon/products', action: 'buy', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-store"></i>
-        <span class="pl-1"><%= t('.products.buy.title') %></span>
+        <span class="ml-1"><%= t('.products.buy.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(taxons: ['import'], active: 'is-active') %>">
       <%= link_to({ controller: 'taxons', action: 'import', id: @taxon.id }) do %>
         <i class="fa-solid fa-sign-in-alt"></i>
-        <span class="pl-1"><%= t('factory.admin.taxons.import.title') %></span>
+        <span class="ml-1"><%= t('factory.admin.taxons.import.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'provides', active: 'is-active') %>">
       <%= link_to({ controller: 'taxon/provides', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-building"></i>
-        <span class="pl-1"><%= t('.provides.index.title') %></span>
+        <span class="ml-1"><%= t('.provides.index.title') %></span>
       <% end %>
     </li>
   </ul>
