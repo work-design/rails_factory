@@ -4,7 +4,11 @@ module Factory
     before_action :set_taxons, only: [:index, :edit, :update]
 
     def index
-      @productions = @taxon.productions.includes(:product).default.order(id: :asc).page(params[:page])
+      @productions = @taxon.productions.includes(
+        :product,
+        production_parts: :part,
+        logo_attachment: :blob
+      ).default.order(id: :asc).page(params[:page])
     end
 
     private
