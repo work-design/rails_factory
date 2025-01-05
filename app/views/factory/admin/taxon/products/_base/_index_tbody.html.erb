@@ -38,17 +38,6 @@
       <span class="text-grey size-7"><%= product_component.select_str %></span>
     </p>
   <% end %>
-  <p data-show-target="item" class="visibility-hidden">
-    <%= link_to({ controller: 'product_components', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-tree"></i>
-      <span class="pl-1"><%= t('.product_components.index.title') %></span>
-    <% end %>
-  </p>
-</td>
-<td>
-  <%= link_to({ controller: 'fits', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-    <span class="pl-1"><%= model.fits_count %></span>
-  <% end %>
 </td>
 <td>
   <%= form_with theme: nil, model: model, scope: :product, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
