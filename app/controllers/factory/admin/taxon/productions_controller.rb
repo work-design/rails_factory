@@ -5,9 +5,9 @@ module Factory
 
     def index
       @productions = @taxon.productions.includes(
-        :product,
-        production_parts: :part,
-        logo_attachment: :blob
+        :parts,
+        logo_attachment: :blob,
+        product: { logo_attachment: :blob }
       ).default.order(id: :asc).page(params[:page])
     end
 
