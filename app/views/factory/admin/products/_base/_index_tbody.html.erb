@@ -31,14 +31,4 @@
       <span class="text-grey size-7"><%= component.select_str %></span>
     </p>
   <% end %>
-  <p>
-    <%= link_to({ controller: 'product_components', product_id: model.id }, aria: { label: t('.product_components.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-solid fa-tree"></i>
-    <% end %>
-  </p>
-</td>
-<td>
-  <%= link_to({ controller: 'fits', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-    <span class="pl-1"><%= model.fits_count %></span>
-  <% end %>
 </td>

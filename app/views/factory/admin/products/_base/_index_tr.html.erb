@@ -17,6 +17,14 @@
         <i class="fa-solid fa-pencil text-link"></i>
         <span class="ml-1"><%= t('.edit_image.title') %></span>
       <% end %>
+      <%= link_to({ controller: 'product_components', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-tree"></i>
+        <span class="ml-1"><%= t('.product_components.index.title') %></span>
+      <% end %>
+      <%= link_to({ controller: 'fits', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <span><%= model.fits_count %></span>
+        <span class="ml-1"><%= t('.fits.index.title') %></span>
+      <% end %>
     </div>
   </td>
 </tr>
