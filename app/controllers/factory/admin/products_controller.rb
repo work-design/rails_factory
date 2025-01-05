@@ -37,7 +37,7 @@ module Factory
     end
 
     def set_taxons
-      @taxons = Taxon.default_where(default_params)
+      @taxons = Taxon.default_where(default_params).order(id: :asc)
     end
 
     def set_product
