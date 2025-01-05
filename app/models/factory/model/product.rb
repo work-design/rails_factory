@@ -31,6 +31,7 @@ module Factory
       has_many :production_provides, dependent: :destroy_async
       has_many :components, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
       has_many :product_components
+      has_many :taxon_components, primary_key: :taxon_id, foreign_key: :taxon_id
       has_many :component_parts, through: :components
       has_many :parts, through: :component_parts
       has_many :part_products, class_name: 'ComponentPart', foreign_key: :part_id, dependent: :destroy_async
@@ -59,6 +60,10 @@ module Factory
 
     def profit_margin_str
       (profit_margin.to_d * 100).to_fs(:percentage)
+    end
+
+    def all_components
+      taxon_components + product_components
     end
 
     def compute_min_max!

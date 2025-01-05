@@ -25,7 +25,7 @@
 <% end %>
 </td>
 <td>
-  <% model.components.each do |component| %>
+  <% model.all_components.each do |component| %>
     <p>
       <span><%= component.name %></span>
       <span class="text-grey size-7"><%= component.select_str %></span>
