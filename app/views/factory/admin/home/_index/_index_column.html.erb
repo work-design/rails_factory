@@ -1,5 +1,5 @@
 <div class="fixed-grid has-6-cols">
-  <p class="text-grey mb-1">商品</p>
+  <p class="size-7 text-grey mb-1">商品</p>
   <div class="grid">
     <%= link_to({ controller: 'taxons' }, class: 'cell button is-fullwidth flex-direction-column') do %>
       <span class="text-grey"><%= @taxon_count %></span>
@@ -9,13 +9,13 @@
       <span><%= t('.products.buy.title') %></span>
     <% end %>
   </div>
-  <p class="text-grey mb-1">生产</p>
+  <p class="size-7 text-grey mb-1">生产</p>
   <div class="grid">
     <%= link_to({ controller: 'produce_plans' }, class: 'cell button is-fullwidth flex-direction-column') do %>
       <span><%= t('.produce_plans.index.title') %></span>
     <% end %>
   </div>
-  <p class="text-grey mb-1">上下游</p>
+  <p class="size-7 text-grey mb-1">上下游</p>
   <div class="grid">
     <%= link_to({ controller: 'provides' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.provides.index.title') %></span>
@@ -24,7 +24,7 @@
       <span><%= t('.brands.index.title') %></span>
     <% end %>
   </div>
-  <p class="text-grey mb-1">设置</p>
+  <p class="size-7 text-grey mb-1">设置</p>
   <div class="grid">
     <%= link_to({ controller: 'scenes' }, class: 'cell button is-fullwidth flex-direction-column') do %>
       <span class="text-grey"><%= @scene_count %></span>
