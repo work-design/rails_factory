@@ -7,7 +7,6 @@ module Factory
     before_action :set_scene, only: [:index], if: -> { params[:scene_id].present? }
     before_action :set_desk, only: [:index], if: -> { params[:desk_id].present? }
     before_action :set_cart, only: [:index, :nav, :show, :create_dialog]
-    skip_before_action :require_user, only: [:index, :show]
 
     def index
       params.with_defaults! per: 20
