@@ -4,7 +4,7 @@
       <i class="fa-solid fa-fw fa-store"></i>
       <span><%= t('factory.admin.title') %></span>
     </div>
-    <%= link_to({ controller: 'factory/admin/home' }, aria: { label: '设置' }) do %>
+    <%= link_to({ controller: 'factory/admin/home' }, aria: { label: '设置' }, data: { turbo_frame: 'body' }) do %>
       <i class="fa-solid fa-cog"></i>
     <% end %>
   </div>
