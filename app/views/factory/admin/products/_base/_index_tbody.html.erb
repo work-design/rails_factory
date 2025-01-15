@@ -1,26 +1,28 @@
 <td>
   <div class="is-several">
     <%= image_tag model.logo.variant(resize_to_limit: [24, 24]), class: 'image is-24x24' if model.logo.attached? %>
-    <%= link_to({ controller: 'productions', product_id: model.id }, text: true) do %>
-      <span><%= model.name %></span>
-    <% end %>
   </div>
   <% if model.brand %>
     <p><span class="tag is-danger"><%= model.brand.name %></span></p>
   <% end %>
 </td>
 <td>
-<% model.productions.each do |production| %>
+<% model.productions[0..2].each do |production| %>
   <p><%= production.name %></p>
+<% end %>
+<% if model.productions.size > 2 %>
+  <%= link_to({ controller: 'productions', product_id: model.id }, text: true, class: 'display-block mt-2') do %>
+    <span class="text-grey">更多</span>
+  <% end %>
 <% end %>
 </td>
 <td>
-<% model.productions.each do |production| %>
+<% model.productions[0..2].each do |production| %>
   <p><%= production.stock %></p>
 <% end %>
 </td>
 <td>
-<% model.productions.each do |production| %>
+<% model.productions[0..2].each do |production| %>
   <p><%= production.price.to_money.format.html_safe %></p>
 <% end %>
 </td>
