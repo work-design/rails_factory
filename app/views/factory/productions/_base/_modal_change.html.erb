@@ -6,7 +6,7 @@
       <p class="modal-card-title"><%= @production.product.name %></p>
       <button type="button" data-action="modal#close" class="delete"></button>
     </header>
-    <div class="modal-card-body">
+    <div id="production_modal_body" class="modal-card-body">
       <%= yield %>
     </div>
     <%= render partial: 'modal_foot_component', locals: { item_con: "trade/#{params[:namespace].presence || 'my'}/items" } %>
