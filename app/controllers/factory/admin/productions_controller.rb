@@ -3,7 +3,7 @@ module Factory
     before_action :set_product, except: [:taxon], if: -> { params[:product_id].present? }
     before_action :set_production, only: [
       :show, :edit, :update, :refresh, :destroy, :actions,
-      :part, :price, :cost, :card, :update_card, :wallet, :update_wallet
+      :part, :update_part, :price, :cost, :card, :update_card, :wallet, :update_wallet
     ]
     before_action :set_new_production, only: [:new, :create]
     before_action :set_taxon, only: [:taxon]
@@ -23,6 +23,11 @@ module Factory
     end
 
     def part
+    end
+
+    def update_part
+      @production.assign_attributes part_params
+      @production.compute_part_str!
     end
 
     def price
@@ -81,29 +86,26 @@ module Factory
         :automatic,
         :link,
         :stock,
-        :step,
+        :step
+      )
+    end
+
+    def part_params
+      params.fetch(:production, {}).permit(
         production_parts_attributes: [:part_id, :component_id, :number, :id, :_destroy]
       )
     end
 
     def card_price_params
-      r = {}
-
-      params.fetch(:production, {}).fetch(:card_price, []).each do |_, v|
-        r.merge! v[:code] => v[:price]
+      params.fetch(:production, {}).fetch(:card_price, {}).each_with_object({}) do |(_, v), h|
+        h.merge! v[:code] => v[:price]
       end
-
-      r
     end
 
     def wallet_price_params
-      r = {}
-
-      params.fetch(:production, {}).fetch(:wallet_price, {}).each do |_, v|
-        r.merge! v[:code] => v[:price]
+      params.fetch(:production, {}).fetch(:wallet_price, {}).each_with_object({}) do |(_, v), h|
+        h.merge! v[:code] => v[:price]
       end
-
-      r
     end
 
   end

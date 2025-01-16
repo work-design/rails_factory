@@ -85,8 +85,6 @@ module Factory
       unless @production
         @production = temp_production
         @production.compute_cost_price
-        @production.compute_profit_price
-        @production.compute_price
         @production.save!
       end
       logger.debug "\e[35m  Production: #{@production.id}  \e[0m"

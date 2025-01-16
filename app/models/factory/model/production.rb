@@ -152,7 +152,6 @@ module Factory
     end
 
     def compute_cost_price
-      return if cost_price.present?
       _cost_price = production_parts.sum { |i| i.part.price ? i.part.price * i.number : 0 }  # price 可由系统提前设定，未设定则通过零件自动计算
       self.cost_price = product.base_price.to_d + _cost_price
     end
@@ -166,6 +165,7 @@ module Factory
 
     def compute_part_str!
       compute_part_str
+      compute_cost_price
       self.save!
     end
 
