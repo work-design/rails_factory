@@ -79,8 +79,8 @@ module Factory
     def create_dialog
       from_production = Production.find params[:id]
       temp_production = from_production.product.productions.build(production_params)
-      r = temp_production.compute_part_str
-      @production = from_production.product.productions.find_by(str_part_ids: r)
+      temp_production.compute_part_str
+      @production = from_production.product.productions.find_by(str_part_ids: temp_production.str_part_ids)
 
       unless @production
         @production = temp_production

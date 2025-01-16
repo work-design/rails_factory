@@ -95,12 +95,6 @@ module Factory
       product.compute_min_max_later
     end
 
-    def compute_cost_price
-      return if cost_price.present?
-      _cost_price = production_parts.includes(:part).sum { |i| i.part.price ? i.part.price * i.number : 0 }  # price 可由系统提前设定，未设定则通过零件自动计算
-      self.cost_price = product.base_price.to_d + _cost_price
-    end
-
     def compute_profit_price
       if product.profit_margin
         self.profit_price = self.cost_price * product.profit_margin
@@ -157,28 +151,21 @@ module Factory
       end
     end
 
+    def compute_cost_price
+      return if cost_price.present?
+      _cost_price = production_parts.includes(:part).sum { |i| i.part.price ? i.part.price * i.number : 0 }  # price 可由系统提前设定，未设定则通过零件自动计算
+      self.cost_price = product.base_price.to_d + _cost_price
+    end
+
     def compute_part_str
       p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
       p_ids.sort!
+
       self.str_part_ids = p_ids.join(',')
     end
 
-    def add_part_str!(part_str)
-      p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
-      p_ids << part_str
-      p_ids.uniq!
-      p_ids.sort!
-      self.str_part_ids = p_ids.join(',')
-      self.compute_cost_price
-      self.save!
-    end
-
-    def remove_part_str!(part_str)
-      p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
-      p_ids.delete part_str
-      p_ids.sort!
-      self.str_part_ids = p_ids.join(',')
-      self.compute_cost_price
+    def compute_part_str!
+      compute_part_str
       self.save!
     end
 
