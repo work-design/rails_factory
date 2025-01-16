@@ -5,7 +5,7 @@
     <% if component_part.part.price.to_d > 0 %>
       <span class="ml-1 text-danger"><%= component_part.part.price.to_money.format.html_safe %></span>
     <% end %>
-    <%= hidden_field_tag 'production_parts_attributes[][component_id]', component_part.component_id, form: 'edit_custom', id: nil %>
+    <%= hidden_field_tag "production_parts_attributes[#{component.id}][component_id]", component_part.component_id, form: 'edit_custom', id: nil %>
   </div>
   <div>
   <% if @production.part_ids.include?(component_part.part_id) %>
