@@ -11,7 +11,7 @@ module Factory
       attribute :multiple, :boolean, default: false
 
       belongs_to :part_taxon, class_name: 'Taxon'
-      belongs_to :taxon
+      belongs_to :taxon, counter_cache: :taxon_components_count
 
       has_many :component_parts
       has_many :parts, through: :component_parts
