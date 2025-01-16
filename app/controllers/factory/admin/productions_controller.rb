@@ -97,13 +97,13 @@ module Factory
     end
 
     def card_price_params
-      params.fetch(:production, {}).fetch(:card_price, {}).each_with_object({}) do |(_, v), h|
-        h.merge! v[:code] => v[:price]
+      params.fetch(:production, {}).permit(card_price: [:code, :price]).to_h.each_with_object({}) do |(_, v), h|
+        h.merge! v['code'] => v['price']
       end
     end
 
     def wallet_price_params
-      params.fetch(:production, {}).fetch(:wallet_price, {}).each_with_object({}) do |(_, v), h|
+      params.fetch(:production, {}).permit(wallet_price: []).each_with_object({}) do |(_, v), h|
         h.merge! v[:code] => v[:price]
       end
     end
