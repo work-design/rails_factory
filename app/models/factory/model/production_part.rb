@@ -13,8 +13,6 @@ module Factory
 
       before_validation :sync_part_taxon, if: -> { part_id_changed? }
       before_validation :sync_product, if: -> { new_record? || production_id_changed? }
-      after_save :sync_to_production, if: -> { (saved_changes.keys & ['part_id', 'number']).present? }
-      after_destroy :destroy_to_production!
     end
 
     def sync_product
@@ -23,15 +21,6 @@ module Factory
 
     def sync_part_taxon
       self.part_taxon = part&.taxon
-    end
-
-    private
-    def sync_to_production
-      production.add_part_str!("#{part_id}_#{number}")
-    end
-
-    def destroy_to_production!
-      production.remove_part_str!("#{part_id}_#{number}")
     end
 
   end

@@ -78,7 +78,7 @@ module Factory
 
     def create_dialog
       from_production = Production.find params[:id]
-      temp_production = from_production.product.productions.build(params.permit(production_parts_attributes: [:part_id, :component_id, :number]))
+      temp_production = from_production.product.productions.build(production_params)
       r = temp_production.compute_part_str
       @production = from_production.product.productions.find_by(str_part_ids: r)
 
@@ -141,6 +141,12 @@ module Factory
       elsif params[:station_id]
         @station = Space::Station.find params[:station_id]
       end
+    end
+
+    def production_params
+      params.permit(
+        production_parts_attributes: [:part_id, :component_id, :number]
+      )
     end
 
   end
