@@ -8,14 +8,22 @@
       <%= ef.hidden_field :component_id %>
       <%= ef.number_field :number, style: 'width: 5em' %>
     </div>
-    <span data-show-target="hidden" class="display-none"><%= ef.object.number %></span>
+    <span
+      data-show-target="hidden"
+      class="has-inline-centered display-none"
+      style="font-size: var(--bulma-size-small);height: var(--bulma-control-height)"
+    ><%= ef.object.number %></span>
   <% else %>
     <div data-show-target="check" class="display-none">
       <%= ef.hidden_field :part_id, disabled: true, value: part.id %>
       <%= ef.hidden_field :component_id, disabled: true, value: component.id %>
       <%= ef.number_field :number, disabled: true, style: 'width: 5em' %>
     </div>
-    <span data-show-target="hidden"><%= ef.object.number %></span>
+    <div
+      data-show-target="hidden"
+      class="has-inline-centered"
+      style="font-size: var(--bulma-size-small);height: var(--bulma-control-height)"
+    ><%= ef.object.number %></div>
   <% end %>
   </td>
 <% end %>
