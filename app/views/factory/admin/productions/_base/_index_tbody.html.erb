@@ -9,10 +9,12 @@
 </td>
 <td>
 <div class="button_tos is-column">
-  <% model.parts.each do |part| %>
-    <%= button_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, class: 'button is-small is-info') do %>
-      <span><%= part.name %></span>
-      <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
+  <% model.production_parts.each do |production_part| %>
+    <%= button_to({ controller: 'production_parts', action: 'show', production_id: production_part.production_id, id: production_part.id }, class: 'text-info') do %>
+      <span><%= production_part.part.name %></span>
+      <span>x</span>
+      <span><%= production_part.number %></span>
+      <span class="ml-1"><%= production_part.part.price.to_money.format.html_safe %></span>
     <% end %>
   <% end %>
   <%= button_to({ action: 'part', id: model.id }, data: { show_target: 'item' }, class: 'visibility-hidden') do %>
