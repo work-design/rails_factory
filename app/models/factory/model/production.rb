@@ -152,12 +152,12 @@ module Factory
     end
 
     def compute_cost_price
-      _cost_price = production_parts.sum { |i| i.part.price ? i.part.price * i.number : 0 }  # price 可由系统提前设定，未设定则通过零件自动计算
+      _cost_price = production_parts.select(&:not_destroyed?).sum { |i| i.part.price ? i.part.price * i.number : 0 }  # price 可由系统提前设定，未设定则通过零件自动计算
       self.cost_price = product.base_price.to_d + _cost_price
     end
 
     def compute_part_str
-      p_ids = production_parts.map { |i| "#{i.part_id}_#{i.number}" }
+      p_ids = production_parts.select(&:not_destroyed?).map { |i| "#{i.part_id}_#{i.number}" }
       p_ids.sort!
 
       self.str_part_ids = p_ids.join(',')
