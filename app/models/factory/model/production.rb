@@ -98,8 +98,6 @@ module Factory
     def compute_profit_price
       if product.profit_margin
         self.profit_price = self.cost_price * product.profit_margin
-      else
-        self.profit_price = 0
       end
     end
 
