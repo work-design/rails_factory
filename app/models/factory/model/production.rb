@@ -26,7 +26,7 @@ module Factory
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
-      belongs_to :product, counter_cache: true
+      belongs_to :product, counter_cache: true, touch: true
       belongs_to :product_host, optional: true
       belongs_to :taxon, optional: true
       belongs_to :factory_taxon, optional: true
