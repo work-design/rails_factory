@@ -18,9 +18,5 @@ module RailsFactory
       g.templates.unshift File.expand_path('lib/templates', RailsCom::Engine.root)
     end
 
-    initializer 'rails_factory.assets' do |app|
-      app.config.assets.paths << root.join('app/assets/images')
-    end
-
   end # :nodoc:
 end
