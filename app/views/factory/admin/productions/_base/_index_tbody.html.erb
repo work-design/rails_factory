@@ -9,7 +9,7 @@
 </td>
 <td>
 <div class="button_tos is-column">
-  <% model.production_parts.each do |production_part| %>
+  <% model.production_parts.sort_by(&:part_id).each do |production_part| %>
     <%= button_to({ controller: 'production_parts', action: 'show', production_id: production_part.production_id, id: production_part.id }, class: 'text-info') do %>
       <span><%= production_part.part.name %></span>
       <span>x</span>
