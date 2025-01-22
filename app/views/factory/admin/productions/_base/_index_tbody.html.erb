@@ -23,22 +23,10 @@
   <% end %>
 </div>
 </td>
-<td style="--money-width: <%= model.max_indent %>ch">
-  <div>
-    <span><%= model.cost_price.to_money.format.html_safe %></span>
-    <%= button_to({ action: 'cost', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.cost.title') }, class: 'visibility-hidden') do %>
-      <i class="fa-solid fa-fw fa-sm fa-tags text-grey"></i>
-    <% end %>
-  </div>
-  <div>
-    <span><%= model.profit_price.to_money.format.html_safe %></span>
-    <%= button_to({ action: 'price', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.price.title') }, class: 'visibility-hidden') do %>
-      <i class="fa-solid fa-fw fa-sm fa-tags text-grey"></i>
-    <% end %>
-  </div>
-  <div class="text-danger">
-    <span class="mr-5"><%= model.price.to_money.format.html_safe %></span>
-  </div>
+<td class="text-right">
+  <div><%= model.cost_price.to_money.format.html_safe %></div>
+  <div><%= model.profit_price.to_money.format.html_safe %></div>
+  <div class="text-danger"><%= model.price.to_money.format.html_safe %></div>
 </td>
 <td>
   <div class="tags-group">
