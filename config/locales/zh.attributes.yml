@@ -24,6 +24,7 @@ zh:
         profit_price: 利润
         price: 售价
         card_price: 会员价
+        wallet_price: 积分兑换
         default: 主显产品
         presell: 预售
         enabled: 上架

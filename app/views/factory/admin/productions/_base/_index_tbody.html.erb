@@ -37,9 +37,22 @@
     </div>
   <% end %>
   </div>
-  <%= button_to({ action: 'card', id: model.id }, data: { show_target: 'item' }, aria: { label: t('factory.admin.productions.card.title') }) do %>
-    <i class="fa-solid fa-pencil fa-sm text-grey"></i>
+  <div data-show-target="item" class="visibility-hidden">
+    <%= button_to({ action: 'card', id: model.id }, class: 'button is-small is-light') do %>
+      <i class="fa-solid fa-pencil fa-sm text-grey"></i>
+      <span class="ml-1"><%= t('.card.title') %></span>
+    <% end %>
+  </div>
+</td>
+<td>
+  <div class="tags-group">
+  <% model.wallet_price.each do |key, value| %>
+    <div class="tags has-addons is-tag-price control mb-0">
+      <div class="tag is-success"><%= key %></div>
+      <div class="tag is-light"><%= value.to_money.format.html_safe %></div>
+    </div>
   <% end %>
+  </div>
 </td>
 <td>
   <%= form_with theme: nil, model: model, scope: :production, url: { action: 'refresh', id: model.id }, data: { controller: 'input' } do |f| %>

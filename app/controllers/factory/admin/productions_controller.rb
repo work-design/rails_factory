@@ -104,7 +104,7 @@ module Factory
     end
 
     def wallet_price_params
-      p = params.fetch(:production, {}).permit(wallet_price: [])
+      p = params.fetch(:production, {}).permit(wallet_price: [:code, :price])
       p[:wallet_price].to_h.each_with_object({}) do |(_, v), h|
         h.merge! v[:code] => v[:price]
       end
