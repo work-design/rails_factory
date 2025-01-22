@@ -102,7 +102,7 @@ module Factory
     end
 
     def compute_price
-      self.price = self.cost_price + self.profit_price
+      self.price = self.cost_price + self.profit_price.to_d
     end
 
     def disabled?(part_id)
