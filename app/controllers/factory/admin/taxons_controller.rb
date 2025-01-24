@@ -101,7 +101,7 @@ module Factory
     end
 
     def set_scenes
-      @scenes = Scene.all.limit(10)
+      @scenes = Scene.default_where(default_params)
     end
 
     def set_products

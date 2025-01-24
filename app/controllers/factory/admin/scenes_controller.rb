@@ -2,7 +2,7 @@ module Factory
   class Admin::ScenesController < Admin::BaseController
 
     def index
-      @scenes = Scene.order(id: :asc).page(params[:page])
+      @scenes = Scene.default_where(default_params).order(id: :asc).page(params[:page])
 
       q_params = {
         scene_id: @scenes.pluck(:id)

@@ -12,13 +12,15 @@ module Factory
       attribute :deliver_finish_at, :time
       attribute :specialty, :boolean, default: false
 
-      has_one_attached :logo
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       has_many :produce_plans, dependent: :nullify
       has_many :taxons, dependent: :nullify
       has_many :scene_automatics, dependent: :nullify
 
       scope :specialty, -> { where(specialty: true) }
+
+      has_one_attached :logo
 
       after_update :set_specialty, if: -> { specialty? && saved_change_to_specialty? }
     end
