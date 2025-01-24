@@ -84,11 +84,7 @@ module Factory
     end
 
     def title
-      if parts.present?
-        "#{product.name}"
-      else
-        name.include?(product.name.to_s) ? name : "#{product.name} #{name}"
-      end
+      name.presence || product.name
     end
 
     def compute_min_max_price
