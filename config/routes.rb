@@ -210,7 +210,8 @@ Rails.application.routes.draw do
           end
           resources :production_items do
             collection do
-              post :batch
+              post :batch_new
+              post :batch_create
               get 'delivery/:item_id' => :delivery
             end
             member do
