@@ -8,7 +8,7 @@
 </td>
 <td>
 <% model.productions[0..2].each do |production| %>
-  <p><%= production.name %></p>
+  <p><%= production.title %></p>
 <% end %>
 <% if model.productions.size > 2 %>
   <%= link_to({ controller: 'productions', product_id: model.id }, text: true, class: 'display-block mt-2') do %>
