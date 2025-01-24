@@ -54,6 +54,7 @@ zh:
       factory/taxon:
         factory_taxon_id: 平台分类
         scene_id: 场景
+        parent_id: 上级分类
         partial: 可作为配件
         products_count: 产品数
         provides_count: 供应商数量
