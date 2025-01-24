@@ -4,6 +4,6 @@
     <%= render partial: 'production_cart', layout: 'card', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/my/items' } %>
   </div>
 </div>
-<div class="column is-narrow" style="width: 200px">
+<div class="column is-one-fifth">
   <%= render partial: 'cart_nav', locals: { cart_con: 'trade/my/carts', cart: @cart } if @cart %>
 </div>
