@@ -12,8 +12,6 @@ module Factory
       attribute :provides_count, :integer, default: 0
       attribute :taxon_components_count, :integer, default: 0
 
-      belongs_to :template, class_name: 'JiaBo::Template', optional: true
-
       belongs_to :organ, optional: true
       belongs_to :factory_taxon, optional: true
       belongs_to :scene, optional: true
