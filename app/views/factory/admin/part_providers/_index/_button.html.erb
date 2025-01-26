@@ -1,8 +1,6 @@
-<div class="buttons are-small mb-0">
 <% @providers.each do |provider| %>
   <%= button_to({ action: 'new', organ_id: provider.id, **request.query_parameters.except(:id) }, class: 'button is-link') do %>
     <i class="fa-solid fa-plus"></i>
     <span class="ml-1"><%= provider.name %></span>
   <% end %>
 <% end %>
-</div>
