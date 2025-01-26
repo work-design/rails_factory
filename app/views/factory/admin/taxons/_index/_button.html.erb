@@ -1,4 +1,4 @@
-<%= link_to({ action: 'all', **request.query_parameters.except(:id) }, class: 'button is-link mb-0') do %>
+<%= link_to({ action: 'all', **request.query_parameters.except(:id) }, class: 'button is-link') do %>
   <i class="fa-solid fa-plus"></i>
   <span class="ml-1"><%= t('.all.title') %></span>
 <% end if @factory_taxons.present? %>
