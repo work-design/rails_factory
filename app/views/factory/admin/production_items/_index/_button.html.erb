@@ -2,8 +2,8 @@
   <%= f.hidden_field :qr_code %>
   <%= f.submit '新增', class: 'button is-info' %>
 <% end %>
-<%= form_with theme: nil, scope: '', model: @production_item, url: { action: 'batch_new' } do |f| %>
-  <%= f.submit '批量新增', class: 'button is-info' %>
+<%= button_to({ action: 'batch_new' }, class: 'button is-info') do %>
+  <span><%= t('.batch_new.title') %></span>
 <% end %>
 <%= button_to({ action: 'new' }, class: 'button is-primary') do %>
   <span><%= t('.new.title') %></span>

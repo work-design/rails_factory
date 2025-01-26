@@ -106,6 +106,8 @@ zh:
       production_items:
         index:
           title: 产品清单
+        batch_new:
+          title: 批量新增
         delivery:
           title: 发货
         update_delivery:
