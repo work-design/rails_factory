@@ -1,1 +1,7 @@
-<%= f.number_field :number, step: 1 %>
+<%= form_with theme: 'modal', url: { action: 'batch_create' } do |f| %>
+  <%= render 'modal_header' %>
+  <section class="modal-card-body">
+    <%= f.number_field :number, step: 1 %>
+  </section>
+  <%= f.submit %>
+<% end %>
