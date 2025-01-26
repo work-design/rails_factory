@@ -11,6 +11,9 @@ module Factory
       @production_items = @production.production_items.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
+    def batch_new
+    end
+
     def batch_create
       params[:number].to_i.times do
         @production.production_items.build
