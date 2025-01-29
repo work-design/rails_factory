@@ -18,23 +18,7 @@ module Factory
     end
 
     def set_cart
-      options = {}
-      options.merge! default_form_params
-
-      if current_user
-        options.merge!(
-          user_id: current_user.id,
-          member_id: nil,
-          member_organ_id: nil,
-          agent_id: nil,
-          contact_id: nil,
-          client_id: nil,
-          good_type: 'Factory::Production',
-          aim: 'use'
-        )
-        @cart = Trade::Cart.find_or_create_by(options)
-        @cart.compute_amount! unless @cart.fresh
-      end
+      @cart = Trade::Cart.get_cart(params, user_id: current_user.id, **default_form_params)
     end
 
   end
