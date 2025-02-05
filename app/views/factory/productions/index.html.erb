@@ -3,6 +3,8 @@
   <div class="cards is-4">
     <%= render partial: 'production_cart', layout: 'card', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/my/items' } %>
   </div>
+
+  <%= paginate @productions %>
 </div>
 <div class="column is-one-fifth">
   <%= render partial: 'cart_nav', locals: { cart_con: 'trade/my/carts', cart: @cart } if @cart %>
