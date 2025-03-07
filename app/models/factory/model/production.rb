@@ -69,6 +69,7 @@ module Factory
       before_save :sync_from_product, if: -> { product_id_changed? || (new_record? && product) }
       before_save :compute_profit_price, if: -> { (changes.keys & ['cost_price']).present? }
       before_save :compute_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
+      before_create :init_default
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_update :set_enabled, if: -> { saved_change_to_enabled? }
       after_save :compute_min_max_price, if: -> { saved_change_to_price? }
@@ -161,6 +162,10 @@ module Factory
       compute_part_str
       compute_cost_price
       self.save!
+    end
+
+    def init_default
+      self.default = true if self.brothers.blank?
     end
 
     def set_default
