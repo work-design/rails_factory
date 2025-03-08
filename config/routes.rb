@@ -169,6 +169,7 @@ Rails.application.routes.draw do
               match :wallet, via: [:get, :post]
               patch :update_wallet
               patch :provide
+              post :edit_stock
             end
           end
           resources :fits

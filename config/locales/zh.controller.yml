@@ -132,6 +132,8 @@ zh:
       productions:
         index:
           title: 型号列表
+        edit_stock:
+          title: 管理库存
         card:
           title: 会员价
         part:
