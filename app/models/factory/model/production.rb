@@ -80,7 +80,7 @@ module Factory
     end
 
     def title
-      if name
+      if name.present?
         "#{product.name}（#{name}）"
       else
         product.name
