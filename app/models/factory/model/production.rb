@@ -80,7 +80,11 @@ module Factory
     end
 
     def title
-      name.presence || product.name
+      if name
+        "#{product.name}（#{name}）"
+      else
+        product.name
+      end
     end
 
     def compute_min_max_price
