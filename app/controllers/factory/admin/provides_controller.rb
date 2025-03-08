@@ -17,7 +17,7 @@ module Factory
 
     private
     def set_new_provide
-      @provide = Provide.new(provide_params)
+      @provide = current_organ.provides.build(provide_params)
     end
 
     def provide_params
