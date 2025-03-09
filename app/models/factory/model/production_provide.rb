@@ -20,7 +20,7 @@ module Factory
 
       #before_validation :sync_from_upstream, if: :new_record?
       before_validation :sync_from_production, if: -> { production_id_changed? }
-      after_destroy :prune
+      #after_destroy :prune
     end
 
     def sync_from_production
