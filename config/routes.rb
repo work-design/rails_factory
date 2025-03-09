@@ -193,7 +193,7 @@ Rails.application.routes.draw do
             end
           end
           resources :stock_logs
-          resources :part_providers do
+          resources :production_provides do
             collection do
               post :search
             end

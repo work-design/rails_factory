@@ -1,5 +1,1 @@
-<li><%= link_to t('.products.index.title'), { controller: 'products' } %></li>
-<li><span class="px-3"><%= @production.product.name %></span></li>
-<li><%= link_to t('.productions.index.title'), { controller: 'productions', product_id: @production.product_id } %></li>
-<li><%= link_to @production.name, { controller: 'productions', action: 'show', product_id: @production.product_id, id: @production.id } %></li>
-<li class="is-active"><%= t('.title') %></li>
+<%= render 'production_breadcrumb' %>

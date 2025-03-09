@@ -2,7 +2,10 @@
 <div class="tabs is-centered mb-3">
   <ul>
     <li class="<%= active_helper(productions: ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('.productions.show.title'), { controller: 'factory/admin/productions', action: 'show', product_id: @production.product_id, id: @production.id } %>
+      <%= link_to({ controller: 'factory/admin/productions', action: 'show', product_id: @production.product_id, id: @production.id }) do %>
+        <i class="fa-solid fa-info-circle"></i>
+        <span class="ml-1"><%= t('.productions.show.title') %></span>
+      <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'production_parts', active: 'is-active') %>">
       <%= link_to({ controller: 'production_parts', production_id: @production.id }) do %>
@@ -20,6 +23,12 @@
       <%= link_to({ controller: 'production_items', production_id: @production.id }) do %>
         <i class="fa-solid fa-list text-primary"></i>
         <span class="ml-1"><%= t('.production_items.index.title') %></span>
+      <% end %>
+    </li>
+    <li class="<%= active_helper(controllers: 'production_provides', active: 'is-active') %>">
+      <%= link_to({ controller: 'production_provides', production_id: @production.id }) do %>
+        <i class="fa-solid fa-list text-primary"></i>
+        <span class="ml-1"><%= t('.production_provides.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'purchase_items', active: 'is-active') %>">
