@@ -2,7 +2,7 @@
 <td><p class="text-grey"><%= model.price.to_money.format.html_safe %></p></td>
 <td><p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p></td>
 <td>
-  <table>
+  <table style="width: 150px">
   <% model.production_provides.each do |pp| %>
     <tr>
       <td>

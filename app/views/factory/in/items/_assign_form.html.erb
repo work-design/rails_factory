@@ -1,5 +1,8 @@
-<%= form_with model: @item, url: { action: 'update_assign' }, method: :patch do |f| %>
-  <%= render 'error_messages', target: f.object %>
-  <%= f.collection_select :organ_id, @providers, :id, :name %>
+<%= form_with theme: 'modal', model: @item, url: { action: 'update_assign' }, method: :patch do |f| %>
+  <%= render 'modal_header' %>
+  <section class="modal-card-body">
+    <%= render 'error_messages', target: f.object %>
+    <%= f.collection_select :provide_id, @provides, :id, :name %>
+  </section>
   <%= f.submit %>
 <% end %>
