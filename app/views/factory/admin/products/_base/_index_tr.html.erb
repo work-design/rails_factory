@@ -25,6 +25,10 @@
         <span><%= model.fits_count %></span>
         <span class="ml-1"><%= t('.fits.index.title') %></span>
       <% end %>
+      <%= link_to({ controller: 'productions', product_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <span><%= model.productions_count %></span>
+        <span class="ml-1"><%= t('.productions.index.title') %></span>
+      <% end %>
     </div>
   </td>
 </tr>

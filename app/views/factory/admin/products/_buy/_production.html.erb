@@ -1,4 +1,4 @@
-<td><span class="<% model.product.productions_count > 1 ? 'ml-4' : 'ml-0' %>"><%= model.title %></span></td>
+<td><span class="<%= model.product.productions_count > 1 ? 'ml-4' : 'ml-0' %>"><%= model.title %></span></td>
 <td><p class="text-grey"><%= model.price.to_money.format.html_safe %></p></td>
 <td><p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p></td>
 <td>
