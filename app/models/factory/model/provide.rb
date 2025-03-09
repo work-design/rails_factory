@@ -11,6 +11,8 @@ module Factory
 
       belongs_to :taxon, counter_cache: true, optional: true
 
+      has_many :production_provides, dependent: :destroy
+
       validates :provider_id, uniqueness: { scope: :taxon_id }, allow_blank: true
 
       after_initialize :sync_organ, if: :new_record?
