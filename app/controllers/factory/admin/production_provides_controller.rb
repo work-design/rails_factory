@@ -40,7 +40,7 @@ module Factory
       params.fetch(:production_provide, {}).permit(
         :verified,
         :selected,
-        :provider_id,
+        :provide_id,
         :upstream_product_id,
         :upstream_production_id
       )
