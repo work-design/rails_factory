@@ -6,7 +6,7 @@
   <% model.production_provides.each do |pp| %>
     <tr>
       <td>
-        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, cart: @cart, item: @cart.init_cart_item(params, purchase_id: model.id, good_id: pp.upstream_production_id) } %>
+        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, cart: @cart, item: @cart.init_cart_item(params, provide_id: pp.provide_id, purchase_id: model.id, good_id: pp.upstream_production_id) } %>
       </td>
       <td><%= pp.provide.name %></td>
     </tr>
