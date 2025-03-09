@@ -2,14 +2,14 @@ module Factory
   class Admin::ProductionProvidesController < Admin::BaseController
     before_action :set_production
     before_action :set_production_provide, only: [:show, :edit, :update, :destroy]
-    before_action :set_provides, only: [:index]
     before_action :set_new_production_provide, only: [:new, :create]
 
     def index
       q_params = {}
       q_params.merge! params.permit(:good_type, :good_id)
 
-      @production_provides = @production.production_provides.default_where(q_params).order(id: :asc).page(params[:page])
+      @production_provides = @production.production_provides.default_where(q_params).order(id: :asc)
+      @provides = Provide.where(default_params).where.not(id: @production_provides.pluck(:provide_id))
     end
 
     def search
@@ -30,10 +30,6 @@ module Factory
 
     def set_new_production_provide
       @production_provide = @production.production_provides.build(production_provide_params)
-    end
-
-    def set_provides
-      @provides = @production.taxon.provides
     end
 
     def production_provide_params

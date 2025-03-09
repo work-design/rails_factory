@@ -1,6 +1,0 @@
-<% @provides.each do |provide| %>
-  <%= button_to({ action: 'new', **request.GET.except(:id) }, params: { production_provide: { provide_id: provide.id } }, class: 'button is-link') do %>
-    <i class="fa-solid fa-plus"></i>
-    <span class="ml-1"><%= provide.name %></span>
-  <% end %>
-<% end %>
