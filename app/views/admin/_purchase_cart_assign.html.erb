@@ -21,7 +21,7 @@
     <td>
       <% if item.organ_id.present? %>
         <span><%= item.organ.name %></span>
-        <%= button_to({ controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil } }) do %>
+        <%= button_to({ controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, provide_id: nil } }) do %>
           <i class="fa-solid fa-times text-danger"></i>
         <% end %>
       <% end %>

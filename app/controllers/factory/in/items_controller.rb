@@ -21,6 +21,19 @@ module Factory
     end
 
     private
+    def item_params
+      params.fetch(:item, {}).permit(
+        :good_type,
+        :good_id,
+        :number,
+        :provide_id,
+        :organ_id,
+        :note,
+        :desk_id,
+        :current_cart_id
+      )
+    end
+
     def organ_item_params
       params.fetch(:item, {}).permit(
         :provide_id
