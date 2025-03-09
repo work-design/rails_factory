@@ -15,6 +15,7 @@ module Factory
       belongs_to :produce_plan, ->(o) { where(organ_id: o.organ_id, produce_on: o.produce_on) }, class_name: 'Factory::ProducePlan', foreign_key: :scene_id, primary_key: :scene_id, optional: true  # 产品对应批次号
       belongs_to :production_plan, ->(o) { where(produce_on: o.produce_on, scene_id: o.scene_id) }, class_name: 'Factory::ProductionPlan', foreign_key: :good_id, primary_key: :production_id, counter_cache: :trade_items_count, optional: true
       belongs_to :purchase, polymorphic: true, foreign_type: :good_type, optional: true
+      belongs_to :production_provide, class_name: 'Factory::ProductionProvide', foreign_key: [:purchase_id, :provide_id], primary_key: [:production_id, :provide_id], optional: true
 
       has_many :stock_logs, class_name: 'Factory::StockLog', as: :source
 
@@ -35,7 +36,11 @@ module Factory
 
       self.good_name = purchase.name
       self.extra = Hash(self.extra).merge purchase.item_extra
-      self.single_price = purchase.cost_price
+      if production_provide
+        self.single_price = production_provide.cost_price
+      else
+        self.single_price = purchase.cost_price
+      end
     end
 
     def increment_stock
