@@ -8,7 +8,7 @@
       <td>
         <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', model: model, cart: @cart, item: @cart.init_cart_item(params, purchase_id: model.id, good_id: pp.upstream_production_id) } %>
       </td>
-      <td><%= pp.provider.name %></td>
+      <td><%= pp.provide.name %></td>
     </tr>
   <% end %>
   <%= render partial: 'purchase_cart_assign', locals: { model: model, cart: @cart, item: @cart.init_cart_item(params, purchase_id: model.id, good_id: nil) } %>
