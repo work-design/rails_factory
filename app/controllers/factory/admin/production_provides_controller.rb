@@ -37,6 +37,7 @@ module Factory
         :verified,
         :selected,
         :provide_id,
+        :cost_price,
         :upstream_product_id,
         :upstream_production_id
       )

@@ -3,6 +3,8 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      attribute :cost_price, :decimal
+
       belongs_to :provide
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :provider, class_name: 'Org::Organ', optional: true
