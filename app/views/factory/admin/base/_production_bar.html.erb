@@ -15,7 +15,7 @@
     </li>
     <li class="<%= active_helper(controllers: 'production_plans', active: 'is-active') %>">
       <%= link_to({ controller: 'production_plans', production_id: @production.id }) do %>
-        <i class="fa-solid fa-list text-info"></i>
+        <i class="fa-solid fa-hammer text-info"></i>
         <span class="ml-1"><%= t('.production_plans.index.title') %></span>
       <% end %>
     </li>
@@ -27,19 +27,19 @@
     </li>
     <li class="<%= active_helper(controllers: 'production_provides', active: 'is-active') %>">
       <%= link_to({ controller: 'production_provides', production_id: @production.id }) do %>
-        <i class="fa-solid fa-list text-primary"></i>
+        <i class="fa-solid fa-building text-primary"></i>
         <span class="ml-1"><%= t('.production_provides.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'purchase_items', active: 'is-active') %>">
       <%= link_to({ controller: 'purchase_items', production_id: @production.id }) do %>
-        <i class="fa-solid fa-list text-success"></i>
+        <i class="fa-solid fa-shop text-success"></i>
         <span class="ml-1"><%= t('.purchase_items.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'production_spaces', active: 'is-active') %>">
       <%= link_to({ controller: 'production_spaces', production_id: @production.id }) do %>
-        <i class="fa-solid fa-clock-rotate-left text-info"></i>
+        <i class="fa-solid fa-laptop text-info"></i>
         <span class="ml-1"><%= t('.production_spaces.index.title') %></span>
       <% end %>
     </li>
