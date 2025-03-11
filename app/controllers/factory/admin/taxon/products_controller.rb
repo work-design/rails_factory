@@ -26,7 +26,12 @@ module Factory
       q_params.merge! default_params
       q_params.merge! params.permit(:taxon_id, :name)
 
-      @products = Product.includes(:brand, productions: { production_provides: :provider }, logo_attachment: :blob, covers_attachments: :blob).default_where(q_params).order(position: :asc).page(params[:page])
+      @products = Product.includes(
+        :brand,
+        productions: { production_provides: :provide },
+        logo_attachment: :blob,
+        covers_attachments: :blob
+      ).default_where(q_params).order(position: :asc).page(params[:page])
     end
 
     def new

@@ -16,12 +16,6 @@
         <span class="ml-1"><%= t('.taxon_components.index.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(products: ['buy'], active: 'is-active') %>">
-      <%= link_to({ controller: 'taxon/products', action: 'buy', taxon_id: @taxon.id }) do %>
-        <i class="fa-solid fa-store"></i>
-        <span class="ml-1"><%= t('.products.buy.title') %></span>
-      <% end %>
-    </li>
     <li class="<%= active_helper(products: ['index'], active: 'is-active') %>">
       <%= link_to({ controller: 'taxon/products', taxon_id: @taxon.id }) do %>
         <span><%= t('factory.admin.taxon.products.index.title') %></span>
@@ -32,6 +26,12 @@
       <%= link_to({ controller: 'taxon/productions', action: 'index', taxon_id: @taxon.id }) do %>
         <i class="fa-solid fa-eye"></i>
         <span class="ml-1"><%= t('factory.admin.taxon.productions.index.title') %></span>
+      <% end %>
+    </li>
+    <li class="<%= active_helper(products: ['buy'], active: 'is-active') %>">
+      <%= link_to({ controller: 'taxon/products', action: 'buy', taxon_id: @taxon.id }) do %>
+        <i class="fa-solid fa-store"></i>
+        <span class="ml-1"><%= t('.products.buy.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(taxons: ['import'], active: 'is-active') %>">

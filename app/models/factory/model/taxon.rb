@@ -20,6 +20,7 @@ module Factory
       has_many :productions
       has_many :production_provides
       has_many :provides, through: :production_provides
+      has_many :providers, through: :provides
       has_many :taxon_components
       has_many :brothers, class_name: self.name, primary_key: :organ_id, foreign_key: :organ_id
 
