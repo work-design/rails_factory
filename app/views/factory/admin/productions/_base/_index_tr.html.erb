@@ -26,5 +26,11 @@
         <span class="ml-1"><%= t('.edit_stock.title') %></span>
       <% end %>
     </div>
+    <div data-show-target="item" class="visibility-hidden">
+      <%= link_to({ controller: 'production_provides', production_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-building text-info"></i>
+        <span class="ml-1"><%= t('.production_provides.index.title') %></span>
+      <% end %>
+    </div>
   </td>
 </tr>
