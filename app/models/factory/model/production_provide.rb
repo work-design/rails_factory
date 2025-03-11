@@ -6,12 +6,10 @@ module Factory
       attribute :cost_price, :decimal
 
       belongs_to :provide
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
-      belongs_to :provider, class_name: 'Org::Organ', optional: true
 
-      #belongs_to :taxon
-      belongs_to :product
-      belongs_to :production
+      belongs_to :taxon
+      belongs_to :product, optional: true
+      belongs_to :production, optional: true
       belongs_to :upstream_product, class_name: 'Product', optional: true  # 对应供应链产品
       belongs_to :upstream_production, class_name: 'Production', optional: true  # 对应供应链产品型号
 
@@ -26,7 +24,8 @@ module Factory
     end
 
     def sync_from_production
-      self.product = production.product
+      self.product_id = production.product_id
+      self.taxon_id = production.taxon_id
     end
 
     def sync_from_upstream

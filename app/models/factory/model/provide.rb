@@ -9,17 +9,19 @@ module Factory
       belongs_to :organ, class_name: 'Org::Organ'
       belongs_to :provider, class_name: 'Org::Organ', optional: true
 
-      belongs_to :taxon, counter_cache: true, optional: true
+      belongs_to :factory_provider, optional: true
 
       has_many :production_provides, dependent: :destroy
 
+      accepts_nested_attributes_for :production_provides
+
       validates :provider_id, uniqueness: { scope: :taxon_id }, allow_blank: true
 
-      after_initialize :sync_organ, if: :new_record?
+      before_validation :sync_organ, if: -> { factory_provider_id_changed? }
     end
 
     def sync_organ
-      self.organ_id = taxon&.organ_id
+      self.organ_id = factory_provider&.organ_id
     end
 
     def invite_url
