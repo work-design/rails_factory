@@ -34,7 +34,7 @@ module Factory
     def sync_from_purchase
       return unless purchase
 
-      self.good_name = purchase.name
+      self.good_name = purchase.title
       self.extra = Hash(self.extra).merge purchase.item_extra
       if production_provide
         self.single_price = production_provide.cost_price
