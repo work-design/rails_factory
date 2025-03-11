@@ -4,9 +4,11 @@ module Factory
       :show, :edit, :update, :destroy, :actions,
       :create, :edit_assign, :update_assign
     ]
+    before_action :set_cart_item, only: [
+      :update, :destroy
+    ]
     before_action :set_item, only: [
-      :show, :edit, :update, :destroy, :actions,
-      :edit_assign, :update_assign
+      :show, :edit, :actions, :edit_assign, :update_assign
     ]
     before_action :set_new_item, only: [:create]
 
