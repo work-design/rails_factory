@@ -20,12 +20,16 @@ module Factory
 
       #before_validation :sync_from_upstream, if: :new_record?
       before_validation :sync_from_production, if: -> { production_id_changed? }
+      before_validation :sync_from_product, if: -> { product_id_changed? }
       #after_destroy :prune
     end
 
     def sync_from_production
       self.product_id = production.product_id
-      self.taxon_id = production.taxon_id
+    end
+
+    def sync_from_product
+      self.taxon_id = product.taxon_id
     end
 
     def sync_from_upstream
