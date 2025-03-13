@@ -8,16 +8,16 @@
         <span class="ml-1"><%= t('.products.show.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(controllers: 'product_components', active: 'is-active') %>">
-      <%= link_to({ controller: 'product_components', product_id: @product.id }) do %>
-        <i class="fa-solid fa-cubes"></i>
-        <span class="ml-1"><%= t('.product_components.index.title') %></span>
-      <% end %>
-    </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
       <%= link_to({ controller: 'productions', action: 'index', product_id: @product.id }) do %>
         <i class="fa-solid fa-clone"></i>
         <span class="ml-1"><%= t('.productions.index.title') %></span>
+      <% end %>
+    </li>
+    <li class="<%= active_helper(controllers: 'product_components', active: 'is-active') %>">
+      <%= link_to({ controller: 'product_components', product_id: @product.id }) do %>
+        <i class="fa-solid fa-cubes"></i>
+        <span class="ml-1"><%= t('.product_components.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fits', active: 'is-active') %>">
