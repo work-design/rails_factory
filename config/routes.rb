@@ -171,7 +171,11 @@ Rails.application.routes.draw do
             end
           end
           resources :fits
-          resources :provides, controller: 'product/provides'
+          resources :provides, controller: 'product/provides' do
+            member do
+              post :invite
+            end
+          end
         end
         resources :components, only: [] do
           resources :component_parts
