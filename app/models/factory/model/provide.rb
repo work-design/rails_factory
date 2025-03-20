@@ -15,7 +15,7 @@ module Factory
 
       accepts_nested_attributes_for :production_provides
 
-      validates :provider_id, uniqueness: { scope: :taxon_id }, allow_blank: true
+      validates :provider_id, uniqueness: { scope: :organ_id }, allow_blank: true
 
       before_validation :sync_organ, if: -> { factory_provider_id_changed? }
     end
