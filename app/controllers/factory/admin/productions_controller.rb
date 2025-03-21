@@ -19,6 +19,13 @@ module Factory
       @productions = @product.productions.includes(:parts).default_where(q_params).order(id: :asc).page(params[:page])
     end
 
+    def search
+      q_params = {}
+      q_params.merge! params.permit('name-like', :organ_id)
+
+      @productions = Production.default_where(q_params)
+    end
+
     def detect
     end
 

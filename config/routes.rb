@@ -134,6 +134,7 @@ Rails.application.routes.draw do
             match :invite, via: [:get, :post]
           end
         end
+        resources :production_provides
         resources :plans
         resources :scenes do
           resources :produce_plans, controller: 'scene/produce_plans' do
@@ -183,6 +184,7 @@ Rails.application.routes.draw do
         resources :productions, only: [] do
           collection do
             get :all
+            post :search
           end
           resources :addresses
           resources :trade_items do
@@ -196,9 +198,9 @@ Rails.application.routes.draw do
             end
           end
           resources :stock_logs
-          resources :production_provides do
-            collection do
-              post :search
+          resources :provides, controller: 'production/provides' do
+            member do
+              post :invite
             end
           end
           resources :production_parts
