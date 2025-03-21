@@ -1,0 +1,18 @@
+<%= render 'production_bar' %>
+<%= render 'index_bar' %>
+<%= render 'index_actions' %>
+
+<table class="table is-fullwidth as-boxed">
+  <thead>
+    <tr>
+      <%= render 'index_thead' %>
+      <th style="min-width: 18em">操作</th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+    <%= render partial: 'index_tbody', layout: 'index_tr', collection: @production_provides, as: :model %>
+  </tbody>
+  <tbody id="provide_tbody">
+    <%= render partial: 'provide_tbody', layout: 'provide_tr', collection: @provides, as: :model %>
+  </tbody>
+</table>

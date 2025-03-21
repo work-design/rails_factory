@@ -1,1 +1,7 @@
-<%= f.text_field :stock, step: f.object.step %>
+<%= form_with theme: 'modal', model: @production, url: { action: 'update' } do |f| %>
+  <%= render 'modal_header' %>
+  <section class="modal-card-body">
+    <%= f.number_field :stock, step: f.object.step %>
+  </section>
+  <%= f.submit %>
+<% end %>

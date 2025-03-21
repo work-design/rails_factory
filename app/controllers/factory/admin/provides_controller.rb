@@ -1,6 +1,7 @@
 module Factory
   class Admin::ProvidesController < Admin::BaseController
     before_action :set_new_provide, only: [:new, :create]
+    before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
 
     def index
       @provides = Provide.where(default_params).page(params[:page])
@@ -17,7 +18,11 @@ module Factory
 
     private
     def set_new_provide
-      @provide = Provide.new(provide_params)
+      @provide = current_organ.provides.build(provide_params)
+    end
+
+    def set_provide
+      @provide = current_organ.provides.find params[:id]
     end
 
     def provide_params

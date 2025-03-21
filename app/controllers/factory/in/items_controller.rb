@@ -4,15 +4,17 @@ module Factory
       :show, :edit, :update, :destroy, :actions,
       :create, :edit_assign, :update_assign
     ]
+    before_action :set_cart_item, only: [
+      :update, :destroy
+    ]
     before_action :set_item, only: [
-      :show, :edit, :update, :destroy, :actions,
-      :edit_assign, :update_assign
+      :show, :edit, :actions, :edit_assign, :update_assign
     ]
     before_action :set_new_item, only: [:create]
 
     def edit_assign
-      upstream_organ_ids = @item.purchase.production_provides.pluck(:provider_id)
-      @providers = current_organ.providers.where.not(id: upstream_organ_ids)
+      upstream_provide_ids = @item.purchase.production_provides.pluck(:provide_id)
+      @provides = current_organ.provides.where.not(id: upstream_provide_ids)
     end
 
     def update_assign
@@ -21,9 +23,22 @@ module Factory
     end
 
     private
+    def item_params
+      params.fetch(:item, {}).permit(
+        :good_type,
+        :good_id,
+        :number,
+        :provide_id,
+        :organ_id,
+        :note,
+        :desk_id,
+        :current_cart_id
+      )
+    end
+
     def organ_item_params
       params.fetch(:item, {}).permit(
-        :organ_id
+        :provide_id
       )
     end
 

@@ -1,13 +1,10 @@
 <div data-controller="menu" class="<%= role_permit?(business: 'factory', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
-  <div class="menu-label">
+  <%= link_to({ controller: 'factory/admin/home' }, data: { turbo_frame: 'body' }, class: 'menu-label') do %>
     <div>
       <i class="fa-solid fa-fw fa-store"></i>
       <span><%= t('factory.admin.title') %></span>
     </div>
-    <%= link_to({ controller: 'factory/admin/home' }, aria: { label: '设置' }, data: { turbo_frame: 'body' }) do %>
-      <i class="fa-solid fa-cog"></i>
-    <% end %>
-  </div>
+  <% end %>
   <div class="menu-list">
     <%= link_to t('factory.admin.taxons.index.title'), { controller: 'factory/admin/taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['taxon/products', 'taxons', 'taxon_components', 'productions', 'part_providers', 'production_plans', 'production_items'], active: 'is-active') %>
     <%= link_to t('factory.admin.products.index.title'), { controller: 'factory/admin/products' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['products', 'taxons', 'taxon_components', 'productions', 'part_providers', 'production_plans', 'production_items'], active: 'is-active') %>

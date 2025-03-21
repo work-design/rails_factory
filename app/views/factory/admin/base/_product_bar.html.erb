@@ -3,21 +3,33 @@
 <div class="tabs is-centered mb-3">
   <ul>
     <li class="<%= active_helper(products: ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('.products.show.title'), { controller: 'products', action: 'show', id: @product.id } %>
-    </li>
-    <li class="<%= active_helper(controllers: 'product_components', active: 'is-active') %>">
-      <%= link_to({ controller: 'product_components', product_id: @product.id }) do %>
-        <i class="fa-solid fa-tree"></i>
-        <span class="pl-1"><%= t('.product_components.index.title') %></span>
+      <%= link_to({ controller: 'products', action: 'show', id: @product.id }) do %>
+        <i class="fa-solid fa-circle-info"></i>
+        <span class="ml-1"><%= t('.products.show.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
-      <%= link_to t('.productions.index.title'), { controller: 'productions', action: 'index', product_id: @product.id } %>
+      <%= link_to({ controller: 'productions', action: 'index', product_id: @product.id }) do %>
+        <i class="fa-solid fa-clone"></i>
+        <span class="ml-1"><%= t('.productions.index.title') %></span>
+      <% end %>
+    </li>
+    <li class="<%= active_helper(controllers: 'product_components', active: 'is-active') %>">
+      <%= link_to({ controller: 'product_components', product_id: @product.id }) do %>
+        <i class="fa-solid fa-cubes"></i>
+        <span class="ml-1"><%= t('.product_components.index.title') %></span>
+      <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fits', active: 'is-active') %>">
       <%= link_to({ controller: 'fits', product_id: @product.id }) do %>
         <i class="fa-solid fa-cogs"></i>
-        <span class="pl-1"><%= t('.fits.index.title') %></span>
+        <span class="ml-1"><%= t('.fits.index.title') %></span>
+      <% end %>
+    </li>
+    <li class="<%= active_helper(controller: 'product/provides', active: 'is-active') %>">
+      <%= link_to({ controller: 'product/provides', product_id: @product.id }) do %>
+        <i class="fa-solid fa-building"></i>
+        <span class="ml-1"><%= t('.provides.index.title') %></span>
       <% end %>
     </li>
   </ul>

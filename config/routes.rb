@@ -134,14 +134,6 @@ Rails.application.routes.draw do
             match :invite, via: [:get, :post]
           end
         end
-        resources :products do
-          member do
-            post :edit_image
-          end
-          collection do
-            get :buy
-          end
-        end
         resources :plans
         resources :scenes do
           resources :produce_plans, controller: 'scene/produce_plans' do
@@ -156,7 +148,13 @@ Rails.application.routes.draw do
             get :products
           end
         end
-        resources :products, only: [] do
+        resources :products do
+          collection do
+            get :buy
+          end
+          member do
+            post :edit_image
+          end
           resources :product_components
           resources :productions do
             member do
@@ -169,9 +167,15 @@ Rails.application.routes.draw do
               match :wallet, via: [:get, :post]
               patch :update_wallet
               patch :provide
+              post :edit_stock
             end
           end
           resources :fits
+          resources :provides, controller: 'product/provides' do
+            member do
+              post :invite
+            end
+          end
         end
         resources :components, only: [] do
           resources :component_parts
@@ -192,7 +196,7 @@ Rails.application.routes.draw do
             end
           end
           resources :stock_logs
-          resources :part_providers do
+          resources :production_provides do
             collection do
               post :search
             end

@@ -3,7 +3,7 @@ module Factory
     before_action :set_product, except: [:taxon], if: -> { params[:product_id].present? }
     before_action :set_production, only: [
       :show, :edit, :update, :refresh, :destroy, :actions,
-      :part, :update_part, :price, :card, :update_card, :wallet, :update_wallet
+      :part, :update_part, :price, :card, :update_card, :wallet, :update_wallet, :edit_stock
     ]
     before_action :set_new_production, only: [:new, :create]
     before_action :set_taxon, only: [:taxon]
@@ -22,15 +22,9 @@ module Factory
     def detect
     end
 
-    def part
-    end
-
     def update_part
       @production.assign_attributes part_params
       @production.compute_part_str!
-    end
-
-    def price
     end
 
     def card

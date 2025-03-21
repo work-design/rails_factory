@@ -83,7 +83,7 @@ zh:
           title: 加入零件
       taxon_components:
         index:
-          title: 产品组成设置
+          title: 产品组成
         part:
           title: 产品组成
       taxons:
@@ -126,12 +126,14 @@ zh:
       part_plans:
         index:
           title: 入库计划
-      part_providers:
+      production_provides:
         index:
           title: 供应商管理
       productions:
         index:
           title: 型号列表
+        edit_stock:
+          title: 管理库存
         card:
           title: 会员价
         part:
@@ -206,6 +208,8 @@ zh:
       items:
         index:
           title: 订单
+        edit_assign:
+          title: 选择供应商
       orders:
         index:
           title: 采购订单

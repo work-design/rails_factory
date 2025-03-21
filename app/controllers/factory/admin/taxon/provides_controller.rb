@@ -3,9 +3,10 @@ module Factory
     before_action :set_taxon
     before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_provide, only: [:new, :create]
+    before_action :set_new_production_provide, only: [:new]
 
     def index
-      @provides = @taxon.provides
+      @provides = Provide.where(default_params)
 
       except_ids = @provides.pluck(:provider_id) << current_organ.id
       if @taxon.factory_taxon
@@ -26,18 +27,15 @@ module Factory
       @taxon = Taxon.find params[:taxon_id]
     end
 
-    def set_provide
-      @provide = @taxon.provides.find params[:id]
-    end
-
-    def set_new_provide
-      @provide = @taxon.provides.build(provide_params)
+    def set_new_production_provide
+      @provide.production_provides.build
     end
 
     def provide_params
       params.fetch(:provide, {}).permit(
         :provider_id,
-        :name
+        :name,
+        production_provides_attributes: [:taxon_id]
       )
     end
 

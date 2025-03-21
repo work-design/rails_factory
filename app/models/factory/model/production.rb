@@ -65,7 +65,6 @@ module Factory
 
       validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true
 
-      after_initialize :init_name, if: :new_record?
       before_save :sync_from_product, if: -> { product_id_changed? || (new_record? && product) }
       before_save :compute_profit_price, if: -> { (changes.keys & ['cost_price']).present? }
       before_save :compute_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
@@ -76,16 +75,16 @@ module Factory
       after_save :sync_log, if: -> { saved_change_to_stock? }
     end
 
-    def init_name
-      self.name ||= product&.name
-    end
-
     def init_logo
       self.logo.attach product.logo_blob if product
     end
 
     def title
-      name.presence || product.name
+      if name.present?
+        "#{product.name}（#{name}）"
+      else
+        product.name
+      end
     end
 
     def compute_min_max_price

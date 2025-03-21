@@ -28,7 +28,7 @@ module Factory
 
       @products = Product.includes(
         :brand,
-        productions: { production_provides: :provider },
+        productions: { production_provides: :provide },
         logo_attachment: :blob,
         covers_attachments: :blob
       ).default_where(q_params).order(position: :asc).page(params[:page])
