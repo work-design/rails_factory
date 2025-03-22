@@ -10,4 +10,3 @@
 <li><%= link_to t('.products.index.title'), { controller: 'taxon/products', taxon_id: @production.taxon_id, anchor: "tr_#{@production.product_id}" } %></li>
 <li><span class="px-3"><%= @production.product.name %></span></li>
 <li><%= link_to t('.productions.index.title'), { controller: 'productions', product_id: @production.product_id } %></li>
-<li><span class="px-3"><%= @production.title %></span></li>
