@@ -17,13 +17,16 @@
     </td>
     <td>
       <% if item.provide_id.present? %>
-        <span><%= item.provide.name %></span>
-        <%= button_to({ controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, provide_id: nil } }) do %>
-          <i class="fa-solid fa-times text-danger"></i>
-        <% end %>
+        <div class="tags has-addons display-inline-flex mb-0">
+          <span class="tag"><%= item.provide.name %></span>
+          <%= button_to({ controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, params: { item: { organ_id: nil, provide_id: nil } }, form: { class: 'tag is-danger' }) do %>
+            <i class="fa-solid fa-times"></i>
+          <% end %>
+        </div>
       <% end %>
-      <%= button_to({ controller: 'factory/in/items', action: 'edit_assign', id: item.id }) do %>
+      <%= button_to({ controller: 'factory/in/items', action: 'edit_assign', id: item.id }, class: 'button is-small') do %>
         <i class="fa-solid fa-hand-point-right text-info"></i>
+        <span class="ml-1"><%= t('factory.in.items.edit_assign.title') %></span>
       <% end %>
     </td>
   </tr>
