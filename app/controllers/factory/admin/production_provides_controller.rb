@@ -26,10 +26,9 @@ module Factory
 
     def production_provide_params
       params.fetch(:production_provide, {}).permit(
-        :verified,
+        :taxon_id,
         :product_id,
         :production_id,
-        :default,
         :cost_price,
         :upstream_product_id,
         :upstream_production_id

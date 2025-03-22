@@ -6,7 +6,7 @@ module Factory
     before_action :set_new_production_provide, only: [:new]
 
     def index
-      @production_provides = @taxon.production_provides
+      @production_provides = @taxon.production_provides.order(id: :asc)
 
       except_ids = @production_provides.pluck(:provide_id)
       @provides = Provide.where(default_params).where.not(id: except_ids).page(params[:page])
