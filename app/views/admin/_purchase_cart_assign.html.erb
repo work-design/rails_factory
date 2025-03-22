@@ -1,18 +1,21 @@
 <% if item.persisted? %>
-  <td data-controller="modify" data-modify-submit-value="true" class="has-inline-centered" id="<%= item.cart_identity %>">
-    <%= button_to({ controller: 'factory/in/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart&.id }, class: 'mr-1') do %>
-      <i class="fa-solid fa-xl fa-circle-xmark text-dark-grey"></i>
-    <% end %>
-    <button data-action="modify#minus" class="button_to mr-1"<%= 'disabled' if item.number <= 1 %>>
-      <i class="fa-solid fa-xl fa-circle-minus text-dark-grey"></i>
-    </button>
-    <%= form_with(theme: nil, scope: :item, url: { controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
-      <%= f.hidden_field :current_cart_id, value: cart.id %>
-      <%= f.number_field :number, value: item.number.to_human, data: { action: 'change->input#form', modify_target: 'input' }, class: 'background-light text-centered', style: 'width: 30px' %>
-    <% end %>
-    <button data-action="modify#plus" class="button_to ml-1">
-      <i class="fa-solid fa-xl fa-circle-plus text-dark-grey"></i>
-    </button>
+  <tr id="<%= item.cart_identity %>" class="left-border">
+  <td data-controller="modify" data-modify-submit-value="true" >
+    <div class="has-inline-centered">
+      <%= button_to({ controller: 'factory/in/items', action: 'destroy', id: item.id }, method: :delete, params: { current_cart_id: @cart&.id }, class: 'mr-1') do %>
+        <i class="fa-solid fa-xl fa-circle-xmark text-dark-grey"></i>
+      <% end %>
+      <button data-action="modify#minus" class="button_to mr-1"<%= 'disabled' if item.number <= 1 %>>
+        <i class="fa-solid fa-xl fa-circle-minus text-dark-grey"></i>
+      </button>
+      <%= form_with(theme: nil, scope: :item, url: { controller: 'factory/in/items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
+        <%= f.hidden_field :current_cart_id, value: cart.id %>
+        <%= f.number_field :number, value: item.number.to_human, data: { action: 'change->input#form', modify_target: 'input' }, class: 'background-light text-centered', style: 'width: 30px' %>
+      <% end %>
+      <button data-action="modify#plus" class="button_to ml-1">
+        <i class="fa-solid fa-xl fa-circle-plus text-dark-grey"></i>
+      </button>
+    </div>
   </td>
   <td colspan="2">
     <% if item.provide_id.present? %>
@@ -28,17 +31,20 @@
       <span class="ml-1"><%= t('factory.in.items.edit_assign.title') %></span>
     <% end %>
   </td>
+  </tr>
 <% else %>
-  <td id="<%= item.cart_identity %>" colspan="3">
-    <%= form_with theme: nil, model: item, scope: '', url: { controller: 'factory/in/items', action: 'create' }, class: 'button_to' do |f| %>
-      <%= f.hidden_field :current_cart_id, value: cart.id %>
-      <%= f.hidden_field :good_type %>
-      <%= f.hidden_field :purchase_id %>
-      <%= f.hidden_field :good_id %>
-      <%= f.hidden_field :provide_id %>
-      <%= button_tag do %>
-        <i class="fa-solid fa-circle-plus fa-xl text-dark-grey"></i>
+  <tr id="<%= item.cart_identity %>" class="left-border">
+    <td colspan="3">
+      <%= form_with theme: nil, model: item, scope: '', url: { controller: 'factory/in/items', action: 'create' }, class: 'button_to' do |f| %>
+        <%= f.hidden_field :current_cart_id, value: cart.id %>
+        <%= f.hidden_field :good_type %>
+        <%= f.hidden_field :purchase_id %>
+        <%= f.hidden_field :good_id %>
+        <%= f.hidden_field :provide_id %>
+        <%= button_tag do %>
+          <i class="fa-solid fa-circle-plus fa-xl text-dark-grey"></i>
+        <% end %>
       <% end %>
-    <% end %>
-  </td>
+    </td>
+  </tr>
 <% end %>
