@@ -1,3 +1,6 @@
 <tr id="tr_<%= model.product_id %>_<%= model.id %>">
   <%= yield %>
 </tr>
+<%= render partial: 'production_provide', layout: 'item_tr', collection: model.production_provides, as: :pp, locals: { model: model } %>
+<%= render partial: 'production_item', layout: 'item_tr', collection: @cart.find_items_except_provide(model.production_provides.pluck(:provide_id), purchase_id: model.id, good_id: nil), as: :item, locals: { model: model } %>
+<%= render partial: 'production_item_new', layout: 'item_tr', locals: { model: model } %>

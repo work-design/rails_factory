@@ -1,26 +1,3 @@
-<td><span class="<%= model.product.productions_count > 1 ? 'ml-4' : 'ml-0' %>"><%= model.title %></span></td>
-<td><p class="text-grey"><%= model.price.to_money.format.html_safe %></p></td>
-<td><p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p></td>
-<td class="has-inner-table">
-  <table class="table is-fullwidth">
-  <% model.production_provides.each do |pp| %>
-    <tr>
-      <td>
-        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', cart: @cart, item: @cart.init_cart_item(params, provide_id: pp.provide_id, purchase_id: model.id, good_id: pp.upstream_production_id) } %>
-      </td>
-      <td><%= pp.provide.name %></td>
-      <td><%= pp.cost_price.to_money.format.html_safe %></td>
-    </tr>
-  <% end %>
-  <% @cart.find_items_except_provide(model.production_provides.pluck(:provide_id), purchase_id: model.id, good_id: nil).each do |item| %>
-    <tr>
-      <td>
-        <%= render partial: 'purchase_cart', locals: { item_con: 'trade/in/items', cart: @cart, item: item } %>
-      </td>
-      <td><%= item.provide.name %></td>
-      <td><%= item.single_price.to_money.format.html_safe %></td>
-    </tr>
-  <% end %>
-  <%= render partial: 'purchase_cart_assign', locals: { model: model, cart: @cart, item: @cart.init_cart_item(params, provide_id: nil, purchase_id: model.id, good_id: nil) } %>
-  </table>
-</td>
+<td rowspan="<%= model.production_provides.size + 1 %>"><span class="<%= model.product.productions_count > 1 ? 'ml-4' : 'ml-0' %>"><%= model.title %></span></td>
+<td rowspan="<%= model.production_provides.size + 1 %>"><p class="text-grey"><%= model.price.to_money.format.html_safe %></p></td>
+<td rowspan="<%= model.production_provides.size + 1 %>"><p class="text-danger"><%= model.cost_price.to_money.format.html_safe %></p></td>
