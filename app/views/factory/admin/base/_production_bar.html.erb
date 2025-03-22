@@ -25,10 +25,10 @@
         <span class="ml-1"><%= t('.production_items.index.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(controllers: 'production_provides', active: 'is-active') %>">
-      <%= link_to({ controller: 'production_provides', production_id: @production.id }) do %>
+    <li class="<%= active_helper(controllers: 'production/provides', active: 'is-active') %>">
+      <%= link_to({ controller: 'production/provides', production_id: @production.id }) do %>
         <i class="fa-solid fa-building text-primary"></i>
-        <span class="ml-1"><%= t('.production_provides.index.title') %></span>
+        <span class="ml-1"><%= t('.production.provides.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'purchase_items', active: 'is-active') %>">
