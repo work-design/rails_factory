@@ -43,6 +43,17 @@ zh:
         productions:
           index:
             title: 主显商品列表
+        provides:
+          index:
+            title: 供应列表
+      product:
+        provides:
+          index:
+            title: 供应列表
+      production:
+        provides:
+          index:
+            title: 供应列表
       brands:
         index:
           title: 旗下品牌
@@ -147,9 +158,6 @@ zh:
       production_parts:
         index:
           title: 物料清单
-      provideds:
-        index:
-          title: 供应列表
       provides:
         index:
           title: 供应商
