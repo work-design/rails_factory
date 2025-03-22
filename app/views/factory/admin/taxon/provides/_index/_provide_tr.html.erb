@@ -5,13 +5,6 @@
       <%= button_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-circle-info text-info"></i>
       <% end %>
-      <%= button_to({ action: 'edit', id: model.id }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-pencil text-link"></i>
-      <% end %>
-      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.destroy.confirm') } }) do %>
-        <i class="fa-solid fa-trash text-danger"></i>
-        <span class="ml-1"><%= t('.destroy.title') %></span>
-      <% end %>
     </div>
   </td>
 </tr>
