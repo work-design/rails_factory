@@ -6,14 +6,14 @@ module Factory
     before_action :set_new_production_provide, only: [:new]
 
     def index
-      @provides = Provide.where(default_params)
+      @production_provides = @taxon.production_provides
 
-      except_ids = @provides.pluck(:provider_id) << current_organ.id
-      if @taxon.factory_taxon
-        @providers = @taxon.factory_taxon.providers.where.not(id: except_ids).page(params[:page])
-      else
-        @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
-      end
+      except_ids = @production_provides.pluck(:provide_id)
+      @provides = Provide.where(default_params).where.not(id: except_ids).page(params[:page])
+    end
+
+    def providers
+      @factory_providers = @taxon.factory_taxon.factory_providers.page(params[:page])
     end
 
     def search

@@ -29,7 +29,7 @@ module Factory
         :verified,
         :product_id,
         :production_id,
-        :selected,
+        :default,
         :cost_price,
         :upstream_product_id,
         :upstream_production_id

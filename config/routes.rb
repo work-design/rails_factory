@@ -133,8 +133,8 @@ Rails.application.routes.draw do
           member do
             match :invite, via: [:get, :post]
           end
+          resources :production_provides
         end
-        resources :production_provides
         resources :plans
         resources :scenes do
           resources :produce_plans, controller: 'scene/produce_plans' do

@@ -1,5 +1,5 @@
 module Factory
-  class Admin::Product::ProvidesController < Admin::ProvidesController
+  class Admin::Product::ProvidesController < Admin::Taxon::ProvidesController
     before_action :set_product
     before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_provide, only: [:new, :create]

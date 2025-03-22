@@ -5,9 +5,6 @@ module Factory
 
     def index
       @provides = Provide.where(default_params).page(params[:page])
-
-      except_ids = @provides.pluck(:provider_id) << current_organ.id
-      @providers = current_organ.providers.where.not(id: except_ids).page(params[:page])
     end
 
     def search

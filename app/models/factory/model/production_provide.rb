@@ -4,6 +4,7 @@ module Factory
 
     included do
       attribute :cost_price, :decimal
+      attribute :default, :boolean
 
       belongs_to :provide
 
