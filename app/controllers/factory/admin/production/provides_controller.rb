@@ -4,9 +4,13 @@ module Factory
     before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_provide, only: [:new, :create]
     before_action :set_new_production_provide, only: [:new]
+    skip_before_action :set_taxon
 
     def index
-      @provides = Provide.where(default_params)
+      @production_provides = @production.production_provides.order(id: :asc)
+
+      except_ids = @production_provides.pluck(:provide_id)
+      @provides = Provide.where(default_params).where.not(id: except_ids).page(params[:page])
     end
 
     private
