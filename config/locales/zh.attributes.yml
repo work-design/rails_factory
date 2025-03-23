@@ -85,3 +85,6 @@ zh:
         came_at: 生产/到货时间
         room_id: 所在仓库
         grid_id: 所在货架
+      factory/stock_log:
+        stock: 当前库存
+        amount: 变动数量

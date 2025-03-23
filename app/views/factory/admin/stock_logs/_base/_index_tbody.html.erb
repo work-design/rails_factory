@@ -2,7 +2,7 @@
 <td><%= model.tag_str %></td>
 <td>
 <% if model.amount > 0 %>
-  <span class="text-success"><%= model.amount.to_human %></span>
+  <span class="text-success">+<%= model.amount.to_human %></span>
 <% elsif model.amount < 0 %>
   <span class="text-danger"><%= model.amount.to_human %></span>
 <% else %>
