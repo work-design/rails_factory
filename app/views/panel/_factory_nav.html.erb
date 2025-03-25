@@ -1,13 +1,10 @@
 <div class="menu ex-accordion is-active">
-  <div class="menu-label">
+  <%= link_to({ controller: 'factory/panel/home' }, text: true, class: 'menu-label') do %>
     <div>
       <i class="fa-solid fa-fw fa-store"></i>
       <span><%= t('factory.panel.title') %></span>
     </div>
-    <%= link_to({ controller: 'factory/panel/home' }, aria: { label: '设置' }) do %>
-      <i class="fa-solid fa-cog"></i>
-    <% end %>
-  </div>
+  <% end %>
   <div class="menu-list">
     <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
     <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
