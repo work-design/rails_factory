@@ -1,4 +1,4 @@
-<div class="box" data-controller="showcase" data-showcase-hover-class="is-border">
+<div class="box" data-controller="showcase">
   <div class="slide is-1by1" data-showcase-target="window">
   <% model.covers.each_with_index do |cover, index| %>
     <figure class="image" data-index="<%= index %>" style="z-index: <%= index == 0 ? 0 : -1 %>">
