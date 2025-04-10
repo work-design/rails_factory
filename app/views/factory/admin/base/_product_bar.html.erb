@@ -26,10 +26,10 @@
         <span class="ml-1"><%= t('.fits.index.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(controllers: 'product/provides', active: 'is-active') %>">
+    <li class="<%= active_helper(controller: 'product/provides', check_parameters: false, active: 'is-active') %>">
       <%= link_to({ controller: 'product/provides', product_id: @product.id }) do %>
         <i class="fa-solid fa-building"></i>
-        <span class="ml-1"><%= t('.provides.index.title') %></span>
+        <span class="ml-1"><%= t('factory.admin.product.provides.index.title') %></span>
       <% end %>
     </li>
   </ul>

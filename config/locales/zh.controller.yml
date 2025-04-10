@@ -49,11 +49,11 @@ zh:
       product:
         provides:
           index:
-            title: 供应列表
+            title: 供应商
       production:
         provides:
           index:
-            title: 供应列表
+            title: 供应商
       brands:
         index:
           title: 旗下品牌
