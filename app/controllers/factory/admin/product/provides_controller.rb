@@ -4,6 +4,7 @@ module Factory
     before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_provide, only: [:new, :create]
     before_action :set_new_production_provide, only: [:new]
+    skip_before_action :set_taxon
 
     def index
       @provides = Provide.where(default_params)
