@@ -52,6 +52,7 @@ module Factory
       has_many :same_part_taxons, -> { distinct }, through: :same_production_parts, source: :part_taxon
 
       has_many :production_provides, foreign_key: :production_id
+      has_many :all_provides, class_name: 'ProductionProvide', primary_key: []
       has_many :downstream_provides, class_name: 'ProductionProvide', foreign_key: :upstream_production_id
 
       accepts_nested_attributes_for :production_parts, allow_destroy: true, reject_if: ->(attributes){ attributes.slice('part_id').blank? }
