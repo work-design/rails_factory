@@ -11,7 +11,7 @@
   <table>
   <% model.production_provides.each do |production_provide| %>
     <tr>
-      <td><%= production_provide.name %></td>
+      <td><%= production_provide.provide.name %></td>
       <td><%= production_provide.cost_price %></td>
     </tr>
   <% end %>
