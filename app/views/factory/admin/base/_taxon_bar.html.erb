@@ -46,5 +46,11 @@
         <span class="ml-1"><%= t('factory.admin.taxon.provides.index.title') %></span>
       <% end %>
     </li>
+    <li class="<%= active_helper(controller: 'taxon/productions', action: 'provides', taxon_id: @taxon.id, active: 'is-active') %>">
+      <%= link_to({ controller: 'taxon/productions', action: 'provides', taxon_id: @taxon.id }) do %>
+        <i class="fa-solid fa-eye"></i>
+        <span class="ml-1"><%= t('factory.admin.taxon.productions.provides.title') %></span>
+      <% end %>
+    </li>
   </ul>
 </div>

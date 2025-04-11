@@ -47,7 +47,7 @@ zh:
             title: 设置供应商
         provides:
           index:
-            title: 供应列表
+            title: 品类供应商
       product:
         provides:
           index:

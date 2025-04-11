@@ -1,8 +1,7 @@
-<%= render 'taxon_bar' %>
+<%= render partial: 'taxon_bar', locals: { taxon: @taxon } %>
+<%= render 'index_bar' %>
 <%= render 'index_actions' %>
 
-<%= render layout: 'index_table' do %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @productions, as: :model, cached: ->(production){ [production, current_member.cache] } %>
+<%= render layout: 'index_raw_table' do %>
+  <%= render partial: 'product_tbody', collection: @products, as: :model %>
 <% end %>
-
-<%= paginate @productions %>

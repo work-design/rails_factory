@@ -12,11 +12,10 @@ module Factory
     end
 
     def provides
-      @productions = @taxon.productions.includes(
-        :parts,
-        logo_attachment: :blob,
-        product: { logo_attachment: :blob }
-      ).default.order(id: :asc).page(params[:page])
+      @products = @taxon.products.includes(
+        :productions,
+        logo_attachment: :blob
+      ).order(id: :asc).page(params[:page])
     end
 
     private
