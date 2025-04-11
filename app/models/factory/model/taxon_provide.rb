@@ -22,7 +22,9 @@ module Factory
     end
 
     def automatic_as_default
-      taxon.production_provides.where(provide_config_type: self.class.name).update_all(provide_id: provide_id, provide_config_id: self.id)
+      taxon.production_provides.where(provide_config_type: self.class.name).update_all(
+        provide_id: provide_id, provide_config_id: self.id
+      )
     end
 
   end
