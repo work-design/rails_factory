@@ -6,7 +6,7 @@
         <i class="fa-solid fa-circle-info text-info"></i>
         <span class="ml-1"><%= t('.show.title') %></span>
       <% end %>
-      <%= button_to({ controller: 'production_provides', provide_id: model.id, action: 'create' }, params: { production_provide: { taxon_id: @taxon.id } }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ controller: 'provides', provide_id: model.id, action: 'create' }, params: { production_provide: { taxon_id: @taxon.id } }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-cart-flatbed text-success"></i>
         <span class="ml-1"><%= t('.production_provides.create.title') %></span>
       <% end %>
