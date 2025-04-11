@@ -1,6 +1,5 @@
 <%= render partial: 'taxon_bar', locals: { taxon: @taxon } %>
 <%= render 'index_bar' %>
-<%= render 'index_actions' %>
 
 <%= render layout: 'index_raw_table' do %>
   <%= render partial: 'product_tbody', collection: @products, as: :model %>
