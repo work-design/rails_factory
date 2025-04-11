@@ -7,6 +7,13 @@
     <% end %>
   <% end %>
 </td>
-<td colspan="2">
-  <%=  %>
+<td class="has-inner-table">
+  <table>
+  <% model.production_provides.each do |production_provide| %>
+    <tr>
+      <td><%= production_provide.name %></td>
+      <td><%= production_provide.cost_price %></td>
+    </tr>
+  <% end %>
+  </table>
 </td>

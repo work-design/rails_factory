@@ -13,7 +13,7 @@ module Factory
 
     def provides
       @products = @taxon.products.includes(
-        :productions,
+        productions: :production_provides,
         logo_attachment: :blob
       ).order(id: :asc).page(params[:page])
     end
