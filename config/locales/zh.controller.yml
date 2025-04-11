@@ -43,6 +43,8 @@ zh:
         productions:
           index:
             title: 主显商品列表
+          provides:
+            title: 设置供应商
         provides:
           index:
             title: 供应列表

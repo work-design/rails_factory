@@ -114,6 +114,9 @@ Rails.application.routes.draw do
           end
           resources :taxon_components
           resources :productions, controller: 'taxon/productions' do
+            collection do
+              get :provides
+            end
             member do
               match :part, via: [:get, :post]
               match :price, via: [:get, :post]

@@ -11,6 +11,14 @@ module Factory
       ).default.order(id: :asc).page(params[:page])
     end
 
+    def provides
+      @productions = @taxon.productions.includes(
+        :parts,
+        logo_attachment: :blob,
+        product: { logo_attachment: :blob }
+      ).default.order(id: :asc).page(params[:page])
+    end
+
     private
     def set_taxon
       @taxon = Taxon.default_where(default_params).find params[:taxon_id]

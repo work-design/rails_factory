@@ -8,8 +8,8 @@ module Factory
       belongs_to :provide
 
       belongs_to :taxon
-      belongs_to :product, optional: true
-      belongs_to :production, optional: true
+      belongs_to :product
+      belongs_to :production
 
       belongs_to :upstream_product, class_name: 'Product', optional: true  # 对应供应链产品
       belongs_to :upstream_production, class_name: 'Production', optional: true  # 对应供应链产品型号

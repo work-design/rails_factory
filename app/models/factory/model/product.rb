@@ -28,7 +28,7 @@ module Factory
 
       has_one :production, -> { where(default: true) }
       has_many :productions, dependent: :destroy_async
-      has_many :production_provides, dependent: :destroy_async
+      has_many :production_provides, primary_key: [:taxon_id, :id], foreign_key: [:taxon_id, :product_id], dependent: :destroy_async
       has_many :components, ->(o){ where(product_id: [o.id, nil]) }, primary_key: :taxon_id, foreign_key: :taxon_id
       has_many :product_components
       has_many :taxon_components, primary_key: :taxon_id, foreign_key: :taxon_id

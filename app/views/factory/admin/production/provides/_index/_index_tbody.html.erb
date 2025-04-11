@@ -1,0 +1,8 @@
+<td><%= model.provide.name %></td>
+<td>
+<% if model.provide.provider %>
+  <%= model.provide.provider.name %>
+<% end %>
+</td>
+<td><%= model.cost_price %></td>
+<td><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></td>
