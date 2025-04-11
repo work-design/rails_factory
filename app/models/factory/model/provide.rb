@@ -12,8 +12,12 @@ module Factory
       belongs_to :factory_provider, optional: true
 
       has_many :production_provides, dependent: :destroy
+      has_many :product_provides, dependent: :destroy
+      has_many :taxon_provides, dependent: :destroy
 
       accepts_nested_attributes_for :production_provides
+      accepts_nested_attributes_for :product_provides
+      accepts_nested_attributes_for :taxon_provides
 
       validates :provider_id, uniqueness: { scope: :organ_id }, allow_blank: true
       validates :name, uniqueness: { scope: :organ_id }

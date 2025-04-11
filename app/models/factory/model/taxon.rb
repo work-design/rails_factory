@@ -22,6 +22,7 @@ module Factory
       has_many :provides, through: :production_provides
       has_many :providers, through: :provides
       has_many :taxon_components
+      has_many :taxon_provides
       has_many :brothers, class_name: self.name, primary_key: :organ_id, foreign_key: :organ_id
 
       has_one_attached :logo

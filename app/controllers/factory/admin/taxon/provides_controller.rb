@@ -2,13 +2,12 @@ module Factory
   class Admin::Taxon::ProvidesController < Admin::ProvidesController
     before_action :set_taxon
     before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
-    before_action :set_new_provide, only: [:new, :create]
-    before_action :set_new_production_provide, only: [:new]
+    before_action :set_new_taxon_provide, only: [:new]
 
     def index
-      @production_provides = @taxon.production_provides.order(id: :asc)
+      @taxon_provides = @taxon.taxon_provides.order(id: :asc)
 
-      except_ids = @production_provides.pluck(:provide_id)
+      except_ids = @taxon_provides.pluck(:provide_id)
       @provides = Provide.where(default_params).where.not(id: except_ids).page(params[:page])
     end
 
@@ -27,15 +26,15 @@ module Factory
       @taxon = Taxon.find params[:taxon_id]
     end
 
-    def set_new_production_provide
-      @provide.production_provides.build
+    def set_new_taxon_provide
+      @provide.taxon_provides.build
     end
 
     def provide_params
       params.fetch(:provide, {}).permit(
         :provider_id,
         :name,
-        production_provides_attributes: [:taxon_id]
+        taxon_provides_attributes: [:taxon_id]
       )
     end
 
