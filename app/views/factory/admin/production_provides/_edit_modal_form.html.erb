@@ -2,7 +2,7 @@
   <%= render 'modal_header' %>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object %>
-    <%= f.number_field :cost_price %>
+    <%= f.number_field :cost_price, autofocus: true %>
   </section>
   <%= f.submit %>
 <% end %>
