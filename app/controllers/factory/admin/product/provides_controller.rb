@@ -1,10 +1,7 @@
 module Factory
-  class Admin::Product::ProvidesController < Admin::Taxon::ProvidesController
+  class Admin::Product::ProvidesController < Admin::ProvidesController
     before_action :set_product
-    before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
-    before_action :set_new_provide, only: [:new, :create]
-    before_action :set_new_production_provide, only: [:new]
-    skip_before_action :set_taxon
+    before_action :set_new_product_provide, only: [:new]
 
     def index
       @product_provides = @product.product_provides.order(id: :asc)
@@ -18,8 +15,8 @@ module Factory
       @product = Product.find params[:product_id]
     end
 
-    def set_new_production_provide
-      @provide.production_provides.build
+    def set_new_product_provide
+      @provide.product_provides.build
     end
 
     def provide_params

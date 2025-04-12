@@ -1,7 +1,6 @@
 module Factory
   class Admin::Taxon::ProvidesController < Admin::ProvidesController
     before_action :set_taxon
-    before_action :set_provide, only: [:show, :edit, :update, :destroy, :actions, :invite]
     before_action :set_new_taxon_provide, only: [:new]
 
     def index
