@@ -16,10 +16,6 @@ module Factory
       after_create :sync_provide_provider_id, if: -> { invite_token.present? && saved_change_to_invite_token? }
     end
 
-    def dispatch
-      factory_settings.fetch('dispatch', 'delivery')
-    end
-
     def dispatch_i18n
       Trade::Item.enum_i18n(:dispatch, dispatch)
     end
