@@ -136,6 +136,8 @@ Rails.application.routes.draw do
           member do
             match :invite, via: [:get, :post]
           end
+          resources :taxon_provides
+          resources :product_provides
           resources :production_provides
         end
         resources :plans

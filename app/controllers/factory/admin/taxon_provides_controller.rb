@@ -1,8 +1,8 @@
 module Factory
   class Admin::TaxonProvidesController < Admin::BaseController
     before_action :set_provide
-    before_action :set_production_provide, only: [:show, :edit, :update, :destroy]
-    before_action :set_new_production_provide, only: [:new, :create]
+    before_action :set_taxon_provide, only: [:show, :edit, :update, :destroy]
+    before_action :set_new_taxon_provide, only: [:new, :create]
 
     def index
       q_params = {}
@@ -16,22 +16,18 @@ module Factory
       @provide = Provide.find params[:provide_id]
     end
 
-    def set_production_provide
-      @production_provide = @provide.production_provides.find(params[:id])
+    def set_taxon_provide
+      @taxon_provide = @provide.taxon_provides.find(params[:id])
     end
 
-    def set_new_production_provide
-      @production_provide = @provide.production_provides.build(production_provide_params)
+    def set_new_taxon_provide
+      @taxon_provide = @provide.taxon_provides.build(taxon_provide_params)
     end
 
-    def production_provide_params
-      params.fetch(:production_provide, {}).permit(
+    def taxon_provide_params
+      params.fetch(:taxon_provide, {}).permit(
         :taxon_id,
-        :product_id,
-        :production_id,
-        :cost_price,
-        :upstream_product_id,
-        :upstream_production_id
+        :default,
       )
     end
 

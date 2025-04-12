@@ -4,9 +4,6 @@
 
 <%= render layout: 'index_table' do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @taxon_provides, as: :model %>
-<% end %>
-
-<%= render layout: 'provide_table' do %>
   <%= render partial: 'provide_tbody', layout: 'provide_tr', collection: @provides, as: :model %>
 <% end %>
 
