@@ -7,9 +7,9 @@ module Factory
     skip_before_action :set_taxon
 
     def index
-      @production_provides = @product.production_provides.where(production_id: nil).order(id: :asc)
+      @product_provides = @product.product_provides.order(id: :asc)
 
-      except_ids = @production_provides.pluck(:provide_id)
+      except_ids = @product_provides.pluck(:provide_id)
       @provides = Provide.where(default_params).where.not(id: except_ids).page(params[:page])
     end
 
