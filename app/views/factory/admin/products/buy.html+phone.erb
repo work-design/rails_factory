@@ -1,0 +1,22 @@
+<%= render 'filter_form' %>
+
+<div class="weui-menu">
+  <%= render 'menu' %>
+  <div
+    data-controller="page"
+    data-page-debug-value="true"
+    data-action="touchmove->page#move:passive"
+    class="weui-menu-content"
+  >
+    <%= render partial: 'production_cart', layout: 'card', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/in/items' } %>
+    <% if @productions.blank? %>
+      <%= render 'blank' %>
+    <% elsif @productions.total_pages <= @productions.current_page %>
+      <%= render 'no_more' %>
+    <% elsif @productions.total_pages > @productions.current_page %>
+      <%= render 'loading' %>
+      <%= render 'tip' %>
+    <% end %>
+    <%= render 'paginator' %>
+  </div>
+</div>
