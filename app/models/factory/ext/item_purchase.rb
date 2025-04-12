@@ -37,9 +37,9 @@ module Factory
       self.good_name = purchase.title
       self.extra = Hash(self.extra).merge purchase.item_extra
       if production_provide
-        self.single_price = production_provide.cost_price
+        self.single_price ||= production_provide.cost_price
       else
-        self.single_price = purchase.cost_price
+        self.single_price ||= purchase.cost_price
       end
     end
 
