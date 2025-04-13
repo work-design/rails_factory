@@ -22,6 +22,9 @@ module Factory
       end
 
       production_provides.insert_all(missing_provides)
+      product.taxon.production_provides.where(provide_config_type: 'Factory::TaxonProvide').update_all(
+        provide_id: provide_id, provide_config_type: 'Factory::ProductProvide', provide_config_id: self.id
+      )
     end
 
     def automatic_as_default
