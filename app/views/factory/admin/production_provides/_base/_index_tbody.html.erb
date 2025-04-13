@@ -1,12 +1,9 @@
 <td><%= model.provide.name %></td>
 <td>
-  <p><%# model.upstream_production.name %></p>
+<% if model.provide.provider %>
+  <%= model.provide.provider.name %>
+<% end %>
 </td>
-<td><%= model.cost_price %></td>
-<td>
-  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
-    <%= f.check_box :selected, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
-    <label data-action="click->input#check"></label>
-  <% end %>
-</td>
+<td><%= model.cost_price.to_money.format.html_safe %></td>
+<td><%= model.provide_config_type_i18n %></td>
 <td><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></td>
