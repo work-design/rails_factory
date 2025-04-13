@@ -11,6 +11,9 @@ module Factory
       belongs_to :product
 
       has_many :production_provides, as: :provide_config
+
+      after_create_commit :automatic_production_provide
+      after_save_commit :automatic_as_default, if: -> { default? && saved_change_to_default? }
     end
 
     def automatic_production_provide
@@ -22,6 +25,7 @@ module Factory
     end
 
     def automatic_as_default
+      product.product_provides.where(product_id: product_id).where.not(id: id).update_all default: false
       product.production_provides.where(provide_config_type: self.class.name).update_all(
         provide_id: provide_id, provide_config_id: self.id
       )
