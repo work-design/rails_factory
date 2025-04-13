@@ -1,7 +1,8 @@
 module Factory
-  class Admin::Product::ProvidesController < Admin::ProvidesController
+  class Admin::Product::ProvidesController < Admin::Taxon::ProvidesController
     before_action :set_product
     before_action :set_new_product_provide, only: [:new]
+    skip_before_action :set_taxon
 
     def index
       @product_provides = @product.product_provides.order(id: :asc)

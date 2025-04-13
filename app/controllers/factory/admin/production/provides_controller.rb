@@ -1,7 +1,8 @@
 module Factory
-  class Admin::Production::ProvidesController < Admin::ProvidesController
+  class Admin::Production::ProvidesController < Admin::Taxon::ProvidesController
     before_action :set_production
     before_action :set_new_production_provide, only: [:new]
+    skip_before_action :set_taxon
 
     def index
       @production_provides = @production.production_provides.order(id: :asc)
