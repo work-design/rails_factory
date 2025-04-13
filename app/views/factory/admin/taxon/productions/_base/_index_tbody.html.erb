@@ -5,9 +5,9 @@
   <% end %>
   <p class="text-grey"><%= model.qr_code %></p>
 </td>
-<td class="has-inner-table">
+<td>
   <% model.parts.each do |part| %>
-    <%= button_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, class: 'tag is-info') do %>
+    <%= button_to({ controller: 'productions', action: 'show', product_id: part.product_id, id: part.id }, class: 'button is-small is-info') do %>
       <span><%= part.name %></span>
       <span class="pl-1"><%= part.price.to_money.format.html_safe %></span>
     <% end %>
