@@ -23,3 +23,7 @@ zh:
         enabled:
           true: 已上架
           false: 未上架
+      factory/production_provide:
+        provide_config_type:
+          Factory::TaxonProvide: 品类供应商
+          Factory::ProductProvide: 产品供应商
