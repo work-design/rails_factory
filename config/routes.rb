@@ -128,7 +128,6 @@ Rails.application.routes.draw do
               patch :update_wallet
               patch :provide
             end
-            resources :production_provides
           end
           resources :taxon_provides
         end
@@ -219,6 +218,7 @@ Rails.application.routes.draw do
               end
             end
           end
+          resources :production_provides
           resources :production_items do
             collection do
               post :batch_new
