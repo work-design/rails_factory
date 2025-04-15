@@ -4,6 +4,7 @@ module Factory
 
     included do
       attribute :cost_price, :decimal
+      attribute :default, :boolean
 
       belongs_to :provide
 
@@ -24,6 +25,7 @@ module Factory
       before_validation :sync_from_production, if: -> { production_id_changed? }
       before_validation :sync_from_product, if: -> { product_id_changed? }
       #after_destroy :prune
+      after_save_commit :set_default, if: -> { default? && saved_change_to_default? }
     end
 
     def sync_from_production
@@ -58,6 +60,10 @@ module Factory
         product.destroy
       end
       production.destroy
+    end
+
+    def set_default
+      self.class.where(production_id: production_id).where.not(id: id).update_all default: false
     end
 
   end

@@ -3,6 +3,9 @@ module Factory
     extend ActiveSupport::Concern
 
     included do
+      has_one :default_production_provide, ->{ where(default: true) }, class_name: 'Factory::ProductionProvide', primary_key: :good_id, foreign_key: :production_id
+      has_many :production_provides, class_name: 'Factory::ProductionProvide', primary_key: :good_id, foreign_key: :production_id
+
       after_save :decrement_stock_with_ordered, if: -> { saved_change_to_status? && status == 'deliverable' && ['trial', 'ordered'].include?(status_before_last_save) }
       after_save :increment_stock_with_back, if: -> { saved_change_to_status? && ['ordered'].include?(status) && ['deliverable'].include?(status_before_last_save) }
     end

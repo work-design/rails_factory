@@ -30,6 +30,7 @@ module Factory
         :product_id,
         :production_id,
         :cost_price,
+        :default,
         :upstream_product_id,
         :upstream_production_id
       )
