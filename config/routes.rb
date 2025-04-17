@@ -103,7 +103,6 @@ Rails.application.routes.draw do
               patch :reorder
               post :edit_image
             end
-            resources :product_provides
           end
           resources :provides, controller: 'taxon/provides' do
             collection do
@@ -181,6 +180,7 @@ Rails.application.routes.draw do
               post :invite
             end
           end
+          resources :product_provides
         end
         resources :components, only: [] do
           resources :component_parts
