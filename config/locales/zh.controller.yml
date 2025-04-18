@@ -190,6 +190,10 @@ zh:
       fits:
         index:
           title: 适配产品
+    board:
+      organs:
+        bind:
+          title: 绑定
     my:
       principal_addresses:
         index:

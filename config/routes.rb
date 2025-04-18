@@ -37,6 +37,16 @@ Rails.application.routes.draw do
       resources :taxons, only: [:index, :show]
       resources :produce_plans, only: [:index, :show]
 
+      namespace :board, defaults: { namespace: 'board' } do
+        scope ':invite_token' do
+          resources :organs do
+            member do
+              patch :bind
+            end
+          end
+        end
+      end
+
       namespace :in, defaults: { namespace: 'in' } do
         concerns :productive
         root 'home#index'

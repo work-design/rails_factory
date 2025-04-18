@@ -1,0 +1,11 @@
+<div class="media">
+  <%= link_to({ controller: '/me/home', auth_token: current_authorized_token.id, **model.admin_url_options(request) }, class: 'media-content') do %>
+    <%= yield %>
+  <% end %>
+  <div class="media-right">
+    <%= button_to({ action: 'bind', id: model.id }, class: 'button is-small is-link') do %>
+      <i class="fa-solid fa-handshake"></i>
+      <span class="ml-1"><%= t('.bind.title') %></span>
+    <% end %>
+  </div>
+</div>
