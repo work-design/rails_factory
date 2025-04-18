@@ -1,7 +1,7 @@
-<%= form_with theme: 'modal', model: @production_provide, url: { action: 'create' } do |f| %>
+<%= form_with theme: 'modal', model: @production_provide, url: { action: 'update' } do |f| %>
   <%= render 'modal_header' %>
   <section class="modal-card-body">
-    <%= render 'error_messages', target: f.object  %>
+    <%= render 'error_messages', target: f.object %>
     <%= f.collection_select :provide_id, @provides, :id, :name %>
   </section>
   <%= f.submit %>

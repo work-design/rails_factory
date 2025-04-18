@@ -3,7 +3,7 @@ module Factory
     before_action :set_production
     before_action :set_production_provide, only: [:show, :edit, :update, :destroy, :refresh, :actions]
     before_action :set_new_production_provide, only: [:new, :create]
-    before_action :set_provides, only: [:edit, :update]
+    before_action :set_provides, only: [:new, :create]
 
     def index
       q_params = {}
