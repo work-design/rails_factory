@@ -3,6 +3,7 @@ module Factory
     before_action :set_production
     before_action :set_production_provide, only: [:show, :edit, :update, :destroy, :refresh, :actions]
     before_action :set_new_production_provide, only: [:new, :create]
+    before_action :set_provides, only: [:edit, :update]
 
     def index
       q_params = {}
@@ -22,6 +23,10 @@ module Factory
 
     def set_new_production_provide
       @production_provide = @production.production_provides.build(production_provide_params)
+    end
+
+    def set_provides
+      @provides = current_organ.provides
     end
 
     def production_provide_params
