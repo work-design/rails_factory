@@ -15,7 +15,7 @@ module Factory
         taxon_id: Taxon.default_where(default_params).where(nav: false).pluck(:id)
       }
       q_params.merge! default_params
-      q_params.merge! params.permit(:taxon_id, :factory_taxon_id, 'name-like')
+      q_params.merge! params.permit(:taxon_id, :factory_taxon_id, 'word-like')
 
       if @produce_plan
         if @produce_plan.expired?
