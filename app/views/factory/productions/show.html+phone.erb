@@ -28,7 +28,7 @@
     <% @production.production_provides.each do |upstream| %>
       <p>
         <span>供应商：</span>
-        <span><%= upstream.organ.name %></span>
+        <span><%= upstream.provide.name %></span>
       </p>
     <% end %>
     <div><%= simple_format @production.product.description %></div>

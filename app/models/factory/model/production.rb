@@ -17,6 +17,7 @@ module Factory
       attribute :position, :integer
       attribute :stock, :decimal
       attribute :last_stock_log, :json, default: {}
+      attribute :word, :string, comment: '搜索关键词'
 
       enum :state, {
         init: 'init',
@@ -66,6 +67,7 @@ module Factory
 
       validates :str_part_ids, uniqueness: { scope: :product_id }, allow_blank: true
 
+      before_validation :sync_word, if: -> { name_changed? }
       before_save :sync_from_product, if: -> { product_id_changed? || (new_record? && product) }
       before_save :compute_profit_price, if: -> { (changes.keys & ['cost_price']).present? }
       before_save :compute_price, if: -> { (changes.keys & ['cost_price', 'profit_price']).present? }
@@ -78,6 +80,10 @@ module Factory
 
     def init_logo
       self.logo.attach product.logo_blob if product
+    end
+
+    def sync_word
+      self.word = title
     end
 
     def title
