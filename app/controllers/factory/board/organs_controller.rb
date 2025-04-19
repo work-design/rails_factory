@@ -25,16 +25,5 @@ module Factory
       @provide = Provide.find_by invite_token: params[:invite_token]
     end
 
-    def organ_params
-      _p = params.fetch(:organ, {}).permit(
-        :name,
-        :logo,
-        :invite_token,
-        role_whos_attributes: {}
-      )
-      _p.merge! provider_id: [current_organ.id, nil] if current_organ
-      _p.with_defaults! params.permit(:invite_token)
-    end
-
   end
 end
