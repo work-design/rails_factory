@@ -14,7 +14,7 @@ module Factory
     end
 
     def bind
-      @provide.update provider_id: @organ_id
+      @provide.update provider_id: @organ.id
     end
 
     private
