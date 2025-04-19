@@ -1,5 +1,5 @@
 <label class="button <%= @production.part_ids.include?(component_part.part_id) ? 'is-success' : 'is-light' %>" for="part_<%= component_part.part_id %>"<%= component.disabled?(@production.part_ids, component_part.part_id) ? ' disabled' : '' %>>
-  <span><%= component_part.part.name %></span>
+  <span><%= component_part.part.title %></span>
   <% if component_part.part.price.to_d > 0 %>
     <span class="ml-1 text-danger"><%= component_part.part.price.to_money.format.html_safe %></span>
   <% end %>
