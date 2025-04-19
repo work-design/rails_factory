@@ -5,9 +5,6 @@ module Factory
     before_action :set_organ, only: [:show, :edit, :update, :destroy, :actions, :bind]
 
     def create
-      @member = @organ.members.build(identity: current_authorized_token.identity)
-      @member.wechat_openid = current_authorized_token.uid if @member.respond_to? :wechat_openid
-
       if @organ.save
         @provide.update(provider_id: @organ.id)
         render :create, locals: { model: @organ }
