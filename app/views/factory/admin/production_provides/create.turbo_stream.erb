@@ -1,5 +1,6 @@
 <% if referer_eql? 'factory/admin/taxon/productions', 'provides' %>
   <%= turbo_stream.remove 'modal' %>
+  <%= turbo_stream.append "production_#{@production_provide.production_id}", partial: 'simple_index_tbody', locals: { model: @production_provide } %>
 <% else %>
   <%= turbo_stream.append 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: @production_provide } %>
   <%= turbo_stream.remove "provide_#{@production_provide.provide_id}" %>
