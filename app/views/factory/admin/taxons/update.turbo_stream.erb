@@ -4,7 +4,7 @@
 <% elsif referer_controller == controller_path && ['all'].include?(referer_meta[:action]) %>
   <%= turbo_stream.replace "tr_#{params[:id]}", partial: '_all/index_tbody', layout: '_all/index_tr', locals: { model: @taxon } %>
   <%= turbo_stream.remove 'modal' %>
-<% elsif referer_controller == controller_path && referer_meta[:action] == 'edit' %>
+<% elsif referer_eql? controller_path, 'edit' %>
   <%= turbo_stream.replace "box", partial: 'show', locals: { model: @taxon } %>
 <% else %>
   <%= turbo_stream.append 'body', partial: 'visit', locals: { url: url_for(action: 'index') } %>
