@@ -4,3 +4,5 @@
 <%= render layout: 'index_raw_table' do %>
   <%= render partial: 'product_tbody', collection: @products, as: :model %>
 <% end %>
+
+<%= paginate @products %>
