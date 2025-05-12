@@ -1,14 +1,14 @@
-<div class="menu ex-accordion is-active">
-  <%= link_to({ controller: 'factory/panel/home' }, text: true, class: 'menu-label') do %>
+<div class="menu-list">
+  <%= link_to({ controller: 'factory/panel/home' }, text: true, data: { turbo_frame: 'body', action: 'menu#enter' }, class: 'menu-item') do %>
     <div>
       <i class="fa-solid fa-fw fa-store"></i>
       <span><%= t('factory.panel.title') %></span>
     </div>
   <% end %>
-  <div class="menu-list">
-    <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], active: 'is-active') %>
-    <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['unifiers'], active: 'is-active') %>
-    <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['brands', 'serials'], active: 'is-active') %>
-    <%= link_to t('factory.panel.scenes.index.title'), { controller: 'factory/panel/scenes' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['scenes'], active: 'is-active') %>
+  <div class="menu-list pl-3">
+    <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], item: 'menu-item', active: 'menu-item is-active') %>
+    <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['unifiers'], item: 'menu-item', active: 'menu-item is-active') %>
+    <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['brands', 'serials'], item: 'menu-item', active: 'menu-item is-active') %>
+    <%= link_to t('factory.panel.scenes.index.title'), { controller: 'factory/panel/scenes' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['scenes'], item: 'menu-item', active: 'menu-item is-active') %>
   </div>
 </div>
