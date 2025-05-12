@@ -116,13 +116,10 @@ module Factory
       [cost_price.to_money.indent, profit_price.to_money.indent, price.to_money.indent].max
     end
 
-    def card_price_human
-      codes = organ.card_templates.load.pluck(:code, :name).to_h
-      card_price.each_with_object({}) { |(k, v), a| a[k] = { name: codes[k], price: v.to_d } }
-    end
-
     def card_price_min(cart)
-      human = card_price_human
+      human_codes = organ.card_templates.load.pluck(:code, :name).to_h
+      human = card_price.each_with_object({}) { |(k, v), h| h.merge! k => { name: human_codes[k], price: v.to_d } }
+
       codes = cart && cart.cards.map(&->(i){ i.card_template.code })
       r = human.slice(*codes)
       if r.present?
