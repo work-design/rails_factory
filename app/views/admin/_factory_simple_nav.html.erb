@@ -1,4 +1,4 @@
-<div data-controller="menu" class="<%= role_permit?(business: 'factory', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
+<div class="<%= role_permit?(business: 'factory', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
   <%= link_to({ controller: 'factory/admin/home' }, data: { turbo_frame: 'body' }, class: 'menu-label') do %>
     <div>
       <i class="fa-solid fa-fw fa-store"></i>
