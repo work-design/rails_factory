@@ -5,7 +5,7 @@
       <span><%= t('factory.panel.title') %></span>
     </div>
   <% end %>
-  <div class="menu-list pl-3">
+  <div class="pl-4">
     <%= link_to t('factory.panel.factory_taxons.index.title'), { controller: 'factory/panel/factory_taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['factory_taxons', 'factory_providers'], item: 'menu-item', active: 'menu-item is-active') %>
     <%= link_to t('factory.panel.unifiers.index.title'), { controller: 'factory/panel/unifiers' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['unifiers'], item: 'menu-item', active: 'menu-item is-active') %>
     <%= link_to t('factory.panel.brands.index.title'), { controller: 'factory/panel/brands' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['brands', 'serials'], item: 'menu-item', active: 'menu-item is-active') %>
